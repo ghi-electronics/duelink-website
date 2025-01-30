@@ -1,0 +1,27 @@
+# BeagleBoard
+BeagleBoard has many open-source offers and they all work with the DUELink ecosystem.
+
+Image
+
+Any of supported [Coding Options](../coding/intro) can be use on these boards. Depending on the boards, there might be easier way to connect DUELink modules.
+
+## BeaglePlay
+This board has a built in JST connector with [I2C](../interface/i2c) signals, I2C5 to be exact! Their [Qwicc Example]( https://docs.beagleboard.org/boards/beagleplay/demos-and-tutorials/using-qwiic.html#beagleplay-qwiic) is a good starting point on how to access the I2C bus. Consider this as a DUELink [Downstream](../interface/downstream) socket and, from here, you can use any of the supported [Coding Options](../coding/intro) on BeaglePlay to add hundreds of DUELink module options.
+
+## BeagleY-AI
+
+This board has a [Raspberry PI](raspberry-pi) compatible footprint/pinout. We recommend using DUELink [DuePI](../catalog/accessory/duepi), which adds a display, a buzzer, a terminal block, and [Downstrem](/) socket.
+
+The hat uses UART for communication. Here is an example to show the system’s IP address on the display.
+
+# Other Beagles
+
+Use the [Breakout](../catalog/accessory/breakout) module to wire [I2C](../interface/i2c) or [UART](../interface/uart) from any Beagle board and use one of its sockets as DUELink [Downstream](../interface/downstream) connection.
+
+Here is BeagleBone Black connected to a light sensor.
+
+Image
+
+```cpp
+//code
+```

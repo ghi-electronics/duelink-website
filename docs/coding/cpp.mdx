@@ -1,0 +1,28 @@
+# C++
+
+---
+
+![C++ Logo](../images/cplusplus.png)
+
+
+These are several ways to code DUELink modules using C++. First, a DUELink module can continue to run the default firmware and a [PC & Laptop](../system/pc-laptop) or [Phone & Tablets](../system/phone-tablet.mdx) can be used to run the C++ program to command DUELink modules through [USB](../interface/usb).
+
+This is an example
+
+```
+//code
+
+```
+
+Another option is to load C++ on the module itself. There are several options including free [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html). We however use ARM Keil MDK. This is a paid professional IDE but ST has already paid (some large dollar value) to make it [available for free for any STM32 Cortex-M0 micro]( https://developer.arm.com/documentation/kan344/latest/?lang=en). The libraries provided by ST and ARM for the chip are versatile and high end. This makes them very powerful, but they are not user friendly! We have created a project demo to get you started. It includes a demo on how to control the STAT LED and send commands over [Downsrteam](../interface/downstream) connection.
+
+```cpp
+StatLED(200,200,10)
+
+```
+
+To load your compiled program onto a DUELink module, put the board in [Loader](../loader) mode and then send the program using XModem. It is all detail on the [Loader](../loader) page.
+
+---
+
+Using Arduino IDE is another popular option. This makes things a it easier as Arduino includes user-friendly libraries. Visit the [Arduino](../system/arduino) page to learn more.
