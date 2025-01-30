@@ -1,0 +1,24 @@
+{
+  "id": "api/infrared",
+  "title": "Infrared",
+  "description": "---",
+  "source": "@site/docs/api/infrared.mdx",
+  "sourceDirName": "api",
+  "slug": "/api/infrared",
+  "permalink": "/duelink-website/docs/api/infrared",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/api/infrared.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "I2C",
+    "permalink": "/duelink-website/docs/api/i2c"
+  },
+  "next": {
+    "title": "LCD",
+    "permalink": "/duelink-website/docs/api/lcd"
+  }
+}

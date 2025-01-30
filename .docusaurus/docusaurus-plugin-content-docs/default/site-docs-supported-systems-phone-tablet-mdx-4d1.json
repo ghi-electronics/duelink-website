@@ -1,0 +1,24 @@
+{
+  "id": "supported-systems/phone-tablet",
+  "title": "Phone/Tablet",
+  "description": "---",
+  "source": "@site/docs/supported-systems/phone-tablet.mdx",
+  "sourceDirName": "supported-systems",
+  "slug": "/supported-systems/phone-tablet",
+  "permalink": "/duelink-website/docs/supported-systems/phone-tablet",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/supported-systems/phone-tablet.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "PC",
+    "permalink": "/duelink-website/docs/supported-systems/pc"
+  },
+  "next": {
+    "title": "Beyond",
+    "permalink": "/duelink-website/docs/supported-systems/beyond"
+  }
+}

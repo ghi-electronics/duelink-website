@@ -1,0 +1,24 @@
+{
+  "id": "interfaces/downstream",
+  "title": "Downstream",
+  "description": "---",
+  "source": "@site/docs/interfaces/downstream.mdx",
+  "sourceDirName": "interfaces",
+  "slug": "/interfaces/downstream",
+  "permalink": "/duelink-website/docs/interfaces/downstream",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/interfaces/downstream.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "SPI",
+    "permalink": "/duelink-website/docs/interfaces/spi"
+  },
+  "next": {
+    "title": "Wireless",
+    "permalink": "/duelink-website/docs/interfaces/wireless"
+  }
+}

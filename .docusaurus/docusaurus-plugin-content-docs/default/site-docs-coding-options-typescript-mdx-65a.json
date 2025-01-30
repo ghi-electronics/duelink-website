@@ -1,0 +1,24 @@
+{
+  "id": "coding-options/typescript",
+  "title": "TypeScript",
+  "description": "---",
+  "source": "@site/docs/coding-options/typescript.mdx",
+  "sourceDirName": "coding-options",
+  "slug": "/coding-options/typescript",
+  "permalink": "/duelink-website/docs/coding-options/typescript",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding-options/typescript.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "JavaScript",
+    "permalink": "/duelink-website/docs/coding-options/javascript"
+  },
+  "next": {
+    "title": ".NET",
+    "permalink": "/duelink-website/docs/coding-options/dotnet"
+  }
+}

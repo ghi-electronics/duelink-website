@@ -1,0 +1,24 @@
+{
+  "id": "supported-systems/raspberry-pi",
+  "title": "Raspberry Pi",
+  "description": "There are multiple ways to take advantage of the DUELink ecosystem with entire Raspberry PI product line.",
+  "source": "@site/docs/supported-systems/raspberry-pi.mdx",
+  "sourceDirName": "supported-systems",
+  "slug": "/supported-systems/raspberry-pi",
+  "permalink": "/duelink-website/docs/supported-systems/raspberry-pi",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/supported-systems/raspberry-pi.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Supported Systems",
+    "permalink": "/duelink-website/docs/supported-systems/intro"
+  },
+  "next": {
+    "title": "BeagleBoard",
+    "permalink": "/duelink-website/docs/supported-systems/beagleboard"
+  }
+}

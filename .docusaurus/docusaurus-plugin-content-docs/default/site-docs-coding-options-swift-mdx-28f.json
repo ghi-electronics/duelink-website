@@ -1,0 +1,24 @@
+{
+  "id": "coding-options/swift",
+  "title": "Swift",
+  "description": "---",
+  "source": "@site/docs/coding-options/swift.mdx",
+  "sourceDirName": "coding-options",
+  "slug": "/coding-options/swift",
+  "permalink": "/duelink-website/docs/coding-options/swift",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding-options/swift.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "C++",
+    "permalink": "/duelink-website/docs/coding-options/cpp"
+  },
+  "next": {
+    "title": "Excel",
+    "permalink": "/duelink-website/docs/coding-options/excel"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "api/led",
+  "title": "LED",
+  "description": "---",
+  "source": "@site/docs/api/led.mdx",
+  "sourceDirName": "api",
+  "slug": "/api/led",
+  "permalink": "/duelink-website/docs/api/led",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/api/led.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

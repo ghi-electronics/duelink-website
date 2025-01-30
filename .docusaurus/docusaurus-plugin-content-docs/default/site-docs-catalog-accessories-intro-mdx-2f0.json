@@ -1,0 +1,24 @@
+{
+  "id": "catalog/accessories/intro",
+  "title": "Accessories",
+  "description": "---",
+  "source": "@site/docs/catalog/accessories/intro.mdx",
+  "sourceDirName": "catalog/accessories",
+  "slug": "/catalog/accessories/intro",
+  "permalink": "/duelink-website/docs/catalog/accessories/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/accessories/intro.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Sound",
+    "permalink": "/duelink-website/docs/catalog/sound/intro"
+  },
+  "next": {
+    "title": "Third-party",
+    "permalink": "/duelink-website/docs/catalog/third-party/intro"
+  }
+}

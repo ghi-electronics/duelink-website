@@ -1,0 +1,15 @@
+{
+  "id": "catalog/accessories/duePi",
+  "title": "Accessories",
+  "description": "---",
+  "source": "@site/docs/catalog/accessories/duePi.mdx",
+  "sourceDirName": "catalog/accessories",
+  "slug": "/catalog/accessories/duePi",
+  "permalink": "/duelink-website/docs/catalog/accessories/duePi",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/accessories/duePi.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

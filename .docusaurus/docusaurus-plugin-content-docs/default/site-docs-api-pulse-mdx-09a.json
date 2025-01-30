@@ -1,0 +1,24 @@
+{
+  "id": "api/pulse",
+  "title": "Pulse",
+  "description": "---",
+  "source": "@site/docs/api/pulse.mdx",
+  "sourceDirName": "api",
+  "slug": "/api/pulse",
+  "permalink": "/duelink-website/docs/api/pulse",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/api/pulse.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "NeoPixel",
+    "permalink": "/duelink-website/docs/api/neopixel"
+  },
+  "next": {
+    "title": "Script",
+    "permalink": "/duelink-website/docs/api/script"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "api/frequency",
+  "title": "Frequency",
+  "description": "---",
+  "source": "@site/docs/api/frequency.mdx",
+  "sourceDirName": "api",
+  "slug": "/api/frequency",
+  "permalink": "/duelink-website/docs/api/frequency",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/api/frequency.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Distance Sensor",
+    "permalink": "/duelink-website/docs/api/distance"
+  },
+  "next": {
+    "title": "I2C",
+    "permalink": "/duelink-website/docs/api/i2c"
+  }
+}

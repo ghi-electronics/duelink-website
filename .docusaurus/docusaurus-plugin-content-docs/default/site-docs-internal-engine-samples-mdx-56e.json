@@ -1,0 +1,24 @@
+{
+  "id": "internal-engine/samples",
+  "title": "Samples",
+  "description": "---",
+  "source": "@site/docs/internal-engine/samples.mdx",
+  "sourceDirName": "internal-engine",
+  "slug": "/internal-engine/samples",
+  "permalink": "/duelink-website/docs/internal-engine/samples",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/internal-engine/samples.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Streams",
+    "permalink": "/duelink-website/docs/internal-engine/streams"
+  },
+  "next": {
+    "title": "Console",
+    "permalink": "/duelink-website/docs/console"
+  }
+}

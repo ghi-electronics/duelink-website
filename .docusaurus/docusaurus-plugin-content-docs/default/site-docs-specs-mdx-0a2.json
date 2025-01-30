@@ -1,0 +1,24 @@
+{
+  "id": "specs",
+  "title": "Specs",
+  "description": "---",
+  "source": "@site/docs/specs.mdx",
+  "sourceDirName": ".",
+  "slug": "/specs",
+  "permalink": "/duelink-website/docs/specs",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/specs.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Console",
+    "permalink": "/duelink-website/docs/console"
+  },
+  "next": {
+    "title": "DUELink Downloads",
+    "permalink": "/duelink-website/docs/downloads"
+  }
+}

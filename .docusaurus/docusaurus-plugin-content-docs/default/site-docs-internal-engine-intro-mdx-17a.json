@@ -1,0 +1,24 @@
+{
+  "id": "internal-engine/intro",
+  "title": "Internal Engine",
+  "description": "---",
+  "source": "@site/docs/internal-engine/intro.mdx",
+  "sourceDirName": "internal-engine",
+  "slug": "/internal-engine/intro",
+  "permalink": "/duelink-website/docs/internal-engine/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/internal-engine/intro.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Wireless",
+    "permalink": "/duelink-website/docs/interfaces/wireless"
+  },
+  "next": {
+    "title": "Scripting",
+    "permalink": "/duelink-website/docs/internal-engine/scripting"
+  }
+}

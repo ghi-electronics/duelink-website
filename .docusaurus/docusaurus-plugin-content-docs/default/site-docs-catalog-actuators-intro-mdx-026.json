@@ -1,0 +1,24 @@
+{
+  "id": "catalog/actuators/intro",
+  "title": "Actuator",
+  "description": "---",
+  "source": "@site/docs/catalog/actuators/intro.mdx",
+  "sourceDirName": "catalog/actuators",
+  "slug": "/catalog/actuators/intro",
+  "permalink": "/duelink-website/docs/catalog/actuators/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/actuators/intro.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Displays",
+    "permalink": "/duelink-website/docs/catalog/displays/intro"
+  },
+  "next": {
+    "title": "Comm",
+    "permalink": "/duelink-website/docs/catalog/comm/intro"
+  }
+}

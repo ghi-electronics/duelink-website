@@ -1,0 +1,24 @@
+{
+  "id": "internal-engine/streams",
+  "title": "Streams",
+  "description": "---",
+  "source": "@site/docs/internal-engine/streams.mdx",
+  "sourceDirName": "internal-engine",
+  "slug": "/internal-engine/streams",
+  "permalink": "/duelink-website/docs/internal-engine/streams",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/internal-engine/streams.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Stdlib",
+    "permalink": "/duelink-website/docs/internal-engine/stdlib"
+  },
+  "next": {
+    "title": "Samples",
+    "permalink": "/duelink-website/docs/internal-engine/samples"
+  }
+}

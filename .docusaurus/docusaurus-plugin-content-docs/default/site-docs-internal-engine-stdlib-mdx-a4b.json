@@ -1,0 +1,24 @@
+{
+  "id": "internal-engine/stdlib",
+  "title": "Stdlib",
+  "description": "---",
+  "source": "@site/docs/internal-engine/stdlib.mdx",
+  "sourceDirName": "internal-engine",
+  "slug": "/internal-engine/stdlib",
+  "permalink": "/duelink-website/docs/internal-engine/stdlib",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/internal-engine/stdlib.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Daisylink",
+    "permalink": "/duelink-website/docs/internal-engine/daisylink"
+  },
+  "next": {
+    "title": "Streams",
+    "permalink": "/duelink-website/docs/internal-engine/streams"
+  }
+}

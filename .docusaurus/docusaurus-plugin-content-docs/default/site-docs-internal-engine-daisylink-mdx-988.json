@@ -1,0 +1,24 @@
+{
+  "id": "internal-engine/daisylink",
+  "title": "Daisylink",
+  "description": "---",
+  "source": "@site/docs/internal-engine/daisylink.mdx",
+  "sourceDirName": "internal-engine",
+  "slug": "/internal-engine/daisylink",
+  "permalink": "/duelink-website/docs/internal-engine/daisylink",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/internal-engine/daisylink.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Standalone",
+    "permalink": "/duelink-website/docs/internal-engine/standalone"
+  },
+  "next": {
+    "title": "Stdlib",
+    "permalink": "/duelink-website/docs/internal-engine/stdlib"
+  }
+}

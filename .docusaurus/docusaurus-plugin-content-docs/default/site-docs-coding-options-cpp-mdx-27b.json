@@ -1,0 +1,24 @@
+{
+  "id": "coding-options/cpp",
+  "title": "C++",
+  "description": "---",
+  "source": "@site/docs/coding-options/cpp.mdx",
+  "sourceDirName": "coding-options",
+  "slug": "/coding-options/cpp",
+  "permalink": "/duelink-website/docs/coding-options/cpp",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding-options/cpp.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "TinyCLR",
+    "permalink": "/duelink-website/docs/coding-options/tinyclr"
+  },
+  "next": {
+    "title": "Swift",
+    "permalink": "/duelink-website/docs/coding-options/swift"
+  }
+}

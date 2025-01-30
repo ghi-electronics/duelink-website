@@ -1,0 +1,24 @@
+{
+  "id": "api/temp-humidity",
+  "title": "Temperature and Humidity",
+  "description": "---",
+  "source": "@site/docs/api/temp-humidity.mdx",
+  "sourceDirName": "api",
+  "slug": "/api/temp-humidity",
+  "permalink": "/duelink-website/docs/api/temp-humidity",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/api/temp-humidity.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "System Functions",
+    "permalink": "/duelink-website/docs/api/systemfunctions"
+  },
+  "next": {
+    "title": "Touch",
+    "permalink": "/duelink-website/docs/api/touch"
+  }
+}

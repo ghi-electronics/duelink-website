@@ -1,0 +1,24 @@
+{
+  "id": "internal-engine/scripting",
+  "title": "Scripting",
+  "description": "---",
+  "source": "@site/docs/internal-engine/scripting.mdx",
+  "sourceDirName": "internal-engine",
+  "slug": "/internal-engine/scripting",
+  "permalink": "/duelink-website/docs/internal-engine/scripting",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/internal-engine/scripting.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Internal Engine",
+    "permalink": "/duelink-website/docs/internal-engine/intro"
+  },
+  "next": {
+    "title": "Standalone",
+    "permalink": "/duelink-website/docs/internal-engine/standalone"
+  }
+}

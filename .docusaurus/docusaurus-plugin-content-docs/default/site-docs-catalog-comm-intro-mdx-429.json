@@ -1,0 +1,24 @@
+{
+  "id": "catalog/comm/intro",
+  "title": "Comm",
+  "description": "---",
+  "source": "@site/docs/catalog/comm/intro.mdx",
+  "sourceDirName": "catalog/comm",
+  "slug": "/catalog/comm/intro",
+  "permalink": "/duelink-website/docs/catalog/comm/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/comm/intro.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Actuator",
+    "permalink": "/duelink-website/docs/catalog/actuators/intro"
+  },
+  "next": {
+    "title": "HMI",
+    "permalink": "/duelink-website/docs/catalog/hmi/intro"
+  }
+}

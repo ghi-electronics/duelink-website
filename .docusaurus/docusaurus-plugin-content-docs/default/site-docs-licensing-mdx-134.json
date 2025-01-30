@@ -1,0 +1,24 @@
+{
+  "id": "licensing",
+  "title": "Licensing",
+  "description": "---",
+  "source": "@site/docs/licensing.mdx",
+  "sourceDirName": ".",
+  "slug": "/licensing",
+  "permalink": "/duelink-website/docs/licensing",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/licensing.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Support",
+    "permalink": "/duelink-website/docs/support"
+  },
+  "next": {
+    "title": "About",
+    "permalink": "/duelink-website/docs/about"
+  }
+}

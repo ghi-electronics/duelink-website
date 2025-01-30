@@ -1,0 +1,15 @@
+{
+  "id": "api/sound",
+  "title": "Sound",
+  "description": "---",
+  "source": "@site/docs/api/sound.mdx",
+  "sourceDirName": "api",
+  "slug": "/api/sound",
+  "permalink": "/duelink-website/docs/api/sound",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/api/sound.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

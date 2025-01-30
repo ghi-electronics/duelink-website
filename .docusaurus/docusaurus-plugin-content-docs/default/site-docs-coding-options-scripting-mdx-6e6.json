@@ -1,0 +1,24 @@
+{
+  "id": "coding-options/scripting",
+  "title": "Scripting",
+  "description": "---",
+  "source": "@site/docs/coding-options/scripting.mdx",
+  "sourceDirName": "coding-options",
+  "slug": "/coding-options/scripting",
+  "permalink": "/duelink-website/docs/coding-options/scripting",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding-options/scripting.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Coding Options",
+    "permalink": "/duelink-website/docs/coding-options/intro"
+  },
+  "next": {
+    "title": "Python",
+    "permalink": "/duelink-website/docs/coding-options/python"
+  }
+}

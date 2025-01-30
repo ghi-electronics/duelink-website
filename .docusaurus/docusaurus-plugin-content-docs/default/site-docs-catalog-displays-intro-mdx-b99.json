@@ -1,0 +1,24 @@
+{
+  "id": "catalog/displays/intro",
+  "title": "Displays",
+  "description": "---",
+  "source": "@site/docs/catalog/displays/intro.mdx",
+  "sourceDirName": "catalog/displays",
+  "slug": "/catalog/displays/intro",
+  "permalink": "/duelink-website/docs/catalog/displays/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/displays/intro.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Mainboards",
+    "permalink": "/duelink-website/docs/catalog/mainboard/intro"
+  },
+  "next": {
+    "title": "Actuator",
+    "permalink": "/duelink-website/docs/catalog/actuators/intro"
+  }
+}

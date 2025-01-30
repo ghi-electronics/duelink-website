@@ -1,0 +1,24 @@
+{
+  "id": "api/digital",
+  "title": "Digital",
+  "description": "---",
+  "source": "@site/docs/api/digital.mdx",
+  "sourceDirName": "api",
+  "slug": "/api/digital",
+  "permalink": "/duelink-website/docs/api/digital",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/api/digital.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "CAN",
+    "permalink": "/duelink-website/docs/api/can"
+  },
+  "next": {
+    "title": "Distance Sensor",
+    "permalink": "/duelink-website/docs/api/distance"
+  }
+}

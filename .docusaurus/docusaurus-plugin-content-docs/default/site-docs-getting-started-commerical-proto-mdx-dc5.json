@@ -1,0 +1,24 @@
+{
+  "id": "getting-started/commerical-proto",
+  "title": "Commerical Prototypes",
+  "description": "---",
+  "source": "@site/docs/getting-started/commerical-proto.mdx",
+  "sourceDirName": "getting-started",
+  "slug": "/getting-started/commerical-proto",
+  "permalink": "/duelink-website/docs/getting-started/commerical-proto",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/getting-started/commerical-proto.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Online Demo",
+    "permalink": "/duelink-website/docs/getting-started/online-demo"
+  },
+  "next": {
+    "title": "Makers",
+    "permalink": "/duelink-website/docs/getting-started/makers"
+  }
+}

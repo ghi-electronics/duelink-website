@@ -1,0 +1,24 @@
+{
+  "id": "supported-systems/intro",
+  "title": "Supported Systems",
+  "description": "---",
+  "source": "@site/docs/supported-systems/intro.mdx",
+  "sourceDirName": "supported-systems",
+  "slug": "/supported-systems/intro",
+  "permalink": "/duelink-website/docs/supported-systems/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/supported-systems/intro.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Third-party",
+    "permalink": "/duelink-website/docs/catalog/third-party/intro"
+  },
+  "next": {
+    "title": "Raspberry Pi",
+    "permalink": "/duelink-website/docs/supported-systems/raspberry-pi"
+  }
+}

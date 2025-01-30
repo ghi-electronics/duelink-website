@@ -1,0 +1,447 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/duelink-website/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/duelink-website/docs",
+          "mainDocId": "intro",
+          "docs": [
+            {
+              "id": "about",
+              "path": "/duelink-website/docs/about",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/analog",
+              "path": "/duelink-website/docs/api/analog",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/bluetooth",
+              "path": "/duelink-website/docs/api/bluetooth",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/button",
+              "path": "/duelink-website/docs/api/button",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/can",
+              "path": "/duelink-website/docs/api/can",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/digital",
+              "path": "/duelink-website/docs/api/digital",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/distance",
+              "path": "/duelink-website/docs/api/distance",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/frequency",
+              "path": "/duelink-website/docs/api/frequency",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/i2c",
+              "path": "/duelink-website/docs/api/i2c",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/infrared",
+              "path": "/duelink-website/docs/api/infrared",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/intro",
+              "path": "/duelink-website/docs/api/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/lcd",
+              "path": "/duelink-website/docs/api/lcd",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/led",
+              "path": "/duelink-website/docs/api/led"
+            },
+            {
+              "id": "api/neopixel",
+              "path": "/duelink-website/docs/api/neopixel",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/pulse",
+              "path": "/duelink-website/docs/api/pulse",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/script",
+              "path": "/duelink-website/docs/api/script",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/servo",
+              "path": "/duelink-website/docs/api/servo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/sound",
+              "path": "/duelink-website/docs/api/sound"
+            },
+            {
+              "id": "api/spi",
+              "path": "/duelink-website/docs/api/spi",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/systemfunctions",
+              "path": "/duelink-website/docs/api/systemfunctions",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/temp-humidity",
+              "path": "/duelink-website/docs/api/temp-humidity",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/template",
+              "path": "/duelink-website/docs/api/template"
+            },
+            {
+              "id": "api/touch",
+              "path": "/duelink-website/docs/api/touch",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "api/uart",
+              "path": "/duelink-website/docs/api/uart",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "catalog/accessories/duePi",
+              "path": "/duelink-website/docs/catalog/accessories/duePi"
+            },
+            {
+              "id": "catalog/accessories/intro",
+              "path": "/duelink-website/docs/catalog/accessories/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "catalog/accessories/power-inject",
+              "path": "/duelink-website/docs/catalog/accessories/power-inject"
+            },
+            {
+              "id": "catalog/actuators/intro",
+              "path": "/duelink-website/docs/catalog/actuators/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "catalog/comm/intro",
+              "path": "/duelink-website/docs/catalog/comm/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "catalog/displays/intro",
+              "path": "/duelink-website/docs/catalog/displays/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "catalog/hmi/intro",
+              "path": "/duelink-website/docs/catalog/hmi/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "catalog/intro",
+              "path": "/duelink-website/docs/catalog/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "catalog/led/intro",
+              "path": "/duelink-website/docs/catalog/led/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "catalog/mainboard/intro",
+              "path": "/duelink-website/docs/catalog/mainboard/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "catalog/sensor/intro",
+              "path": "/duelink-website/docs/catalog/sensor/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "catalog/sound/intro",
+              "path": "/duelink-website/docs/catalog/sound/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "catalog/third-party/intro",
+              "path": "/duelink-website/docs/catalog/third-party/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "catalog/wireless/intro",
+              "path": "/duelink-website/docs/catalog/wireless/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "coding-options/cpp",
+              "path": "/duelink-website/docs/coding-options/cpp",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "coding-options/dotnet",
+              "path": "/duelink-website/docs/coding-options/dotnet",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "coding-options/excel",
+              "path": "/duelink-website/docs/coding-options/excel",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "coding-options/intro",
+              "path": "/duelink-website/docs/coding-options/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "coding-options/javascript",
+              "path": "/duelink-website/docs/coding-options/javascript",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "coding-options/micro-python",
+              "path": "/duelink-website/docs/coding-options/micro-python",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "coding-options/other",
+              "path": "/duelink-website/docs/coding-options/other",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "coding-options/python",
+              "path": "/duelink-website/docs/coding-options/python",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "coding-options/scripting",
+              "path": "/duelink-website/docs/coding-options/scripting",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "coding-options/swift",
+              "path": "/duelink-website/docs/coding-options/swift",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "coding-options/tinyclr",
+              "path": "/duelink-website/docs/coding-options/tinyclr",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "coding-options/typescript",
+              "path": "/duelink-website/docs/coding-options/typescript",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "console",
+              "path": "/duelink-website/docs/console",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "downloads",
+              "path": "/duelink-website/docs/downloads",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "getting-started/commerical-proto",
+              "path": "/duelink-website/docs/getting-started/commerical-proto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "getting-started/education",
+              "path": "/duelink-website/docs/getting-started/education",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "getting-started/intro",
+              "path": "/duelink-website/docs/getting-started/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "getting-started/makers",
+              "path": "/duelink-website/docs/getting-started/makers",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "getting-started/online-demo",
+              "path": "/duelink-website/docs/getting-started/online-demo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "interfaces/downstream",
+              "path": "/duelink-website/docs/interfaces/downstream",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "interfaces/i2c",
+              "path": "/duelink-website/docs/interfaces/i2c",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "interfaces/intro",
+              "path": "/duelink-website/docs/interfaces/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "interfaces/spi",
+              "path": "/duelink-website/docs/interfaces/spi",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "interfaces/uart",
+              "path": "/duelink-website/docs/interfaces/uart",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "interfaces/usb",
+              "path": "/duelink-website/docs/interfaces/usb",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "interfaces/wireless",
+              "path": "/duelink-website/docs/interfaces/wireless",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "internal-engine/daisylink",
+              "path": "/duelink-website/docs/internal-engine/daisylink",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "internal-engine/intro",
+              "path": "/duelink-website/docs/internal-engine/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "internal-engine/samples",
+              "path": "/duelink-website/docs/internal-engine/samples",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "internal-engine/scripting",
+              "path": "/duelink-website/docs/internal-engine/scripting",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "internal-engine/standalone",
+              "path": "/duelink-website/docs/internal-engine/standalone",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "internal-engine/stdlib",
+              "path": "/duelink-website/docs/internal-engine/stdlib",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "internal-engine/streams",
+              "path": "/duelink-website/docs/internal-engine/streams",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro",
+              "path": "/duelink-website/docs/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "licensing",
+              "path": "/duelink-website/docs/licensing",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "release-notes",
+              "path": "/duelink-website/docs/release-notes",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "specs",
+              "path": "/duelink-website/docs/specs",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "support",
+              "path": "/duelink-website/docs/support",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "supported-systems/arduino",
+              "path": "/duelink-website/docs/supported-systems/arduino",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "supported-systems/beagleboard",
+              "path": "/duelink-website/docs/supported-systems/beagleboard",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "supported-systems/beyond",
+              "path": "/duelink-website/docs/supported-systems/beyond",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "supported-systems/intro",
+              "path": "/duelink-website/docs/supported-systems/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "supported-systems/microbit",
+              "path": "/duelink-website/docs/supported-systems/microbit",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "supported-systems/pc",
+              "path": "/duelink-website/docs/supported-systems/pc",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "supported-systems/phone-tablet",
+              "path": "/duelink-website/docs/supported-systems/phone-tablet",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "supported-systems/raspberry-pi",
+              "path": "/duelink-website/docs/supported-systems/raspberry-pi",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "template",
+              "path": "/duelink-website/docs/template"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/duelink-website/docs/intro",
+                "label": "intro"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

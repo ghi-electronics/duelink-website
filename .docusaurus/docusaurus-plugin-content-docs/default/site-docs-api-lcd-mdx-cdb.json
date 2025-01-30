@@ -1,0 +1,24 @@
+{
+  "id": "api/lcd",
+  "title": "LCD",
+  "description": "---",
+  "source": "@site/docs/api/lcd.mdx",
+  "sourceDirName": "api",
+  "slug": "/api/lcd",
+  "permalink": "/duelink-website/docs/api/lcd",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/api/lcd.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Infrared",
+    "permalink": "/duelink-website/docs/api/infrared"
+  },
+  "next": {
+    "title": "NeoPixel",
+    "permalink": "/duelink-website/docs/api/neopixel"
+  }
+}
