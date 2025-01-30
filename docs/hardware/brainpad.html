@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>BrainPad </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="BrainPad ">
+      
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ghi-electronics/duelink-website/blob/dev/hardware/brainpad.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="brainpad">BrainPad</h1>
+
+<hr>
+<p><img src="images/brainpad-logo.png" alt="BrainPad Logo"></p>
+<p>Educators now have the power to use their beloved language-of-choice with BrainPad devices, thanks to DUELink!</p>
+<p>All BrainPad microcomputers are fully supported. However, BrainPad Pulse include additional natively-supported components, which are the display and the buzzer.</p>
+<p><strong>BrainPad Pulse</strong>
+<img src="images/brainpad-pulse.png" alt="BrainPad Pulse"></p>
+<p><strong>BrainPad Edge</strong>
+<img src="images/brainpad-edge.png" alt="BrainPad Edge"></p>
+<p><strong>BrainPad Tick</strong>
+<img src="images/brainpad-tick.png" alt="BrainPad Edge"></p>
+<p><img src="images/edge-pulse-due-pinout.png" alt="BrainPad Pinout"></p>
+<p><strong>On-board Components</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Pulse</th>
+<th>Edge</th>
+<th>Tick</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LED</td>
+<td>✓</td>
+<td>✓</td>
+<td>5x5</td>
+</tr>
+<tr>
+<td>Button A</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Button B</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>LCD</td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Sound</td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Visit the BrainPad website to learn about the product and see purchasing options.</p>
+<div style="text-align: center;">
+<p><a href="https://www.brainpad.com"><img src="images/btn-buy.png" alt="Purchasing Options"></a></p>
+</div>
+<hr>
+<h1 id="loading-the-firmware">Loading the Firmware</h1>
+<p>The first step to load the DUE firmware on your hardware is to navigate to the <a href="https://console.duelink.com/">console.duelink.com</a> and click on the <strong>Firmware</strong> tab and follow the instructions</p>
+<p><img src="images/due-firmware.png" alt="DUE Firmware"></p>
+<hr>
+<h1 id="getting-started">Getting Started</h1>
+<p>The BrainPad website is a great place to get started, it shows the steps needed to start using the DUE Link ecosystem and coding options.</p>
+<div style="text-align: center;">
+<p><a href="https://www.brainpad.com/lessons/"><img src="images/brainpad-lessons.png" alt="DUE Console"></a></p>
+</div>
+<h1 id="hardware-demos">Hardware Demos</h1>
+<p>The edge connector on the supported BrainPad hardware combined with the ease of DUELink, opens up many possibilities to try the existing accessories available on the market.</p>
+<p>Here are just a few:</p>
+<h2 id="smart-house">Smart House</h2>
+<p>This example demonstrates the extensibility of the DUE platform. Using the DUE library from within full .NET. See the code samples repo for all the available sensors. We added a BrainClip IR remote control to our demo.</p>
+<p><a href="https://github.com/ghi-electronics/due-samples/tree/main/BrainPad/SmartHome">Smart House Sample Repo</a></p>
+<p><img src="images/smart-house-demo.jpg" alt="Smart House"></p>
+<hr>
+<h2 id="ai-mask-detector">A.I. Mask Detector</h2>
+<p>Harnessing the power of A.I. on a tiny micro-controller is a challenge, but easy work for the DUE platform. In this example full Python is used with the DUE platform connecting the pieces together.</p>
+<p><a href="https://github.com/ghi-electronics/due-samples/tree/main/AI-MaskDetect/python">A.I. Mask Detector Sample Repo</a></p>
+<p><img src="images/ai-mask-detect.gif" alt="A.I. Mask Detector"></p>
+<hr>
+<h2 id="neopixel-matrix">NeoPixel Matrix</h2>
+<p>NeoPixel Matrix panels pair well with the DUE platform, because NeoPixel support is built-in. Using DUE you can quickly create games, images, or led-effects. In our samples repo, we demonstrate using DUE Script, Python, and .NET. and make a simple Falling Bird Game.</p>
+<p><a href="https://github.com/ghi-electronics/due-samples/tree/main/NeoMatrix/16x16/FallingBird">Falling Bird Sample Repo</a></p>
+<p><img src="images/falling-bird.gif" alt="NeoPixel Falling Bird"></p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ghi-electronics/duelink-website/blob/dev/hardware/brainpad.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Copyright © 2024 GHI Electronics, LLC<br>Generated by DocFX</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

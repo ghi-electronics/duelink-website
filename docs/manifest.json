@@ -1,0 +1,1778 @@
+{
+  "source_base_path": "C:/Repos/duelink-website",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "hardware/brainpad.md",
+      "output": {
+        ".html": {
+          "relative_path": "hardware/brainpad.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "hardware/click.md",
+      "output": {
+        ".html": {
+          "relative_path": "hardware/click.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "hardware/display.md",
+      "output": {
+        ".html": {
+          "relative_path": "hardware/display.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "hardware/fez.md",
+      "output": {
+        ".html": {
+          "relative_path": "hardware/fez.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/3pin-pinout.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/3pin-pinout.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/ai-mask-detect.gif",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/ai-mask-detect.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/beginner-expert.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/beginner-expert.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/brainpad-edge.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/brainpad-edge.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/brainpad-lessons.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/brainpad-lessons.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/brainpad-logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/brainpad-logo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/brainpad-pulse.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/brainpad-pulse.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/brainpad-tick.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/brainpad-tick.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/brainpads.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/brainpads.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/btn-buy.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/btn-buy.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/btn-getting-started.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/btn-getting-started.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/click-pinout.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/click-pinout.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/click-shield.gif",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/click-shield.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/due-firmware.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/due-firmware.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/edge-pulse-due-pinout.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/edge-pulse-due-pinout.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/falling-bird.gif",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/falling-bird.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/fez-flea.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/fez-flea.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/fez-pico.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/fez-pico.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/fez.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/fez.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/flea-due-pinout.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/flea-due-pinout.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/flea-som.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/flea-som.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/grove-shields.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/grove-shields.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/mikroe-click.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/mikroe-click.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/pico-due-pinout.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/pico-due-pinout.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/pico-mate.gif",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/pico-mate.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/qwiic-connector.gif",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/qwiic-connector.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/qwiic-joystick.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/qwiic-joystick.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/qwiic.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/qwiic.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/smart-house-demo.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/smart-house-demo.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/spider-connections.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/spider-connections.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "hardware/images/stemma.png",
+      "output": {
+        "resource": {
+          "relative_path": "hardware/images/stemma.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "hardware/interface.md",
+      "output": {
+        ".html": {
+          "relative_path": "hardware/interface.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "hardware/led.md",
+      "output": {
+        ".html": {
+          "relative_path": "hardware/led.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "hardware/qwiic.md",
+      "output": {
+        ".html": {
+          "relative_path": "hardware/qwiic.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "hardware/spider.md",
+      "output": {
+        ".html": {
+          "relative_path": "hardware/spider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "hardware/threepin.md",
+      "output": {
+        ".html": {
+          "relative_path": "hardware/threepin.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "hardware/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "hardware/toc.html"
+        },
+        ".json": {
+          "relative_path": "hardware/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/backus-on-kickstarter.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/backus-on-kickstarter.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/btn-coding-options.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/btn-coding-options.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/btn-due-console.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/btn-due-console.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/btn-getting-started.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/btn-getting-started.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/btn-hardware-options.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/btn-hardware-options.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/coding-options.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/coding-options.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/downloads.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/downloads.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/due-console.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/due-console.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/due.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/due.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/duelink.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/duelink.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/ghi.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/ghi.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/how-it-works.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/how-it-works.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/logo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/mfg-floor.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/mfg-floor.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/python-vs-micropython.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/python-vs-micropython.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/rpi-strong.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/rpi-strong.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/spider-connections.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/spider-connections.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index2.md",
+      "output": {
+        ".html": {
+          "relative_path": "index2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/analog.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/analog.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/bluetooth.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/bluetooth.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/button.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/button.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/can.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/can.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/digital.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/digital.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/distance.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/distance.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/frequency.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/frequency.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/i2c.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/i2c.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/api/images/color-displays.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/api/images/color-displays.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/api/images/ssd1306.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/api/images/ssd1306.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/api/images/ssd1309.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/api/images/ssd1309.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/api/images/st7735-portrait.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/api/images/st7735-portrait.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/api/images/st7735.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/api/images/st7735.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/infrared.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/infrared.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/intro.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/lcd.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/lcd.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/led.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/led.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/neopixel.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/neopixel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/pulse.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/pulse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/script.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/script.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/servo.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/servo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/sound.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/sound.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/spi.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/spi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/systemfunctions.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/systemfunctions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/temp-humidity.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/temp-humidity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/touch.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/touch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/api/uart.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/api/uart.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/coding-options/cpp.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/coding-options/cpp.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/coding-options/dotnet.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/coding-options/dotnet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/coding-options/excel.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/coding-options/excel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/coding-options/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/coding-options/intro.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/coding-options/javascript.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/coding-options/javascript.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/coding-options/other.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/coding-options/other.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/coding-options/python.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/coding-options/python.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/coding-options/swift.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/coding-options/swift.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/downloads.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/downloads.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/engine/console.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/engine/console.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/engine/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/engine/intro.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/engine/samples/basic.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/engine/samples/basic.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/engine/samples/falling-bird.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/engine/samples/falling-bird.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/engine/samples/images/analog-clock.gif",
+      "output": {
+        "resource": {
+          "relative_path": "software/engine/samples/images/analog-clock.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/engine/samples/images/braingamer-pong.gif",
+      "output": {
+        "resource": {
+          "relative_path": "software/engine/samples/images/braingamer-pong.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/engine/samples/images/braingamer-sketch.gif",
+      "output": {
+        "resource": {
+          "relative_path": "software/engine/samples/images/braingamer-sketch.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/engine/samples/images/color-sine-wave.gif",
+      "output": {
+        "resource": {
+          "relative_path": "software/engine/samples/images/color-sine-wave.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/engine/samples/images/falling-bird.gif",
+      "output": {
+        "resource": {
+          "relative_path": "software/engine/samples/images/falling-bird.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/engine/samples/images/neopixel-16x16.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/engine/samples/images/neopixel-16x16.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/engine/samples/images/neopixel-back.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "software/engine/samples/images/neopixel-back.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/engine/samples/images/neopixel-frame.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "software/engine/samples/images/neopixel-frame.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/engine/samples/images/pulse-bounce.gif",
+      "output": {
+        "resource": {
+          "relative_path": "software/engine/samples/images/pulse-bounce.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/engine/samples/images/pulse-falling-bird.gif",
+      "output": {
+        "resource": {
+          "relative_path": "software/engine/samples/images/pulse-falling-bird.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/engine/samples/images/rainbow.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "software/engine/samples/images/rainbow.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/engine/samples/images/rotary-neopixel.gif",
+      "output": {
+        "resource": {
+          "relative_path": "software/engine/samples/images/rotary-neopixel.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/engine/samples/images/sine-wave.gif",
+      "output": {
+        "resource": {
+          "relative_path": "software/engine/samples/images/sine-wave.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/engine/samples/neopixel-matrix.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/engine/samples/neopixel-matrix.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/engine/samples/pulse-analogclock.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/engine/samples/pulse-analogclock.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/engine/samples/pulse-bouncingball.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/engine/samples/pulse-bouncingball.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/engine/samples/pulse-falling-bird.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/engine/samples/pulse-falling-bird.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/engine/samples/pulse-gamer-pong.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/engine/samples/pulse-gamer-pong.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/engine/samples/pulse-gamer-sketch.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/engine/samples/pulse-gamer-sketch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/engine/samples/rotary-neopixel.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/engine/samples/rotary-neopixel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/engine/script.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/engine/script.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/engine/streams.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/engine/streams.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/btn-brainpad.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/btn-brainpad.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/btn-coding-options.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/btn-coding-options.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/cSharp.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/cSharp.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/code-due.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/code-due.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/coding-options.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/coding-options.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/console-about.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/console-about.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/console-blinkdemo.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/console-blinkdemo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/console-buttons.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/console-buttons.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/console-connect.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/console-connect.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/console-log-window.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/console-log-window.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/console-log.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/console-log.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/console-log.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/console-log.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/console-output.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/console-output.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/cplusplus.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/cplusplus.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/device-manager.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/device-manager.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due-connect.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due-connect.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due-console.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due-console.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due-demos.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due-demos.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due-docs.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due-docs.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due-firmware.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due-firmware.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due-host.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due-host.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due-immediate.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due-immediate.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due-link-ecosystem.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due-link-ecosystem.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due-list.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due-list.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due-load.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due-load.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due-output.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due-output.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due-play.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due-play.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due-record.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due-record.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due-save.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due-save.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due-stop.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due-stop.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due-theme.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due-theme.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due-zoom.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due-zoom.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/due.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/due.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/excel-logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/excel-logo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/get-started.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/get-started.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/getting-started.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/getting-started.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/immediate-window.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/immediate-window.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/javascript.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/javascript.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/log-output.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/log-output.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/other-languages.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/other-languages.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/println-example.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/println-example.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/python.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/python.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/swift.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/swift.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/teraterm-record.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/teraterm-record.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "software/images/teraterm.png",
+      "output": {
+        "resource": {
+          "relative_path": "software/images/teraterm.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/intro.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/legal.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/legal.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "software/resources.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/resources.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "software/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "software/toc.html"
+        },
+        ".json": {
+          "relative_path": "software/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

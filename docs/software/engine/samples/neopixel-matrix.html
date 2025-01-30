@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>NeoPixel 16x16 Matrix </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="NeoPixel 16x16 Matrix ">
+      
+      
+      <link rel="icon" href="../../../images/favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ghi-electronics/duelink-website/blob/dev/software/engine/samples/neopixel-matrix.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="neopixel-16x16-matrix">NeoPixel 16x16 Matrix</h1>
+
+<hr>
+<p>NeoPixel is an addressable LED that actually contains 3 LEDs, RED, GREEN, and BLUE. These three LEDs combine to make just about any color. NeoPixels come in many different configurations, from 1 single NeoPixel to panels containing many. DUE allows for up to 256 NeoPixel. This is perfect for a 16x16 setup.</p>
+<p><img src="images/neopixel-16x16.png" alt="NeoPixel Matrix"></p>
+<p><strong>Hardware:</strong></p>
+<ul>
+<li>Any device supporting DUELink</li>
+<li>NeoPixel 16x16 Matrix</li>
+</ul>
+<p><strong>Set-up:</strong></p>
+<ul>
+<li>Connecting the panel is easy, we just need to connect three wires POWER, GND, and DATA to control all the LEDs. On the back of most NeoPixel panels are 3 sets of cables connected to the panel.</li>
+</ul>
+<p><img src="images/neopixel-back.jpg" alt="NeoPixel Wiring"></p>
+<p><strong>OUT:</strong> connector is used to connect panels together.</p>
+<p><strong>POWER:</strong> is used to connect 5V external power source to the panel. This is often necessary when using many LEDs.</p>
+<p><strong>IN:</strong> connector is where we connect our hardware to the NeoPixel. We connect PIN 1 DUE enabled hardware to the wire labeled DIN, in this case the wire is the green wire.</p>
+<p><strong>Add a picture frame:</strong></p>
+<p>We took 2 5x7&quot; picture frames and connected the longer ends together to make a picture frame to hold our NeoPixel. We even used the back of the picture frames as a built-in stand.</p>
+<p><img src="images/neopixel-frame.jpg" alt="NeoPixel Frame"></p>
+<hr>
+<h2 id="sine-wave">Sine wave</h2>
+<p><img src="images/sine-wave.gif" alt="Sine wave"></p>
+<p>This sample shows a sine wave scrolling along the matrix</p>
+<pre><code class="lang-basic"># NeoPixel - Moving sine wave
+h=16:w=16
+z=3.1415926/6
+i=0
+@loop
+    NeoClear()
+    for x=0 to 15
+        y = 8+sin((x+i)*z)*6
+        pxl()
+        NeoSet(p,0,128,0)
+    next
+    NeoShow(0,256)
+    i=i+1
+goto loop
+
+# Formula for index into 16x16 NeoPixel Matrix
+# p=pxl(x,y)
+@pxl
+    p = x*w+(x&amp;1)*(w-1)+(1-2*(x&amp;1))*y
+return
+</code></pre>
+<hr>
+<h2 id="colorful-sine-wave">Colorful sine wave</h2>
+<p><img src="images/color-sine-wave.gif" alt="Color sine wave"></p>
+<p>This sample shows a colorful sine wave scrolling along the matrix</p>
+<pre><code class="lang-basic"># NeoPixel - Colorful Moving sine wave
+h=16:w=16
+i=0
+z=3.1415926/6
+@loop
+   NeoClear()
+     for x=0 to 15
+         d = x+i
+         y = 8+sin(d*z)*6
+         pxl()
+         NeoSet(p,128,0,0)
+
+         y = 8+sin((d+1)*z)*6
+         pxl()
+         NeoSet(p,0,128,0)
+
+         y = 8+sin((d+2)*z)*6
+         pxl()
+         NeoSet(p,0,0,128)
+      next
+   NeoShow(0,256)
+   i=i+1
+goto loop
+
+# Formula for index into 16x16 NeoPixel Matrix
+# p=pxl(x,y)
+@pxl
+    p = x*w+(x&amp;1)*(w-1)+(1-2*(x&amp;1))*y
+return
+</code></pre>
+<hr>
+<h2 id="rainbow">Rainbow</h2>
+<p><img src="images/rainbow.jpg" alt="Rainbow"></p>
+<p>This sample shows a colorful rainbow</p>
+<pre><code class="lang-basic"># NeoPixel - Rainbow
+h=16:w=16
+z=3.1415926/15
+NeoClear()
+for x=0 to 15 
+  for i=4 to 8
+    y = i+sin(x*z)*6
+    pxl()
+    if i%5=0:NeoSet(p,0,0,128):end
+    if i%5=1:NeoSet(p,0,128,0):end
+    if i%5=2:NeoSet(p,0,128,128):end
+    if i%5=3:NeoSet(p,128,0,0):end
+    if i%5=4:NeoSet(p,128,0,128):end
+  next
+next
+NeoShow(0,256)
+exit
+
+# Formula for index into 16x16 NeoPixel Matrix
+# p=pxl(x,y)
+@pxl
+    p = x*w+(x&amp;1)*(w-1)+(1-2*(x&amp;1))*y
+return
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ghi-electronics/duelink-website/blob/dev/software/engine/samples/neopixel-matrix.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Copyright © 2024 GHI Electronics, LLC<br>Generated by DocFX</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

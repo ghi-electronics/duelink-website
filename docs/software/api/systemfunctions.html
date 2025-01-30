@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>System Functions </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="System Functions ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ghi-electronics/duelink-website/blob/dev/software/api/systemfunctions.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="system-functions">System Functions</h1>
+
+<hr>
+<ul>
+<li><p><strong>System.Print(text)</strong>  - Prints the value of the argument to the console on the same line <br>
+<strong>text:</strong> String or variable</p>
+</li>
+<li><p><strong>System.Println(text)</strong>  - Prints the value of the argument to the console then moves to the next line <br>
+<strong>text:</strong> String or variable</p>
+</li>
+<li><p><strong>System.Reset(loader)</strong> - Resets the board <br>
+<strong>loader:</strong> 0 = system reset,  1 = reset and stay in loader mode</p>
+</li>
+<li><p><strong>System.GetTickMilliseconds()</strong> - Read system ticks in milliseconds  <br></p>
+</li>
+<li><p><strong>System.GetTickMicroseconds()</strong> - Read system ticks microseconds  <br></p>
+</li>
+<li><p><strong>System.Wait(duration)</strong> - Holds program from running <br>
+<strong>duration:</strong> Duration in milliseconds</p>
+</li>
+<li><p><strong>System.Version</strong>  - Returns the current firmware version <br>
+The last character returned in Version is board <br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Character</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">DUElink Spider</td>
+<td style="text-align: left;">D</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pulse</td>
+<td style="text-align: left;">P</td>
+</tr>
+<tr>
+<td style="text-align: left;">Edge</td>
+<td style="text-align: left;">E</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flea</td>
+<td style="text-align: left;">F</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pico</td>
+<td style="text-align: left;">I</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p>Example:</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_py" role="tab" aria-controls="tabpanel_1_py" data-tab="py" tabindex="0" aria-selected="true">Python</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_js" role="tab" aria-controls="tabpanel_1_js" data-tab="js" tabindex="-1">JavaScript</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_net" role="tab" aria-controls="tabpanel_1_net" data-tab="net" tabindex="-1">.NET</a>
+</li>
+</ul>
+<section id="tabpanel_1_py" role="tabpanel" data-tab="py">
+
+<pre><code class="lang-py"># print &quot;Hello world&quot;
+duelink.System.Print(&quot;Hello world&quot;)
+
+#  print &quot;Hello world&quot; and add new line
+duelink.System.Println(&quot;Hello world&quot;)
+
+#  Check version number
+print(duelink.System.Version)
+
+#  Get device tick in millisecond
+print(duelink.System.GetTickMilliseconds())
+
+#  Get device tick in microsecond
+print(duelink.System.GetTickMicroseconds())
+
+#  Delay 1 second
+duelink.System.Wait(1000)
+
+#  Reset the device
+duelink.System.Reset(0)
+</code></pre>
+</section>
+<section id="tabpanel_1_js" role="tabpanel" data-tab="js" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-js">// print &quot;Hello world&quot;
+await duelink.System.Print(&quot;Hello world&quot;)
+
+// print &quot;Hello world&quot; and add new line
+await duelink.System.Println(&quot;Hello world&quot;)
+
+// Check version number
+console.log(duelink.System.Version)
+
+// Get device tick in millisecond
+console.log(await duelink.System.GetTickMilliseconds())
+
+// Get device tick in microsecond
+console.log(await duelink.System.GetTickMicroseconds())
+
+// Delay 1 second
+await duelink.System.Wait(1000)
+
+// Reset the device
+await duelink.System.Reset(0)
+</code></pre>
+</section>
+<section id="tabpanel_1_net" role="tabpanel" data-tab="net" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">// print &quot;Hello world&quot;
+duelink.System.Print(&quot;Hello world&quot;);
+
+// print &quot;Hello world&quot; and add new line
+duelink.System.Println(&quot;Hello world&quot;);
+
+// Check version number
+Console.WriteLine(duelink.System.Version);
+
+// Get device tick in millisecond
+Console.WriteLine(duelink.System.GetTickMilliseconds());
+
+// Get device tick in microsecond
+Console.WriteLine(duelink.System.GetTickMicroseconds());
+
+// Delay 1 second
+duelink.System.Wait(1000);
+
+// Reset the device
+duelink.System.Reset(0);
+</code></pre>
+</section>
+</div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ghi-electronics/duelink-website/blob/dev/software/api/systemfunctions.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Copyright © 2024 GHI Electronics, LLC<br>Generated by DocFX</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

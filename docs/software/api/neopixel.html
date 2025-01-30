@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>NeoPixel </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="NeoPixel ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ghi-electronics/duelink-website/blob/dev/software/api/neopixel.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="neopixel">NeoPixel</h1>
+
+<hr>
+<ul>
+<li><p><strong>Neo.Clear()</strong> - Clears all LEDs (in memory). Needs <code>Neo.Show()</code> to see the affect</p>
+</li>
+<li><p><strong>Neo.SetColor(int index, uint color)</strong> - Sets a specific LED to a color. Needs <code>Neo.Show()</code> to see affect<br>
+<strong>index:</strong> The LED index where 0 is first one and supporting up to 1024 LEDs<br>
+<strong>color:</strong> Color levels, 32 bit format <br></p>
+</li>
+<li><p><strong>Neo.SetRGB(int index, byte red, byte green, byte blue)</strong> - Sets a specific LED to a color. Needs <code>Neo.Show()</code> to see affect<br>
+<strong>index:</strong> The LED index where 0 is first one and supporting up to 1024 LEDs<br>
+<strong>red, green, blue:</strong> Color levels, 0 to 255 <br></p>
+</li>
+<li><p><strong>Neo.SetMultiple(int pin, uint[] color)</strong> - Sets multiple leds with color array. No need <code>Neo.Show()</code> to see affect<br>
+<strong>pin:</strong> Pin connected to NeoPixel<br>
+<strong>color:</strong> Array of color levels, 32 bit format <br></p>
+</li>
+<li><p><strong>NeoShow(pin, count)</strong> - All NeoPixel code is held internally until show is called<br>
+<strong>pin:</strong> Pin connected to NeoPixel<br>
+<strong>count:</strong> The count of LEDs to update and show</p>
+</li>
+</ul>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_py" role="tab" aria-controls="tabpanel_1_py" data-tab="py" tabindex="0" aria-selected="true">Python</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_js" role="tab" aria-controls="tabpanel_1_js" data-tab="js" tabindex="-1">JavaScript</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_net" role="tab" aria-controls="tabpanel_1_net" data-tab="net" tabindex="-1">.NET</a>
+</li>
+</ul>
+<section id="tabpanel_1_py" role="tabpanel" data-tab="py">
+
+<pre><code class="lang-py">duelink.Neo.Clear() # Clear
+            
+duelink.Neo.SetColor(0, 0xFFFFFF)# Set first led to white
+duelink.Neo.Show(6, 1) # show first led on pin 6
+
+duelink.Neo.SetRGB(1,0xFF,0x00,0x00) # Set second led to red
+duelink.Neo.Show(6, 2)# show first 2 leds on pin 6
+
+#set first three leds to red, green, blue. SetMultiple call show internally, no need to call show
+duelink.Neo.SetMultiple(6, [0xff0000, 0x00FF00, 0x0000FF])
+</code></pre>
+</section>
+<section id="tabpanel_1_js" role="tabpanel" data-tab="js" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-js">await duelink.Neo.Clear() // Clear
+            
+await duelink.Neo.SetColor(0, 0xFFFFFF)// Set first led to white
+await duelink.Neo.Show(6, 1) // show first led on pin 6
+
+await duelink.Neo.SetRGB(1,0xFF,0x00,0x00) // Set second led to red
+await duelink.Neo.Show(6, 2)// show first 2 leds on pin 6
+
+//set first three leds to red, green, blue. SetMultiple call show internally, no need to call show
+await duelink.Neo.SetMultiple(6, [ 0xff0000, 0x00FF00, 0x0000FF ])
+</code></pre>
+</section>
+<section id="tabpanel_1_net" role="tabpanel" data-tab="net" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">duelink.Neo.Clear(); // Clear
+            
+duelink.Neo.SetColor(0, 0xFFFFFF);// Set first led to white
+duelink.Neo.Show(6, 1); // show first led on pin 6
+
+duelink.Neo.SetRGB(1,0xFF,0x00,0x00); // Set second led to red
+duelink.Neo.Show(6, 2);// show first 2 leds on pin 6
+
+//set first three leds to red, green, blue. SetMultiple call show internally, no need to call show
+duelink.Neo.SetMultiple(6, new uint[] { 0xff0000, 0x00FF00, 0x0000FF });
+</code></pre>
+</section>
+</div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ghi-electronics/duelink-website/blob/dev/software/api/neopixel.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Copyright © 2024 GHI Electronics, LLC<br>Generated by DocFX</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
