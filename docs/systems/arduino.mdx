@@ -1,0 +1,47 @@
+# Arduino
+
+We recommend using [DueDuino](/) for a first-class experience with Arduino and DUELink.
+Image
+
+You can use DUELink Scripts with the default provided firmware for a very easy access using [DUELink](/) console but if using the Arduino IDE. The chip used on DUELink modules is STM32C071, which is natively supported by the ST extension.
+
+Start the Arduino IDE, and add the ST extension. More details are found here https://github.com/stm32duino/Arduino_Core_STM32
+(image)
+
+Now, select Nucleo64 from the options.
+
+Image
+
+Select STM32C0 and DFU for file upload.
+
+Image
+
+Blink the status LED
+
+```c
+// blink the LED
+``` 
+
+To load the program into the board, press and hold LDR button while resetting or powering up the board. This will place the board in DFU mode.
+Image)
+
+You can now send the program from the Arduino IDE
+Image
+
+To access DUELink modules connected to [Downstream](/), we are still in the process of implementing full Arduino libraries for DUELink. However, here is an example that uses the standard Arduino libraries to send [LED](/) command downstream to blink its status LED 10 times.
+
+```c
+Wire.Write(“LED(200,200,10)”)
+```
+
+## All are Mainboards
+
+You may also use any other DUELink module as an Arduino mainboard!! They all share the same processor. Just add a [USB Hook](/) and the board can now connect to a PC and work just like DueDuino.
+
+## All Arduino Boards
+
+The web has thousands of Arduino-compatible board variants, and they all work with the DUELink ecosystem! Use the [Breakout](/) board to wire the I2C signals from any Arduino-compatible and you have a [Downstream](/) socket ready for hundreds of module options.
+
+Here is board ???? with light sensor and display example.
+
+image
