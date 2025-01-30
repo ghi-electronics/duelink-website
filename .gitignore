@@ -1,0 +1,11 @@
+/**/DROP/
+/**/TEMP/
+/**/packages/
+/**/bin/
+/**/obj/
+/api/
+/pdf/
+
+/**/.vs/
+*.user
+/hardware/mainboards.md

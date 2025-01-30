@@ -1,0 +1,732 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Internal Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Internal Engine ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ghi-electronics/duelink-website/blob/dev/software/engine/intro.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="internal-engine">Internal Engine</h1>
+
+<hr>
+<p>DUELink internal engine is a runtime that interprets and runs DUELink Scripts. These scripts are remotely sent and executed by the connected host. For example, when calling <code>duelink.Digital.Write(0, true)</code> in Python, the API will end up sending <code>DWrite(0,1)</code> to the engine.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>The documentation of DUELink's internal engine and DUELink scripts are furnished for advanced user looking to expand the system's functionality.</p>
+</div>
+<p>It is possible to record scripts that persist on a DUELink Motherboard. This can be used for two purposes. First, to expand available the functionality and define new commands. This is helpful in real-time applications or to speed things up, where calling this custom method from the host machine will process multiple tasks internally. The second purpose is to allow a DUELink Motherboard to run stand alone to handle small stand alone tasks that does not require high level language such as Python.</p>
+<hr>
+<h2 id="duelink-api-reference">DUELink API Reference</h2>
+<h3 id="analog">Analog</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ARead(pin)</td>
+<td><code>pin</code>: pin number - <strong>Returns</strong>: 0 to 100</td>
+</tr>
+<tr>
+<td>AWrite(pin, dutyCycle)</td>
+<td><code>pin</code>: pin number - <code>dutyCycle</code>: 0 to 100</td>
+</tr>
+</tbody>
+</table>
+<h3 id="beep">Beep</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Beep(pin, frequency, duration)</td>
+<td><code>pin</code>: pin number or 'p' - <code>frequency</code>: Hz max 10KHz - <code>duration</code>: milliseconds</td>
+</tr>
+</tbody>
+</table>
+<h3 id="button">Button</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BtnEnable(pin, enable)</td>
+<td><code>pin</code>: pin number, 'a' or 'b' - <code>enable</code>: 1 = enable 0 = disabled</td>
+</tr>
+<tr>
+<td>BtnUp(pin)</td>
+<td><code>pin</code>: pin number, 'a' or 'b' - <strong>Returns</strong>: 1 after first time called. 0 if called again</td>
+</tr>
+<tr>
+<td>BtnDown(pin)</td>
+<td><code>pin</code>: pin number, 'a' or 'b' - <strong>Returns</strong>: 1 if button is pressed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cosine">Cosine</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cos(number)</td>
+<td><strong>Returns</strong>: cosine of its argument</td>
+</tr>
+</tbody>
+</table>
+<h3 id="digital">Digital</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DRead(pin, pull)</td>
+<td><code>pin</code>: pin number - <code>pull</code>: 0 = none, 1 = up, 2 = down - Returns: 1 = high or 0 = low</td>
+</tr>
+<tr>
+<td>DWrite(pin, state)</td>
+<td><code>pin</code>: pin number - <code>state</code>: 1 = high or 0 = low</td>
+</tr>
+</tbody>
+</table>
+<h3 id="echo">Echo</h3>
+<p>Echoes back what is received useful when using a terminal program</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Echo(state)</td>
+<td><code>state</code>: 0 = enable or 1 = disable</td>
+</tr>
+</tbody>
+</table>
+<h3 id="format">Format</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fmt()</td>
+<td>Formats multiple arguments into a single string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="frequency">Frequency</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Freq(pin, frequency, duration, dutyCycle)</td>
+<td><code>pin</code>: pin number - <code>frequency</code>: in KHz - <code>duration</code>: 0 to forever - <code>dutyCycle</code>: 0 to 100</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-character">Get Character</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GetCh()</td>
+<td>Returns: character input in ASCII format, -1 = no character</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-number">Get Number</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GetNum()</td>
+<td>Reads number input, can be used with IsNAN()</td>
+</tr>
+</tbody>
+</table>
+<h3 id="humidity">Humidity</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Humidity(pin, type)</td>
+<td><code>pin</code>: pin number - <code>type</code>: DHT11 = 11, DHT12 = 12, DHT22 = 22, DHT21 = 21 - <strong>Returns</strong>: Humidity 0 to 100</td>
+</tr>
+</tbody>
+</table>
+<h3 id="i2c">I2C</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I2cBytes(address, arrayWrite, writeCount, arrayRead, readCount)</td>
+<td><code>address</code>: I2C slave address - <code>arrayWrite</code>: array to send, <code>writeCount</code>: number of bytes to write, <code>arrayRead</code>: array to read,<code>readCount</code>: Number bytes to read</td>
+</tr>
+</tbody>
+</table>
+<h3 id="infrared">Infrared</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IrEnable(pin,enable)</td>
+<td><code>pin</code>: on supported pins <code>enable</code>: 1 = enable or 0 = disable</td>
+</tr>
+<tr>
+<td>IrRead()</td>
+<td><strong>Returns</strong>: key press value 0 to 24</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lcd-drawing">LCD Drawing</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LcdClear(color)</td>
+<td><code>color</code>: 0 = black 1= white or any color value</td>
+</tr>
+<tr>
+<td>LcdCircle(color, x, y, radius)</td>
+<td><code>color</code>: 0 = black or 1 = white - <code>x</code>: x circle center value - <code>y</code>: y circle center - <code>radius</code>: radius of circle</td>
+</tr>
+<tr>
+<td>LcdConfig(output, address)</td>
+<td><code>output</code>: 0 = none, 1 = console, 2 = LCD and console - <code>address</code>: I2C address, 0 = default BrainPad Pulse</td>
+</tr>
+<tr>
+<td>LcdFill(color, x, y, width, height)</td>
+<td><code>color</code>: 0 = black or 1 = white - <code>x</code>: starting x point - <code>y</code>: starting y point - <code>width</code>: rectangle width - <code>height</code>: rectangle height</td>
+</tr>
+<tr>
+<td>LcdImg(array, x, y, transform)</td>
+<td><code>array</code>: image array - <code>x</code>: x position - y: <code>y </code>position - <code>transform</code>: 0 = none, 1 = flip horz, 2 = flip vert, 3 = 90 deg, 4 = 180 deg, 5 = 270 deg</td>
+</tr>
+<tr>
+<td>LcdImgS(array, x, y, transform, scaleWidth, scaleHeight)</td>
+<td>same as LcdImg() adds <code>scaleWidth</code> and <code>scaleHeight</code></td>
+</tr>
+<tr>
+<td>LcdLine(color, x1, y1, x2, y2)</td>
+<td><code>color</code>: 0 = black or 1 = white or any color value- <code>x1</code>: starting x point - <code>y1</code>: starting y point - <code>x2</code>: ending x point - <code>y2</code>: ending y point</td>
+</tr>
+<tr>
+<td>LcdPixel(color, x, y)</td>
+<td><code>color</code>: 0 = black or 1 = white - x: <code>x</code> pixel value - y: <code>y</code> pixel value</td>
+</tr>
+<tr>
+<td>LcdRect(color, x, y, width, height)</td>
+<td><code>color</code>: 0 = black or 1 = white or any color value- <code>x</code>: starting x point - <code>y</code>: starting y point - width: rectangle <code>width</code> - <code>height</code>: rectangle height</td>
+</tr>
+<tr>
+<td>LcdText(&quot;text&quot;, color, x, y)</td>
+<td><code>text</code>: string message in quotes, use Str() to convert variable - <code>color</code>: 0 = black or 1 = white - <code>x</code>: x position - <code>y</code>: y position</td>
+</tr>
+<tr>
+<td>LcdTextT(&quot;text&quot;, color, x, y)</td>
+<td>displays tiny 5px <code>text</code>: , use Str() to convert variable - <code>color</code>: 0 = black or 1 = white - <code>x</code>: x position - <code>y</code>: y position</td>
+</tr>
+<tr>
+<td>LcdTextS(&quot;text&quot;, color, x, y, scaleWidth, scaleHeight)</td>
+<td>same as LcdText() adds <code>scaleWidth</code> and <code>scaleHeight</code></td>
+</tr>
+<tr>
+<td>LcdShow()</td>
+<td>sends the display buffer to the LCD</td>
+</tr>
+<tr>
+<td>LcdClear(color)</td>
+<td><code>color</code>: 0 = black 1= white or any color value</td>
+</tr>
+</tbody>
+</table>
+<h3 id="log">Log</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Log()</td>
+<td>sends content to the output on the same line</td>
+</tr>
+<tr>
+<td>LogLn()</td>
+<td>sends content to the output on a new line</td>
+</tr>
+</tbody>
+</table>
+<h3 id="led-on-board">LED On-board</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LED(high, low, count)</td>
+<td><code>high</code>: duration on in milliseconds, <code>low</code>: duration off in milliseconds, <code>count</code>: number of times to blink</td>
+</tr>
+</tbody>
+</table>
+<h3 id="neopixel">NeoPixel</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NeoClear()</td>
+<td>clears all LEDS in memory needs <strong>NeoShow()</strong></td>
+</tr>
+<tr>
+<td>NeoSet(index, red, green, blue)</td>
+<td><code>index</code>: led from 0 to 255, <code>red</code>, <code>green</code>, <code>blue</code>: color levels 0 to 255</td>
+</tr>
+<tr>
+<td>NeoShow(pin, count)</td>
+<td><code>pin</code>: pin number - count: number of LEDs to update</td>
+</tr>
+</tbody>
+</table>
+<h3 id="print">Print</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Print(&quot;text&quot; or variable)</td>
+<td>returns the value of it's argument</td>
+</tr>
+<tr>
+<td>PrintLn(&quot;text&quot; or variable)</td>
+<td>returns the value of it's argument with line breaks</td>
+</tr>
+</tbody>
+</table>
+<h3 id="distance-sensor">Distance Sensor</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ReadDistance(trigger, echo)</td>
+<td><code>trigger</code>: pin number of trigger - <code>echo</code>: pin number of echo, -1 for single pin - <strong>Returns</strong>: distance in centimeters</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reset">Reset</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reset(loader)</td>
+<td><code>loader</code>: 0 = system reset, 1 = reset to loader mode</td>
+</tr>
+</tbody>
+</table>
+<h3 id="random-numbers">Random Numbers</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rnd(max)</td>
+<td><code>max</code>: maximum value of random number - <strong>Returns</strong>: random number between 0 and max</td>
+</tr>
+</tbody>
+</table>
+<h3 id="servo-motors">Servo Motors</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ServoSet(pin, degree)</td>
+<td><code>pin</code>: pin number - <code>degree</code>: 0 to 180</td>
+</tr>
+</tbody>
+</table>
+<h3 id="servo-motors-1">Servo Motors</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sin(number)</td>
+<td><strong>Returns</strong> the sine value of its argument</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sine">Sine</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sin(number)</td>
+<td><strong>Returns</strong> the sine value of its argument</td>
+</tr>
+</tbody>
+</table>
+<h3 id="spi">SPI</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SpiByte(byte)</td>
+<td><code>byte</code>: 0 to 255 - <strong>Returns</strong>: Read byte value</td>
+</tr>
+<tr>
+<td>SpiCfg(mode, frequency)</td>
+<td><code>mode</code>: 0 to 3 - <code>frequency</code>: 200 to 20000 (200KHz to 20MHz)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="square-root">Square Root</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sqrt(number)</td>
+<td><strong>Returns</strong> the square root value of it's argument</td>
+</tr>
+</tbody>
+</table>
+<h3 id="string-numbers">String Numbers</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Str(number)</td>
+<td><strong>Returns</strong> number as string when need in arguments</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tangent">Tangent</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tan(number)</td>
+<td><strong>Returns</strong> the tangent of it's argument</td>
+</tr>
+</tbody>
+</table>
+<h3 id="temperature">Temperature</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Temp(pin, type)</td>
+<td><code>pin</code>: pin number - <code>type</code>: DHT11 = 11, DHT12 = 12, DHT22 = 22, DHT21 = 21 - **<strong>Returns</strong>: Temperature in Celsius</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ticks">Ticks</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TickMs()</td>
+<td>Read system ticks in milliseconds</td>
+</tr>
+<tr>
+<td>TickUs()</td>
+<td>Read system ticks in microseconds</td>
+</tr>
+</tbody>
+</table>
+<h3 id="touch">Touch</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TouchRead(pin)</td>
+<td><code>pin</code>: pin number, 'x' or 'y' - <strong>Returns</strong>: 0 = pin not touched or pin 1 = touched - <strong>Touch Screen Returns</strong>: -1 = not touched or x and y position</td>
+</tr>
+</tbody>
+</table>
+<h3 id="trunicate">Trunicate</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trunc(number)</td>
+<td><strong>Returns</strong> the truncated value of it's argument</td>
+</tr>
+</tbody>
+</table>
+<h3 id="version">Version</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Version</td>
+<td><strong>Returns</strong> firmware and device versions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="wait">Wait</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wait(duration)</td>
+<td><code>duration</code>: in milliseconds</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ghi-electronics/duelink-website/blob/dev/software/engine/intro.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Copyright © 2024 GHI Electronics, LLC<br>Generated by DocFX</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>DUE Console </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="DUE Console ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ghi-electronics/duelink-website/blob/dev/software/engine/console.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="due-console">DUE Console</h1>
+
+<hr>
+<p>The DUE Console provides many functionalities. It is a great start to verify the device is functioning properly. It is also a great place to learn about and use <a href="script.html">DUELink Scripts</a>.</p>
+<p><a href="https://console.duelink.com/"><strong>console.duelink.com</strong></a></p>
+<p><img src="/images/due-console.png" alt="DUE Console"></p>
+<hr>
+<h2 id="immediate-window">Immediate Window</h2>
+<p>The immediate text box sends and runs the code immediately on the DUE hardware as soon as the <code>Enter</code> key or <code>arrow</code> button is pressed.</p>
+<p><img src="/images/immediate-window.png" alt="DUE immediate window"></p>
+<p>Try <code>DWrite('L',1)</code> to run the LED on and then <code>DWrite('L',0)</code> to turn it off.</p>
+<hr>
+<hr>
+<h2 id="log--history-windows">Log &amp; History Windows</h2>
+<p>The DUE Log window is where DUE hardware will talk back to the console. <code>Log()</code> functions appear directly in this window.  The History windows provides a history of your DUE session. The <code>eraser</code> button clears the windows.</p>
+<pre><code class="lang-basic">Log(&quot;This is where log outputs appear&quot;)
+</code></pre>
+<p><img src="/images/console-output.png" alt="DUE console output"></p>
+<hr>
+<h2 id="connect">Connect</h2>
+<p>Select the connect button to connect to the DUE hardware.</p>
+<p><img src="/images/due-connect.png" alt="Connect Button"></p>
+<hr>
+<h2 id="record">Record</h2>
+<p>Sends the script in the editor window to the DUE hardware's flash.</p>
+<p><img src="/images/due-record.png" alt="Record Button"></p>
+<hr>
+<h2 id="play">Play</h2>
+<p>Runs the code that is stored in flash.</p>
+<p><img src="/images/due-play.png" alt="Play Button"></p>
+<hr>
+<h2 id="stop">Stop</h2>
+<p>Stops the program running on the DUE hardware.</p>
+<p><img src="/images/due-stop.png" alt="Stop Button"></p>
+<hr>
+<h2 id="list">List</h2>
+<p>The List button loads the program currently stored in flash into the editor window.</p>
+<p><img src="/images/due-list.png" alt="List Button"></p>
+<hr>
+<h2 id="download">Download</h2>
+<p>Saves the code in the consoles editor window to a text file.</p>
+<p><img src="/images/due-save.png" alt="Download Button"></p>
+<hr>
+<h2 id="load">Load</h2>
+<p>Loads a saved program into the editor.</p>
+<p><img src="/images/due-load.png" alt="Download Button"></p>
+<hr>
+<h2 id="zoom">Zoom</h2>
+<p>Zooms the edit window in and out.</p>
+<p><img src="/images/due-zoom.png" alt="Download Button"></p>
+<hr>
+<h2 id="docs">Docs</h2>
+<p>Links to the DUE Script Documentation.</p>
+<p><img src="/images/due-docs.png" alt="Theme Button"></p>
+<hr>
+<h2 id="demos">Demos</h2>
+<p>Select from pre-built DUE Script Demos that load into the edit window.</p>
+<p><img src="/images/due-demos.png" alt="Theme Button"></p>
+<hr>
+<h2 id="firmware">Firmware</h2>
+<p>Select and load the appropriate firmware to your device.</p>
+<p><img src="/images/due-firmware.png" alt="Theme Button"></p>
+<hr>
+<h2 id="theme">Theme</h2>
+<p>Changes the consoles theme to Light or Dark.</p>
+<p><img src="/images/due-theme.png" alt="Theme Button"></p>
+<hr>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ghi-electronics/duelink-website/blob/dev/software/engine/console.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Copyright © 2024 GHI Electronics, LLC<br>Generated by DocFX</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

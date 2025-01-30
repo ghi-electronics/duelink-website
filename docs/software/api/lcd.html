@@ -1,0 +1,914 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>LCD </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="LCD ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ghi-electronics/duelink-website/blob/dev/software/api/lcd.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="lcd">LCD</h1>
+
+<hr>
+<p>These functions allow for graphics on multiple display types, including B&amp;W and color display.</p>
+<h2 id="bw-displays">B&amp;W Displays</h2>
+<p>LCD Graphics supports SSD1306 128x64 B&amp;W I2C, which work on all BrainPad boards. This display is found on the BrainPad Pulse by default, and can be added to the I2C channel on all of the other boards. These displays are available in multiple sizes but most common is 0.96&quot;. The <code>LcdConfig()</code> function (documented below) can be used to configure the system to work with an externally connected display.</p>
+<p><img src="images/ssd1306.png" alt="SSD1306"></p>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Displays with knock-off controller SSH1106 that is supposed to be compatible with SSD1306 did not work as expected.</p>
+</div>
+<hr>
+<h2 id="color-displays">Color Displays</h2>
+<p><img src="images/color-displays.png" alt="ColorDisplays"></p>
+<p>Support for color displays includes ILI9342, ILI9341, and ST7735. These color displays only work on boards with SC13 chipset.
+The Configuration property (documented below) can be used to configure the system to work with an externally connected display.</p>
+<hr>
+<h2 id="display-configuration">Display Configuration</h2>
+<ul>
+<li><p><strong>Display.Configuration</strong> - Property, change display configuration<br>
+<strong>Type:</strong> Screen supported: BuiltIn = 0, ILI9342 = 0x80, ILI9341 = 0x81, ST7735 = 0x82, SSD1306 = 0x3C. If an SSD1306 screen has different i2c slave address 0x3C, set Type to that address directly <br>
+<strong>SpiChipSelect:</strong> Chip select pin, SPI display only<br>
+<strong>SpiDataControl:</strong> Data control pin, SPI display only<br>
+<strong>SpiPortrait:</strong> True: Portrait, False: Landscape, SPI display only <br>
+<strong>SpiFlipScreenVertical:</strong> Flip vertical, SPI display only <br>
+<strong>SpiFlipScreenHorizontal:</strong> Flip horizontal, SPI display only <br>
+<strong>SpiSwapRedBlueColor:</strong> Swap Red and Blue, SPI display only <br>
+<strong>SpiSwapByteEndianness:</strong> Swap byte endianness <br>
+<strong>WindowStartX:</strong> Default is 0. Some screens need adjust this value to work correctly <br>
+<strong>WindowStartY:</strong> Default is 0. Some screens need adjust this value to work correctly <br></p>
+</li>
+<li><p><strong>Display.Configuration.Update()</strong> Apply configuration <br></p>
+</li>
+</ul>
+<p>This example will set the system to use the color display adapter from Waveshare, which uses ST7735 1.8&quot; display. The display's chip select is on pin 2 and data control is on pin 0. There is also a backlight on pin 6 and reset on pin 1 that need to be controlled manually.</p>
+<!--
+<p align="center">
+<img src = "http://duelink.com/software/due-script/corelib/images/st7735.png"
+</p>-->
+<p><img src="images/st7735.png" alt="ST7735"></p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_py" role="tab" aria-controls="tabpanel_1_py" data-tab="py" tabindex="0" aria-selected="true">Python</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_js" role="tab" aria-controls="tabpanel_1_js" data-tab="js" tabindex="-1">JavaScript</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_net" role="tab" aria-controls="tabpanel_1_net" data-tab="net" tabindex="-1">.NET</a>
+</li>
+</ul>
+<section id="tabpanel_1_py" role="tabpanel" data-tab="py">
+
+<pre><code class="lang-py"># turn on the back-light (if needed)
+duelink.Digital.Write(6, True)
+
+# release reset (if needed)
+duelink.Digital.Write(1, True)
+
+# Set config for ST7735 SPI display
+duelink.Display.Configuration.Type = duelink.DisplayType.ST7735
+duelink.Display.Configuration.SpiChipSelect = 2
+duelink.Display.Configuration.SpiDataControl = 0
+duelink.Display.Configuration.SpiPortrait = False
+duelink.Display.Configuration.SpiFlipScreenVertical = True
+duelink.Display.Configuration.SpiFlipScreenHorizontal = False
+duelink.Display.Configuration.SpiSwapRedBlueColor = False
+duelink.Display.Configuration.SpiSwapByteEndianness = False
+duelink.Display.Configuration.WindowStartX = 0
+duelink.Display.Configuration.WindowStartY = 0
+
+# Apply configuration
+duelink.Display.Configuration.Update()
+
+# Clear the screen
+duelink.Display.Clear(0)
+
+color = 0x00FF00
+x = 0
+y = 0
+scaleWidth = 2
+scaleHeight = 3
+
+# Draw text
+duelink.Display.DrawTextScale(&quot;DUE has color&quot;, color, x, y, scaleWidth, scaleHeight)
+
+# Draw some lines
+for c in range(2,200):
+
+    duelink.Display.DrawLine(c, c, 40, c, 60)
+    duelink.Display.DrawLine((c &lt;&lt; 8), 200 - c, 60, 200-c, 80)
+    duelink.Display.DrawLine((c &lt;&lt; 16), c, 80, c, 100)
+
+
+# Show on screen
+duelink.Display.Show()
+</code></pre>
+</section>
+<section id="tabpanel_1_js" role="tabpanel" data-tab="js" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-js">// Need for DisplayType.ST7735
+import { DisplayType } from './duelink.js'
+
+
+// turn on the back-light (if needed)
+await duelink.Digital.Write(6, true)
+
+// release reset (if needed)
+await duelink.Digital.Write(1, true)
+
+// Set config for ST7735 SPI display
+duelink.Display.Configuration.Type = DisplayType.ST7735
+duelink.Display.Configuration.SpiChipSelect = 2
+duelink.Display.Configuration.SpiDataControl = 0
+duelink.Display.Configuration.SpiPortrait = false
+duelink.Display.Configuration.SpiFlipScreenVertical = true
+duelink.Display.Configuration.SpiFlipScreenHorizontal = false
+duelink.Display.Configuration.SpiSwapRedBlueColor = false
+duelink.Display.Configuration.SpiSwapByteEndianness = false
+duelink.Display.Configuration.WindowStartX = 0
+duelink.Display.Configuration.WindowStartY = 0
+
+// Apply configuration
+await duelink.Display.Configuration.Update()
+
+// Clear the screen
+await duelink.Display.Clear(0)
+
+const color = 0x00FF00
+const x = 0
+const y = 0
+const scaleWidth = 2
+const scaleHeight = 3
+
+// Draw text
+await duelink.Display.DrawTextScale(&quot;DUE has color&quot;, color, x, y, scaleWidth, scaleHeight)
+
+// Draw some lines
+for ( let c = 2;c &lt; 200; c++){
+    await duelink.Display.DrawLine(c, c, 40, c, 60)
+    await duelink.Display.DrawLine((c &lt;&lt; 8), 200 - c, 60, 200-c, 80)
+    await duelink.Display.DrawLine((c &lt;&lt; 16), c, 80, c, 100)
+}
+
+// Show on screen
+await duelink.Display.Show()
+</code></pre>
+</section>
+<section id="tabpanel_1_net" role="tabpanel" data-tab="net" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">// turn on the back-light (if needed)
+duelink.Digital.Write(6, true);
+
+// release reset (if needed)
+duelink.Digital.Write(1, true);
+
+// Set config for ST7735 SPI display
+duelink.Display.Configuration.Type = DisplayType.ST7735;
+duelink.Display.Configuration.SpiChipSelect = 2;
+duelink.Display.Configuration.SpiDataControl = 0;
+duelink.Display.Configuration.SpiPortrait = false;
+duelink.Display.Configuration.SpiFlipScreenVertical = true;
+duelink.Display.Configuration.SpiFlipScreenHorizontal = false;
+duelink.Display.Configuration.SpiSwapRedBlueColor = false;
+duelink.Display.Configuration.SpiSwapByteEndianness = false;
+duelink.Display.Configuration.WindowStartX = 0;
+duelink.Display.Configuration.WindowStartY = 0;
+
+// Apply configuration
+duelink.Display.Configuration.Update();
+
+// Clear the screen
+duelink.Display.Clear(0);
+
+uint color = 0x00FF00;
+var x = 0;
+var y = 0;
+var scaleWidth = 2;
+var scaleHeight = 3;
+
+// Draw text
+duelink.Display.DrawTextScale(&quot;DUE has color&quot;, color, x, y, scaleWidth, scaleHeight);
+
+// Draw some lines
+for ( var c = 2;c &lt; 200; c++){
+    duelink.Display.DrawLine((uint)c, c, 40, c, 60);
+    duelink.Display.DrawLine((uint)(c &lt;&lt; 8), 200 - c, 60, 200-c, 80);
+    duelink.Display.DrawLine((uint)(c &lt;&lt; 16), c, 80, c, 100);
+}
+
+// Show on screen
+duelink.Display.Show(); 
+</code></pre>
+</section>
+</div>
+
+<p>This example below will direct graphics to an external 2.42&quot; display with address 0x3C, wired to the 2.42&quot; SSD1309 display showing in the image above. Tip: A resistor on the back of the display needs to be moved to change its bus from SPI to I2C.</p>
+<p><img src="images/ssd1309.png" alt="SSD1309"></p>
+<div class="tabGroup" id="tabgroup_2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_2_py" role="tab" aria-controls="tabpanel_2_py" data-tab="py" tabindex="0" aria-selected="true">Python</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_2_js" role="tab" aria-controls="tabpanel_2_js" data-tab="js" tabindex="-1">JavaScript</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_2_net" role="tab" aria-controls="tabpanel_2_net" data-tab="net" tabindex="-1">.NET</a>
+</li>
+</ul>
+<section id="tabpanel_2_py" role="tabpanel" data-tab="py">
+
+<pre><code class="lang-py">i2caddress = 0x3C
+duelink.Display.Configuration.Type = i2caddress # apply i2c address directly
+duelink.Display.Configuration.Update()
+duelink.Display.Clear(0)
+duelink.Display.DrawText(&quot;DUE is Awesome&quot;, 1, 0, 0)
+duelink.Display.Show()
+</code></pre>
+</section>
+<section id="tabpanel_2_js" role="tabpanel" data-tab="js" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-js">let i2caddress = 0x3C
+duelink.Display.Configuration.Type = i2caddress # apply i2c address directly
+await duelink.Display.Configuration.Update();
+await duelink.Display.Clear(0);
+await duelink.Display.DrawText(&quot;DUE is Awesome&quot;, 1, 0, 0);
+await duelink.Display.Show();
+</code></pre>
+</section>
+<section id="tabpanel_2_net" role="tabpanel" data-tab="net" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">var i2caddress = 0x3C;
+duelink.Display.Configuration.Type = (DisplayType)i2caddress; // apply i2c address directly
+duelink.Display.Configuration.Update();
+duelink.Display.Clear(0);
+duelink.Display.DrawText(&quot;DUE is Awesome&quot;, 1, 0, 0);
+duelink.Display.Show();
+</code></pre>
+</section>
+</div>
+<hr>
+<h2 id="graphical-memory">Graphical Memory</h2>
+<p>All LCD functions process the graphics commands in an internal memory. It starts with Clear(), which clears up the entire graphics memory to a specific color. When the user is ready, the graphical memory is transferred to the display using Show().</p>
+<ul>
+<li><p><strong>Display.Clear(color)</strong>  - Clears the entire screen to black or white <br>
+<strong>color:</strong> Color value</p>
+</li>
+<li><p><strong>Display.SetPixel(color, x, y)</strong> <br>
+<strong>color:</strong> Color value <br>
+<strong>x:</strong> x pixel value<br>
+<strong>y:</strong> y pixel value</p>
+</li>
+<li><p><strong>Display.Show()</strong> Sends the display buffer to the LCD.</p>
+</li>
+</ul>
+<div class="tabGroup" id="tabgroup_3">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_3_py" role="tab" aria-controls="tabpanel_3_py" data-tab="py" tabindex="0" aria-selected="true">Python</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_3_js" role="tab" aria-controls="tabpanel_3_js" data-tab="js" tabindex="-1">JavaScript</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_3_net" role="tab" aria-controls="tabpanel_3_net" data-tab="net" tabindex="-1">.NET</a>
+</li>
+</ul>
+<section id="tabpanel_3_py" role="tabpanel" data-tab="py">
+
+<pre><code class="lang-py">
+# Clear the screen
+duelink.Display.Clear(0)
+
+# Set pixel color 0xFFFFFF, at x = 64, y = 32
+duelink.Display.SetPixel(0xFFFFFF,64,32)
+
+# Show on screen (flush the cache) 
+duelink.Display.Show()
+</code></pre>
+</section>
+<section id="tabpanel_3_js" role="tabpanel" data-tab="js" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-js">// Clear the screen
+duelink.Display.Clear(0)
+
+// Set pixel color 0xFFFFFF, at x = 64, y = 32
+duelink.Display.SetPixel(0xFFFFFF,64,32)
+
+// Show on screen (flush the cache) 
+duelink.Display.Show()
+</code></pre>
+</section>
+<section id="tabpanel_3_net" role="tabpanel" data-tab="net" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">// Clear the screen
+duelink.Display.Clear(0)
+
+// Set pixel color 0xFFFFFF, at x = 64, y = 32
+duelink.Display.SetPixel(0xFFFFFF,64,32)
+
+// Show on screen (flush the cache) 
+duelink.Display.Show()
+</code></pre>
+</section>
+</div>
+<hr>
+<h2 id="color-value">Color Value</h2>
+<p>The system supports Color and B&amp;W displays. To keep uniformity, 0 is always black and 1 is always white. Any other value is considered a standard RGB color formatted 0xRRGGBB. For example, GHI Electronics blue is 0x0977aa.</p>
+<hr>
+<h2 id="shapes">Shapes</h2>
+<ul>
+<li><p><strong>Display.DrawLine(color, x1,y1,x2,y2)</strong> <br>
+<strong>color:</strong> Color value <br>
+<strong>x1:</strong> Starting x point <br>
+<strong>y1:</strong> Starting y point <br>
+<strong>x2:</strong> Ending x point <br>
+<strong>y2:</strong> Ending y point</p>
+</li>
+<li><p><strong>Display.DrawCircle(color, x,y,radius)</strong> <br>
+<strong>color:</strong> Color value <br>
+<strong>x:</strong> x position of circle's center <br>
+<strong>y:</strong> y position of circle's center <br>
+<strong>radius:</strong> radius of the circle</p>
+</li>
+<li><p><strong>Display.DrawRectangle(color, x, y, width, height)</strong> <br>
+<strong>color:</strong> Color value <br>
+<strong>x:</strong> Starting x point <br>
+<strong>y:</strong> Starting y point <br>
+<strong>width:</strong> Rectangle width <br>
+<strong>height:</strong> Rectangle height</p>
+</li>
+<li><p><strong>Display.DrawFillRect(color, x, y, width, height)</strong> <br>
+<strong>color:</strong> Color value <br>
+<strong>x:</strong> Starting x point <br>
+<strong>y:</strong> Starting y point <br>
+<strong>width:</strong> Rectangle width <br>
+<strong>height:</strong> Rectangle height</p>
+</li>
+</ul>
+<div class="tabGroup" id="tabgroup_4">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_4_py" role="tab" aria-controls="tabpanel_4_py" data-tab="py" tabindex="0" aria-selected="true">Python</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_4_js" role="tab" aria-controls="tabpanel_4_js" data-tab="js" tabindex="-1">JavaScript</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_4_net" role="tab" aria-controls="tabpanel_4_net" data-tab="net" tabindex="-1">.NET</a>
+</li>
+</ul>
+<section id="tabpanel_4_py" role="tabpanel" data-tab="py">
+
+<pre><code class="lang-py">duelink.Display.Clear(0)
+duelink.Display.DrawLine(1, 0, 0, 128, 64)
+duelink.Display.DrawCircle(1, 64, 32, 31)
+duelink.Display.DrawRectangle(1, 10, 10, 118, 54)
+duelink.Display.DrawFillRect(1, 10, 10, 118, 54)
+duelink.Display.SetPixel(1, 64, 32)
+duelink.Display.Show()
+</code></pre>
+</section>
+<section id="tabpanel_4_js" role="tabpanel" data-tab="js" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-js">await duelink.Display.Clear(0)
+await duelink.Display.DrawLine(1, 0, 0, 128, 64)
+await duelink.Display.DrawCircle(1, 64, 32, 31)
+await duelink.Display.DrawRectangle(1, 10, 10, 118, 54)
+await duelink.Display.DrawFillRect(1, 10, 10, 118, 54)
+await duelink.Display.SetPixel(1, 64, 32)
+await duelink.Display.Show()
+</code></pre>
+</section>
+<section id="tabpanel_4_net" role="tabpanel" data-tab="net" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">duelink.Display.Clear(0);
+duelink.Display.DrawLine(1, 0, 0, 128, 64);
+duelink.Display.DrawCircle(1, 64, 32, 31);
+duelink.Display.DrawRectangle(1, 10, 10, 118, 54);
+duelink.Display.DrawFillRect(1, 10, 10, 118, 54);
+duelink.Display.SetPixel(1, 64, 32);
+duelink.Display.Show();
+</code></pre>
+</section>
+</div>
+<hr>
+<h2 id="text">Text</h2>
+<ul>
+<li><p><strong>Display.DrawText(text, color, x, y)</strong> - Draw text with default font<br>
+<strong>text:</strong> String message in double quotes. <br>
+<strong>color:</strong> Color value <br>
+<strong>x:</strong> x position <br>
+<strong>y:</strong> x position <br></p>
+</li>
+<li><p><strong>Display.DrawTextTiny(text, color, x, y)</strong> - Draw tiny text - Displays tiny 5px text.<br>
+<strong>text:</strong> String message in double quotes. <br>
+<strong>color:</strong> Color value <br>
+<strong>x:</strong> x position <br>
+<strong>y:</strong> x position <br></p>
+</li>
+<li><p><strong>Display.DrawTextScale(text, color, x, y, scaleWidth, scaleHeight)</strong> - Works exactly the same as LcdText() but adds scaling.<br>
+<strong>text:</strong> String message in double quotes. <br>
+<strong>color:</strong> Color value <br>
+<strong>x:</strong> x position <br>
+<strong>y:</strong> x position <br>
+<strong>scaleWidth:</strong> Width scale multiplier <br>
+<strong>scaleHeight:</strong> Height scale multiplier</p>
+</li>
+</ul>
+<div class="tabGroup" id="tabgroup_5">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_5_py" role="tab" aria-controls="tabpanel_5_py" data-tab="py" tabindex="0" aria-selected="true">Python</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_5_js" role="tab" aria-controls="tabpanel_5_js" data-tab="js" tabindex="-1">JavaScript</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_5_net" role="tab" aria-controls="tabpanel_5_net" data-tab="net" tabindex="-1">.NET</a>
+</li>
+</ul>
+<section id="tabpanel_5_py" role="tabpanel" data-tab="py">
+
+<pre><code class="lang-py">x = 100
+duelink.Display.Clear(0)
+duelink.Display.DrawText(x, 1, 0, 0)
+duelink.Display.DrawTextTiny(x, 1, 0, 10)
+duelink.Display.DrawTextScale(x, 1, 0, 20,2,2)
+duelink.Display.Show()
+</code></pre>
+</section>
+<section id="tabpanel_5_js" role="tabpanel" data-tab="js" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-js">let x = 100
+await duelink.Display.Clear(0)
+await duelink.Display.DrawText(x, 1, 0, 0)
+await duelink.Display.DrawTextTiny(x, 1, 0, 10)
+await duelink.Display.DrawTextScale(x, 1, 0, 20,2,2)
+await duelink.Display.Show()
+</code></pre>
+</section>
+<section id="tabpanel_5_net" role="tabpanel" data-tab="net" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">var x = 100;
+duelink.Display.DrawText(x.ToString(), 1, 0, 0);
+duelink.Display.DrawTextTiny(x.ToString(), 1, 0, 10);
+duelink.Display.DrawTextScale(x.ToString(), 1, 0, 20,2,2);
+duelink.Display.Show();
+
+</code></pre>
+</section>
+</div>
+<hr>
+<h2 id="images">Images</h2>
+<p>There are cases where images need to be added to the screen. Of course, we are taking about basic simple images, more like a tiny sprite in a game.</p>
+<ul>
+<li><p><strong>Display.DrawImage(array, x, y, transform)</strong> - Array of pixel, must start with 2 elements that contain the image's width and height <br>
+<strong>array:</strong> Image array (see below). <br>
+<strong>x:</strong> x position on screen. <br>
+<strong>y:</strong> y position on screen. <br>
+<strong>transform:</strong> transform modifier. <br></p>
+</li>
+<li><p><strong>Display.DrawImageScale(array, x, y, scaleWidth, scaleHeight, transform)</strong> - Works the same as <code>DrawImage()</code> but adds scaling.  <br>
+<strong>array:</strong> Image array (see below). <br>
+<strong>x:</strong> x position on screen. <br>
+<strong>y:</strong> y position on screen. <br>
+<strong>scaleWidth:</strong> Width scale multiplier <br>
+<strong>scaleHeight:</strong> Height scale multiplier <br>
+<strong>transform:</strong> transform modifier. (see above)</p>
+</li>
+</ul>
+<p>The following example displays the image array on the screen. We will place the array on multi line to help us visualize what the image might look like, but placing everything on a single line has the same effect</p>
+<div class="tabGroup" id="tabgroup_6">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_6_py" role="tab" aria-controls="tabpanel_6_py" data-tab="py" tabindex="0" aria-selected="true">Python</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_6_js" role="tab" aria-controls="tabpanel_6_js" data-tab="js" tabindex="-1">JavaScript</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_6_net" role="tab" aria-controls="tabpanel_6_net" data-tab="net" tabindex="-1">.NET</a>
+</li>
+</ul>
+<section id="tabpanel_6_py" role="tabpanel" data-tab="py">
+
+<pre><code class="lang-py">img =  [8, 8, # width: 8 and height: 8
+        0, 0, 0, 1, 1, 0, 0, 0,
+        0, 0, 1, 1, 1, 1, 0, 0,
+        0, 1, 1, 1, 1, 1, 1, 0,
+        1, 1, 0, 1, 1, 0, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 
+        0, 0, 1, 0, 0, 1, 0, 0,
+        0, 1, 0, 1, 1, 0, 1, 0,
+        1, 0, 1, 0, 0, 1, 0, 1
+]
+duelink.Display.Clear(0)
+duelink.Display.DrawImage(img, 0, 0, duelink.Display.TransformNone)
+duelink.Display.DrawImageScale(img, 64, 0, 4, 4, duelink.Display.TransformRotate90)
+duelink.Display.Show()
+</code></pre>
+</section>
+<section id="tabpanel_6_js" role="tabpanel" data-tab="js" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-js">let img =  [8, 8, // // width: 8 and height: 8
+    0, 0, 0, 1, 1, 0, 0, 0,
+    0, 0, 1, 1, 1, 1, 0, 0,
+    0, 1, 1, 1, 1, 1, 1, 0,
+    1, 1, 0, 1, 1, 0, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 
+    0, 0, 1, 0, 0, 1, 0, 0,
+    0, 1, 0, 1, 1, 0, 1, 0,
+    1, 0, 1, 0, 0, 1, 0, 1
+]
+await duelink.Display.Clear(0)
+await duelink.Display.DrawImage(img, 0, 0, duelink.Display.TransformNone)
+await duelink.Display.DrawImageScale(img, 64, 0, 4, 4, duelink.Display.TransformRotate90)
+await duelink.Display.Show()
+</code></pre>
+</section>
+<section id="tabpanel_6_net" role="tabpanel" data-tab="net" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">var img = new uint[] {8, 8, // width: 8 and height: 8
+    0, 0, 0, 1, 1, 0, 0, 0,
+    0, 0, 1, 1, 1, 1, 0, 0,
+    0, 1, 1, 1, 1, 1, 1, 0,
+    1, 1, 0, 1, 1, 0, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1,
+    0, 0, 1, 0, 0, 1, 0, 0,
+    0, 1, 0, 1, 1, 0, 1, 0,
+    1, 0, 1, 0, 0, 1, 0, 1
+};
+
+duelink.Display.Clear(0);
+duelink.Display.DrawImage(img, 0, 0, duelink.Display.TransformNone);
+duelink.Display.DrawImageScale(img, 64, 0, 4, 4, duelink.Display.TransformRotate90);
+duelink.Display.Show();
+</code></pre>
+</section>
+</div>
+
+<p>Transformation modifiers:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Transformation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">No transform</td>
+</tr>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Flip image horizontally</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Flip image vertically</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Rotate image 90 degrees</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Rotate image 180 degrees</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Rotate the image 270 degrees(same as -90 degrees)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<hr>
+<h2 id="showbuffer">ShowBuffer</h2>
+<p>This function takes raw bitmap image (32 bit), convert to new array with <code>ColorDepth</code> format internally, then send the new array data to device.</p>
+<ul>
+<li><strong>Display.ShowBuffer(rawData, colorDepth)</strong> - Show 32 bit raw image data on screen<br>
+<strong>rawData</strong> Inout raw data. Must be 32 bit and alpha will be ignored <br>
+<strong>ColorDepth:</strong> This lets the stream know what is the format of the incoming data stream. B&amp;W displays only support 1. Color displays support 4 (palette), 8, and 16 bits.</li>
+</ul>
+<div class="tabGroup" id="tabgroup_7">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_7_py" role="tab" aria-controls="tabpanel_7_py" data-tab="py" tabindex="0" aria-selected="true">Python</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_7_js" role="tab" aria-controls="tabpanel_7_js" data-tab="js" tabindex="-1">JavaScript</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_7_net" role="tab" aria-controls="tabpanel_7_net" data-tab="net" tabindex="-1">.NET</a>
+</li>
+</ul>
+<section id="tabpanel_7_py" role="tabpanel" data-tab="py">
+
+<pre><code class="lang-py">imageRaw = [0] * (128 * 64 * 4); # Create an image with width = 128, height = 64, 32 bit
+colorDepth = 1 # 1bpp
+
+for i in range(len(imageRaw)):
+    # set all pixels to 0
+    imageRaw[i] = 0
+
+
+duelink.Display.ShowBuffer(imageRaw, colorDepth)
+
+for i in range(len(imageRaw)):
+    # set all pixels to1
+    imageRaw[i] = 1
+
+duelink.Display.ShowBuffer(imageRaw, colorDepth)
+</code></pre>
+</section>
+<section id="tabpanel_7_js" role="tabpanel" data-tab="js" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-js">let imageRaw = new Uint8Array(128*64*4) // Create an image with width = 128, height = 64, 32 bit
+let colorDepth = 1 // 1bpp
+
+for (let i = 0; i &lt; imageRaw.length; i++){
+    imageRaw[i] = 0 // set all pixel to zero
+}
+
+await duelink.Display.ShowBuffer(imageRaw, colorDepth)
+
+for (let i = 0; i &lt; imageRaw.length; i++){
+    // set all pixel to 1
+    imageRaw[i] = 1;
+}
+
+await duelink.Display.ShowBuffer(imageRaw, colorDepth)
+</code></pre>
+</section>
+<section id="tabpanel_7_net" role="tabpanel" data-tab="net" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">var imageRaw = new byte[128 * 64 * 4]; // Create an image with width = 128, height = 64, 32 bit
+var colorDepth = 1; // 1bpp
+
+for (var i = 0; i &lt; imageRaw.Length; i++){
+    // set all pixels to 0
+    imageRaw[i] = 0; 
+}
+
+duelink.Display.ShowBuffer(imageRaw, colorDepth);
+
+for (var i = 0; i &lt; imageRaw.Length; i++){
+    // set all pixels to 1
+    imageRaw[i] = 1;
+}
+
+duelink.Display.ShowBuffer(imageRaw, colorDepth);
+
+</code></pre>
+</section>
+</div>
+
+<div class="TIP">
+<h5>Tip</h5>
+<p>On 1bpp display, the data is organized as 8bit columns going left to right and then wrapping around to the next row.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>ShowBuffer() calls <code>Show()</code> internally.</p>
+</div>
+<hr>
+<h2 id="palette">Palette</h2>
+<p>The palette is used when 4bpp color depth is used. The palette table is used as a lookup table to set the color for each one of the 16 possibilities. The default colors are below. However, the user can change it to whatever they desire. For example, they can be set to 16 shades of green to show a forest scene that needs different shades of green.</p>
+<ul>
+<li><strong>Palette(index, colorValue)</strong> - Sets the desired color for a palette.<br>
+<strong>index:</strong> Index number of color<br>
+<strong>colorValue:</strong> A standard HEX value of the RGB color.</li>
+</ul>
+<p>Default colors:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Index</th>
+<th style="text-align: left;">Color Value</th>
+<th style="text-align: left;">Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0x000000</td>
+<td style="text-align: left;">Black</td>
+</tr>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0xFFFFFF</td>
+<td style="text-align: left;">White</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">0xFF0000</td>
+<td style="text-align: left;">Red</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0x32CD32</td>
+<td style="text-align: left;">Lime</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">0x0000FF</td>
+<td style="text-align: left;">Blue</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">0xFFFF00</td>
+<td style="text-align: left;">Yellow</td>
+</tr>
+<tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">0x00FFFF</td>
+<td style="text-align: left;">Cyan</td>
+</tr>
+<tr>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">0xFF00FF</td>
+<td style="text-align: left;">Magenta</td>
+</tr>
+<tr>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">0xC0C0C0</td>
+<td style="text-align: left;">Silver</td>
+</tr>
+<tr>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">0x808080</td>
+<td style="text-align: left;">Gray</td>
+</tr>
+<tr>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">0x800000</td>
+<td style="text-align: left;">Maroon</td>
+</tr>
+<tr>
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">0xBAB86C</td>
+<td style="text-align: left;">Olive</td>
+</tr>
+<tr>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">0x00FF00</td>
+<td style="text-align: left;">Green</td>
+</tr>
+<tr>
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">0xA020F0</td>
+<td style="text-align: left;">Purple</td>
+</tr>
+<tr>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">0x008080</td>
+<td style="text-align: left;">Teal</td>
+</tr>
+<tr>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">0x000080</td>
+<td style="text-align: left;">Navy</td>
+</tr>
+</tbody>
+</table>
+<p>Example code to swap Black (index 0) and Red color (index 2)</p>
+<div class="tabGroup" id="tabgroup_8">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_8_py" role="tab" aria-controls="tabpanel_8_py" data-tab="py" tabindex="0" aria-selected="true">Python</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_8_js" role="tab" aria-controls="tabpanel_8_js" data-tab="js" tabindex="-1">JavaScript</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_8_net" role="tab" aria-controls="tabpanel_8_net" data-tab="net" tabindex="-1">.NET</a>
+</li>
+</ul>
+<section id="tabpanel_8_py" role="tabpanel" data-tab="py">
+
+<pre><code class="lang-py">duelink.Display.Palette(0, 0xFF0000)
+duelink.Display.Palette(2, 0x000000)
+</code></pre>
+</section>
+<section id="tabpanel_8_js" role="tabpanel" data-tab="js" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-js">await duelink.Display.Palette(0, 0xFF0000)
+await duelink.Display.Palette(2, 0x000000)
+</code></pre>
+</section>
+<section id="tabpanel_8_net" role="tabpanel" data-tab="net" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">duelink.Display.Palette(0, 0xFF0000);
+duelink.Display.Palette(2, 0x000000);
+</code></pre>
+</section>
+</div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ghi-electronics/duelink-website/blob/dev/software/api/lcd.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Copyright © 2024 GHI Electronics, LLC<br>Generated by DocFX</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

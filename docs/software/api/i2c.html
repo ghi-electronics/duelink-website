@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>I2C </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="I2C ">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ghi-electronics/duelink-website/blob/dev/software/api/i2c.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="i2c">I2C</h1>
+
+<hr>
+<p>I2C is one of the protocols that is used widely in most sensors.</p>
+<ul>
+<li><p><strong>I2c.Write(address, arrayWrite, indexWrite, writeCount)</strong> - Write an array of data to an I2C slave<br>
+<strong>address:</strong> I2C slave address<br>
+<strong>arrayWrite:</strong> Array to send<br>
+<strong>indexWrite:</strong> Index of data in the array (optional, default is 0).<br>
+<strong>writeCount:</strong> The number of bytes to write (optional, default is length of array) <br></p>
+</li>
+<li><p><strong>I2c.Read(address, arrayRead, indexRead, readCount)</strong> - Read data from an I2C slave<br>
+<strong>address:</strong> I2C slave address<br>
+<strong>arrayRead:</strong> Array to read<br>
+<strong>indexRead:</strong> Index of data in the array (optional, default is 0)<br>
+<strong>readCount:</strong> The number of bytes to read (optional, default is length of array) <br></p>
+</li>
+<li><p><strong>I2c.WriteRead(address, arrayWrite, indexWrite, writeCount, arrayRead, indexRead, readCount)</strong> - Write and read data  <br>
+<strong>address:</strong> I2C slave address<br>
+<strong>arrayWrite:</strong> Array to send<br>
+<strong>indexWrite:</strong> Index of data in the array<br>
+<strong>writeCount:</strong> The number of bytes to write <br>
+<strong>arrayRead:</strong> Array to read<br>
+<strong>indexRead:</strong> Index of data in the array <br>
+<strong>readCount:</strong> The number of bytes to read <br></p>
+</li>
+</ul>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_py" role="tab" aria-controls="tabpanel_1_py" data-tab="py" tabindex="0" aria-selected="true">Python</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_js" role="tab" aria-controls="tabpanel_1_js" data-tab="js" tabindex="-1">JavaScript</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_net" role="tab" aria-controls="tabpanel_1_net" data-tab="net" tabindex="-1">.NET</a>
+</li>
+</ul>
+<section id="tabpanel_1_py" role="tabpanel" data-tab="py">
+
+<pre><code class="lang-py"># Write 11 and 22 to a slave at address 0x2C
+dataWrite = [11,22]
+duelink.I2c.Write(0x2C, dataWrite)
+
+# Read 2 bytes from address 0x2C
+dataRead = [0]*2
+duelink.I2c.Read(0x2C, dataRead)
+
+# WriteRead from address 0x2C
+duelink.I2c.WriteRead(0x2C, dataWrite, 0, len(dataWrite), dataRead, 0, len(dataRead))
+</code></pre>
+</section>
+<section id="tabpanel_1_js" role="tabpanel" data-tab="js" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-js">let dataWrite = [11,22]
+let data = new Uint8Array(2)
+
+// Write 11 and 22 to a slave at address 0x2C
+await duelink.I2c.Write(0x2C, dataWrite)
+
+// Read 2 bytes from address 0x2C
+await duelink.I2c.Read(0x2C, dataRead)
+
+// WriteRead from address 0x2C
+await duelink.I2c.WriteRead(0x2C, dataWrite, 0, dataWrite.length, dataRead, 0, dataRead.length)
+</code></pre>
+</section>
+<section id="tabpanel_1_net" role="tabpanel" data-tab="net" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-cs">var dataWrite = new byte[] {11, 22};
+var dataRead = new byte[2];
+
+// Write 11 and 22 to a slave at address 0x2C
+duelink.I2c.Write(0x2C, dataWrite);
+
+// Read 2 bytes from address 0x2C
+duelink.I2c.Read(0x2C, dataRead);
+
+// WriteRead from address 0x2C
+duelink.I2c.WriteRead(0x2C, dataWrite, 0, dataWrite.Length, dataRead, 0, dataRead.Length);
+</code></pre>
+</section>
+</div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ghi-electronics/duelink-website/blob/dev/software/api/i2c.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Copyright © 2024 GHI Electronics, LLC<br>Generated by DocFX</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

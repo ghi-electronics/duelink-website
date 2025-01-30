@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>BrainGamer - Pong </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="BrainGamer - Pong ">
+      
+      
+      <link rel="icon" href="../../../images/favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ghi-electronics/duelink-website/blob/dev/software/engine/samples/pulse-gamer-pong.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="braingamer---pong">BrainGamer - Pong</h1>
+
+<p><img src="images/braingamer-pong.gif" alt="BrainGamer Sketch"></p>
+<p>Pair your Pulse with the Brain Gamer to create the first game ever Pong!</p>
+<p>Hardware:</p>
+<ul>
+<li>Brainpad Pulse</li>
+<li>BrainGamer</li>
+</ul>
+<pre><code class="lang-basic">#BrainGamer Pong
+@Start
+a = 30 #Left Player Position
+b = 30 #Right Player Position
+g = 10 #Ball x
+h = 2.3 #Ball x direction
+i = 10 #Ball y
+j = 2.6 #Ball y direction
+s = 0 #Player1 Score
+t = 0 #Player2 Score
+w = 0 #Check Win
+
+@Loop
+    LcdClear(0)   
+    g = g + h #Move Ball X
+    i = i + j #Move Ball Y
+    
+    if i &lt; 5 || i&gt; 55: #Bounce off top or bottom walls
+        j = j* -1
+    End
+    
+    LcdFill(1, g, i, 4, 4) #Draw Ball
+    
+    if g &gt; 118:
+       if i &gt;= (b - 1) &amp;&amp; i &lt;= (b + 12)
+          #Add code here when player hits ball
+          h = h* -1
+          Sound(256,100,50)
+       else
+          #Add code here when player misses
+          s = s + 1
+          g = 15
+          Von()#Vibrate BrainGamer
+          Wait(100)
+          Voff()#Turn off Vibrate
+       End
+    End
+
+    if g &lt; 12:
+       if i &gt;= (a - 1) &amp;&amp; i &lt;= (a + 12)
+          #Add code here when player hits ball
+          h = h* -1
+          Sound(256,100,50) 
+       else
+          #Add code here when player misses
+          t=t+1
+          g=115
+          Von()#Vibrate BrainGamer
+          Wait(100)
+          Voff()#Turn off Vibrate
+       End
+    End
+    
+    Rocker() #Check Rocker Move
+    if y &lt; 40:a = a - 4:End #Move Left Paddle Up
+    if y &gt; 60:a = a + 4:End #Move Left Paddle Down
+    if a &lt; 5:a = 5:End #Left Paddle Hits Top
+    if a &gt; 50:a = 50:End #Left Paddle Hits Bottom
+    
+    LcdFill(1, 10, a, 2, 10) #Draw Left Paddle
+    
+    Keys() #Check Key Press
+    if u = 0:b = b - 4:End #Move Right Paddle Up
+    if d = 0:b = b + 4:End #Move Right Paddle Down
+    if b &lt; 5:b = 5:End #Right Paddle Hits Top
+    if b &gt; 50:b = 50:End #Right Paddle Hits Bottom
+     
+    LcdFill(1,120,b,2,10) #Draw Right Paddle
+    
+    For n = 0 to 64 step 10 #Draw Net
+        LcdLine(1,64,n,64,n+5)
+    Next   
+    
+    if s = 5
+       LcdClear(0)
+       LcdTextS(&quot;Player 1&quot;,1,5,0,2,2)
+       LcdTextS(&quot;WINS!&quot;,1,25,20,2,2)
+       LcdShow()
+       w=1
+       Wait(3000)
+    End
+
+    if t = 5
+       LcdClear(0)
+         LcdTextS(&quot;Player 2&quot;,1,5,0,2,2)
+       LcdTextS(&quot;WINS!&quot;,1,25,20,2,2)
+       LcdShow()
+       w=1
+       Wait(3000)
+    End
+
+    if w = 1 #If winner play sound and restart      
+       Sound(256,1000,50) 
+       Sound(200,1000,50)
+       Sound(256,1000,50)  
+       Wait(1500)
+       Goto Start()
+    End
+   
+    LcdText(str(s),1, 50, 5);
+    LcdText(str(t),1, 74, 5);
+    LcdShow()
+    
+   Wait(10)
+Goto Loop
+
+Exit
+#####################################
+###       BrainGamer Driver       ###
+#####################################
+###   variables used by driver    ###
+###         x,y,u,d,l,r           ###
+#####################################        
+
+### Rocker ###
+# Reads the rocker position into x and y
+@Rocker
+x = ARead(4)
+y = ARead(3)
+Return
+
+### Activate Vibrator ###
+@Von
+DWrite(8,0)
+Return
+
+### Deactivate Vibrator ###
+@Voff
+DWrite(8,1)
+Return
+
+### Read Keypad ####
+# Reads the 4 buttons into U,D,L,R
+@Keys
+u = DRead(14,1)
+d = DRead(15,1)
+l = DRead(13,1)
+r = DRead(16,1)
+Return
+return
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ghi-electronics/duelink-website/blob/dev/software/engine/samples/pulse-gamer-pong.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Copyright © 2024 GHI Electronics, LLC<br>Generated by DocFX</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
