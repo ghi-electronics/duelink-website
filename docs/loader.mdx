@@ -23,11 +23,11 @@ Bend and place a metal paper clip (or a wire) between these 2 pads, and reset/re
 Show paper clip in the pads.
 
 ## Loader Commands
-•	V: Loader Version Number: Firmware Version : Device Type (how do we fetch the firmware version from loader?)
-•	R: Run the firmware if found, regardless of LDR pin state.
-•	E: Erase firmware
-•	X: Start XModem 1K loading process
-•	Z: Completely wipeout the chip. This even wipes out the loader itself and changes the LDR pin back to BOOT0 for ST Loader.
+* V: Loader Version Number: Firmware Version : Device Type (how do we fetch the firmware version from loader?)
+* R: Run the firmware if found, regardless of LDR pin state.
+* E: Erase firmware
+* X: Start XModem 1K loading process
+* Z: Completely wipeout the chip. This even wipes out the loader itself and changes the LDR pin back to BOOT0 for ST Loader.
 
 ## Removing Loader
 When desired, it is possible to completely wipe out the chip. Enter the loader mode using LDR pads or LDR button. Enter the Z command and confirm (Press Y). This will completely remove everything, including the loader and will reset the LDR pin back to BOOT0.
