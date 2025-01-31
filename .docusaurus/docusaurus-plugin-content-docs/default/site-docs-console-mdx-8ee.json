@@ -15,10 +15,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Samples",
-    "permalink": "/duelink-website/docs/internal-engine/samples"
+    "permalink": "/duelink-website/docs/engine/samples"
   },
   "next": {
-    "title": "Specs",
-    "permalink": "/duelink-website/docs/specs"
+    "title": "Loader",
+    "permalink": "/duelink-website/docs/loader"
   }
 }

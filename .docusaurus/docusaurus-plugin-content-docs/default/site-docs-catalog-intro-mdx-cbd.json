@@ -1,7 +1,7 @@
 {
   "id": "catalog/intro",
   "title": "Module Catalog",
-  "description": "---",
+  "description": "",
   "source": "@site/docs/catalog/intro.mdx",
   "sourceDirName": "catalog",
   "slug": "/catalog/intro",
@@ -15,10 +15,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Education",
-    "permalink": "/duelink-website/docs/getting-started/education"
+    "permalink": "/duelink-website/docs/start/education"
   },
   "next": {
     "title": "Mainboards",
-    "permalink": "/duelink-website/docs/catalog/mainboard/intro"
+    "permalink": "/duelink-website/docs/catalog/mainboards"
   }
 }

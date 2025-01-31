@@ -1,7 +1,7 @@
 {
   "id": "downloads",
   "title": "DUELink Downloads",
-  "description": "---",
+  "description": "Firmware",
   "source": "@site/docs/downloads.mdx",
   "sourceDirName": ".",
   "slug": "/downloads",
@@ -14,7 +14,7 @@
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Specs",
+    "title": "Specifications",
     "permalink": "/duelink-website/docs/specs"
   },
   "next": {

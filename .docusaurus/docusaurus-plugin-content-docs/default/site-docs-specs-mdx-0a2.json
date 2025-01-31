@@ -1,7 +1,7 @@
 {
   "id": "specs",
-  "title": "Specs",
-  "description": "---",
+  "title": "Specifications",
+  "description": "DUELink unifies many aspects allowing modules to come in any shape and form and still conform to unified user experience.",
   "source": "@site/docs/specs.mdx",
   "sourceDirName": ".",
   "slug": "/specs",
@@ -14,8 +14,8 @@
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Console",
-    "permalink": "/duelink-website/docs/console"
+    "title": "Loader",
+    "permalink": "/duelink-website/docs/loader"
   },
   "next": {
     "title": "DUELink Downloads",

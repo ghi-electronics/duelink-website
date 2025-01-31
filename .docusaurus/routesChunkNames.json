@@ -1,426 +1,811 @@
 {
-  "/duelink-website/__docusaurus/debug-118": {
-    "__comp": "__comp---theme-debug-config-23-a-2ff",
-    "__context": {
-      "plugin": "plugin---duelink-website-docusaurus-debugb-38-1e7"
-    }
-  },
-  "/duelink-website/__docusaurus/debug/config-7d7": {
-    "__comp": "__comp---theme-debug-config-23-a-2ff",
-    "__context": {
-      "plugin": "plugin---duelink-website-docusaurus-debugb-38-1e7"
-    }
-  },
-  "/duelink-website/__docusaurus/debug/content-c93": {
-    "__comp": "__comp---theme-debug-contentba-8-ce7",
-    "__context": {
-      "plugin": "plugin---duelink-website-docusaurus-debugb-38-1e7"
-    },
-    "__props": "__props---duelink-website-docusaurus-debug-contentcc-1-a59"
-  },
-  "/duelink-website/__docusaurus/debug/globalData-97d": {
-    "__comp": "__comp---theme-debug-global-dataede-0fa",
-    "__context": {
-      "plugin": "plugin---duelink-website-docusaurus-debugb-38-1e7"
-    }
-  },
-  "/duelink-website/__docusaurus/debug/metadata-5e2": {
-    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
-    "__context": {
-      "plugin": "plugin---duelink-website-docusaurus-debugb-38-1e7"
-    }
-  },
-  "/duelink-website/__docusaurus/debug/registry-bd6": {
-    "__comp": "__comp---theme-debug-registry-679-501",
-    "__context": {
-      "plugin": "plugin---duelink-website-docusaurus-debugb-38-1e7"
-    }
-  },
-  "/duelink-website/__docusaurus/debug/routes-736": {
-    "__comp": "__comp---theme-debug-routes-946-699",
-    "__context": {
-      "plugin": "plugin---duelink-website-docusaurus-debugb-38-1e7"
-    }
-  },
   "/duelink-website/markdown-page-fe7": {
-    "__comp": "__comp---theme-mdx-page-1-f-3-b90",
+    "__comp": "1f391b9e",
     "__context": {
-      "plugin": "plugin---duelink-website-markdown-pagea-74-150"
+      "plugin": "a7456010"
     },
-    "content": "content---duelink-website-markdown-page-393-134"
+    "content": "393be207"
   },
   "/duelink-website/my-markdown-page-57d": {
-    "__comp": "__comp---theme-mdx-page-1-f-3-b90",
+    "__comp": "1f391b9e",
     "__context": {
-      "plugin": "plugin---duelink-website-markdown-pagea-74-150"
+      "plugin": "a7456010"
     },
-    "content": "content---duelink-website-my-markdown-page-031-908"
+    "content": "03181aef"
   },
   "/duelink-website/my-react-page-1ac": {
-    "__comp": "__comp---site-src-pages-my-react-page-jsf-85-e77",
+    "__comp": "f8551aab",
     "__context": {
-      "plugin": "plugin---duelink-website-markdown-pagea-74-150"
+      "plugin": "a7456010"
     },
-    "config": "config---duelink-website-my-react-page-5-e-9-76f"
+    "config": "5e9f5e1a"
   },
-  "/duelink-website/docs-9c9": {
-    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+  "/duelink-website/docs-07e": {
+    "__comp": "5e95c892",
     "__context": {
-      "plugin": "plugin---duelink-website-docsaba-92e"
+      "plugin": "aba21aa0"
     }
   },
-  "/duelink-website/docs-510": {
-    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
-    "__props": "__props---duelink-website-docs-245-145"
+  "/duelink-website/docs-586": {
+    "__comp": "a7bd4aaa",
+    "__props": "245a7ff8"
   },
-  "/duelink-website/docs-07d": {
-    "__comp": "__comp---theme-doc-roota-94-67a"
+  "/duelink-website/docs-00e": {
+    "__comp": "a94703ab"
   },
-  "/duelink-website/docs/about-136": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-about-3-d-8-93f"
+  "/duelink-website/docs/about-d09": {
+    "__comp": "17896441",
+    "content": "36041992"
   },
   "/duelink-website/docs/api/analog-474": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-analogc-80-833"
+    "__comp": "17896441",
+    "content": "c800b892"
   },
   "/duelink-website/docs/api/bluetooth-12b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-bluetooth-928-1bd"
+    "__comp": "17896441",
+    "content": "928dfb9d"
   },
   "/duelink-website/docs/api/button-416": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-button-4-fc-220"
+    "__comp": "17896441",
+    "content": "4fcf492b"
   },
   "/duelink-website/docs/api/can-593": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-can-302-f9f"
+    "__comp": "17896441",
+    "content": "30291390"
   },
   "/duelink-website/docs/api/digital-05b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-digital-55-e-45b"
+    "__comp": "17896441",
+    "content": "55e5eba5"
   },
   "/duelink-website/docs/api/distance-fb9": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-distancec-38-4f9"
+    "__comp": "17896441",
+    "content": "c384e657"
   },
   "/duelink-website/docs/api/frequency-4f7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-frequencyb-46-355"
+    "__comp": "17896441",
+    "content": "b46e94e4"
   },
   "/duelink-website/docs/api/i2c-1d4": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-i-2-c-8-b-1-435"
+    "__comp": "17896441",
+    "content": "8b117166"
   },
   "/duelink-website/docs/api/infrared-e60": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-infrared-5-ed-29e"
+    "__comp": "17896441",
+    "content": "5ed881e6"
   },
   "/duelink-website/docs/api/intro-a73": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-intro-382-172"
+    "__comp": "17896441",
+    "content": "382a2208"
   },
   "/duelink-website/docs/api/lcd-d49": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-lcdcdb-341"
+    "__comp": "17896441",
+    "content": "cdbe586d"
   },
   "/duelink-website/docs/api/led-36c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-lede-23-1c4"
+    "__comp": "17896441",
+    "content": "e23c6c40"
   },
   "/duelink-website/docs/api/neopixel-2b9": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-neopixel-6-c-3-984"
+    "__comp": "17896441",
+    "content": "6c30faed"
   },
   "/duelink-website/docs/api/pulse-4e8": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-pulse-09-a-f81"
+    "__comp": "17896441",
+    "content": "09a92c54"
   },
   "/duelink-website/docs/api/script-659": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-script-785-9ac"
+    "__comp": "17896441",
+    "content": "78520534"
   },
   "/duelink-website/docs/api/servo-ab8": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-servo-0-cd-f5c"
+    "__comp": "17896441",
+    "content": "0cdadd00"
   },
   "/duelink-website/docs/api/sound-95d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-sound-58-b-06a"
+    "__comp": "17896441",
+    "content": "58bee9d7"
   },
   "/duelink-website/docs/api/spi-e65": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-spic-68-e7e"
+    "__comp": "17896441",
+    "content": "c688902b"
   },
   "/duelink-website/docs/api/systemfunctions-566": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-systemfunctions-919-91d"
+    "__comp": "17896441",
+    "content": "919d3e7f"
   },
   "/duelink-website/docs/api/temp-humidity-873": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-temp-humidity-30-b-d02"
+    "__comp": "17896441",
+    "content": "30b903e1"
   },
   "/duelink-website/docs/api/template-45e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-template-857-1c0"
+    "__comp": "17896441",
+    "content": "857c2dc8"
   },
   "/duelink-website/docs/api/touch-c30": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-touch-1-e-8-2f7"
+    "__comp": "17896441",
+    "content": "1e860f04"
   },
   "/duelink-website/docs/api/uart-1fe": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-api-uartdd-0-5eb"
+    "__comp": "17896441",
+    "content": "dd0f43d8"
   },
-  "/duelink-website/docs/catalog/accessories/duePi-a68": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-catalog-accessories-due-pi-052-857"
+  "/duelink-website/docs/catalog/accessories-4d7": {
+    "__comp": "17896441",
+    "content": "b0b38557"
   },
-  "/duelink-website/docs/catalog/accessories/intro-4e7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-catalog-accessories-intro-2-f-0-431"
+  "/duelink-website/docs/catalog/accessory/bluetooth-hook-cb4": {
+    "__comp": "17896441",
+    "content": "883326d9"
   },
-  "/duelink-website/docs/catalog/accessories/power-inject-a9a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-catalog-accessories-power-injecte-18-a7d"
+  "/duelink-website/docs/catalog/accessory/breakout-4e0": {
+    "__comp": "17896441",
+    "content": "db20eece"
   },
-  "/duelink-website/docs/catalog/actuators/intro-588": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-catalog-actuators-intro-026-a99"
+  "/duelink-website/docs/catalog/accessory/cable-connector-e3d": {
+    "__comp": "17896441",
+    "content": "d1a557b5"
   },
-  "/duelink-website/docs/catalog/comm/intro-dfc": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-catalog-comm-intro-429-331"
+  "/duelink-website/docs/catalog/accessory/dueclick-b39": {
+    "__comp": "17896441",
+    "content": "079336d9"
   },
-  "/duelink-website/docs/catalog/displays/intro-7b7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-catalog-displays-introb-99-79f"
+  "/duelink-website/docs/catalog/accessory/duepi-880": {
+    "__comp": "17896441",
+    "content": "e4fc0b9b"
   },
-  "/duelink-website/docs/catalog/hmi/intro-041": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-catalog-hmi-intro-807-052"
+  "/duelink-website/docs/catalog/accessory/holey-board-0b2": {
+    "__comp": "17896441",
+    "content": "9b83f736"
+  },
+  "/duelink-website/docs/catalog/accessory/holey-moley-board-d8d": {
+    "__comp": "17896441",
+    "content": "7da5b444"
+  },
+  "/duelink-website/docs/catalog/accessory/mount-hw-fa0": {
+    "__comp": "17896441",
+    "content": "d89bfbd5"
+  },
+  "/duelink-website/docs/catalog/accessory/power-inject-df5": {
+    "__comp": "17896441",
+    "content": "82498533"
+  },
+  "/duelink-website/docs/catalog/accessory/power-min-6ea": {
+    "__comp": "17896441",
+    "content": "e39ada81"
+  },
+  "/duelink-website/docs/catalog/accessory/pwr-switch-04c": {
+    "__comp": "17896441",
+    "content": "baa52984"
+  },
+  "/duelink-website/docs/catalog/accessory/sticker-9d4": {
+    "__comp": "17896441",
+    "content": "febc33ed"
+  },
+  "/duelink-website/docs/catalog/accessory/usb-hook-3f2": {
+    "__comp": "17896441",
+    "content": "76b9cc46"
+  },
+  "/duelink-website/docs/catalog/actuator/fan-b94": {
+    "__comp": "17896441",
+    "content": "2d115d4a"
+  },
+  "/duelink-website/docs/catalog/actuator/load-581": {
+    "__comp": "17896441",
+    "content": "38b709fe"
+  },
+  "/duelink-website/docs/catalog/actuator/motomax-402": {
+    "__comp": "17896441",
+    "content": "61aaf05b"
+  },
+  "/duelink-website/docs/catalog/actuator/mototwin-980": {
+    "__comp": "17896441",
+    "content": "d665013d"
+  },
+  "/duelink-website/docs/catalog/actuator/relay-p16-ebc": {
+    "__comp": "17896441",
+    "content": "b5d98c20"
+  },
+  "/duelink-website/docs/catalog/actuator/relay-p4-58a": {
+    "__comp": "17896441",
+    "content": "9aa3591d"
+  },
+  "/duelink-website/docs/catalog/actuator/relay-x1-39c": {
+    "__comp": "17896441",
+    "content": "913c7c03"
+  },
+  "/duelink-website/docs/catalog/actuator/servo-p8-1b0": {
+    "__comp": "17896441",
+    "content": "ddd14f97"
+  },
+  "/duelink-website/docs/catalog/actuator/servo-x1-146": {
+    "__comp": "17896441",
+    "content": "a23550f5"
+  },
+  "/duelink-website/docs/catalog/actuator/step-pulse-6b0": {
+    "__comp": "17896441",
+    "content": "81f7538f"
+  },
+  "/duelink-website/docs/catalog/actuator/stepdrive-x1-1c5": {
+    "__comp": "17896441",
+    "content": "55772b62"
+  },
+  "/duelink-website/docs/catalog/actuator/stepdrive-x3-67e": {
+    "__comp": "17896441",
+    "content": "74af603d"
+  },
+  "/duelink-website/docs/catalog/actuators-68b": {
+    "__comp": "17896441",
+    "content": "f33d41cb"
+  },
+  "/duelink-website/docs/catalog/com-e03": {
+    "__comp": "17896441",
+    "content": "1374db13"
+  },
+  "/duelink-website/docs/catalog/com/can-55d": {
+    "__comp": "17896441",
+    "content": "66979cb4"
+  },
+  "/duelink-website/docs/catalog/com/dmx-494": {
+    "__comp": "17896441",
+    "content": "b2e9aa02"
+  },
+  "/duelink-website/docs/catalog/com/ethernet-5d1": {
+    "__comp": "17896441",
+    "content": "43f5559f"
+  },
+  "/duelink-website/docs/catalog/com/jacdac-6dd": {
+    "__comp": "17896441",
+    "content": "29f89ffc"
+  },
+  "/duelink-website/docs/catalog/com/midi-18a": {
+    "__comp": "17896441",
+    "content": "8658699a"
+  },
+  "/duelink-website/docs/catalog/com/rs485-8e2": {
+    "__comp": "17896441",
+    "content": "4a1064ad"
+  },
+  "/duelink-website/docs/catalog/com/serial-usb-6fe": {
+    "__comp": "17896441",
+    "content": "41235ee0"
+  },
+  "/duelink-website/docs/catalog/com/usb-host-edc": {
+    "__comp": "17896441",
+    "content": "2313b17c"
+  },
+  "/duelink-website/docs/catalog/display/epaper29-4db": {
+    "__comp": "17896441",
+    "content": "098d7d33"
+  },
+  "/duelink-website/docs/catalog/display/lcd-16x2-3bb": {
+    "__comp": "17896441",
+    "content": "3a9eec2b"
+  },
+  "/duelink-website/docs/catalog/display/lcd-20x4-a48": {
+    "__comp": "17896441",
+    "content": "62f3415e"
+  },
+  "/duelink-website/docs/catalog/display/oled-096-d59": {
+    "__comp": "17896441",
+    "content": "1c131897"
+  },
+  "/duelink-website/docs/catalog/display/tft-cp23-82d": {
+    "__comp": "17896441",
+    "content": "c9663871"
+  },
+  "/duelink-website/docs/catalog/display/tft-cp70bt-890": {
+    "__comp": "17896441",
+    "content": "9a8ebc06"
+  },
+  "/duelink-website/docs/catalog/display/tft-n18-0b0": {
+    "__comp": "17896441",
+    "content": "7f48853b"
+  },
+  "/duelink-website/docs/catalog/display/tft-r128-406": {
+    "__comp": "17896441",
+    "content": "ee0e501f"
+  },
+  "/duelink-website/docs/catalog/display/tft-t32-192": {
+    "__comp": "17896441",
+    "content": "0e36c416"
+  },
+  "/duelink-website/docs/catalog/display/vfd-b8-bf7": {
+    "__comp": "17896441",
+    "content": "e644b27d"
+  },
+  "/duelink-website/docs/catalog/displays-068": {
+    "__comp": "17896441",
+    "content": "d349a865"
+  },
+  "/duelink-website/docs/catalog/hmi-671": {
+    "__comp": "17896441",
+    "content": "b4152d38"
+  },
+  "/duelink-website/docs/catalog/hmi/button-l-9be": {
+    "__comp": "17896441",
+    "content": "248e7f32"
+  },
+  "/duelink-website/docs/catalog/hmi/button-l7-d6b": {
+    "__comp": "17896441",
+    "content": "89289a28"
+  },
+  "/duelink-website/docs/catalog/hmi/button-s-233": {
+    "__comp": "17896441",
+    "content": "96a8b58f"
+  },
+  "/duelink-website/docs/catalog/hmi/capslide-a86": {
+    "__comp": "17896441",
+    "content": "7636da6f"
+  },
+  "/duelink-website/docs/catalog/hmi/dial-b82": {
+    "__comp": "17896441",
+    "content": "93380e32"
+  },
+  "/duelink-website/docs/catalog/hmi/dip-switch-e9c": {
+    "__comp": "17896441",
+    "content": "4bcf30c3"
+  },
+  "/duelink-website/docs/catalog/hmi/joystick-l-1fa": {
+    "__comp": "17896441",
+    "content": "1d54a5ae"
+  },
+  "/duelink-website/docs/catalog/hmi/keypad-3x4-d5d": {
+    "__comp": "17896441",
+    "content": "414fbf3d"
+  },
+  "/duelink-website/docs/catalog/hmi/keypad-4x4-512": {
+    "__comp": "17896441",
+    "content": "34cdee3c"
+  },
+  "/duelink-website/docs/catalog/hmi/rotary-b23": {
+    "__comp": "17896441",
+    "content": "3a43809b"
+  },
+  "/duelink-website/docs/catalog/hmi/slider-8b5": {
+    "__comp": "17896441",
+    "content": "0fc5d9fb"
   },
   "/duelink-website/docs/catalog/intro-b54": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-catalog-introcbd-57c"
+    "__comp": "17896441",
+    "content": "cbd09a24"
   },
-  "/duelink-website/docs/catalog/led/intro-bd1": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-catalog-led-introc-4-a-c70"
+  "/duelink-website/docs/catalog/led/led-md0808-0e5": {
+    "__comp": "17896441",
+    "content": "6143bf0d"
   },
-  "/duelink-website/docs/catalog/mainboard/intro-5d1": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-catalog-mainboard-intro-9-f-5-de7"
+  "/duelink-website/docs/catalog/led/led-md3208-994": {
+    "__comp": "17896441",
+    "content": "67579f3f"
   },
-  "/duelink-website/docs/catalog/sensor/intro-407": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-catalog-sensor-intro-0-e-5-2a6"
+  "/duelink-website/docs/catalog/led/led-r16-f45": {
+    "__comp": "17896441",
+    "content": "21185796"
   },
-  "/duelink-website/docs/catalog/sound/intro-1ec": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-catalog-sound-introe-33-88a"
+  "/duelink-website/docs/catalog/led/led-rgb3-355": {
+    "__comp": "17896441",
+    "content": "92ff5568"
   },
-  "/duelink-website/docs/catalog/third-party/intro-b4b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-catalog-third-party-introecc-f80"
+  "/duelink-website/docs/catalog/led/led-s284-c-e6a": {
+    "__comp": "17896441",
+    "content": "35042fe7"
   },
-  "/duelink-website/docs/catalog/wireless/intro-ed4": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-catalog-wireless-introc-7-c-37f"
+  "/duelink-website/docs/catalog/led/led-s284-t-41e": {
+    "__comp": "17896441",
+    "content": "7b8c0ecd"
   },
-  "/duelink-website/docs/coding-options/cpp-1e0": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-coding-options-cpp-27-b-df4"
+  "/duelink-website/docs/catalog/led/led-s404-c-f48": {
+    "__comp": "17896441",
+    "content": "7b3b763a"
   },
-  "/duelink-website/docs/coding-options/dotnet-199": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-coding-options-dotnet-938-ac6"
+  "/duelink-website/docs/catalog/led/led-s404-t-a5b": {
+    "__comp": "17896441",
+    "content": "fe3f0105"
   },
-  "/duelink-website/docs/coding-options/excel-c8f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-coding-options-excela-38-fec"
+  "/duelink-website/docs/catalog/led/led-s564-c-c44": {
+    "__comp": "17896441",
+    "content": "dc0c80ee"
   },
-  "/duelink-website/docs/coding-options/intro-f37": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-coding-options-introcc-6-6c1"
+  "/duelink-website/docs/catalog/led/led-s564-t-8a2": {
+    "__comp": "17896441",
+    "content": "276d463a"
   },
-  "/duelink-website/docs/coding-options/javascript-0fe": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-coding-options-javascripta-31-7be"
+  "/duelink-website/docs/catalog/led/led-ss805-bee": {
+    "__comp": "17896441",
+    "content": "54931a3b"
   },
-  "/duelink-website/docs/coding-options/micro-python-143": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-coding-options-micro-python-043-4f0"
+  "/duelink-website/docs/catalog/led/smart-led-361": {
+    "__comp": "17896441",
+    "content": "fd407551"
   },
-  "/duelink-website/docs/coding-options/other-fd8": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-coding-options-other-018-f41"
+  "/duelink-website/docs/catalog/leds-6a2": {
+    "__comp": "17896441",
+    "content": "94786046"
   },
-  "/duelink-website/docs/coding-options/python-5a5": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-coding-options-pythonab-7-240"
+  "/duelink-website/docs/catalog/mainboard/cincobit-124": {
+    "__comp": "17896441",
+    "content": "8bf08310"
   },
-  "/duelink-website/docs/coding-options/scripting-9d0": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-coding-options-scripting-6-e-6-f9a"
+  "/duelink-website/docs/catalog/mainboard/clipbit-88a": {
+    "__comp": "17896441",
+    "content": "542d90c0"
   },
-  "/duelink-website/docs/coding-options/swift-dcf": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-coding-options-swift-28-f-741"
+  "/duelink-website/docs/catalog/mainboard/dueduino-b57": {
+    "__comp": "17896441",
+    "content": "ab3d7a77"
   },
-  "/duelink-website/docs/coding-options/tinyclr-dc4": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-coding-options-tinyclr-975-0fc"
+  "/duelink-website/docs/catalog/mainboard/dueflea-e64": {
+    "__comp": "17896441",
+    "content": "4fba6633"
   },
-  "/duelink-website/docs/coding-options/typescript-ef0": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-coding-options-typescript-65-a-e8e"
+  "/duelink-website/docs/catalog/mainboard/duestem-3d2": {
+    "__comp": "17896441",
+    "content": "62dca7a2"
+  },
+  "/duelink-website/docs/catalog/mainboard/duestick-100": {
+    "__comp": "17896441",
+    "content": "c2064a4c"
+  },
+  "/duelink-website/docs/catalog/mainboard/holiday-tree-073": {
+    "__comp": "17896441",
+    "content": "49fafabf"
+  },
+  "/duelink-website/docs/catalog/mainboard/john-due-766": {
+    "__comp": "17896441",
+    "content": "63d72701"
+  },
+  "/duelink-website/docs/catalog/mainboard/octobit-165": {
+    "__comp": "17896441",
+    "content": "f3e56503"
+  },
+  "/duelink-website/docs/catalog/mainboard/pixobit-884": {
+    "__comp": "17896441",
+    "content": "70b45444"
+  },
+  "/duelink-website/docs/catalog/mainboards-e10": {
+    "__comp": "17896441",
+    "content": "2efe0052"
+  },
+  "/duelink-website/docs/catalog/sensor/accel-c72": {
+    "__comp": "17896441",
+    "content": "c46bd394"
+  },
+  "/duelink-website/docs/catalog/sensor/air-quality-255": {
+    "__comp": "17896441",
+    "content": "31b868da"
+  },
+  "/duelink-website/docs/catalog/sensor/barometer-eab": {
+    "__comp": "17896441",
+    "content": "5c233e30"
+  },
+  "/duelink-website/docs/catalog/sensor/ClipSense-5af": {
+    "__comp": "17896441",
+    "content": "e35970bd"
+  },
+  "/duelink-website/docs/catalog/sensor/Color-786": {
+    "__comp": "17896441",
+    "content": "f902b8af"
+  },
+  "/duelink-website/docs/catalog/sensor/Current-c4d": {
+    "__comp": "17896441",
+    "content": "5abfc8c4"
+  },
+  "/duelink-website/docs/catalog/sensor/distance-383": {
+    "__comp": "17896441",
+    "content": "88bb50bf"
+  },
+  "/duelink-website/docs/catalog/sensor/dof9-12b": {
+    "__comp": "17896441",
+    "content": "8b02c1de"
+  },
+  "/duelink-website/docs/catalog/sensor/ekg-433": {
+    "__comp": "17896441",
+    "content": "9a88743a"
+  },
+  "/duelink-website/docs/catalog/sensor/gas-912": {
+    "__comp": "17896441",
+    "content": "0568281a"
+  },
+  "/duelink-website/docs/catalog/sensor/light-d59": {
+    "__comp": "17896441",
+    "content": "67b63c54"
+  },
+  "/duelink-website/docs/catalog/sensor/motion-678": {
+    "__comp": "17896441",
+    "content": "cf9ef405"
+  },
+  "/duelink-website/docs/catalog/sensor/pressure-446": {
+    "__comp": "17896441",
+    "content": "3422c030"
+  },
+  "/duelink-website/docs/catalog/sensor/pulseoxi-509": {
+    "__comp": "17896441",
+    "content": "48b5d068"
+  },
+  "/duelink-website/docs/catalog/sensor/rtc-328": {
+    "__comp": "17896441",
+    "content": "c4612325"
+  },
+  "/duelink-website/docs/catalog/sensor/temphmd-042": {
+    "__comp": "17896441",
+    "content": "c7b56d93"
+  },
+  "/duelink-website/docs/catalog/sensor/temprtd-c2c": {
+    "__comp": "17896441",
+    "content": "6bad33c4"
+  },
+  "/duelink-website/docs/catalog/sensor/thermal-3b5": {
+    "__comp": "17896441",
+    "content": "5b8a3d83"
+  },
+  "/duelink-website/docs/catalog/sensors-91f": {
+    "__comp": "17896441",
+    "content": "0344b729"
+  },
+  "/duelink-website/docs/catalog/sound-e24": {
+    "__comp": "17896441",
+    "content": "2730917e"
+  },
+  "/duelink-website/docs/catalog/sound/Buzzer-1df": {
+    "__comp": "17896441",
+    "content": "2c3112b9"
+  },
+  "/duelink-website/docs/catalog/sound/Codec-d89": {
+    "__comp": "17896441",
+    "content": "2144c6a0"
+  },
+  "/duelink-website/docs/catalog/sound/MP3-22f": {
+    "__comp": "17896441",
+    "content": "03a987e8"
+  },
+  "/duelink-website/docs/catalog/storage-c87": {
+    "__comp": "17896441",
+    "content": "d3f6f45c"
+  },
+  "/duelink-website/docs/catalog/storage/flash-bbb": {
+    "__comp": "17896441",
+    "content": "577f1766"
+  },
+  "/duelink-website/docs/catalog/storage/sd-card-7a2": {
+    "__comp": "17896441",
+    "content": "831f5faa"
+  },
+  "/duelink-website/docs/catalog/storage/usd-card-ca4": {
+    "__comp": "17896441",
+    "content": "6c6d2ca2"
+  },
+  "/duelink-website/docs/catalog/third-party-602": {
+    "__comp": "17896441",
+    "content": "264c5aed"
+  },
+  "/duelink-website/docs/catalog/wireless-1f0": {
+    "__comp": "17896441",
+    "content": "268d64eb"
+  },
+  "/duelink-website/docs/catalog/wireless/gnss-a96": {
+    "__comp": "17896441",
+    "content": "ea58a3b5"
+  },
+  "/duelink-website/docs/catalog/wireless/gnss-wa-c82": {
+    "__comp": "17896441",
+    "content": "f12e7eb5"
+  },
+  "/duelink-website/docs/catalog/wireless/nrf24-max-46f": {
+    "__comp": "17896441",
+    "content": "ba0d5550"
+  },
+  "/duelink-website/docs/catalog/wireless/nrf24-min-455": {
+    "__comp": "17896441",
+    "content": "ff0cbce9"
+  },
+  "/duelink-website/docs/catalog/wireless/radio-fm-8ef": {
+    "__comp": "17896441",
+    "content": "b3234443"
+  },
+  "/duelink-website/docs/catalog/wireless/rfid-474": {
+    "__comp": "17896441",
+    "content": "47935bdb"
+  },
+  "/duelink-website/docs/coding/app-inventor-4a9": {
+    "__comp": "17896441",
+    "content": "8378a24f"
+  },
+  "/duelink-website/docs/coding/cpp-81b": {
+    "__comp": "17896441",
+    "content": "015d60ce"
+  },
+  "/duelink-website/docs/coding/dotnet-7a0": {
+    "__comp": "17896441",
+    "content": "d96a27b2"
+  },
+  "/duelink-website/docs/coding/excel-35f": {
+    "__comp": "17896441",
+    "content": "932ba16d"
+  },
+  "/duelink-website/docs/coding/intro-618": {
+    "__comp": "17896441",
+    "content": "0913c2bc"
+  },
+  "/duelink-website/docs/coding/javascript-c60": {
+    "__comp": "17896441",
+    "content": "6daaf80b"
+  },
+  "/duelink-website/docs/coding/micropython-4da": {
+    "__comp": "17896441",
+    "content": "3da09b8d"
+  },
+  "/duelink-website/docs/coding/other-77f": {
+    "__comp": "17896441",
+    "content": "0b48b3cb"
+  },
+  "/duelink-website/docs/coding/python-5b5": {
+    "__comp": "17896441",
+    "content": "cc6a45f1"
+  },
+  "/duelink-website/docs/coding/scripting-db3": {
+    "__comp": "17896441",
+    "content": "e67d4564"
+  },
+  "/duelink-website/docs/coding/swift-f2b": {
+    "__comp": "17896441",
+    "content": "ef41c8ef"
+  },
+  "/duelink-website/docs/coding/tinyclr-484": {
+    "__comp": "17896441",
+    "content": "ae12fbbb"
+  },
+  "/duelink-website/docs/coding/typescript-4dc": {
+    "__comp": "17896441",
+    "content": "12bad719"
   },
   "/duelink-website/docs/console-0d7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-console-8-ee-664"
+    "__comp": "17896441",
+    "content": "8ee2b8b2"
   },
   "/duelink-website/docs/downloads-376": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-downloadsf-6-d-959"
+    "__comp": "17896441",
+    "content": "f6d6eda1"
   },
-  "/duelink-website/docs/getting-started/commerical-proto-acf": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-getting-started-commerical-protodc-5-bfb"
+  "/duelink-website/docs/engine/daisylink-de9": {
+    "__comp": "17896441",
+    "content": "b92f7816"
   },
-  "/duelink-website/docs/getting-started/education-87e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-getting-started-education-230-917"
+  "/duelink-website/docs/engine/intro-a31": {
+    "__comp": "17896441",
+    "content": "58ed3af5"
   },
-  "/duelink-website/docs/getting-started/intro-6f2": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-getting-started-introbee-d82"
+  "/duelink-website/docs/engine/samples-4d2": {
+    "__comp": "17896441",
+    "content": "8b6c725e"
   },
-  "/duelink-website/docs/getting-started/makers-6a7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-getting-started-makers-07-f-aa3"
+  "/duelink-website/docs/engine/scripting-4b9": {
+    "__comp": "17896441",
+    "content": "13a0e759"
   },
-  "/duelink-website/docs/getting-started/online-demo-922": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-getting-started-online-demo-8-e-0-76c"
+  "/duelink-website/docs/engine/standalone-bc6": {
+    "__comp": "17896441",
+    "content": "413b26b5"
   },
-  "/duelink-website/docs/interfaces/downstream-97f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-interfaces-downstreama-2-f-e7c"
+  "/duelink-website/docs/engine/stdlib-7d7": {
+    "__comp": "17896441",
+    "content": "fe0ab593"
   },
-  "/duelink-website/docs/interfaces/i2c-60e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-interfaces-i-2-c-537-cf4"
+  "/duelink-website/docs/engine/streams-1b3": {
+    "__comp": "17896441",
+    "content": "3408d25f"
   },
-  "/duelink-website/docs/interfaces/intro-066": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-interfaces-introb-3-a-577"
+  "/duelink-website/docs/interface/downstream-22c": {
+    "__comp": "17896441",
+    "content": "8048f158"
   },
-  "/duelink-website/docs/interfaces/spi-ca8": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-interfaces-spi-150-34b"
+  "/duelink-website/docs/interface/i2c-9a6": {
+    "__comp": "17896441",
+    "content": "73e451a8"
   },
-  "/duelink-website/docs/interfaces/uart-055": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-interfaces-uarte-1-a-f73"
+  "/duelink-website/docs/interface/intro-c39": {
+    "__comp": "17896441",
+    "content": "f931e2a2"
   },
-  "/duelink-website/docs/interfaces/usb-9e9": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-interfaces-usbe-99-f75"
+  "/duelink-website/docs/interface/spi-282": {
+    "__comp": "17896441",
+    "content": "a1a806ff"
   },
-  "/duelink-website/docs/interfaces/wireless-bc1": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-interfaces-wireless-70-a-f1a"
+  "/duelink-website/docs/interface/uart-512": {
+    "__comp": "17896441",
+    "content": "5f3ff697"
   },
-  "/duelink-website/docs/internal-engine/daisylink-e80": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-internal-engine-daisylink-988-ac5"
+  "/duelink-website/docs/interface/usb-f40": {
+    "__comp": "17896441",
+    "content": "33a4210a"
   },
-  "/duelink-website/docs/internal-engine/intro-bb7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-internal-engine-intro-17-a-559"
-  },
-  "/duelink-website/docs/internal-engine/samples-c8e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-internal-engine-samples-56-e-20b"
-  },
-  "/duelink-website/docs/internal-engine/scripting-ad6": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-internal-engine-scripting-8-c-1-69e"
-  },
-  "/duelink-website/docs/internal-engine/standalone-5d8": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-internal-engine-standalone-766-2f7"
-  },
-  "/duelink-website/docs/internal-engine/stdlib-85c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-internal-engine-stdliba-4-b-605"
-  },
-  "/duelink-website/docs/internal-engine/streams-1f3": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-internal-engine-streams-9-f-4-031"
+  "/duelink-website/docs/interface/wireless-01c": {
+    "__comp": "17896441",
+    "content": "6da0aaf7"
   },
   "/duelink-website/docs/intro-a8e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-introf-84-0b7"
+    "__comp": "17896441",
+    "content": "f8409a7e"
   },
   "/duelink-website/docs/licensing-5a0": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-licensing-134-fcb"
+    "__comp": "17896441",
+    "content": "13490bab"
+  },
+  "/duelink-website/docs/loader-fd0": {
+    "__comp": "17896441",
+    "content": "d56f161f"
   },
   "/duelink-website/docs/release-notes-d12": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-release-notes-90-d-947"
+    "__comp": "17896441",
+    "content": "90d83cef"
   },
   "/duelink-website/docs/specs-eda": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-specs-0-a-2-0d2"
+    "__comp": "17896441",
+    "content": "0a292fa8"
+  },
+  "/duelink-website/docs/start/commercial-954": {
+    "__comp": "17896441",
+    "content": "ccb45942"
+  },
+  "/duelink-website/docs/start/demo-a70": {
+    "__comp": "17896441",
+    "content": "5892e43a"
+  },
+  "/duelink-website/docs/start/education-7b7": {
+    "__comp": "17896441",
+    "content": "eb0ea83e"
+  },
+  "/duelink-website/docs/start/intro-03b": {
+    "__comp": "17896441",
+    "content": "f236b21c"
+  },
+  "/duelink-website/docs/start/makers-064": {
+    "__comp": "17896441",
+    "content": "9c63ef49"
   },
   "/duelink-website/docs/support-c84": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-supporta-94-124"
+    "__comp": "17896441",
+    "content": "a942cd04"
   },
-  "/duelink-website/docs/supported-systems/arduino-152": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-supported-systems-arduinof-6-b-54d"
+  "/duelink-website/docs/system/arduino-f8e": {
+    "__comp": "17896441",
+    "content": "a19dda6c"
   },
-  "/duelink-website/docs/supported-systems/beagleboard-c89": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-supported-systems-beagleboarda-08-98b"
+  "/duelink-website/docs/system/beagleboard-0ce": {
+    "__comp": "17896441",
+    "content": "6d094485"
   },
-  "/duelink-website/docs/supported-systems/beyond-851": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-supported-systems-beyondb-73-0aa"
+  "/duelink-website/docs/system/beyond-cea": {
+    "__comp": "17896441",
+    "content": "01b1293c"
   },
-  "/duelink-website/docs/supported-systems/intro-acf": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-supported-systems-intro-64-a-c18"
+  "/duelink-website/docs/system/intro-2d8": {
+    "__comp": "17896441",
+    "content": "6b77e3ad"
   },
-  "/duelink-website/docs/supported-systems/microbit-10c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-supported-systems-microbitfdd-89b"
+  "/duelink-website/docs/system/microbit-a0f": {
+    "__comp": "17896441",
+    "content": "91157c02"
   },
-  "/duelink-website/docs/supported-systems/pc-b36": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-supported-systems-pcec-9-7ab"
+  "/duelink-website/docs/system/pc-laptop-712": {
+    "__comp": "17896441",
+    "content": "9e02544e"
   },
-  "/duelink-website/docs/supported-systems/phone-tablet-a78": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-supported-systems-phone-tablet-4-d-1-69e"
+  "/duelink-website/docs/system/phone-tablet-64e": {
+    "__comp": "17896441",
+    "content": "080fae92"
   },
-  "/duelink-website/docs/supported-systems/raspberry-pi-f7b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-supported-systems-raspberry-pi-44-c-d51"
+  "/duelink-website/docs/system/raspberry-pi-2b5": {
+    "__comp": "17896441",
+    "content": "c50174ef"
   },
   "/duelink-website/docs/template-e32": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---duelink-website-docs-template-698-9f6"
+    "__comp": "17896441",
+    "content": "698c3fb7"
   },
   "/duelink-website/-2a2": {
-    "__comp": "__comp---site-src-pages-index-jsc-4-f-f99",
+    "__comp": "c4f5d8e4",
     "__context": {
-      "plugin": "plugin---duelink-website-markdown-pagea-74-150"
+      "plugin": "a7456010"
     },
-    "config": "config---duelink-website-my-react-page-5-e-9-76f"
+    "config": "5e9f5e1a"
   }
 }
