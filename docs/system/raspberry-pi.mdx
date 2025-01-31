@@ -8,9 +8,9 @@ There are multiple ways to take advantage of the DUELink ecosystem with entire R
 
 ## RPI and RPI Zero
 
-We recommend using DuePi Hat. The hat uses [UART](../interfaces/uart) and work with both full-size Raspberry PI and Raspberry PI Zero. It includes a display, a buzzer, terminal block for wiring, and a [Downstream](../interfaces/downstream) socket to extend your RPI with hundreds of sensors and actuators.
+We recommend using DuePi Hat. The hat uses [UART](../interface/uart) and work with both full-size Raspberry PI and Raspberry PI Zero. It includes a display, a buzzer, terminal block for wiring, and a [Downstream](../interface/downstream) socket to extend your RPI with hundreds of sensors and actuators.
 
-Everything is accessible through any of the RPI supported [Coding Options](../coding-options/intro), such as  [Python](../coding-options/python) .
+Everything is accessible through any of the RPI supported [Coding Options](../coding/intro), such as  [Python](../coding/python) .
 
 ```py
 # Show IP address on display
@@ -27,9 +27,9 @@ Here is an example that reads temperature from a temp sensor (image)
 
 ```
 
-You can also use breakout boards that bring the RPI’s [I2C](../interfaces/i2c) bus to a standard JST socket, like the Sparkfun Qwiic Shim for Raspberry PI (image). [Sparkfun Qwiic Shim for Raspberry Pi](https://www.sparkfun.com/sparkfun-qwiic-shim-for-raspberry-pi.html) or [Sparkfun Qwiic phat](https://www.sparkfun.com/sparkfun-qwiic-phat-v2-0-for-raspberry-pi.html).
+You can also use breakout boards that bring the RPI’s [I2C](../interface/i2c) bus to a standard JST socket, like the Sparkfun Qwiic Shim for Raspberry PI (image). [Sparkfun Qwiic Shim for Raspberry Pi](https://www.sparkfun.com/sparkfun-qwiic-shim-for-raspberry-pi.html) or [Sparkfun Qwiic phat](https://www.sparkfun.com/sparkfun-qwiic-phat-v2-0-for-raspberry-pi.html).
 
-Tip: When using the Qwiic phat, only use one socket as [Downstream](../interfaces/downstream). You can use the other sockets to connect other, non-DUELink things.
+Tip: When using the Qwiic phat, only use one socket as [Downstream](../interface/downstream). You can use the other sockets to connect other, non-DUELink things.
 
 Same code as before but we are now using the I2C bus.
 
@@ -47,7 +47,7 @@ Using any of microcontroller-level boards is possible. We recommend using a boar
 Pay attention to how much power these little circuits can provide vs what DUELink modules are plugged in. Consider [Power Inject](../catalog/accessory/power-inject) to add more juice!
 :::
 
-[MicroPython](../coding-options/micro-python) is one of the supported options. Here we are showing the light level on a display.
+[MicroPython](../coding/micropython) is one of the supported options. Here we are showing the light level on a display.
 
 
 ```python
