@@ -4,15 +4,17 @@ import TabItem from '@theme/TabItem';
 
 # Raspberry Pi
 
-There are multiple ways to take advantage of the DUELink ecosystem with entire Raspberry PI product line. 
+There are multiple ways to take advantage of the DUELink ecosystem with the entire Raspberry Pi product line. 
+
+![Raspberry Pi line](../images/raspberrypi-line.png)
 
 ## RPI and RPI Zero
 
-We recommend using DuePi Hat. The hat uses [UART](../interface/uart) and work with both full-size Raspberry PI and Raspberry PI Zero. It includes a display, a buzzer, terminal block for wiring, and a [Downstream](../interface/downstream) socket to extend your RPI with hundreds of sensors and actuators.
+We recommend using DuePi Hat. The hat uses [UART](../interface/uart) and works with both full-size Raspberry Pi and Raspberry Pi Zero. It includes a display, buzzer, terminal block for wiring, and a [Downstream](../interface/downstream) socket to extend your RPI with hundreds of sensors and actuators.
 
 Everything is accessible through any of the RPI supported [Coding Options](../coding/intro), such as  [Python](../coding/python) .
 
-```py
+```python
 # Show IP address on display
 print("Bye DUE!")
 # Beep once a second
@@ -27,9 +29,16 @@ Here is an example that reads temperature from a temp sensor (image)
 
 ```
 
-You can also use breakout boards that bring the RPI’s [I2C](../interface/i2c) bus to a standard JST socket, like the Sparkfun Qwiic Shim for Raspberry PI (image). [Sparkfun Qwiic Shim for Raspberry Pi](https://www.sparkfun.com/sparkfun-qwiic-shim-for-raspberry-pi.html) or [Sparkfun Qwiic phat](https://www.sparkfun.com/sparkfun-qwiic-phat-v2-0-for-raspberry-pi.html).
+You can also use breakout boards that bring the RPI’s [I2C](../interface/i2c) bus to a standard JST socket, like the [Sparkfun Qwiic Shim for Raspberry Pi](https://www.sparkfun.com/sparkfun-qwiic-shim-for-raspberry-pi.html) or [Sparkfun Qwiic pHat](https://www.sparkfun.com/sparkfun-qwiic-phat-v2-0-for-raspberry-pi.html).
 
-Tip: When using the Qwiic phat, only use one socket as [Downstream](../interface/downstream). You can use the other sockets to connect other, non-DUELink things.
+![Sparkfun Qwiic Shim or Qwiic pHat](../images/qwiic-shim-phat.png)
+
+
+
+
+:::tip 
+When using the Qwiic pHat, only use one socket as [Downstream](../interface/downstream). You can use the other sockets to connect other, non-DUELink things.
+:::
 
 Same code as before but we are now using the I2C bus.
 
@@ -41,10 +50,12 @@ Same code as before but we are now using the I2C bus.
 
 ## RPI Pico and RP2350/RP2040
 
-Using any of microcontroller-level boards is possible. We recommend using a board with JST connector, like [Adafruit QT Py RP2040](https://www.adafruit.com/product/4900) or [Sparkfun Pro Micro RP2350](https://www.sparkfun.com/sparkfun-pro-micro-rp2350.html) but you can use the [Breakout](../catalog/accessory/breakout) to wire any Raspberry PI Pico.
+Using any of the microcontroller-level boards is possible. We recommend using a board with JST connector, like [Adafruit QT Py RP2040](https://www.adafruit.com/product/4900) or [Sparkfun Pro Micro RP2350](https://www.sparkfun.com/sparkfun-pro-micro-rp2350.html) but you can use the [Breakout](../catalog/accessory/breakout) to wire any Raspberry Pi Pico.
+
+![RP2040-RP2350-Breakout](../images/rp2040-rp2350-breakout.png)
 
 :::tip
-Pay attention to how much power these little circuits can provide vs what DUELink modules are plugged in. Consider [Power Inject](../catalog/accessory/power-inject) to add more juice!
+Pay attention to how much power these little circuits can provide vs what DUELink modules that are plugged in. Consider [Power Inject](../catalog/accessory/power-inject) to add more juice!
 :::
 
 [MicroPython](../coding/micropython) is one of the supported options. Here we are showing the light level on a display.
