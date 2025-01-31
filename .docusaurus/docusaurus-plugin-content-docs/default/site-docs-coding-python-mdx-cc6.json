@@ -1,0 +1,24 @@
+{
+  "id": "coding/python",
+  "title": "Python",
+  "description": "---",
+  "source": "@site/docs/coding/python.mdx",
+  "sourceDirName": "coding",
+  "slug": "/coding/python",
+  "permalink": "/duelink-website/docs/coding/python",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding/python.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Scripting",
+    "permalink": "/duelink-website/docs/coding/scripting"
+  },
+  "next": {
+    "title": "MicroPython",
+    "permalink": "/duelink-website/docs/coding/micropython"
+  }
+}

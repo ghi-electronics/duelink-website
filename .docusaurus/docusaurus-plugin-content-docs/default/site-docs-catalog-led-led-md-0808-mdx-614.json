@@ -1,0 +1,24 @@
+{
+  "id": "catalog/led/led-md0808",
+  "title": "LED MD0808",
+  "description": "---",
+  "source": "@site/docs/catalog/led/led-md0808.mdx",
+  "sourceDirName": "catalog/led",
+  "slug": "/catalog/led/led-md0808",
+  "permalink": "/duelink-website/docs/catalog/led/led-md0808",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/led/led-md0808.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "LEDs",
+    "permalink": "/duelink-website/docs/catalog/leds"
+  },
+  "next": {
+    "title": "LED MD3208",
+    "permalink": "/duelink-website/docs/catalog/led/led-md3208"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "catalog/sensor/pulseoxi",
+  "title": "Pulse Oximeter",
+  "description": "---",
+  "source": "@site/docs/catalog/sensor/pulseoxi.mdx",
+  "sourceDirName": "catalog/sensor",
+  "slug": "/catalog/sensor/pulseoxi",
+  "permalink": "/duelink-website/docs/catalog/sensor/pulseoxi",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/sensor/pulseoxi.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Pressure",
+    "permalink": "/duelink-website/docs/catalog/sensor/pressure"
+  },
+  "next": {
+    "title": "RTC",
+    "permalink": "/duelink-website/docs/catalog/sensor/rtc"
+  }
+}

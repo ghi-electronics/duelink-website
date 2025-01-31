@@ -1,0 +1,24 @@
+{
+  "id": "catalog/led/led-s564-t",
+  "title": "LED S564-T",
+  "description": "---",
+  "source": "@site/docs/catalog/led/led-s564-t.mdx",
+  "sourceDirName": "catalog/led",
+  "slug": "/catalog/led/led-s564-t",
+  "permalink": "/duelink-website/docs/catalog/led/led-s564-t",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/led/led-s564-t.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "LED S564-C",
+    "permalink": "/duelink-website/docs/catalog/led/led-s564-c"
+  },
+  "next": {
+    "title": "LED SS805",
+    "permalink": "/duelink-website/docs/catalog/led/led-ss805"
+  }
+}

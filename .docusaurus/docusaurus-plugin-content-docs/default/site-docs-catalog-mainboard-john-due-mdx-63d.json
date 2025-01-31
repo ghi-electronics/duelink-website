@@ -1,0 +1,24 @@
+{
+  "id": "catalog/mainboard/john-due",
+  "title": "John Due",
+  "description": "",
+  "source": "@site/docs/catalog/mainboard/john-due.mdx",
+  "sourceDirName": "catalog/mainboard",
+  "slug": "/catalog/mainboard/john-due",
+  "permalink": "/duelink-website/docs/catalog/mainboard/john-due",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/mainboard/john-due.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "ClipIt",
+    "permalink": "/duelink-website/docs/catalog/mainboard/holiday-tree"
+  },
+  "next": {
+    "title": "OctoBit",
+    "permalink": "/duelink-website/docs/catalog/mainboard/octobit"
+  }
+}

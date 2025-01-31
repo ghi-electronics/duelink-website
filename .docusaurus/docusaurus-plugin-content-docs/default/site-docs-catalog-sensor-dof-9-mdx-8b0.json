@@ -1,0 +1,24 @@
+{
+  "id": "catalog/sensor/dof9",
+  "title": "DoF9",
+  "description": "---",
+  "source": "@site/docs/catalog/sensor/dof9.mdx",
+  "sourceDirName": "catalog/sensor",
+  "slug": "/catalog/sensor/dof9",
+  "permalink": "/duelink-website/docs/catalog/sensor/dof9",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/sensor/dof9.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Distance",
+    "permalink": "/duelink-website/docs/catalog/sensor/distance"
+  },
+  "next": {
+    "title": "EKG",
+    "permalink": "/duelink-website/docs/catalog/sensor/ekg"
+  }
+}

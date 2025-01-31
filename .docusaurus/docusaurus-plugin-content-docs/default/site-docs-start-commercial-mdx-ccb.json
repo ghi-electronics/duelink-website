@@ -1,0 +1,24 @@
+{
+  "id": "start/commercial",
+  "title": "Commercial Use",
+  "description": "---",
+  "source": "@site/docs/start/commercial.mdx",
+  "sourceDirName": "start",
+  "slug": "/start/commercial",
+  "permalink": "/duelink-website/docs/start/commercial",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/start/commercial.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Online Demo",
+    "permalink": "/duelink-website/docs/start/demo"
+  },
+  "next": {
+    "title": "Makers",
+    "permalink": "/duelink-website/docs/start/makers"
+  }
+}

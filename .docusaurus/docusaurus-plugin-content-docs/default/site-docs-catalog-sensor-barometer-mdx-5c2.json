@@ -1,0 +1,24 @@
+{
+  "id": "catalog/sensor/barometer",
+  "title": "Barometer",
+  "description": "---",
+  "source": "@site/docs/catalog/sensor/barometer.mdx",
+  "sourceDirName": "catalog/sensor",
+  "slug": "/catalog/sensor/barometer",
+  "permalink": "/duelink-website/docs/catalog/sensor/barometer",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/sensor/barometer.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Air Quality",
+    "permalink": "/duelink-website/docs/catalog/sensor/air-quality"
+  },
+  "next": {
+    "title": "Distance",
+    "permalink": "/duelink-website/docs/catalog/sensor/distance"
+  }
+}

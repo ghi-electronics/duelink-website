@@ -1,0 +1,24 @@
+{
+  "id": "catalog/display/tft-n18",
+  "title": "TFT N18",
+  "description": "",
+  "source": "@site/docs/catalog/display/tft-n18.mdx",
+  "sourceDirName": "catalog/display",
+  "slug": "/catalog/display/tft-n18",
+  "permalink": "/duelink-website/docs/catalog/display/tft-n18",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/display/tft-n18.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "TFT CP70BT",
+    "permalink": "/duelink-website/docs/catalog/display/tft-cp70bt"
+  },
+  "next": {
+    "title": "TFT R128",
+    "permalink": "/duelink-website/docs/catalog/display/tft-r128"
+  }
+}

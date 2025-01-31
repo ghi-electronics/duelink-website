@@ -1,0 +1,24 @@
+{
+  "id": "catalog/display/lcd-20x4",
+  "title": "LCD 20x4",
+  "description": "---",
+  "source": "@site/docs/catalog/display/lcd-20x4.mdx",
+  "sourceDirName": "catalog/display",
+  "slug": "/catalog/display/lcd-20x4",
+  "permalink": "/duelink-website/docs/catalog/display/lcd-20x4",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/display/lcd-20x4.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "LCD 16x2",
+    "permalink": "/duelink-website/docs/catalog/display/lcd-16x2"
+  },
+  "next": {
+    "title": "oled-096",
+    "permalink": "/duelink-website/docs/catalog/display/oled-096"
+  }
+}

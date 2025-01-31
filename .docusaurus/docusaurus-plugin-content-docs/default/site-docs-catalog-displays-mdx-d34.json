@@ -1,0 +1,24 @@
+{
+  "id": "catalog/displays",
+  "title": "Displays",
+  "description": "",
+  "source": "@site/docs/catalog/displays.mdx",
+  "sourceDirName": "catalog",
+  "slug": "/catalog/displays",
+  "permalink": "/duelink-website/docs/catalog/displays",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/displays.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "PixoBit",
+    "permalink": "/duelink-website/docs/catalog/mainboard/pixobit"
+  },
+  "next": {
+    "title": "ePaper 29",
+    "permalink": "/duelink-website/docs/catalog/display/epaper29"
+  }
+}

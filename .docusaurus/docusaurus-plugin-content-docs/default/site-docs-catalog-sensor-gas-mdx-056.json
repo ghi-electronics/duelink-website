@@ -1,0 +1,24 @@
+{
+  "id": "catalog/sensor/gas",
+  "title": "Gas",
+  "description": "---",
+  "source": "@site/docs/catalog/sensor/gas.mdx",
+  "sourceDirName": "catalog/sensor",
+  "slug": "/catalog/sensor/gas",
+  "permalink": "/duelink-website/docs/catalog/sensor/gas",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/sensor/gas.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "EKG",
+    "permalink": "/duelink-website/docs/catalog/sensor/ekg"
+  },
+  "next": {
+    "title": "Light",
+    "permalink": "/duelink-website/docs/catalog/sensor/light"
+  }
+}

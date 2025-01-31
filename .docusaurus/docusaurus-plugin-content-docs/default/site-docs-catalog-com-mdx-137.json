@@ -1,0 +1,24 @@
+{
+  "id": "catalog/com",
+  "title": "Communication",
+  "description": "",
+  "source": "@site/docs/catalog/com.mdx",
+  "sourceDirName": "catalog",
+  "slug": "/catalog/com",
+  "permalink": "/duelink-website/docs/catalog/com",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/com.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "StepDrive X3",
+    "permalink": "/duelink-website/docs/catalog/actuator/stepdrive-x3"
+  },
+  "next": {
+    "title": "CAN",
+    "permalink": "/duelink-website/docs/catalog/com/can"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "catalog/hmi/joystick-l",
+  "title": "Joystick L",
+  "description": "---",
+  "source": "@site/docs/catalog/hmi/joystick-l.mdx",
+  "sourceDirName": "catalog/hmi",
+  "slug": "/catalog/hmi/joystick-l",
+  "permalink": "/duelink-website/docs/catalog/hmi/joystick-l",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/hmi/joystick-l.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Dip Switch",
+    "permalink": "/duelink-website/docs/catalog/hmi/dip-switch"
+  },
+  "next": {
+    "title": "Keypad 3x4",
+    "permalink": "/duelink-website/docs/catalog/hmi/keypad-3x4"
+  }
+}

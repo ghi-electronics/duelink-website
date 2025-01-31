@@ -1,0 +1,24 @@
+{
+  "id": "catalog/hmi",
+  "title": "Human Machine Interface",
+  "description": "",
+  "source": "@site/docs/catalog/hmi.mdx",
+  "sourceDirName": "catalog",
+  "slug": "/catalog/hmi",
+  "permalink": "/duelink-website/docs/catalog/hmi",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/hmi.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "USB Host",
+    "permalink": "/duelink-website/docs/catalog/com/usb-host"
+  },
+  "next": {
+    "title": "Button L",
+    "permalink": "/duelink-website/docs/catalog/hmi/button-l"
+  }
+}

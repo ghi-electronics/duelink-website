@@ -1,0 +1,24 @@
+{
+  "id": "catalog/sensors",
+  "title": "Sensor",
+  "description": "",
+  "source": "@site/docs/catalog/sensors.mdx",
+  "sourceDirName": "catalog",
+  "slug": "/catalog/sensors",
+  "permalink": "/duelink-website/docs/catalog/sensors",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/sensors.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "RFID",
+    "permalink": "/duelink-website/docs/catalog/wireless/rfid"
+  },
+  "next": {
+    "title": "ClipSense",
+    "permalink": "/duelink-website/docs/catalog/sensor/ClipSense"
+  }
+}

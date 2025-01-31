@@ -1,0 +1,24 @@
+{
+  "id": "catalog/actuator/step-pulse",
+  "title": "Step Pulse",
+  "description": "---",
+  "source": "@site/docs/catalog/actuator/step-pulse.mdx",
+  "sourceDirName": "catalog/actuator",
+  "slug": "/catalog/actuator/step-pulse",
+  "permalink": "/duelink-website/docs/catalog/actuator/step-pulse",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/actuator/step-pulse.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Servo X1",
+    "permalink": "/duelink-website/docs/catalog/actuator/servo-x1"
+  },
+  "next": {
+    "title": "StepDrive X1",
+    "permalink": "/duelink-website/docs/catalog/actuator/stepdrive-x1"
+  }
+}

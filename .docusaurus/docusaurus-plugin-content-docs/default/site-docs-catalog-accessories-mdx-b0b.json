@@ -1,0 +1,24 @@
+{
+  "id": "catalog/accessories",
+  "title": "Accessories",
+  "description": "",
+  "source": "@site/docs/catalog/accessories.mdx",
+  "sourceDirName": "catalog",
+  "slug": "/catalog/accessories",
+  "permalink": "/duelink-website/docs/catalog/accessories",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/accessories.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "MP3",
+    "permalink": "/duelink-website/docs/catalog/sound/MP3"
+  },
+  "next": {
+    "title": "Bluetooth Hook",
+    "permalink": "/duelink-website/docs/catalog/accessory/bluetooth-hook"
+  }
+}

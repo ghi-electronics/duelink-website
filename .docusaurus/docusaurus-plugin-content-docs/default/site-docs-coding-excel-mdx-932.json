@@ -1,0 +1,24 @@
+{
+  "id": "coding/excel",
+  "title": "Excel",
+  "description": "---",
+  "source": "@site/docs/coding/excel.mdx",
+  "sourceDirName": "coding",
+  "slug": "/coding/excel",
+  "permalink": "/duelink-website/docs/coding/excel",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding/excel.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "App Inventor",
+    "permalink": "/duelink-website/docs/coding/app-inventor"
+  },
+  "next": {
+    "title": "Other Languages",
+    "permalink": "/duelink-website/docs/coding/other"
+  }
+}

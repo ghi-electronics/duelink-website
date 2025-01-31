@@ -1,0 +1,24 @@
+{
+  "id": "coding/app-inventor",
+  "title": "App Inventor",
+  "description": "---",
+  "source": "@site/docs/coding/app-inventor.mdx",
+  "sourceDirName": "coding",
+  "slug": "/coding/app-inventor",
+  "permalink": "/duelink-website/docs/coding/app-inventor",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding/app-inventor.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Swift",
+    "permalink": "/duelink-website/docs/coding/swift"
+  },
+  "next": {
+    "title": "Excel",
+    "permalink": "/duelink-website/docs/coding/excel"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "catalog/accessory/duepi",
+  "title": "DuePi",
+  "description": "",
+  "source": "@site/docs/catalog/accessory/duepi.mdx",
+  "sourceDirName": "catalog/accessory",
+  "slug": "/catalog/accessory/duepi",
+  "permalink": "/duelink-website/docs/catalog/accessory/duepi",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/accessory/duepi.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "DueClick",
+    "permalink": "/duelink-website/docs/catalog/accessory/dueclick"
+  },
+  "next": {
+    "title": "Holey Board",
+    "permalink": "/duelink-website/docs/catalog/accessory/holey-board"
+  }
+}

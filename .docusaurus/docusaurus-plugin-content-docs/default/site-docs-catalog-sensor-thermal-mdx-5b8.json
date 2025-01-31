@@ -1,0 +1,24 @@
+{
+  "id": "catalog/sensor/thermal",
+  "title": "Thermal",
+  "description": "---",
+  "source": "@site/docs/catalog/sensor/thermal.mdx",
+  "sourceDirName": "catalog/sensor",
+  "slug": "/catalog/sensor/thermal",
+  "permalink": "/duelink-website/docs/catalog/sensor/thermal",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/sensor/thermal.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "TempRTD",
+    "permalink": "/duelink-website/docs/catalog/sensor/temprtd"
+  },
+  "next": {
+    "title": "LEDs",
+    "permalink": "/duelink-website/docs/catalog/leds"
+  }
+}

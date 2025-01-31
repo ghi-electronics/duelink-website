@@ -1,0 +1,24 @@
+{
+  "id": "engine/streams",
+  "title": "Streams",
+  "description": "---",
+  "source": "@site/docs/engine/streams.mdx",
+  "sourceDirName": "engine",
+  "slug": "/engine/streams",
+  "permalink": "/duelink-website/docs/engine/streams",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/engine/streams.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Stdlib",
+    "permalink": "/duelink-website/docs/engine/stdlib"
+  },
+  "next": {
+    "title": "Samples",
+    "permalink": "/duelink-website/docs/engine/samples"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "catalog/accessory/holey-moley-board",
+  "title": "Holey Moley Board",
+  "description": "",
+  "source": "@site/docs/catalog/accessory/holey-moley-board.mdx",
+  "sourceDirName": "catalog/accessory",
+  "slug": "/catalog/accessory/holey-moley-board",
+  "permalink": "/duelink-website/docs/catalog/accessory/holey-moley-board",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/accessory/holey-moley-board.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Holey Board",
+    "permalink": "/duelink-website/docs/catalog/accessory/holey-board"
+  },
+  "next": {
+    "title": "Mounting Hardware",
+    "permalink": "/duelink-website/docs/catalog/accessory/mount-hw"
+  }
+}

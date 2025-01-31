@@ -1,0 +1,24 @@
+{
+  "id": "catalog/actuator/fan",
+  "title": "Fan",
+  "description": "---",
+  "source": "@site/docs/catalog/actuator/fan.mdx",
+  "sourceDirName": "catalog/actuator",
+  "slug": "/catalog/actuator/fan",
+  "permalink": "/duelink-website/docs/catalog/actuator/fan",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/actuator/fan.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Intro",
+    "permalink": "/duelink-website/docs/catalog/actuators"
+  },
+  "next": {
+    "title": "Load",
+    "permalink": "/duelink-website/docs/catalog/actuator/load"
+  }
+}

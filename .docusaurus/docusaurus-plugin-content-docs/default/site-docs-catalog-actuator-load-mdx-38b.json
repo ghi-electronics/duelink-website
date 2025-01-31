@@ -1,0 +1,24 @@
+{
+  "id": "catalog/actuator/load",
+  "title": "Load",
+  "description": "---",
+  "source": "@site/docs/catalog/actuator/load.mdx",
+  "sourceDirName": "catalog/actuator",
+  "slug": "/catalog/actuator/load",
+  "permalink": "/duelink-website/docs/catalog/actuator/load",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/actuator/load.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Fan",
+    "permalink": "/duelink-website/docs/catalog/actuator/fan"
+  },
+  "next": {
+    "title": "SMotoMax",
+    "permalink": "/duelink-website/docs/catalog/actuator/motomax"
+  }
+}

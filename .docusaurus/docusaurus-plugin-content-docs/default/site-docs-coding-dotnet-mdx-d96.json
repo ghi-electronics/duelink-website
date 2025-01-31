@@ -1,0 +1,24 @@
+{
+  "id": "coding/dotnet",
+  "title": ".NET",
+  "description": "---",
+  "source": "@site/docs/coding/dotnet.mdx",
+  "sourceDirName": "coding",
+  "slug": "/coding/dotnet",
+  "permalink": "/duelink-website/docs/coding/dotnet",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding/dotnet.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "TypeScript",
+    "permalink": "/duelink-website/docs/coding/typescript"
+  },
+  "next": {
+    "title": "TinyCLR",
+    "permalink": "/duelink-website/docs/coding/tinyclr"
+  }
+}

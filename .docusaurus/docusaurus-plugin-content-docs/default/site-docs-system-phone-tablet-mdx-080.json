@@ -1,0 +1,24 @@
+{
+  "id": "system/phone-tablet",
+  "title": "Phone & Tablet",
+  "description": "DUELink module versatility allows it to work with Phones and Tablets. The modules on-board Scripting engine is accessible from many Interfaces and in this case a serial UART connection is all it takes. When connecting to an android system, any DUElink module will present itself as a virtual serial connection. You can quickly try it by installing any serial terminal program to send command.",
+  "source": "@site/docs/system/phone-tablet.mdx",
+  "sourceDirName": "system",
+  "slug": "/system/phone-tablet",
+  "permalink": "/duelink-website/docs/system/phone-tablet",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/system/phone-tablet.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "PC & Laptop",
+    "permalink": "/duelink-website/docs/system/pc-laptop"
+  },
+  "next": {
+    "title": "Beyond",
+    "permalink": "/duelink-website/docs/system/beyond"
+  }
+}

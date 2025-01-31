@@ -1,0 +1,24 @@
+{
+  "id": "catalog/sound/Codec",
+  "title": "Codec",
+  "description": "---",
+  "source": "@site/docs/catalog/sound/Codec.mdx",
+  "sourceDirName": "catalog/sound",
+  "slug": "/catalog/sound/Codec",
+  "permalink": "/duelink-website/docs/catalog/sound/Codec",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/sound/Codec.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "buzzer",
+    "permalink": "/duelink-website/docs/catalog/sound/Buzzer"
+  },
+  "next": {
+    "title": "MP3",
+    "permalink": "/duelink-website/docs/catalog/sound/MP3"
+  }
+}

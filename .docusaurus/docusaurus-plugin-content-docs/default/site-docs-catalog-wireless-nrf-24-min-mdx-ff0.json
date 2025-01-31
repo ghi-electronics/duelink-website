@@ -1,0 +1,24 @@
+{
+  "id": "catalog/wireless/nrf24-min",
+  "title": "NRF24 Min",
+  "description": "---",
+  "source": "@site/docs/catalog/wireless/nrf24-min.mdx",
+  "sourceDirName": "catalog/wireless",
+  "slug": "/catalog/wireless/nrf24-min",
+  "permalink": "/duelink-website/docs/catalog/wireless/nrf24-min",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/wireless/nrf24-min.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "NRF24 Max",
+    "permalink": "/duelink-website/docs/catalog/wireless/nrf24-max"
+  },
+  "next": {
+    "title": "Radio FM",
+    "permalink": "/duelink-website/docs/catalog/wireless/radio-fm"
+  }
+}
