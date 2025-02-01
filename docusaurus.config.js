@@ -18,8 +18,8 @@ const config = {
   tagline: 'Dynamic Universal Extensible Link',
   favicon: 'img/favicon.ico',
 
-  url: `https://${organizationName}.github.io`,
-  baseUrl: `/${projectName}/`,
+  url: `https://www.duelink.com/`,
+  baseUrl: `/`,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -47,7 +47,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            `https://${organizationName}.github.io/${projectName}`,
+            `https://github.com/ghi-electronics/duelink-website/tree/dev`,
         },
         blog: {
           showReadingTime: true,
@@ -82,7 +82,7 @@ const config = {
       },
 
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      //image: 'img/docusaurus-social-card.jpg',
       navbar: {
         title: '',
         logo: {
@@ -101,7 +101,7 @@ const config = {
          // {to: '/blog', label: 'Blog', position: 'left'},
           {
             href:            
-            `https://${organizationName}.github.io/${projectName}`,
+            `https://github.com/ghi-electronics/duelink-website`,
             label: 'GitHub',
             position: 'right',
           },
@@ -109,8 +109,9 @@ const config = {
       },
       footer: {
         style: 'dark',
+        /*
         links: [
-            /*
+            
           {
             
             title: 'Docs',
@@ -121,31 +122,50 @@ const config = {
               },
             ],
           },
-          */
+          
           {
-            title: 'Community',
+            title: 'Resources',
             items: [
+              {
+                label: 'GHI Electronics',
+                href: 'https://www.ghielectronics.com/',
+              },
               {
                 label: 'DUELink Forum',
                 href: 'https://forums.ghielectronics.com/c/duelink/31',
               },
-              {
-                label: 'YouTube',
-                href: 'https://www.youtube.com/@GHIElectronics',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
               {
                 label: 'GitHub',
                 href: 'https://github.com/ghi-electronics/duelink-website',
               },
             ],
           },
+          {
+            title: 'Social',
+            items: [
+              
+              {
+                label: 'YouTube',
+                href: 'https://www.youtube.com/@GHIElectronics',
+              },
+              {
+                label: 'X',
+                href: 'http://x.com/GHIElectronics',
+              },
+              {
+                label: 'Instagram',
+                href: 'https://www.instagram.com/ghielectronics/',
+              },
+              {
+                label: 'Facebook',
+                href: 'https://www.facebook.com/ghielectronics/',
+              },
+            ],
+          },
+          
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} GHI Electronics LLC.`,
+        */
+        copyright: `Copyright © ${new Date().getFullYear()} GHI Electronics, LLC`,
       },
       prism: {
         theme: prismThemes.github,
