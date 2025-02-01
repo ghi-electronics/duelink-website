@@ -1,0 +1,24 @@
+{
+  "id": "catalog/wireless/gnss",
+  "title": "GNSS",
+  "description": "---",
+  "source": "@site/docs/catalog/wireless/gnss.mdx",
+  "sourceDirName": "catalog/wireless",
+  "slug": "/catalog/wireless/gnss",
+  "permalink": "/duelink-website/docs/catalog/wireless/gnss",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/wireless/gnss.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "GNSS WA",
+    "permalink": "/duelink-website/docs/catalog/wireless/gnss-wa"
+  },
+  "next": {
+    "title": "NRF24 Max",
+    "permalink": "/duelink-website/docs/catalog/wireless/nrf24-max"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "catalog/accessory/sticker",
+  "title": "Sticker",
+  "description": "---",
+  "source": "@site/docs/catalog/accessory/sticker.mdx",
+  "sourceDirName": "catalog/accessory",
+  "slug": "/catalog/accessory/sticker",
+  "permalink": "/duelink-website/docs/catalog/accessory/sticker",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/accessory/sticker.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Power Switch",
+    "permalink": "/duelink-website/docs/catalog/accessory/pwr-switch"
+  },
+  "next": {
+    "title": "USB Hook",
+    "permalink": "/duelink-website/docs/catalog/accessory/usb-hook"
+  }
+}

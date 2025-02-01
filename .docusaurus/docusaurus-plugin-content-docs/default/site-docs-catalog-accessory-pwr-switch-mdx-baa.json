@@ -1,0 +1,24 @@
+{
+  "id": "catalog/accessory/pwr-switch",
+  "title": "Power Switch",
+  "description": "---",
+  "source": "@site/docs/catalog/accessory/pwr-switch.mdx",
+  "sourceDirName": "catalog/accessory",
+  "slug": "/catalog/accessory/pwr-switch",
+  "permalink": "/duelink-website/docs/catalog/accessory/pwr-switch",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/accessory/pwr-switch.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Power Min",
+    "permalink": "/duelink-website/docs/catalog/accessory/power-min"
+  },
+  "next": {
+    "title": "Sticker",
+    "permalink": "/duelink-website/docs/catalog/accessory/sticker"
+  }
+}

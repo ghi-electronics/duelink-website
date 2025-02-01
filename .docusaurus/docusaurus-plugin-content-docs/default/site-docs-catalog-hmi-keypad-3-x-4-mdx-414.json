@@ -1,0 +1,24 @@
+{
+  "id": "catalog/hmi/keypad-3x4",
+  "title": "Keypad 3x4",
+  "description": "---",
+  "source": "@site/docs/catalog/hmi/keypad-3x4.mdx",
+  "sourceDirName": "catalog/hmi",
+  "slug": "/catalog/hmi/keypad-3x4",
+  "permalink": "/duelink-website/docs/catalog/hmi/keypad-3x4",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/hmi/keypad-3x4.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Joystick L",
+    "permalink": "/duelink-website/docs/catalog/hmi/joystick-l"
+  },
+  "next": {
+    "title": "Keypad 4x4",
+    "permalink": "/duelink-website/docs/catalog/hmi/keypad-4x4"
+  }
+}

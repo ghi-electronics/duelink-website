@@ -1,0 +1,24 @@
+{
+  "id": "coding/other",
+  "title": "Other Languages",
+  "description": "---",
+  "source": "@site/docs/coding/other.mdx",
+  "sourceDirName": "coding",
+  "slug": "/coding/other",
+  "permalink": "/duelink-website/docs/coding/other",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding/other.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Excel",
+    "permalink": "/duelink-website/docs/coding/excel"
+  },
+  "next": {
+    "title": "API Reference",
+    "permalink": "/duelink-website/docs/api/intro"
+  }
+}

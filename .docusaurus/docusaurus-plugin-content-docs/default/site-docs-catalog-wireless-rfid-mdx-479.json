@@ -1,0 +1,24 @@
+{
+  "id": "catalog/wireless/rfid",
+  "title": "RFID",
+  "description": "",
+  "source": "@site/docs/catalog/wireless/rfid.mdx",
+  "sourceDirName": "catalog/wireless",
+  "slug": "/catalog/wireless/rfid",
+  "permalink": "/duelink-website/docs/catalog/wireless/rfid",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/wireless/rfid.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Radio FM",
+    "permalink": "/duelink-website/docs/catalog/wireless/radio-fm"
+  },
+  "next": {
+    "title": "Sensor",
+    "permalink": "/duelink-website/docs/catalog/sensors"
+  }
+}

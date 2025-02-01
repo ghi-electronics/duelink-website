@@ -1,0 +1,24 @@
+{
+  "id": "catalog/storage/flash",
+  "title": "Flash",
+  "description": "---",
+  "source": "@site/docs/catalog/storage/flash.mdx",
+  "sourceDirName": "catalog/storage",
+  "slug": "/catalog/storage/flash",
+  "permalink": "/duelink-website/docs/catalog/storage/flash",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/storage/flash.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Accessories",
+    "permalink": "/duelink-website/docs/catalog/storage"
+  },
+  "next": {
+    "title": "SD Card",
+    "permalink": "/duelink-website/docs/catalog/storage/sd-card"
+  }
+}

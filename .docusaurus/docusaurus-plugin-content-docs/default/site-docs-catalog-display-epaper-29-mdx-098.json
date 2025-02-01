@@ -1,0 +1,24 @@
+{
+  "id": "catalog/display/epaper29",
+  "title": "ePaper 29",
+  "description": "---",
+  "source": "@site/docs/catalog/display/epaper29.mdx",
+  "sourceDirName": "catalog/display",
+  "slug": "/catalog/display/epaper29",
+  "permalink": "/duelink-website/docs/catalog/display/epaper29",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/display/epaper29.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Displays",
+    "permalink": "/duelink-website/docs/catalog/displays"
+  },
+  "next": {
+    "title": "LCD 16x2",
+    "permalink": "/duelink-website/docs/catalog/display/lcd-16x2"
+  }
+}

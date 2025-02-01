@@ -1,0 +1,24 @@
+{
+  "id": "coding/micropython",
+  "title": "MicroPython",
+  "description": "---",
+  "source": "@site/docs/coding/micropython.mdx",
+  "sourceDirName": "coding",
+  "slug": "/coding/micropython",
+  "permalink": "/duelink-website/docs/coding/micropython",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding/micropython.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Python",
+    "permalink": "/duelink-website/docs/coding/python"
+  },
+  "next": {
+    "title": "JavaScript",
+    "permalink": "/duelink-website/docs/coding/javascript"
+  }
+}

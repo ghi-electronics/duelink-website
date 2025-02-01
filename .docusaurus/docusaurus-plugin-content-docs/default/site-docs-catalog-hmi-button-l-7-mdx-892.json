@@ -1,0 +1,24 @@
+{
+  "id": "catalog/hmi/button-l7",
+  "title": "Button L7",
+  "description": "---",
+  "source": "@site/docs/catalog/hmi/button-l7.mdx",
+  "sourceDirName": "catalog/hmi",
+  "slug": "/catalog/hmi/button-l7",
+  "permalink": "/duelink-website/docs/catalog/hmi/button-l7",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/hmi/button-l7.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Button L",
+    "permalink": "/duelink-website/docs/catalog/hmi/button-l"
+  },
+  "next": {
+    "title": "Button S",
+    "permalink": "/duelink-website/docs/catalog/hmi/button-s"
+  }
+}

@@ -3,6 +3,41 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
+    path: '/duelink-website/__docusaurus/debug',
+    component: ComponentCreator('/duelink-website/__docusaurus/debug', '118'),
+    exact: true
+  },
+  {
+    path: '/duelink-website/__docusaurus/debug/config',
+    component: ComponentCreator('/duelink-website/__docusaurus/debug/config', '7d7'),
+    exact: true
+  },
+  {
+    path: '/duelink-website/__docusaurus/debug/content',
+    component: ComponentCreator('/duelink-website/__docusaurus/debug/content', 'c93'),
+    exact: true
+  },
+  {
+    path: '/duelink-website/__docusaurus/debug/globalData',
+    component: ComponentCreator('/duelink-website/__docusaurus/debug/globalData', '97d'),
+    exact: true
+  },
+  {
+    path: '/duelink-website/__docusaurus/debug/metadata',
+    component: ComponentCreator('/duelink-website/__docusaurus/debug/metadata', '5e2'),
+    exact: true
+  },
+  {
+    path: '/duelink-website/__docusaurus/debug/registry',
+    component: ComponentCreator('/duelink-website/__docusaurus/debug/registry', 'bd6'),
+    exact: true
+  },
+  {
+    path: '/duelink-website/__docusaurus/debug/routes',
+    component: ComponentCreator('/duelink-website/__docusaurus/debug/routes', '736'),
+    exact: true
+  },
+  {
     path: '/duelink-website/markdown-page',
     component: ComponentCreator('/duelink-website/markdown-page', 'fe7'),
     exact: true
@@ -19,15 +54,15 @@ export default [
   },
   {
     path: '/duelink-website/docs',
-    component: ComponentCreator('/duelink-website/docs', '07e'),
+    component: ComponentCreator('/duelink-website/docs', '8b0'),
     routes: [
       {
         path: '/duelink-website/docs',
-        component: ComponentCreator('/duelink-website/docs', '586'),
+        component: ComponentCreator('/duelink-website/docs', '292'),
         routes: [
           {
             path: '/duelink-website/docs',
-            component: ComponentCreator('/duelink-website/docs', '00e'),
+            component: ComponentCreator('/duelink-website/docs', 'bbc'),
             routes: [
               {
                 path: '/duelink-website/docs/about',
@@ -615,8 +650,8 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/mainboard/clipbit',
-                component: ComponentCreator('/duelink-website/docs/catalog/mainboard/clipbit', '88a'),
+                path: '/duelink-website/docs/catalog/mainboard/clipit',
+                component: ComponentCreator('/duelink-website/docs/catalog/mainboard/clipit', 'ee9'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },

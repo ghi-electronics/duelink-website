@@ -1,0 +1,24 @@
+{
+  "id": "catalog/sensor/rtc",
+  "title": "RTC",
+  "description": "---",
+  "source": "@site/docs/catalog/sensor/rtc.mdx",
+  "sourceDirName": "catalog/sensor",
+  "slug": "/catalog/sensor/rtc",
+  "permalink": "/duelink-website/docs/catalog/sensor/rtc",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/sensor/rtc.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Pulse Oximeter",
+    "permalink": "/duelink-website/docs/catalog/sensor/pulseoxi"
+  },
+  "next": {
+    "title": "Temperature & Humidity",
+    "permalink": "/duelink-website/docs/catalog/sensor/temphmd"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "coding/tinyclr",
+  "title": "TinyCLR",
+  "description": "---",
+  "source": "@site/docs/coding/tinyclr.mdx",
+  "sourceDirName": "coding",
+  "slug": "/coding/tinyclr",
+  "permalink": "/duelink-website/docs/coding/tinyclr",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding/tinyclr.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": ".NET",
+    "permalink": "/duelink-website/docs/coding/dotnet"
+  },
+  "next": {
+    "title": "C++",
+    "permalink": "/duelink-website/docs/coding/cpp"
+  }
+}

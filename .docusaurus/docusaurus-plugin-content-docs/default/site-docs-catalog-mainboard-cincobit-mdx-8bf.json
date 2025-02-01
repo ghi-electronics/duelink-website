@@ -1,0 +1,24 @@
+{
+  "id": "catalog/mainboard/cincobit",
+  "title": "CincoBit",
+  "description": "---",
+  "source": "@site/docs/catalog/mainboard/cincobit.mdx",
+  "sourceDirName": "catalog/mainboard",
+  "slug": "/catalog/mainboard/cincobit",
+  "permalink": "/duelink-website/docs/catalog/mainboard/cincobit",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/mainboard/cincobit.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Mainboards",
+    "permalink": "/duelink-website/docs/catalog/mainboards"
+  },
+  "next": {
+    "title": "ClipIt",
+    "permalink": "/duelink-website/docs/catalog/mainboard/clipit"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "catalog/com/rs485",
+  "title": "RS485",
+  "description": "---",
+  "source": "@site/docs/catalog/com/rs485.mdx",
+  "sourceDirName": "catalog/com",
+  "slug": "/catalog/com/rs485",
+  "permalink": "/duelink-website/docs/catalog/com/rs485",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/com/rs485.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "MIDI",
+    "permalink": "/duelink-website/docs/catalog/com/midi"
+  },
+  "next": {
+    "title": "Serial USB",
+    "permalink": "/duelink-website/docs/catalog/com/serial-usb"
+  }
+}

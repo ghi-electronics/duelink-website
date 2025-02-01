@@ -1,0 +1,24 @@
+{
+  "id": "coding/intro",
+  "title": "Coding Options",
+  "description": "---",
+  "source": "@site/docs/coding/intro.mdx",
+  "sourceDirName": "coding",
+  "slug": "/coding/intro",
+  "permalink": "/duelink-website/docs/coding/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding/intro.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Beyond",
+    "permalink": "/duelink-website/docs/system/beyond"
+  },
+  "next": {
+    "title": "Scripting",
+    "permalink": "/duelink-website/docs/coding/scripting"
+  }
+}

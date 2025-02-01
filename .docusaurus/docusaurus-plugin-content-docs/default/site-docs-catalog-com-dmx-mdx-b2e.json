@@ -1,0 +1,24 @@
+{
+  "id": "catalog/com/dmx",
+  "title": "DMX",
+  "description": "---",
+  "source": "@site/docs/catalog/com/dmx.mdx",
+  "sourceDirName": "catalog/com",
+  "slug": "/catalog/com/dmx",
+  "permalink": "/duelink-website/docs/catalog/com/dmx",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/com/dmx.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "CAN",
+    "permalink": "/duelink-website/docs/catalog/com/can"
+  },
+  "next": {
+    "title": "Ethernet",
+    "permalink": "/duelink-website/docs/catalog/com/ethernet"
+  }
+}

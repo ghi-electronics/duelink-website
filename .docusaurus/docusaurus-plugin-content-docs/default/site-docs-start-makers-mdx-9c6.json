@@ -1,0 +1,24 @@
+{
+  "id": "start/makers",
+  "title": "Makers",
+  "description": "---",
+  "source": "@site/docs/start/makers.mdx",
+  "sourceDirName": "start",
+  "slug": "/start/makers",
+  "permalink": "/duelink-website/docs/start/makers",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/start/makers.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Commercial Use",
+    "permalink": "/duelink-website/docs/start/commercial"
+  },
+  "next": {
+    "title": "Education",
+    "permalink": "/duelink-website/docs/start/education"
+  }
+}

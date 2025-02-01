@@ -1,0 +1,24 @@
+{
+  "id": "catalog/actuator/servo-p8",
+  "title": "Servo P8",
+  "description": "---",
+  "source": "@site/docs/catalog/actuator/servo-p8.mdx",
+  "sourceDirName": "catalog/actuator",
+  "slug": "/catalog/actuator/servo-p8",
+  "permalink": "/duelink-website/docs/catalog/actuator/servo-p8",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/actuator/servo-p8.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Realy X1",
+    "permalink": "/duelink-website/docs/catalog/actuator/relay-x1"
+  },
+  "next": {
+    "title": "Servo X1",
+    "permalink": "/duelink-website/docs/catalog/actuator/servo-x1"
+  }
+}

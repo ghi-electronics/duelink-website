@@ -1,0 +1,24 @@
+{
+  "id": "catalog/display/tft-r128",
+  "title": "TFT R128",
+  "description": "---",
+  "source": "@site/docs/catalog/display/tft-r128.mdx",
+  "sourceDirName": "catalog/display",
+  "slug": "/catalog/display/tft-r128",
+  "permalink": "/duelink-website/docs/catalog/display/tft-r128",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/display/tft-r128.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "TFT N18",
+    "permalink": "/duelink-website/docs/catalog/display/tft-n18"
+  },
+  "next": {
+    "title": "TFT T32",
+    "permalink": "/duelink-website/docs/catalog/display/tft-t32"
+  }
+}

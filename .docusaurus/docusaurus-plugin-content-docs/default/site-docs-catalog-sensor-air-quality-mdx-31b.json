@@ -1,0 +1,24 @@
+{
+  "id": "catalog/sensor/air-quality",
+  "title": "Air Quality",
+  "description": "---",
+  "source": "@site/docs/catalog/sensor/air-quality.mdx",
+  "sourceDirName": "catalog/sensor",
+  "slug": "/catalog/sensor/air-quality",
+  "permalink": "/duelink-website/docs/catalog/sensor/air-quality",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/sensor/air-quality.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Accel",
+    "permalink": "/duelink-website/docs/catalog/sensor/accel"
+  },
+  "next": {
+    "title": "Barometer",
+    "permalink": "/duelink-website/docs/catalog/sensor/barometer"
+  }
+}

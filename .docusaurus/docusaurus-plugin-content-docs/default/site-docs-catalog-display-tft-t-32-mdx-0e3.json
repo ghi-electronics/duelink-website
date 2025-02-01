@@ -1,0 +1,24 @@
+{
+  "id": "catalog/display/tft-t32",
+  "title": "TFT T32",
+  "description": "---",
+  "source": "@site/docs/catalog/display/tft-t32.mdx",
+  "sourceDirName": "catalog/display",
+  "slug": "/catalog/display/tft-t32",
+  "permalink": "/duelink-website/docs/catalog/display/tft-t32",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/display/tft-t32.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "TFT R128",
+    "permalink": "/duelink-website/docs/catalog/display/tft-r128"
+  },
+  "next": {
+    "title": "VFD B8",
+    "permalink": "/duelink-website/docs/catalog/display/vfd-b8"
+  }
+}

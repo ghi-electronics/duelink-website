@@ -1,0 +1,24 @@
+{
+  "id": "catalog/actuator/relay-p16",
+  "title": "Relay P16",
+  "description": "---",
+  "source": "@site/docs/catalog/actuator/relay-p16.mdx",
+  "sourceDirName": "catalog/actuator",
+  "slug": "/catalog/actuator/relay-p16",
+  "permalink": "/duelink-website/docs/catalog/actuator/relay-p16",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/actuator/relay-p16.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "MotoTwin",
+    "permalink": "/duelink-website/docs/catalog/actuator/mototwin"
+  },
+  "next": {
+    "title": "Relay P4",
+    "permalink": "/duelink-website/docs/catalog/actuator/relay-p4"
+  }
+}
