@@ -8,8 +8,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
-const organizationName = "ghi-electronics";
-const projectName = "duelink-website";
+//const organizationName = "ghi-electronics";
+//const projectName = "duelink-website";
 
 
 /** @type {import('@docusaurus/types').Config} */
@@ -23,8 +23,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName,
-  projectName, 
+  //organizationName,
+  //projectName, 
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -49,7 +49,7 @@ const config = {
           editUrl:
             `https://github.com/ghi-electronics/duelink-website/tree/dev`,
         },
-        blog: {
+        /*blog: {
           showReadingTime: true,
           feedOptions: {
             type: ['rss', 'atom'],
@@ -63,7 +63,7 @@ const config = {
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
-        },
+        },*/
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -84,27 +84,36 @@ const config = {
       // Replace with your project's social card
       //image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: '',
+        title: 'by GHI Electronics',
         logo: {
           alt: 'DUELink Logo',
-          src: 'img/logo.svg',
+          src: 'img/duelinklogo.png',
+
         },
         items: [
-            /*
+            
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Tutorial',
+            href: 'https://www.ghielectronics.com/',
+            //type: 'docSidebar',
+            //idebarId: 'tutorialSidebar',
+            position: 'right',
+            label: 'GHI Electronics',
           },
-          */
-         // {to: '/blog', label: 'Blog', position: 'left'},
           {
+            href: 'https://forums.ghielectronics.com/c/duelink/31',
+            //type: 'docSidebar',
+            //sidebarId: 'tutorialSidebar',
+            position: 'right',
+            label: 'Forums',
+          },
+          
+         // {to: '/blog', label: 'Blog', position: 'left'},
+          /*{
             href:            
             `https://github.com/ghi-electronics/duelink-website`,
             label: 'GitHub',
             position: 'right',
-          },
+          },*/
         ],
       },
       footer: {
