@@ -1,854 +1,811 @@
 {
-  "/__docusaurus/debug-5ff": {
-    "__comp": "__comp---theme-debug-config-23-a-2ff",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
-  "/__docusaurus/debug/config-5ba": {
-    "__comp": "__comp---theme-debug-config-23-a-2ff",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
-  "/__docusaurus/debug/content-a2b": {
-    "__comp": "__comp---theme-debug-contentba-8-ce7",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    },
-    "__props": "__props---docusaurus-debug-content-3-c-0-be2"
-  },
-  "/__docusaurus/debug/globalData-c3c": {
-    "__comp": "__comp---theme-debug-global-dataede-0fa",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
-  "/__docusaurus/debug/metadata-156": {
-    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
-  "/__docusaurus/debug/registry-88c": {
-    "__comp": "__comp---theme-debug-registry-679-501",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
-  "/__docusaurus/debug/routes-000": {
-    "__comp": "__comp---theme-debug-routes-946-699",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
   "/markdown-page-3d7": {
-    "__comp": "__comp---theme-mdx-page-1-f-3-b90",
+    "__comp": "1f391b9e",
     "__context": {
-      "plugin": "plugin---markdown-pagea-74-7b5"
+      "plugin": "a7456010"
     },
-    "content": "content---markdown-page-393-028"
+    "content": "393be207"
   },
   "/my-markdown-page-438": {
-    "__comp": "__comp---theme-mdx-page-1-f-3-b90",
+    "__comp": "1f391b9e",
     "__context": {
-      "plugin": "plugin---markdown-pagea-74-7b5"
+      "plugin": "a7456010"
     },
-    "content": "content---my-markdown-page-031-4dc"
+    "content": "03181aef"
   },
   "/my-react-page-f2d": {
-    "__comp": "__comp---site-src-pages-my-react-page-jsf-85-e77",
+    "__comp": "f8551aab",
     "__context": {
-      "plugin": "plugin---markdown-pagea-74-7b5"
+      "plugin": "a7456010"
     },
-    "config": "config---my-react-page-5-e-9-dcc"
+    "config": "5e9f5e1a"
   },
   "/docs-c91": {
-    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+    "__comp": "5e95c892",
     "__context": {
-      "plugin": "plugin---docsaba-d7c"
+      "plugin": "aba21aa0"
     }
   },
   "/docs-3dd": {
-    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
-    "__props": "__props---docs-005-788"
+    "__comp": "a7bd4aaa",
+    "__props": "0058b4c6"
   },
   "/docs-413": {
-    "__comp": "__comp---theme-doc-roota-94-67a"
+    "__comp": "a94703ab"
   },
   "/docs/about-941": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-about-360-72c"
+    "__comp": "17896441",
+    "content": "36041992"
   },
   "/docs/api/analog-feb": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-analogc-80-6ff"
+    "__comp": "17896441",
+    "content": "c800b892"
   },
   "/docs/api/bluetooth-ed8": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-bluetooth-928-035"
+    "__comp": "17896441",
+    "content": "928dfb9d"
   },
   "/docs/api/button-e6e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-button-4-fc-7e1"
+    "__comp": "17896441",
+    "content": "4fcf492b"
   },
   "/docs/api/can-a24": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-can-302-84f"
+    "__comp": "17896441",
+    "content": "30291390"
   },
   "/docs/api/digital-b02": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-digital-55-e-ec0"
+    "__comp": "17896441",
+    "content": "55e5eba5"
   },
   "/docs/api/distance-273": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-distancec-38-c9f"
+    "__comp": "17896441",
+    "content": "c384e657"
   },
   "/docs/api/frequency-e52": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-frequencyb-46-6af"
+    "__comp": "17896441",
+    "content": "b46e94e4"
   },
   "/docs/api/i2c-24e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-i-2-c-8-b-1-e14"
+    "__comp": "17896441",
+    "content": "8b117166"
   },
   "/docs/api/infrared-70c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-infrared-5-ed-f90"
+    "__comp": "17896441",
+    "content": "5ed881e6"
   },
   "/docs/api/intro-5da": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-intro-382-375"
+    "__comp": "17896441",
+    "content": "382a2208"
   },
   "/docs/api/lcd-758": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-lcdcdb-6e7"
+    "__comp": "17896441",
+    "content": "cdbe586d"
   },
   "/docs/api/led-c1a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-lede-23-a30"
+    "__comp": "17896441",
+    "content": "e23c6c40"
   },
   "/docs/api/neopixel-51f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-neopixel-6-c-3-ef5"
+    "__comp": "17896441",
+    "content": "6c30faed"
   },
   "/docs/api/pulse-2db": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-pulse-09-a-194"
+    "__comp": "17896441",
+    "content": "09a92c54"
   },
   "/docs/api/script-db0": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-script-785-0ef"
+    "__comp": "17896441",
+    "content": "78520534"
   },
   "/docs/api/servo-c0b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-servo-0-cd-dc8"
+    "__comp": "17896441",
+    "content": "0cdadd00"
   },
   "/docs/api/sound-121": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-sound-58-b-4c7"
+    "__comp": "17896441",
+    "content": "58bee9d7"
   },
   "/docs/api/spi-e8d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-spic-68-0b4"
+    "__comp": "17896441",
+    "content": "c688902b"
   },
   "/docs/api/systemfunctions-834": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-systemfunctions-919-4ff"
+    "__comp": "17896441",
+    "content": "919d3e7f"
   },
   "/docs/api/temp-humidity-17e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-temp-humidity-30-b-c80"
+    "__comp": "17896441",
+    "content": "30b903e1"
   },
   "/docs/api/template-cee": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-template-857-6b0"
+    "__comp": "17896441",
+    "content": "857c2dc8"
   },
   "/docs/api/touch-7f3": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-touch-1-e-8-49c"
+    "__comp": "17896441",
+    "content": "1e860f04"
   },
   "/docs/api/uart-0e4": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-uartdd-0-8dc"
+    "__comp": "17896441",
+    "content": "dd0f43d8"
   },
   "/docs/catalog/accessories-211": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-accessoriesb-0-b-5f7"
+    "__comp": "17896441",
+    "content": "b0b38557"
   },
   "/docs/catalog/accessory/bluetooth-hook-69f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-accessory-bluetooth-hook-883-431"
+    "__comp": "17896441",
+    "content": "883326d9"
   },
   "/docs/catalog/accessory/breakout-159": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-accessory-breakoutdb-2-653"
+    "__comp": "17896441",
+    "content": "db20eece"
   },
   "/docs/catalog/accessory/cable-connector-549": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-accessory-cable-connectord-1-a-92a"
+    "__comp": "17896441",
+    "content": "d1a557b5"
   },
   "/docs/catalog/accessory/dueclick-42d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-accessory-dueclick-079-3da"
+    "__comp": "17896441",
+    "content": "079336d9"
   },
   "/docs/catalog/accessory/duepi-4f3": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-accessory-duepie-4-f-8b4"
+    "__comp": "17896441",
+    "content": "e4fc0b9b"
   },
   "/docs/catalog/accessory/holey-board-dae": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-accessory-holey-board-9-b-8-68d"
+    "__comp": "17896441",
+    "content": "9b83f736"
   },
   "/docs/catalog/accessory/holey-moley-board-32d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-accessory-holey-moley-board-7-da-ebe"
+    "__comp": "17896441",
+    "content": "7da5b444"
   },
   "/docs/catalog/accessory/mount-hw-9ac": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-accessory-mount-hwd-89-421"
+    "__comp": "17896441",
+    "content": "d89bfbd5"
   },
   "/docs/catalog/accessory/power-inject-f06": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-accessory-power-inject-824-9bb"
+    "__comp": "17896441",
+    "content": "82498533"
   },
   "/docs/catalog/accessory/power-min-f3d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-accessory-power-mine-39-1d6"
+    "__comp": "17896441",
+    "content": "e39ada81"
   },
   "/docs/catalog/accessory/pwr-switch-885": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-accessory-pwr-switchbaa-e75"
+    "__comp": "17896441",
+    "content": "baa52984"
   },
   "/docs/catalog/accessory/sticker-400": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-accessory-stickerfeb-485"
+    "__comp": "17896441",
+    "content": "febc33ed"
   },
   "/docs/catalog/accessory/usb-hook-afb": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-accessory-usb-hook-76-b-a82"
+    "__comp": "17896441",
+    "content": "76b9cc46"
   },
   "/docs/catalog/actuator/fan-06f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-actuator-fan-2-d-1-6a0"
+    "__comp": "17896441",
+    "content": "2d115d4a"
   },
   "/docs/catalog/actuator/load-cd6": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-actuator-load-38-b-364"
+    "__comp": "17896441",
+    "content": "38b709fe"
   },
   "/docs/catalog/actuator/motomax-617": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-actuator-motomax-61-a-096"
+    "__comp": "17896441",
+    "content": "61aaf05b"
   },
   "/docs/catalog/actuator/mototwin-dde": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-actuator-mototwind-66-b82"
+    "__comp": "17896441",
+    "content": "d665013d"
   },
   "/docs/catalog/actuator/relay-p16-a49": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-actuator-relay-p-16-b-5-d-b6f"
+    "__comp": "17896441",
+    "content": "b5d98c20"
   },
   "/docs/catalog/actuator/relay-p4-e3b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-actuator-relay-p-49-aa-864"
+    "__comp": "17896441",
+    "content": "9aa3591d"
   },
   "/docs/catalog/actuator/relay-x1-a77": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-actuator-relay-x-1913-cee"
+    "__comp": "17896441",
+    "content": "913c7c03"
   },
   "/docs/catalog/actuator/servo-p8-8d6": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-actuator-servo-p-8-ddd-a7b"
+    "__comp": "17896441",
+    "content": "ddd14f97"
   },
   "/docs/catalog/actuator/servo-x1-c74": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-actuator-servo-x-1-a-23-26c"
+    "__comp": "17896441",
+    "content": "a23550f5"
   },
   "/docs/catalog/actuator/step-pulse-920": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-actuator-step-pulse-81-f-985"
+    "__comp": "17896441",
+    "content": "81f7538f"
   },
   "/docs/catalog/actuator/stepdrive-x1-44e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-actuator-stepdrive-x-1557-6a4"
+    "__comp": "17896441",
+    "content": "55772b62"
   },
   "/docs/catalog/actuator/stepdrive-x3-b68": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-actuator-stepdrive-x-374-a-d8e"
+    "__comp": "17896441",
+    "content": "74af603d"
   },
   "/docs/catalog/actuators-bc7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-actuatorsf-33-c2e"
+    "__comp": "17896441",
+    "content": "f33d41cb"
   },
   "/docs/catalog/com-340": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-com-137-1ab"
+    "__comp": "17896441",
+    "content": "1374db13"
   },
   "/docs/catalog/com/can-7de": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-com-can-669-62b"
+    "__comp": "17896441",
+    "content": "66979cb4"
   },
   "/docs/catalog/com/dmx-221": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-com-dmxb-2-e-1dd"
+    "__comp": "17896441",
+    "content": "b2e9aa02"
   },
   "/docs/catalog/com/ethernet-285": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-com-ethernet-43-f-fb8"
+    "__comp": "17896441",
+    "content": "43f5559f"
   },
   "/docs/catalog/com/jacdac-14d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-com-jacdac-29-f-240"
+    "__comp": "17896441",
+    "content": "29f89ffc"
   },
   "/docs/catalog/com/midi-4a7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-com-midi-865-4aa"
+    "__comp": "17896441",
+    "content": "8658699a"
   },
   "/docs/catalog/com/rs485-33c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-com-rs-4854-a-1-65f"
+    "__comp": "17896441",
+    "content": "4a1064ad"
   },
   "/docs/catalog/com/serial-usb-10e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-com-serial-usb-412-b75"
+    "__comp": "17896441",
+    "content": "41235ee0"
   },
   "/docs/catalog/com/usb-host-a75": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-com-usb-host-231-e1d"
+    "__comp": "17896441",
+    "content": "2313b17c"
   },
   "/docs/catalog/display/epaper29-6eb": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-display-epaper-29098-99d"
+    "__comp": "17896441",
+    "content": "098d7d33"
   },
   "/docs/catalog/display/lcd-16x2-d4e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-display-lcd-16-x-23-a-9-c6d"
+    "__comp": "17896441",
+    "content": "3a9eec2b"
   },
   "/docs/catalog/display/lcd-20x4-ae4": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-display-lcd-20-x-462-f-734"
+    "__comp": "17896441",
+    "content": "62f3415e"
   },
   "/docs/catalog/display/oled-096-b6b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-display-oled-0961-c-1-a30"
+    "__comp": "17896441",
+    "content": "1c131897"
   },
   "/docs/catalog/display/tft-cp23-264": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-display-tft-cp-23-c-96-351"
+    "__comp": "17896441",
+    "content": "c9663871"
   },
   "/docs/catalog/display/tft-cp70bt-14d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-display-tft-cp-70-bt-9-a-8-eb4"
+    "__comp": "17896441",
+    "content": "9a8ebc06"
   },
   "/docs/catalog/display/tft-n18-b11": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-display-tft-n-187-f-4-3f4"
+    "__comp": "17896441",
+    "content": "7f48853b"
   },
   "/docs/catalog/display/tft-r128-0fd": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-display-tft-r-128-ee-0-06b"
+    "__comp": "17896441",
+    "content": "ee0e501f"
   },
   "/docs/catalog/display/tft-t32-dfe": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-display-tft-t-320-e-3-a17"
+    "__comp": "17896441",
+    "content": "0e36c416"
   },
   "/docs/catalog/display/vfd-b8-c1f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-display-vfd-b-8-e-64-f44"
+    "__comp": "17896441",
+    "content": "e644b27d"
   },
   "/docs/catalog/displays-198": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-displaysd-34-437"
+    "__comp": "17896441",
+    "content": "d349a865"
   },
   "/docs/catalog/hmi-076": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-hmib-41-f66"
+    "__comp": "17896441",
+    "content": "b4152d38"
   },
   "/docs/catalog/hmi/button-l-e98": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-hmi-button-l-248-b6f"
+    "__comp": "17896441",
+    "content": "248e7f32"
   },
   "/docs/catalog/hmi/button-l7-c07": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-hmi-button-l-7892-664"
+    "__comp": "17896441",
+    "content": "89289a28"
   },
   "/docs/catalog/hmi/button-s-1b5": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-hmi-button-s-96-a-243"
+    "__comp": "17896441",
+    "content": "96a8b58f"
   },
   "/docs/catalog/hmi/capslide-b65": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-hmi-capslide-763-ceb"
+    "__comp": "17896441",
+    "content": "7636da6f"
   },
   "/docs/catalog/hmi/dial-8f2": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-hmi-dial-933-523"
+    "__comp": "17896441",
+    "content": "93380e32"
   },
   "/docs/catalog/hmi/dip-switch-587": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-hmi-dip-switch-4-bc-d18"
+    "__comp": "17896441",
+    "content": "4bcf30c3"
   },
   "/docs/catalog/hmi/joystick-l-040": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-hmi-joystick-l-1-d-5-f49"
+    "__comp": "17896441",
+    "content": "1d54a5ae"
   },
   "/docs/catalog/hmi/keypad-3x4-30f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-hmi-keypad-3-x-4414-a56"
+    "__comp": "17896441",
+    "content": "414fbf3d"
   },
   "/docs/catalog/hmi/keypad-4x4-991": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-hmi-keypad-4-x-434-c-0cd"
+    "__comp": "17896441",
+    "content": "34cdee3c"
   },
   "/docs/catalog/hmi/rotary-454": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-hmi-rotary-3-a-4-ed3"
+    "__comp": "17896441",
+    "content": "3a43809b"
   },
   "/docs/catalog/hmi/slider-837": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-hmi-slider-0-fc-e28"
+    "__comp": "17896441",
+    "content": "0fc5d9fb"
   },
   "/docs/catalog/intro-764": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-introcbd-be2"
+    "__comp": "17896441",
+    "content": "cbd09a24"
   },
   "/docs/catalog/led/led-md0808-35d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-led-led-md-0808614-cc5"
+    "__comp": "17896441",
+    "content": "6143bf0d"
   },
   "/docs/catalog/led/led-md3208-93f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-led-led-md-3208675-5d6"
+    "__comp": "17896441",
+    "content": "67579f3f"
   },
   "/docs/catalog/led/led-r16-940": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-led-led-r-16211-188"
+    "__comp": "17896441",
+    "content": "21185796"
   },
   "/docs/catalog/led/led-rgb3-feb": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-led-led-rgb-392-f-1b5"
+    "__comp": "17896441",
+    "content": "92ff5568"
   },
   "/docs/catalog/led/led-s284-c-654": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-led-led-s-284-c-350-859"
+    "__comp": "17896441",
+    "content": "35042fe7"
   },
   "/docs/catalog/led/led-s284-t-36c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-led-led-s-284-t-7-b-8-409"
+    "__comp": "17896441",
+    "content": "7b8c0ecd"
   },
   "/docs/catalog/led/led-s404-c-4d9": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-led-led-s-404-c-7-b-3-cb7"
+    "__comp": "17896441",
+    "content": "7b3b763a"
   },
   "/docs/catalog/led/led-s404-t-b4f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-led-led-s-404-tfe-3-2fd"
+    "__comp": "17896441",
+    "content": "fe3f0105"
   },
   "/docs/catalog/led/led-s564-c-925": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-led-led-s-564-cdc-0-cff"
+    "__comp": "17896441",
+    "content": "dc0c80ee"
   },
   "/docs/catalog/led/led-s564-t-240": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-led-led-s-564-t-276-023"
+    "__comp": "17896441",
+    "content": "276d463a"
   },
   "/docs/catalog/led/led-ss805-668": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-led-led-ss-805549-705"
+    "__comp": "17896441",
+    "content": "54931a3b"
   },
   "/docs/catalog/led/smart-led-0ea": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-led-smart-ledfd-4-002"
+    "__comp": "17896441",
+    "content": "fd407551"
   },
   "/docs/catalog/leds-059": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-leds-947-a1c"
+    "__comp": "17896441",
+    "content": "94786046"
   },
   "/docs/catalog/mainboard/cincobit-77b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-mainboard-cincobit-8-bf-529"
+    "__comp": "17896441",
+    "content": "8bf08310"
   },
   "/docs/catalog/mainboard/clipit-2a5": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-mainboard-clipit-74-e-a15"
+    "__comp": "17896441",
+    "content": "74e91b12"
   },
   "/docs/catalog/mainboard/dueduino-44d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-mainboard-dueduinoab-3-fb0"
+    "__comp": "17896441",
+    "content": "ab3d7a77"
   },
   "/docs/catalog/mainboard/dueflea-ce0": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-mainboard-dueflea-4-fb-244"
+    "__comp": "17896441",
+    "content": "4fba6633"
   },
   "/docs/catalog/mainboard/duestem-785": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-mainboard-duestem-62-d-0f7"
+    "__comp": "17896441",
+    "content": "62dca7a2"
   },
   "/docs/catalog/mainboard/duestick-844": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-mainboard-duestickc-20-658"
+    "__comp": "17896441",
+    "content": "c2064a4c"
   },
   "/docs/catalog/mainboard/holiday-tree-4e5": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-mainboard-holiday-tree-49-f-7ae"
+    "__comp": "17896441",
+    "content": "49fafabf"
   },
   "/docs/catalog/mainboard/john-due-8dd": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-mainboard-john-due-63-d-65c"
+    "__comp": "17896441",
+    "content": "63d72701"
   },
   "/docs/catalog/mainboard/octobit-bb7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-mainboard-octobitf-3-e-a27"
+    "__comp": "17896441",
+    "content": "f3e56503"
   },
   "/docs/catalog/mainboard/pixobit-7d6": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-mainboard-pixobit-70-b-a16"
+    "__comp": "17896441",
+    "content": "70b45444"
   },
   "/docs/catalog/mainboards-60c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-mainboards-2-ef-ce4"
+    "__comp": "17896441",
+    "content": "2efe0052"
   },
   "/docs/catalog/sensor/accel-947": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-accelc-46-137"
+    "__comp": "17896441",
+    "content": "c46bd394"
   },
   "/docs/catalog/sensor/air-quality-a64": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-air-quality-31-b-0b5"
+    "__comp": "17896441",
+    "content": "31b868da"
   },
   "/docs/catalog/sensor/barometer-bce": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-barometer-5-c-2-182"
+    "__comp": "17896441",
+    "content": "5c233e30"
   },
   "/docs/catalog/sensor/ClipSense-dc2": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-clip-sensee-35-bca"
+    "__comp": "17896441",
+    "content": "e35970bd"
   },
   "/docs/catalog/sensor/Color-f0e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-colorf-90-e9e"
+    "__comp": "17896441",
+    "content": "f902b8af"
   },
   "/docs/catalog/sensor/Current-cee": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-current-5-ab-94b"
+    "__comp": "17896441",
+    "content": "5abfc8c4"
   },
   "/docs/catalog/sensor/distance-41b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-distance-88-b-98d"
+    "__comp": "17896441",
+    "content": "88bb50bf"
   },
   "/docs/catalog/sensor/dof9-7ef": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-dof-98-b-0-7c3"
+    "__comp": "17896441",
+    "content": "8b02c1de"
   },
   "/docs/catalog/sensor/ekg-fa8": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-ekg-9-a-8-cb6"
+    "__comp": "17896441",
+    "content": "9a88743a"
   },
   "/docs/catalog/sensor/gas-a4a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-gas-056-797"
+    "__comp": "17896441",
+    "content": "0568281a"
   },
   "/docs/catalog/sensor/light-e4c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-light-67-b-344"
+    "__comp": "17896441",
+    "content": "67b63c54"
   },
   "/docs/catalog/sensor/motion-b54": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-motioncf-9-988"
+    "__comp": "17896441",
+    "content": "cf9ef405"
   },
   "/docs/catalog/sensor/pressure-bcd": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-pressure-342-23f"
+    "__comp": "17896441",
+    "content": "3422c030"
   },
   "/docs/catalog/sensor/pulseoxi-10d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-pulseoxi-48-b-72e"
+    "__comp": "17896441",
+    "content": "48b5d068"
   },
   "/docs/catalog/sensor/rtc-a66": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-rtcc-46-b79"
+    "__comp": "17896441",
+    "content": "c4612325"
   },
   "/docs/catalog/sensor/temphmd-d9a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-temphmdc-7-b-c59"
+    "__comp": "17896441",
+    "content": "c7b56d93"
   },
   "/docs/catalog/sensor/temprtd-af4": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-temprtd-6-ba-065"
+    "__comp": "17896441",
+    "content": "6bad33c4"
   },
   "/docs/catalog/sensor/thermal-01e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensor-thermal-5-b-8-54f"
+    "__comp": "17896441",
+    "content": "5b8a3d83"
   },
   "/docs/catalog/sensors-563": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sensors-034-c88"
+    "__comp": "17896441",
+    "content": "0344b729"
   },
   "/docs/catalog/sound-2a3": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sound-273-a1e"
+    "__comp": "17896441",
+    "content": "2730917e"
   },
   "/docs/catalog/sound/Buzzer-f16": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sound-buzzer-2-c-3-899"
+    "__comp": "17896441",
+    "content": "2c3112b9"
   },
   "/docs/catalog/sound/Codec-31c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sound-codec-214-1f1"
+    "__comp": "17896441",
+    "content": "2144c6a0"
   },
   "/docs/catalog/sound/MP3-8b1": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-sound-mp-303-a-823"
+    "__comp": "17896441",
+    "content": "03a987e8"
   },
   "/docs/catalog/storage-a2c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-storaged-3-f-8e3"
+    "__comp": "17896441",
+    "content": "d3f6f45c"
   },
   "/docs/catalog/storage/flash-61f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-storage-flash-577-1a7"
+    "__comp": "17896441",
+    "content": "577f1766"
   },
   "/docs/catalog/storage/sd-card-ec3": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-storage-sd-card-831-0cd"
+    "__comp": "17896441",
+    "content": "831f5faa"
   },
   "/docs/catalog/storage/usd-card-e0e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-storage-usd-card-6-c-6-00c"
+    "__comp": "17896441",
+    "content": "6c6d2ca2"
   },
   "/docs/catalog/third-party-ca7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-third-party-264-08b"
+    "__comp": "17896441",
+    "content": "264c5aed"
   },
   "/docs/catalog/wireless-14c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-wireless-268-34f"
+    "__comp": "17896441",
+    "content": "268d64eb"
   },
   "/docs/catalog/wireless/gnss-401": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-wireless-gnssea-5-33c"
+    "__comp": "17896441",
+    "content": "ea58a3b5"
   },
   "/docs/catalog/wireless/gnss-wa-585": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-wireless-gnss-waf-12-8b4"
+    "__comp": "17896441",
+    "content": "f12e7eb5"
   },
   "/docs/catalog/wireless/nrf24-max-4c2": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-wireless-nrf-24-maxba-0-6b9"
+    "__comp": "17896441",
+    "content": "ba0d5550"
   },
   "/docs/catalog/wireless/nrf24-min-a1e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-wireless-nrf-24-minff-0-195"
+    "__comp": "17896441",
+    "content": "ff0cbce9"
   },
   "/docs/catalog/wireless/radio-fm-b0e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-wireless-radio-fmb-32-d6d"
+    "__comp": "17896441",
+    "content": "b3234443"
   },
   "/docs/catalog/wireless/rfid-098": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-catalog-wireless-rfid-479-1c2"
+    "__comp": "17896441",
+    "content": "47935bdb"
   },
   "/docs/coding/app-inventor-68e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-coding-app-inventor-837-d2f"
+    "__comp": "17896441",
+    "content": "8378a24f"
   },
   "/docs/coding/cpp-b9d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-coding-cpp-015-b20"
+    "__comp": "17896441",
+    "content": "015d60ce"
   },
   "/docs/coding/dotnet-897": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-coding-dotnetd-96-d9f"
+    "__comp": "17896441",
+    "content": "d96a27b2"
   },
   "/docs/coding/excel-35e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-coding-excel-932-c22"
+    "__comp": "17896441",
+    "content": "932ba16d"
   },
   "/docs/coding/intro-3b8": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-coding-intro-091-748"
+    "__comp": "17896441",
+    "content": "0913c2bc"
   },
   "/docs/coding/javascript-f9b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-coding-javascript-6-da-818"
+    "__comp": "17896441",
+    "content": "6daaf80b"
   },
   "/docs/coding/micropython-a97": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-coding-micropython-3-da-ca0"
+    "__comp": "17896441",
+    "content": "3da09b8d"
   },
   "/docs/coding/other-ac7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-coding-other-0-b-4-1ef"
+    "__comp": "17896441",
+    "content": "0b48b3cb"
   },
   "/docs/coding/python-23c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-coding-pythoncc-6-7c3"
+    "__comp": "17896441",
+    "content": "cc6a45f1"
   },
   "/docs/coding/scripting-394": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-coding-scriptinge-67-658"
+    "__comp": "17896441",
+    "content": "e67d4564"
   },
   "/docs/coding/swift-025": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-coding-swiftef-4-fe7"
+    "__comp": "17896441",
+    "content": "ef41c8ef"
   },
   "/docs/coding/tinyclr-7d6": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-coding-tinyclrae-1-064"
+    "__comp": "17896441",
+    "content": "ae12fbbb"
   },
   "/docs/coding/typescript-c33": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-coding-typescript-12-b-20d"
+    "__comp": "17896441",
+    "content": "12bad719"
   },
   "/docs/console-880": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-console-8-ee-cf4"
+    "__comp": "17896441",
+    "content": "8ee2b8b2"
   },
   "/docs/downloads-b16": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-downloadsf-6-d-8c1"
+    "__comp": "17896441",
+    "content": "f6d6eda1"
   },
   "/docs/engine/daisylink-0d7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-engine-daisylinkb-92-102"
+    "__comp": "17896441",
+    "content": "b92f7816"
   },
   "/docs/engine/intro-699": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-engine-intro-58-e-a73"
+    "__comp": "17896441",
+    "content": "58ed3af5"
   },
   "/docs/engine/samples-60c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-engine-samples-8-b-6-c6d"
+    "__comp": "17896441",
+    "content": "8b6c725e"
   },
   "/docs/engine/scripting-0bf": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-engine-scripting-13-a-aae"
+    "__comp": "17896441",
+    "content": "13a0e759"
   },
   "/docs/engine/standalone-77e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-engine-standalone-413-bf6"
+    "__comp": "17896441",
+    "content": "413b26b5"
   },
   "/docs/engine/stdlib-981": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-engine-stdlibfe-0-956"
+    "__comp": "17896441",
+    "content": "fe0ab593"
   },
   "/docs/engine/streams-ea4": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-engine-streams-340-410"
+    "__comp": "17896441",
+    "content": "3408d25f"
   },
   "/docs/interface/downstream-dff": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-interface-downstream-804-d29"
+    "__comp": "17896441",
+    "content": "8048f158"
   },
   "/docs/interface/i2c-cfe": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-interface-i-2-c-73-e-f24"
+    "__comp": "17896441",
+    "content": "73e451a8"
   },
   "/docs/interface/intro-297": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-interface-introf-93-5f5"
+    "__comp": "17896441",
+    "content": "f931e2a2"
   },
   "/docs/interface/spi-b48": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-interface-spia-1-a-e48"
+    "__comp": "17896441",
+    "content": "a1a806ff"
   },
   "/docs/interface/uart-9c3": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-interface-uart-5-f-3-0f0"
+    "__comp": "17896441",
+    "content": "5f3ff697"
   },
   "/docs/interface/usb-e03": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-interface-usb-33-a-59b"
+    "__comp": "17896441",
+    "content": "33a4210a"
   },
   "/docs/interface/wireless-666": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-interface-wireless-6-da-602"
+    "__comp": "17896441",
+    "content": "6da0aaf7"
   },
   "/docs/intro-89a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-introf-84-2b4"
+    "__comp": "17896441",
+    "content": "f8409a7e"
   },
   "/docs/licensing-538": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-licensing-134-5ef"
+    "__comp": "17896441",
+    "content": "13490bab"
   },
   "/docs/loader-4d1": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-loaderd-56-5cd"
+    "__comp": "17896441",
+    "content": "d56f161f"
   },
   "/docs/release-notes-982": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-release-notes-90-d-429"
+    "__comp": "17896441",
+    "content": "90d83cef"
   },
   "/docs/specs-a2c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-specs-0-a-2-e69"
+    "__comp": "17896441",
+    "content": "0a292fa8"
   },
   "/docs/start/commercial-046": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-start-commercialccb-a05"
+    "__comp": "17896441",
+    "content": "ccb45942"
   },
   "/docs/start/demo-7a7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-start-demo-589-dda"
+    "__comp": "17896441",
+    "content": "5892e43a"
   },
   "/docs/start/education-58e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-start-educationeb-0-e89"
+    "__comp": "17896441",
+    "content": "eb0ea83e"
   },
   "/docs/start/intro-23a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-start-introf-23-8b4"
+    "__comp": "17896441",
+    "content": "f236b21c"
   },
   "/docs/start/makers-504": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-start-makers-9-c-6-fae"
+    "__comp": "17896441",
+    "content": "9c63ef49"
   },
   "/docs/support-57a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-supporta-94-2d7"
+    "__comp": "17896441",
+    "content": "a942cd04"
   },
   "/docs/system/arduino-765": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-system-arduinoa-19-e57"
+    "__comp": "17896441",
+    "content": "a19dda6c"
   },
   "/docs/system/beagleboard-d23": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-system-beagleboard-6-d-0-bce"
+    "__comp": "17896441",
+    "content": "6d094485"
   },
   "/docs/system/beyond-36b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-system-beyond-01-b-f0c"
+    "__comp": "17896441",
+    "content": "01b1293c"
   },
   "/docs/system/intro-83f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-system-intro-6-b-7-d5e"
+    "__comp": "17896441",
+    "content": "6b77e3ad"
   },
   "/docs/system/microbit-44a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-system-microbit-911-c79"
+    "__comp": "17896441",
+    "content": "91157c02"
   },
   "/docs/system/pc-laptop-e44": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-system-pc-laptop-9-e-0-38e"
+    "__comp": "17896441",
+    "content": "9e02544e"
   },
   "/docs/system/phone-tablet-85c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-system-phone-tablet-080-35c"
+    "__comp": "17896441",
+    "content": "080fae92"
   },
   "/docs/system/raspberry-pi-31b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-system-raspberry-pic-50-d71"
+    "__comp": "17896441",
+    "content": "c50174ef"
   },
   "/docs/template-46f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-template-698-c46"
+    "__comp": "17896441",
+    "content": "698c3fb7"
   },
   "/-2e1": {
-    "__comp": "__comp---site-src-pages-index-jsc-4-f-f99",
+    "__comp": "c4f5d8e4",
     "__context": {
-      "plugin": "plugin---markdown-pagea-74-7b5"
+      "plugin": "a7456010"
     },
-    "config": "config---my-react-page-5-e-9-dcc"
+    "config": "5e9f5e1a"
   }
 }
