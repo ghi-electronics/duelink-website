@@ -5,20 +5,20 @@
   "source": "@site/docs/api/script.mdx",
   "sourceDirName": "api",
   "slug": "/api/script",
-  "permalink": "/duelink-website/docs/api/script",
+  "permalink": "/docs/api/script",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/api/script.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/api/script.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Pulse",
-    "permalink": "/duelink-website/docs/api/pulse"
+    "permalink": "/docs/api/pulse"
   },
   "next": {
     "title": "Servo Motor",
-    "permalink": "/duelink-website/docs/api/servo"
+    "permalink": "/docs/api/servo"
   }
 }

@@ -1,977 +1,977 @@
 {
   "docusaurus-plugin-content-docs": {
     "default": {
-      "path": "/duelink-website/docs",
+      "path": "/docs",
       "versions": [
         {
           "name": "current",
           "label": "Next",
           "isLast": true,
-          "path": "/duelink-website/docs",
+          "path": "/docs",
           "mainDocId": "intro",
           "docs": [
             {
               "id": "about",
-              "path": "/duelink-website/docs/about",
+              "path": "/docs/about",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/analog",
-              "path": "/duelink-website/docs/api/analog",
+              "path": "/docs/api/analog",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/bluetooth",
-              "path": "/duelink-website/docs/api/bluetooth",
+              "path": "/docs/api/bluetooth",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/button",
-              "path": "/duelink-website/docs/api/button",
+              "path": "/docs/api/button",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/can",
-              "path": "/duelink-website/docs/api/can",
+              "path": "/docs/api/can",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/digital",
-              "path": "/duelink-website/docs/api/digital",
+              "path": "/docs/api/digital",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/distance",
-              "path": "/duelink-website/docs/api/distance",
+              "path": "/docs/api/distance",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/frequency",
-              "path": "/duelink-website/docs/api/frequency",
+              "path": "/docs/api/frequency",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/i2c",
-              "path": "/duelink-website/docs/api/i2c",
+              "path": "/docs/api/i2c",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/infrared",
-              "path": "/duelink-website/docs/api/infrared",
+              "path": "/docs/api/infrared",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/intro",
-              "path": "/duelink-website/docs/api/intro",
+              "path": "/docs/api/intro",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/lcd",
-              "path": "/duelink-website/docs/api/lcd",
+              "path": "/docs/api/lcd",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/led",
-              "path": "/duelink-website/docs/api/led"
+              "path": "/docs/api/led"
             },
             {
               "id": "api/neopixel",
-              "path": "/duelink-website/docs/api/neopixel",
+              "path": "/docs/api/neopixel",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/pulse",
-              "path": "/duelink-website/docs/api/pulse",
+              "path": "/docs/api/pulse",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/script",
-              "path": "/duelink-website/docs/api/script",
+              "path": "/docs/api/script",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/servo",
-              "path": "/duelink-website/docs/api/servo",
+              "path": "/docs/api/servo",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/sound",
-              "path": "/duelink-website/docs/api/sound"
+              "path": "/docs/api/sound"
             },
             {
               "id": "api/spi",
-              "path": "/duelink-website/docs/api/spi",
+              "path": "/docs/api/spi",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/systemfunctions",
-              "path": "/duelink-website/docs/api/systemfunctions",
+              "path": "/docs/api/systemfunctions",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/temp-humidity",
-              "path": "/duelink-website/docs/api/temp-humidity",
+              "path": "/docs/api/temp-humidity",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/template",
-              "path": "/duelink-website/docs/api/template"
+              "path": "/docs/api/template"
             },
             {
               "id": "api/touch",
-              "path": "/duelink-website/docs/api/touch",
+              "path": "/docs/api/touch",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/uart",
-              "path": "/duelink-website/docs/api/uart",
+              "path": "/docs/api/uart",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/accessories",
-              "path": "/duelink-website/docs/catalog/accessories",
+              "path": "/docs/catalog/accessories",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/accessory/bluetooth-hook",
-              "path": "/duelink-website/docs/catalog/accessory/bluetooth-hook",
+              "path": "/docs/catalog/accessory/bluetooth-hook",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/accessory/breakout",
-              "path": "/duelink-website/docs/catalog/accessory/breakout",
+              "path": "/docs/catalog/accessory/breakout",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/accessory/cable-connector",
-              "path": "/duelink-website/docs/catalog/accessory/cable-connector",
+              "path": "/docs/catalog/accessory/cable-connector",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/accessory/dueclick",
-              "path": "/duelink-website/docs/catalog/accessory/dueclick",
+              "path": "/docs/catalog/accessory/dueclick",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/accessory/duepi",
-              "path": "/duelink-website/docs/catalog/accessory/duepi",
+              "path": "/docs/catalog/accessory/duepi",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/accessory/holey-board",
-              "path": "/duelink-website/docs/catalog/accessory/holey-board",
+              "path": "/docs/catalog/accessory/holey-board",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/accessory/holey-moley-board",
-              "path": "/duelink-website/docs/catalog/accessory/holey-moley-board",
+              "path": "/docs/catalog/accessory/holey-moley-board",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/accessory/mount-hw",
-              "path": "/duelink-website/docs/catalog/accessory/mount-hw",
+              "path": "/docs/catalog/accessory/mount-hw",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/accessory/power-inject",
-              "path": "/duelink-website/docs/catalog/accessory/power-inject",
+              "path": "/docs/catalog/accessory/power-inject",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/accessory/power-min",
-              "path": "/duelink-website/docs/catalog/accessory/power-min",
+              "path": "/docs/catalog/accessory/power-min",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/accessory/pwr-switch",
-              "path": "/duelink-website/docs/catalog/accessory/pwr-switch",
+              "path": "/docs/catalog/accessory/pwr-switch",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/accessory/sticker",
-              "path": "/duelink-website/docs/catalog/accessory/sticker",
+              "path": "/docs/catalog/accessory/sticker",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/accessory/usb-hook",
-              "path": "/duelink-website/docs/catalog/accessory/usb-hook",
+              "path": "/docs/catalog/accessory/usb-hook",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/actuator/fan",
-              "path": "/duelink-website/docs/catalog/actuator/fan",
+              "path": "/docs/catalog/actuator/fan",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/actuator/load",
-              "path": "/duelink-website/docs/catalog/actuator/load",
+              "path": "/docs/catalog/actuator/load",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/actuator/motomax",
-              "path": "/duelink-website/docs/catalog/actuator/motomax",
+              "path": "/docs/catalog/actuator/motomax",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/actuator/mototwin",
-              "path": "/duelink-website/docs/catalog/actuator/mototwin",
+              "path": "/docs/catalog/actuator/mototwin",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/actuator/relay-p16",
-              "path": "/duelink-website/docs/catalog/actuator/relay-p16",
+              "path": "/docs/catalog/actuator/relay-p16",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/actuator/relay-p4",
-              "path": "/duelink-website/docs/catalog/actuator/relay-p4",
+              "path": "/docs/catalog/actuator/relay-p4",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/actuator/relay-x1",
-              "path": "/duelink-website/docs/catalog/actuator/relay-x1",
+              "path": "/docs/catalog/actuator/relay-x1",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/actuator/servo-p8",
-              "path": "/duelink-website/docs/catalog/actuator/servo-p8",
+              "path": "/docs/catalog/actuator/servo-p8",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/actuator/servo-x1",
-              "path": "/duelink-website/docs/catalog/actuator/servo-x1",
+              "path": "/docs/catalog/actuator/servo-x1",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/actuator/step-pulse",
-              "path": "/duelink-website/docs/catalog/actuator/step-pulse",
+              "path": "/docs/catalog/actuator/step-pulse",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/actuator/stepdrive-x1",
-              "path": "/duelink-website/docs/catalog/actuator/stepdrive-x1",
+              "path": "/docs/catalog/actuator/stepdrive-x1",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/actuator/stepdrive-x3",
-              "path": "/duelink-website/docs/catalog/actuator/stepdrive-x3",
+              "path": "/docs/catalog/actuator/stepdrive-x3",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/actuators",
-              "path": "/duelink-website/docs/catalog/actuators",
+              "path": "/docs/catalog/actuators",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/com",
-              "path": "/duelink-website/docs/catalog/com",
+              "path": "/docs/catalog/com",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/com/can",
-              "path": "/duelink-website/docs/catalog/com/can",
+              "path": "/docs/catalog/com/can",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/com/dmx",
-              "path": "/duelink-website/docs/catalog/com/dmx",
+              "path": "/docs/catalog/com/dmx",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/com/ethernet",
-              "path": "/duelink-website/docs/catalog/com/ethernet",
+              "path": "/docs/catalog/com/ethernet",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/com/jacdac",
-              "path": "/duelink-website/docs/catalog/com/jacdac",
+              "path": "/docs/catalog/com/jacdac",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/com/midi",
-              "path": "/duelink-website/docs/catalog/com/midi",
+              "path": "/docs/catalog/com/midi",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/com/rs485",
-              "path": "/duelink-website/docs/catalog/com/rs485",
+              "path": "/docs/catalog/com/rs485",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/com/serial-usb",
-              "path": "/duelink-website/docs/catalog/com/serial-usb",
+              "path": "/docs/catalog/com/serial-usb",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/com/usb-host",
-              "path": "/duelink-website/docs/catalog/com/usb-host",
+              "path": "/docs/catalog/com/usb-host",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/display/epaper29",
-              "path": "/duelink-website/docs/catalog/display/epaper29",
+              "path": "/docs/catalog/display/epaper29",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/display/lcd-16x2",
-              "path": "/duelink-website/docs/catalog/display/lcd-16x2",
+              "path": "/docs/catalog/display/lcd-16x2",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/display/lcd-20x4",
-              "path": "/duelink-website/docs/catalog/display/lcd-20x4",
+              "path": "/docs/catalog/display/lcd-20x4",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/display/oled-096",
-              "path": "/duelink-website/docs/catalog/display/oled-096",
+              "path": "/docs/catalog/display/oled-096",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/display/tft-cp23",
-              "path": "/duelink-website/docs/catalog/display/tft-cp23",
+              "path": "/docs/catalog/display/tft-cp23",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/display/tft-cp70bt",
-              "path": "/duelink-website/docs/catalog/display/tft-cp70bt",
+              "path": "/docs/catalog/display/tft-cp70bt",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/display/tft-n18",
-              "path": "/duelink-website/docs/catalog/display/tft-n18",
+              "path": "/docs/catalog/display/tft-n18",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/display/tft-r128",
-              "path": "/duelink-website/docs/catalog/display/tft-r128",
+              "path": "/docs/catalog/display/tft-r128",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/display/tft-t32",
-              "path": "/duelink-website/docs/catalog/display/tft-t32",
+              "path": "/docs/catalog/display/tft-t32",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/display/vfd-b8",
-              "path": "/duelink-website/docs/catalog/display/vfd-b8",
+              "path": "/docs/catalog/display/vfd-b8",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/displays",
-              "path": "/duelink-website/docs/catalog/displays",
+              "path": "/docs/catalog/displays",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/hmi",
-              "path": "/duelink-website/docs/catalog/hmi",
+              "path": "/docs/catalog/hmi",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/hmi/button-l",
-              "path": "/duelink-website/docs/catalog/hmi/button-l",
+              "path": "/docs/catalog/hmi/button-l",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/hmi/button-l7",
-              "path": "/duelink-website/docs/catalog/hmi/button-l7",
+              "path": "/docs/catalog/hmi/button-l7",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/hmi/button-s",
-              "path": "/duelink-website/docs/catalog/hmi/button-s",
+              "path": "/docs/catalog/hmi/button-s",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/hmi/capslide",
-              "path": "/duelink-website/docs/catalog/hmi/capslide",
+              "path": "/docs/catalog/hmi/capslide",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/hmi/dial",
-              "path": "/duelink-website/docs/catalog/hmi/dial",
+              "path": "/docs/catalog/hmi/dial",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/hmi/dip-switch",
-              "path": "/duelink-website/docs/catalog/hmi/dip-switch",
+              "path": "/docs/catalog/hmi/dip-switch",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/hmi/joystick-l",
-              "path": "/duelink-website/docs/catalog/hmi/joystick-l",
+              "path": "/docs/catalog/hmi/joystick-l",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/hmi/keypad-3x4",
-              "path": "/duelink-website/docs/catalog/hmi/keypad-3x4",
+              "path": "/docs/catalog/hmi/keypad-3x4",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/hmi/keypad-4x4",
-              "path": "/duelink-website/docs/catalog/hmi/keypad-4x4",
+              "path": "/docs/catalog/hmi/keypad-4x4",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/hmi/rotary",
-              "path": "/duelink-website/docs/catalog/hmi/rotary",
+              "path": "/docs/catalog/hmi/rotary",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/hmi/slider",
-              "path": "/duelink-website/docs/catalog/hmi/slider",
+              "path": "/docs/catalog/hmi/slider",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/intro",
-              "path": "/duelink-website/docs/catalog/intro",
+              "path": "/docs/catalog/intro",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/led/led-md0808",
-              "path": "/duelink-website/docs/catalog/led/led-md0808",
+              "path": "/docs/catalog/led/led-md0808",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/led/led-md3208",
-              "path": "/duelink-website/docs/catalog/led/led-md3208",
+              "path": "/docs/catalog/led/led-md3208",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/led/led-r16",
-              "path": "/duelink-website/docs/catalog/led/led-r16",
+              "path": "/docs/catalog/led/led-r16",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/led/led-rgb3",
-              "path": "/duelink-website/docs/catalog/led/led-rgb3",
+              "path": "/docs/catalog/led/led-rgb3",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/led/led-s284-c",
-              "path": "/duelink-website/docs/catalog/led/led-s284-c",
+              "path": "/docs/catalog/led/led-s284-c",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/led/led-s284-t",
-              "path": "/duelink-website/docs/catalog/led/led-s284-t",
+              "path": "/docs/catalog/led/led-s284-t",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/led/led-s404-c",
-              "path": "/duelink-website/docs/catalog/led/led-s404-c",
+              "path": "/docs/catalog/led/led-s404-c",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/led/led-s404-t",
-              "path": "/duelink-website/docs/catalog/led/led-s404-t",
+              "path": "/docs/catalog/led/led-s404-t",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/led/led-s564-c",
-              "path": "/duelink-website/docs/catalog/led/led-s564-c",
+              "path": "/docs/catalog/led/led-s564-c",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/led/led-s564-t",
-              "path": "/duelink-website/docs/catalog/led/led-s564-t",
+              "path": "/docs/catalog/led/led-s564-t",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/led/led-ss805",
-              "path": "/duelink-website/docs/catalog/led/led-ss805",
+              "path": "/docs/catalog/led/led-ss805",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/led/smart-led",
-              "path": "/duelink-website/docs/catalog/led/smart-led",
+              "path": "/docs/catalog/led/smart-led",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/leds",
-              "path": "/duelink-website/docs/catalog/leds",
+              "path": "/docs/catalog/leds",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/mainboard/cincobit",
-              "path": "/duelink-website/docs/catalog/mainboard/cincobit",
+              "path": "/docs/catalog/mainboard/cincobit",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/mainboard/clipit",
-              "path": "/duelink-website/docs/catalog/mainboard/clipit",
+              "path": "/docs/catalog/mainboard/clipit",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/mainboard/dueduino",
-              "path": "/duelink-website/docs/catalog/mainboard/dueduino",
+              "path": "/docs/catalog/mainboard/dueduino",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/mainboard/dueflea",
-              "path": "/duelink-website/docs/catalog/mainboard/dueflea",
+              "path": "/docs/catalog/mainboard/dueflea",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/mainboard/duestem",
-              "path": "/duelink-website/docs/catalog/mainboard/duestem",
+              "path": "/docs/catalog/mainboard/duestem",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/mainboard/duestick",
-              "path": "/duelink-website/docs/catalog/mainboard/duestick",
+              "path": "/docs/catalog/mainboard/duestick",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/mainboard/holiday-tree",
-              "path": "/duelink-website/docs/catalog/mainboard/holiday-tree",
+              "path": "/docs/catalog/mainboard/holiday-tree",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/mainboard/john-due",
-              "path": "/duelink-website/docs/catalog/mainboard/john-due",
+              "path": "/docs/catalog/mainboard/john-due",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/mainboard/octobit",
-              "path": "/duelink-website/docs/catalog/mainboard/octobit",
+              "path": "/docs/catalog/mainboard/octobit",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/mainboard/pixobit",
-              "path": "/duelink-website/docs/catalog/mainboard/pixobit",
+              "path": "/docs/catalog/mainboard/pixobit",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/mainboards",
-              "path": "/duelink-website/docs/catalog/mainboards",
+              "path": "/docs/catalog/mainboards",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/accel",
-              "path": "/duelink-website/docs/catalog/sensor/accel",
+              "path": "/docs/catalog/sensor/accel",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/air-quality",
-              "path": "/duelink-website/docs/catalog/sensor/air-quality",
+              "path": "/docs/catalog/sensor/air-quality",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/barometer",
-              "path": "/duelink-website/docs/catalog/sensor/barometer",
+              "path": "/docs/catalog/sensor/barometer",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/ClipSense",
-              "path": "/duelink-website/docs/catalog/sensor/ClipSense",
+              "path": "/docs/catalog/sensor/ClipSense",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/Color",
-              "path": "/duelink-website/docs/catalog/sensor/Color",
+              "path": "/docs/catalog/sensor/Color",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/Current",
-              "path": "/duelink-website/docs/catalog/sensor/Current",
+              "path": "/docs/catalog/sensor/Current",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/distance",
-              "path": "/duelink-website/docs/catalog/sensor/distance",
+              "path": "/docs/catalog/sensor/distance",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/dof9",
-              "path": "/duelink-website/docs/catalog/sensor/dof9",
+              "path": "/docs/catalog/sensor/dof9",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/ekg",
-              "path": "/duelink-website/docs/catalog/sensor/ekg",
+              "path": "/docs/catalog/sensor/ekg",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/gas",
-              "path": "/duelink-website/docs/catalog/sensor/gas",
+              "path": "/docs/catalog/sensor/gas",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/light",
-              "path": "/duelink-website/docs/catalog/sensor/light",
+              "path": "/docs/catalog/sensor/light",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/motion",
-              "path": "/duelink-website/docs/catalog/sensor/motion",
+              "path": "/docs/catalog/sensor/motion",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/pressure",
-              "path": "/duelink-website/docs/catalog/sensor/pressure",
+              "path": "/docs/catalog/sensor/pressure",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/pulseoxi",
-              "path": "/duelink-website/docs/catalog/sensor/pulseoxi",
+              "path": "/docs/catalog/sensor/pulseoxi",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/rtc",
-              "path": "/duelink-website/docs/catalog/sensor/rtc",
+              "path": "/docs/catalog/sensor/rtc",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/temphmd",
-              "path": "/duelink-website/docs/catalog/sensor/temphmd",
+              "path": "/docs/catalog/sensor/temphmd",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/temprtd",
-              "path": "/duelink-website/docs/catalog/sensor/temprtd",
+              "path": "/docs/catalog/sensor/temprtd",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensor/thermal",
-              "path": "/duelink-website/docs/catalog/sensor/thermal",
+              "path": "/docs/catalog/sensor/thermal",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sensors",
-              "path": "/duelink-website/docs/catalog/sensors",
+              "path": "/docs/catalog/sensors",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sound",
-              "path": "/duelink-website/docs/catalog/sound",
+              "path": "/docs/catalog/sound",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sound/Buzzer",
-              "path": "/duelink-website/docs/catalog/sound/Buzzer",
+              "path": "/docs/catalog/sound/Buzzer",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sound/Codec",
-              "path": "/duelink-website/docs/catalog/sound/Codec",
+              "path": "/docs/catalog/sound/Codec",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/sound/MP3",
-              "path": "/duelink-website/docs/catalog/sound/MP3",
+              "path": "/docs/catalog/sound/MP3",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/storage",
-              "path": "/duelink-website/docs/catalog/storage",
+              "path": "/docs/catalog/storage",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/storage/flash",
-              "path": "/duelink-website/docs/catalog/storage/flash",
+              "path": "/docs/catalog/storage/flash",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/storage/sd-card",
-              "path": "/duelink-website/docs/catalog/storage/sd-card",
+              "path": "/docs/catalog/storage/sd-card",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/storage/usd-card",
-              "path": "/duelink-website/docs/catalog/storage/usd-card",
+              "path": "/docs/catalog/storage/usd-card",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/third-party",
-              "path": "/duelink-website/docs/catalog/third-party",
+              "path": "/docs/catalog/third-party",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/wireless",
-              "path": "/duelink-website/docs/catalog/wireless",
+              "path": "/docs/catalog/wireless",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/wireless/gnss",
-              "path": "/duelink-website/docs/catalog/wireless/gnss",
+              "path": "/docs/catalog/wireless/gnss",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/wireless/gnss-wa",
-              "path": "/duelink-website/docs/catalog/wireless/gnss-wa",
+              "path": "/docs/catalog/wireless/gnss-wa",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/wireless/nrf24-max",
-              "path": "/duelink-website/docs/catalog/wireless/nrf24-max",
+              "path": "/docs/catalog/wireless/nrf24-max",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/wireless/nrf24-min",
-              "path": "/duelink-website/docs/catalog/wireless/nrf24-min",
+              "path": "/docs/catalog/wireless/nrf24-min",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/wireless/radio-fm",
-              "path": "/duelink-website/docs/catalog/wireless/radio-fm",
+              "path": "/docs/catalog/wireless/radio-fm",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "catalog/wireless/rfid",
-              "path": "/duelink-website/docs/catalog/wireless/rfid",
+              "path": "/docs/catalog/wireless/rfid",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "coding/app-inventor",
-              "path": "/duelink-website/docs/coding/app-inventor",
+              "path": "/docs/coding/app-inventor",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "coding/cpp",
-              "path": "/duelink-website/docs/coding/cpp",
+              "path": "/docs/coding/cpp",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "coding/dotnet",
-              "path": "/duelink-website/docs/coding/dotnet",
+              "path": "/docs/coding/dotnet",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "coding/excel",
-              "path": "/duelink-website/docs/coding/excel",
+              "path": "/docs/coding/excel",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "coding/intro",
-              "path": "/duelink-website/docs/coding/intro",
+              "path": "/docs/coding/intro",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "coding/javascript",
-              "path": "/duelink-website/docs/coding/javascript",
+              "path": "/docs/coding/javascript",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "coding/micropython",
-              "path": "/duelink-website/docs/coding/micropython",
+              "path": "/docs/coding/micropython",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "coding/other",
-              "path": "/duelink-website/docs/coding/other",
+              "path": "/docs/coding/other",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "coding/python",
-              "path": "/duelink-website/docs/coding/python",
+              "path": "/docs/coding/python",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "coding/scripting",
-              "path": "/duelink-website/docs/coding/scripting",
+              "path": "/docs/coding/scripting",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "coding/swift",
-              "path": "/duelink-website/docs/coding/swift",
+              "path": "/docs/coding/swift",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "coding/tinyclr",
-              "path": "/duelink-website/docs/coding/tinyclr",
+              "path": "/docs/coding/tinyclr",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "coding/typescript",
-              "path": "/duelink-website/docs/coding/typescript",
+              "path": "/docs/coding/typescript",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "console",
-              "path": "/duelink-website/docs/console",
+              "path": "/docs/console",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "downloads",
-              "path": "/duelink-website/docs/downloads",
+              "path": "/docs/downloads",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "engine/daisylink",
-              "path": "/duelink-website/docs/engine/daisylink",
+              "path": "/docs/engine/daisylink",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "engine/intro",
-              "path": "/duelink-website/docs/engine/intro",
+              "path": "/docs/engine/intro",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "engine/samples",
-              "path": "/duelink-website/docs/engine/samples",
+              "path": "/docs/engine/samples",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "engine/scripting",
-              "path": "/duelink-website/docs/engine/scripting",
+              "path": "/docs/engine/scripting",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "engine/standalone",
-              "path": "/duelink-website/docs/engine/standalone",
+              "path": "/docs/engine/standalone",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "engine/stdlib",
-              "path": "/duelink-website/docs/engine/stdlib",
+              "path": "/docs/engine/stdlib",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "engine/streams",
-              "path": "/duelink-website/docs/engine/streams",
+              "path": "/docs/engine/streams",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "interface/downstream",
-              "path": "/duelink-website/docs/interface/downstream",
+              "path": "/docs/interface/downstream",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "interface/i2c",
-              "path": "/duelink-website/docs/interface/i2c",
+              "path": "/docs/interface/i2c",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "interface/intro",
-              "path": "/duelink-website/docs/interface/intro",
+              "path": "/docs/interface/intro",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "interface/spi",
-              "path": "/duelink-website/docs/interface/spi",
+              "path": "/docs/interface/spi",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "interface/uart",
-              "path": "/duelink-website/docs/interface/uart",
+              "path": "/docs/interface/uart",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "interface/usb",
-              "path": "/duelink-website/docs/interface/usb",
+              "path": "/docs/interface/usb",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "interface/wireless",
-              "path": "/duelink-website/docs/interface/wireless",
+              "path": "/docs/interface/wireless",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "intro",
-              "path": "/duelink-website/docs/intro",
+              "path": "/docs/intro",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "licensing",
-              "path": "/duelink-website/docs/licensing",
+              "path": "/docs/licensing",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "loader",
-              "path": "/duelink-website/docs/loader",
+              "path": "/docs/loader",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "release-notes",
-              "path": "/duelink-website/docs/release-notes",
+              "path": "/docs/release-notes",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "specs",
-              "path": "/duelink-website/docs/specs",
+              "path": "/docs/specs",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "start/commercial",
-              "path": "/duelink-website/docs/start/commercial",
+              "path": "/docs/start/commercial",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "start/demo",
-              "path": "/duelink-website/docs/start/demo",
+              "path": "/docs/start/demo",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "start/education",
-              "path": "/duelink-website/docs/start/education",
+              "path": "/docs/start/education",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "start/intro",
-              "path": "/duelink-website/docs/start/intro",
+              "path": "/docs/start/intro",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "start/makers",
-              "path": "/duelink-website/docs/start/makers",
+              "path": "/docs/start/makers",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "support",
-              "path": "/duelink-website/docs/support",
+              "path": "/docs/support",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "system/arduino",
-              "path": "/duelink-website/docs/system/arduino",
+              "path": "/docs/system/arduino",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "system/beagleboard",
-              "path": "/duelink-website/docs/system/beagleboard",
+              "path": "/docs/system/beagleboard",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "system/beyond",
-              "path": "/duelink-website/docs/system/beyond",
+              "path": "/docs/system/beyond",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "system/intro",
-              "path": "/duelink-website/docs/system/intro",
+              "path": "/docs/system/intro",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "system/microbit",
-              "path": "/duelink-website/docs/system/microbit",
+              "path": "/docs/system/microbit",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "system/pc-laptop",
-              "path": "/duelink-website/docs/system/pc-laptop",
+              "path": "/docs/system/pc-laptop",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "system/phone-tablet",
-              "path": "/duelink-website/docs/system/phone-tablet",
+              "path": "/docs/system/phone-tablet",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "system/raspberry-pi",
-              "path": "/duelink-website/docs/system/raspberry-pi",
+              "path": "/docs/system/raspberry-pi",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "template",
-              "path": "/duelink-website/docs/template"
+              "path": "/docs/template"
             }
           ],
           "draftIds": [],
           "sidebars": {
             "tutorialSidebar": {
               "link": {
-                "path": "/duelink-website/docs/intro",
+                "path": "/docs/intro",
                 "label": "intro"
               }
             }

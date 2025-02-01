@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/sensor/motion.mdx",
   "sourceDirName": "catalog/sensor",
   "slug": "/catalog/sensor/motion",
-  "permalink": "/duelink-website/docs/catalog/sensor/motion",
+  "permalink": "/docs/catalog/sensor/motion",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/sensor/motion.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/sensor/motion.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Light",
-    "permalink": "/duelink-website/docs/catalog/sensor/light"
+    "permalink": "/docs/catalog/sensor/light"
   },
   "next": {
     "title": "Pressure",
-    "permalink": "/duelink-website/docs/catalog/sensor/pressure"
+    "permalink": "/docs/catalog/sensor/pressure"
   }
 }

@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/accessory/bluetooth-hook.mdx",
   "sourceDirName": "catalog/accessory",
   "slug": "/catalog/accessory/bluetooth-hook",
-  "permalink": "/duelink-website/docs/catalog/accessory/bluetooth-hook",
+  "permalink": "/docs/catalog/accessory/bluetooth-hook",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/accessory/bluetooth-hook.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/accessory/bluetooth-hook.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Accessories",
-    "permalink": "/duelink-website/docs/catalog/accessories"
+    "permalink": "/docs/catalog/accessories"
   },
   "next": {
     "title": "Breakout",
-    "permalink": "/duelink-website/docs/catalog/accessory/breakout"
+    "permalink": "/docs/catalog/accessory/breakout"
   }
 }

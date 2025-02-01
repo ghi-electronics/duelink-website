@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/mainboard/duestem.mdx",
   "sourceDirName": "catalog/mainboard",
   "slug": "/catalog/mainboard/duestem",
-  "permalink": "/duelink-website/docs/catalog/mainboard/duestem",
+  "permalink": "/docs/catalog/mainboard/duestem",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/mainboard/duestem.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/mainboard/duestem.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "DueFlea",
-    "permalink": "/duelink-website/docs/catalog/mainboard/dueflea"
+    "permalink": "/docs/catalog/mainboard/dueflea"
   },
   "next": {
     "title": "DueStick",
-    "permalink": "/duelink-website/docs/catalog/mainboard/duestick"
+    "permalink": "/docs/catalog/mainboard/duestick"
   }
 }

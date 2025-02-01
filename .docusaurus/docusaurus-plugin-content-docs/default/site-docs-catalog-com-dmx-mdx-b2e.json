@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/com/dmx.mdx",
   "sourceDirName": "catalog/com",
   "slug": "/catalog/com/dmx",
-  "permalink": "/duelink-website/docs/catalog/com/dmx",
+  "permalink": "/docs/catalog/com/dmx",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/com/dmx.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/com/dmx.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "CAN",
-    "permalink": "/duelink-website/docs/catalog/com/can"
+    "permalink": "/docs/catalog/com/can"
   },
   "next": {
     "title": "Ethernet",
-    "permalink": "/duelink-website/docs/catalog/com/ethernet"
+    "permalink": "/docs/catalog/com/ethernet"
   }
 }

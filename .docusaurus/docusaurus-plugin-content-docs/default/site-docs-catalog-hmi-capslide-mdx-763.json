@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/hmi/capslide.mdx",
   "sourceDirName": "catalog/hmi",
   "slug": "/catalog/hmi/capslide",
-  "permalink": "/duelink-website/docs/catalog/hmi/capslide",
+  "permalink": "/docs/catalog/hmi/capslide",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/hmi/capslide.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/hmi/capslide.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Button S",
-    "permalink": "/duelink-website/docs/catalog/hmi/button-s"
+    "permalink": "/docs/catalog/hmi/button-s"
   },
   "next": {
     "title": "Dial",
-    "permalink": "/duelink-website/docs/catalog/hmi/dial"
+    "permalink": "/docs/catalog/hmi/dial"
   }
 }

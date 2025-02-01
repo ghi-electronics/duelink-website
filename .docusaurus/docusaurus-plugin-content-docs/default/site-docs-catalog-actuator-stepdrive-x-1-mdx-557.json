@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/actuator/stepdrive-x1.mdx",
   "sourceDirName": "catalog/actuator",
   "slug": "/catalog/actuator/stepdrive-x1",
-  "permalink": "/duelink-website/docs/catalog/actuator/stepdrive-x1",
+  "permalink": "/docs/catalog/actuator/stepdrive-x1",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/actuator/stepdrive-x1.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/actuator/stepdrive-x1.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Step Pulse",
-    "permalink": "/duelink-website/docs/catalog/actuator/step-pulse"
+    "permalink": "/docs/catalog/actuator/step-pulse"
   },
   "next": {
     "title": "StepDrive X3",
-    "permalink": "/duelink-website/docs/catalog/actuator/stepdrive-x3"
+    "permalink": "/docs/catalog/actuator/stepdrive-x3"
   }
 }

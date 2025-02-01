@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/sensor/light.mdx",
   "sourceDirName": "catalog/sensor",
   "slug": "/catalog/sensor/light",
-  "permalink": "/duelink-website/docs/catalog/sensor/light",
+  "permalink": "/docs/catalog/sensor/light",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/sensor/light.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/sensor/light.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Gas",
-    "permalink": "/duelink-website/docs/catalog/sensor/gas"
+    "permalink": "/docs/catalog/sensor/gas"
   },
   "next": {
     "title": "Motion",
-    "permalink": "/duelink-website/docs/catalog/sensor/motion"
+    "permalink": "/docs/catalog/sensor/motion"
   }
 }

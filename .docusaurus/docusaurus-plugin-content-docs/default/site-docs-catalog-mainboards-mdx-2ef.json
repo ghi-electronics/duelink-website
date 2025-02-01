@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/mainboards.mdx",
   "sourceDirName": "catalog",
   "slug": "/catalog/mainboards",
-  "permalink": "/duelink-website/docs/catalog/mainboards",
+  "permalink": "/docs/catalog/mainboards",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/mainboards.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/mainboards.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Module Catalog",
-    "permalink": "/duelink-website/docs/catalog/intro"
+    "permalink": "/docs/catalog/intro"
   },
   "next": {
     "title": "CincoBit",
-    "permalink": "/duelink-website/docs/catalog/mainboard/cincobit"
+    "permalink": "/docs/catalog/mainboard/cincobit"
   }
 }

@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/hmi/button-l.mdx",
   "sourceDirName": "catalog/hmi",
   "slug": "/catalog/hmi/button-l",
-  "permalink": "/duelink-website/docs/catalog/hmi/button-l",
+  "permalink": "/docs/catalog/hmi/button-l",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/hmi/button-l.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/hmi/button-l.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Human Machine Interface",
-    "permalink": "/duelink-website/docs/catalog/hmi"
+    "permalink": "/docs/catalog/hmi"
   },
   "next": {
     "title": "Button L7",
-    "permalink": "/duelink-website/docs/catalog/hmi/button-l7"
+    "permalink": "/docs/catalog/hmi/button-l7"
   }
 }

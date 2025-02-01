@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/display/oled-096.mdx",
   "sourceDirName": "catalog/display",
   "slug": "/catalog/display/oled-096",
-  "permalink": "/duelink-website/docs/catalog/display/oled-096",
+  "permalink": "/docs/catalog/display/oled-096",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/display/oled-096.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/display/oled-096.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "LCD 20x4",
-    "permalink": "/duelink-website/docs/catalog/display/lcd-20x4"
+    "permalink": "/docs/catalog/display/lcd-20x4"
   },
   "next": {
     "title": "TFT CP23",
-    "permalink": "/duelink-website/docs/catalog/display/tft-cp23"
+    "permalink": "/docs/catalog/display/tft-cp23"
   }
 }

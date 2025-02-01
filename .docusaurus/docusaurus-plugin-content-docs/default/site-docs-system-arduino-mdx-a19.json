@@ -5,20 +5,20 @@
   "source": "@site/docs/system/arduino.mdx",
   "sourceDirName": "system",
   "slug": "/system/arduino",
-  "permalink": "/duelink-website/docs/system/arduino",
+  "permalink": "/docs/system/arduino",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/system/arduino.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/system/arduino.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "micro:bit",
-    "permalink": "/duelink-website/docs/system/microbit"
+    "permalink": "/docs/system/microbit"
   },
   "next": {
     "title": "PC & Laptop",
-    "permalink": "/duelink-website/docs/system/pc-laptop"
+    "permalink": "/docs/system/pc-laptop"
   }
 }

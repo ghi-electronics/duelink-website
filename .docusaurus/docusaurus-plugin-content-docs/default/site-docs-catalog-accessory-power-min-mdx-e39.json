@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/accessory/power-min.mdx",
   "sourceDirName": "catalog/accessory",
   "slug": "/catalog/accessory/power-min",
-  "permalink": "/duelink-website/docs/catalog/accessory/power-min",
+  "permalink": "/docs/catalog/accessory/power-min",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/accessory/power-min.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/accessory/power-min.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Power Inject",
-    "permalink": "/duelink-website/docs/catalog/accessory/power-inject"
+    "permalink": "/docs/catalog/accessory/power-inject"
   },
   "next": {
     "title": "Power Switch",
-    "permalink": "/duelink-website/docs/catalog/accessory/pwr-switch"
+    "permalink": "/docs/catalog/accessory/pwr-switch"
   }
 }

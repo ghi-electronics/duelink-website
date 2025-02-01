@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/com/serial-usb.mdx",
   "sourceDirName": "catalog/com",
   "slug": "/catalog/com/serial-usb",
-  "permalink": "/duelink-website/docs/catalog/com/serial-usb",
+  "permalink": "/docs/catalog/com/serial-usb",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/com/serial-usb.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/com/serial-usb.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "RS485",
-    "permalink": "/duelink-website/docs/catalog/com/rs485"
+    "permalink": "/docs/catalog/com/rs485"
   },
   "next": {
     "title": "USB Host",
-    "permalink": "/duelink-website/docs/catalog/com/usb-host"
+    "permalink": "/docs/catalog/com/usb-host"
   }
 }

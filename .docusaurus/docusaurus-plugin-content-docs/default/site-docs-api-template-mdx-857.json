@@ -5,10 +5,10 @@
   "source": "@site/docs/api/template.mdx",
   "sourceDirName": "api",
   "slug": "/api/template",
-  "permalink": "/duelink-website/docs/api/template",
+  "permalink": "/docs/api/template",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/api/template.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/api/template.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {}

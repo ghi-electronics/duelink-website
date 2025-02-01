@@ -5,20 +5,20 @@
   "source": "@site/docs/coding/javascript.mdx",
   "sourceDirName": "coding",
   "slug": "/coding/javascript",
-  "permalink": "/duelink-website/docs/coding/javascript",
+  "permalink": "/docs/coding/javascript",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding/javascript.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/coding/javascript.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "MicroPython",
-    "permalink": "/duelink-website/docs/coding/micropython"
+    "permalink": "/docs/coding/micropython"
   },
   "next": {
     "title": "TypeScript",
-    "permalink": "/duelink-website/docs/coding/typescript"
+    "permalink": "/docs/coding/typescript"
   }
 }

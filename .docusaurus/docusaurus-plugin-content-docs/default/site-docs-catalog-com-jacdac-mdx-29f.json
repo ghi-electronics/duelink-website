@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/com/jacdac.mdx",
   "sourceDirName": "catalog/com",
   "slug": "/catalog/com/jacdac",
-  "permalink": "/duelink-website/docs/catalog/com/jacdac",
+  "permalink": "/docs/catalog/com/jacdac",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/com/jacdac.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/com/jacdac.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Ethernet",
-    "permalink": "/duelink-website/docs/catalog/com/ethernet"
+    "permalink": "/docs/catalog/com/ethernet"
   },
   "next": {
     "title": "MIDI",
-    "permalink": "/duelink-website/docs/catalog/com/midi"
+    "permalink": "/docs/catalog/com/midi"
   }
 }

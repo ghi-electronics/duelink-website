@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/intro.mdx",
   "sourceDirName": "catalog",
   "slug": "/catalog/intro",
-  "permalink": "/duelink-website/docs/catalog/intro",
+  "permalink": "/docs/catalog/intro",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/intro.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/intro.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Education",
-    "permalink": "/duelink-website/docs/start/education"
+    "permalink": "/docs/start/education"
   },
   "next": {
     "title": "Mainboards",
-    "permalink": "/duelink-website/docs/catalog/mainboards"
+    "permalink": "/docs/catalog/mainboards"
   }
 }

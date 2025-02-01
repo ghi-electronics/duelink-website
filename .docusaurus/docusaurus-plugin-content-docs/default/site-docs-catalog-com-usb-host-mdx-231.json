@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/com/usb-host.mdx",
   "sourceDirName": "catalog/com",
   "slug": "/catalog/com/usb-host",
-  "permalink": "/duelink-website/docs/catalog/com/usb-host",
+  "permalink": "/docs/catalog/com/usb-host",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/com/usb-host.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/com/usb-host.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Serial USB",
-    "permalink": "/duelink-website/docs/catalog/com/serial-usb"
+    "permalink": "/docs/catalog/com/serial-usb"
   },
   "next": {
     "title": "Human Machine Interface",
-    "permalink": "/duelink-website/docs/catalog/hmi"
+    "permalink": "/docs/catalog/hmi"
   }
 }

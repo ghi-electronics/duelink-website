@@ -3,1213 +3,1213 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/duelink-website/__docusaurus/debug',
-    component: ComponentCreator('/duelink-website/__docusaurus/debug', '118'),
+    path: '/__docusaurus/debug',
+    component: ComponentCreator('/__docusaurus/debug', '5ff'),
     exact: true
   },
   {
-    path: '/duelink-website/__docusaurus/debug/config',
-    component: ComponentCreator('/duelink-website/__docusaurus/debug/config', '7d7'),
+    path: '/__docusaurus/debug/config',
+    component: ComponentCreator('/__docusaurus/debug/config', '5ba'),
     exact: true
   },
   {
-    path: '/duelink-website/__docusaurus/debug/content',
-    component: ComponentCreator('/duelink-website/__docusaurus/debug/content', 'c93'),
+    path: '/__docusaurus/debug/content',
+    component: ComponentCreator('/__docusaurus/debug/content', 'a2b'),
     exact: true
   },
   {
-    path: '/duelink-website/__docusaurus/debug/globalData',
-    component: ComponentCreator('/duelink-website/__docusaurus/debug/globalData', '97d'),
+    path: '/__docusaurus/debug/globalData',
+    component: ComponentCreator('/__docusaurus/debug/globalData', 'c3c'),
     exact: true
   },
   {
-    path: '/duelink-website/__docusaurus/debug/metadata',
-    component: ComponentCreator('/duelink-website/__docusaurus/debug/metadata', '5e2'),
+    path: '/__docusaurus/debug/metadata',
+    component: ComponentCreator('/__docusaurus/debug/metadata', '156'),
     exact: true
   },
   {
-    path: '/duelink-website/__docusaurus/debug/registry',
-    component: ComponentCreator('/duelink-website/__docusaurus/debug/registry', 'bd6'),
+    path: '/__docusaurus/debug/registry',
+    component: ComponentCreator('/__docusaurus/debug/registry', '88c'),
     exact: true
   },
   {
-    path: '/duelink-website/__docusaurus/debug/routes',
-    component: ComponentCreator('/duelink-website/__docusaurus/debug/routes', '736'),
+    path: '/__docusaurus/debug/routes',
+    component: ComponentCreator('/__docusaurus/debug/routes', '000'),
     exact: true
   },
   {
-    path: '/duelink-website/markdown-page',
-    component: ComponentCreator('/duelink-website/markdown-page', 'fe7'),
+    path: '/markdown-page',
+    component: ComponentCreator('/markdown-page', '3d7'),
     exact: true
   },
   {
-    path: '/duelink-website/my-markdown-page',
-    component: ComponentCreator('/duelink-website/my-markdown-page', '57d'),
+    path: '/my-markdown-page',
+    component: ComponentCreator('/my-markdown-page', '438'),
     exact: true
   },
   {
-    path: '/duelink-website/my-react-page',
-    component: ComponentCreator('/duelink-website/my-react-page', '1ac'),
+    path: '/my-react-page',
+    component: ComponentCreator('/my-react-page', 'f2d'),
     exact: true
   },
   {
-    path: '/duelink-website/docs',
-    component: ComponentCreator('/duelink-website/docs', '8b0'),
+    path: '/docs',
+    component: ComponentCreator('/docs', 'c91'),
     routes: [
       {
-        path: '/duelink-website/docs',
-        component: ComponentCreator('/duelink-website/docs', '292'),
+        path: '/docs',
+        component: ComponentCreator('/docs', '3dd'),
         routes: [
           {
-            path: '/duelink-website/docs',
-            component: ComponentCreator('/duelink-website/docs', 'bbc'),
+            path: '/docs',
+            component: ComponentCreator('/docs', '413'),
             routes: [
               {
-                path: '/duelink-website/docs/about',
-                component: ComponentCreator('/duelink-website/docs/about', 'd09'),
+                path: '/docs/about',
+                component: ComponentCreator('/docs/about', '941'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/analog',
-                component: ComponentCreator('/duelink-website/docs/api/analog', '474'),
+                path: '/docs/api/analog',
+                component: ComponentCreator('/docs/api/analog', 'feb'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/bluetooth',
-                component: ComponentCreator('/duelink-website/docs/api/bluetooth', '12b'),
+                path: '/docs/api/bluetooth',
+                component: ComponentCreator('/docs/api/bluetooth', 'ed8'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/button',
-                component: ComponentCreator('/duelink-website/docs/api/button', '416'),
+                path: '/docs/api/button',
+                component: ComponentCreator('/docs/api/button', 'e6e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/can',
-                component: ComponentCreator('/duelink-website/docs/api/can', '593'),
+                path: '/docs/api/can',
+                component: ComponentCreator('/docs/api/can', 'a24'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/digital',
-                component: ComponentCreator('/duelink-website/docs/api/digital', '05b'),
+                path: '/docs/api/digital',
+                component: ComponentCreator('/docs/api/digital', 'b02'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/distance',
-                component: ComponentCreator('/duelink-website/docs/api/distance', 'fb9'),
+                path: '/docs/api/distance',
+                component: ComponentCreator('/docs/api/distance', '273'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/frequency',
-                component: ComponentCreator('/duelink-website/docs/api/frequency', '4f7'),
+                path: '/docs/api/frequency',
+                component: ComponentCreator('/docs/api/frequency', 'e52'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/i2c',
-                component: ComponentCreator('/duelink-website/docs/api/i2c', '1d4'),
+                path: '/docs/api/i2c',
+                component: ComponentCreator('/docs/api/i2c', '24e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/infrared',
-                component: ComponentCreator('/duelink-website/docs/api/infrared', 'e60'),
+                path: '/docs/api/infrared',
+                component: ComponentCreator('/docs/api/infrared', '70c'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/intro',
-                component: ComponentCreator('/duelink-website/docs/api/intro', 'a73'),
+                path: '/docs/api/intro',
+                component: ComponentCreator('/docs/api/intro', '5da'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/lcd',
-                component: ComponentCreator('/duelink-website/docs/api/lcd', 'd49'),
+                path: '/docs/api/lcd',
+                component: ComponentCreator('/docs/api/lcd', '758'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/led',
-                component: ComponentCreator('/duelink-website/docs/api/led', '36c'),
+                path: '/docs/api/led',
+                component: ComponentCreator('/docs/api/led', 'c1a'),
                 exact: true
               },
               {
-                path: '/duelink-website/docs/api/neopixel',
-                component: ComponentCreator('/duelink-website/docs/api/neopixel', '2b9'),
+                path: '/docs/api/neopixel',
+                component: ComponentCreator('/docs/api/neopixel', '51f'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/pulse',
-                component: ComponentCreator('/duelink-website/docs/api/pulse', '4e8'),
+                path: '/docs/api/pulse',
+                component: ComponentCreator('/docs/api/pulse', '2db'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/script',
-                component: ComponentCreator('/duelink-website/docs/api/script', '659'),
+                path: '/docs/api/script',
+                component: ComponentCreator('/docs/api/script', 'db0'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/servo',
-                component: ComponentCreator('/duelink-website/docs/api/servo', 'ab8'),
+                path: '/docs/api/servo',
+                component: ComponentCreator('/docs/api/servo', 'c0b'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/sound',
-                component: ComponentCreator('/duelink-website/docs/api/sound', '95d'),
+                path: '/docs/api/sound',
+                component: ComponentCreator('/docs/api/sound', '121'),
                 exact: true
               },
               {
-                path: '/duelink-website/docs/api/spi',
-                component: ComponentCreator('/duelink-website/docs/api/spi', 'e65'),
+                path: '/docs/api/spi',
+                component: ComponentCreator('/docs/api/spi', 'e8d'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/systemfunctions',
-                component: ComponentCreator('/duelink-website/docs/api/systemfunctions', '566'),
+                path: '/docs/api/systemfunctions',
+                component: ComponentCreator('/docs/api/systemfunctions', '834'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/temp-humidity',
-                component: ComponentCreator('/duelink-website/docs/api/temp-humidity', '873'),
+                path: '/docs/api/temp-humidity',
+                component: ComponentCreator('/docs/api/temp-humidity', '17e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/template',
-                component: ComponentCreator('/duelink-website/docs/api/template', '45e'),
+                path: '/docs/api/template',
+                component: ComponentCreator('/docs/api/template', 'cee'),
                 exact: true
               },
               {
-                path: '/duelink-website/docs/api/touch',
-                component: ComponentCreator('/duelink-website/docs/api/touch', 'c30'),
+                path: '/docs/api/touch',
+                component: ComponentCreator('/docs/api/touch', '7f3'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/api/uart',
-                component: ComponentCreator('/duelink-website/docs/api/uart', '1fe'),
+                path: '/docs/api/uart',
+                component: ComponentCreator('/docs/api/uart', '0e4'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/accessories',
-                component: ComponentCreator('/duelink-website/docs/catalog/accessories', '4d7'),
+                path: '/docs/catalog/accessories',
+                component: ComponentCreator('/docs/catalog/accessories', '211'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/accessory/bluetooth-hook',
-                component: ComponentCreator('/duelink-website/docs/catalog/accessory/bluetooth-hook', 'cb4'),
+                path: '/docs/catalog/accessory/bluetooth-hook',
+                component: ComponentCreator('/docs/catalog/accessory/bluetooth-hook', '69f'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/accessory/breakout',
-                component: ComponentCreator('/duelink-website/docs/catalog/accessory/breakout', '4e0'),
+                path: '/docs/catalog/accessory/breakout',
+                component: ComponentCreator('/docs/catalog/accessory/breakout', '159'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/accessory/cable-connector',
-                component: ComponentCreator('/duelink-website/docs/catalog/accessory/cable-connector', 'e3d'),
+                path: '/docs/catalog/accessory/cable-connector',
+                component: ComponentCreator('/docs/catalog/accessory/cable-connector', '549'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/accessory/dueclick',
-                component: ComponentCreator('/duelink-website/docs/catalog/accessory/dueclick', 'b39'),
+                path: '/docs/catalog/accessory/dueclick',
+                component: ComponentCreator('/docs/catalog/accessory/dueclick', '42d'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/accessory/duepi',
-                component: ComponentCreator('/duelink-website/docs/catalog/accessory/duepi', '880'),
+                path: '/docs/catalog/accessory/duepi',
+                component: ComponentCreator('/docs/catalog/accessory/duepi', '4f3'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/accessory/holey-board',
-                component: ComponentCreator('/duelink-website/docs/catalog/accessory/holey-board', '0b2'),
+                path: '/docs/catalog/accessory/holey-board',
+                component: ComponentCreator('/docs/catalog/accessory/holey-board', 'dae'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/accessory/holey-moley-board',
-                component: ComponentCreator('/duelink-website/docs/catalog/accessory/holey-moley-board', 'd8d'),
+                path: '/docs/catalog/accessory/holey-moley-board',
+                component: ComponentCreator('/docs/catalog/accessory/holey-moley-board', '32d'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/accessory/mount-hw',
-                component: ComponentCreator('/duelink-website/docs/catalog/accessory/mount-hw', 'fa0'),
+                path: '/docs/catalog/accessory/mount-hw',
+                component: ComponentCreator('/docs/catalog/accessory/mount-hw', '9ac'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/accessory/power-inject',
-                component: ComponentCreator('/duelink-website/docs/catalog/accessory/power-inject', 'df5'),
+                path: '/docs/catalog/accessory/power-inject',
+                component: ComponentCreator('/docs/catalog/accessory/power-inject', 'f06'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/accessory/power-min',
-                component: ComponentCreator('/duelink-website/docs/catalog/accessory/power-min', '6ea'),
+                path: '/docs/catalog/accessory/power-min',
+                component: ComponentCreator('/docs/catalog/accessory/power-min', 'f3d'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/accessory/pwr-switch',
-                component: ComponentCreator('/duelink-website/docs/catalog/accessory/pwr-switch', '04c'),
+                path: '/docs/catalog/accessory/pwr-switch',
+                component: ComponentCreator('/docs/catalog/accessory/pwr-switch', '885'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/accessory/sticker',
-                component: ComponentCreator('/duelink-website/docs/catalog/accessory/sticker', '9d4'),
+                path: '/docs/catalog/accessory/sticker',
+                component: ComponentCreator('/docs/catalog/accessory/sticker', '400'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/accessory/usb-hook',
-                component: ComponentCreator('/duelink-website/docs/catalog/accessory/usb-hook', '3f2'),
+                path: '/docs/catalog/accessory/usb-hook',
+                component: ComponentCreator('/docs/catalog/accessory/usb-hook', 'afb'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/actuator/fan',
-                component: ComponentCreator('/duelink-website/docs/catalog/actuator/fan', 'b94'),
+                path: '/docs/catalog/actuator/fan',
+                component: ComponentCreator('/docs/catalog/actuator/fan', '06f'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/actuator/load',
-                component: ComponentCreator('/duelink-website/docs/catalog/actuator/load', '581'),
+                path: '/docs/catalog/actuator/load',
+                component: ComponentCreator('/docs/catalog/actuator/load', 'cd6'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/actuator/motomax',
-                component: ComponentCreator('/duelink-website/docs/catalog/actuator/motomax', '402'),
+                path: '/docs/catalog/actuator/motomax',
+                component: ComponentCreator('/docs/catalog/actuator/motomax', '617'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/actuator/mototwin',
-                component: ComponentCreator('/duelink-website/docs/catalog/actuator/mototwin', '980'),
+                path: '/docs/catalog/actuator/mototwin',
+                component: ComponentCreator('/docs/catalog/actuator/mototwin', 'dde'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/actuator/relay-p16',
-                component: ComponentCreator('/duelink-website/docs/catalog/actuator/relay-p16', 'ebc'),
+                path: '/docs/catalog/actuator/relay-p16',
+                component: ComponentCreator('/docs/catalog/actuator/relay-p16', 'a49'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/actuator/relay-p4',
-                component: ComponentCreator('/duelink-website/docs/catalog/actuator/relay-p4', '58a'),
+                path: '/docs/catalog/actuator/relay-p4',
+                component: ComponentCreator('/docs/catalog/actuator/relay-p4', 'e3b'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/actuator/relay-x1',
-                component: ComponentCreator('/duelink-website/docs/catalog/actuator/relay-x1', '39c'),
+                path: '/docs/catalog/actuator/relay-x1',
+                component: ComponentCreator('/docs/catalog/actuator/relay-x1', 'a77'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/actuator/servo-p8',
-                component: ComponentCreator('/duelink-website/docs/catalog/actuator/servo-p8', '1b0'),
+                path: '/docs/catalog/actuator/servo-p8',
+                component: ComponentCreator('/docs/catalog/actuator/servo-p8', '8d6'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/actuator/servo-x1',
-                component: ComponentCreator('/duelink-website/docs/catalog/actuator/servo-x1', '146'),
+                path: '/docs/catalog/actuator/servo-x1',
+                component: ComponentCreator('/docs/catalog/actuator/servo-x1', 'c74'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/actuator/step-pulse',
-                component: ComponentCreator('/duelink-website/docs/catalog/actuator/step-pulse', '6b0'),
+                path: '/docs/catalog/actuator/step-pulse',
+                component: ComponentCreator('/docs/catalog/actuator/step-pulse', '920'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/actuator/stepdrive-x1',
-                component: ComponentCreator('/duelink-website/docs/catalog/actuator/stepdrive-x1', '1c5'),
+                path: '/docs/catalog/actuator/stepdrive-x1',
+                component: ComponentCreator('/docs/catalog/actuator/stepdrive-x1', '44e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/actuator/stepdrive-x3',
-                component: ComponentCreator('/duelink-website/docs/catalog/actuator/stepdrive-x3', '67e'),
+                path: '/docs/catalog/actuator/stepdrive-x3',
+                component: ComponentCreator('/docs/catalog/actuator/stepdrive-x3', 'b68'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/actuators',
-                component: ComponentCreator('/duelink-website/docs/catalog/actuators', '68b'),
+                path: '/docs/catalog/actuators',
+                component: ComponentCreator('/docs/catalog/actuators', 'bc7'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/com',
-                component: ComponentCreator('/duelink-website/docs/catalog/com', 'e03'),
+                path: '/docs/catalog/com',
+                component: ComponentCreator('/docs/catalog/com', '340'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/com/can',
-                component: ComponentCreator('/duelink-website/docs/catalog/com/can', '55d'),
+                path: '/docs/catalog/com/can',
+                component: ComponentCreator('/docs/catalog/com/can', '7de'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/com/dmx',
-                component: ComponentCreator('/duelink-website/docs/catalog/com/dmx', '494'),
+                path: '/docs/catalog/com/dmx',
+                component: ComponentCreator('/docs/catalog/com/dmx', '221'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/com/ethernet',
-                component: ComponentCreator('/duelink-website/docs/catalog/com/ethernet', '5d1'),
+                path: '/docs/catalog/com/ethernet',
+                component: ComponentCreator('/docs/catalog/com/ethernet', '285'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/com/jacdac',
-                component: ComponentCreator('/duelink-website/docs/catalog/com/jacdac', '6dd'),
+                path: '/docs/catalog/com/jacdac',
+                component: ComponentCreator('/docs/catalog/com/jacdac', '14d'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/com/midi',
-                component: ComponentCreator('/duelink-website/docs/catalog/com/midi', '18a'),
+                path: '/docs/catalog/com/midi',
+                component: ComponentCreator('/docs/catalog/com/midi', '4a7'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/com/rs485',
-                component: ComponentCreator('/duelink-website/docs/catalog/com/rs485', '8e2'),
+                path: '/docs/catalog/com/rs485',
+                component: ComponentCreator('/docs/catalog/com/rs485', '33c'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/com/serial-usb',
-                component: ComponentCreator('/duelink-website/docs/catalog/com/serial-usb', '6fe'),
+                path: '/docs/catalog/com/serial-usb',
+                component: ComponentCreator('/docs/catalog/com/serial-usb', '10e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/com/usb-host',
-                component: ComponentCreator('/duelink-website/docs/catalog/com/usb-host', 'edc'),
+                path: '/docs/catalog/com/usb-host',
+                component: ComponentCreator('/docs/catalog/com/usb-host', 'a75'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/display/epaper29',
-                component: ComponentCreator('/duelink-website/docs/catalog/display/epaper29', '4db'),
+                path: '/docs/catalog/display/epaper29',
+                component: ComponentCreator('/docs/catalog/display/epaper29', '6eb'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/display/lcd-16x2',
-                component: ComponentCreator('/duelink-website/docs/catalog/display/lcd-16x2', '3bb'),
+                path: '/docs/catalog/display/lcd-16x2',
+                component: ComponentCreator('/docs/catalog/display/lcd-16x2', 'd4e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/display/lcd-20x4',
-                component: ComponentCreator('/duelink-website/docs/catalog/display/lcd-20x4', 'a48'),
+                path: '/docs/catalog/display/lcd-20x4',
+                component: ComponentCreator('/docs/catalog/display/lcd-20x4', 'ae4'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/display/oled-096',
-                component: ComponentCreator('/duelink-website/docs/catalog/display/oled-096', 'd59'),
+                path: '/docs/catalog/display/oled-096',
+                component: ComponentCreator('/docs/catalog/display/oled-096', 'b6b'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/display/tft-cp23',
-                component: ComponentCreator('/duelink-website/docs/catalog/display/tft-cp23', '82d'),
+                path: '/docs/catalog/display/tft-cp23',
+                component: ComponentCreator('/docs/catalog/display/tft-cp23', '264'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/display/tft-cp70bt',
-                component: ComponentCreator('/duelink-website/docs/catalog/display/tft-cp70bt', '890'),
+                path: '/docs/catalog/display/tft-cp70bt',
+                component: ComponentCreator('/docs/catalog/display/tft-cp70bt', '14d'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/display/tft-n18',
-                component: ComponentCreator('/duelink-website/docs/catalog/display/tft-n18', '0b0'),
+                path: '/docs/catalog/display/tft-n18',
+                component: ComponentCreator('/docs/catalog/display/tft-n18', 'b11'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/display/tft-r128',
-                component: ComponentCreator('/duelink-website/docs/catalog/display/tft-r128', '406'),
+                path: '/docs/catalog/display/tft-r128',
+                component: ComponentCreator('/docs/catalog/display/tft-r128', '0fd'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/display/tft-t32',
-                component: ComponentCreator('/duelink-website/docs/catalog/display/tft-t32', '192'),
+                path: '/docs/catalog/display/tft-t32',
+                component: ComponentCreator('/docs/catalog/display/tft-t32', 'dfe'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/display/vfd-b8',
-                component: ComponentCreator('/duelink-website/docs/catalog/display/vfd-b8', 'bf7'),
+                path: '/docs/catalog/display/vfd-b8',
+                component: ComponentCreator('/docs/catalog/display/vfd-b8', 'c1f'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/displays',
-                component: ComponentCreator('/duelink-website/docs/catalog/displays', '068'),
+                path: '/docs/catalog/displays',
+                component: ComponentCreator('/docs/catalog/displays', '198'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/hmi',
-                component: ComponentCreator('/duelink-website/docs/catalog/hmi', '671'),
+                path: '/docs/catalog/hmi',
+                component: ComponentCreator('/docs/catalog/hmi', '076'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/hmi/button-l',
-                component: ComponentCreator('/duelink-website/docs/catalog/hmi/button-l', '9be'),
+                path: '/docs/catalog/hmi/button-l',
+                component: ComponentCreator('/docs/catalog/hmi/button-l', 'e98'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/hmi/button-l7',
-                component: ComponentCreator('/duelink-website/docs/catalog/hmi/button-l7', 'd6b'),
+                path: '/docs/catalog/hmi/button-l7',
+                component: ComponentCreator('/docs/catalog/hmi/button-l7', 'c07'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/hmi/button-s',
-                component: ComponentCreator('/duelink-website/docs/catalog/hmi/button-s', '233'),
+                path: '/docs/catalog/hmi/button-s',
+                component: ComponentCreator('/docs/catalog/hmi/button-s', '1b5'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/hmi/capslide',
-                component: ComponentCreator('/duelink-website/docs/catalog/hmi/capslide', 'a86'),
+                path: '/docs/catalog/hmi/capslide',
+                component: ComponentCreator('/docs/catalog/hmi/capslide', 'b65'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/hmi/dial',
-                component: ComponentCreator('/duelink-website/docs/catalog/hmi/dial', 'b82'),
+                path: '/docs/catalog/hmi/dial',
+                component: ComponentCreator('/docs/catalog/hmi/dial', '8f2'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/hmi/dip-switch',
-                component: ComponentCreator('/duelink-website/docs/catalog/hmi/dip-switch', 'e9c'),
+                path: '/docs/catalog/hmi/dip-switch',
+                component: ComponentCreator('/docs/catalog/hmi/dip-switch', '587'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/hmi/joystick-l',
-                component: ComponentCreator('/duelink-website/docs/catalog/hmi/joystick-l', '1fa'),
+                path: '/docs/catalog/hmi/joystick-l',
+                component: ComponentCreator('/docs/catalog/hmi/joystick-l', '040'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/hmi/keypad-3x4',
-                component: ComponentCreator('/duelink-website/docs/catalog/hmi/keypad-3x4', 'd5d'),
+                path: '/docs/catalog/hmi/keypad-3x4',
+                component: ComponentCreator('/docs/catalog/hmi/keypad-3x4', '30f'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/hmi/keypad-4x4',
-                component: ComponentCreator('/duelink-website/docs/catalog/hmi/keypad-4x4', '512'),
+                path: '/docs/catalog/hmi/keypad-4x4',
+                component: ComponentCreator('/docs/catalog/hmi/keypad-4x4', '991'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/hmi/rotary',
-                component: ComponentCreator('/duelink-website/docs/catalog/hmi/rotary', 'b23'),
+                path: '/docs/catalog/hmi/rotary',
+                component: ComponentCreator('/docs/catalog/hmi/rotary', '454'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/hmi/slider',
-                component: ComponentCreator('/duelink-website/docs/catalog/hmi/slider', '8b5'),
+                path: '/docs/catalog/hmi/slider',
+                component: ComponentCreator('/docs/catalog/hmi/slider', '837'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/intro',
-                component: ComponentCreator('/duelink-website/docs/catalog/intro', 'b54'),
+                path: '/docs/catalog/intro',
+                component: ComponentCreator('/docs/catalog/intro', '764'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/led/led-md0808',
-                component: ComponentCreator('/duelink-website/docs/catalog/led/led-md0808', '0e5'),
+                path: '/docs/catalog/led/led-md0808',
+                component: ComponentCreator('/docs/catalog/led/led-md0808', '35d'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/led/led-md3208',
-                component: ComponentCreator('/duelink-website/docs/catalog/led/led-md3208', '994'),
+                path: '/docs/catalog/led/led-md3208',
+                component: ComponentCreator('/docs/catalog/led/led-md3208', '93f'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/led/led-r16',
-                component: ComponentCreator('/duelink-website/docs/catalog/led/led-r16', 'f45'),
+                path: '/docs/catalog/led/led-r16',
+                component: ComponentCreator('/docs/catalog/led/led-r16', '940'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/led/led-rgb3',
-                component: ComponentCreator('/duelink-website/docs/catalog/led/led-rgb3', '355'),
+                path: '/docs/catalog/led/led-rgb3',
+                component: ComponentCreator('/docs/catalog/led/led-rgb3', 'feb'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/led/led-s284-c',
-                component: ComponentCreator('/duelink-website/docs/catalog/led/led-s284-c', 'e6a'),
+                path: '/docs/catalog/led/led-s284-c',
+                component: ComponentCreator('/docs/catalog/led/led-s284-c', '654'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/led/led-s284-t',
-                component: ComponentCreator('/duelink-website/docs/catalog/led/led-s284-t', '41e'),
+                path: '/docs/catalog/led/led-s284-t',
+                component: ComponentCreator('/docs/catalog/led/led-s284-t', '36c'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/led/led-s404-c',
-                component: ComponentCreator('/duelink-website/docs/catalog/led/led-s404-c', 'f48'),
+                path: '/docs/catalog/led/led-s404-c',
+                component: ComponentCreator('/docs/catalog/led/led-s404-c', '4d9'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/led/led-s404-t',
-                component: ComponentCreator('/duelink-website/docs/catalog/led/led-s404-t', 'a5b'),
+                path: '/docs/catalog/led/led-s404-t',
+                component: ComponentCreator('/docs/catalog/led/led-s404-t', 'b4f'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/led/led-s564-c',
-                component: ComponentCreator('/duelink-website/docs/catalog/led/led-s564-c', 'c44'),
+                path: '/docs/catalog/led/led-s564-c',
+                component: ComponentCreator('/docs/catalog/led/led-s564-c', '925'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/led/led-s564-t',
-                component: ComponentCreator('/duelink-website/docs/catalog/led/led-s564-t', '8a2'),
+                path: '/docs/catalog/led/led-s564-t',
+                component: ComponentCreator('/docs/catalog/led/led-s564-t', '240'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/led/led-ss805',
-                component: ComponentCreator('/duelink-website/docs/catalog/led/led-ss805', 'bee'),
+                path: '/docs/catalog/led/led-ss805',
+                component: ComponentCreator('/docs/catalog/led/led-ss805', '668'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/led/smart-led',
-                component: ComponentCreator('/duelink-website/docs/catalog/led/smart-led', '361'),
+                path: '/docs/catalog/led/smart-led',
+                component: ComponentCreator('/docs/catalog/led/smart-led', '0ea'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/leds',
-                component: ComponentCreator('/duelink-website/docs/catalog/leds', '6a2'),
+                path: '/docs/catalog/leds',
+                component: ComponentCreator('/docs/catalog/leds', '059'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/mainboard/cincobit',
-                component: ComponentCreator('/duelink-website/docs/catalog/mainboard/cincobit', '124'),
+                path: '/docs/catalog/mainboard/cincobit',
+                component: ComponentCreator('/docs/catalog/mainboard/cincobit', '77b'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/mainboard/clipit',
-                component: ComponentCreator('/duelink-website/docs/catalog/mainboard/clipit', 'ee9'),
+                path: '/docs/catalog/mainboard/clipit',
+                component: ComponentCreator('/docs/catalog/mainboard/clipit', '2a5'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/mainboard/dueduino',
-                component: ComponentCreator('/duelink-website/docs/catalog/mainboard/dueduino', 'b57'),
+                path: '/docs/catalog/mainboard/dueduino',
+                component: ComponentCreator('/docs/catalog/mainboard/dueduino', '44d'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/mainboard/dueflea',
-                component: ComponentCreator('/duelink-website/docs/catalog/mainboard/dueflea', 'e64'),
+                path: '/docs/catalog/mainboard/dueflea',
+                component: ComponentCreator('/docs/catalog/mainboard/dueflea', 'ce0'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/mainboard/duestem',
-                component: ComponentCreator('/duelink-website/docs/catalog/mainboard/duestem', '3d2'),
+                path: '/docs/catalog/mainboard/duestem',
+                component: ComponentCreator('/docs/catalog/mainboard/duestem', '785'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/mainboard/duestick',
-                component: ComponentCreator('/duelink-website/docs/catalog/mainboard/duestick', '100'),
+                path: '/docs/catalog/mainboard/duestick',
+                component: ComponentCreator('/docs/catalog/mainboard/duestick', '844'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/mainboard/holiday-tree',
-                component: ComponentCreator('/duelink-website/docs/catalog/mainboard/holiday-tree', '073'),
+                path: '/docs/catalog/mainboard/holiday-tree',
+                component: ComponentCreator('/docs/catalog/mainboard/holiday-tree', '4e5'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/mainboard/john-due',
-                component: ComponentCreator('/duelink-website/docs/catalog/mainboard/john-due', '766'),
+                path: '/docs/catalog/mainboard/john-due',
+                component: ComponentCreator('/docs/catalog/mainboard/john-due', '8dd'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/mainboard/octobit',
-                component: ComponentCreator('/duelink-website/docs/catalog/mainboard/octobit', '165'),
+                path: '/docs/catalog/mainboard/octobit',
+                component: ComponentCreator('/docs/catalog/mainboard/octobit', 'bb7'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/mainboard/pixobit',
-                component: ComponentCreator('/duelink-website/docs/catalog/mainboard/pixobit', '884'),
+                path: '/docs/catalog/mainboard/pixobit',
+                component: ComponentCreator('/docs/catalog/mainboard/pixobit', '7d6'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/mainboards',
-                component: ComponentCreator('/duelink-website/docs/catalog/mainboards', 'e10'),
+                path: '/docs/catalog/mainboards',
+                component: ComponentCreator('/docs/catalog/mainboards', '60c'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/accel',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/accel', 'c72'),
+                path: '/docs/catalog/sensor/accel',
+                component: ComponentCreator('/docs/catalog/sensor/accel', '947'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/air-quality',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/air-quality', '255'),
+                path: '/docs/catalog/sensor/air-quality',
+                component: ComponentCreator('/docs/catalog/sensor/air-quality', 'a64'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/barometer',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/barometer', 'eab'),
+                path: '/docs/catalog/sensor/barometer',
+                component: ComponentCreator('/docs/catalog/sensor/barometer', 'bce'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/ClipSense',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/ClipSense', '5af'),
+                path: '/docs/catalog/sensor/ClipSense',
+                component: ComponentCreator('/docs/catalog/sensor/ClipSense', 'dc2'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/Color',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/Color', '786'),
+                path: '/docs/catalog/sensor/Color',
+                component: ComponentCreator('/docs/catalog/sensor/Color', 'f0e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/Current',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/Current', 'c4d'),
+                path: '/docs/catalog/sensor/Current',
+                component: ComponentCreator('/docs/catalog/sensor/Current', 'cee'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/distance',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/distance', '383'),
+                path: '/docs/catalog/sensor/distance',
+                component: ComponentCreator('/docs/catalog/sensor/distance', '41b'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/dof9',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/dof9', '12b'),
+                path: '/docs/catalog/sensor/dof9',
+                component: ComponentCreator('/docs/catalog/sensor/dof9', '7ef'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/ekg',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/ekg', '433'),
+                path: '/docs/catalog/sensor/ekg',
+                component: ComponentCreator('/docs/catalog/sensor/ekg', 'fa8'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/gas',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/gas', '912'),
+                path: '/docs/catalog/sensor/gas',
+                component: ComponentCreator('/docs/catalog/sensor/gas', 'a4a'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/light',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/light', 'd59'),
+                path: '/docs/catalog/sensor/light',
+                component: ComponentCreator('/docs/catalog/sensor/light', 'e4c'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/motion',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/motion', '678'),
+                path: '/docs/catalog/sensor/motion',
+                component: ComponentCreator('/docs/catalog/sensor/motion', 'b54'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/pressure',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/pressure', '446'),
+                path: '/docs/catalog/sensor/pressure',
+                component: ComponentCreator('/docs/catalog/sensor/pressure', 'bcd'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/pulseoxi',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/pulseoxi', '509'),
+                path: '/docs/catalog/sensor/pulseoxi',
+                component: ComponentCreator('/docs/catalog/sensor/pulseoxi', '10d'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/rtc',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/rtc', '328'),
+                path: '/docs/catalog/sensor/rtc',
+                component: ComponentCreator('/docs/catalog/sensor/rtc', 'a66'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/temphmd',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/temphmd', '042'),
+                path: '/docs/catalog/sensor/temphmd',
+                component: ComponentCreator('/docs/catalog/sensor/temphmd', 'd9a'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/temprtd',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/temprtd', 'c2c'),
+                path: '/docs/catalog/sensor/temprtd',
+                component: ComponentCreator('/docs/catalog/sensor/temprtd', 'af4'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensor/thermal',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensor/thermal', '3b5'),
+                path: '/docs/catalog/sensor/thermal',
+                component: ComponentCreator('/docs/catalog/sensor/thermal', '01e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sensors',
-                component: ComponentCreator('/duelink-website/docs/catalog/sensors', '91f'),
+                path: '/docs/catalog/sensors',
+                component: ComponentCreator('/docs/catalog/sensors', '563'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sound',
-                component: ComponentCreator('/duelink-website/docs/catalog/sound', 'e24'),
+                path: '/docs/catalog/sound',
+                component: ComponentCreator('/docs/catalog/sound', '2a3'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sound/Buzzer',
-                component: ComponentCreator('/duelink-website/docs/catalog/sound/Buzzer', '1df'),
+                path: '/docs/catalog/sound/Buzzer',
+                component: ComponentCreator('/docs/catalog/sound/Buzzer', 'f16'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sound/Codec',
-                component: ComponentCreator('/duelink-website/docs/catalog/sound/Codec', 'd89'),
+                path: '/docs/catalog/sound/Codec',
+                component: ComponentCreator('/docs/catalog/sound/Codec', '31c'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/sound/MP3',
-                component: ComponentCreator('/duelink-website/docs/catalog/sound/MP3', '22f'),
+                path: '/docs/catalog/sound/MP3',
+                component: ComponentCreator('/docs/catalog/sound/MP3', '8b1'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/storage',
-                component: ComponentCreator('/duelink-website/docs/catalog/storage', 'c87'),
+                path: '/docs/catalog/storage',
+                component: ComponentCreator('/docs/catalog/storage', 'a2c'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/storage/flash',
-                component: ComponentCreator('/duelink-website/docs/catalog/storage/flash', 'bbb'),
+                path: '/docs/catalog/storage/flash',
+                component: ComponentCreator('/docs/catalog/storage/flash', '61f'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/storage/sd-card',
-                component: ComponentCreator('/duelink-website/docs/catalog/storage/sd-card', '7a2'),
+                path: '/docs/catalog/storage/sd-card',
+                component: ComponentCreator('/docs/catalog/storage/sd-card', 'ec3'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/storage/usd-card',
-                component: ComponentCreator('/duelink-website/docs/catalog/storage/usd-card', 'ca4'),
+                path: '/docs/catalog/storage/usd-card',
+                component: ComponentCreator('/docs/catalog/storage/usd-card', 'e0e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/third-party',
-                component: ComponentCreator('/duelink-website/docs/catalog/third-party', '602'),
+                path: '/docs/catalog/third-party',
+                component: ComponentCreator('/docs/catalog/third-party', 'ca7'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/wireless',
-                component: ComponentCreator('/duelink-website/docs/catalog/wireless', '1f0'),
+                path: '/docs/catalog/wireless',
+                component: ComponentCreator('/docs/catalog/wireless', '14c'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/wireless/gnss',
-                component: ComponentCreator('/duelink-website/docs/catalog/wireless/gnss', 'a96'),
+                path: '/docs/catalog/wireless/gnss',
+                component: ComponentCreator('/docs/catalog/wireless/gnss', '401'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/wireless/gnss-wa',
-                component: ComponentCreator('/duelink-website/docs/catalog/wireless/gnss-wa', 'c82'),
+                path: '/docs/catalog/wireless/gnss-wa',
+                component: ComponentCreator('/docs/catalog/wireless/gnss-wa', '585'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/wireless/nrf24-max',
-                component: ComponentCreator('/duelink-website/docs/catalog/wireless/nrf24-max', '46f'),
+                path: '/docs/catalog/wireless/nrf24-max',
+                component: ComponentCreator('/docs/catalog/wireless/nrf24-max', '4c2'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/wireless/nrf24-min',
-                component: ComponentCreator('/duelink-website/docs/catalog/wireless/nrf24-min', '455'),
+                path: '/docs/catalog/wireless/nrf24-min',
+                component: ComponentCreator('/docs/catalog/wireless/nrf24-min', 'a1e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/wireless/radio-fm',
-                component: ComponentCreator('/duelink-website/docs/catalog/wireless/radio-fm', '8ef'),
+                path: '/docs/catalog/wireless/radio-fm',
+                component: ComponentCreator('/docs/catalog/wireless/radio-fm', 'b0e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/catalog/wireless/rfid',
-                component: ComponentCreator('/duelink-website/docs/catalog/wireless/rfid', '474'),
+                path: '/docs/catalog/wireless/rfid',
+                component: ComponentCreator('/docs/catalog/wireless/rfid', '098'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/coding/app-inventor',
-                component: ComponentCreator('/duelink-website/docs/coding/app-inventor', '4a9'),
+                path: '/docs/coding/app-inventor',
+                component: ComponentCreator('/docs/coding/app-inventor', '68e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/coding/cpp',
-                component: ComponentCreator('/duelink-website/docs/coding/cpp', '81b'),
+                path: '/docs/coding/cpp',
+                component: ComponentCreator('/docs/coding/cpp', 'b9d'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/coding/dotnet',
-                component: ComponentCreator('/duelink-website/docs/coding/dotnet', '7a0'),
+                path: '/docs/coding/dotnet',
+                component: ComponentCreator('/docs/coding/dotnet', '897'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/coding/excel',
-                component: ComponentCreator('/duelink-website/docs/coding/excel', '35f'),
+                path: '/docs/coding/excel',
+                component: ComponentCreator('/docs/coding/excel', '35e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/coding/intro',
-                component: ComponentCreator('/duelink-website/docs/coding/intro', '618'),
+                path: '/docs/coding/intro',
+                component: ComponentCreator('/docs/coding/intro', '3b8'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/coding/javascript',
-                component: ComponentCreator('/duelink-website/docs/coding/javascript', 'c60'),
+                path: '/docs/coding/javascript',
+                component: ComponentCreator('/docs/coding/javascript', 'f9b'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/coding/micropython',
-                component: ComponentCreator('/duelink-website/docs/coding/micropython', '4da'),
+                path: '/docs/coding/micropython',
+                component: ComponentCreator('/docs/coding/micropython', 'a97'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/coding/other',
-                component: ComponentCreator('/duelink-website/docs/coding/other', '77f'),
+                path: '/docs/coding/other',
+                component: ComponentCreator('/docs/coding/other', 'ac7'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/coding/python',
-                component: ComponentCreator('/duelink-website/docs/coding/python', '5b5'),
+                path: '/docs/coding/python',
+                component: ComponentCreator('/docs/coding/python', '23c'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/coding/scripting',
-                component: ComponentCreator('/duelink-website/docs/coding/scripting', 'db3'),
+                path: '/docs/coding/scripting',
+                component: ComponentCreator('/docs/coding/scripting', '394'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/coding/swift',
-                component: ComponentCreator('/duelink-website/docs/coding/swift', 'f2b'),
+                path: '/docs/coding/swift',
+                component: ComponentCreator('/docs/coding/swift', '025'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/coding/tinyclr',
-                component: ComponentCreator('/duelink-website/docs/coding/tinyclr', '484'),
+                path: '/docs/coding/tinyclr',
+                component: ComponentCreator('/docs/coding/tinyclr', '7d6'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/coding/typescript',
-                component: ComponentCreator('/duelink-website/docs/coding/typescript', '4dc'),
+                path: '/docs/coding/typescript',
+                component: ComponentCreator('/docs/coding/typescript', 'c33'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/console',
-                component: ComponentCreator('/duelink-website/docs/console', '0d7'),
+                path: '/docs/console',
+                component: ComponentCreator('/docs/console', '880'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/downloads',
-                component: ComponentCreator('/duelink-website/docs/downloads', '376'),
+                path: '/docs/downloads',
+                component: ComponentCreator('/docs/downloads', 'b16'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/engine/daisylink',
-                component: ComponentCreator('/duelink-website/docs/engine/daisylink', 'de9'),
+                path: '/docs/engine/daisylink',
+                component: ComponentCreator('/docs/engine/daisylink', '0d7'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/engine/intro',
-                component: ComponentCreator('/duelink-website/docs/engine/intro', 'a31'),
+                path: '/docs/engine/intro',
+                component: ComponentCreator('/docs/engine/intro', '699'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/engine/samples',
-                component: ComponentCreator('/duelink-website/docs/engine/samples', '4d2'),
+                path: '/docs/engine/samples',
+                component: ComponentCreator('/docs/engine/samples', '60c'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/engine/scripting',
-                component: ComponentCreator('/duelink-website/docs/engine/scripting', '4b9'),
+                path: '/docs/engine/scripting',
+                component: ComponentCreator('/docs/engine/scripting', '0bf'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/engine/standalone',
-                component: ComponentCreator('/duelink-website/docs/engine/standalone', 'bc6'),
+                path: '/docs/engine/standalone',
+                component: ComponentCreator('/docs/engine/standalone', '77e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/engine/stdlib',
-                component: ComponentCreator('/duelink-website/docs/engine/stdlib', '7d7'),
+                path: '/docs/engine/stdlib',
+                component: ComponentCreator('/docs/engine/stdlib', '981'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/engine/streams',
-                component: ComponentCreator('/duelink-website/docs/engine/streams', '1b3'),
+                path: '/docs/engine/streams',
+                component: ComponentCreator('/docs/engine/streams', 'ea4'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/interface/downstream',
-                component: ComponentCreator('/duelink-website/docs/interface/downstream', '22c'),
+                path: '/docs/interface/downstream',
+                component: ComponentCreator('/docs/interface/downstream', 'dff'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/interface/i2c',
-                component: ComponentCreator('/duelink-website/docs/interface/i2c', '9a6'),
+                path: '/docs/interface/i2c',
+                component: ComponentCreator('/docs/interface/i2c', 'cfe'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/interface/intro',
-                component: ComponentCreator('/duelink-website/docs/interface/intro', 'c39'),
+                path: '/docs/interface/intro',
+                component: ComponentCreator('/docs/interface/intro', '297'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/interface/spi',
-                component: ComponentCreator('/duelink-website/docs/interface/spi', '282'),
+                path: '/docs/interface/spi',
+                component: ComponentCreator('/docs/interface/spi', 'b48'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/interface/uart',
-                component: ComponentCreator('/duelink-website/docs/interface/uart', '512'),
+                path: '/docs/interface/uart',
+                component: ComponentCreator('/docs/interface/uart', '9c3'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/interface/usb',
-                component: ComponentCreator('/duelink-website/docs/interface/usb', 'f40'),
+                path: '/docs/interface/usb',
+                component: ComponentCreator('/docs/interface/usb', 'e03'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/interface/wireless',
-                component: ComponentCreator('/duelink-website/docs/interface/wireless', '01c'),
+                path: '/docs/interface/wireless',
+                component: ComponentCreator('/docs/interface/wireless', '666'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/intro',
-                component: ComponentCreator('/duelink-website/docs/intro', 'a8e'),
+                path: '/docs/intro',
+                component: ComponentCreator('/docs/intro', '89a'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/licensing',
-                component: ComponentCreator('/duelink-website/docs/licensing', '5a0'),
+                path: '/docs/licensing',
+                component: ComponentCreator('/docs/licensing', '538'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/loader',
-                component: ComponentCreator('/duelink-website/docs/loader', 'fd0'),
+                path: '/docs/loader',
+                component: ComponentCreator('/docs/loader', '4d1'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/release-notes',
-                component: ComponentCreator('/duelink-website/docs/release-notes', 'd12'),
+                path: '/docs/release-notes',
+                component: ComponentCreator('/docs/release-notes', '982'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/specs',
-                component: ComponentCreator('/duelink-website/docs/specs', 'eda'),
+                path: '/docs/specs',
+                component: ComponentCreator('/docs/specs', 'a2c'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/start/commercial',
-                component: ComponentCreator('/duelink-website/docs/start/commercial', '954'),
+                path: '/docs/start/commercial',
+                component: ComponentCreator('/docs/start/commercial', '046'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/start/demo',
-                component: ComponentCreator('/duelink-website/docs/start/demo', 'a70'),
+                path: '/docs/start/demo',
+                component: ComponentCreator('/docs/start/demo', '7a7'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/start/education',
-                component: ComponentCreator('/duelink-website/docs/start/education', '7b7'),
+                path: '/docs/start/education',
+                component: ComponentCreator('/docs/start/education', '58e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/start/intro',
-                component: ComponentCreator('/duelink-website/docs/start/intro', '03b'),
+                path: '/docs/start/intro',
+                component: ComponentCreator('/docs/start/intro', '23a'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/start/makers',
-                component: ComponentCreator('/duelink-website/docs/start/makers', '064'),
+                path: '/docs/start/makers',
+                component: ComponentCreator('/docs/start/makers', '504'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/support',
-                component: ComponentCreator('/duelink-website/docs/support', 'c84'),
+                path: '/docs/support',
+                component: ComponentCreator('/docs/support', '57a'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/system/arduino',
-                component: ComponentCreator('/duelink-website/docs/system/arduino', 'f8e'),
+                path: '/docs/system/arduino',
+                component: ComponentCreator('/docs/system/arduino', '765'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/system/beagleboard',
-                component: ComponentCreator('/duelink-website/docs/system/beagleboard', '0ce'),
+                path: '/docs/system/beagleboard',
+                component: ComponentCreator('/docs/system/beagleboard', 'd23'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/system/beyond',
-                component: ComponentCreator('/duelink-website/docs/system/beyond', 'cea'),
+                path: '/docs/system/beyond',
+                component: ComponentCreator('/docs/system/beyond', '36b'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/system/intro',
-                component: ComponentCreator('/duelink-website/docs/system/intro', '2d8'),
+                path: '/docs/system/intro',
+                component: ComponentCreator('/docs/system/intro', '83f'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/system/microbit',
-                component: ComponentCreator('/duelink-website/docs/system/microbit', 'a0f'),
+                path: '/docs/system/microbit',
+                component: ComponentCreator('/docs/system/microbit', '44a'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/system/pc-laptop',
-                component: ComponentCreator('/duelink-website/docs/system/pc-laptop', '712'),
+                path: '/docs/system/pc-laptop',
+                component: ComponentCreator('/docs/system/pc-laptop', 'e44'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/system/phone-tablet',
-                component: ComponentCreator('/duelink-website/docs/system/phone-tablet', '64e'),
+                path: '/docs/system/phone-tablet',
+                component: ComponentCreator('/docs/system/phone-tablet', '85c'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/system/raspberry-pi',
-                component: ComponentCreator('/duelink-website/docs/system/raspberry-pi', '2b5'),
+                path: '/docs/system/raspberry-pi',
+                component: ComponentCreator('/docs/system/raspberry-pi', '31b'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/duelink-website/docs/template',
-                component: ComponentCreator('/duelink-website/docs/template', 'e32'),
+                path: '/docs/template',
+                component: ComponentCreator('/docs/template', '46f'),
                 exact: true
               }
             ]
@@ -1219,8 +1219,8 @@ export default [
     ]
   },
   {
-    path: '/duelink-website/',
-    component: ComponentCreator('/duelink-website/', '2a2'),
+    path: '/',
+    component: ComponentCreator('/', '2e1'),
     exact: true
   },
   {

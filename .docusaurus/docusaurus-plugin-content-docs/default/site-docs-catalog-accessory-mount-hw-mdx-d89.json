@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/accessory/mount-hw.mdx",
   "sourceDirName": "catalog/accessory",
   "slug": "/catalog/accessory/mount-hw",
-  "permalink": "/duelink-website/docs/catalog/accessory/mount-hw",
+  "permalink": "/docs/catalog/accessory/mount-hw",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/accessory/mount-hw.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/accessory/mount-hw.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Holey Moley Board",
-    "permalink": "/duelink-website/docs/catalog/accessory/holey-moley-board"
+    "permalink": "/docs/catalog/accessory/holey-moley-board"
   },
   "next": {
     "title": "Power Inject",
-    "permalink": "/duelink-website/docs/catalog/accessory/power-inject"
+    "permalink": "/docs/catalog/accessory/power-inject"
   }
 }

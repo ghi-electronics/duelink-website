@@ -5,20 +5,20 @@
   "source": "@site/docs/engine/standalone.mdx",
   "sourceDirName": "engine",
   "slug": "/engine/standalone",
-  "permalink": "/duelink-website/docs/engine/standalone",
+  "permalink": "/docs/engine/standalone",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/engine/standalone.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/engine/standalone.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Scripting",
-    "permalink": "/duelink-website/docs/engine/scripting"
+    "permalink": "/docs/engine/scripting"
   },
   "next": {
     "title": "Daisylink",
-    "permalink": "/duelink-website/docs/engine/daisylink"
+    "permalink": "/docs/engine/daisylink"
   }
 }

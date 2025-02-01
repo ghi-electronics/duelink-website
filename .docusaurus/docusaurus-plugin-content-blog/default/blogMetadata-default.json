@@ -1,5 +1,5 @@
 {
-  "blogBasePath": "/duelink-website/blog",
+  "blogBasePath": "/blog",
   "blogTitle": "Blog",
-  "authorsListPath": "/duelink-website/blog/authors"
+  "authorsListPath": "/blog/authors"
 }

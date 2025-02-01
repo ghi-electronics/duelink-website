@@ -5,20 +5,20 @@
   "source": "@site/docs/coding/swift.mdx",
   "sourceDirName": "coding",
   "slug": "/coding/swift",
-  "permalink": "/duelink-website/docs/coding/swift",
+  "permalink": "/docs/coding/swift",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding/swift.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/coding/swift.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "C++",
-    "permalink": "/duelink-website/docs/coding/cpp"
+    "permalink": "/docs/coding/cpp"
   },
   "next": {
     "title": "App Inventor",
-    "permalink": "/duelink-website/docs/coding/app-inventor"
+    "permalink": "/docs/coding/app-inventor"
   }
 }

@@ -5,20 +5,20 @@
   "source": "@site/docs/start/intro.mdx",
   "sourceDirName": "start",
   "slug": "/start/intro",
-  "permalink": "/duelink-website/docs/start/intro",
+  "permalink": "/docs/start/intro",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/start/intro.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/start/intro.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Introduction",
-    "permalink": "/duelink-website/docs/intro"
+    "permalink": "/docs/intro"
   },
   "next": {
     "title": "Online Demo",
-    "permalink": "/duelink-website/docs/start/demo"
+    "permalink": "/docs/start/demo"
   }
 }

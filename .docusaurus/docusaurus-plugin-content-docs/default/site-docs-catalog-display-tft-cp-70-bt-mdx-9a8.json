@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/display/tft-cp70bt.mdx",
   "sourceDirName": "catalog/display",
   "slug": "/catalog/display/tft-cp70bt",
-  "permalink": "/duelink-website/docs/catalog/display/tft-cp70bt",
+  "permalink": "/docs/catalog/display/tft-cp70bt",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/display/tft-cp70bt.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/display/tft-cp70bt.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "TFT CP23",
-    "permalink": "/duelink-website/docs/catalog/display/tft-cp23"
+    "permalink": "/docs/catalog/display/tft-cp23"
   },
   "next": {
     "title": "TFT N18",
-    "permalink": "/duelink-website/docs/catalog/display/tft-n18"
+    "permalink": "/docs/catalog/display/tft-n18"
   }
 }

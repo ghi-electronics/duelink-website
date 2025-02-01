@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/storage.mdx",
   "sourceDirName": "catalog",
   "slug": "/catalog/storage",
-  "permalink": "/duelink-website/docs/catalog/storage",
+  "permalink": "/docs/catalog/storage",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/storage.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/storage.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Slider",
-    "permalink": "/duelink-website/docs/catalog/hmi/slider"
+    "permalink": "/docs/catalog/hmi/slider"
   },
   "next": {
     "title": "Flash",
-    "permalink": "/duelink-website/docs/catalog/storage/flash"
+    "permalink": "/docs/catalog/storage/flash"
   }
 }

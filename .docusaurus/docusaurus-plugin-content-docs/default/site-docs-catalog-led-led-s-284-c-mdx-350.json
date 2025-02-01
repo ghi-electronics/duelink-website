@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/led/led-s284-c.mdx",
   "sourceDirName": "catalog/led",
   "slug": "/catalog/led/led-s284-c",
-  "permalink": "/duelink-website/docs/catalog/led/led-s284-c",
+  "permalink": "/docs/catalog/led/led-s284-c",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/led/led-s284-c.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/led/led-s284-c.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "LED RGB3",
-    "permalink": "/duelink-website/docs/catalog/led/led-rgb3"
+    "permalink": "/docs/catalog/led/led-rgb3"
   },
   "next": {
     "title": "LED S284-T",
-    "permalink": "/duelink-website/docs/catalog/led/led-s284-t"
+    "permalink": "/docs/catalog/led/led-s284-t"
   }
 }

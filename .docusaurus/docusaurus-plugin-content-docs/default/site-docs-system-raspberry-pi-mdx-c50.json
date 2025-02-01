@@ -5,20 +5,20 @@
   "source": "@site/docs/system/raspberry-pi.mdx",
   "sourceDirName": "system",
   "slug": "/system/raspberry-pi",
-  "permalink": "/duelink-website/docs/system/raspberry-pi",
+  "permalink": "/docs/system/raspberry-pi",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/system/raspberry-pi.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/system/raspberry-pi.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Supported Systems",
-    "permalink": "/duelink-website/docs/system/intro"
+    "permalink": "/docs/system/intro"
   },
   "next": {
     "title": "BeagleBoard",
-    "permalink": "/duelink-website/docs/system/beagleboard"
+    "permalink": "/docs/system/beagleboard"
   }
 }

@@ -5,20 +5,20 @@
   "source": "@site/docs/engine/samples.mdx",
   "sourceDirName": "engine",
   "slug": "/engine/samples",
-  "permalink": "/duelink-website/docs/engine/samples",
+  "permalink": "/docs/engine/samples",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/engine/samples.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/engine/samples.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Streams",
-    "permalink": "/duelink-website/docs/engine/streams"
+    "permalink": "/docs/engine/streams"
   },
   "next": {
     "title": "Console",
-    "permalink": "/duelink-website/docs/console"
+    "permalink": "/docs/console"
   }
 }

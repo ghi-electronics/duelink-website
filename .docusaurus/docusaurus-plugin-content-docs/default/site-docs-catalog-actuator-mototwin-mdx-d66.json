@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/actuator/mototwin.mdx",
   "sourceDirName": "catalog/actuator",
   "slug": "/catalog/actuator/mototwin",
-  "permalink": "/duelink-website/docs/catalog/actuator/mototwin",
+  "permalink": "/docs/catalog/actuator/mototwin",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/actuator/mototwin.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/actuator/mototwin.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "SMotoMax",
-    "permalink": "/duelink-website/docs/catalog/actuator/motomax"
+    "permalink": "/docs/catalog/actuator/motomax"
   },
   "next": {
     "title": "Relay P16",
-    "permalink": "/duelink-website/docs/catalog/actuator/relay-p16"
+    "permalink": "/docs/catalog/actuator/relay-p16"
   }
 }

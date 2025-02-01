@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/led/led-r16.mdx",
   "sourceDirName": "catalog/led",
   "slug": "/catalog/led/led-r16",
-  "permalink": "/duelink-website/docs/catalog/led/led-r16",
+  "permalink": "/docs/catalog/led/led-r16",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/led/led-r16.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/led/led-r16.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "LED MD3208",
-    "permalink": "/duelink-website/docs/catalog/led/led-md3208"
+    "permalink": "/docs/catalog/led/led-md3208"
   },
   "next": {
     "title": "LED RGB3",
-    "permalink": "/duelink-website/docs/catalog/led/led-rgb3"
+    "permalink": "/docs/catalog/led/led-rgb3"
   }
 }

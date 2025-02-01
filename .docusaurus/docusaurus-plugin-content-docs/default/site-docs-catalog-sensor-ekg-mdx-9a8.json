@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/sensor/ekg.mdx",
   "sourceDirName": "catalog/sensor",
   "slug": "/catalog/sensor/ekg",
-  "permalink": "/duelink-website/docs/catalog/sensor/ekg",
+  "permalink": "/docs/catalog/sensor/ekg",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/sensor/ekg.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/sensor/ekg.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "DoF9",
-    "permalink": "/duelink-website/docs/catalog/sensor/dof9"
+    "permalink": "/docs/catalog/sensor/dof9"
   },
   "next": {
     "title": "Gas",
-    "permalink": "/duelink-website/docs/catalog/sensor/gas"
+    "permalink": "/docs/catalog/sensor/gas"
   }
 }

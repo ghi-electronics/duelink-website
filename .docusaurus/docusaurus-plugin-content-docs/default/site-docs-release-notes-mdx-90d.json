@@ -5,20 +5,20 @@
   "source": "@site/docs/release-notes.mdx",
   "sourceDirName": ".",
   "slug": "/release-notes",
-  "permalink": "/duelink-website/docs/release-notes",
+  "permalink": "/docs/release-notes",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/release-notes.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/release-notes.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "DUELink Downloads",
-    "permalink": "/duelink-website/docs/downloads"
+    "permalink": "/docs/downloads"
   },
   "next": {
     "title": "Support",
-    "permalink": "/duelink-website/docs/support"
+    "permalink": "/docs/support"
   }
 }

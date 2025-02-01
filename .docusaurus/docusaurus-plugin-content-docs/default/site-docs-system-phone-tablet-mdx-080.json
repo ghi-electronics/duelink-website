@@ -5,20 +5,20 @@
   "source": "@site/docs/system/phone-tablet.mdx",
   "sourceDirName": "system",
   "slug": "/system/phone-tablet",
-  "permalink": "/duelink-website/docs/system/phone-tablet",
+  "permalink": "/docs/system/phone-tablet",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/system/phone-tablet.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/system/phone-tablet.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "PC & Laptop",
-    "permalink": "/duelink-website/docs/system/pc-laptop"
+    "permalink": "/docs/system/pc-laptop"
   },
   "next": {
     "title": "Beyond",
-    "permalink": "/duelink-website/docs/system/beyond"
+    "permalink": "/docs/system/beyond"
   }
 }

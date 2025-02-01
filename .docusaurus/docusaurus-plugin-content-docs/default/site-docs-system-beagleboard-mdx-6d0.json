@@ -5,20 +5,20 @@
   "source": "@site/docs/system/beagleboard.mdx",
   "sourceDirName": "system",
   "slug": "/system/beagleboard",
-  "permalink": "/duelink-website/docs/system/beagleboard",
+  "permalink": "/docs/system/beagleboard",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/system/beagleboard.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/system/beagleboard.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Raspberry Pi",
-    "permalink": "/duelink-website/docs/system/raspberry-pi"
+    "permalink": "/docs/system/raspberry-pi"
   },
   "next": {
     "title": "micro:bit",
-    "permalink": "/duelink-website/docs/system/microbit"
+    "permalink": "/docs/system/microbit"
   }
 }

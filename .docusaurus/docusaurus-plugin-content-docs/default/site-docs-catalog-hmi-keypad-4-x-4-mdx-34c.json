@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/hmi/keypad-4x4.mdx",
   "sourceDirName": "catalog/hmi",
   "slug": "/catalog/hmi/keypad-4x4",
-  "permalink": "/duelink-website/docs/catalog/hmi/keypad-4x4",
+  "permalink": "/docs/catalog/hmi/keypad-4x4",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/hmi/keypad-4x4.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/hmi/keypad-4x4.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Keypad 3x4",
-    "permalink": "/duelink-website/docs/catalog/hmi/keypad-3x4"
+    "permalink": "/docs/catalog/hmi/keypad-3x4"
   },
   "next": {
     "title": "Rotary",
-    "permalink": "/duelink-website/docs/catalog/hmi/rotary"
+    "permalink": "/docs/catalog/hmi/rotary"
   }
 }

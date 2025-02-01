@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/storage/usd-card.mdx",
   "sourceDirName": "catalog/storage",
   "slug": "/catalog/storage/usd-card",
-  "permalink": "/duelink-website/docs/catalog/storage/usd-card",
+  "permalink": "/docs/catalog/storage/usd-card",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/storage/usd-card.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/storage/usd-card.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "SD Card",
-    "permalink": "/duelink-website/docs/catalog/storage/sd-card"
+    "permalink": "/docs/catalog/storage/sd-card"
   },
   "next": {
     "title": "Wireless",
-    "permalink": "/duelink-website/docs/catalog/wireless"
+    "permalink": "/docs/catalog/wireless"
   }
 }

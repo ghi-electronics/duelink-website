@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/sensor/Color.mdx",
   "sourceDirName": "catalog/sensor",
   "slug": "/catalog/sensor/Color",
-  "permalink": "/duelink-website/docs/catalog/sensor/Color",
+  "permalink": "/docs/catalog/sensor/Color",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/sensor/Color.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/sensor/Color.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "ClipSense",
-    "permalink": "/duelink-website/docs/catalog/sensor/ClipSense"
+    "permalink": "/docs/catalog/sensor/ClipSense"
   },
   "next": {
     "title": "Current",
-    "permalink": "/duelink-website/docs/catalog/sensor/Current"
+    "permalink": "/docs/catalog/sensor/Current"
   }
 }

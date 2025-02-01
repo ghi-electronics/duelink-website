@@ -5,20 +5,20 @@
   "source": "@site/docs/coding/typescript.mdx",
   "sourceDirName": "coding",
   "slug": "/coding/typescript",
-  "permalink": "/duelink-website/docs/coding/typescript",
+  "permalink": "/docs/coding/typescript",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding/typescript.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/coding/typescript.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "JavaScript",
-    "permalink": "/duelink-website/docs/coding/javascript"
+    "permalink": "/docs/coding/javascript"
   },
   "next": {
     "title": ".NET",
-    "permalink": "/duelink-website/docs/coding/dotnet"
+    "permalink": "/docs/coding/dotnet"
   }
 }

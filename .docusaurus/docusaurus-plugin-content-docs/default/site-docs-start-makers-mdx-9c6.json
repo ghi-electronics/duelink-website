@@ -5,20 +5,20 @@
   "source": "@site/docs/start/makers.mdx",
   "sourceDirName": "start",
   "slug": "/start/makers",
-  "permalink": "/duelink-website/docs/start/makers",
+  "permalink": "/docs/start/makers",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/start/makers.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/start/makers.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Commercial Use",
-    "permalink": "/duelink-website/docs/start/commercial"
+    "permalink": "/docs/start/commercial"
   },
   "next": {
     "title": "Education",
-    "permalink": "/duelink-website/docs/start/education"
+    "permalink": "/docs/start/education"
   }
 }

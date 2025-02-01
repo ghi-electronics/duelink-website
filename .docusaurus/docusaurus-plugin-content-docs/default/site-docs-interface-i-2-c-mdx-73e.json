@@ -5,20 +5,20 @@
   "source": "@site/docs/interface/i2c.mdx",
   "sourceDirName": "interface",
   "slug": "/interface/i2c",
-  "permalink": "/duelink-website/docs/interface/i2c",
+  "permalink": "/docs/interface/i2c",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/interface/i2c.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/interface/i2c.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "USB",
-    "permalink": "/duelink-website/docs/interface/usb"
+    "permalink": "/docs/interface/usb"
   },
   "next": {
     "title": "UART",
-    "permalink": "/duelink-website/docs/interface/uart"
+    "permalink": "/docs/interface/uart"
   }
 }

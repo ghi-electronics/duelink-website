@@ -5,20 +5,20 @@
   "source": "@site/docs/api/analog.mdx",
   "sourceDirName": "api",
   "slug": "/api/analog",
-  "permalink": "/duelink-website/docs/api/analog",
+  "permalink": "/docs/api/analog",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/api/analog.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/api/analog.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "API Reference",
-    "permalink": "/duelink-website/docs/api/intro"
+    "permalink": "/docs/api/intro"
   },
   "next": {
     "title": "Bluetooth",
-    "permalink": "/duelink-website/docs/api/bluetooth"
+    "permalink": "/docs/api/bluetooth"
   }
 }

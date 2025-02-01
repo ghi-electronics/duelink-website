@@ -5,20 +5,20 @@
   "source": "@site/docs/api/button.mdx",
   "sourceDirName": "api",
   "slug": "/api/button",
-  "permalink": "/duelink-website/docs/api/button",
+  "permalink": "/docs/api/button",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/api/button.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/api/button.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Bluetooth",
-    "permalink": "/duelink-website/docs/api/bluetooth"
+    "permalink": "/docs/api/bluetooth"
   },
   "next": {
     "title": "CAN",
-    "permalink": "/duelink-website/docs/api/can"
+    "permalink": "/docs/api/can"
   }
 }

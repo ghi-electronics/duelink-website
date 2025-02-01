@@ -5,20 +5,20 @@
   "source": "@site/docs/system/microbit.mdx",
   "sourceDirName": "system",
   "slug": "/system/microbit",
-  "permalink": "/duelink-website/docs/system/microbit",
+  "permalink": "/docs/system/microbit",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/system/microbit.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/system/microbit.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "BeagleBoard",
-    "permalink": "/duelink-website/docs/system/beagleboard"
+    "permalink": "/docs/system/beagleboard"
   },
   "next": {
     "title": "Arduino",
-    "permalink": "/duelink-website/docs/system/arduino"
+    "permalink": "/docs/system/arduino"
   }
 }

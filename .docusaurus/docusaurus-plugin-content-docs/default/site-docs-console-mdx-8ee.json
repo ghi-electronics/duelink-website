@@ -5,20 +5,20 @@
   "source": "@site/docs/console.mdx",
   "sourceDirName": ".",
   "slug": "/console",
-  "permalink": "/duelink-website/docs/console",
+  "permalink": "/docs/console",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/console.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/console.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Samples",
-    "permalink": "/duelink-website/docs/engine/samples"
+    "permalink": "/docs/engine/samples"
   },
   "next": {
     "title": "Loader",
-    "permalink": "/duelink-website/docs/loader"
+    "permalink": "/docs/loader"
   }
 }

@@ -5,20 +5,20 @@
   "source": "@site/docs/interface/spi.mdx",
   "sourceDirName": "interface",
   "slug": "/interface/spi",
-  "permalink": "/duelink-website/docs/interface/spi",
+  "permalink": "/docs/interface/spi",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/interface/spi.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/interface/spi.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "UART",
-    "permalink": "/duelink-website/docs/interface/uart"
+    "permalink": "/docs/interface/uart"
   },
   "next": {
     "title": "Downstream",
-    "permalink": "/duelink-website/docs/interface/downstream"
+    "permalink": "/docs/interface/downstream"
   }
 }

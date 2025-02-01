@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/leds.mdx",
   "sourceDirName": "catalog",
   "slug": "/catalog/leds",
-  "permalink": "/duelink-website/docs/catalog/leds",
+  "permalink": "/docs/catalog/leds",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/leds.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/leds.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Thermal",
-    "permalink": "/duelink-website/docs/catalog/sensor/thermal"
+    "permalink": "/docs/catalog/sensor/thermal"
   },
   "next": {
     "title": "LED MD0808",
-    "permalink": "/duelink-website/docs/catalog/led/led-md0808"
+    "permalink": "/docs/catalog/led/led-md0808"
   }
 }

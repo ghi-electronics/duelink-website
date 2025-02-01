@@ -5,20 +5,20 @@
   "source": "@site/docs/interface/wireless.mdx",
   "sourceDirName": "interface",
   "slug": "/interface/wireless",
-  "permalink": "/duelink-website/docs/interface/wireless",
+  "permalink": "/docs/interface/wireless",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/interface/wireless.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/interface/wireless.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Downstream",
-    "permalink": "/duelink-website/docs/interface/downstream"
+    "permalink": "/docs/interface/downstream"
   },
   "next": {
     "title": "Internal Engine",
-    "permalink": "/duelink-website/docs/engine/intro"
+    "permalink": "/docs/engine/intro"
   }
 }

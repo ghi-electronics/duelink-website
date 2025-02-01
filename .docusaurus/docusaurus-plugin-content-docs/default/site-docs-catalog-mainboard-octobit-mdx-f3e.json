@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/mainboard/octobit.mdx",
   "sourceDirName": "catalog/mainboard",
   "slug": "/catalog/mainboard/octobit",
-  "permalink": "/duelink-website/docs/catalog/mainboard/octobit",
+  "permalink": "/docs/catalog/mainboard/octobit",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/mainboard/octobit.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/mainboard/octobit.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "John Due",
-    "permalink": "/duelink-website/docs/catalog/mainboard/john-due"
+    "permalink": "/docs/catalog/mainboard/john-due"
   },
   "next": {
     "title": "PixoBit",
-    "permalink": "/duelink-website/docs/catalog/mainboard/pixobit"
+    "permalink": "/docs/catalog/mainboard/pixobit"
   }
 }

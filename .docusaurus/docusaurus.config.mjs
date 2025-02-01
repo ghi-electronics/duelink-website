@@ -7,10 +7,8 @@ export default {
   "title": "DUELink",
   "tagline": "Dynamic Universal Extensible Link",
   "favicon": "img/favicon.ico",
-  "url": "https://ghi-electronics.github.io",
-  "baseUrl": "/duelink-website/",
-  "organizationName": "ghi-electronics",
-  "projectName": "duelink-website",
+  "url": "https://www.duelink.com",
+  "baseUrl": "/",
   "onBrokenLinks": "throw",
   "onBrokenMarkdownLinks": "warn",
   "i18n": {
@@ -27,21 +25,7 @@ export default {
       {
         "docs": {
           "sidebarPath": "./sidebars.js",
-          "editUrl": "https://ghi-electronics.github.io/duelink-website"
-        },
-        "blog": {
-          "showReadingTime": true,
-          "feedOptions": {
-            "type": [
-              "rss",
-              "atom"
-            ],
-            "xslt": true
-          },
-          "editUrl": "https://ghi-electronics.github.io/duelink-website",
-          "onInlineTags": "warn",
-          "onInlineAuthors": "warn",
-          "onUntruncatedBlogPosts": "warn"
+          "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev"
         },
         "theme": {
           "customCss": "./src/css/custom.css"
@@ -57,49 +41,30 @@ export default {
       },
       "versionPersistence": "localStorage"
     },
-    "image": "img/docusaurus-social-card.jpg",
     "navbar": {
-      "title": "",
+      "title": "by GHI Electronics",
       "logo": {
         "alt": "DUELink Logo",
-        "src": "img/logo.svg"
+        "src": "img/duelinklogo.png"
       },
       "items": [
         {
-          "href": "https://ghi-electronics.github.io/duelink-website",
-          "label": "GitHub",
-          "position": "right"
+          "href": "https://www.ghielectronics.com/",
+          "position": "right",
+          "label": "GHI Electronics"
+        },
+        {
+          "href": "https://forums.ghielectronics.com/c/duelink/31",
+          "position": "right",
+          "label": "Forums"
         }
       ],
       "hideOnScroll": false
     },
     "footer": {
       "style": "dark",
-      "links": [
-        {
-          "title": "Community",
-          "items": [
-            {
-              "label": "DUELink Forum",
-              "href": "https://forums.ghielectronics.com/c/duelink/31"
-            },
-            {
-              "label": "YouTube",
-              "href": "https://www.youtube.com/@GHIElectronics"
-            }
-          ]
-        },
-        {
-          "title": "More",
-          "items": [
-            {
-              "label": "GitHub",
-              "href": "https://github.com/ghi-electronics/duelink-website"
-            }
-          ]
-        }
-      ],
-      "copyright": "Copyright © 2025 GHI Electronics LLC."
+      "copyright": "Copyright © 2025 GHI Electronics, LLC",
+      "links": []
     },
     "prism": {
       "theme": {

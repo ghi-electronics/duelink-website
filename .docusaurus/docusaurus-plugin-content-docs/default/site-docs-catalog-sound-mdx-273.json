@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/sound.mdx",
   "sourceDirName": "catalog",
   "slug": "/catalog/sound",
-  "permalink": "/duelink-website/docs/catalog/sound",
+  "permalink": "/docs/catalog/sound",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/sound.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/sound.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Smart LED",
-    "permalink": "/duelink-website/docs/catalog/led/smart-led"
+    "permalink": "/docs/catalog/led/smart-led"
   },
   "next": {
     "title": "buzzer",
-    "permalink": "/duelink-website/docs/catalog/sound/Buzzer"
+    "permalink": "/docs/catalog/sound/Buzzer"
   }
 }

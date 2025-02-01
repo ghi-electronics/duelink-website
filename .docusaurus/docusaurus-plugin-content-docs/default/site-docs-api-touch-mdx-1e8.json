@@ -5,20 +5,20 @@
   "source": "@site/docs/api/touch.mdx",
   "sourceDirName": "api",
   "slug": "/api/touch",
-  "permalink": "/duelink-website/docs/api/touch",
+  "permalink": "/docs/api/touch",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/api/touch.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/api/touch.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Temperature and Humidity",
-    "permalink": "/duelink-website/docs/api/temp-humidity"
+    "permalink": "/docs/api/temp-humidity"
   },
   "next": {
     "title": "UART",
-    "permalink": "/duelink-website/docs/api/uart"
+    "permalink": "/docs/api/uart"
   }
 }

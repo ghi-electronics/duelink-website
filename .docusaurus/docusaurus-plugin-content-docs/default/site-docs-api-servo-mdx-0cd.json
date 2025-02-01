@@ -5,20 +5,20 @@
   "source": "@site/docs/api/servo.mdx",
   "sourceDirName": "api",
   "slug": "/api/servo",
-  "permalink": "/duelink-website/docs/api/servo",
+  "permalink": "/docs/api/servo",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/api/servo.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/api/servo.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Script",
-    "permalink": "/duelink-website/docs/api/script"
+    "permalink": "/docs/api/script"
   },
   "next": {
     "title": "SPI",
-    "permalink": "/duelink-website/docs/api/spi"
+    "permalink": "/docs/api/spi"
   }
 }

@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/display/vfd-b8.mdx",
   "sourceDirName": "catalog/display",
   "slug": "/catalog/display/vfd-b8",
-  "permalink": "/duelink-website/docs/catalog/display/vfd-b8",
+  "permalink": "/docs/catalog/display/vfd-b8",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/display/vfd-b8.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/display/vfd-b8.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "TFT T32",
-    "permalink": "/duelink-website/docs/catalog/display/tft-t32"
+    "permalink": "/docs/catalog/display/tft-t32"
   },
   "next": {
     "title": "Intro",
-    "permalink": "/duelink-website/docs/catalog/actuators"
+    "permalink": "/docs/catalog/actuators"
   }
 }

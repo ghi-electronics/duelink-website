@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/accessory/holey-board.mdx",
   "sourceDirName": "catalog/accessory",
   "slug": "/catalog/accessory/holey-board",
-  "permalink": "/duelink-website/docs/catalog/accessory/holey-board",
+  "permalink": "/docs/catalog/accessory/holey-board",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/accessory/holey-board.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/accessory/holey-board.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "DuePi",
-    "permalink": "/duelink-website/docs/catalog/accessory/duepi"
+    "permalink": "/docs/catalog/accessory/duepi"
   },
   "next": {
     "title": "Holey Moley Board",
-    "permalink": "/duelink-website/docs/catalog/accessory/holey-moley-board"
+    "permalink": "/docs/catalog/accessory/holey-moley-board"
   }
 }

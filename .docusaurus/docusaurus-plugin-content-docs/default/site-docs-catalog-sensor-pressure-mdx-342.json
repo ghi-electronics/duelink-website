@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/sensor/pressure.mdx",
   "sourceDirName": "catalog/sensor",
   "slug": "/catalog/sensor/pressure",
-  "permalink": "/duelink-website/docs/catalog/sensor/pressure",
+  "permalink": "/docs/catalog/sensor/pressure",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/sensor/pressure.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/sensor/pressure.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Motion",
-    "permalink": "/duelink-website/docs/catalog/sensor/motion"
+    "permalink": "/docs/catalog/sensor/motion"
   },
   "next": {
     "title": "Pulse Oximeter",
-    "permalink": "/duelink-website/docs/catalog/sensor/pulseoxi"
+    "permalink": "/docs/catalog/sensor/pulseoxi"
   }
 }

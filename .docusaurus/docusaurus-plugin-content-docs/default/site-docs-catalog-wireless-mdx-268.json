@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/wireless.mdx",
   "sourceDirName": "catalog",
   "slug": "/catalog/wireless",
-  "permalink": "/duelink-website/docs/catalog/wireless",
+  "permalink": "/docs/catalog/wireless",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/wireless.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/wireless.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Micro SD Card",
-    "permalink": "/duelink-website/docs/catalog/storage/usd-card"
+    "permalink": "/docs/catalog/storage/usd-card"
   },
   "next": {
     "title": "GNSS WA",
-    "permalink": "/duelink-website/docs/catalog/wireless/gnss-wa"
+    "permalink": "/docs/catalog/wireless/gnss-wa"
   }
 }

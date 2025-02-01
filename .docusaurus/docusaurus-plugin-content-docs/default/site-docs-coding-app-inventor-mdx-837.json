@@ -5,20 +5,20 @@
   "source": "@site/docs/coding/app-inventor.mdx",
   "sourceDirName": "coding",
   "slug": "/coding/app-inventor",
-  "permalink": "/duelink-website/docs/coding/app-inventor",
+  "permalink": "/docs/coding/app-inventor",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding/app-inventor.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/coding/app-inventor.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Swift",
-    "permalink": "/duelink-website/docs/coding/swift"
+    "permalink": "/docs/coding/swift"
   },
   "next": {
     "title": "Excel",
-    "permalink": "/duelink-website/docs/coding/excel"
+    "permalink": "/docs/coding/excel"
   }
 }

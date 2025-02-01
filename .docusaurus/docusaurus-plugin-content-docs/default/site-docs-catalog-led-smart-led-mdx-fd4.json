@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/led/smart-led.mdx",
   "sourceDirName": "catalog/led",
   "slug": "/catalog/led/smart-led",
-  "permalink": "/duelink-website/docs/catalog/led/smart-led",
+  "permalink": "/docs/catalog/led/smart-led",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/led/smart-led.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/led/smart-led.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "LED SS805",
-    "permalink": "/duelink-website/docs/catalog/led/led-ss805"
+    "permalink": "/docs/catalog/led/led-ss805"
   },
   "next": {
     "title": "Sound",
-    "permalink": "/duelink-website/docs/catalog/sound"
+    "permalink": "/docs/catalog/sound"
   }
 }

@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/sensor/temprtd.mdx",
   "sourceDirName": "catalog/sensor",
   "slug": "/catalog/sensor/temprtd",
-  "permalink": "/duelink-website/docs/catalog/sensor/temprtd",
+  "permalink": "/docs/catalog/sensor/temprtd",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/sensor/temprtd.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/sensor/temprtd.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Temperature & Humidity",
-    "permalink": "/duelink-website/docs/catalog/sensor/temphmd"
+    "permalink": "/docs/catalog/sensor/temphmd"
   },
   "next": {
     "title": "Thermal",
-    "permalink": "/duelink-website/docs/catalog/sensor/thermal"
+    "permalink": "/docs/catalog/sensor/thermal"
   }
 }

@@ -5,20 +5,20 @@
   "source": "@site/docs/catalog/wireless/gnss-wa.mdx",
   "sourceDirName": "catalog/wireless",
   "slug": "/catalog/wireless/gnss-wa",
-  "permalink": "/duelink-website/docs/catalog/wireless/gnss-wa",
+  "permalink": "/docs/catalog/wireless/gnss-wa",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/catalog/wireless/gnss-wa.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/catalog/wireless/gnss-wa.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Wireless",
-    "permalink": "/duelink-website/docs/catalog/wireless"
+    "permalink": "/docs/catalog/wireless"
   },
   "next": {
     "title": "GNSS",
-    "permalink": "/duelink-website/docs/catalog/wireless/gnss"
+    "permalink": "/docs/catalog/wireless/gnss"
   }
 }

@@ -5,20 +5,20 @@
   "source": "@site/docs/interface/uart.mdx",
   "sourceDirName": "interface",
   "slug": "/interface/uart",
-  "permalink": "/duelink-website/docs/interface/uart",
+  "permalink": "/docs/interface/uart",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/interface/uart.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/interface/uart.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "I2C",
-    "permalink": "/duelink-website/docs/interface/i2c"
+    "permalink": "/docs/interface/i2c"
   },
   "next": {
     "title": "SPI",
-    "permalink": "/duelink-website/docs/interface/spi"
+    "permalink": "/docs/interface/spi"
   }
 }

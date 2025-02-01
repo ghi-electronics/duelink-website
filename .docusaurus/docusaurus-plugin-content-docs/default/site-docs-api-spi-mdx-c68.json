@@ -5,20 +5,20 @@
   "source": "@site/docs/api/spi.mdx",
   "sourceDirName": "api",
   "slug": "/api/spi",
-  "permalink": "/duelink-website/docs/api/spi",
+  "permalink": "/docs/api/spi",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/api/spi.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/api/spi.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Servo Motor",
-    "permalink": "/duelink-website/docs/api/servo"
+    "permalink": "/docs/api/servo"
   },
   "next": {
     "title": "System Functions",
-    "permalink": "/duelink-website/docs/api/systemfunctions"
+    "permalink": "/docs/api/systemfunctions"
   }
 }

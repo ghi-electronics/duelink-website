@@ -5,20 +5,20 @@
   "source": "@site/docs/coding/intro.mdx",
   "sourceDirName": "coding",
   "slug": "/coding/intro",
-  "permalink": "/duelink-website/docs/coding/intro",
+  "permalink": "/docs/coding/intro",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding/intro.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/coding/intro.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Beyond",
-    "permalink": "/duelink-website/docs/system/beyond"
+    "permalink": "/docs/system/beyond"
   },
   "next": {
     "title": "Scripting",
-    "permalink": "/duelink-website/docs/coding/scripting"
+    "permalink": "/docs/coding/scripting"
   }
 }

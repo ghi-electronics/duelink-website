@@ -5,20 +5,20 @@
   "source": "@site/docs/api/i2c.mdx",
   "sourceDirName": "api",
   "slug": "/api/i2c",
-  "permalink": "/duelink-website/docs/api/i2c",
+  "permalink": "/docs/api/i2c",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/api/i2c.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/api/i2c.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Frequency",
-    "permalink": "/duelink-website/docs/api/frequency"
+    "permalink": "/docs/api/frequency"
   },
   "next": {
     "title": "Infrared",
-    "permalink": "/duelink-website/docs/api/infrared"
+    "permalink": "/docs/api/infrared"
   }
 }

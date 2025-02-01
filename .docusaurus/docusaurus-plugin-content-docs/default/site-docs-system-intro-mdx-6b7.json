@@ -5,20 +5,20 @@
   "source": "@site/docs/system/intro.mdx",
   "sourceDirName": "system",
   "slug": "/system/intro",
-  "permalink": "/duelink-website/docs/system/intro",
+  "permalink": "/docs/system/intro",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/system/intro.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/system/intro.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Third-party Modules",
-    "permalink": "/duelink-website/docs/catalog/third-party"
+    "permalink": "/docs/catalog/third-party"
   },
   "next": {
     "title": "Raspberry Pi",
-    "permalink": "/duelink-website/docs/system/raspberry-pi"
+    "permalink": "/docs/system/raspberry-pi"
   }
 }

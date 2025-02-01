@@ -5,20 +5,20 @@
   "source": "@site/docs/coding/cpp.mdx",
   "sourceDirName": "coding",
   "slug": "/coding/cpp",
-  "permalink": "/duelink-website/docs/coding/cpp",
+  "permalink": "/docs/coding/cpp",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/coding/cpp.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/coding/cpp.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "TinyCLR",
-    "permalink": "/duelink-website/docs/coding/tinyclr"
+    "permalink": "/docs/coding/tinyclr"
   },
   "next": {
     "title": "Swift",
-    "permalink": "/duelink-website/docs/coding/swift"
+    "permalink": "/docs/coding/swift"
   }
 }

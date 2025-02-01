@@ -5,20 +5,20 @@
   "source": "@site/docs/engine/stdlib.mdx",
   "sourceDirName": "engine",
   "slug": "/engine/stdlib",
-  "permalink": "/duelink-website/docs/engine/stdlib",
+  "permalink": "/docs/engine/stdlib",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/engine/stdlib.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/engine/stdlib.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Daisylink",
-    "permalink": "/duelink-website/docs/engine/daisylink"
+    "permalink": "/docs/engine/daisylink"
   },
   "next": {
     "title": "Streams",
-    "permalink": "/duelink-website/docs/engine/streams"
+    "permalink": "/docs/engine/streams"
   }
 }

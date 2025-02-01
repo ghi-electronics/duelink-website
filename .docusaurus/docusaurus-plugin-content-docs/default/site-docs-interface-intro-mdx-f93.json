@@ -5,20 +5,20 @@
   "source": "@site/docs/interface/intro.mdx",
   "sourceDirName": "interface",
   "slug": "/interface/intro",
-  "permalink": "/duelink-website/docs/interface/intro",
+  "permalink": "/docs/interface/intro",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://ghi-electronics.github.io/duelink-website/docs/interface/intro.mdx",
+  "editUrl": "https://github.com/ghi-electronics/duelink-website/tree/dev/docs/interface/intro.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {},
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "UART",
-    "permalink": "/duelink-website/docs/api/uart"
+    "permalink": "/docs/api/uart"
   },
   "next": {
     "title": "USB",
-    "permalink": "/duelink-website/docs/interface/usb"
+    "permalink": "/docs/interface/usb"
   }
 }
