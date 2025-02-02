@@ -296,7 +296,7 @@ const sidebars = {
         ],
     },
     'support',
-    'licensing',
+    'legal',
     'about',
     {
         type: 'link',
