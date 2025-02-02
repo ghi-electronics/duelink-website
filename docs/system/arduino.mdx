@@ -33,7 +33,7 @@ You can now send the program from the Arduino IDE
 
 Image
 
-To access DUELink modules connected to [Downstream](/), we are still in the process of implementing full Arduino libraries for DUELink. However, here is an example that uses the standard Arduino libraries to send [LED](/) command downstream to blink its status LED 10 times.
+To access DUELink modules connected to [Downstream](../interface/downstream), we are still in the process of implementing full Arduino libraries for DUELink. However, here is an example that uses the standard Arduino libraries to send LED command downstream to blink its status LED 10 times.
 
 ```c
 Wire.Write(“LED(200,200,10)”)
@@ -41,11 +41,11 @@ Wire.Write(“LED(200,200,10)”)
 
 ## All are Mainboards
 
-You may also use any other DUELink module as an Arduino mainboard!! They all share the same processor. Just add a [USB Hook](/) and the board can now connect to a PC and work just like DueDuino.
+You may also use any other DUELink module as an Arduino mainboard!! They all share the same processor. Just add a [USB Hook](../catalog/accessory/usb-hook) and the board can now connect to a PC and work just like [DueDuino](../catalog/mainboard/dueduino).
 
 ## All Arduino Boards
 
-The web has thousands of Arduino-compatible board variants, and they all work with the DUELink ecosystem! Use the [Breakout](/) board to wire the I2C signals from any Arduino-compatible and you have a [Downstream](/) socket ready for hundreds of module options.
+The web has thousands of Arduino-compatible board variants, and they all work with the DUELink ecosystem! Use the [Breakout](../catalog/accessory/breakout) board to wire the I2C signals from any Arduino-compatible and you have a [Downstream](../interface/downstream) socket ready for hundreds of module options.
 
 Here is board ???? with light sensor and display example.
 

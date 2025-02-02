@@ -9,23 +9,29 @@ import TabItem from '@theme/TabItem';
 
 ![Getting Started](../images/getting-started.png)
 
+:::caution
+This page is outdated. Do not use!
+:::
 
 
 ## Hardware Setup
 
-Make sure your DUELink hardware is functional using [demo.duelink.com](https://demo.duelink.com/). Check that the board has the latest firmware. Compare the version  shown on the demo page when the device is connected to the version found on the [Downloads](/docs/downloads) page.
+Make sure your DUELink hardware is functional using [demo.duelink.com](https://demo.duelink.com/). Check that the board has the latest firmware. Compare the version shown on the demo page when the device is connected to the version found on the [Downloads](../downloads) page.
 
 ---
 
 ## Software Setup
 
-DUELink is made for software developers so we are assuming you already have a development machine that is already building Python or JavaScrpt programs for example. See the [Coding Options](/docs/coding/intro) to see the available options and install the available libraries.
+DUELink is made for software developers so we are assuming you already have a development machine that is already building [Python](../language/python) or [JavaScript](../language/javascript) programs for example. See the [Hosted Language](../language/intro) options.
 
 ---
 
 ## Blink LED
 
-Following one of the available [Coding Options](/docs/coding/intro) will reveal all the needed steps to blink the on-board LED using the LED API, which handles the LED internally inside the DUELink Engine. Here is a similar example but this one uses a loop on the host side to set the LED high and low.
+Following one of the available [Hosted Language](../language/intro) will reveal all the needed steps to blink the on-board LED using the [LED](../api/led) API, which handles the LED internally inside the DUELink Engine. 
+
+
+Here is a similar example but this one uses a loop on the host side to set the LED high and low.
 
 
 <Tabs>
@@ -93,7 +99,7 @@ Pin "number" | On-board Feature
 'p' or 'P' | Piezo buzzer
 'l' or 'L' | LED
 
-This is an example of how to blink the on-board LED using the [Digital](/docs/api/digital) class.
+This is an example of how to blink the on-board LED using the [Digital](../api/digital) class.
 
 <Tabs>
 <TabItem value="python" label="Python" default>
@@ -143,9 +149,5 @@ while (true) {
 ```
 </TabItem>
 </Tabs>
-
----
-
-
 
 

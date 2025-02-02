@@ -12,7 +12,7 @@ If you enjoy the edge connector and alligator clips, DUELink offers many bit-com
 
 Image
 
-The DUELink [CincoBit](../catalog/mainboard/cincobit) and [PixoBit](../catalog/mainboard/pixobit) work like all other DUELink modules, through DUELink [Scripting Engine](../engine/scripting) or the [Arduino](arduino) IDE, among other [Coding Options](../coding/intro). These mainboards can be used with microbit acessories, like in this robot!
+The DUELink [CincoBit](../catalog/mainboard/cincobit) and [PixoBit](../catalog/mainboard/pixobit) work like all other DUELink modules, through DUELink [Scripting Engine](../engine/scripting) or the [Arduino](arduino) IDE, among other [Hosted Language](../language/intro) options. These mainboards can be used with micro:bit accessories, like in this robot!
 
 image
 
@@ -30,7 +30,7 @@ Image
 
 Microsoft [MakeCode](https://makecode.microbit.org/) can be used to access the DUELink bus through [I2C(../interface/i2c).
 
-This example blinks an [LED](../api/led) 10 times on any downstream module
+This example blinks a the status LED 10 times on any downstream module
 
 ```
 // you need this to make the example
@@ -39,7 +39,7 @@ function stringToBuffer(str: string): Buffer {
 }
 ```
 
-[MicroPython](../coding/micropython) is another [Coding Option](../coding/intro)
+[MicroPython](../language/micropython) is another option.
 
 ```python
 I2c.write(“LED(20,20,10)”)

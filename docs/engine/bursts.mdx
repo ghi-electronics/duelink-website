@@ -1,0 +1,19 @@
+# Bursts
+
+---
+
+:::caution
+This is under rework, do not use!
+:::
+
+DUELink [Scripting](scripting) language is built to be ASCII human-friendly. This works great; however, there are instances where speed or raw binary data is required. For example, when updating an entire display buffer. This is where Bursts come in handy. Provided libraries, such as [Python](../language/python), use Bursts internally whenever possible.
+
+:::tip
+Understanding and utilizing Bursts is usually only needed by advanced users.
+:::
+
+A Burst command initiates the request, such as `DisplayBurst()`. Once this command is received and accepted by the device, the `&` symbol will be returned indicating readiness. The host can now send the entire data, exactly to the required byte count. See the individual Burst command for details on what data count and structure to be sent.
+
+:::tip
+Bursts can't be used directly by typing in ASCII commands, like when using the [Console](../console). See the source code of one of the provided libraries for reference.
+:::
