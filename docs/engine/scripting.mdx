@@ -99,13 +99,14 @@ Arrays can be initialized in two different ways.
 Declare an array and initialize it with values at the same time.  
 
 ```
-Dim x[6] = [1,2,
+Dim a1[6] = [1,2,
             3,4,
             5,6]
-For i in Range(Len(x))
-  PrintLn(x[i])
+For i in Range(Len(a1))
+  PrintLn(a1[i])
 Next
 ```
+
 
 :::note
 `Len(a1)` returns the length (size) of the a1 array.
@@ -114,13 +115,13 @@ Next
 The second way is to create the array first, then populate it later. 
 
 ```
-Dim x[6]
+Dim a1[6]
 
-x = [7,8,
+a1 = [7,8,
      9,10,
      11,12]
-For i in Range(Len(x))
-  PrintLn(x[i])
+For i in Range(Len(a1))
+  PrintLn(a1[i])
 Next
 ```
 
@@ -132,7 +133,21 @@ There are some specific things we must know about initializing arrays:
 4. You can have fewer values in the initializer than what the array holds, but you cannot have more. You will get an error indicating that a `]` was expected if there are too many elements in the initializer
 5. Since we do not want to do too many dynamic allocations, the size of the array must be specified when using dim even when initializing the array 
 
-It is also possible to initialize an array with a string of text. The line `b1="GHI"` will set b1[0] to ASCII `G` and so on.
+:::tip
+`Dim` will automatically set the appropriate size when it sees an initializer, like `Dim a1[] = [1,2,3,4,5]' will create an arrays with 5 elements.
+:::
+
+It is also possible to initialize an array with a string of text. The line `b1="GHI"` will set b1[0] to ASCII `G` and so on. The system automatically know if bytes or floats are needed and create the array properly.
+
+Functions that accept arrays can take initializers as well.
+
+```
+Dim a1[5] = [1,2,3,4,5]
+SortArray(a1)
+
+SortArray([1,2,3,4,5])
+```
+Byte arrays work exactly the same 
 
 ## Functions
 
@@ -153,6 +168,31 @@ Print(_x)
 ```
 
 Variables inside functions are local. You can use any of the 26 letters as a variable name. The argument will automatically set the local variable with teh matching name to the passed value. In the previous example, a and b local variables were automatically assigned with first and second argument values.
+
+Function arguments can also be arrays. These arrays are passed as by reference.
+
+```
+fn PrintArray(a1, c)
+For i in Range(c)
+  PrintLn(a1[i])
+next
+fend
+
+Dim a3[] = [1,2,3,4,5]
+PrintArray(a3) # the system will automatically reference a1 used in teh function to a3 that got passed.
+```
+
+Array initializer can also be used to call the function above.
+
+```
+PrintArray([1,2,3,4,5], 3) # print 3 elements
+```
+
+And even use a string!
+
+```
+PrintArray("DUELink", 7)
+```
 
 ## Operands
 DUELink Scripting supports the following operators. 
