@@ -229,7 +229,6 @@ const sidebars = {
                 'language/python',
                 'language/micropython',
                 'language/javascript',
-                'language/typescript',
                 'language/dotnet',
                 'language/tinyclr',
                 'language/cpp',    
