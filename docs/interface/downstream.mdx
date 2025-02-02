@@ -2,3 +2,7 @@
 # Downstream
 
 ---
+
+The Downstream socket found on every single DUELink module is used to connect to the next Upstream socket on the next module. The DUELink software magically handles the data going across the entire [Daisylink](../engine/daisylink) stream of connected modules.
+
+There will be no signal degradation along the wires as data is repeated on every Downstream socket. In cases power is dropping after several modules, a [Power Inject](../catalog/accessory/power-inject) module can be used. This is not necessary in most modules as they are very low power. However, some modules, like large displays and motor drivers, do require decent amount of power.

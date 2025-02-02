@@ -2,3 +2,23 @@
 # I2C
 
 ---
+
+I2C will be the most common interface when selecting a microcontroller-level [Supported System](../system/intro). The I2C device address is 0xA4, which is fixed and can't be changed.
+
+Note that the [Daisylink](../engine/daisylink) of connected devices run on a single address, 0xA4.
+
+I2C will also be first choice for users with Sparkfun QWIIC or Adafruit STEMMA products as they both use the same JST connector used by DUELink, and share the I2C pinout.
+
+Everything is provided to you when using a host board with JST connector, such as Sparkfun Redboard, that supports one of the [Supported Systems](../system/intro), which is [Arduino](../system/arduino) in this case.
+
+image
+
+
+It is possible to use QWIIC and STEMMA modules with one or more DUELink modules. The only rule si you have to connect the non-DUELink modules first in the chain. Access those module like you normally would and then access DUELink modules as if these modules are not there.
+
+image
+
+
+:::tip
+DUELink uses address 0xA4 and so you can't use any non-DUELink modules that have address 0xA4, which is very unlikely!
+:::

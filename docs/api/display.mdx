@@ -1,4 +1,4 @@
-# LCD
+# Display
 
 ---
 
@@ -8,7 +8,7 @@ These functions allow for graphics on multiple display types, including B&W and 
 
 LCD Graphics supports SSD1306 128x64 B&W I2C, which work on all BrainPad boards. This display is found on the BrainPad Pulse by default, and can be added to the I2C channel on all of the other boards. These displays are available in multiple sizes but most common is 0.96". The `LcdConfig()` function (documented below) can be used to configure the system to work with an externally connected display.
 
-![SSD1306](images/ssd1306.png)
+`![SSD1306](images/ssd1306.png)`
 
 :::warning
 Displays with knock-off controller SSH1106 that is supposed to be compatible with SSD1306 did not work as expected.
@@ -19,7 +19,7 @@ Displays with knock-off controller SSH1106 that is supposed to be compatible wit
 
 ## Color Displays
 
-![ColorDisplays](images/color-displays.png)
+`![ColorDisplays](images/color-displays.png)`
 
 Support for color displays includes ILI9342, ILI9341, and ST7735. These color displays only work on boards with SC13 chipset.
  The Configuration property (documented below) can be used to configure the system to work with an externally connected display.
@@ -44,12 +44,13 @@ Support for color displays includes ILI9342, ILI9341, and ST7735. These color di
 
 This example will set the system to use the color display adapter from Waveshare, which uses ST7735 1.8" display. The display's chip select is on pin 2 and data control is on pin 0. There is also a backlight on pin 6 and reset on pin 1 that need to be controlled manually.
 
-<!--
+```<!--
 <p align="center">
 <img src = "http://duelink.com/software/due-script/corelib/images/st7735.png"
 </p>-->
+```
 
-![ST7735](images/st7735.png)
+`![ST7735](images/st7735.png)`
 
 ### [Python](#tab/py)
 
@@ -201,7 +202,7 @@ duelink.Display.Show();
 
 This example below will direct graphics to an external 2.42" display with address 0x3C, wired to the 2.42" SSD1309 display showing in the image above. Tip: A resistor on the back of the display needs to be moved to change its bus from SPI to I2C.
 
-![SSD1309](images/ssd1309.png)
+`![SSD1309](images/ssd1309.png)`
 
 ### [Python](#tab/py)
 ```py
