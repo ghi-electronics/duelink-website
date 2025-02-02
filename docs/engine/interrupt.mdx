@@ -2,3 +2,21 @@
 # Interrupts
 
 ---
+
+
+```
+_i = 450
+istart("blink", 1, 0, 1)
+while 1
+  if (_i % 10) = 0: println("stat: ", istat("blink")) :_i=_i+1 :end
+wend
+
+fn blink()
+  dwrite(20, _i&1)
+  _i=_i+1
+  println(_i)
+  if _i=500
+    iabort("blink")
+  end
+fend
+```
