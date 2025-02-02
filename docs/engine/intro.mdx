@@ -108,4 +108,40 @@ Switch to immediate mode and enter `Hello("John Due")`.
 
 image
 
-This is exactly how hundreds of modules provide user-friendly commands. They all have a recorded script that handles module-specific tasks. Then these extended commands can be executed from a [Supported System](../system/intro) over one of the [Interfaces](../interface/intro). 
+This is exactly how hundreds of modules provide user-friendly commands. They all have a recorded script that handles module-specific tasks. Then these extended commands can be executed from a [Supported System](../system/intro) over one of the [Interfaces](../interface/intro).
+
+# Asynchronous Immediate
+
+When the system in 'run' mode, running a loop, it is possible to inject other code to run asynchronously. Use `asio(1)` to enable this feature.
+
+Consider this program that loops and print the global variable _x every 500ms.
+
+```
+asio(1)
+while 1
+println(_x)
+wait(500)
+wend
+```
+
+With Asynchronous immediate enabled, we can now inject `_x=5` at any time to change the output to 5.
+
+This can also be used to call functions and even run loops! Any valid single-line commands can be injected asynchronously.
+
+This is a simple program that prints whatever is in a1 every 500ms.
+
+```
+asio(1)
+fn SetA1(a2)
+a1 = a2
+fend
+
+SetA1("Hello")
+
+while 1
+println(a1)
+wait(500)
+wend
+```
+
+Now we can inject `SetA1("DUELink")`. Of course, you can just do `a1[]="Try it"` but we used a function to show the possibilities.
