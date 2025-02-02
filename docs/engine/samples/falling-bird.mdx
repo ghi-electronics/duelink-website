@@ -99,13 +99,16 @@ return
 ![Pulse Falling Bird](img/oled-falling-bird.gif)
 
 ```py
-u=4       # Player X position
-v=8       # Player Y position
-t=0       # Player tail Y offset
-b=31      # Wall X position
-h=4       # Wall height
-g=6       # Wall gap
-BtnEnable('a', 1)
+lcdconfig(1, 0x3c, 0, 128, 64, 1, 1)
+
+_u=4       # Player X position
+_v=8       # Player Y position
+_t=0       # Player tail Y offset
+_b=31      # Wall X position
+_h=4       # Wall height
+_g=6       # Wall gap
+
+BtnEnable(1, 1)
 # Game loop
 @loop
   LcdClear(0)
@@ -114,70 +117,69 @@ BtnEnable('a', 1)
   coll()
   LcdShow()
 goto loop
+
 # Handle the player
-@plyr
-  if BtnDown('a')
-    if v>0:v=v-1:end
-    t=1
+fn plyr()
+  if BtnDown(1)
+    if _v>0:_v=_v-1:end
+    _t=1
   else
-    if v<15:v=v+0.5:end
-    t=-1
+    if _v<15:_v=_v+0.5:end
+    _t=-1
   end
-  x=u
-  y=trunc(v)
-  pxl()
-  x=x-1
-  y=y+t
-  pxl()
-return
+  _x=_u
+  _y=trunc(_v)
+  pxl(_x, _y)
+  _x=_x-1
+  _y=_y+_t
+  pxl(_x, _y)
+fend
+
 # Update wall
-@wall
-  b=b-0.5
-  if b<=0
-    b=31
-    g=4+rnd(2)
-    h=2+rnd(6)
+fn wall()
+  _b=_b-1
+  if _b<=0
+    _b=31
+    _g=4+rnd(2)
+    _h=2+rnd(6)
   end
-  x=trunc(b)
-  for y=0 to h
-    pxl()      
+  
+  l = (_h+_g)
+  x = trunc(_b)
+  for i=0 to 3
+    s=(x*4)+i
+    lcdline(255, s, 0, s, _h*4)
+    lcdline(255, s, l*4, s, 50)
   next
-  for y=h+g to 15
-    pxl()
-  next
-return
+  
+fend
+
 # Check collision
-@coll
-  i=trunc(b)
-  if i != u:return:end
-  if v<=h:goto die:end
-  if v>=h+g:goto die:end
-return
+fn coll()
+  if trunc(_b) != _u:return:end
+  if (_v > _h) && (_v < _h+_g):return:end
+ 
 # Player died
-@die
-  for i=0 to 20
-    x=(u-2)+rnd(4)
-    y=(v-2)+rnd(4)
-    pxl()
+  for _i=0 to 15
+    pxl((_u-2)+rnd(4), (_v-2)+rnd(4))
     LcdShow()
   next
-  b=31
-return
+  _b=31
+fend
+
 # Plot large pixel
-# p=pxl(x,y)
-@pxl
-  #for i=0 to 2: for j=0 to 3:LcdPixel(1, x*4+j, y*3+i):next:next
-  LcdPixel(1, x*4, y*3)
-  LcdPixel(1, x*4+1, y*3)
-  LcdPixel(1, x*4+2, y*3)
-  LcdPixel(1, x*4+3, y*3)
-  LcdPixel(1, x*4, y*3+1)
-  LcdPixel(1, x*4+1, y*3+1)
-  LcdPixel(1, x*4+2, y*3+1)
-  LcdPixel(1, x*4+3, y*3+1)
-  LcdPixel(1, x*4, y*3+2)
-  LcdPixel(1, x*4+1, y*3+2)
-  LcdPixel(1, x*4+2, y*3+2)
-  LcdPixel(1, x*4+3, y*3+2)
-return
+fn pxl(x,y)
+  LcdPixel(255, x*4, y*3)
+  LcdPixel(255, x*4+1, y*3)
+  LcdPixel(255, x*4+2, y*3)
+  LcdPixel(255, x*4+3, y*3)
+  LcdPixel(255, x*4, y*3+1)
+  LcdPixel(255, x*4+1, y*3+1)
+  LcdPixel(255, x*4+2, y*3+1)
+  LcdPixel(255, x*4+3, y*3+1)
+  LcdPixel(255, x*4, y*3+2)
+  LcdPixel(255, x*4+1, y*3+2)
+  LcdPixel(255, x*4+2, y*3+2)
+  LcdPixel(255, x*4+3, y*3+2)
+fend
 ```
