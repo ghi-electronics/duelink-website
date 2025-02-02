@@ -9,7 +9,7 @@ Scripts are not case sensitive, with a simple syntax that is inspired by BASIC a
 Even though the scripting engine is not case sensitive, we use `Print()` rather than `print()` or `prInT()` to keep things looking great!
 :::
 
-Beside running scripts [Standalone](./standalone), the system can run through a [Hosted Language](../language/intro) with one of teh [Supported System](../system/intro). This gives any user very powerful options with great flexibility.
+Beside running scripts [Standalone](./standalone), the system can run through a [Hosted Language](../language/intro) with one of the [Supported Systems](../system/intro). This gives any user very powerful options with great flexibility.
 
 ## Print
 
@@ -37,7 +37,7 @@ x=10
 Print(x) # This is also a comment 
 ```
 ## Whitespace
-Space doesn't mean anything to the DUELink Scripting Language. However, new lines (or `;`)are important to start new commands.
+Space doesn't mean anything to the DUELink Scripting Language. However, new lines (or `:`)are important to start new commands.
 
 ```
 Print   ( "DUELink"   )
@@ -53,11 +53,11 @@ Print("DUELink")
 
 DUELink Script has a fixed set of 26 global float-type variables, one for each letter, assigned to `_a` to `_z`. To use a global variable, simply use `_x=5.5`.
 
-There are also local variables used in functions, still float-type. More on thess under functions.
+There are also local variables used in functions, still float-type. More on these under functions.
 
 ## Arrays
 
-There are 10 float-type arrays and 10 byte-type arrays. The float arrays are named a1 to a10 and rhe byte arrays are names b1 to b10. All arrays are size zero by default. Use `Dim` to allocate memory for an array, like `Dim a1[10]`.
+There are 10 float-type arrays and 10 byte-type arrays. The float arrays are named a0 to a9 and the byte arrays are names b0 to b9. All arrays are size zero by default. Use `Dim` to allocate memory for an array, like `Dim a1[10]`.
 
 Similar to other common languages, elements of an array are accessed using `[]`. 
 
@@ -167,7 +167,7 @@ _x = Add(5,33)
 Print(_x)
 ```
 
-Variables inside functions are local. You can use any of the 26 letters as a variable name. The argument will automatically set the local variable with teh matching name to the passed value. In the previous example, a and b local variables were automatically assigned with first and second argument values.
+Variables inside functions are local. You can use any of the 26 letters as a variable name. The argument will automatically set the local variable with the matching name to the passed value. In the previous example, `a` and `b` local variables were automatically assigned with first and second argument values.
 
 Function arguments can also be arrays. These arrays are passed as by reference.
 
@@ -216,7 +216,8 @@ DUELink Scripting supports the following operators.
 \|\|        | Or
 **Bitwise** |                         
 \&          | Bitwise And               
-\|          | Bitwise Or                 
+\|          | Bitwise Or 
+^           | Bitwise Xor                
 \<<         | Shift Right       
 \>>         | Shift Left        
 
@@ -247,11 +248,11 @@ Next
 
 Output:
 
-`0,1,2,3,4,5,`
+`1,2,3,4,5,`
 
 ```
 # Counting Up in increments of 10
-For _i=1000 to 1 Step 10
+For _i=1 to 1000 Step 10
 PrintLn(_i)
 Next
 
@@ -336,7 +337,7 @@ Goto Loop
 
 # Exit
 
-`Exit()` terminates the program.
+`Exit` terminates the program.
 
 ```
 Print("Hello")
