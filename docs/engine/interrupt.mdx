@@ -3,20 +3,25 @@
 
 ---
 
+DUELink Engine can run a function when a pin is changed, on interrupts. `IStart(func, pin, trigger)` where trigger is: 0- Falling edge, 1- Rising edge, and 2- Falling & Rising edges.
+
 
 ```
 _i = 450
-istart("blink", 1, 0, 1)
+_b = 0
+IStart("Blink", 1, 0)
+
 while 1
-  if (_i % 10) = 0: println("stat: ", istat("blink")) :_i=_i+1 :end
+  PrintLn("Stat: ", IStat("Blink"))
+  Wait(100)
 wend
 
-fn blink()
-  dwrite(20, _i&1)
-  _i=_i+1
-  println(_i)
-  if _i=500
-    iabort("blink")
-  end
+fn Blink()
+  DWrite(20, _b&1)# Status LED is always on pin 20
+  _b=_b+1
+  println("Blink: ", _b)
+  if _b=100# stop the interrupt after 100
+    IAbort("Blink")
+  end
 fend
 ```
