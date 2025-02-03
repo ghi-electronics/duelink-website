@@ -259,6 +259,8 @@ const sidebars = {
         link: {type: 'doc', id: 'engine/intro'},
         items: [
                 'engine/scripting',
+                'engine/scheduler',
+                'engine/interrupt',
                 'engine/standalone',
                 'engine/daisylink',
                 'engine/stdlib',
@@ -288,7 +290,7 @@ const sidebars = {
     'support',
     'legal',
     'about',
-
+/*
     {
         type: 'link',
         label: 'GHI Electronics',
@@ -300,7 +302,7 @@ const sidebars = {
         href: 'https://forums.ghielectronics.com/c/duelink/31',
     },
    
-
+*/
 
 
   ],
