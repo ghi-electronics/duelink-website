@@ -73,7 +73,7 @@ It is not possible to modify individual lines once recorded. This is not a probl
 
 We can run a program that runs indefinitely using loops.
 
-```
+```py
 $ Print("Hello ")
 $ Print(" world")
 $ Print(" 123!!")
@@ -93,7 +93,7 @@ There is no `Hybrid Mode` exactly, but you can combine both immediate and record
 
 Enter recoding mode then start a `new` program. Then Enter this program:
 
-```
+```py
 fn Hello(s)
 Print("Hello ")
 Println(s)
@@ -116,7 +116,7 @@ When the system in 'run' mode, running a loop, it is possible to inject other co
 
 Consider this program that loops and print the global variable _x every 500ms.
 
-```
+```py
 asio(1)
 while 1
 println(_x)
@@ -130,7 +130,7 @@ This can also be used to call functions and even run loops! Any valid single-lin
 
 This is a simple program that prints whatever is in a1 every 500ms.
 
-```
+```py
 asio(1)
 fn SetA1(a2)
 a1 = a2

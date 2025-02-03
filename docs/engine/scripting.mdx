@@ -17,7 +17,7 @@ Beside running scripts [Standalone](./standalone), the system can run through a 
 
 `PrintLn()` is exactly the same except it adds line break at the end.
 
-```
+```py
 x=100
 PrintLn(x)
 PrintLn("Hello World")
@@ -31,7 +31,7 @@ PrintLn(x,"Hello World", x+x)
 
 The `#` character is used to identify a comment. Comments are ignored by the program, text added to help developers understand the code.
 
-```
+```py
 # This is a comment
 x=10
 Print(x) # This is also a comment 
@@ -39,13 +39,13 @@ Print(x) # This is also a comment
 ## Whitespace
 Space doesn't mean anything to the DUELink Scripting Language. However, new lines (or `:`)are important to start new commands.
 
-```
+```py
 Print   ( "DUELink"   )
 ```
 
 Is exactly the same as
 
-```
+```py
 Print("DUELink")
 ```
 
@@ -63,7 +63,7 @@ Similar to other common languages, elements of an array are accessed using `[]`.
 
 This is an example that uses both, global variables and arrays:
 
-```
+```py
 Dim a1[10]
 
 For _i=0 to 9
@@ -98,7 +98,7 @@ Arrays can be initialized in two different ways.
 
 Declare an array and initialize it with values at the same time.  
 
-```
+```py
 Dim a1[6] = [1,2,
             3,4,
             5,6]
@@ -114,7 +114,7 @@ Next
 
 The second way is to create the array first, then populate it later. 
 
-```
+```py
 Dim a1[6]
 
 a1 = [7,8,
@@ -141,7 +141,7 @@ It is also possible to initialize an array with a string of text. The line `b1="
 
 Functions that accept arrays can take initializers as well.
 
-```
+```py
 Dim a1[5] = [1,2,3,4,5]
 SortArray(a1)
 
@@ -153,7 +153,7 @@ Byte arrays work exactly the same
 
 functions start with `fn` and end with `fend`. Arguments must be included in the function definition.
 
-```
+```py
 fn Add(a,b)
 return a+b
 fend
@@ -161,8 +161,9 @@ fend
 
 Then the function can be executed using `Add()`. This can be done from withing the script or from an external source over one of the [Interfaces](../interface/intro).
 
-Here it si used by the same script.
-```
+Here it is used by the same script.
+
+```py
 _x = Add(5,33)
 Print(_x)
 ```
@@ -171,7 +172,7 @@ Variables inside functions are local. You can use any of the 26 letters as a var
 
 Function arguments can also be arrays. These arrays are passed as by reference.
 
-```
+```py
 fn PrintArray(a1, c)
 For i in Range(c)
   PrintLn(a1[i])
@@ -184,13 +185,13 @@ PrintArray(a3) # the system will automatically reference a1 used in teh function
 
 Array initializer can also be used to call the function above.
 
-```
+```py
 PrintArray([1,2,3,4,5], 3) # print 3 elements
 ```
 
 And even use a string!
 
-```
+```py
 PrintArray("DUELink", 7)
 ```
 
@@ -224,7 +225,7 @@ DUELink Scripting supports the following operators.
 ## while-loop
 This is the kind of loop that stays active as long as a condition is true. a `while` loop block ends with `wend`.
 
-```
+```py
 _x=10
 while _x>5
 Println(_x)
@@ -239,7 +240,7 @@ The For-Loop has two different syntax styles. **BASIC** and **Python** style.
 
 The BASIC style For-Loop includes the last number in the range. 
 
-``` 
+```py
 # Counting Up
 For _i=1 to 5
 Print(_i,",")
@@ -250,7 +251,7 @@ Output:
 
 `1,2,3,4,5,`
 
-```
+```py
 # Counting Up in increments of 10
 For _i=1 to 1000 Step 10
 PrintLn(_i)
@@ -266,7 +267,7 @@ Next
 
 The for-loop also allows a format similar to Python. 
 
-```
+```py
 # Range with only stop value
 For _i in range(5)
 Print(_i,",")
@@ -277,7 +278,7 @@ Output:
 `0,1,2,3,4,`
 
 
-```
+```py
 # Range with start and stop value
 For _i in range(1,5)
 Print(_i,",")
@@ -297,7 +298,7 @@ next
 ## If-Statement
 If-Statements must end with the `End` command.
 
-``` 
+```py
 If _x=1
 PrintLn("one")
 Else 
@@ -307,7 +308,7 @@ End
 
 If-Statements can also be nested within each other. Each If-Statement requires an `End` command to terminate its own process. 
 
-```
+```py
 If _x=1
   PrintLn("one")
 Else
