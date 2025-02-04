@@ -3,13 +3,13 @@
 
 ---
 
-DUELink Engine can run a function when a pin is changed, on interrupts. `IStart(func, pin, trigger)` where trigger is: 0- Falling edge, 1- Rising edge, and 2- Falling & Rising edges.
+DUELink Engine can invoke a function when a pin changes, on interrupts. `IStart(func, pin, trigger, pull)` where trigger is: 0- Falling edge, 1- Rising edge, and 2- Falling & Rising edges. Pull is: 0- none, 1- up, 2- down.
 
 
 ```py
 _i = 450
 _b = 0
-IStart("Blink", 1, 0)
+IStart("Blink", 1, 0, 1)
 
 while 1
   PrintLn("Stat: ", IStat("Blink"))

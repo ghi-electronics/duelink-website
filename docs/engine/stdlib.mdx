@@ -11,15 +11,78 @@ These are particularly useful for using [Mainboards](../catalog/mainboards) or o
 
 ---
 
+## Special Pins
+Some functions only work on pins with specific features.
+
+Analog capable pins:
+PWM capable pins:
+Interrupt capable pins:
+
 ## Pin Control
+
+## Not documented yet
+```
+
+and the core tokens https://github.com/ghi-electronics/duelink-fw/blob/5b130534287d8f16b3c0c84043860ca53e5633a4/Core/src/interpreter.c#L183
+
+
+{.name="pulsefb", 4, api_pulsefb},
+{.name="cputemp", 0, api_cputemp},
+{.name="dumparray", 1, api_dumparray},
+{.name="readvcc", 0, api_readvcc},
+
+{.name="serb2r", 0, api_surtb2r},
+{.name="sercfg", 2, api_surtcfg},
+{.name="serdisc", 0, api_surtdisc},
+{.name="serdmxw", 3, api_surtdmxw},	
+{.name="serdmxr", 3, api_surtdmxr},
+{.name="serread", 4, api_surtread},
+{.name="serreads", 0, api_surtreads},
+{.name="serwrite", 1, api_surtwrite},
+{.name="serwrites", 3, api_surtwrites},	
+
+{.name="freq", 4, api_freq},
+{.name="dht", 2, api_dht},
+
+
+
+{.name="istart", 4, api_istart},
+{.name="istat", 1, api_istat},	
+{.name="iabort", 1, api_iabort},
+
+{.name="sstart", 3, api_sstart},
+{.name="sstat", 1, api_sstat},
+{.name="sabort", 1, api_sabort},
+
+{.name="neoclear", 0, api_neoclear},
+{.name="neoset", 4, api_neoset},
+{.name="neoshow", 2, api_neoflush},	
+{.name="otpr", 1, api_otpr},
+{.name="otpw", 2, api_otpw},
+{.name="pgmstream", 0, api_pgmstream},
+{.name="pulsefb", 4, api_pulsefb},
+{.name="putch", 1, api_putch},
+
+{.name="isnan", 1, api_isnan},
+{.name="melody", 4, api_melody},
+
+{.name="spibytes", 3, api_spibytes},
+
+how to set speed?
+{.name="i2ccfg", 1, api_i2ccfg},
+{.name="i2cmw", 4, api_i2cmw},
+
+
+
+```
 
 ### LED
 
-Control the on-board STAT LED found on every single DUELink module.
+Control the on-board STAT LED, found on every single DUELink module.
 
- | Function | Description
+| Function | Description
 | --- | ---
-| `LED(high, low, count)` | `high`: duration on in milliseconds, `low`: duration off in milliseconds, `count`: number of times to repeat
+| `LED(high, low, count)` | `high`: duration on in milliseconds, `low`: duration off in milliseconds, `count`: number of times to repeat, -1 to run forever.
 
 ### Digital
 | Function | Description
@@ -30,60 +93,33 @@ Control the on-board STAT LED found on every single DUELink module.
 ### Analog
 | Function | Description
 | --- | ---
-| `VRead(pin)` | `pin`: pin number - **Returns**: voltage level of a pin.
+| `VRead(pin)` | `pin`: pin number - **Returns**: voltage level of a pin. Only works on Analog pins.
 | `PWrite(pin, power)` | `pin`: pin number - `power`: power level, 0 to 1. 0.5 is 50% for example.
-Pins supporting `VRead` are: ???
-Pins supporting `PWrite` are: ???
 
 ### Beep
 This is a blocking function that works on all pins.
 | Function | Description
 | --- | ---
-| `Beep(pin, frequency, duration`) | `pin`: pin number or 'p' - `frequency`: Hz max 10KHz - `duration`: milliseconds.
+| `Beep(pin, frequency, duration)` | `pin`: Pin number - `frequency`: Hz max 10KHz - `duration`: In milliseconds.
 
 ### Button
-| Function | Description
-| --- | ---
-| `BtnEnable(pin, enable)` |  `pin`: pin number, 'a' or 'b' - `enable`: 1 = enable 0 = disabled
-| `BtnUp(pin)` |  `pin`: pin number, 'a' or 'b' - **Returns**: 1 after first time called. 0 if called again
-| `BtnDown(pin)` |  `pin`: pin number, 'a' or 'b' - **Returns**: 1 if button is pressed
-Button feature works on pins: ???
+Use interrupts to keep track of pins. Only available on interrupt capable pins, see special pins above!
 
-### Distance Sensor
 | Function | Description
 | --- | ---
-| `ReadDistance(trigger, echo)` | `trigger`: pin number of trigger - `echo`: pin number of echo, -1 for single pin - **Returns**: distance in centimeters
-
-### Frequency
-| Function | Description
-| --- | ---
-| `Freq(pin, frequency, duration, dutyCycle)` | `pin`: pin number - `frequency`: in KHz - `duration`: 0 to forever - `dutyCycle`: 0 to 100
-Pins supporting this feature are: ???
-
-### Touch 
-| Function | Description
-| --- | ---
-| `TouchRead(pin)` | `pin`: pin number - **Returns**: delay.
-This was changed and not documented right. What RC values are needed for pins?
+| `BtnEnable(pin, enable)` |  `pin`: Pin number - `enable`: 1 = Enable 0 = Disabled
+| `BtnUp(pin)` |  `pin`: Pin number - **Returns**: 1 if button pin went high, 0 on second call till next transition.
+| `BtnDown(pin)` |  `pin`: Pin number - **Returns**: 1 if button was pressed, 0 on second call till next transition.
 
 ---
 
 ## Digital Control
 
-### NeoPixel
-For WS2812B (and compatible) smart LEDs.
-| Function | Description
-| --- | ---
-| `NeoClear()` | clears all LEDS in memory needs **NeoShow()**
-| `NeoSet(index, red, green, blue)` | `index`: led from 0 to 255, `red`, `green`, `blue`: color levels 0 to 255
-| `NeoShow(pin, count)` | `pin`: pin number - count: number of LEDs to update
-
 ### Servo Motors
 | Function | Description
 | --- | ---
 | `ServoSet(pin, degree)` | `pin`: pin number - `degree`: 0 to 180
-On Pins with PWM feature, teh servo control is done in hardware and it is very accurate. All other pins support Servo but give estimate on servo steps.
-PWM supporting pins are: ???
+On Pins with PWM feature, the servo control is done in hardware, and it is very accurate. All other pins support Servo but give estimate on servo steps.
 
 ### I2C
 | Function | Description
@@ -102,41 +138,50 @@ PWM supporting pins are: ???
 | `IrEnable(pin,enable)` |  `pin`: on supported pins `enable`: 1 = enable or 0 = disable
 | `IrRead()` | **Returns**: key press value 0 to 24
 
-### Temperature
-| Function | Description
-| --- | ---
-| `Temp(pin, type)` | `pin`: pin number - `type`: DHT11 = 11, DHT12 = 12, DHT22 = 22, DHT21 = 21 - ****Returns**: Temperature in Celsius
-
-### Humidity
-| Function | Description
-| --- | ---
-| `Humidity(pin, type)` | `pin`: pin number - `type`: DHT11 = 11, DHT12 = 12, DHT22 = 22, DHT21 = 21 - **Returns**: Humidity 0 to 100
-
-
 ---
 
 ## Graphics
 
 ### Graphics Config
+
+Configure the [Graphics Engine](./graphics) 
+
 | Function | Description
 | --- | ---
-| `LcdConfig(output, address)` | `output`: 0 = none, 1 = console, 2 = LCD and console - `address`: I2C address, 0 = default BrainPad Pulse
+| `GfxConfig()` | See the [Graphics Engine](./graphics) page.
 
 ### Drawing
+
+See the [Graphics Engine](./graphics) page for examples.
+
 | Function | Description
 | --- | ---
-| `Clear(color)` | `color`: 0 = black 1= white or any color value
-| `Circle(color, x, y, radius)` | `color`: 0 = black or 1 = white - `x`: x circle center value - `y`: y circle center - `radius`: radius of circle
-| `Fill(color, x, y, width, height)` |  `color`: 0 = black or 1 = white - `x`: starting x point - `y`: starting y point - `width`: rectangle width - `height`: rectangle height
-| `Img(array, x, y, transform)` | `array`: image array - `x`: x position - y: `y `position - `transform`: 0 = none, 1 = flip horz, 2 = flip vert, 3 = 90 deg, 4 = 180 deg, 5 = 270 deg
-| `ImgS(array, x, y, transform, scaleWidth, scaleHeight)` | same as LcdImg() adds `scaleWidth` and `scaleHeight`
-| `Line(color, x1, y1, x2, y2)` | `color`: 0 = black or 1 = white or any color value- `x1`: starting x point - `y1`: starting y point - `x2`: ending x point - `y2`: ending y point
-| `Pixel(color, x, y)` | `color`: 0 = black or 1 = white - x: `x` pixel value - y: `y` pixel value
-| `Rect(color, x, y, width, height)` | `color`: 0 = black or 1 = white or any color value- `x`: starting x point - `y`: starting y point - width: rectangle `width` - `height`: rectangle height
-| `Text("text", color, x, y)` | `text`: string message in quotes, use Str() to convert variable - `color`: 0 = black or 1 = white - `x`: x position - `y`: y position
-| `TextT("text", color, x, y)` | displays tiny 5px `text`: , use Str() to convert variable - `color`: 0 = black or 1 = white - `x`: x position - `y`: y position
-| `TextS("text", color, x, y, scaleWidth, scaleHeight)` | same as LcdText() adds `scaleWidth` and `scaleHeight`
-| `Show()` | sends the display buffer to the LCD
+| `Clear(color)` | `color`: color value
+| `Circle(color, x, y, radius)` | `color`: Color value - `x`: x center - `y`: y center - `radius`: radius
+| `Fill(color, x, y, width, height)` |  `color`: Color value - `x`: Starting x point - `y`: Starting y point - `width`: Rectangle width - `height`: Rectangle height
+| `Img(array, x, y, transform)` | `array`: Image array - `x`: x position - `y`: y position - `transform`: 0 = none, 1 = Flip horz, 2 = Flip vert, 3 = 90 deg, 4 = 180 deg, 5 = 270 deg
+| `ImgS(array, x, y, transform, scaleWidth, scaleHeight)` | Same as `Img()` but adds `scaleWidth` and `scaleHeight`
+| `Line(color, x1, y1, x2, y2)` | `color`: Color values - `x1`: Starting x point - `y1`: Starting y point - `x2`: Ending x point - `y2`: Ending y point
+| `Pixel(color, x, y)` | `color`: Color value - `x`: x position - `y`: y position
+| `Rect(color, x, y, width, height)` | `color`: Color value - `x`: Starting x point - `y`: Starting y point - `width`: Rectangle width - `height`: Rectangle height
+| `Text("text", color, x, y)` | `text`: string message, use Str() to convert variable to string - `color`: Color value - `x`: x position - `y`: y position
+| `TextT("text", color, x, y)` | Tiny 5px `text`: string message, use Str() to convert variable to string - `color`: Color value - `x`: x position - `y`: y position
+| `TextS("text", color, x, y, scaleWidth, scaleHeight)` | same as `Text()` but adds `scaleWidth` and `scaleHeight`
+| `Show()` | Shows graphics buffer on the configured device.
+
+---
+
+## Device Addressing
+
+These functions are to help with [Dasylink](./daisylink) devices chained through [Downstream](../interface/downstream) connections.
+
+| Function | Description
+| --- | ---
+| `Sel(device)` | `device`: Select one of the devices in the chain, with first device being address 1. Broadcast to all device is possible when using 0.
+| `GetAdd()` | **Returns**: address of current selected device. With broadcast, all devices respond!
+| `SetAdd(add)` | `add` Set the device's address. This command has chain reaction where each device sets teh next one. **This is a special command and should not be used.**
+
+
 
 ---
 
@@ -175,7 +220,7 @@ PWM supporting pins are: ???
 ### String Numbers
 | Function | Description
 | --- | ---
-| `Str(number)` | **Returns** number as string when need in arguments
+| `Str(number)` | **Returns** number as string
 
 ### Format
 | Function | Description
@@ -192,17 +237,24 @@ PWM supporting pins are: ???
 | `Print("text" or variable)` | returns the value of it's argument
 | `PrintLn("text" or variable)` | returns the value of it's argument with line breaks
 
+### AsIO
+Enable Asynchronous IO. Detailed on the [Engine](./intro.mdx) main poage.
+| Function | Description
+| --- | ---
+| `AsIo(enable)` | `enable`: 1 = Enable, 0 = Disable
+
 ### Reset
 | Function | Description
 | --- | ---
-| `Reset(loader)` | `loader`: 0 = system reset, 1 = reset to loader mode
+| `Reset(mode)` | `mode`: 0 = system reset, 1 = Enter DUELink loader, 2= switch LDR pin to BOOT0 pin, 3= Switch LDR pin to BOOT0 and erase the entire chip (factory reset!).
 
 ### Echo
-Echoes back what is received useful when using a terminal program
+
+Echoes back what is received useful when using a terminal program.
 
 | Function | Description
 | --- | ---
-| `Echo(state)` | `state`: 0 = enable or 1 = disable
+| `Echo(state)` | `state`: 1 = Enable or 0 = Disable
 
 ### Ticks
 | Function | Description
@@ -213,7 +265,8 @@ Echoes back what is received useful when using a terminal program
 ### Version
 | Function | Description
 | --- | ---
-| `Version()` | **Returns** firmware version, device ID, and loader version.
+| `Version()` | **Returns** firmware version, device ID, and loader version. For example: `v1.4:ABCD:1.1`.
+
 
 ### Wait
 | Function | Description
