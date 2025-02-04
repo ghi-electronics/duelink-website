@@ -6,7 +6,7 @@
 These standard library functions are built in natively into the firmware and are available on all systems. You will likely not use these directly, but use the simpler wrapper methods provided by the individual modules.
 
 :::tip
-These are particularly useful for using [Mainboards](../catalog/mainboards) or or for using making custom modules.
+These are particularly useful for using [Mainboards](../catalog/mainboards) or or for making custom modules.
 :::
 
 ---
@@ -18,63 +18,20 @@ Analog capable pins:
 PWM capable pins:
 Interrupt capable pins:
 
-## Pin Control
-
 ## Not documented yet
 ```
-
-and the core tokens https://github.com/ghi-electronics/duelink-fw/blob/5b130534287d8f16b3c0c84043860ca53e5633a4/Core/src/interpreter.c#L183
-
-
-{.name="pulsefb", 4, api_pulsefb},
-{.name="cputemp", 0, api_cputemp},
-{.name="dumparray", 1, api_dumparray},
-{.name="readvcc", 0, api_readvcc},
-
-{.name="serb2r", 0, api_surtb2r},
-{.name="sercfg", 2, api_surtcfg},
-{.name="serdisc", 0, api_surtdisc},
-{.name="serdmxw", 3, api_surtdmxw},	
-{.name="serdmxr", 3, api_surtdmxr},
-{.name="serread", 4, api_surtread},
-{.name="serreads", 0, api_surtreads},
-{.name="serwrite", 1, api_surtwrite},
-{.name="serwrites", 3, api_surtwrites},	
-
 {.name="freq", 4, api_freq},
 {.name="dht", 2, api_dht},
-
-
-
-{.name="istart", 4, api_istart},
-{.name="istat", 1, api_istat},	
-{.name="iabort", 1, api_iabort},
-
-{.name="sstart", 3, api_sstart},
-{.name="sstat", 1, api_sstat},
-{.name="sabort", 1, api_sabort},
 
 {.name="neoclear", 0, api_neoclear},
 {.name="neoset", 4, api_neoset},
 {.name="neoshow", 2, api_neoflush},	
-{.name="otpr", 1, api_otpr},
-{.name="otpw", 2, api_otpw},
+
 {.name="pgmstream", 0, api_pgmstream},
-{.name="pulsefb", 4, api_pulsefb},
 {.name="putch", 1, api_putch},
-
-{.name="isnan", 1, api_isnan},
-{.name="melody", 4, api_melody},
-
-{.name="spibytes", 3, api_spibytes},
-
-how to set speed?
-{.name="i2ccfg", 1, api_i2ccfg},
-{.name="i2cmw", 4, api_i2cmw},
-
-
-
 ```
+
+## Pin Control
 
 ### LED
 
@@ -85,24 +42,41 @@ Control the on-board STAT LED, found on every single DUELink module.
 | `LED(high, low, count)` | `high`: duration on in milliseconds, `low`: duration off in milliseconds, `count`: number of times to repeat, -1 to run forever.
 
 ### Digital
+
+Access digital pins
+
 | Function | Description
 | --- | ---
 | `DRead(pin, pull)` | `pin`: pin number - `pull`: 0 = none, 1 = up, 2 = down - Returns: 1 = high or 0 = low.
 | `DWrite(pin, state`) | `pin`: pin number - `state`: 1 = high or 0 = low.
 
 ### Analog
+
+Access pins in their analog format
+
 | Function | Description
 | --- | ---
 | `VRead(pin)` | `pin`: pin number - **Returns**: voltage level of a pin. Only works on Analog pins.
 | `PWrite(pin, power)` | `pin`: pin number - `power`: power level, 0 to 1. 0.5 is 50% for example.
 
 ### Beep
-This is a blocking function that works on all pins.
+
+Generate tones. This is a blocking function that works on all pins.
+
 | Function | Description
 | --- | ---
 | `Beep(pin, frequency, duration)` | `pin`: Pin number - `frequency`: Hz max 10KHz - `duration`: In milliseconds.
 
+### Beep
+
+Generate tones. This is a non-blocking function that works on PWM pins.
+
+| Function | Description
+| --- | ---
+| `Melody()` | `.name="melody", 4, api_melody`
+
 ### Button
+
 Use interrupts to keep track of pins. Only available on interrupt capable pins, see special pins above!
 
 | Function | Description
@@ -113,26 +87,71 @@ Use interrupts to keep track of pins. Only available on interrupt capable pins, 
 
 ---
 
+## Pulse Feedback
+
+Generate a pulse then reads time to feedback. Useful for reading capacitive touch and ultrasonic distance sensors.
+
+| Function | Description
+| --- | ---
+| `PulseFB(1,2,3,4)`| ???
+
+---
+
 ## Digital Control
 
 ### Servo Motors
+
+Control servo motors.
+
 | Function | Description
 | --- | ---
 | `ServoSet(pin, degree)` | `pin`: pin number - `degree`: 0 to 180
+
 On Pins with PWM feature, the servo control is done in hardware, and it is very accurate. All other pins support Servo but give estimate on servo steps.
 
 ### I2C
+
+Access the I2C bus.
+
 | Function | Description
 | --- | ---
 | `I2cBytes(address, arrayWrite, writeCount, arrayRead, readCount)` | `address`: I2C slave address - `arrayWrite`: array to send, `writeCount`: number of bytes to write, `arrayRead`: array to read,`readCount`: Number bytes to read
 
+```
+how to set speed?
+{.name="i2ccfg", 1, api_i2ccfg},
+{.name="i2cmw", 4, api_i2cmw},
+
+```
+
 ### SPI
+
+Access the SPI bus.
+
 | Function | Description
 | --- | ---
 | `SpiByte(byte)`  | `byte`: 0 to 255 - **Returns**: Read byte value
 | `SpiCfg(mode, frequency)`  | `mode`: 0 to 3 - `frequency`: 200 to 20000 (200KHz to 20MHz)
+| `{.name="spibytes", 3, api_spibytes},` | 
+
+### Serial
+
+```
+{.name="serb2r", 0, api_surtb2r},
+{.name="sercfg", 2, api_surtcfg},
+{.name="serdisc", 0, api_surtdisc},
+{.name="serdmxw", 3, api_surtdmxw},	
+{.name="serdmxr", 3, api_surtdmxr},
+{.name="serread", 4, api_surtread},
+{.name="serreads", 0, api_surtreads},
+{.name="serwrite", 1, api_surtwrite},
+{.name="serwrites", 3, api_surtwrites},	
+```
 
 ### Infrared
+
+Receive and decode signals from Infrared remotes.
+
 | Function | Description
 | --- | ---
 | `IrEnable(pin,enable)` |  `pin`: on supported pins `enable`: 1 = enable or 0 = disable
@@ -142,17 +161,17 @@ On Pins with PWM feature, the servo control is done in hardware, and it is very 
 
 ## Graphics
 
+DUELink firmware include a flexible graphics facilities, detailed on the [Graphics Engine](./graphics) page.
+
 ### Graphics Config
 
-Configure the [Graphics Engine](./graphics) 
+Configure the Graphics Engine.
 
 | Function | Description
 | --- | ---
-| `GfxConfig()` | See the [Graphics Engine](./graphics) page.
+| `GfxConfig(...)` | See the [Graphics Engine](./graphics) page.
 
 ### Drawing
-
-See the [Graphics Engine](./graphics) page for examples.
 
 | Function | Description
 | --- | ---
@@ -171,9 +190,33 @@ See the [Graphics Engine](./graphics) page for examples.
 
 ---
 
+## Scheduler
+
+See [Scheduler](./scheduler) for details.
+
+| Function | Description
+| --- | ---
+| `SStart("func", timeout, count)` | `func`: Function to schedule - `timeout`: how often to run (in milliseconds) - `count`: how many times to repeat, with -1 running forever.
+| `SStat("func")` | `func`: Name of function to check status on - **Returns**: count remain to run. -1 when forever, -2
+| `SAbort("func")` | `func`: Abort scheduler for named function.
+
+---
+
+## Interrupts
+
+See [Interrupts](./interrupt) for details.
+
+| Function | Description
+| --- | ---
+| `IStart("func", pin, trigger, pull)` | `func`: Function to trigger on interrupt - `pin`: the pin to enable for interrupt - `trigger`: How to enable interrupt: 0 - falling, 1 - rising, 2 - rising and falling - `pull` Enable pull resistors: 0 - pull down, 1 - pull up, 2 - no pull
+| `IStat("func")` | `func`: Status of named function - **Returns**: 0- no interrupt, 1- active interrupt.
+| `IAbort("func")` | `func`: Abort interrupt for named function.
+
+---
+
 ## Device Addressing
 
-These functions are to help with [Dasylink](./daisylink) devices chained through [Downstream](../interface/downstream) connections.
+These functions are needed for helping with [Dasylink](./daisylink) devices chained through [Downstream](../interface/downstream) connections.
 
 | Function | Description
 | --- | ---
@@ -181,30 +224,23 @@ These functions are to help with [Dasylink](./daisylink) devices chained through
 | `GetAdd()` | **Returns**: address of current selected device. With broadcast, all devices respond!
 | `SetAdd(add)` | `add` Set the device's address. This command has chain reaction where each device sets teh next one. **This is a special command and should not be used.**
 
-
-
 ---
 
 ## Math and Converters
 
 ### Random Numbers
+
+Return a random number
+
 | Function | Description
 | --- | ---
 | `Rnd(max)` | `max`: maximum value of random number - **Returns**: random number between 0 and max
 
-### Cosine
+### Trig
 | Function | Description
 | --- | ---
 | `Cos(number)` | **Returns**: cosine of its argument
-
-### Sine
-| Function | Description
-| --- | ---
 | `Sin(number)` | **Returns** the sine value of its argument
-
-### Tangent
-| Function | Description
-| --- | ---
 | `Tan(number)` | **Returns** the tangent of it's argument
 
 ### Square Root
@@ -217,58 +253,122 @@ These functions are to help with [Dasylink](./daisylink) devices chained through
 | --- | ---
 | `Trunc(number)` | **Returns** the truncated value of it's argument
 
+### Is Not a Number
+### Trunicate
+| Function | Description
+| --- | ---
+| `IsNaN(number)` | **Returns** 1 if a valid number, 0 invalid.
+
 ### String Numbers
+Convert a number to a string. Useful for [Graphics](./graphics)
+
 | Function | Description
 | --- | ---
 | `Str(number)` | **Returns** number as string
 
 ### Format
+
+Formats multiple arguments into a single string
+
 | Function | Description
 | --- | ---
-| `Fmt()` | Formats multiple arguments into a single string
+| `Fmt(...)` | arguments work just like they do with `Print()`
 
 ---
 
 ## Misc
 
 ### Print
+
+Print to output. 
+
 | Function | Description
 | --- | ---
 | `Print("text" or variable)` | returns the value of it's argument
 | `PrintLn("text" or variable)` | returns the value of it's argument with line breaks
 
+`Print()` accepts multiple argument, separated by commas, `Print("Value is: ", _v)`
+
+:::tip
+Print is invoked automatically when a function returns a value that is not consumed. Running `Dread(1,1)` in immediate mode will show 0 or 1.
+:::
+
 ### AsIO
+
 Enable Asynchronous IO. Detailed on the [Engine](./intro.mdx) main poage.
+
 | Function | Description
 | --- | ---
 | `AsIo(enable)` | `enable`: 1 = Enable, 0 = Disable
 
 ### Reset
+
+Reset or clear the system.
+
 | Function | Description
 | --- | ---
 | `Reset(mode)` | `mode`: 0 = system reset, 1 = Enter DUELink loader, 2= switch LDR pin to BOOT0 pin, 3= Switch LDR pin to BOOT0 and erase the entire chip (factory reset!).
 
 ### Echo
 
-Echoes back what is received useful when using a terminal program.
+Echoes back what is received, useful when using a terminal program.
 
 | Function | Description
 | --- | ---
 | `Echo(state)` | `state`: 1 = Enable or 0 = Disable
 
 ### Ticks
+
+Read system time, useful to run things at specific time or create timeouts.
+
 | Function | Description
 | --- | ---
 | `TickMs()` | Read system ticks in milliseconds
 | `TickUs()` | Read system ticks in microseconds
 
 ### Version
+
+Read hardware and software version.
+
 | Function | Description
 | --- | ---
-| `Version()` | **Returns** firmware version, device ID, and loader version. For example: `v1.4:ABCD:1.1`.
+| `Version()` | **Returns** firmware version, device ID, and loader version, in this format: `GHI Electronics DUELink v01.03:BB01:01.00`.
 
 
 ### Wait
+
+Stop running for milliseconds
+
 | Function | Description
 | --- | ---
 | `Wait(duration)` | `duration`: in milliseconds
+
+### Dump Array
+
+| Function | Description
+| --- | ---
+| `DumpArray(array)` | `array`: Dumps array content.
+
+### CPU Temperature
+
+| Function | Description
+| --- | ---
+| `Wait()` | **Returns**: Current internal CPU temperature. 
+
+### Read VCC
+
+| Function | Description
+| --- | ---
+| `ReadVCC()` | **Returns**: Current system voltage.
+
+### One Time Programmable
+
+Write and read from a special memory type that can be written only once and can **never** be erased!
+
+
+| Function | Description
+| --- | ---
+| `OtpR(addr)` | `addr` Address to read from - **Returns**: value of selected address
+| `OtpW(addr, val)` | `addr` Address to write to - `val`: value to write to an address. Can only be done once for specific address.
+
+Note that the address must be multiple of 4.
