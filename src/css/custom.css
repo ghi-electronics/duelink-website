@@ -5,11 +5,19 @@
  */
 
 /* You can override the default Infima variables here. */
-.img-center {
+.content-center {
     display: flex;
     justify-content: center;
     width: 100%,
     }
+
+img {
+
+    display: block;
+    justify-content: center;
+    margin: 0 auto;
+
+}
 
 
 :root {
