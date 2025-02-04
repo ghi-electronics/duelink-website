@@ -82,7 +82,7 @@ const config = {
       },
 
       // Replace with your project's social card
-      //image: 'img/docusaurus-social-card.jpg',
+      image: 'img/ghielectronics-social-card.jpg',
       navbar: {
         title: 'by GHI Electronics',
         logo: {
