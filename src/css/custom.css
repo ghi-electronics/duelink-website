@@ -5,6 +5,11 @@
  */
 
 /* You can override the default Infima variables here. */
+.img-center {
+    display: flex;
+    justify-content: center;
+    width: 100%,
+    }
 
 
 :root {
