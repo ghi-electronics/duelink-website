@@ -1,4 +1,3 @@
-
 # Standard Library
 
 ---
@@ -14,22 +13,17 @@ These are particularly useful for using [Mainboards](../catalog/mainboards) or o
 ## Special Pins
 Some functions only work on pins with specific features.
 
-Analog capable pins:
-PWM capable pins:
-Interrupt capable pins:
+Analog capable pins: P1, P2, P3, P4, P5, P6, P7, P8, P9, P17
+Interrupt capable pins: P1, P2, P3, P4, P5, P6, P7, P12
+PWM capable pins: P1, P2, P3, P4, P5, P6, P7, P8, P11
 
-## Not documented yet
-```
-{.name="freq", 4, api_freq},
-{.name="dht", 2, api_dht},
-
-{.name="neoclear", 0, api_neoclear},
-{.name="neoset", 4, api_neoset},
-{.name="neoshow", 2, api_neoflush},	
-
-{.name="pgmstream", 0, api_pgmstream},
-{.name="putch", 1, api_putch},
-```
+:::tip
+PWM pins share timers. Changing the frequency on one will effect the other. Changing duty-cycle is okay!
+* P1, P2
+* P3
+* P4, P11
+* P5, P6, P7, P8
+:::
 
 ## Pin Control
 
@@ -85,19 +79,35 @@ Use interrupts to keep track of pins. Only available on interrupt capable pins, 
 | `BtnUp(pin)` |  `pin`: Pin number - **Returns**: 1 if button pin went high, 0 on second call till next transition.
 | `BtnDown(pin)` |  `pin`: Pin number - **Returns**: 1 if button was pressed, 0 on second call till next transition.
 
----
+### Frequency
 
-## Pulse Feedback
-
-Generate a pulse then reads time to feedback. Useful for reading capacitive touch and ultrasonic distance sensors.
+Sets a frequency (PWM) parameters to a pin. Only works on pins that support PWM.
 
 | Function | Description
 | --- | ---
-| `PulseFB(1,2,3,4)`| ???
+| `Freq(pin, frequency, duration, dutycycle)` | Set PWM `pin` to `frequency` for `duration` in milliseconds at `dutycycle` where 1 is 100%, 0.2 is 20%...etc.
+
+## Touch
+
+Read capacitive touch by charging a pin and then reading the discharge time in microseconds.
+
+| Function | Description
+| --- | ---
+| `Touch(pin, charge_t, charge_s, timeout)`| Charges `pin` with charge state `charge_s` for charge time `charge_t` in milliseconds then read how long it takes for pin to discharge, returning value in microseconds. `timeout` is used in case the pin didn't change its state. 
+
 
 ---
 
 ## Digital Control
+
+## Distance
+
+Read distance from ultrasonic distance sensors.
+
+| Function | Description
+| --- | ---
+| `Dist(trig, echo)`| Returns distance in centimeters from ultrasonic distance sensor connected to `trig` and `echo` pins.
+
 
 ### Servo Motors
 
@@ -115,14 +125,8 @@ Access the I2C bus.
 
 | Function | Description
 | --- | ---
+| `I2CCfg(baudrate)` | `baudrate`: Set the I2C clock speed in khz, typically 100K or 400K, and 1M in some cases.
 | `I2cBytes(address, arrayWrite, writeCount, arrayRead, readCount)` | `address`: I2C slave address - `arrayWrite`: array to send, `writeCount`: number of bytes to write, `arrayRead`: array to read,`readCount`: Number bytes to read
-
-```
-how to set speed?
-{.name="i2ccfg", 1, api_i2ccfg},
-{.name="i2cmw", 4, api_i2cmw},
-
-```
 
 ### SPI
 
@@ -130,23 +134,38 @@ Access the SPI bus.
 
 | Function | Description
 | --- | ---
-| `SpiByte(byte)`  | `byte`: 0 to 255 - **Returns**: Read byte value
-| `SpiCfg(mode, frequency)`  | `mode`: 0 to 3 - `frequency`: 200 to 20000 (200KHz to 20MHz)
-| `{.name="spibytes", 3, api_spibytes},` | 
+| `SpiCfg(mode, frequency)`  | `mode`: 0 to 3 - `frequency`: Set the desired frequency in kilohertz, ranging 200KHz to 20MHz
+| `SpiByte(byte)`  | `byte`: Data to write 0 to 255 - **Returns**: Read byte value
+| `SpiWBytes(array, offset, count)` | `array`: Write an array to SPI bus, at `offset` with `count` 
 
 ### Serial
 
-```
-{.name="serb2r", 0, api_surtb2r},
-{.name="sercfg", 2, api_surtcfg},
-{.name="serdisc", 0, api_surtdisc},
-{.name="serdmxw", 3, api_surtdmxw},	
-{.name="serdmxr", 3, api_surtdmxr},
-{.name="serread", 4, api_surtread},
-{.name="serreads", 0, api_surtreads},
-{.name="serwrite", 1, api_surtwrite},
-{.name="serwrites", 3, api_surtwrites},	
-```
+Read and write serial data
+
+| Function | Description
+| --- | ---
+| `SerCfg(baud, rxsize)` | ????????????????????????
+| `SerRead()` | **Returns**: a byte from the receive fifo. This function will not block and will return zero if it finds no data.
+| `SerReads(array, offset, count, timeout)` | Block the system till it read a `count` of bytes to place in the byte `array` at `offset`. It will terminate and return if no data received in `timeout` milliseconds. **Returns**: How many bytes it read successfully.
+| `SerWrite(data)` | ???????????????????
+| `SerWrites(array, offset, count)` | ????????????????????????
+| `SerB2R()` | **Returns**: How many bytes are available in the receive buffer.
+| `SerDisc()` | Discard the receive buffer.
+
+### DMX
+
+Read and write from DMX devices. Must call `SerCfg(250000, 513)` before using these functions.
+
+| Function | Description
+| --- | ---
+| `DmxW(channels, offset, count)` | Write `channel` byte array at `offset` and `count`.
+| `DmxU()` | Enable receive to update internal buffer with incoming channels.
+| `DmxRdy()` | **Returns**: 1 when there is a frame that was requested by `SerDmxU()`
+| `DmxR(channel)` | **Returns**: Value of specific channel.
+
+:::tip
+This feature only support DMX frames with `Start Code` zero.
+:::
 
 ### Infrared
 
@@ -156,6 +175,35 @@ Receive and decode signals from Infrared remotes.
 | --- | ---
 | `IrEnable(pin,enable)` |  `pin`: on supported pins `enable`: 1 = enable or 0 = disable
 | `IrRead()` | **Returns**: key press value 0 to 24
+
+## Temperature
+
+Read temperature from a specific sensor
+
+| Function | Description
+| --- | ---
+| `Temp(pin, type)` | `pin`: The pin where the sensor is connected. `type`: see table below
+
+| ID | Type
+| --- | ---
+| 0 | Internal CPU temperature (pin is ignored)
+| 1 | DHT11 / DHT12
+| 2 | DHT21 / DHT22
+| 3 | One wire DS18B20 sensors
+
+## Humidity
+
+Read humidity from a specific sensor
+
+| Function | Description
+| --- | ---
+| `Humid(pin, type)` | `pin`: The pin where the sensor is connected. `type`: see table below
+
+| ID | Type
+| --- | ---
+| 0 | reserved
+| 1 | DHT11 / DHT12
+| 2 | DHT21 / DHT22
 
 ---
 
@@ -169,7 +217,7 @@ Configure the Graphics Engine.
 
 | Function | Description
 | --- | ---
-| `GfxConfig(...)` | See the [Graphics Engine](./graphics) page.
+| `GfxCfg(...)` | See the [Graphics Engine](./graphics) page.
 
 ### Drawing
 
@@ -248,13 +296,13 @@ Return a random number
 | --- | ---
 | `Sqrt(number)` | **Returns** the square root value of it's argument
 
-### Trunicate
+### Truncate
+
 | Function | Description
 | --- | ---
 | `Trunc(number)` | **Returns** the truncated value of it's argument
 
 ### Is Not a Number
-### Trunicate
 | Function | Description
 | --- | ---
 | `IsNaN(number)` | **Returns** 1 if a valid number, 0 invalid.
@@ -349,12 +397,6 @@ Stop running for milliseconds
 | --- | ---
 | `DumpArray(array)` | `array`: Dumps array content.
 
-### CPU Temperature
-
-| Function | Description
-| --- | ---
-| `Wait()` | **Returns**: Current internal CPU temperature. 
-
 ### Read VCC
 
 | Function | Description
@@ -368,7 +410,9 @@ Write and read from a special memory type that can be written only once and can 
 
 | Function | Description
 | --- | ---
-| `OtpR(addr)` | `addr` Address to read from - **Returns**: value of selected address
-| `OtpW(addr, val)` | `addr` Address to write to - `val`: value to write to an address. Can only be done once for specific address.
+| `OtpR(addr)` | `addr` Address to read a single byte from - **Returns**: value of selected address.
+| `OtpW(addr, val)` | `addr` Address to write to, must be multiple of 8 - `val`: value to write to an address. Must be an array size of 8 or multiple of 8 (16, 24...) and can only be done once, for specific address - **Returns**: 1 on success, 0 if failed.
 
-Note that the address must be multiple of 4.
+:::tip
+Use byte arrays. If float array is used then only the first byte of each element is written.
+:::
