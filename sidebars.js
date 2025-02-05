@@ -259,6 +259,8 @@ const sidebars = {
         link: {type: 'doc', id: 'engine/intro'},
         items: [
                 'engine/scripting',
+                'engine/graphics',
+                'engine/filesystem',
                 'engine/scheduler',
                 'engine/interrupt',
                 'engine/standalone',
