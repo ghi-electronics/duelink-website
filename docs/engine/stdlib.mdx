@@ -238,6 +238,57 @@ Configure the Graphics Engine.
 
 ---
 
+
+## File System
+
+DUELink firmware include a complete file system graphics facilities, detailed on the [File System](./filesystem) page.
+
+### Mount
+
+Mount and initialize the file system.
+
+| Function | Description
+| --- | ---
+| `FsMount(cs, baud, max_handle)` | Enable file system to use SD and Micro SD cards on SPI bus with `cs` chip-select pin at `baud` with maximum allowed file handles `max_handle`. Returns 0 if success.
+| `FsUnMount(...)` | Release file system. Returns 0 if success.
+
+### Operations
+
+:::tip
+Unless otherwise stated, all functions return 1 on success or negative error code.
+:::
+
+| Function | Description
+| --- | ---
+| `FsOpen(path, mode)` | Returns a file handle on success. 0 or negative on failure.
+| `FsClose(handle)` | Close file and release `handle`.
+| `FsWrite(handle, data, offset, count)` | Write from `data` array starting at `offset` and for `count` bytes. Returns how many bytes were read, negative error code otherwise.
+| `FsRead(handle, data, offset, count)` | Read into `data` array starting at `offset` and for `count` bytes. Returns how many bytes were read, negative error code otherwise.
+| `FsSync(handle)` | Sync file with any buffered data.
+| `FsSeek(handle, offset)` | change the location in the `handle` file on where to read or write.
+| `FsTell(handle)` | Returns the current location being access in `handle` file.
+| `FsMkdir(path)` | Create a new directory at `path`.
+| `FsDelete(path)` | Delete file or directory at `path`.
+| `FsFind(path)` | Find if existing name is available. Returns 1 if found directory, 2 if file, failed otherwise.
+| `FsSize(path)` | Returns `path` file size, negative number on failure, 0 if file not found.
+
+File Open Modes
+| ID | mode
+| --- |
+| 0x01 | Read only
+| 0x02 | Write only
+| 0x00 | Open existing file
+| 0x04 | Create new 
+| 0x08 | Create always
+| 0x10 | Open always
+| 0x30 | Open append
+
+:::tip
+Combine multiple modes, like use `FsOpen("/test.txt", 0x02|0x0x30)` to pen a file for write and append if existing.
+:::
+
+---
+
 ## Scheduler
 
 See [Scheduler](./scheduler) for details.

@@ -1,0 +1,26 @@
+# File System
+
+---
+
+Complete FAT file system is a included. It includes, FAT16, FAT32, Long-File-Name (LFN), directory handling, and several file-handling functions.
+
+
+```py
+FsMount(1, 10000, 4)
+
+# Write to a file
+h = FsOpen("/dir/test.txt", 0x02)
+FsWrite(h, "Hello World",0, 11)
+FSClose(h)
+
+
+#Read from the same file
+FsMount()
+h = FsOpen("/dir/test.txt", 0x01)
+Dim b1[11]
+FsRead(h, b1, 0, 11)
+Println(b1)
+FSClose(h)
+
+FsUnmount()
+```
