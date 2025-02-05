@@ -10,6 +10,10 @@ These are particularly useful for using [Mainboards](../catalog/mainboards) or o
 
 ---
 
+:::caution
+Unless otherwise is stated, all Standard Libraires that calls for array require a byte array and not a float array. Use `b1` for example instead of `a1`.
+:::
+
 ## Special Pins
 Some functions only work on pins with specific features.
 
@@ -33,7 +37,7 @@ Control the on-board STAT LED, found on every single DUELink module.
 
 | Function | Description
 | --- | ---
-| `LED(high, low, count)` | `high`: duration on in milliseconds, `low`: duration off in milliseconds, `count`: number of times to repeat, -1 to run forever.
+| `LED(high, low, count)` | Blink the status (STAT) LED with `high` duration on in milliseconds and `low` duration in milliseconds. Repeat `count`, use -1 to repeat forever.
 
 ### Digital
 
@@ -41,8 +45,8 @@ Access digital pins
 
 | Function | Description
 | --- | ---
-| `DRead(pin, pull)` | `pin`: pin number - `pull`: 0 = none, 1 = up, 2 = down - Returns: 1 = high or 0 = low.
-| `DWrite(pin, state`) | `pin`: pin number - `state`: 1 = high or 0 = low.
+| `DRead(pin, pull)` | Return the digital state of `pin`. Enable `pull`: 0 = none, 1 = up, 2 = down.
+| `DWrite(pin, state`) | Set `pin` to `state`: 1 = high or 0 = low.
 
 ### Analog
 
@@ -50,8 +54,8 @@ Access pins in their analog format
 
 | Function | Description
 | --- | ---
-| `VRead(pin)` | `pin`: pin number - **Returns**: voltage level of a pin. Only works on Analog pins.
-| `PWrite(pin, power)` | `pin`: pin number - `power`: power level, 0 to 1. 0.5 is 50% for example.
+| `VRead(pin)` | Read calibrated voltage level on `pin`
+| `PWrite(pin, power)` | Set `power` level on `pin` using PWM if available or soft PWM if not. Power level is 0 to 1, 0.33 is 33% for example.
 
 ### Beep
 
@@ -59,15 +63,23 @@ Generate tones. This is a blocking function that works on all pins.
 
 | Function | Description
 | --- | ---
-| `Beep(pin, frequency, duration)` | `pin`: Pin number - `frequency`: Hz max 10KHz - `duration`: In milliseconds.
+| `Beep(pin, frequency, duration)` | Generate a beep on `pin` with `frequency` for `duration` in milliseconds.
 
-### Beep
+### Melody
 
 Generate tones. This is a non-blocking function that works on PWM pins.
 
+`Melody()` requires a float array, use `a1` for example.
+
 | Function | Description
 | --- | ---
-| `Melody()` | `.name="melody", 4, api_melody`
+| `Melody(pin, [notes])` | A non blocking call to play a melody in the background on `pin` using the frequencies and delays found in `notes`
+
+```py
+Dim a1[]=[500, 50, # 500Hz for 50ms
+        1000, 100] # 1000Hz for 100ms
+Melody(1, a1)
+```
 
 ### Button
 
@@ -75,9 +87,9 @@ Use interrupts to keep track of pins. Only available on interrupt capable pins, 
 
 | Function | Description
 | --- | ---
-| `BtnEnable(pin, enable)` |  `pin`: Pin number - `enable`: 1 = Enable 0 = Disabled
-| `BtnUp(pin)` |  `pin`: Pin number - **Returns**: 1 if button pin went high, 0 on second call till next transition.
-| `BtnDown(pin)` |  `pin`: Pin number - **Returns**: 1 if button was pressed, 0 on second call till next transition.
+| `BtnEnable(pin, enable)` |  Enable button scanning feature on `pin`. `enable`: 1 = Enable 0 = Disable.
+| `BtnUp(pin)` |  `pin`: Returns 1 if `pin` transitioned to high level.
+| `BtnDown(pin)` |  `pin`: Returns 1 if `pin` transitioned low.
 
 ### Frequency
 
@@ -115,7 +127,7 @@ Control servo motors.
 
 | Function | Description
 | --- | ---
-| `ServoSet(pin, degree)` | `pin`: pin number - `degree`: 0 to 180
+| `ServoSet(pin, degree)` | Position a servo on `pin` to `degree`: 0 to 180
 
 On Pins with PWM feature, the servo control is done in hardware, and it is very accurate. All other pins support Servo but give estimate on servo steps.
 
@@ -127,6 +139,7 @@ Access the I2C bus.
 | --- | ---
 | `I2CCfg(baudrate)` | `baudrate`: Set the I2C clock speed in khz, typically 100K or 400K, and 1M in some cases.
 | `I2cBytes(address, arrayWrite, writeCount, arrayRead, readCount)` | `address`: I2C slave address - `arrayWrite`: array to send, `writeCount`: number of bytes to write, `arrayRead`: array to read,`readCount`: Number bytes to read
+| ???????? | ???????????
 
 ### SPI
 
@@ -134,9 +147,9 @@ Access the SPI bus.
 
 | Function | Description
 | --- | ---
-| `SpiCfg(mode, frequency)`  | `mode`: 0 to 3 - `frequency`: Set the desired frequency in kilohertz, ranging 200KHz to 20MHz
-| `SpiByte(byte)`  | `byte`: Data to write 0 to 255 - **Returns**: Read byte value
-| `SpiWBytes(array, offset, count)` | `array`: Write an array to SPI bus, at `offset` with `count` 
+| `SpiCfg(mode, frequency)`  | Configure SPI with `mode`: 0 to 3 and `frequency` in KHz, ranging 200KHz to 20MHz
+| `SpiByte(byte)`  | Write a `byte` then return the received byte.
+| `SpiWBytes([data], offset, count)` | Write an byte array of `data` with `offset` and `count` 
 
 ### Serial
 
@@ -144,24 +157,24 @@ Read and write serial data
 
 | Function | Description
 | --- | ---
-| `SerCfg(baud, rxsize)` | ????????????????????????
-| `SerRead()` | **Returns**: a byte from the receive fifo. This function will not block and will return zero if it finds no data.
-| `SerReads(array, offset, count, timeout)` | Block the system till it read a `count` of bytes to place in the byte `array` at `offset`. It will terminate and return if no data received in `timeout` milliseconds. **Returns**: How many bytes it read successfully.
-| `SerWrite(data)` | ???????????????????
-| `SerWrites(array, offset, count)` | ????????????????????????
-| `SerB2R()` | **Returns**: How many bytes are available in the receive buffer.
+| `SerCfg(baud, rxsize)` | Start serial port with `baud` and allocate a receive buffer of `rxsize`.
+| `SerRead()` | Read a single byte from the receive buffer. Returns zero if it finds no data.
+| `SerReads([data], offset, count, timeout)` | Block the system till it read a `count` of bytes to place in the `data` byte array at `offset`. Terminate and return if no data received in `timeout` milliseconds. Returns how many bytes it read successfully.
+| `SerWrite(byte)` | Write a single `byte` to the serial port.
+| `SerWrites([data], offset, count)` | Write an array of `data` bytes with `offset` and `count`.
+| `SerB2R()` | Return how many bytes are available in the receive buffer.
 | `SerDisc()` | Discard the receive buffer.
 
 ### DMX
 
-Read and write from DMX devices. Must call `SerCfg(250000, 513)` before using these functions.
+Read and write from [DMX512](https://en.wikipedia.org/wiki/DMX512) devices. Must call `SerCfg(250000, 513)` before using these functions.
 
 | Function | Description
 | --- | ---
-| `DmxW(channels, offset, count)` | Write `channel` byte array at `offset` and `count`.
+| `DmxW([channels], offset, count)` | Write `channel` byte array at `offset` and `count`.
 | `DmxU()` | Enable receive to update internal buffer with incoming channels.
-| `DmxRdy()` | **Returns**: 1 when there is a frame that was requested by `SerDmxU()`
-| `DmxR(channel)` | **Returns**: Value of specific channel.
+| `DmxRdy()` | Returns 1 when there is a frame that was requested by `DmxU()`
+| `DmxR(channel)` | Returns the value of a specific channel.
 
 :::tip
 This feature only support DMX frames with `Start Code` zero.
@@ -173,8 +186,8 @@ Receive and decode signals from Infrared remotes.
 
 | Function | Description
 | --- | ---
-| `IrEnable(pin,enable)` |  `pin`: on supported pins `enable`: 1 = enable or 0 = disable
-| `IrRead()` | **Returns**: key press value 0 to 24
+| `IrEnable(pin,enable)` |  `enable` IR scanner on `pin`.
+| `IrRead()` |Returns key press value.
 
 ### Temperature
 
@@ -182,7 +195,7 @@ Read temperature from a specific sensor
 
 | Function | Description
 | --- | ---
-| `Temp(pin, type)` | `pin`: The pin where the sensor is connected. `type`: see table below
+| `Temp(pin, type)` | Read temperature sensor with `type` connected to `pin`. Returns temperature in Celsius. 
 
 | ID | Type
 | --- | ---
@@ -197,7 +210,7 @@ Read humidity from a specific sensor
 
 | Function | Description
 | --- | ---
-| `Humid(pin, type)` | `pin`: The pin where the sensor is connected. `type`: see table below
+| `Humid(pin, type)` | Read a humidity sensor `type` connected to `pin`.
 
 | ID | Type
 | --- | ---
@@ -223,18 +236,22 @@ Configure the Graphics Engine.
 
 | Function | Description
 | --- | ---
-| `Clear(color)` | `color`: color value
-| `Circle(color, x, y, radius)` | `color`: Color value - `x`: x center - `y`: y center - `radius`: radius
-| `Fill(color, x, y, width, height)` |  `color`: Color value - `x`: Starting x point - `y`: Starting y point - `width`: Rectangle width - `height`: Rectangle height
-| `Img(array, x, y, transform)` | `array`: Image array - `x`: x position - `y`: y position - `transform`: 0 = none, 1 = Flip horz, 2 = Flip vert, 3 = 90 deg, 4 = 180 deg, 5 = 270 deg
-| `ImgS(array, x, y, transform, scaleWidth, scaleHeight)` | Same as `Img()` but adds `scaleWidth` and `scaleHeight`
-| `Line(color, x1, y1, x2, y2)` | `color`: Color values - `x1`: Starting x point - `y1`: Starting y point - `x2`: Ending x point - `y2`: Ending y point
-| `Pixel(color, x, y)` | `color`: Color value - `x`: x position - `y`: y position
-| `Rect(color, x, y, width, height)` | `color`: Color value - `x`: Starting x point - `y`: Starting y point - `width`: Rectangle width - `height`: Rectangle height
-| `Text("text", color, x, y)` | `text`: string message, use Str() to convert variable to string - `color`: Color value - `x`: x position - `y`: y position
-| `TextT("text", color, x, y)` | Tiny 5px `text`: string message, use Str() to convert variable to string - `color`: Color value - `x`: x position - `y`: y position
-| `TextS("text", color, x, y, scaleWidth, scaleHeight)` | same as `Text()` but adds `scaleWidth` and `scaleHeight`
-| `Show()` | Shows graphics buffer on the configured device.
+| `Clear(color)` | Clear the buffer to `color`.
+| `Pixel(color, x, y)` | Set a `color` pixel at `x`,`y`.
+| `Circle(color, x, y, radius)` | Draw a `color` circle at `x`,`y` with `radius`.
+| `Line(color, x1, y1, x2, y2)` | Draw a `color` line starting at `x1`,`y1` and ending at `x2`,`y2`.
+| `Rect(color, x, y, width, height)` | Draw a `color` rectangle at `x`,`y` with `width` and `height`.
+| `Fill(color, x, y, width, height)` |  Fill an area with `color`, starting at `x`,`y` with `width` and `height`.
+| `Text("text", color, x, y)` | Draw 7x5px `text` with `color` at `x`,`y`.
+| `TextS("text", color, x, y, scaleWidth, scaleHeight)` | Same as `Text()` but adds `scaleWidth` and `scaleHeight`
+| `TextT("text", color, x, y)` | Draw a tine 5x5px `text` with `color` at `x`,`y`.
+| `Img([image], x, y, transform)` | Draw an `image` at `x`,`y` with `transform`: 0 = none, 1 = Flip horz, 2 = Flip vert, 3 = 90 deg, 4 = 180 deg, 5 = 270 deg
+| `ImgS([image], x, y, transform, scaleWidth, scaleHeight)` | Same as `Img()` but adds `scaleWidth` and `scaleHeight`
+| `Show()` | Show graphics buffer on the configured device.
+
+:::tip
+use `Str()` to convert variable to string.
+:::
 
 ---
 
@@ -245,12 +262,21 @@ DUELink firmware include a complete file system graphics facilities, detailed on
 
 ### Mount
 
-Mount and initialize the file system.
+Mount and initialize the file system. Only one media is supported at any given time.
 
 | Function | Description
 | --- | ---
-| `FsMount(cs, baud, max_handle)` | Enable file system to use SD and Micro SD cards on SPI bus with `cs` chip-select pin at `baud` KHz, with maximum allowed file handles `max_handle`. Returns 0 if success.
-| `FsUnMount(...)` | Release file system. Returns 0 if success.
+| `FsMount(type, cs, baud, max_handle)` | Enable file system to a specific `type` of media on SPI bus with `cs` chip-select pin at `baud` KHz, with maximum allowed file handles `max_handle`. Returns 0 if success.
+| `FsUnMount()` | Release file system. Returns 0 if success.
+| `FsFormat(type, cs, baud)` | Format the mounted media.
+
+Supported media types:
+
+| ID | Type
+| --- | ---
+| 0 | SD or Micro SD cards (includes SDHC)
+| 1 | Dataflash
+
 
 ### Operations
 
@@ -260,21 +286,23 @@ Unless otherwise stated, all functions return 1 on success or negative error cod
 
 | Function | Description
 | --- | ---
-| `FsOpen(path, mode)` | Returns a file handle on success. 0 or negative on failure.
+| `FsOpen("path", mode)` | Returns a file handle on success. 0 or negative on failure.
 | `FsClose(handle)` | Close file and release `handle`.
-| `FsWrite(handle, data, offset, count)` | Write from `data` array starting at `offset` and for `count` bytes. Returns how many bytes were read, negative error code otherwise.
-| `FsRead(handle, data, offset, count)` | Read into `data` array starting at `offset` and for `count` bytes. Returns how many bytes were read, negative error code otherwise.
+| `FsWrite(handle, [data], offset, count)` | Write from `data` array starting at `offset` and for `count` bytes. Returns how many bytes were read, negative error code otherwise.
+| `FsRead(handle, [data], offset, count)` | Read into `data` array starting at `offset` and for `count` bytes. Returns how many bytes were read, negative error code otherwise.
 | `FsSync(handle)` | Sync file with any buffered data.
 | `FsSeek(handle, offset)` | change the location in the `handle` file on where to read or write.
 | `FsTell(handle)` | Returns the current location being access in `handle` file.
-| `FsMkdir(path)` | Create a new directory at `path`.
-| `FsDelete(path)` | Delete file or directory at `path`.
-| `FsFind(path)` | Find if existing name is available. Returns 1 if found directory, 2 if file, failed otherwise.
-| `FsSize(path)` | Returns `path` file size, negative number on failure, 0 if file not found.
+| `FsMkdir("path")` | Create a new directory at `path`.
+| `FsDelete("path")` | Delete file or directory at `path`.
+| `FsFind("path")` | Find if existing name is available. Returns 1 if found directory, 2 if file, failed otherwise.
+| `FsSize("path")` | Returns `path` file size, negative number on failure, 0 if file not found.
+| `FsFindF("path", "filter", result)` | Find the first item in a `path` with specified `filter` and generate `result`.
+| `FsFindN("path", [result])` | | Find next item in `path`. Use `FsFindF()` first.
 
 File Open Modes
 | ID | mode
-| --- |
+| --- | ---
 | 0x01 | Read only
 | 0x02 | Write only
 | 0x00 | Open existing file
@@ -295,9 +323,9 @@ See [Scheduler](./scheduler) for details.
 
 | Function | Description
 | --- | ---
-| `SStart("func", timeout, count)` | `func`: Function to schedule - `timeout`: how often to run (in milliseconds) - `count`: how many times to repeat, with -1 running forever.
-| `SStat("func")` | `func`: Name of function to check status on - **Returns**: count remain to run. -1 when forever, -2
-| `SAbort("func")` | `func`: Abort scheduler for named function.
+| `SStart("func", timeout, count)` | Schedule `func` to run at every `timeout` (in milliseconds) for `count` times, or -1 to run forever.
+| `SStat("func")` | `func`: Return how many times the schedule will still need to run for, 0 is complete and -1 ids forever.
+| `SAbort("func")` | `func`: Abort `func` scheduler.
 
 ---
 
@@ -307,9 +335,9 @@ See [Interrupts](./interrupt) for details.
 
 | Function | Description
 | --- | ---
-| `IStart("func", pin, trigger, pull)` | `func`: Function to trigger on interrupt - `pin`: the pin to enable for interrupt - `trigger`: How to enable interrupt: 0 - falling, 1 - rising, 2 - rising and falling - `pull` Enable pull resistors: 0 - pull down, 1 - pull up, 2 - no pull
-| `IStat("func")` | `func`: Status of named function - **Returns**: 0- no interrupt, 1- active interrupt.
-| `IAbort("func")` | `func`: Abort interrupt for named function.
+| `IStart("func", pin, trigger, pull)` | Enable interrupt on `pin` to trigger `func`. `trigger` is: 0 - falling, 1 - rising, 2 - rising and falling. Enable `pull`: 0 - pull down, 1 - pull up, 2 - no pull.
+| `IStat("func")` | Return status of interrupt on `func`: 0- no interrupt, 1- active interrupt.
+| `IAbort("func")` | Abort interrupt for `func`.
 
 ---
 
@@ -319,59 +347,31 @@ These functions are needed for helping with [Dasylink](./daisylink) devices chai
 
 | Function | Description
 | --- | ---
-| `Sel(device)` | `device`: Select one of the devices in the chain, with first device being address 1. Broadcast to all device is possible when using 0.
-| `GetAdd()` | **Returns**: address of current selected device. With broadcast, all devices respond!
-| `SetAdd(add)` | `add` Set the device's address. This command has chain reaction where each device sets teh next one. **This is a special command and should not be used.**
+| `Sel(add)` | Select a devices at `add` in the chain, with first device being address 1. Broadcast to all device is possible when using 0.
+| `GetAdd()` | Return the selected device(s) address.
+| `SetAdd(add)` | `add` Set the device's address. This command has chain reaction where each device sets the next one. **This is a special command and should not be used.**
 
 ---
 
-## Math and Converters
-
-### Random Numbers
-
-Return a random number
+## Math
 
 | Function | Description
 | --- | ---
-| `Rnd(max)` | `max`: maximum value of random number - **Returns**: random number between 0 and max
+| `Rnd(max)` | Return a random number with `max` value.
+| `Cos(rad)` | Return cosine of `rad`.
+| `Sin(rad)` | Return sine of `rad`.
+| `Tan(rad)` | Return tangent `rad`.
+| `Sqrt(number)` | Return square root of `number`.
+| `Trunc(number)` | Return a truncated value `number`.
+| `IsNaN(number)` | Return 1 `number` is a valid value.
 
-### Trig
+---
+
+## Converters
 | Function | Description
 | --- | ---
-| `Cos(number)` | **Returns**: cosine of its argument
-| `Sin(number)` | **Returns** the sine value of its argument
-| `Tan(number)` | **Returns** the tangent of it's argument
-
-### Square Root
-| Function | Description
-| --- | ---
-| `Sqrt(number)` | **Returns** the square root value of it's argument
-
-### Truncate
-
-| Function | Description
-| --- | ---
-| `Trunc(number)` | **Returns** the truncated value of it's argument
-
-### Is Not a Number
-| Function | Description
-| --- | ---
-| `IsNaN(number)` | **Returns** 1 if a valid number, 0 invalid.
-
-### String Numbers
-Convert a number to a string. Useful for [Graphics](./graphics)
-
-| Function | Description
-| --- | ---
-| `Str(number)` | **Returns** number as string
-
-### Format
-
-Formats multiple arguments into a single string
-
-| Function | Description
-| --- | ---
-| `Fmt(...)` | arguments work just like they do with `Print()`
+| `Str(number)` | Return a number as string (Good with `Text()`).
+| `Fmt(...)` | Return formatted string, works just like `Print()`.
 
 ---
 
@@ -383,18 +383,18 @@ Print to output.
 
 | Function | Description
 | --- | ---
-| `Print("text" or variable)` | returns the value of it's argument
-| `PrintLn("text" or variable)` | returns the value of it's argument with line breaks
+| `Print("text" or variable)` | Print the value of it's argument
+| `PrintLn("text" or variable)` | Print the value of it's argument with line breaks
 
 `Print()` accepts multiple argument, separated by commas, `Print("Value is: ", _v)`
 
 :::tip
-Print is invoked automatically when a function returns a value that is not consumed. Running `Dread(1,1)` in immediate mode will show 0 or 1.
+Print is invoked automatically when a function returns a value that is not consumed. Running `DRead(1, 1)` in immediate mode will show 0 or 1.
 :::
 
 ### AsIO
 
-Enable Asynchronous IO. Detailed on the [Engine](./intro.mdx) main poage.
+Enable Asynchronous IO. Detailed on the [Engine](./intro.mdx) main page.
 
 | Function | Description
 | --- | ---
@@ -406,7 +406,14 @@ Reset or clear the system.
 
 | Function | Description
 | --- | ---
-| `Reset(mode)` | `mode`: 0 = system reset, 1 = Enter DUELink loader, 2= switch LDR pin to BOOT0 pin, 3= Switch LDR pin to BOOT0 and erase the entire chip (factory reset!).
+| `Reset(mode)` | Reset the system with `mode`.
+
+| mode | Description
+| --- | ---
+| 0 | System Reset (just like pressing reset button).
+| 1 | Enter DUELink loader and wait for loader commands.
+| 2 | Switch LDR pin to BOOT0 functionality. If the system was reset and DUELink loader ran, the pin is switched back to LDR.
+| 3 | Switch LDR pin to BOOT0 and erase the entire chip (factory reset!).
 
 ### Echo
 
@@ -414,7 +421,7 @@ Echoes back what is received, useful when using a terminal program.
 
 | Function | Description
 | --- | ---
-| `Echo(state)` | `state`: 1 = Enable or 0 = Disable
+| `Echo(enable)` | Set echo functionality to `enable`: 1 = Enable or 0 = Disable.
 
 ### Ticks
 
@@ -431,7 +438,7 @@ Read hardware and software version.
 
 | Function | Description
 | --- | ---
-| `Version()` | **Returns** firmware version, device ID, and loader version, in this format: `GHI Electronics DUELink v01.03:BB01:01.00`.
+| `Version()` | Return firmware version|device ID|loader version, in this format: `GHI Electronics DUELink v01.03:BB01:01.00`.
 
 
 ### Wait
@@ -440,30 +447,30 @@ Stop running for milliseconds
 
 | Function | Description
 | --- | ---
-| `Wait(duration)` | `duration`: in milliseconds
+| `Wait(duration)` | Wait for `duration` milliseconds
 
 ### Dump Array
 
 | Function | Description
 | --- | ---
-| `DumpArray(array)` | `array`: Dumps array content.
+| `DumpArray([array])` | Dump the `array`.
 
 ### Read VCC
 
 | Function | Description
 | --- | ---
-| `ReadVCC()` | **Returns**: Current system voltage.
+| `ReadVCC()` | Return current system voltage.
 
-### One Time Programmable
+### One-Time Programmable
 
-Write and read from a special memory type that can be written only once and can **never** be erased!
-
+Write and read from a special memory type that can be written only once and can **never** be erased or changed! The size of this special memory region is 512 bytes (64 8-Byte blocks).
 
 | Function | Description
 | --- | ---
-| `OtpR(addr)` | `addr` Address to read a single byte from - **Returns**: value of selected address.
-| `OtpW(addr, val)` | `addr` Address to write to, must be multiple of 8 - `val`: value to write to an address. Must be an array size of 8 or multiple of 8 (16, 24...) and can only be done once, for specific address - **Returns**: 1 on success, 0 if failed.
+| `OtpR(addr)` | Read a single byte from `addr`.
+| `OtpW(addr, [data])` | ***STOP** Irreversible Action! Write `data` bytes to `addr`, where `addr` must be and data size must be multiple of 8. Return 1 on success, 0 if failed because an 8 byte block was previously written to.
 
 :::tip
 Use byte arrays. If float array is used then only the first byte of each element is written.
 :::
+

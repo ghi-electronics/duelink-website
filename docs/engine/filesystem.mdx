@@ -2,21 +2,30 @@
 
 ---
 
-Complete FAT file system is a included. It includes, FAT16, FAT32, Long-File-Name (LFN), directory handling, and several file-handling functions.
+Complete FAT file system is a built in the system. It includes, FAT16, FAT32, Long-File-Name (LFN), directory handling, and several file-processing functions. The system is limited to GBytes size files!
 
 
 ```py
-FsMount(1, 10000, 4)
+# file open types
+_r = 0x01 # Read only
+_w = 0x02 # Write only
+_x = 0x00 # Open existing
+_n = 0x04 # Create new
+_o = 0x10 # Open always
+_a = 0x30 # Open append
+
+# SD card, pin 1 chip select, 10Mhz clock, 4 file handles max
+FsMount(0, 1, 10000, 4)
 
 # Write to a file
-h = FsOpen("/dir/test.txt", 0x02)
+h = FsOpen("/dir/test.txt", _w|_o)
 FsWrite(h, "Hello World",0, 11)
 FSClose(h)
 
 
 #Read from the same file
 FsMount()
-h = FsOpen("/dir/test.txt", 0x01)
+h = FsOpen("/dir/test.txt", _r|_x)
 Dim b1[11]
 FsRead(h, b1, 0, 11)
 Println(b1)
