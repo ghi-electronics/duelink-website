@@ -1,5 +1,7 @@
 # Loader
 
+---
+
 The utilized micro on DUELink modules include a built-in loader from ST. It allows for firmware update using USB DFU class. ST provides [STM32CubeProgramm]( https://www.st.com/en/development-tools/stm32cubeprog.html) to aid in loading programs, among many other things. This is a nice professional choice but it is not easy and we didn’t to leave you with that! 
 
 All modules ship with GHI Electronics DUELink Loader. This loader allows for firmware updates over USB, I2C, and UART. It uses XModem 1K protocol to send firmware updates, which is a common old standard found in any terminal software, such as [teraterm]( https://teratermproject.github.io/index-en.html). To make things even easier, we have it supported right from within the DUELink [Console](console)
