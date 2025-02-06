@@ -2,27 +2,20 @@
 
 ---
 
-The utilized micro on DUELink modules include a built-in loader from ST. It allows for firmware update using USB DFU class. ST provides [STM32CubeProgramm]( https://www.st.com/en/development-tools/stm32cubeprog.html) to aid in loading programs, among many other things. This is a nice professional choice but it is not easy and we didn’t to leave you with that! 
+The utilized micro on DUELink modules include a built-in loader from ST. It allows for firmware update using USB DFU class. ST provides [STM32CubeProgrammer]( https://www.st.com/en/development-tools/stm32cubeprog.html) to aid in loading programs, among many other things. This is a nice professional choice but it is not easy and we didn’t to leave you with that! 
 
-All modules ship with GHI Electronics DUELink Loader. This loader allows for firmware updates over USB, I2C, and UART. It uses XModem 1K protocol to send firmware updates, which is a common old standard found in any terminal software, such as [teraterm]( https://teratermproject.github.io/index-en.html). To make things even easier, we have it supported right from within the DUELink [Console](console)
+All modules ship with GHI Electronics DUELink Loader. This loader allows for firmware updates over USB, I2C, and UART. It uses XModem 1K protocol to send firmware updates, which is a common old standard found in any terminal software, such as [Tera Term]( https://teratermproject.github.io/index-en.html). To make things even easier, we have it supported right from within the DUELink [Console](console)
 
-Image
+ ![DUELink Console](./images/due-console.png)  
 
-DUELink Console knows how to command the firmware to enter DUELink Loader mode. It sends `Reset(1)` command automatically. In case the firmware failed to run, you can force the loader mode by setting LDR pin high. If the module you are using has LDR button, such as [DueDuino](catalog/mainboard/dueduino) then press and hold the button while resetting the board.
-
-Show LDR on DueDuino
-
+DUELink Console knows how to command the firmware to enter DUELink Loader mode. It sends `Reset(1)` command automatically. In case the firmware failed to run, you can force the loader mode by setting LDR pin high. If the module you are using has LDR button, such as [DueDuino](catalog/mainboard/dueduino) then press and hold the button while resetting the board. 
 Some boards label the button as A, such as on [CincoBit](catalog/mainboard/cincobit).
 
-Image of button A
+ ![Setting Boot mode mode](./images/ldr-a-buttons.png) 
 
-If no button is found, LDR pads are on every single module.
+If no button is found, LDR pads are on every single module. Bend and place a metal paper clip (or a wire) between these 2 pads, and reset/repower the board. You can remove the paper clip after the board is powered up.
 
-Image of the pads.
-
-Bend and place a metal paper clip (or a wire) between these 2 pads, and reset/repower the board. You can remove the paper clip after the board is powered up.
-
-Show paper clip in the pads.
+ ![Setting Boot mode](./images/boot-mode.png) 
 
 ---
 
@@ -45,7 +38,7 @@ Use `Reset(3)` command. That is it! See [Standard Library](./engine/stdlib).
 ---
 
 ## Reloading Loader & Firmware
-In case the loader was removed; to run [Arduino](system/arduino) programs for example, you can flash the DUELink loader back onto the device using [STM32CubeProgramm]( https://www.st.com/en/development-tools/stm32cubeprog.html) tool. The Loader hex file is found on the [Downloads](downloads) page. Connect the module to USB, directly if it has USB or using [USB Hook](catalog/accessory/usb-hook), push LDR button or place a paperclip in the loader pads
+In case the loader was removed; to run [Arduino](system/arduino) programs for example, you can flash the DUELink loader back onto the device using [STM32CubeProgrammer]( https://www.st.com/en/development-tools/stm32cubeprog.html) tool. The Loader hex file is found on the [Downloads](downloads) page. Connect the module to USB, directly if it has USB or using [USB Hook](catalog/accessory/usb-hook), push LDR button or place a paperclip in the loader pads
 
 Image of button or pads
 
