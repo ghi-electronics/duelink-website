@@ -7,7 +7,6 @@
 
 This is an interesting option because it allows a DUELink to be used in 2 very different ways. You can program any of the modules using the Arduino IDE/software. Or, you can use an Arduino board to control a stream of [Daisylinked](../engine/daisylink) DUELink modules. We will cover them individually.
 
-
 ## Programming Modules with Arduino
 The chip used on DUELink modules is STM32C071, which is fully supported by the Arduino IDE through the ST extension.
 
@@ -15,29 +14,31 @@ While you can do this on any module, we recommend using [DueDuino](../catalog/ma
 
   ![DueDuino](../images/dueduino.png) 
 
-Now, you need to completely wipe out the STM32C071 chip and then it is all yours to use with anything, including Arduino! Details on how to accomplish this is on the [Loader](../loader) page.
+Now, you need to completely wipe out the DUELink firmware from the STM32C071 chip and then it's all yours to use with anything, including Arduino! Details on how to accomplish this is on the [Loader](../loader) page.
 
 :::tip
-You can do complete erase on any DUELink module and then reprogram it with the DUELink software any time you like, and as many times as you like! Everything you need is explained on the [Loader](../loader) page.
+You can do a complete erase on any DUELink module and then reprogram it with the DUELink software any time you like, and as many times as you like! Everything you need is explained on the [Loader](../loader) page.
 :::
 
-Start the Arduino IDE, and add the ST extension. More details are found [here](https://github.com/stm32duino/Arduino_Core_STM32).
+Start the Arduino IDE, and install the `STM32 MCU based boards` extension under Board Manager. More details are found [here](https://github.com/stm32duino/Arduino_Core_STM32).
 
   ![Select STM32C0](../images/arduino-ide-stm.png) 
 
-Now, select Nucleo64 from the options.
+Under `Tools/Board/STM32 MCU based boards`: Select `Nucleo-64`.
 
-  ![Select Nucleo64](../images/arduino-ide-nucleo64.png) 
+  ![Select DFU file upload](../images/arduino-ide-nucleo64.png) 
 
-Under Tools/Upload method: Select STM32C071 GEneric.
+Under `Tools/Board part number`: Select `Nucleo C071RB`.
 
-  ![Select DFU file upload](../images/arduino-ide-upload.png) 
+  ![Select DFU file upload](../images/arduino-ide-boardpart.png) 
 
-And finally select DFU for file upload.
 
-image
+And finally under `Tools/Upload method:` Select `STM32CubeProgrammer(DFU)` for file upload.
 
-Blink the status LED, which is connected to pin PB8.
+ ![Select DFU file upload](../images/arduino-ide-upload.png) 
+
+
+Add this code to blink the status LED, which is connected to pin PB8.
 
 ```cpp
 void setup() {
@@ -53,45 +54,54 @@ void loop() {
 }
 ``` 
 
-Put the board/chip in DFU mode y connecting BOOT0 pin to 3.3V. On DUELink modules that have LDR or A buttons, you only need to press teh button while reset (or power cycle)
+Assuming you have already a wiped out board with no [DUELink Loader](../loader) present,  Put the board/chip in DFU mode by connecting BOOT0/LDR pin to 3.3V. On DUELink modules that have LDR or "A" buttons, you only need to press the button while reset (or power cycle)
 
-image
 
-If no button is found, there is a special 2-hole-pads with BOOT0 and 3.3V on them. Use a paper clip or a wire to short the two pads. Reset the boards, and now it is in DFU mode.
+ ![Setting Boot mode mode](../images/ldr-a-buttons.png) 
 
-2 images side by side, on of the pad and one of the pad with wire short or paper clip.
+
+If no button is found, there is a special 2-hole-pads with BOOT0/LDR and 3.3V. Use a paper clip (or a wire) to short the two pads.
+ ![Setting Boot mode](../images/boot-mode.png) 
+
+Reset the boards, and now it is in DFU mode. You can verify by checking the `Device Manager`.
+
+ ![Verify DFU mode](../images/device-manager-dfu.png) 
 
 You can now send the program from the Arduino IDE
 
-Image
+ ![Send Program to Device](../images/arduino-ide-send.png) 
 
-The module is all your now, to fully use any Arduino libraries.
+The module is all yours now, with the fully Arduino experience.
 
+:::info
+If you'd like to go back to using DUELink software you'll need to reload its firmware. Details are found on the [Loader](../loader) page.
+:::
 
 ## Arduino boards with DUELink Streams
 Any board running Arduino software can utilize DUELink modules, it just needs a board with a JST connector. This is the [Downstream](../interface/downstream) connection. An example can be [Arduino Uno R4 WiFi](https://store-usa.arduino.cc/products/uno-r4-wifi), which already include a JST connector. 
 
-image
+ ![Setting DFU mode](../images/arduino-uno-r4-wifi.png) 
 
-The [Sparkfun Redboard Plus](https://www.sparkfun.com/sparkfun-redboard-plus.html) is another option. 
+The [Sparkfun Redboard Qwiic](https://www.sparkfun.com/sparkfun-redboard-qwiic.html) is another option. 
 
-image
+ ![DueDuino](../images/sparkfun-redboard-qwiic.png) 
 
 We recommend using our [DueDuino](../catalog/mainboard/dueduino) for a hybrid first-class experience with Arduino and DUELink.
 
   ![DueDuino](../images/dueduino.png) 
 
 :::tip
-If using DueDuino, see the previous section on how to get it ready to load and run Arduino programs.
+If using DueDuino, see the previous section on "Programming Modules with Arduino".
 :::
 
-You are now ready to access a stream of [Daisylinked](../engine/daisylink) that are connected to the [Downstream](../interface/downstream) socket.
 
-Here is Sparkfun Redboard Plus connected to a 2.3" color display with capacitive touch screen.
+You are now ready to access a stream of [Daisylinked](../engine/daisylink) modules that are connected to the [Downstream](../interface/downstream) socket.
 
-image
+Here is [Sparkfun Redboard Qwiic](https://www.sparkfun.com/sparkfun-redboard-qwiic.html) connected to a 2.3" color display with capacitive touch screen.
 
-We are still in the process of implementing Arduino libraries for you to use. However, the commands are simple text-based. Hhere is an example that uses the standard Arduino libraries to send LED command downstream to blink that module's status LED 10 times.
+ ![Redboard Connected to DUELink display](../images/redboard-duelink-display.png) 
+
+We are still in the process of implementing Arduino libraries for you to use. However, the commands are simple text-based. Here is an example that uses the standard Arduino libraries to send LED command downstream to blink that module's status LED 10 times.
 
 ```cpp
 // Start I2C
