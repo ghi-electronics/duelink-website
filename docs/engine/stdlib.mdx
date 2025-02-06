@@ -17,17 +17,45 @@ Unless otherwise is stated, all Standard Libraires that calls for array require 
 ## Special Pins
 Some functions only work on pins with specific features.
 
-Analog capable pins: P1, P2, P3, P4, P5, P6, P7, P8, P9, P17
-Interrupt capable pins: P1, P2, P3, P4, P5, P6, P7, P12
-PWM capable pins: P1, P2, P3, P4, P5, P6, P7, P8, P11
+- Analog capable pins: P1, P2, P3, P4, P5, P6, P7, P8, P9, P17
+- Interrupt capable pins: P1, P2, P3, P4, P5, P6, P7, P12
+- PWM capable pins: P1, P2, P3, P4, P5, P6, P7, P8, P11
 
 :::tip
 PWM pins share timers. Changing the frequency on one will effect the other. Changing duty-cycle is okay!
-* P1, P2
-* P3
-* P4, P11
-* P5, P6, P7, P8
+- P1, P2
+- P3
+- P4, P11
+- P5, P6, P7, P8
 :::
+
+---
+
+## Print
+
+Print to output. 
+
+| Function | Description
+| --- | ---
+| `Print("text" or variable)` | Print the value of it's argument
+| `PrintLn("text" or variable)` | Print the value of it's argument with line breaks
+
+`Print()` accepts multiple argument, separated by commas, `Print("Value is: ", _v)`
+
+:::tip
+Print is invoked automatically when a function returns a value that is not consumed. Running `DRead(1, 1)` in immediate mode will show 0 or 1.
+:::
+
+---
+
+## Timing
+| Function | Description
+| --- | ---
+| `Wait(duration)` | Wait for `duration` milliseconds
+| `TickMs()` | Read system ticks in milliseconds
+| `TickUs()` | Read system ticks in microseconds
+
+---
 
 ## Pin Control
 
@@ -200,9 +228,11 @@ Read temperature from a specific sensor
 | ID | Type
 | --- | ---
 | 0 | Internal CPU temperature (pin is ignored)
-| 1 | DHT11 / DHT12
-| 2 | DHT21 / DHT22
-| 3 | One wire DS18B20 sensors
+| 1 | DHT11
+| 2 | DHT12
+| 3 | DHT21
+| 4 | DHT22
+| 5 | One wire DS18B20 sensors
 
 ### Humidity
 
@@ -215,8 +245,10 @@ Read humidity from a specific sensor
 | ID | Type
 | --- | ---
 | 0 | reserved
-| 1 | DHT11 / DHT12
-| 2 | DHT21 / DHT22
+| 1 | DHT11
+| 2 | DHT12
+| 3 | DHT21
+| 4 | DHT22
 
 ---
 
@@ -268,7 +300,7 @@ Mount and initialize the file system. Only one media is supported at any given t
 | --- | ---
 | `FsMount(type, cs, baud, max_handle)` | Enable file system to a specific `type` of media on SPI bus with `cs` chip-select pin at `baud` KHz, with maximum allowed file handles `max_handle`. Returns 0 if success.
 | `FsUnMount()` | Release file system. Returns 0 if success.
-| `FsFormat(type, cs, baud)` | Format the mounted media.
+| `FsFormat(type, cs, baud)` | Format the mounted media. Note that this takes several minutes to complete.
 
 Supported media types:
 
@@ -278,7 +310,7 @@ Supported media types:
 | 1 | Dataflash
 
 
-### Operations
+### File Operations
 
 :::tip
 Unless otherwise stated, all functions return 1 on success or negative error code.
@@ -293,12 +325,10 @@ Unless otherwise stated, all functions return 1 on success or negative error cod
 | `FsSync(handle)` | Sync file with any buffered data.
 | `FsSeek(handle, offset)` | change the location in the `handle` file on where to read or write.
 | `FsTell(handle)` | Returns the current location being access in `handle` file.
-| `FsMkdir("path")` | Create a new directory at `path`.
 | `FsDelete("path")` | Delete file or directory at `path`.
-| `FsFind("path")` | Find if existing name is available. Returns 1 if found directory, 2 if file, failed otherwise.
+| `FsFind("path")` | Find if existing name is available. Returns the item type if found, return 0x10 for directory, 0x20 for file for example.
 | `FsSize("path")` | Returns `path` file size, negative number on failure, 0 if file not found.
-| `FsFindF("path", "filter", result)` | Find the first item in a `path` with specified `filter` and generate `result`.
-| `FsFindN("path", [result])` | | Find next item in `path`. Use `FsFindF()` first.
+
 
 File Open Modes
 | ID | mode
@@ -314,6 +344,15 @@ File Open Modes
 :::tip
 Combine multiple modes, like use `FsOpen("/test.txt", 0x02|0x0x30)` to pen a file for write and append if existing.
 :::
+
+### Directory Operations
+
+| Function | Description
+| --- | ---
+| `FsMkDir("path")` | Create a new directory at `path`.
+| `FsOpDir("path")` | Open a directory at `path`.
+| `FsClDir()` | Close the currently open directory.
+| `FsFNext([name], [type])` | Finds the next item and fills in `name` with the next file or directory it found in an open directory using `FsOpDir()`. `type` is a single byte array containing the item type in standard FAT file system format, for example [0x10] for directly and [0x20] for files.
 
 ---
 
@@ -347,9 +386,11 @@ These functions are needed for helping with [Dasylink](./daisylink) devices chai
 
 | Function | Description
 | --- | ---
-| `Sel(add)` | Select a devices at `add` in the chain, with first device being address 1. Broadcast to all device is possible when using 0.
+| `Sel(add, add, add ...)` | Select a devices at `add` in the chain.
 | `GetAdd()` | Return the selected device(s) address.
 | `SetAdd(add)` | `add` Set the device's address. This command has chain reaction where each device sets the next one. **This is a special command and should not be used.**
+
+The `Sel(add)` command accepts multiple addresses. `Sel(3,7)` will activate the third and and seventh modules in [Dasylink](./daisylink). Any command issue from that point forward are executed by both modules. Zero is broadcast address,  where `Sel(0)` will activate all modules. Use `GetAdd()` to detect what modules are currently active.
 
 ---
 
@@ -375,24 +416,7 @@ These functions are needed for helping with [Dasylink](./daisylink) devices chai
 
 ---
 
-## Misc
-
-### Print
-
-Print to output. 
-
-| Function | Description
-| --- | ---
-| `Print("text" or variable)` | Print the value of it's argument
-| `PrintLn("text" or variable)` | Print the value of it's argument with line breaks
-
-`Print()` accepts multiple argument, separated by commas, `Print("Value is: ", _v)`
-
-:::tip
-Print is invoked automatically when a function returns a value that is not consumed. Running `DRead(1, 1)` in immediate mode will show 0 or 1.
-:::
-
-### AsIO
+## Asynchronous IO
 
 Enable Asynchronous IO. Detailed on the [Engine](./intro.mdx) main page.
 
@@ -400,7 +424,9 @@ Enable Asynchronous IO. Detailed on the [Engine](./intro.mdx) main page.
 | --- | ---
 | `AsIo(enable)` | `enable`: 1 = Enable, 0 = Disable
 
-### Reset
+---
+
+## System Reset
 
 Reset or clear the system.
 
@@ -415,53 +441,20 @@ Reset or clear the system.
 | 2 | Switch LDR pin to BOOT0 functionality. If the system was reset and DUELink loader ran, the pin is switched back to LDR.
 | 3 | Switch LDR pin to BOOT0 and erase the entire chip (factory reset!).
 
-### Echo
 
-Echoes back what is received, useful when using a terminal program.
 
-| Function | Description
-| --- | ---
-| `Echo(enable)` | Set echo functionality to `enable`: 1 = Enable or 0 = Disable.
-
-### Ticks
-
-Read system time, useful to run things at specific time or create timeouts.
-
-| Function | Description
-| --- | ---
-| `TickMs()` | Read system ticks in milliseconds
-| `TickUs()` | Read system ticks in microseconds
-
-### Version
-
-Read hardware and software version.
+### Misc
 
 | Function | Description
 | --- | ---
 | `Version()` | Return firmware version|device ID|loader version, in this format: `GHI Electronics DUELink v01.03:BB01:01.00`.
-
-
-### Wait
-
-Stop running for milliseconds
-
-| Function | Description
-| --- | ---
-| `Wait(duration)` | Wait for `duration` milliseconds
-
-### Dump Array
-
-| Function | Description
-| --- | ---
+| `Echo(enable)` | Set echo functionality to `enable`: 1 = Enable or 0 = Disable.
 | `DumpArray([array])` | Dump the `array`.
-
-### Read VCC
-
-| Function | Description
-| --- | ---
 | `ReadVCC()` | Return current system voltage.
 
-### One-Time Programmable
+---
+
+## One-Time Programmable
 
 Write and read from a special memory type that can be written only once and can **never** be erased or changed! The size of this special memory region is 512 bytes (64 8-Byte blocks).
 
