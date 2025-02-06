@@ -57,14 +57,14 @@ fend
 
 ## I2C OLED Display
 
-In this case, we are using 
+In this case, we are using SSD1306. This display is found on [PixoBit](../catalog/mainboard/pixobit) mainboard and [OLED 096](../catalog/display/oled-096) display.
 
 ```py
 dim b1[2]
 _c=0
 Init()
 while 1
-    Text(Str(_c), 0xffFFFF, 30, 5) # you can also just set color to 1 since this is B&W
+    Text(Str(_c), 0xFFFFFF, 30, 5) # you can also just set color to 1 since this is B&W
     Show()
     _c=_c+1    
     wait(100)
@@ -132,7 +132,7 @@ Gfxconfig(4,0,0,0,0,0,0) # all arguments are ignored in 5x5 LED type
 _x = 6
 # We need tiny font as we only have 5 pixels!
 while 1
-    TextT("DUELink", 0xffFFFF, _x, 0) # you can also just set color to 1 since this is B&W
+    TextT("DUELink", 0xFFFFFF, _x, 0) # you can also just set color to 1 since this is B&W
     Show()
     _x=_+1
     if _x < -20
