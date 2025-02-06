@@ -3,21 +3,21 @@
 
 The graphics support is versatile and support drawing on displays and LEDs of many types.
 
+:::tip
+The graphics libraries does not include any device initialization. An application must initialize the device as necessary and then `GfxConfig()` before using any drawing functions, like in the examples below.
+:::
+
 ## Configuration
 
 Before any drawing operations, the systems needs ot know what device it will access and what pixel mapping it needs to process internally.
 
 `GfxConfig (type, cfg1, cfg2, width, height, direct, multiplier)` Is needed to set the device `type` with `width` and `height`. The `cfg1` and `cfg2` are optional and depend on the device type.
 
-`direct` mode is 1 when drawing to the display directly. No need for internal buffering and no need for `Show()`. This is useful to draw to 320x240 displays at full color. The system memory is limited and can't process 320x240 at 16BPP, which requires 150K of RAM! Instead, set direct to 1 and the graphics engine will draw directly to the display.
+`direct` mode is 1 when drawing to the display directly. No need for internal buffering and no need for `Show()`. 
 
 Another options for larger display is to use `multiplier`. In this case, the engine will multiply each pixel, 2 or 3 times, to cover the entire screen. For example, 160x128 display with x2 multiplier requires only 80x64 of memory.
 
 When selecting to use graphics with `direct` set to 0 (use internal buffering), make sure the overall memory need is under 10KBytes. 320x240 with 3 x multiplier is 106x80. We typically set it to 100x80 pixels, requiring 8KBytes of RAM.
-
-:::tip
-Any buffered graphics are done using 8BPP (256 colors). Use direct mode if more colors are required. 
-:::
 
 Supported device types:
 
@@ -30,19 +30,160 @@ Supported device types:
 | 4 | 5x5 LED matrix. The pins are fixed. Note that all argument are ignored with this type as width and height are set to 5, with no buffering and no multiplier.
 
 :::tip
-The graphics libraries does not include any device initialization. An application must initialize the device as necessary and then `GfxConfig()` before using any drawing functions.
+Direct graphics is optional on SPI but always buffered on I2C.
+:::
+
+## Color
+
+Any buffered graphics are done using 8BPP (256 colors). Use direct mode if more colors are required.
+
+All color arguments tke 24BPP format RRGGBB, similar to what is used on web. Buffered graphics use 8BPP 3R3G2B (256 color) which is calculated from the high bits of the input 24BPP RRGGBB. Color pallet is not supported.
+
+:::tip
+Conceder that only the top 3 or 2 bits of a color are used. 0x00000F is dim blue on 24BPP but it will simply be black on 8BPP. For red and green, use values 0xC0 or higher. For blue use 0xc0 of higher.  
+:::
+
+It is possible to get 16BPP 5:6:5 on color SPI display using `direct` mode. This is useful to draw to 320x240 displays at 16BPP color for example. The system memory is limited and can't process 320x240 at 16BPP, which requires 150K of RAM! Instead, set direct to 1 and the graphics engine will draw directly to the display, where `Show()` doesn't do anything.
+
+:::tip
+Color 1 is a special color that results in white 0xFFFFFF, useful for B&W displays.
+:::
 
 ## SPI TFT Display
+
+This example uses the display a 160x128 display in buffered mode with x2 multiplier.
+
+```py
+_s = 5
+_r = 6
+
+_c =0
+
+Init()
+ 
+while 1
+ 
+clear(0)
+text(Str(_c), 0xff0000, 30, 5)
+show()
+_c=_c+1
+wait(10)
+ 
+wend
+ 
+ 
+fn Init()
+	dwrite(4,1)
+	dwrite(7,1)
+    spicfg(0, 8000)
+    #lcdconfig(2, _s,_r,106,80, 0, 3)
+	SendCmd(0xc8)
+	SendData(0xFF)
+	SendData(0x93)
+	SendData(0x42)
+ 
+ 
+	SendCmd(0x36) 
+	SendData(0xc8)
+ 
+ 
+	SendCmd(0x3A)
+	SendData(0x55)
+ 
+	SendCmd(0xC0)
+	SendData(0x10)
+	SendData(0x10)
+ 
+	SendCmd(0xC1)
+	SendData(0x36)
+ 
+	SendCmd(0xC5)
+	SendData(0xC3)
+ 
+ 
+	SendCmd(0xE0)
+	SendData(0x00)
+	SendData(0x05)
+	SendData(0x08)
+	SendData(0x02)
+	SendData(0x1A)
+	SendData(0x0C)
+	SendData(0x42)
+	SendData(0x7A)
+	SendData(0x54)
+	SendData(0x08)
+	SendData(0x0D)
+	SendData(0x0C)
+	SendData(0x23)
+	SendData(0x25)
+	SendData(0x0F)
+ 
+	SendCmd(0xE1)
+	SendData(0x00)
+	SendData(0x29)
+	SendData(0x2F)
+	SendData(0x03)
+	SendData(0x0F)
+	SendData(0x05)
+	SendData(0x42)
+	SendData(0x55)
+	SendData(0x53)
+	SendData(0x06)
+	SendData(0x0F)
+	SendData(0x0C)
+	SendData(0x38)
+	SendData(0x3A)
+	SendData(0x0F)
+ 
+	SendCmd(0x11)
+	Wait(120)
+ 
+	SendCmd(0x36)
+	SendData(0xC8)
+ 
+	SendCmd(0x2A)
+	SendData(0x00)
+	SendData(0x00)
+	SendData(0x01)
+	SendData(0x3D)
+ 
+	SendCmd(0x2B)
+	SendData(0x00)
+	SendData(0x00)
+	SendData(0x00)
+	SendData(0xEF)
+ 
+	SendCmd(0x29)
+fend
+ 
+ 
+fn SendCmd(c)
+    dwrite(_r, 0)
+    dwrite(_s, 0)
+    spibyte(c)
+    dwrite(_s, 1)
+ 
+fend
+ 
+fn SendData(d)
+    dwrite(_r, 1)
+    dwrite(_s, 0)
+    spibyte(d)
+    dwrite(_s, 1)
+fend
+```
+
+This is the same example but using direct mode.
 
 ```py
 dim b1[2]
 _c=0
 Init()
 while 1
-    Text(Str(_c), 0xFF00FF, 30, 5)
-    Show()
+    Clear(0)
+    Text(Str(_c), 0xFF00FF, 30, 5) 
     _c=_c+1    
-    wait(100)
+    wait(10)
 wend
 
 fn Init()
@@ -50,7 +191,7 @@ fn Init()
     # config SPI
     SpiConfig(...)
     # 80x84 with x2 (160x128) using buffered drawing
-    Gfxconfig(2,3,4,80,64, 1, 2) 
+    GfxCfg(2,3,4,80,64, 1, 1) 
 	Wait(20)
 fend
 ```
@@ -64,10 +205,11 @@ dim b1[2]
 _c=0
 Init()
 while 1
+    Clear(0)
     Text(Str(_c), 0xFFFFFF, 30, 5) # you can also just set color to 1 since this is B&W
     Show()
     _c=_c+1    
-    wait(100)
+    wait(10)
 wend
 
 fn Init()
@@ -75,8 +217,8 @@ fn Init()
 
     # config I2C bus with 400Kz
     i2ccfg(400)
-    Gfxconfig(1,0x3C,0,128,64, 0, 1)
 	Wait(20)
+    GfxCfg(1,0x3C,0,128,64, 0, 1)
  
 	SendCmd( 0xAE)
 	SendCmd( 0x00)

@@ -167,7 +167,7 @@ Access the I2C bus.
 | --- | ---
 | `I2CCfg(baudrate)` | `baudrate`: Set the I2C clock speed in khz, typically 100K or 400K, and 1M in some cases.
 | `I2cBytes(address, arrayWrite, writeCount, arrayRead, readCount)` | `address`: I2C slave address - `arrayWrite`: array to send, `writeCount`: number of bytes to write, `arrayRead`: array to read,`readCount`: Number bytes to read
-| ???????? | ???????????
+
 
 ### SPI
 
@@ -439,7 +439,7 @@ Reset or clear the system.
 | 0 | System Reset (just like pressing reset button).
 | 1 | Enter DUELink loader and wait for loader commands.
 | 2 | Switch LDR pin to BOOT0 functionality. If the system was reset and DUELink loader ran, the pin is switched back to LDR.
-| 3 | Switch LDR pin to BOOT0 and erase the entire chip (factory reset!).
+| 3 | Switch LDR pin to BOOT0 and wipe out the entire chip (factory reset!).
 
 
 
