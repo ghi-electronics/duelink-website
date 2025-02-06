@@ -51,149 +51,67 @@ Color 1 is a special color that results in white 0xFFFFFF, useful for B&W displa
 
 ## SPI TFT Display
 
-This example uses the display a 160x128 display in buffered mode with x2 multiplier.
+This example uses the display a 320x240 display, like [TFT CP23](../catalog/display/tft-cp23) in buffered mode with x3 multiplier.
 
 ```py
+# Change {} to [] as we change the firmware ....... <<<<<<<<<<<<<<<<<<<<<<<
 _s = 5
 _r = 6
-
-_c =0
-
+_x=50
+_d = -9
 Init()
- 
+
 while 1
- 
-clear(0)
-text(Str(_c), 0xff0000, 30, 5)
-show()
-_c=_c+1
-wait(10)
- 
+    clear(0)
+    text(Str(_x), 0xffffff, 30, 5)
+    Circle(0xff,_x,50,5)
+    _x=_x+_d
+    if(_x <0 || _x >106)
+        _d = _d * -1
+    end
+    show()
 wend
  
  
 fn Init()
 	dwrite(4,1)
 	dwrite(7,1)
-    spicfg(0, 8000)
-    #lcdconfig(2, _s,_r,106,80, 0, 3)
-	SendCmd(0xc8)
-	SendData(0xFF)
-	SendData(0x93)
-	SendData(0x42)
- 
- 
-	SendCmd(0x36) 
-	SendData(0xc8)
- 
- 
-	SendCmd(0x3A)
-	SendData(0x55)
- 
-	SendCmd(0xC0)
-	SendData(0x10)
-	SendData(0x10)
- 
-	SendCmd(0xC1)
-	SendData(0x36)
- 
-	SendCmd(0xC5)
-	SendData(0xC3)
- 
- 
-	SendCmd(0xE0)
-	SendData(0x00)
-	SendData(0x05)
-	SendData(0x08)
-	SendData(0x02)
-	SendData(0x1A)
-	SendData(0x0C)
-	SendData(0x42)
-	SendData(0x7A)
-	SendData(0x54)
-	SendData(0x08)
-	SendData(0x0D)
-	SendData(0x0C)
-	SendData(0x23)
-	SendData(0x25)
-	SendData(0x0F)
- 
-	SendCmd(0xE1)
-	SendData(0x00)
-	SendData(0x29)
-	SendData(0x2F)
-	SendData(0x03)
-	SendData(0x0F)
-	SendData(0x05)
-	SendData(0x42)
-	SendData(0x55)
-	SendData(0x53)
-	SendData(0x06)
-	SendData(0x0F)
-	SendData(0x0C)
-	SendData(0x38)
-	SendData(0x3A)
-	SendData(0x0F)
- 
-	SendCmd(0x11)
+    spicfg(0, 24000)
+    gfxcfg(2, _s,_r,106,80, 0, 3)
+	Cmd(0xc8, {0xFF})
+	Cmd(0x93, {0xFF})
+	Cmd(0x36, {0xc8})
+	Cmd(0x3a, {0x55})
+	Cmd(0xc0, {0x10,0x10})
+	Cmd(0xc1, {0x36})
+	Cmd(0xc5, {0xc3})
+	Cmd(0xE0, {0x00,0x05,0x08,0x02,0x1a,0x0c,0x42,0x7a,0x54,0x08,0x0d,0x0c,0x23,0x25,0x0f})
+	Cmd(0xE1, {0x00,0x29,0x2f,0x03,0x0f,0x05,0x42,0x55,0x53,0x06,0x0f,0x0c,0x38,0x3a,0x0f})
+	Cmd(0x11,{})
 	Wait(120)
- 
-	SendCmd(0x36)
-	SendData(0xC8)
- 
-	SendCmd(0x2A)
-	SendData(0x00)
-	SendData(0x00)
-	SendData(0x01)
-	SendData(0x3D)
- 
-	SendCmd(0x2B)
-	SendData(0x00)
-	SendData(0x00)
-	SendData(0x00)
-	SendData(0xEF)
- 
-	SendCmd(0x29)
+	Cmd(0x36, {0xc8})
+	Cmd(0x2a, {0x00,0x00,0x01,0x3d})
+	Cmd(0xE1, {0x00,0x00,0x00,0xef})
+	Cmd(0x29,{})
 fend
- 
- 
-fn SendCmd(c)
-    dwrite(_r, 0)
-    dwrite(_s, 0)
+
+fn Cmd(c, b1)
+    ##SendCmd(c)
+    dwrite(_s, 0)#select
+    dwrite(_r, 0)#cmd
     spibyte(c)
-    dwrite(_s, 1)
- 
-fend
- 
-fn SendData(d)
-    dwrite(_r, 1)
-    dwrite(_s, 0)
-    spibyte(d)
-    dwrite(_s, 1)
+    dwrite(_r, 1)#data
+    for i in range(0,Len(b1))
+        spibyte(b1[i])
+    next
+    dwrite(_s, 1)#deselect
 fend
 ```
 
 This is the same example but using direct mode.
 
 ```py
-dim b1[2]
-_c=0
-Init()
-while 1
-    Clear(0)
-    Text(Str(_c), 0xFF00FF, 30, 5) 
-    _c=_c+1    
-    wait(10)
-wend
 
-fn Init()
-	dwrite(11,1) # reset pin
-    # config SPI
-    SpiConfig(...)
-    # 80x84 with x2 (160x128) using buffered drawing
-    GfxCfg(2,3,4,80,64, 1, 1) 
-	Wait(20)
-fend
 ```
 
 ## I2C OLED Display
@@ -202,63 +120,45 @@ In this case, we are using SSD1306. This display is found on [PixoBit](../catalo
 
 ```py
 dim b1[2]
-_c=0
+_x=50
+_d = -9
 Init()
-while 1
-    Clear(0)
-    Text(Str(_c), 0xFFFFFF, 30, 5) # you can also just set color to 1 since this is B&W
-    Show()
-    _c=_c+1    
-    wait(10)
-wend
 
+while 1
+    clear(0)
+    texts(Str(_x), 0xffFFFF, 50, 5,2,2)
+    Circle(0xff,_x,50,5)
+    _x=_x+_d
+    if(_x <0 || _x >106)
+        _d = _d * -1
+    end
+    show()
+wend
+  
 fn Init()
 	dwrite(11,1) # reset pin
-
     # config I2C bus with 400Kz
     i2ccfg(400)
 	Wait(20)
     GfxCfg(1,0x3C,0,128,64, 0, 1)
- 
-	SendCmd( 0xAE)
-	SendCmd( 0x00)
-	SendCmd( 0x10)
-	SendCmd( 0x40)
-	SendCmd( 0x81)
-	SendCmd( 0xCF)
-	SendCmd( 0xA1)
-	SendCmd( 0xA6)
-	SendCmd( 0xA8)
-	SendCmd( 0x3F)
-	SendCmd( 0xD3)
-	SendCmd( 0x00)
-	SendCmd( 0xD5)
-	SendCmd( 0x80)
-	SendCmd( 0xD9)
-	SendCmd( 0xF1)
-	SendCmd( 0xDA)
-	SendCmd( 0x12)
-	SendCmd( 0xDB)
-	SendCmd( 0x40)
-	SendCmd( 0x8D)
-	SendCmd( 0x14)
-	SendCmd( 0xAF)
-	SendCmd( 0xC8)
-	SendCmd( 0x20)
-	SendCmd( 0x00)
-	SendCmd( 0x21)
-	SendCmd( 0)
-	SendCmd( 128 - 1)
-	SendCmd( 0x22)
-	SendCmd( 0)
-	SendCmd( 7)
+    
+	SendCmd(0xAE):SendCmd(0x00):SendCmd(0x10)
+	SendCmd(0x40):SendCmd(0x81):SendCmd(0xCF)
+	SendCmd(0xA1):SendCmd(0xA6):SendCmd(0xA8)
+	SendCmd(0x3F):SendCmd(0xD3):SendCmd(0x00)
+	SendCmd(0xD5):SendCmd(0x80):SendCmd(0xD9)
+	SendCmd(0xF1):SendCmd(0xDA):SendCmd(0x12)
+	SendCmd(0xDB):SendCmd(0x40):SendCmd(0x8D)
+	SendCmd(0x14):SendCmd(0xAF):SendCmd(0xC8)
+	SendCmd(0x20):SendCmd(0x00):SendCmd(0x21)
+	SendCmd(0):SendCmd(128-1)
+	SendCmd(0x22):SendCmd(0):SendCmd(7)
 fend
- 
- 
+
 fn SendCmd(c)
 	b1[0] = 0
 	b1[1] = c
-    i2cmw(0x3c, b1,2, 2000)    
+    I2cBytes(0x3c, b1,2, 0, 0)    
 fend
 ```
 
