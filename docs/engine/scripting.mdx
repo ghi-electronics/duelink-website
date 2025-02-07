@@ -57,21 +57,21 @@ There are also local variables used in functions, still float-type. More on thes
 
 ## Arrays
 
-There are 10 float-type arrays and 10 byte-type arrays. The float arrays are named a0 to a9 and the byte arrays are names b0 to b9. All arrays are size zero by default. Use `Dim` to allocate memory for an array, like `Dim a1[10]`.
+There are 10 float-type arrays and 10 byte-type arrays. The float arrays are named a0 to a9 and the byte arrays are names b0 to b9. All arrays are size zero by default. Use `Dim` to allocate memory for an array, like `Dim b1[10]`.
 
-Similar to other common languages, elements of an array are accessed using `[]`. 
+Similar to other common languages, elements of an **byte** array are accessed using `[]`.
 
 This is an example that uses both, global variables and arrays:
 
 ```py
-Dim a1[10]
+Dim b1[10]
 
 For _i=0 to 9
-  a1[_i]=_i*2
+  b1[_i]=_i*2
 Next
 
 For _i=0 to 9
-  PrintLn(a1[_i])
+  PrintLn(b1[_i])
 Next
 ```
 
@@ -91,37 +91,67 @@ The output will look like:
 ```
 
 :::tip
-Use `Dim a1[0]` to free up the memory reserved for array `a1[]`.
+Use `Dim b1[0]` to free up the memory reserved for array `b1[]`.
 :::
+
+DUELink scripts use `{}` for float arrays instead of `[]` that is used for byte arrays.
+
+```py
+Dim a1{10}
+
+For _i=0 to 9
+  a1{_i}=_i* 0.3
+Next
+
+For _i=0 to 9
+  PrintLn(a1{_i})
+Next
+```
+
+The output will look like:
+
+```
+0
+0.3
+0.6
+0.9
+1.2
+1.5
+1.8
+2.1
+2.4
+2.7
+```
+
 
 Arrays can be initialized in two different ways.
 
 Declare an array and initialize it with values at the same time.  
 
 ```py
-Dim a1[6] = [1,2,
+Dim b1[6] = [1,2,
             3,4,
             5,6]
-For i in Range(Len(a1))
-  PrintLn(a1[i])
+For i in Range(Len(b1))
+  PrintLn(b1[i])
 Next
 ```
 
 
 :::note
-`Len(a1)` returns the length (size) of the a1 array.
+`Len(b1)` returns the length (size) of the b1 array.
 :::
 
 The second way is to create the array first, then populate it later. 
 
 ```py
-Dim a1[6]
+Dim b1[6]
 
-a1 = [7,8,
+b1 = [7,8,
      9,10,
      11,12]
-For i in Range(Len(a1))
-  PrintLn(a1[i])
+For i in Range(Len(b1))
+  PrintLn(b1[i])
 Next
 ```
 
@@ -142,12 +172,11 @@ It is also possible to initialize an array with a string of text. The line `b1="
 Functions that accept arrays can take initializers as well.
 
 ```py
-Dim a1[5] = [1,2,3,4,5]
-SortArray(a1)
+Dim b1[5] = [1,2,3,4,5]
+SortArray(b1)
 
 SortArray([1,2,3,4,5])
 ```
-Byte arrays work exactly the same 
 
 ## Functions
 
@@ -173,14 +202,14 @@ Variables inside functions are local. You can use any of the 26 letters as a var
 Function arguments can also be arrays. These arrays are passed as by reference.
 
 ```py
-fn PrintArray(a1, c)
+fn PrintArray(b1, c)
 For i in Range(c)
-  PrintLn(a1[i])
+  PrintLn(b1[i])
 next
 fend
 
-Dim a3[] = [1,2,3,4,5]
-PrintArray(a3) # the system will automatically reference a1 used in teh function to a3 that got passed.
+Dim b3[] = [1,2,3,4,5]
+PrintArray(b3) # the system will automatically reference a1 used in teh function to a3 that got passed.
 ```
 
 Array initializer can also be used to call the function above.
@@ -194,6 +223,10 @@ And even use a string!
 ```py
 PrintArray("DUELink", 7)
 ```
+
+:::tip
+Float arrays use `{}` as explained in the arrays section.
+::: 
 
 ## Operands
 DUELink Scripting supports the following operators. 
