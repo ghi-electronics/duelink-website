@@ -6,9 +6,9 @@ The utilized micro on DUELink modules include a built-in loader from ST. It allo
 
 All modules ship with GHI Electronics' DUELink Loader. This loader allows for firmware updates over USB, I2C, and UART. It uses XMODEM 1K protocol to send firmware updates, which is a common old standard found in any terminal software, such as [Tera Term]( https://teratermproject.github.io/index-en.html). To make things even easier, we have it supported right from within the DUELink [Console](console)
 
- ![DUELink Console](./images/due-console.png)  
+ ![DUELink Console Firmware Menu](./images/console-firmware.png)  
 
-DUELink Console knows how to command the firmware to enter DUELink Loader mode. It sends `Reset(1)` command automatically. In case the firmware failed to run, you can force the loader mode by setting LDR pin high. If the module you are using has a LDR button, such as [DueDuino](catalog/mainboard/dueduino) then press and hold the button while resetting the board. 
+In case the firmware failed to run, you can force the loader mode by setting LDR pin high. If the module you are using has a LDR button, such as [DueDuino](catalog/mainboard/dueduino) then press and hold the button while resetting the board. 
 Some boards label the button as "A", such as on [CincoBit](catalog/mainboard/cincobit).
 
  ![Setting Boot mode mode](./images/ldr-a-buttons.png) 
@@ -42,19 +42,19 @@ Firmware update is done in multiple ways:
 **Using Console**
 Click `Firmware` on the top menu.
 
-images
+![DUELink Console Firmware Menu](./images/due-firmware.png)  
 
 Follow the instructions to update the firmware.
 
 **Using Terminal**
 
-Put the board in loader by pressing the LDR/A button, or shorting the LDR pads if there is no button.
+Put the board in loader mode by pressing the LDR/A button, or shorting the LDR pads if there is no button.
 
-images
+ ![LDR, A, pads](./images/ldr-a-pads.png) 
 
 Reset the board while holding LDR high, and the PC will see a Loader device.
 
-device manager images
+ ![Verify DFU mode](./images/device-manager-dfu.png) 
 
 Open a terminal software, such as [Tera Term]( https://teratermproject.github.io/index-en.html) and connect the appropriate COM port.
 
@@ -94,20 +94,17 @@ Either of the two options above,  will completely remove everything, including t
 ---
 
 ## Reloading Loader & Firmware
-In case the loader was removed; to run [Arduino](system/arduino) programs for example, you can flash the DUELink loader back onto the device using [STM32CubeProgrammer]( https://www.st.com/en/development-tools/stm32cubeprog.html) tool. The Loader HEX file is found on the [Downloads](downloads) page. Connect the module to USB, directly if it has USB or using [USB Hook](catalog/accessory/usb-hook), push LDR, "A" button or place a paperclip in the loader pads and reset/repower.
+In case the loader was removed; to run an [Arduino](system/arduino) program for example, you can flash the DUELink loader back onto the device using [STM32CubeProgrammer]( https://www.st.com/en/development-tools/stm32cubeprog.html) tool. The Loader HEX file is found on the [Downloads](downloads) page. Connect the module to USB, directly if it has USB or using [USB Hook](catalog/accessory/usb-hook), push LDR, "A" button or place a paperclip in the loader pads and reset/repower.
 
- ![Select USB](./images/ldr-a-pads.png) 
+ ![LDR, A, pads](./images/ldr-a-pads.png) 
 
 STM32CubeProgrammer will now detect a USB DFU device, select `USB` from the drop down and click `Connect`.
 
  ![Select USB](./images/stm-select-usb.png) 
 
-Click on file and select the Loader file you downloaded from the [Download](downloads) page. 
+Click on the side tab then select the `Loader` file you downloaded from the [Download](downloads) page, then click `Start Programming`
 
- ![Select USB](./images/stm-select-file.png)
+ ![Select file](./images/stm-selectfile-program.png)
 
-Finally click the `Download` button to load `DUELink Loader` on the device. 
-
- ![Select USB](./images/stm-download-file.png) 
 
 The board now has the GHI Electronics DUELink Loader, ready to accept the firmware. See "Firmware Update" above if you do nto know how.
