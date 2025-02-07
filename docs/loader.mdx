@@ -59,17 +59,23 @@ Put the board in loader mode by pressing the LDR/A button, or shorting the LDR p
 
 Reset the board while holding LDR high, and the PC will see a Loader device COM port, not DFU. If you see DFU then your device does not have a Loader. See "Reloading Loader" section.
 
- ![Verify DFU mode](./images/device-manager-dfu.png) 
+ ![Verify Serial Device](./images/device-manager-serial.png) 
 
 Open a terminal software, such as [Tera Term]( https://teratermproject.github.io/index-en.html) and connect the appropriate COM port.
 
-Hit `X` and `Y` to start XMODEM. You will see `CCCCC...` coming back.
+ ![Connect the device](./images/teraterm-connect-serial.png) 
 
-image
+Hit `X`then `Enter` and `Y` to start XMODEM. You will see `CCCCC...` coming back.
 
-From the menu, select `File->Send->XMODEM`. IMPORTANT: Select the 1K option and then select the firmware file you want to load. You can get any firmware you need from the [Downloads](downloads) page.
+ ![Connect the device](./images/teraterm-x-y.png) 
 
-image
+From the menu, select `File->Send->XMODEM`. 
+
+ ![Connect the device](./images/teraterm-xmodem-send.png) 
+
+ IMPORTANT: Select the 1K option and then select the firmware file you want to load. You can get any firmware you need from the [Downloads](downloads) page.
+
+ ![select the file](./images/teraterm-selectfile-1k.png) 
 
 When complete, remove any jumpers wires on LDR, if any, and reset the board. Reconnect the terminal, but to the new COM port reflecting  firmware, then enter  `version()` command to see what version is loaded.
 
