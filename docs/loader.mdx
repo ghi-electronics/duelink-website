@@ -37,9 +37,14 @@ On power up, a DUELink module will start its Loader software. This loader checks
 
 Firmware updates are necessary to bring the latest features and improvements to your modules. You will rarely ever need to update/remove the Loader but you will need to know how to update the firmware.
 
+:::caution
+This section assumes you already have the loader. If not, see "Reloading Loader" section.
+:::
+
 Firmware update is done in multiple ways:
 
 **Using Console**
+
 Click `Firmware` on the top menu.
 
 images
@@ -52,7 +57,7 @@ Put the board in loader by pressing the LDR/A button, or shorting the LDR pads i
 
 images
 
-Reset the board while holding LDR high, and the PC will see a Loader device.
+Reset the board while holding LDR high, and the PC will see a Loader device COM port, not DFU. If you see DFU then your device does not have a Loader. See "Reloading Loader" section.
 
 device manager images
 
@@ -78,6 +83,7 @@ This is a future planner feature!
 
 
 ## System Wipeout!
+
 When desired, it is possible to completely wipe out the chip. This is useful when using different software, such as [Arduino](./system/arduino). 
 
 This can be done from the loader or from the firmware:
@@ -94,6 +100,7 @@ Either of the two options above,  will completely remove everything, including t
 ---
 
 ## Reloading Loader & Firmware
+
 In case the loader was removed; to run [Arduino](system/arduino) programs for example, you can flash the DUELink loader back onto the device using [STM32CubeProgrammer]( https://www.st.com/en/development-tools/stm32cubeprog.html) tool. The Loader HEX file is found on the [Downloads](downloads) page. Connect the module to USB, directly if it has USB or using [USB Hook](catalog/accessory/usb-hook), push LDR, "A" button or place a paperclip in the loader pads and reset/repower.
 
  ![Select USB](./images/ldr-a-pads.png) 
