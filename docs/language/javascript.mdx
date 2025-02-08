@@ -8,7 +8,8 @@ JavaScript is one of the core technologies used by the World Wide Web. 98% of al
 
 Here is a website demo to demonstrate how JavaScript can control actuators and read sensors: [demo.duelink.com](https://demo.duelink.com/)
 
-:::Tip TypeScript can also be used alongside the provided JavaScrip libraries
+:::Tip
+TypeScript can also be used alongside the provided JavaScrip libraries
 :::
 
 ## Setup
@@ -56,8 +57,4 @@ async function  Blinky() {
 Blinky()
 ```
 
-## JavaScript API
-
-The [API](../api/intro.mdx) page includes all details and examples to use all the available "physical world" services.
-
-Use the above example program to initiate the hardware, instantiate the `duelink` object, and then use any of the available APIs, such as `duelink.Sound.Beep('p', 500, 1000)' to generate a beep using the on-board peizo buzzer with a frequency of 500Hz for 1000ms
+You can now use any of the available [APIs](../api/intro.mdx) such as `duelink.Sound.Beep('p', 500, 1000)' to generate a sound on a connected buzzer.

@@ -4,8 +4,11 @@
 
 ![C++ Logo](../images/cplusplus.png)
 
+There are two ways to use C++ with DUELink, hosted and Standalone.
 
-These are several ways to code DUELink modules using C++. First, a DUELink module can continue to run the default firmware and a [PC & Laptop](../system/pc-laptop) or [Phone & Tablets](../system/phone-tablet.mdx) can be used to run the C++ program to command DUELink modules through [USB](../interface/usb).
+### Hosted
+
+With a hosted option, a [PC & Laptop](../system/pc-laptop) or [Phone & Tablets](../system/phone-tablet.mdx) can be used to run the C++ program to command DUELink modules through [USB](../interface/usb) or [UART Serial](../interface/uart) interfaces.
 
 This is an example
 
@@ -14,15 +17,22 @@ This is an example
 
 ```
 
-Another option is to load C++ on the module itself. There are several options including free [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html). We however use ARM Keil MDK. This is a paid professional IDE but ST has already paid (some large dollar value) to make it [available for free for any STM32 Cortex-M0 micro]( https://developer.arm.com/documentation/kan344/latest/?lang=en). The libraries provided by ST and ARM for the chip are versatile and high end. This makes them very powerful, but they are not user friendly! We have created a project demo to get you started. It includes a demo on how to control the STAT LED and send commands over [Downsrteam](../interface/downstream) connection.
+## Standalone
+
+With this option, a DUELink module is executing a compiled C++ program developed by you. All modules utilize STM32C071 microcontroller, which si supported by many IDEs, including free [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html). We however use ARM Keil MDK. This is a paid professional IDE but ST has already licensed it to make it [available for free for any STM32 Cortex-M0 micro]( https://developer.arm.com/documentation/kan344/latest/?lang=en). 
+
+::tip
+These options use low-end versatile libraries. They are powerful but not user friendly! [Arduino](../system/arduino) is user-friendly alternative.
+:::
+
 
 ```cpp
-StatLED(200,200,10)
+// example
 
 ```
 
-To load your compiled program onto a DUELink module, put the board in [Loader](../loader) mode and then send the program using XModem. It is all detail on the [Loader](../loader) page.
+To load your compiled program onto a DUELink module, you need to completely wipe it out, as documented on the [Loader](../loader) page. You can then use [STM32CubeProgrammer]( https://www.st.com/en/development-tools/stm32cubeprog.html) to load the compiled program.
 
----
-
-Using Arduino IDE is another popular option. This makes things a it easier as Arduino includes user-friendly libraries. Visit the [Arduino](../system/arduino) page to learn more.
+:::tip
+99.9% of modules include SWD pins if you want to connect and a debugger, such as ST-Link. SWCLK is found on the through hole "boot pads" or LDR button, as it shares BOO0 pin. SWDIO is found on a tiny SMT pad.
+:::
