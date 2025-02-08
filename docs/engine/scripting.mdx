@@ -94,17 +94,17 @@ The output will look like:
 Use `Dim b1[0]` to free up the memory reserved for array `b1[]`.
 :::
 
-DUELink scripts use `{}` for float arrays instead of `[]` that is used for byte arrays.
+Same goes for float arrays.
 
 ```py
-Dim a1{10}
+Dim a1[10]
 
 For _i=0 to 9
-  a1{_i}=_i* 0.3
+  a1[_i]=_i* 0.3
 Next
 
 For _i=0 to 9
-  PrintLn(a1{_i})
+  PrintLn(a1_i])
 Next
 ```
 
@@ -132,8 +132,8 @@ Declare an array and initialize it with values at the same time.
 Dim b1[6] = [1,2,
             3,4,
             5,6]
-For i in Range(Len(b1))
-  PrintLn(b1[i])
+For _i in Range(Len(b1))
+  PrintLn(b1[_i])
 Next
 ```
 
@@ -150,8 +150,21 @@ Dim b1[6]
 b1 = [7,8,
      9,10,
      11,12]
-For i in Range(Len(b1))
-  PrintLn(b1[i])
+For _i in Range(Len(b1))
+  PrintLn(b1[_i])
+Next
+```
+
+DUELink scripts use `{}` for float arrays initializers, instead of `[]` which is used for byte arrays. The previous example will change to this.
+
+```py
+Dim a1[6]
+
+a1 = {7,8,
+     9,10,
+     11,12}
+For _i in Range(Len(a1))
+  PrintLn(a1[_i])
 Next
 ```
 
@@ -203,8 +216,8 @@ Function arguments can also be arrays. These arrays are passed as by reference.
 
 ```py
 fn PrintArray(b1, c)
-For i in Range(c)
-  PrintLn(b1[i])
+For _i in Range(c)
+  PrintLn(b1[_i])
 next
 fend
 
@@ -225,35 +238,50 @@ PrintArray("DUELink", 7)
 ```
 
 :::tip
-Float arrays use `{}` as explained in the arrays section.
+Float array initializers use `{}` as explained in the arrays section.
 ::: 
 
 ## Operands
+
 DUELink Scripting supports the following operators. 
 
-**Mathematical** | 
----         | ---                       |   
-\+          | Add                       |   
-\-          | Subtract                  | 
-\*          | Multiply                  | 
-\/          | Divide                    |
-%           | Modulus, the remainder    | 
-**Comparators** | 
-\>          | Greater Than              
-\<          | Less Than                  
-\>=         | Greater Than or Equal To   
-\<=         | Less Than or Equal To      
-\=          | Equal                      
-!=          | Not Equal                  
-**Logical** | 
-\&&         | And 
-\|\|        | Or
-**Bitwise** |                         
-\&          | Bitwise And               
-\|          | Bitwise Or 
-^           | Bitwise Xor                
-\<<         | Shift Right       
-\>>         | Shift Left        
+**Mathematical**
+
+| Sign | Description
+| --- | ---
+| `+` | Add   
+| `-` | Subtract 
+| `*` | Multiply 
+| `/` | Divide
+| `%` | Modulus, the remainder
+
+**Comparators** 
+
+| Sign | Description
+| --- | ---
+| `>` | Greater Than              
+| `<` | Less Than                  
+| `>=`| Greater Than or Equal To   
+| `<=`| Less Than or Equal To      
+| `=` | Equal                      
+| `!=`| Not Equal                  
+
+**Logical** 
+
+| Sign | Description
+| --- | ---
+| `&&`| And 
+| `\|\|` | Or
+
+**Bitwise**
+
+| Sign | Description
+| --- | ---
+| `&` | Bitwise And               
+| `\|` | Bitwise Or 
+| `^` | Bitwise Xor                
+| `<<` | Shift Right       
+| `>>` | Shift Left        
 
 ## while-loop
 This is the kind of loop that stays active as long as a condition is true. a `while` loop block ends with `wend`.
