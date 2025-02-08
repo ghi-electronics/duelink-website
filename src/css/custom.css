@@ -7,7 +7,8 @@
 /* You can override the default Infima variables here. */
 .content-center {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    margin: 30;
     width: 100%,
     }
 
