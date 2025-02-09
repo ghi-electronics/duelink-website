@@ -6,16 +6,16 @@ The utilized micro on DUELink modules include a built-in loader from ST. It allo
 
 All modules ship with GHI Electronics' DUELink Loader. This loader allows for firmware updates over USB, I2C, and UART. It uses XMODEM 1K protocol to send firmware updates, which is a common old standard found in any terminal software, such as [Tera Term]( https://teratermproject.github.io/index-en.html). To make things even easier, we have it supported right from within the DUELink [Console](console)
 
- ![DUELink Console Firmware Menu](./images/console-firmware.png)  
+ ![DUELink Console Firmware Menu](/img/console-firmware.png)  
 
 In case the firmware failed to run, you can force the loader mode by setting LDR pin high. If the module you are using has a LDR button, such as [DueDuino](catalog/mainboard/dueduino) then press and hold the button while resetting the board. 
 Some boards label the button as "A", such as on [CincoBit](catalog/mainboard/cincobit).
 
- ![Setting Boot mode mode](./images/ldr-a-buttons.png) 
+ ![Setting Boot mode mode](/img/ldr-a-buttons.png) 
 
 If no button is found, LDR pads are on every single module. Bend and place a metal paper clip (or a wire) between these 2 pads, and reset/repower the board. You can remove the paper clip after the board is powered up.
 
- ![Setting Boot mode](./images/boot-mode.png) 
+ ![Setting Boot mode](/img/boot-mode.png) 
 
 ---
 
@@ -47,7 +47,7 @@ Firmware update is done in multiple ways:
 
 Click `Firmware` on the top menu.
 
-![DUELink Console Firmware Menu](./images/due-firmware.png)  
+![DUELink Console Firmware Menu](/img/due-firmware.png)  
 
 Follow the instructions to update the firmware.
 
@@ -55,27 +55,27 @@ Follow the instructions to update the firmware.
 
 Put the board in loader mode by pressing the LDR/A button, or shorting the LDR pads if there is no button.
 
- ![LDR, A, pads](./images/ldr-a-pads.png) 
+ ![LDR, A, pads](/img/ldr-a-pads.png) 
 
 Reset the board while holding LDR high, and the PC will see a Loader device COM port, not DFU. If you see DFU then your device does not have a Loader. See "Reloading Loader" section.
 
- ![Verify Serial Device](./images/device-manager-serial.png) 
+ ![Verify Serial Device](/img/device-manager-serial.png) 
 
 Open a terminal software, such as [Tera Term]( https://teratermproject.github.io/index-en.html) and connect the appropriate COM port.
 
- ![Connect the device](./images/teraterm-connect-serial.png) 
+ ![Connect the device](/img/teraterm-connect-serial.png) 
 
 Hit `X`then `Enter` and `Y` to start XMODEM. You will see `CCCCC...` coming back.
 
- ![Connect the device](./images/teraterm-x-y.png) 
+ ![Connect the device](/img/teraterm-x-y.png) 
 
 From the menu, select `File->Send->XMODEM`. 
 
- ![Connect the device](./images/teraterm-xmodem-send.png) 
+ ![Connect the device](/img/teraterm-xmodem-send.png) 
 
  IMPORTANT: Select the 1K option and then select the firmware file you want to load. You can get any firmware you need from the [Downloads](downloads) page.
 
- ![select the file](./images/teraterm-selectfile-1k.png) 
+ ![select the file](/img/teraterm-selectfile-1k.png) 
 
 When complete, remove any jumpers wires on LDR, if any, and reset the board. Reconnect the terminal, but to the new COM port reflecting  firmware, then enter  `version()` command to see what version is loaded.
 
@@ -109,15 +109,15 @@ Either of the two options above,  will completely remove everything, including t
 
 In case the loader was removed; to run an [Arduino](system/arduino) program for example, you can flash the DUELink loader back onto the device using [STM32CubeProgrammer]( https://www.st.com/en/development-tools/stm32cubeprog.html) tool. The Loader HEX file is found on the [Downloads](downloads) page. Connect the module to USB, directly if it has USB or using [USB Hook](catalog/accessory/usb-hook), push LDR, "A" button or place a paperclip in the loader pads and reset/repower.
 
- ![LDR, A, pads](./images/ldr-a-pads.png) 
+ ![LDR, A, pads](/img/ldr-a-pads.png) 
 
 STM32CubeProgrammer will now detect a USB DFU device, select `USB` from the drop down and click `Connect`.
 
- ![Select USB](./images/stm-select-usb.png) 
+ ![Select USB](/img/stm-select-usb.png) 
 
 Click on the side tab then select the `Loader` file you downloaded from the [Download](downloads) page, then click `Start Programming`
 
- ![Select file](./images/stm-selectfile-program.png)
+ ![Select file](/img/stm-selectfile-program.png)
 
 
 The board now has the GHI Electronics DUELink Loader, ready to accept the firmware. See "Firmware Update" above if you do nto know how.
