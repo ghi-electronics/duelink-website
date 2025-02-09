@@ -1,8 +1,223 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # CincoBit
 ---
 
 An ultra low-cost, micro:bit inspired, educational board.
 
-Front|Back
-:---:|:---:
-![Front](../../images/modules/cincobit-front.png)| ![Back](../../images/modules/cincobit-back.png)
+<table>
+<td>![Back](../../images/modules/cincobit-front.png)</td>
+<td>![Front](../../images/modules/cincobit-back.png)</td>
+</table>
+
+---
+
+<Tabs queryString="show" className="unique-tabs" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Extensions', value: 'extensions'},
+    {label: 'Projects', value: 'projects'},
+    {label: 'Resources', value: 'resources'},
+  ]}>
+
+<TabItem value="overview">
+2.3" 320x240 color TFT Display with capacitive touch screen.
+
+<iframe width="450" height = "300"
+src="https://www.youtube.com/embed/D4073veneWI" 
+frameborder="0"
+allowfullscreen>
+</iframe>
+
+Key features:
+
+* Full Color 320x240 Pixels
+* Buffered 106x80 Pixels
+* Capacitive Touch with Muti-touch
+* 122x123mm Dimension
+* 120x10mm Hole Placement
+</TabItem>
+
+<TabItem value="extensions">
+These Beyond the [Standard Library](../../engine/stdlib), these functions are provided.
+
+| Function | Description | Use
+| --- | --- | ---
+| `Init(d)` | Initialize the display | `Init(1)` for direct, `Init(0)` for buffered
+| Cmd(c,b1) | Send display command | Needed for `Init()` or for advanced uses
+
+By default, the display is initialized in direct mode.
+
+:::tip
+See [Graphics](../../engine/graphics) for available drawing functions.
+:::
+
+
+<details>
+  <summary>Default Script</summary>
+
+```py
+# d=1 for direct mode
+Init(1)
+fn Init(d)
+	dwrite(4,1)
+	dwrite(7,1)
+    spicfg(0, 24000)
+    if d = 0
+        gfxcfg(2, [_s,_r],320,240, 1, 3)
+	else
+        gfxcfg(2, [_s,_r],106,80, 0, 3)
+    end
+    Cmd(0xc8, [0xFF])
+	Cmd(0x93, [0xFF])
+	Cmd(0x36, [0xc8])
+	Cmd(0x3a, [0x55])
+	Cmd(0xc0, [0x10,0x10])
+	Cmd(0xc1, [0x36])
+	Cmd(0xc5, [0xc3])
+	Cmd(0xE0, [0x00,0x05,0x08,0x02,0x1a,0x0c,0x42,0x7a,0x54,0x08,0x0d,0x0c,0x23,0x25,0x0f])
+	Cmd(0xE1, [0x00,0x29,0x2f,0x03,0x0f,0x05,0x42,0x55,0x53,0x06,0x0f,0x0c,0x38,0x3a,0x0f])
+	Cmd(0x11,[])
+	Wait(120)
+	Cmd(0x36, [0xc8])
+	Cmd(0x2a, [0x00,0x00,0x01,0x3d])
+	Cmd(0xE1, [0x00,0x00,0x00,0xef])
+	Cmd(0x29,[])
+
+
+    _s = 5
+    _r = 6
+    clear(0)
+    text("DUELink TFT CP23", 0xff00ff, 30, 5)
+    show() # This won't do anything in direct
+fend
+
+fn Cmd(c, b1)
+    ##SendCmd(c)
+    dwrite(_s, 0)#select
+    dwrite(_r, 0)#cmd
+    spibyte(c)
+    dwrite(_r, 1)#data
+    for i in range(0,Len(b1))
+        spibyte(b1[i])
+    next
+    dwrite(_s, 1)#deselect
+fend
+  ```
+</details>
+</TabItem>
+
+
+<TabItem value="projects">
+These project samples will get you started.
+<Tabs queryString="proj" defaultValue="arduino"
+  values={[
+    {label: 'Arduino', value: 'arduino'},
+    {label: 'Standalone', value: 'standalone'},
+
+  ]}>
+
+<TabItem value="arduino">
+ This demo uses [Arduino](../../system/arduino) UNO R4 to read analog A0 and show value on screen.
+
+ image
+</TabItem>
+
+<TabItem value="standalone">
+Use the [Standalone](../../engine/standalone) feature to create an analog clock.
+
+image
+
+The demo uses [USB Hook](../accessory/usb-hook) to set the time (and load [scripts](../../engine/scripting).)
+
+<details>
+  <summary>The Code!</summary>
+
+```py
+Init(0)
+_t = 0 
+while 1
+    clear(0)
+    text("Time:", 0xff00ff, 30, 5)
+    text(Str(_t), 0x0000ff, 60, 5)
+    show()
+    wait(1000)
+wend
+
+fn Init(d)
+	dwrite(4,1)
+	dwrite(7,1)
+    spicfg(0, 24000)
+    if d = 0
+        gfxcfg(2, [_s,_r],320,240, 1, 3)
+	else
+        gfxcfg(2, [_s,_r],106,80, 0, 3)
+    end
+    Cmd(0xc8, [0xFF])
+	Cmd(0x93, [0xFF])
+	Cmd(0x36, [0xc8])
+	Cmd(0x3a, [0x55])
+	Cmd(0xc0, [0x10,0x10])
+	Cmd(0xc1, [0x36])
+	Cmd(0xc5, [0xc3])
+	Cmd(0xE0, [0x00,0x05,0x08,0x02,0x1a,0x0c,0x42,0x7a,0x54,0x08,0x0d,0x0c,0x23,0x25,0x0f])
+	Cmd(0xE1, [0x00,0x29,0x2f,0x03,0x0f,0x05,0x42,0x55,0x53,0x06,0x0f,0x0c,0x38,0x3a,0x0f])
+	Cmd(0x11,[])
+	Wait(120)
+	Cmd(0x36, [0xc8])
+	Cmd(0x2a, [0x00,0x00,0x01,0x3d])
+	Cmd(0xE1, [0x00,0x00,0x00,0xef])
+	Cmd(0x29,[])
+
+
+    _s = 5
+    _r = 6
+    clear(0)
+    text("DUELink TFT CP23", 0xff00ff, 30, 5)
+    show() # This won't do anything in direct
+fend
+
+fn Cmd(c, b1)
+    ##SendCmd(c)
+    dwrite(_s, 0)#select
+    dwrite(_r, 0)#cmd
+    spibyte(c)
+    dwrite(_r, 1)#data
+    for i in range(0,Len(b1))
+        spibyte(b1[i])
+    next
+    dwrite(_s, 1)#deselect
+fend
+```
+</details>
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="resources">
+| Resource | Type
+| --- | ---
+| Schematics | PDF
+| 3D Drawing | STEP
+| 3D Viewer | PDF
+</TabItem>
+
+</Tabs>
+
+---
+![Logo](../../images/usbhook-servo-x1.png)
+
+**Ordering details Banner**
+
+Description | Part Number | MSRP | Status
+| --- | --- | --- | ---
+Color TFT 2.3" 320x240 Display with Capacitive Touch | GDL-TFT-CP23-A | $00.00 | Active

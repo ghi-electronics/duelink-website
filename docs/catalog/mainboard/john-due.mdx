@@ -1,8 +1,87 @@
-# John Due
 ---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Robot shaped mainboard, with PCB USB for easy connectablity, and CR2032 battery pack
+# John Due
 
-Front|Back
-:---:|:---:
-![Front](../../images/modules/johndue-front.png)| ![Back](../../images/modules/johndue-back.png)
+<div class="content-center">
+<table><td>
+<img alt="Front" width = "200" src="/img/modules/johndue-front.png"/>
+</td><td>
+<img alt="Back" width = "200" src="/img/modules/johndue-back.png"/>
+</td></table>
+</div>
+
+<div class="content-center">
+**Robot-shaped Pocket-sized Mainboard**
+</div>
+
+
+<Tabs queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Extensions', value: 'extensions'},
+    {label: 'Projects', value: 'projects'},
+    {label: 'Resources', value: 'resources'},
+  ]}>
+
+<TabItem value="overview">
+Robot-shaped pocket-sized mainboard, with PCB-USB for easy connectability, and CR2032 battery "backpack"!
+
+<iframe width="450" height = "300"
+src="https://www.youtube.com/embed/D4073veneWI" 
+frameborder="0"
+allowfullscreen>
+</iframe>
+
+Key features:
+
+* Pocket size
+* PCB-USB, plugs right in
+* CR2032 Battery holder
+* 10x10mm Overall dimensions
+
+</TabItem>
+
+<TabItem value="extensions">
+These extensions make it easy to access the on-board components. Combine with the [Standard Library](../../engine/stdlib) for a long list of available functions.
+
+| Function | Description | Use
+| --- | --- | ---
+| `Eye(l,r)` | Set the Eyes Color | `l` and `r` are the color value in standard RRGGBB format.
+| `Ear(l,r)` | Activate the "ears" LEDs | TDB
+
+<details>
+  <summary>Extension Script</summary>
+
+```py
+# code
+```
+</details>
+</TabItem>
+
+
+<TabItem value="projects">
+These project samples will get you started.
+</TabItem>
+
+<TabItem value="resources">
+| Resource | Type
+| --- | ---
+| Schematics | PDF
+| 3D Drawing | STEP
+| 3D Viewer | PDF
+</TabItem>
+
+</Tabs>
+
+![Logo](/img/order-info.png)
+
+
+Description | Part Number | MSRP | Status
+| --- | --- | --- | ---
+Pocket-size robot-shape mainboard | GDL-MB-JOHND-A | $00.00 | Active
