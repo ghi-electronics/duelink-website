@@ -12,7 +12,6 @@ It is possible to to abort a schedule at any time using `SAbort(func)`.
 
 ```py
 _i = 0
-_b = 0
 SStart("Blink", 100, 50)
 
 while 1
@@ -22,6 +21,6 @@ wend
 
 fn Blink()
   DWrite(20, _i&1)# status LED is always on pin 20
-  _b=_b+1
+  _i=_i+1
 fend
 ```
