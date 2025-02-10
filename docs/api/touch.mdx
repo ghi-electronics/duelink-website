@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Touch
 
 ---
@@ -10,8 +13,13 @@ This feature allows sensing of a finger or human touch to a pin, or when using a
 **x or y Returns:**  -1 = screen not touched, x position , y position
 
 This example detects human touching on pin 6, interval 100ms
-
-## [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+ <TabItem value="python">
 ```py
 while True:
     touched = duelink.Touch.Read(6)
@@ -22,7 +30,8 @@ while True:
     time.sleep(0.1)
 ```
 
-## [JavaScript](#tab/js)
+  </TabItem>
+  <TabItem value="javascript">
 ```js
 while (true){
     let touched = await duelink.Touch.Read(6)
@@ -34,7 +43,8 @@ while (true){
 }
 ```
 
-## [.NET](#tab/net)
+ </TabItem>
+  <TabItem value="csharp">
 ```cs
 while (true){
     var touched = duelink.Touch.Read(6);
@@ -46,4 +56,5 @@ while (true){
 }
 ```
 
----
+  </TabItem>
+</Tabs>

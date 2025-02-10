@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Digital
 
 ---
@@ -17,24 +20,34 @@ Read the current value of a digital pin.
 
 This example will read current value on pin 2.
 
-### [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+  
+<TabItem value="python">
 ```py
 x = duelink.Digital.Read(2, 'PullUp')
 print(x)
 ```
 
-### [JavaScript](#tab/js)
+</TabItem>
+  <TabItem value="javascript">
 ```js
 let x = await duelink.Digital.Read(2, 'PullUp')
 console.log(x)
 ```
 
-### [.NET](#tab/net) 
+</TabItem>
+  <TabItem value="csharp"> 
 ```cs
 var x = duelink.Digital.Read(2, InputType.PullUp);
 Console.WriteLine(x);
 ```
-
+  </TabItem>
+</Tabs>
 ---
 
 ---
@@ -47,20 +60,28 @@ Sets a pin's digital output.
 **state:** True = high or  false = low   
 
 This example will set pin 2 to be High.
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
 
-### [Python](#tab/py)
+<TabItem value="python">
 ```py
 duelink.Digital.Write(2, True)
 ```
 
-### [JavaScript](#tab/js)
+</TabItem>
+  <TabItem value="javascript">
 ```js
 duelink.Digital.Write(2, true)
 ```
 
-### [.NET](#tab/net)
+</TabItem>
+  <TabItem value="csharp">
 ```cs
 duelink.Digital.Write(2, true);
 ```
-
----
+  </TabItem>
+</Tabs>

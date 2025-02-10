@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # System Functions
 
 ---
@@ -32,8 +35,13 @@ The last character returned in Version is board
 
 
 Example: 
-
-## [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+ <TabItem value="python">
 
 ```py
 # print "Hello world"
@@ -58,7 +66,8 @@ duelink.System.Wait(1000)
 duelink.System.Reset(0)
 ```
 
-## [JavaScript](#tab/js)
+  </TabItem>
+  <TabItem value="javascript">
 
 ```js
 // print "Hello world"
@@ -83,7 +92,8 @@ await duelink.System.Wait(1000)
 await duelink.System.Reset(0)
 ```
 
-## [.NET](#tab/net)
+ </TabItem>
+  <TabItem value="csharp">
 
 ```cs
 // print "Hello world"
@@ -108,13 +118,5 @@ duelink.System.Wait(1000);
 duelink.System.Reset(0);
 ```
 
-
-
-
-
-
-
-
-
-
----
+  </TabItem>
+</Tabs>

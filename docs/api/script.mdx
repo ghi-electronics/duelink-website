@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Script
 
 ---
@@ -16,29 +19,45 @@ These methods allow developers to control DUE Scripts right from within Python, 
 
 This is an example to execute a single line in immediate mode. This does not modify the application stored in flash. 
 
-## [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+ <TabItem value="python">
 
 ```py
 duelink.Script.Execute("LED(200,200,10)")
 ```
 
-## [JavaScript](#tab/js)
+  </TabItem>
+  <TabItem value="javascript">
 
 ```js
 await duelink.Script.Execute("LED(200,200,10)")
 ```
 
-## [.NET](#tab/net)
+ </TabItem>
+  <TabItem value="csharp">
 
 ```cs
 duelink.Script.Execute("LED(200,200,10)");
 ```
+  </TabItem>
+</Tabs>
 
 ___
 
 This example will check any script stored in flash, and clear them if program found.
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
 
-## [Python](#tab/py)
+ <TabItem value="python">
 
 ```py
 
@@ -48,7 +67,8 @@ if (currentScript != ""):
     duelink.Script.New()
 ```
 
-## [JavaScript](#tab/js)
+  </TabItem>
+  <TabItem value="javascript">
 
 ```js
 let currentScript = await duelink.Script.Read()
@@ -57,7 +77,8 @@ if (currentScript != "")
     await duelink.Script.New();
 ```
 
-## [.NET](#tab/net)
+ </TabItem>
+  <TabItem value="csharp">
 
 ```cs
 var currentScript = duelink.Script.Read();
@@ -65,12 +86,20 @@ var currentScript = duelink.Script.Read();
 if (currentScript != "")
     duelink.Script.New();
 ```
+  </TabItem>
+</Tabs>
 
 ---
 
 This example will load a simple program line by line and then record it. Variable `c` is used to indicate how many times the LED will blink for, which is 10 in this case. 
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
 
-## [Python](#tab/py)
+ <TabItem value="python">
 
 ```py
 duelink.Script.Load("c = 10")
@@ -79,7 +108,8 @@ duelink.Script.Load("Led(100,100,c)")
 duelink.Script.Record()
 ```
 
-## [JavaScript](#tab/js)
+  </TabItem>
+  <TabItem value="javascript">
 
 ```js
 await duelink.Script.Load("c = 10")
@@ -88,7 +118,8 @@ await duelink.Script.Load("Led(100,100,c)")
 await duelink.Script.Record()
 ```
 
-## [.NET](#tab/net)
+ </TabItem>
+  <TabItem value="csharp">
 
 ```cs
 duelink.Script.Load("c = 10");
@@ -96,28 +127,40 @@ duelink.Script.Load("@Blink");
 duelink.Script.Load("Led(100,100,c)");
 duelink.Script.Record();
 ```
+  </TabItem>
+</Tabs>
 
 ___
 
 
 You can then access a previously recorder program using goto (to label) or by calling a function that has a return. This example calls the recorded program above by executing a single line that contains two commands. The first one sets `c` to 5 and the second will send execution to `@Blink`, which will cause the LED to blink 5 times.
 
-## [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+
+ <TabItem value="python">
 
 ```py
 duelink.Script.Execute("c=5:goto Blink")
 ```
 
-## [JavaScript](#tab/js)
+  </TabItem>
+  <TabItem value="javascript">
 
 ```js
 await duelink.Script.Execute("c=5:goto Blink")
 ```
 
-## [.NET](#tab/net)
+ </TabItem>
+  <TabItem value="csharp">
 
 ```cs
 duelink.Script.Execute("c=5:goto Blink");
 ```
 
-___
+  </TabItem>
+</Tabs>

@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Servo Motor
 
 ---
@@ -6,7 +9,14 @@
 **pin:** Pin number. Pin 5 and 6 supported by hardware PWM which is more accurate than other pins   
 **degree:**  0 to 180
 
-## [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+
+ <TabItem value="python">
 
 ```py
 while True:
@@ -22,7 +32,8 @@ while True:
     time.sleep(1)
 ```
 
-## [JavaScript](#tab/js)
+  </TabItem>
+  <TabItem value="javascript">
 
 ```js
 while (true) {
@@ -39,7 +50,8 @@ while (true) {
 }
 ```
 
-## [.NET](#tab/net)
+ </TabItem>
+  <TabItem value="csharp">
 
 ```cs
 while (true) {
@@ -55,8 +67,9 @@ while (true) {
     Thread.Sleep(1000);
 }
 ```
+  </TabItem>
+</Tabs>
 
----
 
 :::tip
 Many servo motors need 5V to work.

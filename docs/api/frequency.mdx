@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Frequency
 
 ---
@@ -14,7 +17,15 @@ See the specific hardware's page pin-out for details on supported pin(s).
 
 This example will do a loop that generates 20Hz tp 1000Hz after every 200ms.
 
-## [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+  
+ <TabItem value="python">
+
 ```py
 while True:
     for x in range(20, 1000):
@@ -22,7 +33,9 @@ while True:
         time.sleep(0.2)   
 ```
 
-## [JavaScript](#tab/js)
+  </TabItem>
+  <TabItem value="javascript">
+
 ```js
 while (true){
     for (let x = 20; x < 1000; x++){
@@ -32,7 +45,9 @@ while (true){
 }
 ```
 
-## [.NET](#tab/net)
+ </TabItem>
+  <TabItem value="csharp">
+
 ```cs
 while (true){
     for (var x = 20; x < 1000; x++){
@@ -41,32 +56,46 @@ while (true){
     }
 }
 ```
-___
+  </TabItem>
+</Tabs>
+
 ___
 
 Since `Freq()` is a non-blocking function, it will return immediately even if duration is set to a future time. Making a second call to **Freq()** will terminate any existing active frequency, despite the duration of previous calls argument.
 
 In this example, 1KHz will be generated for only 2 seconds and not 5 seconds.
 
-## [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+
+ <TabItem value="python">
 ```py
 duelink.Frequency.Write('p', 1000, 5000, 50)
 time.sleep(2)
 duelink.Frequency.Write('p', 0, 0, 0)
 ```
 
-## [JavaScript](#tab/js)
+  </TabItem>
+  <TabItem value="javascript">
+
 ```js
 await duelink.Frequency.Write('p', 1000, 5000, 50)
 await Util.sleep(2000)
 await duelink.Frequency.Write('p', 0, 0, 0)
 ```
 
-## [.NET](#tab/net)
+ </TabItem>
+  <TabItem value="csharp">
+
 ```cs
 duelink.Frequency.Write('p', 1000, 5000, 50);
 Thread.Sleep(2000);
 duelink.Frequency.Write('p', 0, 0, 0);
 ```
 
----
+  </TabItem>
+</Tabs>

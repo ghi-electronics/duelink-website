@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Display
 
 ---
@@ -52,7 +55,14 @@ This example will set the system to use the color display adapter from Waveshare
 
 `![ST7735](images/st7735.png)`
 
-### [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+
+<TabItem value="python">
 
 ```py
 # turn on the back-light (if needed)
@@ -100,7 +110,8 @@ for c in range(2,200):
 duelink.Display.Show()
 ```
 
-### [JavaScript](#tab/js)
+</TabItem>
+  <TabItem value="javascript">
 
 ```js
 // Need for DisplayType.ST7735
@@ -151,7 +162,8 @@ for ( let c = 2;c < 200; c++){
 await duelink.Display.Show()
 ```
 
-### [.NET](#tab/net)
+</TabItem>
+  <TabItem value="csharp">
 
 ```cs
 // turn on the back-light (if needed)
@@ -197,6 +209,8 @@ for ( var c = 2;c < 200; c++){
 // Show on screen
 duelink.Display.Show(); 
 ```
+  </TabItem>
+</Tabs>
 
 ---
 
@@ -204,7 +218,14 @@ This example below will direct graphics to an external 2.42" display with addres
 
 `![SSD1309](images/ssd1309.png)`
 
-### [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+
+<TabItem value="python">
 ```py
 i2caddress = 0x3C
 duelink.Display.Configuration.Type = i2caddress # apply i2c address directly
@@ -214,7 +235,8 @@ duelink.Display.DrawText("DUE is Awesome", 1, 0, 0)
 duelink.Display.Show()
 ```
 
-### [JavaScript](#tab/js)
+</TabItem>
+  <TabItem value="javascript">
 ```js
 let i2caddress = 0x3C
 duelink.Display.Configuration.Type = i2caddress # apply i2c address directly
@@ -224,7 +246,8 @@ await duelink.Display.DrawText("DUE is Awesome", 1, 0, 0);
 await duelink.Display.Show();
 ```
 
-### [.NET](#tab/net)
+</TabItem>
+  <TabItem value="csharp">
 ```cs
 var i2caddress = 0x3C;
 duelink.Display.Configuration.Type = (DisplayType)i2caddress; // apply i2c address directly
@@ -233,6 +256,8 @@ duelink.Display.Clear(0);
 duelink.Display.DrawText("DUE is Awesome", 1, 0, 0);
 duelink.Display.Show();
 ```
+  </TabItem>
+</Tabs>
 
 ---
 
@@ -252,7 +277,14 @@ All LCD functions process the graphics commands in an internal memory. It starts
 
 - **Display.Show()** Sends the display buffer to the LCD. 
 
-### [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+
+<TabItem value="python">
 
 ```py
 
@@ -266,7 +298,8 @@ duelink.Display.SetPixel(0xFFFFFF,64,32)
 duelink.Display.Show()
 ```
 
-### [JavaScript](#tab/js)
+</TabItem>
+  <TabItem value="javascript">
 
 ```js
 // Clear the screen
@@ -279,7 +312,8 @@ duelink.Display.SetPixel(0xFFFFFF,64,32)
 duelink.Display.Show()
 ```
 
-### [.NET](#tab/net)
+</TabItem>
+  <TabItem value="csharp">
 
 ```cs
 // Clear the screen
@@ -291,6 +325,8 @@ duelink.Display.SetPixel(0xFFFFFF,64,32)
 // Show on screen (flush the cache) 
 duelink.Display.Show()
 ```
+  </TabItem>
+</Tabs>
 
 ---
 
@@ -331,7 +367,14 @@ The system supports Color and B&W displays. To keep uniformity, 0 is always blac
 **width:** Rectangle width   
 **height:** Rectangle height 
 
-### [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+
+<TabItem value="python">
 
 ```py
 duelink.Display.Clear(0)
@@ -343,7 +386,8 @@ duelink.Display.SetPixel(1, 64, 32)
 duelink.Display.Show()
 ```
 
-### [JavaScript](#tab/js)
+</TabItem>
+  <TabItem value="javascript">
 
 ```js
 await duelink.Display.Clear(0)
@@ -355,7 +399,8 @@ await duelink.Display.SetPixel(1, 64, 32)
 await duelink.Display.Show()
 ```
 
-### [.NET](#tab/net)
+</TabItem>
+  <TabItem value="csharp">
 
 ```cs
 duelink.Display.Clear(0);
@@ -366,6 +411,8 @@ duelink.Display.DrawFillRect(1, 10, 10, 118, 54);
 duelink.Display.SetPixel(1, 64, 32);
 duelink.Display.Show();
 ```
+  </TabItem>
+</Tabs>
 
 ---
 
@@ -392,7 +439,14 @@ duelink.Display.Show();
 **scaleWidth:** Width scale multiplier   
 **scaleHeight:** Height scale multiplier 
 
-### [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+
+<TabItem value="python">
 
 ```py
 x = 100
@@ -403,7 +457,8 @@ duelink.Display.DrawTextScale(x, 1, 0, 20,2,2)
 duelink.Display.Show()
 ```
 
-### [JavaScript](#tab/js)
+</TabItem>
+  <TabItem value="javascript">
 
 ```js
 let x = 100
@@ -414,7 +469,8 @@ await duelink.Display.DrawTextScale(x, 1, 0, 20,2,2)
 await duelink.Display.Show()
 ```
 
-### [.NET](#tab/net)
+</TabItem>
+  <TabItem value="csharp">
 
 ```cs
 var x = 100;
@@ -424,6 +480,8 @@ duelink.Display.DrawTextScale(x.ToString(), 1, 0, 20,2,2);
 duelink.Display.Show();
 
 ```
+  </TabItem>
+</Tabs>
 
 ---
 
@@ -448,7 +506,14 @@ There are cases where images need to be added to the screen. Of course, we are t
 
 The following example displays the image array on the screen. We will place the array on multi line to help us visualize what the image might look like, but placing everything on a single line has the same effect
 
-### [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+
+<TabItem value="python">
 
 ```py
 img =  [8, 8, # width: 8 and height: 8
@@ -467,7 +532,8 @@ duelink.Display.DrawImageScale(img, 64, 0, 4, 4, duelink.Display.TransformRotate
 duelink.Display.Show()
 ```
 
-### [JavaScript](#tab/js)
+</TabItem>
+  <TabItem value="javascript">
 
 ```js
 let img =  [8, 8, // // width: 8 and height: 8
@@ -486,7 +552,8 @@ await duelink.Display.DrawImageScale(img, 64, 0, 4, 4, duelink.Display.Transform
 await duelink.Display.Show()
 ```
 
-### [.NET](#tab/net)
+</TabItem>
+  <TabItem value="csharp">
 
 ```cs
 var img = new uint[] {8, 8, // width: 8 and height: 8
@@ -505,6 +572,8 @@ duelink.Display.DrawImage(img, 0, 0, duelink.Display.TransformNone);
 duelink.Display.DrawImageScale(img, 64, 0, 4, 4, duelink.Display.TransformRotate90);
 duelink.Display.Show();
 ```
+  </TabItem>
+</Tabs>
 
 ---
 
@@ -532,8 +601,14 @@ This function takes raw bitmap image (32 bit), convert to new array with `ColorD
 **rawData** Inout raw data. Must be 32 bit and alpha will be ignored   
 **ColorDepth:** This lets the stream know what is the format of the incoming data stream. B&W displays only support 1. Color displays support 4 (palette), 8, and 16 bits.
 
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
 
-### [Python](#tab/py)
+<TabItem value="python">
 
 ```py
 imageRaw = [0] * (128 * 64 * 4); # Create an image with width = 128, height = 64, 32 bit
@@ -553,7 +628,8 @@ for i in range(len(imageRaw)):
 duelink.Display.ShowBuffer(imageRaw, colorDepth)
 ```
 
-### [JavaScript](#tab/js)
+</TabItem>
+  <TabItem value="javascript">
 
 ```js
 let imageRaw = new Uint8Array(128*64*4) // Create an image with width = 128, height = 64, 32 bit
@@ -573,7 +649,8 @@ for (let i = 0; i < imageRaw.length; i++){
 await duelink.Display.ShowBuffer(imageRaw, colorDepth)
 ```
 
-### [.NET](#tab/net)
+</TabItem>
+  <TabItem value="csharp">
 
 ```cs
 var imageRaw = new byte[128 * 64 * 4]; // Create an image with width = 128, height = 64, 32 bit
@@ -594,6 +671,8 @@ for (var i = 0; i < imageRaw.Length; i++){
 duelink.Display.ShowBuffer(imageRaw, colorDepth);
 
 ```
+  </TabItem>
+</Tabs>
 
 ---
 
@@ -639,26 +718,38 @@ Default colors:
 
 Example code to swap Black (index 0) and Red color (index 2)
 
-### [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+  
+<TabItem value="python">
 
 ```py
 duelink.Display.Palette(0, 0xFF0000)
 duelink.Display.Palette(2, 0x000000)
 ```
 
-### [JavaScript](#tab/js)
+</TabItem>
+  <TabItem value="javascript">
 
 ```js
 await duelink.Display.Palette(0, 0xFF0000)
 await duelink.Display.Palette(2, 0x000000)
 ```
 
-### [.NET](#tab/net)
+</TabItem>
+  <TabItem value="csharp">
 
 ```cs
 duelink.Display.Palette(0, 0xFF0000);
 duelink.Display.Palette(2, 0x000000);
 ```
+
+  </TabItem>
+</Tabs>
 
 
 

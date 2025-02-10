@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # SPI
 
 ---
@@ -23,8 +26,14 @@
 **readCount:** The number of bytes to read   
 **chipselect:** Chip select pin (optional)    
 
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
 
-## [Python](#tab/py)
+ <TabItem value="python">
 ```py
 arrayWrite = [ 0xAA, 0x55, 0xAA, 0x55 ]
 arrayRead = [0] * 4
@@ -39,7 +48,8 @@ duelink.Spi.Read(arrayRead, 0, 2, chipselect)
 duelink.Spi.WriteRead(arrayWrite, 0, arrayWrite.Length, arrayRead, 0, arrayRead.Length, chipselect)
 ```
 
-## [JavaScript](#tab/js)
+  </TabItem>
+  <TabItem value="javascript">
 ```js
 let arrayWrite = [ 0xAA, 0x55, 0xAA, 0x55 ]
 let arrayRead = new Uint8Array(4)
@@ -54,7 +64,8 @@ await duelink.Spi.Read(arrayRead, 0, 2, chipselect)
 await duelink.Spi.WriteRead(arrayWrite, 0, arrayWrite.Length, arrayRead, 0, arrayRead.Length, chipselect)
 ```
 
-## [.NET](#tab/net)
+ </TabItem>
+  <TabItem value="csharp">
 ```cs
 var arrayWrite = new byte[4] { 0xAA, 0x55, 0xAA, 0x55 };
 var arrayRead = new byte[4];
@@ -69,4 +80,5 @@ duelink.Spi.Read(arrayRead, 0, 2, chipselect);
 duelink.Spi.WriteRead(arrayWrite, 0, arrayWrite.Length, arrayRead, 0, arrayRead.Length, chipselect);
 ```
 
----
+  </TabItem>
+</Tabs>

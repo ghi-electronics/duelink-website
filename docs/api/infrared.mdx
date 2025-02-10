@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Infrared
 
 ---
@@ -13,7 +16,14 @@ IR decoder is fixed to pin 2 and 8.
 
 This example will enable and read IR code from pin 2.
 
-## [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+  
+ <TabItem value="python">
 
 ```py
 duelink.Infrared.Enable(2, True)
@@ -26,7 +36,8 @@ while True:
     time.sleep(1)
 ```
 
-## [JavaScript](#tab/js)
+  </TabItem>
+  <TabItem value="javascript">
 
 ```js
 await duelink.Infrared.Enable(2, true)
@@ -41,7 +52,8 @@ while (true){
 }
 ```
 
-## [.NET](#tab/net)
+ </TabItem>
+  <TabItem value="csharp">
 
 ```cs
 duelink.Infrared.Enable(2, true);
@@ -56,4 +68,5 @@ while (true){
 }
 ```
 
----
+  </TabItem>
+</Tabs>
