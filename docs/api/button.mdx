@@ -1,3 +1,7 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 # Buttons
 
 ---
@@ -23,9 +27,16 @@ This feature is not available on all pins. However, [Digital Read](digital.mdx) 
 **pin:** Pin number  
 **Returns:** True if button was pressed recently and continues to return 1 until the button is released
 
-This example checks button 'a'.
 
-## [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+
+
+ <TabItem value="python">
 
 ```py
 duelink.Button.Enable('a', True);
@@ -45,7 +56,8 @@ while True:
 
 
 
-## [JavaScript](#tab/js)
+  </TabItem>
+  <TabItem value="javascript">
 ```js
 await duelink.Button.Enable('a', true)
 
@@ -64,7 +76,8 @@ while (true) {
 }
 ```
 
-## [.NET](#tab/net)
+ </TabItem>
+  <TabItem value="csharp">
 ```cs
 duelink.Button.Enable('a', true);
 
@@ -82,5 +95,7 @@ while (true) {
     Thread.Sleep(200);
 }
 ```
+  </TabItem>
+</Tabs>
 ---
 

@@ -19,8 +19,17 @@ This feature uses software-generated PWM to control the "Analog" level of a pin.
 **dutyCycle:** 0 to 100
 
 This example code will swing the analog output value up and down in a loop.
-<Tabs>
-  <TabItem value="python" label="Python" default>
+
+
+
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+
+  <TabItem value="python">
     ```python
     while True:
         for i in range(0, 100, 10):
@@ -32,7 +41,7 @@ This example code will swing the analog output value up and down in a loop.
             time.sleep(0.1)
     ```
   </TabItem>
-  <TabItem value="javascript" label="JavaScript">
+  <TabItem value="javascript">
     ```js
     while (true) {
         for (let i = 0; i < 100; i+=10) {
@@ -47,7 +56,7 @@ This example code will swing the analog output value up and down in a loop.
     }
     ```
   </TabItem>
-  <TabItem value="csharp" label=".NET" default>
+  <TabItem value="csharp">
     ```csharp
     while (true) {
         for (var i = 0; i < 100; i+=10) {
@@ -80,8 +89,14 @@ Use this function to read the analog level on a specific pin.
 
 This is an example code to read the analog level on pin 0 and print out to the console 10 times per second.
 
-<Tabs>
-  <TabItem value="python" label="Python" default>
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+
+ <TabItem value="python">
     ```python
     while True:
         x = duelink.Analog.Read(0)
@@ -89,7 +104,7 @@ This is an example code to read the analog level on pin 0 and print out to the c
         time.sleep(0.1)
     ```
   </TabItem>
-  <TabItem value="javascript" label="JavaScript">
+  <TabItem value="javascript">
     ```js
     while (true) {
         let x = await duelink.Analog.Read(0)
@@ -98,7 +113,7 @@ This is an example code to read the analog level on pin 0 and print out to the c
 }
     ```
   </TabItem>
-  <TabItem value="csharp" label=".NET">
+  <TabItem value="csharp">
     ```csharp
     while (true) {
         var x = duelink.Analog.Read(0);

@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # I2C
 
 ---
@@ -25,8 +28,14 @@ I2C is one of the protocols that is used widely in most sensors.
 **indexRead:** Index of data in the array   
 **readCount:** The number of bytes to read   
 
-
-## [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+  
+ <TabItem value="python">
 
 ```py
 # Write 11 and 22 to a slave at address 0x2C
@@ -41,7 +50,8 @@ duelink.I2c.Read(0x2C, dataRead)
 duelink.I2c.WriteRead(0x2C, dataWrite, 0, len(dataWrite), dataRead, 0, len(dataRead))
 ```
 
-## [JavaScript](#tab/js)
+  </TabItem>
+  <TabItem value="javascript">
 
 ```js
 let dataWrite = [11,22]
@@ -57,7 +67,8 @@ await duelink.I2c.Read(0x2C, dataRead)
 await duelink.I2c.WriteRead(0x2C, dataWrite, 0, dataWrite.length, dataRead, 0, dataRead.length)
 ```
 
-## [.NET](#tab/net)
+ </TabItem>
+  <TabItem value="csharp">
 
 ```cs
 var dataWrite = new byte[] {11, 22};
@@ -73,5 +84,5 @@ duelink.I2c.Read(0x2C, dataRead);
 duelink.I2c.WriteRead(0x2C, dataWrite, 0, dataWrite.Length, dataRead, 0, dataRead.Length);
 ```
 
----
-
+  </TabItem>
+</Tabs>

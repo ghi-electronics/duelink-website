@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Pulse
 
 ---
@@ -11,22 +14,30 @@ Generate pulses with delay. This feature is great for controlling stepper motors
 
 
 The example below generate 400 pulses (step) on pin 6. Each pulse has 1000us (500us high and 500us low)
-
-## [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+ <TabItem value="python">
 ```py
 duelink.Pulse.Set(6, 400, 1000)
 ```
 
-## [JavaScript](#tab/js)
+  </TabItem>
+  <TabItem value="javascript">
 ```js
 await duelink.Pulse.Set(6, 400, 1000)
 ```
 
-## [.NET](#tab/net)
+ </TabItem>
+  <TabItem value="csharp">
 ```cs
 duelink.Pulse.Set(6, 400, 1000);
 ```
+  </TabItem>
+</Tabs>
 
----
  
 

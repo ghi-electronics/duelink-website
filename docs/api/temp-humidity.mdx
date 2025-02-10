@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Temperature and Humidity 
 
 ---
@@ -15,8 +18,13 @@ Works with the DHT line of low-cost temperature & humidity sensors.
 **Returns:** Humidity level 0 to 100.
 
 This example reads temperature and humidity every one second, using DHT11 sensor and connected to pin 0.
-
-## [Python](#tab/py)
+<Tabs groupid = "language" queryString="show" defaultValue="python"
+  values={[
+    {label: 'Python', value: 'python'},
+    {label: 'JavaScript', value: 'javascript'},
+    {label: '.NET', value: 'csharp'},
+  ]}>
+ <TabItem value="python">
 ```basic
 while True:
     print(duelink.Humidity.Read(0, 11))
@@ -25,7 +33,8 @@ while True:
     time.sleep(1)
 ```
 
-## [JavaScript](#tab/js)
+  </TabItem>
+  <TabItem value="javascript">
 ```basic
 while (true){
     console.log(await duelink.Humidity.Read(0, 11))
@@ -35,7 +44,8 @@ while (true){
 }
 ```
 
-## [.NET](#tab/net)
+ </TabItem>
+  <TabItem value="csharp">
 ```basic
 while (true){
     Console.WriteLine(duelink.Humidity.Read(0, 11));
@@ -45,4 +55,5 @@ while (true){
 }
 ```
 
----
+  </TabItem>
+</Tabs>
