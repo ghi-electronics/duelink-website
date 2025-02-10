@@ -6,7 +6,7 @@ DUELink unifies many aspects allowing modules to come in any shape and form and 
 
 ## Connections
 
-Connections between modules and to microconputers is accomplished using standard 4pin 1mm JST connector. These low-cost and common connectors are very small that you can throw on anything without compromising space. They are available in SMT for fast machine placement and in TH in case you need to hand solder them.
+Connections between modules and to microcomputers is accomplished using standard 4pin 1mm JST connector. These low-cost and common connectors are very small that you can throw on anything without compromising space. They are available in SMT for fast machine placement and in TH in case you need to hand solder them.
 
 Images
 
@@ -19,11 +19,11 @@ The pinout consists of
 * The DRP pin handles: [I2C](interface/i2c) SDA, [UART](interface/uart) RX, and [USB](interface/usb) D+
 * The CTN pin carries: [I2C](interface/i2c) SCL, [UART](interface/uart) TX, and [USB](interface/usb) D-
 
-Each module includes both Upstream and [Downstream](interface/downstream) connectors. The Upstream connector is used to connect the module to a microconputer, such as Rapberry PI or Arduino, or a PC. It automatically works with [I2C](interface/i2c), [UART](interface/uart), and [USB](interface/usb).
+Each module includes both Upstream and [Downstream](interface/downstream) connectors. The Upstream connector is used to connect the module to a microcomputer, such as Rapberry PI or Arduino, or a PC. It automatically works with [I2C](interface/i2c), [UART](interface/uart), and [USB](interface/usb).
 
 Image
 
-When USB is mostly desired on specific boards, a USB C connector is used instead of the JST Upstream socket. This is the case with [DueDuino](catalog/microconputer/dueduino) for example.
+When USB is mostly desired on specific boards, a USB C connector is used instead of the JST Upstream socket. This is the case with [DueDuino](catalog/microcomputer/dueduino) for example.
 
 Image
 
@@ -31,12 +31,12 @@ Every single module can still access USB by wiring a USB connector the Upstream 
 
 Image of usb hook with a module
 
-In some rare case, a module might have both Upstream and USB connector, like we have on [John Due](catalog/microconputer/john-due). In this case, the user can use either USB or Downstream as they are both wired together internally.
+In some rare case, a module might have both Upstream and USB connector, like we have on [John Due](catalog/microcomputer/john-due). In this case, the user can use either USB or Downstream as they are both wired together internally.
 
 Image
 
 Detail: DUELink Upstream connection is compatible with Sparkfun Qwiic and Adafruit STEMMA QT
-Both use I2C, which is one of options available on any DUELink Upstream connection. Always connect the non-DUELink modules first in line with the microconputer then add as many DUELink modules ass the wires can handle!!
+Both use I2C, which is one of options available on any DUELink Upstream connection. Always connect the non-DUELink modules first in line with the microcomputer then add as many DUELink modules ass the wires can handle!!
 Image
 
 The second connector is Downstream. It is used to the next module’s Upstream socket. Each module has intelligence to know what to transfer and return throughout the entire stream. Only connect DUELink modules on the downstream connection. More details are on the [Downstream](interface/downstream) page.
@@ -71,7 +71,7 @@ DUELink [Accessories](catalog/accessories) includes all the hardware you need to
 
 ## Processor
 
-Currently, only STM32C071 is supported with DUELink. We use QFN32 package but fear not as we have a made a [DueStick](catalog/microconputer/stick) to help you make your own modules!
+Currently, only STM32C071 is supported with DUELink. We use QFN32 package but fear not as we have a made a [DueStick](catalog/microcomputer/stick) to help you make your own modules!
 
 Image next to a coint and a pencil. >>>>>>>>>>>> In fact, we should have this reference for all modules images
 
