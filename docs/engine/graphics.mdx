@@ -11,23 +11,24 @@ The graphics libraries does not include any device initialization. An applicatio
 
 Before any drawing operations, the systems needs ot know what device it will access and what pixel mapping it needs to process internally.
 
-`GfxConfig (type, cfg1, cfg2, width, height, direct, multiplier)` Is needed to set the device `type` with `width` and `height`. The `cfg1` and `cfg2` are optional and depend on the device type.
+`GfxConfig (type, [cfg], width, height, mode)` Is needed to set the device `type` with `width` and `height`. The `[cfg]` depends on the device type.
 
-`direct` mode is 1 when drawing to the display directly. No need for internal buffering and no need for `Show()`. 
+When `mode` is 0 then graphics is sent directly to display. No need for internal buffering and no need for `Show()`. This uses a lot less memory.
 
-Another options for larger display is to use `multiplier`. In this case, the engine will multiply each pixel, 2 or 3 times, to cover the entire screen. For example, 160x128 display with x2 multiplier requires only 80x64 of memory.
+When `mode` is more than 0 then the engine uses buffering for graphics, where the value is the pixel multiplier. For example, setting `mode` to 3 will cause the graphics engine to multiply each pixel 3 times horizontally and vertically, 9 pixels in total. A 320x240 display runs at 106x80 pixels.
 
-When selecting to use graphics with `direct` set to 0 (use internal buffering), make sure the overall memory need is under 10KBytes. 320x240 with 3 x multiplier is 106x80. We typically set it to 100x80 pixels, requiring 8KBytes of RAM.
+When selecting to use graphics with `mode` set to more than 0 (use graphics buffering), make sure the overall memory need is under 10KBytes. 320x240 with 3 x multiplier is 106x80, needing 8,480 Bytes.
 
 Supported device types:
 
 | Type | Description
 | --- | ---
 | 0 | None (default)
-| 1 | I2C device, with `cgf1` being the salve address. `cfg2` is ignored.
-| 2 | SPI device, with `cfg1` being the chip select and `cfg2` is data control pins.
-| 3 | Neopixel WS2812 support. `cfg1` is the data pin.
-| 4 | 5x5 LED matrix. The pins are fixed. Note that all argument are ignored with this type as width and height are set to 5, with no buffering and no multiplier.
+| 1 | I2C device - `[cgf]` set to `[address]` being the salve address.
+| 2 | SPI device - `[cgf]` set to `[chipselect, control]`.
+| 3 | NeoPixel WS2812 - `[cfg]` is the data pin. The `width` and `height` are used to determine the matrix dimensions.
+| 4 | LED COL/ROW Matrix - `[cgf]` containing the pins for columns then rows. The `width` and `height` are used to determine how many pins are used.and no multiplier.
+| 5 | LED Matrix List - `[cfg]` is a 2D list of available LEDs, with `width` and `height` layout.
 
 :::tip
 Direct graphics is optional on SPI but always buffered on I2C.
