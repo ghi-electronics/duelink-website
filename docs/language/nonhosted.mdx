@@ -1,0 +1,41 @@
+# Non-Hosted
+
+---
+
+DUELink is designed from the ground up to work with your favorite [System](../system/intro) and favorite [Language](./intro). Those are **Hosted** languages because they ron on a host, that is your board choice.
+
+DUELink can also run in a Non-hosted mode, meaning the module itself will run your program. 
+
+Typically, only one module will run your program. The other modules will be [Dasylinked](../engine/daisylink) over the [Downstream](../interface/downstream) connectors.
+
+image
+
+The chip used on DUELink modules is STM32C071, which is supported many options. We will cover some of them.
+
+
+## DUELink Scripting Engine
+
+This is the easiest option and most versatile. The default firmware already includes in [Internal Engine](../engine/intro) that has a [Scripting](../engine/scripting) language. It is easy to learn, making it a great choice for educators, yet it is flexible enough to run complete applications.
+
+Visit the [Internal Engine](../engine/intro) and [Scripting](../engine/scripting) language pages for more details.
+
+## C++
+
+ST Micro offers STMCubeIDE as a complete solution to program STM micros. It is a free and complete with many options.
+
+Another option is what we use at GHI Electronics, which is [Keil MDK](https://www.keil.com/). This is a paid software but it is licensed to be used for free on STM32C071.
+
+Visit the [C++](./cpp) page to learn more.
+
+
+## Arduino
+
+Arduino is basically C++ but with an easier user-friendly libraries and a very large community.
+
+The [Arduino](../system/arduino) page shows how to use DUELink in a hosted and non-hosted ways.
+
+# MicroBlocks
+
+This is a block-based coding option, a great choice for educators, young learners, or even anyone who want to code but without "typing" the code!
+
+Visit [MicroBlocks](./microblocks) to get started.

@@ -218,6 +218,7 @@ const sidebars = {
         link: {type: 'doc', id: 'language/intro'},
         items: [
           
+                'language/nonhosted',
                 'language/python',
                 'language/micropython',
                 'language/javascript',
