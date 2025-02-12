@@ -85,7 +85,9 @@ Access pins in their analog format
 | `VRead(pin)` | Read calibrated voltage level on `pin`
 | `PWrite(pin, power)` | Set `power` level on `pin` using PWM. Power level is 0 to 1, 0.33 is 33% for example.
 
-`PWrite()` only works on PWM pins.
+`VRead()` only works with analog capable pins, see [Special Pins](#special-pins).
+`PWrite()` only works on PWM pins, see [Special Pins](#special-pins).
+
 
 ### Beep
 
@@ -113,7 +115,7 @@ Melody(1, a1)
 
 ### Button
 
-Use interrupts to keep track of pins. Only available on interrupt capable pins, see special pins above!
+Use interrupts to keep track of pins. Only available on interrupt capable pins, see [Special Pins](#special-pins) above!
 
 | Function | Description
 | --- | ---
@@ -159,7 +161,7 @@ Control servo motors.
 | --- | ---
 | `ServoSt(pin, degree)` | Position a servo on `pin` to `degree`: 0 to 180
 
-`ServoSt()` only works with PWM pins.
+`ServoSt()` only works with PWM pins, see [Special Pins](#special-pins).
 
 ### I2C
 
