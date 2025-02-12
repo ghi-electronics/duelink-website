@@ -83,7 +83,9 @@ Access pins in their analog format
 | Function | Description
 | --- | ---
 | `VRead(pin)` | Read calibrated voltage level on `pin`
-| `PWrite(pin, power)` | Set `power` level on `pin` using PWM if available or soft PWM if not. Power level is 0 to 1, 0.33 is 33% for example.
+| `PWrite(pin, power)` | Set `power` level on `pin` using PWM. Power level is 0 to 1, 0.33 is 33% for example.
+
+`PWrite()` only works on PWM pins.
 
 ### Beep
 
@@ -115,7 +117,7 @@ Use interrupts to keep track of pins. Only available on interrupt capable pins, 
 
 | Function | Description
 | --- | ---
-| `BtnEnable(pin, enable)` |  Enable button scanning feature on `pin`. `enable`: 1 = Enable 0 = Disable.
+| `BtnEn(pin, enable)` |  Enable button scanning feature on `pin`. `enable`: 1 = Enable 0 = Disable.
 | `BtnUp(pin)` |  `pin`: Returns 1 if `pin` transitioned to high level.
 | `BtnDown(pin)` |  `pin`: Returns 1 if `pin` transitioned low.
 
@@ -155,9 +157,9 @@ Control servo motors.
 
 | Function | Description
 | --- | ---
-| `ServoSet(pin, degree)` | Position a servo on `pin` to `degree`: 0 to 180
+| `ServoSt(pin, degree)` | Position a servo on `pin` to `degree`: 0 to 180
 
-On Pins with PWM feature, the servo control is done in hardware, and it is very accurate. All other pins support Servo but give estimate on servo steps.
+`ServoSt()` only works with PWM pins.
 
 ### I2C
 
@@ -165,8 +167,8 @@ Access the I2C bus.
 
 | Function | Description
 | --- | ---
-| `I2CCfg(baudrate)` | `baudrate`: Set the I2C clock speed in khz, typically 100K or 400K, and 1M in some cases.
-| `I2cBytes(address, arrayWrite, writeCount, arrayRead, readCount)` | `address`: I2C slave address - `arrayWrite`: array to send, `writeCount`: number of bytes to write, `arrayRead`: array to read,`readCount`: Number bytes to read
+| `I2cCfg(baudrate)` | `baudrate`: Set the I2C clock speed in khz, typically 100K or 400K, and 1M in some cases.
+| `I2cWrs(address, arrayWrite, writeCount, arrayRead, readCount)` | `address`: I2C slave address - `arrayWrite`: array to send, `writeCount`: number of bytes to write, `arrayRead`: array to read,`readCount`: Number bytes to read
 
 
 ### SPI
@@ -176,8 +178,8 @@ Access the SPI bus.
 | Function | Description
 | --- | ---
 | `SpiCfg(mode, frequency)`  | Configure SPI with `mode`: 0 to 3 and `frequency` in KHz, ranging 200KHz to 20MHz
-| `SpiByte(byte)`  | Write a `byte` then return the received byte.
-| `SpiWBytes([data], offset, count)` | Write an byte array of `data` with `offset` and `count` 
+| `SpiWr(byte)`  | Write a `byte` then return the received byte.
+| `SpiWrs([data], offset, count)` | Write an byte array of `data` with `offset` and `count` 
 
 ### Serial
 
@@ -186,10 +188,10 @@ Read and write serial data
 | Function | Description
 | --- | ---
 | `SerCfg(baud, rxsize)` | Start serial port with `baud` and allocate a receive buffer of `rxsize`.
-| `SerRead()` | Read a single byte from the receive buffer. Returns zero if it finds no data.
-| `SerReads([data], offset, count, timeout)` | Block the system till it read a `count` of bytes to place in the `data` byte array at `offset`. Terminate and return if no data received in `timeout` milliseconds. Returns how many bytes it read successfully.
-| `SerWrite(byte)` | Write a single `byte` to the serial port.
-| `SerWrites([data], offset, count)` | Write an array of `data` bytes with `offset` and `count`.
+| `SerRd()` | Read a single byte from the receive buffer. Returns zero if it finds no data.
+| `SerRds([data], offset, count, timeout)` | Block the system till it read a `count` of bytes to place in the `data` byte array at `offset`. Terminate and return if no data received in `timeout` milliseconds. Returns how many bytes it read successfully.
+| `SerWr(byte)` | Write a single `byte` to the serial port.
+| `SerWrs([data], offset, count)` | Write an array of `data` bytes with `offset` and `count`.
 | `SerB2R()` | Return how many bytes are available in the receive buffer.
 | `SerDisc()` | Discard the receive buffer.
 
@@ -214,7 +216,7 @@ Receive and decode signals from Infrared remotes.
 
 | Function | Description
 | --- | ---
-| `IrEnable(pin,enable)` |  `enable` IR scanner on `pin`.
+| `IrEn(pin,enable)` |  `enable` IR scanner on `pin`.
 | `IrRead()` |Returns key press value.
 
 ### Temperature
@@ -298,9 +300,9 @@ Mount and initialize the file system. Only one media is supported at any given t
 
 | Function | Description
 | --- | ---
-| `FsMount(type, cs, baud, max_handle)` | Enable file system to a specific `type` of media on SPI bus with `cs` chip-select pin at `baud` KHz, with maximum allowed file handles `max_handle`. Returns 0 if success.
-| `FsUnMount()` | Release file system. Returns 0 if success.
-| `FsFormat(type, cs, baud)` | Format the mounted media. Note that this takes several minutes to complete.
+| `FsMnt(type, cs, baud, max_handle)` | Enable file system to a specific `type` of media on SPI bus with `cs` chip-select pin at `baud` KHz, with maximum allowed file handles `max_handle`. Returns 0 if success.
+| `FsUnMnt()` | Release file system. Returns 0 if success.
+| `FsFmt(type, cs, baud)` | Format the mounted media. Note that this takes several minutes to complete.
 
 Supported media types:
 
@@ -325,7 +327,7 @@ Unless otherwise stated, all functions return 1 on success or negative error cod
 | `FsSync(handle)` | Sync file with any buffered data.
 | `FsSeek(handle, offset)` | change the location in the `handle` file on where to read or write.
 | `FsTell(handle)` | Returns the current location being access in `handle` file.
-| `FsDelete("path")` | Delete file or directory at `path`.
+| `FsDel("path")` | Delete file or directory at `path`.
 | `FsFind("path")` | Find if existing name is available. Returns the item type if found, return 0x10 for directory, 0x20 for file for example.
 | `FsSize("path")` | Returns `path` file size, negative number on failure, 0 if file not found.
 
@@ -449,7 +451,7 @@ Reset or clear the system.
 | --- | ---
 | `Version()` | Return firmware version|device ID|loader version, in this format: `GHI Electronics DUELink v01.03:BB01:01.00`.
 | `Echo(enable)` | Set echo functionality to `enable`: 1 = Enable or 0 = Disable.
-| `DumpArray([array])` | Dump the `array`.
+| `DumpArr([array])` | Dump the `array`.
 | `ReadVCC()` | Return current system voltage.
 
 ---
