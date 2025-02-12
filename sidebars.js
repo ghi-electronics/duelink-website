@@ -225,6 +225,8 @@ const sidebars = {
                 'language/tinyclr',
                 'language/cpp',    
                 'language/swift',   
+                'language/makecode',   
+                'language/microblocks',   
                 'language/app-inventor',   
                 'language/excel',
                 'language/other',

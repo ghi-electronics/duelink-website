@@ -1,7 +1,7 @@
 # micro:bit
  ![micro:bit logo](/img/microbit-logo.png)
 
-micro:bit includes edge pads allowing it to plug into accessories. 
+micro:bit is an educational board with on-board LEDs and sensors, plus it has edge pads allowing it to plug into accessories. 
 
   ![micro:bit](/img/microbit.png)   
 
@@ -9,7 +9,9 @@ Some of those pads have holes, supporting alligator clips.
 
   ![micro:bit with alligator clips](/img/microbit-clip.png)   
 
-If you enjoy the edge connector and alligator clips, DUELink offers many bit-compatible boards, such as the ultra-low-cost [CincoBit](../catalog/microcomputer/cincobit) and also [PixoBit](../catalog/microcomputer/pixobit) that includes a display.
+## Alternatives
+
+If you enjoy the edge connector and alligator clips, DUELink offers  bit-compatible boards, such as the ultra-low-cost [CincoBit](../catalog/microcomputer/cincobit) and also [PixoBit](../catalog/microcomputer/pixobit) that includes a display.
 
   ![micro:bit](/img/cincobit-pixobit.png)   
 
@@ -17,31 +19,42 @@ The DUELink [CincoBit](../catalog/microcomputer/cincobit) and [PixoBit](../catal
 
   ![micro:bit](/img/cincobit-robot.png)   
 
-:::info
-DUELink does not currently have a block-coding option but we are still working on it with some important partners, so stay tuned!
-:::
+## micro:bit with DUELink Modules
 
-If using the official BBC micro:bit, you can use an accessory with JST connector such as [Sparkfun Qwiic micro:bit Breakout](https://www.sparkfun.com/sparkfun-qwiic-micro-bit-breakout.html)
+To connect micr:bit to one of the many DUElink modules, you can use an accessory with a JST connector such as [Sparkfun Qwiic micro:bit Breakout](https://www.sparkfun.com/sparkfun-qwiic-micro-bit-breakout.html)
 
   ![micro:bit](/img/microbit-breakout.png)   
 
-You can use one of two JST sockets as a [Downstream](../interface/downstream) with hundreds of DUELink module options.
+One of the two JST sockets becomes a [Downstream](../interface/downstream) bringing you hundreds of DUELink module options, that connect in a [Dasylink](../engine/daisylink).
 
 Image
 
-Microsoft [MakeCode](https://makecode.microbit.org/) can be used to access the DUELink bus through [I2C](../interface/i2c).
+## Software options
 
-This example blinks the status LED 10 times on any downstream module
+There are multiple options to program micro:bit to use DUELink modules. We are only going to list the ones we have tested.
 
-```
-// you need this to make the example
-function stringToBuffer(str: string): Buffer {
-    return Buffer.fromUTF8(str);
-}
-```
+### MakeCode
 
-[MicroPython](../language/micropython) is another option.
+Microsoft [MakeCode](https://www.microsoft.com/en-us/makecode) is the most used interface with micro:bit. It is block-based, making it an easy choice for beginners and young learners.
 
-```python
-I2c.write(“LED(20,20,10)”)
-```
+image
+
+Our [MakeCode](../language/makecode) page has everything you need.
+
+
+### MicroPython
+
+This is one of the well supported options with DUELink.
+
+image
+
+learn more about DUELink's [MicroPython](../language/micropython) language support.
+
+### MicroBlocks
+
+This is a great option to program micro:bit using blocks. 
+
+image
+
+The [MicroBlocks](../language/microblocks) language page will show you how!
+

@@ -1,0 +1,53 @@
+# MicroBlocks
+
+---
+
+image
+
+For users who enjoy block-coding, MicroBlocks supports several boards. All you need is a board with a JST connector to utilize hundreds of DUELink modules. There are 2 ways to benefit from MicroBlocks, by using a supported third-party board such as [micro:bit](../system/microbit) or by loading MicroBlocks directly on a DUELink module!
+
+## Using micro:bit
+
+We will focus on using [micro:bit](../system/microbit) While any board should be able to work DUELink, . In the case of [micro:bit](../system/microbit), you need an accessory that adds a JST connector, like the one we use for [Downstream](../interface/downstream). For example, [Sparkfun Qwiic micro:bit Breakout](https://www.sparkfun.com/sparkfun-qwiic-micro-bit-breakout.html) is a good option.
+
+image
+
+This board connects the JST connector to [I2C](../interface/i2c) bus, which is one of supported [Interfaces](../interface/intro).
+
+Lets get started! Create a MicroBlocks project like you always did on [microblocks.fun/run/](https://microblocks.fun/run/).
+
+image
+
+Connect a micro:bit and add blocks that send `LED(200,200,50)` over the I2C Interface. 
+
+image of blocks
+
+This will blink the LED on a connected DUELink module 50 times.
+
+image maybe gif
+
+:::tip
+A DUELink extension will be provided in the future to make the use of MicroBlocks easier.
+:::
+
+## Modules running MicroBlocks
+
+MicroBlocks can run on any of the DUELink modules, giving that module a native block-coding option. From there, a user can easily [Dasylink](../engine/daisylink) several modules.
+
+image showing module with microblocks on it connected to other moudles.
+
+While MicroBlocks can be loaded on the entire [Catalog](../catalog/intro.mdx), it shines best on one of the [Microcomputers](../catalog/microcomputers), such as [CincoBit](../catalog/microcomputer/cincobit) and [PixoBit](../catalog/microcomputer/pixobit).
+
+You need to replace the default DUELink firmware with the MicrBlocks firmware. You only need this done once! Put your board in [Loader](../loader) mode. If using CincoBit or PixoBit, simply hold the `A` button while resetting the board.
+
+image
+
+Click firmware update on MicroBlocks.
+
+image
+
+Congrats, this board is now running MicroBlocks. Enjoy th entire system and enjoy [Dasylink](../engine/daisylink) connecting other modules to the [Downstream](../interface/downstream) connector!
+
+:::tip
+The mouduls in the chain do not need to be updted with the MicroBlocks firmware. They need the default DUELink firmware to keep working and [Dasylinking](../engine/daisylink) properly!
+:::
