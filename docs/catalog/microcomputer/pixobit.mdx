@@ -1,8 +1,132 @@
-# PixoBit
 ---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
+import React from 'react'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+# Pixobit
+
+<div style={{ textAlign: 'center'}}>
+<table><td>
+<Zoom><img alt="Front" src="/img/catalog/pixobit-front.png"/></Zoom>
+</td><td>
+<Zoom><img alt="Back" src="/img/catalog/pixobit-back.png"/></Zoom>
+</td></table><p>
+**micro:bit form factor with 128x64 OLED 0.96" display**
+</p>
+---
+</div>
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Extensions', value: 'extensions'},
+    {label: 'Projects', value: 'projects'},
+  ]}>
+
+<TabItem value="overview">
 micro:bit form factor with 128x64 OLED 0.96" display
 
-Front|Back
-:---:|:---:
-![Front](/img/catalog/pixobit-front.png)| ![Back](/img/catalog/pixobit-back.png)
+<table><td width='50%'>
+**Key features**
+
+• 128x64 OLED 0.96" display<br/>
+• Buzzer<br/>
+• micro:bit inspired edge connector<br/>
+• USB-C connector<br/>
+• 52x42mm Overall Dimension<br/>
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](/)<br/>
+🔩[3D Drawing](/)<br/>
+📚[3D Viewer](/)<br/>
+▶YouTube Videos<br/>
+⁃ [The Making of John Due](https://www.youtube.com/watch?v=D4073veneWI)<br/>
+⁃ [Another video](https://www.youtube.com/watch?v=D4073veneWI)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="extensions">
+These Beyond the [Standard Library](../../engine/stdlib), these functions are provided.
+
+
+| Function | Description | Use
+| --- | --- | ---
+| `LED()` | Blink the Status LED | ...
+
+
+
+<details>
+  <summary>Extension Script</summary>
+
+```py
+Python Code Sample
+```
+</details>
+</TabItem>
+
+
+<TabItem value="projects">
+These project samples will get you started.
+<Tabs queryString="proj" defaultValue="arduino"
+  values={[
+    {label: 'Arduino', value: 'arduino'},
+    {label: 'Standalone', value: 'standalone'},
+
+  ]}>
+
+<TabItem value="arduino">
+ This demo uses [Arduino](../../system/arduino) UNO R4 to read analog A0 and show value on screen.
+
+ image
+</TabItem>
+
+<TabItem value="standalone">
+Use the [Standalone](../../engine/standalone) feature to create an analog clock.
+
+image
+
+The demo uses [USB Hook](../accessory/usb-hook) to set the time (and load [scripts](../../engine/scripting).)
+
+<details>
+  <summary>The Code!</summary>
+
+```py
+Python Code 
+```
+</details>
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+</Tabs>
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" 
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Extensions', value: 'extensions'},
+    {label: 'Projects', value: 'projects'},
+  ]}>
+
+</Tabs>
+
+
+---
+
+<p style={{ backgroundColor: 'lightcyan', color: 'black', padding: '0px 0px 0px 30px'}}>
+## Ordering Info 
+</p>
+
+Description | Part Number | Price
+| --- | --- | ---
+Pixobit | GDL-MBPIXOBIT-A | $00.00

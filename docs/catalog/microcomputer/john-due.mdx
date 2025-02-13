@@ -6,14 +6,17 @@ hide_table_of_contents: true
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# John Due
+import React from 'react'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
 
+# John Due
 
 <div style={{ textAlign: 'center'}}>
 <table><td>
-<img alt="Front" src="/img/catalog/johndue-front.png"/>
+<Zoom><img alt="Front" src="/img/catalog/johndue-front.png"/></Zoom>
 </td><td>
-<img alt="Back" src="/img/catalog/johndue-back.png"/>
+<Zoom><img alt="Back" src="/img/catalog/johndue-back.png"/></Zoom>
 </td></table>
 <p>
 **Robot-shaped Pocket-sized Microcomputer**
@@ -33,15 +36,17 @@ import TabItem from '@theme/TabItem';
 <TabItem value="overview">
 Robot-shaped pocket-sized microcomputer, with PCB-USB for easy connectability, and CR2032 battery "backpack"!
 
-<table><td>
+<table><td width='50%'>
 **Key features**
 
-• 5x5 LED Matrix<br/>
+• 2 Smart LEDs<br/>
 • Buzzer<br/>
-• Light Sensor<br/>
+• Upstream & Downstream DUELink Connectors<br/>
 • 2x User Buttons<br/>
-• 122x123mm<br/>
-</td><td>
+• CR2032 button battery powered<br/>
+• PCB USB-A<br/>
+• 61x27mm Overall Dimension<br/>
+</td><td width='50%'>
 **Resources**
 
 • [Schematics📄](/)<br/>
