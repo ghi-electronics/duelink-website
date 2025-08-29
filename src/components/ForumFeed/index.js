@@ -75,7 +75,16 @@ export default function ForumFeed() {
                     }
                   }
                   
-                  const plainText = (tempDiv.textContent || '').substring(0, 200);
+                  // Remove image metadata text (like "NewsletterImage1456×900 74.8 KB" or "image.png1920×1080 123 KB")
+                  let plainText = (tempDiv.textContent || '');
+                  // Remove image filenames with dimensions and size (e.g., "NewsletterImage1456×900 74.8 KB")
+                  plainText = plainText.replace(/\b\w+\d+×\d+\s+[\d.]+\s*[KMG]?B\b/gi, '');
+                  // Remove patterns with file extensions
+                  plainText = plainText.replace(/\b\w+\.(png|jpg|jpeg|gif|webp)\d+×\d+\s+[\d.]+\s*[KMG]?B?\b/gi, '');
+                  // Remove any remaining dimension patterns
+                  plainText = plainText.replace(/\b\d+×\d+\s+[\d.]+\s*[KMG]?B\b/g, '');
+                  plainText = plainText.trim().substring(0, 200);
+                  
                   if (plainText.length > 20) {
                     return { ...topic, excerpt: plainText + '...', imageUrl };
                   }
