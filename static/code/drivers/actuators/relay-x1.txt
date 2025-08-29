@@ -1,0 +1,11 @@
+##### Relay X1 Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn Set(v)
+    DWrite(19, v)
+fend
+
+####################

@@ -1,0 +1,11 @@
+_x = 0
+Ear(1,1) # Turn on ears
+Buzzer(2000,100)
+StatLed(100, 100, 0) # blink led forever
+
+while (1)
+    Eye(_x&1,_x&2) # eye
+    Mouth(_x&1) # mouth
+    _x = _x + 1
+    Wait(100)
+wend

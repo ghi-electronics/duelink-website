@@ -1,0 +1,120 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Barcode L1D2D
+
+<ImageSection
+    product = 'barcode-l1d2d'
+    tagline = '1D & 2D Barcode Reader'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+This camera can capture and decode different barcodes.
+
+* 1D Formats: EAN-13, EAN-8, UPC-A, UPC-E ISSN, ISBN, CodaBar,Code 128, Code93, ITF-14, ITF-6, Interleaved 2 of 5, Industrial 2 of 5, Matrix 2 of 5, Code 39,Code 11, MSI-Plessey, GS1 Composite,GS1-Databar (RSS)
+* 2D Formats: QR Code, Data Matrix, PDF417
+* Scanning angle: Roll: 360° Pitch: 65° Yaw: 65°
+
+<table><td width='50%'>
+**Key features**
+
+• Barcode scanner<br/>
+• 1D and 2D formats<br/>
+• 47x42mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-vibarcodel1d2d-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-vibarcodel1d2d-a.step)<br/>
+
+
+</td></table>
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+Function | Description
+--- | ---
+`SetMode(m)` | Sets the `m` mode to 1 Trigger 2 Continuous.
+`Trigger()` | Trigger the reading when in trigger mode.
+`DVer()` | This driver version.
+
+<details>
+  <summary>The Code!</summary>
+
+```py reference title="Barcode L1D2D Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/vision/barcode-l1d2d.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/vision/barcode-l1d2d.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/vision/barcode-l1d2d.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/vision/barcode-l1d2d.js
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink Barcode L1D2D Reader"
+    partnumber = "GDL-VIBARCODEL1D2D-A"
+    price = "$00.00"
+></OrderSection>

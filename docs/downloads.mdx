@@ -1,0 +1,84 @@
+# Downloads
+
+---
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Download Status | Meaning
+--- | ---
+Production (RTW) | Ready to be used commercially (ready to wear).
+Release Candidate (RC) | Could become a production release if proven solid.
+Preview | Preview of the next release, not quite ready for production use.
+Alpha | A very early release, expect many issues!
+
+:::tip
+All downloads are available freely for commercial and non commercial use.
+:::
+
+---
+
+## DUELink Firmware
+
+:::tip
+No need to download. These are already included in the [Console](./console)
+:::
+
+File ([Release Notes](/docs/release-notes)) | Date | Status
+--- | --- | ---
+<a download href="/bin/fw/duelink-fw-v044.hex">DUELink FW v0.44</a> | 2025-08-28 | Alpha
+<a download href="/bin/fw/duelink-fw-v043.hex">DUELink FW v0.43</a> | 2025-08-26 | Alpha
+<a download href="/bin/fw/duelink-fw-v042.hex">DUELink FW v0.42</a> | 2025-08-22 | Alpha
+<a download href="/bin/fw/duelink-fw-v041.hex">DUELink FW v0.41</a> | 2025-08-18 | Alpha
+
+---
+
+## MicroBlocks Firmware/Lib
+
+[MicroBlocks](/docs/language/microblocks) is a free, visual programming language for microcontrollers. Code runs immediately on the hardware without downloading!
+
+:::tip
+No need to download. These are already included in the [Console](./console)
+:::
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="firmware"
+  values={[
+    {label: 'Firmware', value: 'firmware'},
+    {label: 'Libraries', value: 'libraries'},
+  ]}>
+
+<TabItem value="firmware">
+
+Firmware ([Release Notes](/docs/release-notes)) | Date | Status
+--- | --- | --- |
+<a download href="/bin/microblocks/duelink-microblocks-v344.hex">MicroBlocks DUELink v344</a> | 2025-08-18 | Alpha
+
+
+</TabItem>
+
+<TabItem value="libraries">
+
+Library ([Release Notes](/docs/release-notes)) | Date | Status
+--- | ---------- | ------- |
+<a download href="/code/libraries/microblocks/microblocks-lib-v0.1.zip">MicroBlocks Lib v0.1</a> | 2025-07-17 | Alpha
+
+</TabItem>
+</Tabs>
+---
+
+## Arduino Lib
+
+Use this library to access DUELink modules using the [Arduino Ecosystem](./hw/arduino). 
+
+Library ([Release Notes](/docs/release-notes))                   | Date       | Status
+--- | --- | ---
+<a download href="/code/libraries/arduino/duelink-arduino-v0.0.1.zip">DUELink Arduino Lib v0.0.1.zip</a> | 2025-07-17 | Alpha
+
+---
+
+## DUELink Programmer
+
+This is the software we use to program and test DUELink modules. We are sharing it to help companies in making [Third-party](./catalog/third-party) modules.
+
+Release | Date | Notes
+--- | --- | ---
+<a download href="/bin/prog/DUELink-Programmer-Setup-v0020.msi">DUELink Programmer v0020</a> | 2025-08-22 | Alpha

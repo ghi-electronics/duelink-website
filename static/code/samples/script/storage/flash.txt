@@ -1,0 +1,29 @@
+fn Dump(b1)
+    for i=0 to len(b1)
+    if (i) 
+        Print(",") 
+    end
+    Print(fmt(b1[i]))
+    next
+    PrintLn("")
+fend
+
+# Get device ID
+Dim b1[3]
+SfGetid(b1)
+Dump(b1)
+
+# Erase a block at address 0
+SfErase(0)
+
+# Write a few bytes starting at address 0
+PrintLn("Writing")
+SfWrite(0, "Test")
+SfWrite(4, "It")
+
+# Read back those 7 bytes
+PrintLn("Reading")
+Dim b1[7]
+SfRead(0, b1)
+Dump(b1)
+PrintLn(b1)

@@ -1,0 +1,60 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# PC & Laptop
+
+---
+
+![Windows, Linux, and Mac Logos](pathname:///img/pc-laptop-logos.png)
+
+A PC or Laptop running Windows, Linux, or Mac can finally have easy access to hundreds of sensors and actuators. There are many [Coding Language](../language/intro) options to cover every need.
+
+Our [demo](https://demo.duelink.com/) is built using [JavaScript](../language/javascript) and offers an excellent starting point to play with DUELink modules and see how the web can be used to access sensors and actuators.
+
+![DUELink Demo Site](pathname:///img/demo-website.png)
+
+Artificial Intelligence (AI) applications that use [Python](../language/python) can take advantage the entire DUELink ecosystem. This demo uses facial detection to move a servo (to open a door!)
+
+![Python AI](pathname:///img/python-ai.gif)
+
+This demo uses a [USB Hook](../catalog/accessory/usb-hook) with [Servo X1](../catalog/actuator/servo-x1) module, but any other modules, or multiple modules, can be used as well.
+
+![USB hook](pathname:///img/usbhook-servo-x1.png)
+
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Python', value: 'py'},
+    {label: 'JavaScript', value: 'js'},
+]}>
+
+<TabItem value="py">
+```py
+from DUELink.DUELinkController import DUELinkController
+availablePort = DUELinkController.GetConnectionPort()
+print("Using port: ", availablePort)
+duelink = DUELinkController(availablePort)
+# Servo on pin 1 to 90 degrees
+duelink.Servo.Set(1, 90)
+```
+</TabItem>
+<TabItem value="js">
+```js
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+
+async function MoveServo() {
+    let duelink = new DUELinkController(new SerialUSB());
+    await duelink.Connect();
+
+    // Servo on pin 1 to 90 degrees
+    await duelink.Servo.Set(1, 90)
+}
+
+await MoveServo();
+```
+</TabItem>
+</Tabs>
+
+[Wireless](../interface/wireless) interfaces, such as Bluetooth, can also be used instead of USB. In fact, the PC libraries do not care what medium is being used. It sees a virtual serial port in any of these cases. [Wireless Hook](../catalog/accessory/wireless-hook) is an excellent module for this use.
+
+![Wirelss Hook](pathname:///img/catalog/wireless-hook-front.png)

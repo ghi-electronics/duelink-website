@@ -1,0 +1,147 @@
+# MicroBlocks
+
+---
+
+![MicroBlocks](pathname:///img/microblocks.png)
+
+MicroBlocks is a fantastic options for users who enjoy block-coding. There are two supported ways to benefit from MicroBlocks, by using a [micro:bit](../hw/microbit) or running [standalone](./standalone) with MicroBlocks firmware!
+
+---
+
+## MicroBlocks on micro:bit
+
+In theory, you can use any board (any host) that is supported by MicroBlocks. But we will focus on using [micro:bit](../hw/microbit). 
+
+To connect DUELink modules, you need an accessory that adds a JST connector to micro:bit. See [micro:bit](../hw/microbit) for options, including [LinkBit](../catalog/accessory/linkbit). 
+
+Create a MicroBlocks project on [https://microblocks.fun/run/](https://microblocks.fun/run/), or download the local version for [MicroBlocks' Downloads](https://microblocks.fun/download) page.
+
+![MicroBlocks IDE](pathname:///img/microblocks-ide.png)
+
+Run any simple block samples to make sure that micro:bit is configured properly. You are now ready for the "Daisylinking" section below.
+
+---
+
+## Standalone with MicroBlocks 
+
+This option turns a DUELink module into a host that runs [Standalone](../language/standalone). This gives any DUELink module a native block-coding option. 
+
+While MicroBlocks can be loaded on the entire catalog of DUELink modules, it shines best on one of the Microcomputers, such as [DueSTEM](../catalog/microcomputer/duestem) and [Clipit](../catalog/microcomputer/clipit).
+
+![DueSTEM](pathname:///img/catalog/duestem-front.png)
+
+![Clipit](pathname:///img/catalog/clipit-front.png)
+
+It also works great on [CincoBit](../catalog/microcomputer/cincobit) and [PixoBit](../catalog/microcomputer/pixobit) as micro:bit-style options.
+
+![CincoBit & PixoBit](pathname:///img/cincobit-pixobit.png)
+
+To use the MicroBlocks Engine, replace the default DUELink firmware with the MicroBlocks firmware. All options are already built in the [Console](../console). In short, put the board in loader mode by pressing A or LDR button, or by placing the jumper, and then reset the board while doing so. If there is no reset button on your board then simply power cycle the board.
+
+![LDR, A, pads](pathname:///img/ldr-a-pads.png)
+
+Visit [https://console.duelink.com/](https://console.duelink.com/) and click `Firmware` on the top menu.
+
+
+![DUELink Console Firmware Menu](pathname:///img/due-firmware.png)
+
+You can now connect to `DFU in FS Mode` device then select the `MicroBlocks` from the available options. If you do not see `DFU in FS Mode` then the board is not in loader mode. Go to the [loader](../loader) page and make sure the board is in the loader mode.
+
+Once the firmware is loaded, power cycle the board. You are now ready for MicroBlocks.
+
+---
+
+## Supported Blocks
+
+The MicroBlocks firmware for DUELink supports most blocks. You will be able to read/write digital pins, read analog inputs, and write PWM pins.
+
+Pins numbers are mapped to match the DUELink official mapping; however, the pins are mapped to match micro:bit edge connector on [CincoBit](../catalog/microcomputer/cincobit) and [PixoBit](../catalog/microcomputer/pixobit).
+
+Capacitive touch is also supported on modules like [Clipit](../catalog/microcomputer/clipit) and on the large three pads on [CincoBit](../catalog/microcomputer/cincobit) and [PixoBit](../catalog/microcomputer/pixobit). Reading the level of "capacitive-ness" is done by charging a pin and then measuring the discharge time.
+
+![MicroBlocks Cap Touch](pathname:///img/microblocks-captouch.png)
+
+:::tip
+Code samples like the one above that don't require an external library can be dragged directly into the MicroBlocks IDE. 
+:::
+
+---
+
+## Available Services
+
+It is very important to note that once a DUELink board is loaded with MicroBlocks firmware then it becomes 100% reliant on what blocks/libraries/services are offered by MicroBlocks. In other words, you lose the [Standard Library](../engine/stdlib).
+
+For example, while you can load MicroBlocks on [SD Card](../catalog/storage/sd-card) module, you do not have SD card drivers nor file system libraries!
+
+This is not a problem in a standard DUELink setup as you will usually have the recommended [CincoBit](../catalog/microcomputer/cincobit) or [PixoBit](../catalog/microcomputer/pixobit) loaded with MicroBlocks but then you have other modules [daisylinked](../engine/daisylink) on its downlink connector. Those other modules will still be running the standard DUElink firmware. In this case the SD Card module will have the necessary standard libraries, which are commanded by the MicroBlocks firmware.
+
+![Cincobit and SD Card](pathname:///img/cincobit-sdcard.png)
+
+---
+
+## Smiley! 
+
+Assuming you using a [CincoBit](../catalog/microcomputer/cincobit), and you have it loaded with MicroBlocks firmware, we will show a smiley face on the LEDs.
+
+Use the online interface at [https://microblocks.fun/run/](https://microblocks.fun/run/) or download the MicroBlocks software locally from their [download](https://microblocks.fun/download) page.
+
+![Download](pathname:///img/microblocks-download.png)
+
+Install the MicroBlocks software.
+
+![Install](pathname:///img/microblocks-install.png)
+
+Plug in the DUELink hardware, the IDE will automatically connect to the device.
+
+![Connect](pathname:///img/microblocks-connect.png)
+
+Now we're ready for some block-coding!. Click on the `Add Library` button and Open the `LED Display`. This will add the 5x5 LED Matrix block.
+
+![Connect](pathname:///img/microblocks-library.png)
+
+Click on the block itself it will activate the LEDs on CincoBit. Any changes we make are instantly transferred to the device.
+
+![Smile and Frown](pathname:///img/microblocks-instant.gif)
+
+This program will switch from a "smile" to a "frown" based the pressed button.
+
+![Smile and Frown](pathname:///img/microblocks-smile-frown.gif)
+
+
+:::tip
+MicroBlocks maps pins to match DUELink standard pin mapping on all modules, but it will map the pins on PixoBit and CincoBit edge connector to match micro:bit.
+:::
+
+---
+
+## Daisylinking
+
+A user can easily [Daisylink](../engine/daisylink) several modules. In this example, the MicroBlocks special firmware is loaded on [PixoBit](../catalog/microcomputer/pixobit). The MicroBlocks website/app can now be used to program a PixoBit, which is then commanding the other modules in the link.
+
+![PixoBit Daisylinked](pathname:///img/pixobit-daisylinked.png)
+
+:::tip
+[Daisylinked](../engine/daisylink) modules do not need to be loaded with the MicroBlocks firmware. Only `PixoBit` (first module) is loaded with MicroBlocks firmware in this example.
+:::
+
+When Daisylinking DUELink modules users need to download the DUELink libraries for MicroBlocks from the [Downloads](../downloads.mdx) page.
+
+Once downloaded, add it to the MicroBlocks' IDE by clicking `Add Library` from the side menu. Select `Computer` from the options and navigate to the appropriate file. 
+
+![Add DUELink Library](pathname:///img/microblocks-add-duelink.png)
+
+This will add all the necessary blocks to control [Daisylinked](../engine/daisylink) modules.
+
+![New DUELink Blocks](pathname:///img/microblocks-duelink-library.png)
+
+In the example below, we'll use MicroBlocks to control an OLED 0.96 Display, a Button, and a Buzzer module Daisylinked together.
+
+![New DUELink Blocks](pathname:///img/cincobit-daisylinked.png)
+
+Click on the image below to download the code, drag the downloaded `.ubp` file into the MicroBlocks IDE. This also brings in all the necessary libraries in the project. 
+
+<a download href="/code/samples/microblocks/microblock_microbit_example_chain.ubp">![Daisylinked MicroBlocks Project](pathname:///img/microblocks-daisylinked.png)</a>
+
+:::tip
+When saving projects to share with others, use the file save feature in MicroBlocks. Saving `picture of script` as .png option won't work when using externally loaded libraries like DUELink. 
+:::

@@ -1,0 +1,4 @@
+while 1
+    PrintLn(Light())
+    Wait(200) 
+wend

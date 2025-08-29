@@ -1,0 +1,76 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Mounting Hardware
+
+<ImageSection
+    product = 'mounting'
+    tagline = 'Mounting Hardware'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+
+]}>
+
+<TabItem value="overview">
+Standoffs, Screws, Nuts, and Footpads are available to help in mounting all DUELink modules.
+
+While you can use these options with 3D printed and laser cut enclosures, the ideal use with any of the [Holey Boards](./holey-board)!
+
+The available options are:
+* 10 - Male to Female Nylon standoffs
+* 10 - Female to Female Nylon standoffs
+* 10 - M3 Nylon Screws
+* 10 - M3 Nylon Nuts 
+* 4 - M3 Metal Footpads
+
+<table><td width='50%'>
+**Key features**
+
+• Universal M3 Size<br/>
+• Perfect for [Holey Boards](holey-board)<br/>
+
+</td><td width='50%'>
+**Resources**
+
+</td></table>
+
+</TabItem>
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink Nylon Standoffs M-F (10pcs)"
+    partnumber = "GDL-AXSTANDOFFS-MF-A"
+    price = "$00.00"
+    product2 = "DUELink Nylon Standoffs F-F (10pcs)"
+    partnumber2 = "GDL-AXSTANDOFFS-FF-A"
+    price2 = "$00.00"
+    product3 = "DUELink Nylon Screws (10pcs)"
+    partnumber3 = "GDL-AXSCREWS-A"
+    price3 = "$00.00"
+    product4 = "DUELink Nylon Nuts (10pcs)"
+    partnumber4 = "GDL-AXNUTS-A "
+    price4 = "$00.00"
+    product5 = "Metal Footpads (4pcs)"
+    partnumber5 = "GDL-AXFOOTPADS-A "
+    price5 = "$00.00"
+></OrderSection>
+
+

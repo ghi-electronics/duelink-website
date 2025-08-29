@@ -1,0 +1,39 @@
+##### Button AR100 Driver #####
+ 
+fn DVer()
+  return 1.0
+fend
+
+fn Init()
+    BtnEn(BtnPin(),0)
+fend
+ 
+fn SetRing(i,r,g,b)
+    if i = 0
+        PWrite(3,b/100)
+        PWrite(1,r/100)
+        PWrite(2,g/100)
+    end
+    if i = 1
+        PWrite(6,b/100)
+        PWrite(4,r/100)
+        PWrite(5,g/100)
+    end
+    if i = 2
+        PWrite(11,b/100)
+        PWrite(7,r/100)
+        PWrite(8,g/100)
+    end 
+fend
+ 
+fn SetCtr(v)
+    DWrite(9,v)
+fend
+
+fn BtnPin()
+    return 12
+fend
+
+Init()
+
+####################

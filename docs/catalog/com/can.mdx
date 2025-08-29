@@ -1,0 +1,119 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# CAN
+<ImageSection
+    product = 'can'
+    tagline = 'CAN Bus Controller'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+Access CAN data in automotive and industrial settings. Read and Write frames with standard and extended Arbitration ID.
+
+<table><td width='50%'>
+**Key features**
+
+• Support CAN V2.0B<br/>
+• Standard and extended ArbID<br/>
+• Remote frames<br/>
+• Terminal Block Connector<br/>
+• 42x42mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-cmcan-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-cmcan-b.step)<br/>
+
+</td></table>
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+Function | Description
+--- | ---
+`Bitrate(b)` | Sets the `b` bitrate (125K, 250K, 500K, 1M)
+`RxFull()` | Returns 1 if there is a received CAN message.
+`RxRd()` | Reads a received message. Returns the ArbID of the message or -1 if none. `b9` is a 9-byte array contains the message body, with first element containing DLC followed by 0 to 8 bytes of data.
+`TxFree()` | Returns 1 if ready for new data, or previous transmit request succeeded.
+`TxReq(i,l,b9)` | Request to send a message with `i` EID and `l` length of the `b9` data array. Returns 1 if a message was posted or 0 if busy to take a new one.
+`DVer()` | This driver version.
+
+<details>
+  <summary>The Code!</summary>
+
+```py reference title="CAN Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/com/can.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/com/can.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/com/can.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/com/can.js
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink CAN"
+    partnumber = "GDL-CMCAN-B"
+    price = "$00.00"
+></OrderSection>

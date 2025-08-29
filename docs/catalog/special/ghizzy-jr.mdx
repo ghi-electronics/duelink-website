@@ -1,0 +1,121 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Ghizzy Jr
+
+<ImageSection
+    product = 'ghizzy-jr'
+    tagline = 'Tiny Robot-shaped Microcomputer'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+Is this the smallest, cutest, and smartest key chain in the world? You decide, but this is a mini robot-shaped pocket-sized microcomputer that plugs right into a USB socket!
+
+It has RGB eyes and a "STAT" mouth as a start, but then the [Downlink](../../interface/downlink) connector will allow Ghizzy Jr to control hundreds of modules!
+
+![Firmware](pathname:///img/catalog/ghizzy-jr-logo.png)
+
+Did you know that Ghizzy Jr is the perfect giveaway for your company? This will not be a giveaway that collects dust in a drawer. Instead, this is an exciting programmable board with endless possibilities. It can even be programmed using the [Arduino IDE](../../hw/arduino).
+
+Note that this is not a standard USB connector, but a printed circuit. This should work on 99% of USB type A connectors with a rare failure.
+
+<table><td width='50%'>
+**Key features**
+
+• 2 RGB LEDs<br/>
+• Downlink DUELink Connector<br/>
+• PCB USB-A<br/>
+• 20x47mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-spghizzyjr-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-spghizzyjr-a.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+Function | Description
+--- | ---
+`Eye(l,r)` | Sets the `l` left and `r` right "Eyes" with 24bit RGB color (RRGGBB).
+`BtnLdr()` | Returns 1 if LDR button is pressed.
+`DVer()` | This driver version.
+
+<details>
+  <summary>The Code!</summary>
+
+```py reference title="Ghizzy Jr Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/special/ghizzyjr.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+  values={[
+    {label: 'Script', value: 'script'},
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/special/ghizzyjr.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/special/ghizzyjr.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/special/ghizzyjr.js
+```
+
+</TabItem>
+</Tabs>
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+<OrderSection
+    product = "DUELink Ghizzy Jr"
+    partnumber = "GDL-SPGHIZZYJR-A"
+    price = "$00.00"
+></OrderSection>

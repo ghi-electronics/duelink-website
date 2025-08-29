@@ -1,0 +1,19 @@
+##### JoyStick L ######
+
+fn DVer()
+    return 1.0
+fend
+
+fn JoystickX()
+    return Trunc(VRead(4)/ReadVCC()*100)
+fend
+
+fn JoystickY()
+    return Trunc(VRead(3)/ReadVCC()*100)
+fend
+
+fn BtnPin()
+    return 5
+fend
+
+#########################

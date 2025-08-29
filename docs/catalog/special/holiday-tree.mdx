@@ -1,0 +1,131 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Holiday Tree
+
+
+<ImageSection
+    product = 'holidaytree'
+    tagline = 'Smart and Festive Holiday Tree'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+This is arguably the smartest holiday tree in the world! Control the LEDs in [Standalone](../../language/standalone) mode or connect to a host and control the tree from one of the many supported [languages](../../language/intro) and [devcies](../../hw/intro).
+
+<Zoom>
+  <img alt="Back" src="/img/holiday-trees.png" />
+</Zoom>
+
+The 2 boards (A and B) slide into each other, turning this into a 3D-ish module!
+
+<table><td width='50%'>
+**Key features**
+
+• Stand-up Design<br/>
+• 26 Smart LEDs<br/>
+• Buzzer<br/>
+• 140x110mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-spholidaytree-b.pdf)<br/>
+🔩3D STEP files [Part A](pathname:///3d/gdl-spholidaytree-a-a.step) - [Part B](pathname:///3d/gdl-spholidaytree-b-a.step)<br/>
+▶YouTube Videos<br/>
+⁃ [Designing a Festive Circuit](https://youtu.be/CJs9tn5RxjA)<br/>
+⁃ [Manufacturing a Festive Circuit](https://youtu.be/2INa95NzI_o)<br/>
+⁃ [Troubleshooting a Festive Circuit](https://youtu.be/QhicKo7V5Vs)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+Function | Description
+--- | ---
+`PlayLED(enable)` | `PlayLED(1)` will make the LED constantly blink, default. Use `PlayLED(0)` to disable playback and manually control the LEDs.
+`SetLED(i, c, l)` | Sets a specific LED, `i` index (index start from 1), to a `c` color (hex value), `l` brightness (0 off, max 31).
+`SetAll(color)` | Sets all LEDs to a specific color, use 0 to turn off.
+`ShowLed()` | Flush Leds, and show.
+`RndLed()` | Show random color on random leds.
+`Buzzer(f,d)` | Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function.
+`DVer()` | This driver version.
+
+<details>
+  <summary>The Code!</summary>
+
+```py reference title="DueSTEM Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/special/holidaytree.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/special/holidaytree.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/special/holidaytree.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/special/holidaytree.js
+```
+
+</TabItem>
+</Tabs>
+</TabItem>
+
+<TabItem value="projects">
+Coming soon!
+</TabItem>
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink Holiday Tree"
+    partnumber = "GDL-SPHOLIDAYTREE-B"
+    price = "$00.00"
+></OrderSection>

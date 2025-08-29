@@ -1,0 +1,4 @@
+while 1
+    PrintLn(VRead(2),"V")
+    Wait(200)
+wend

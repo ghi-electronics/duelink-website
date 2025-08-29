@@ -1,0 +1,22 @@
+_x = 0
+_d = -9
+
+Clear(0xff) # Clear to blue color
+Fill(0xffffff, 0, 7, 80, 20)
+TextS("DUELink",0x00000, 0, 10, 2, 2)
+    
+while 1
+    TextS(Str(_x), 0xfaf605, 30, 50 ,2, 2)
+    Circle(0xf54242, _x, 90, 3) 
+    Show()
+    Wait(1)
+    
+    Fill(0xFF, 30, 50, 32, 16)#clear test
+    Circle(0xff, _x, 90, 3)#clear circle
+
+    _x=_x+_d
+    
+    if(_x < 0 || _x > 80)
+        _d = _d * -1
+    end
+wend 

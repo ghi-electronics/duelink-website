@@ -1,0 +1,57 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Power Switch
+
+<ImageSection
+    product = 'pwr-switch'
+    tagline = 'Downlink Power Switch Control'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+  ]}>
+
+<TabItem value="overview">
+
+The power switch will disconnect power going to its downlink connector.
+<table><td width='50%'>
+**Key features**
+
+• Toggle switch<br/>
+• On/Off indicator LED<br/>
+• 22x22mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-axpwrswitch-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-axpwrswitch-a.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink Power Switch"
+    partnumber = "GDL-AXPWRSWITCH-A"
+    price = "$00.00"
+></OrderSection>

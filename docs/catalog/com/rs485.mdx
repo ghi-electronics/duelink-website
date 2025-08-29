@@ -1,0 +1,121 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# RS485
+
+<ImageSection
+    product = 'rs485'
+    tagline = 'RS485 Serial Interface'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+Connect and control any industrial-grade low-cost electrically-isolated RS485 Sensors and Actuators with ease. Here is an example analog input.
+
+![RS485 Analog Input](pathname:///img/rs485-ain.jpg)
+
+
+<table><td width='50%'>
+**Key features**
+
+• RS485 Transceiver<br/>
+• Serial Communication<br/>
+• Terminal Block Connector<br/>
+• 32x22mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-cmrs485-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-cmrs485-a.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+:::tip
+RS485 module uses the [Standard Library](../../engine/stdlib) serial bus. No other drivers are needed.
+:::
+
+<details>
+  <summary>The Code!</summary>
+
+
+
+```py reference title="RS485 Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/com/rs485.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/com/rs485.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/com/rs485.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/com/rs485.js
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink RS485"
+    partnumber = "GDL-CMRS485-A	"
+    price = "$00.00"
+></OrderSection>
+

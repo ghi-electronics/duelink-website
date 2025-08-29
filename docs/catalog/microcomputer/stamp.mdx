@@ -1,0 +1,118 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Stamp
+
+<ImageSection
+    product = 'stamp'
+    tagline = 'Seeed Xaio Form Factor DUELink Microcomputer'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+This fingertip-sized tiny board is as capable as any other DUELink module. Plug it in a breadboard using male headers, or solder it directly using the edge pads. It includes an upgraded regulator allowing for connecting many DUELink modules on the [Downlink](../../interface/downlink) connector.
+
+This is a great choice to help you in making your own DUELink modules. Don't want USB? Then consider using [Stick](./stick).
+
+<table><td width='50%'>
+**Key features**
+
+• Seeed Xaio form factor<br/>
+• Downlink DUELink connector<br/>
+• USB-C connector<br/>
+• Surface mountable<br/>
+• 24x18mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-mcstamp-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-mcstamp-b.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+Function | Description
+--- | ---
+`BtnLdr()` | Returns 1 if LDR button is pressed.
+`DVer()` | This driver version.
+
+<details>
+  <summary>The Code!</summary>
+
+```py reference title="Stamp Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/microcomputers/stamp.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/microcomputers/stamp.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/microcomputers/stamp.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/microcomputers/stamp.js
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+<OrderSection
+    product = "Stamp"
+    partnumber = "GDL-MCSTAMP-B"
+    price = "$00.00"
+></OrderSection>

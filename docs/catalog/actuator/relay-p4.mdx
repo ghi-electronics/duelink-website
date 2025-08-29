@@ -1,0 +1,122 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Relay P4
+
+<ImageSection
+    product = 'relay-p4'
+    tagline = '4x 10A Relay Controller'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+Control high current loads using these 4x mechanical relays. Each relay is capable of driving up to 1A at 250V. The relays are powered from a 5V barrel-jack power source. Use a regulated 5V transformer, capable of 100mA or higher. Note the module will continue to function without this power source, but the relays will not work. An indicator LED shows the power source availability.
+
+:::warning
+Do NOT mess with live AC power! You will get hurt or worse if you do not know what you are doing!
+:::
+
+<table><td width='50%'>
+**Key features**
+
+• 10A at 250V<br/>
+• Screw terminal blocks<br/>
+• External Power Barrel Jack <br/>
+• 87x52mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-acrelayp4-c.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-acrelayp4-c.step)<br/>
+
+</td></table>
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+Function | Description
+--- | ---
+`Sets(i, v)`  | Sets a relay at `i` index to `v` value (1 on, 0 off).
+`DVer()`   | This driver version.
+
+<details>
+  <summary>The Code!</summary>
+
+
+
+```py reference title="Relay P4 Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/actuators/relay-p4.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/actuators/relay-p4.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/actuators/relay-p4.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/actuators/relay-p4.js
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink Relay P4"
+    partnumber = "GDL-ACRELAYP4-C"
+    price = "$00.00"
+></OrderSection>
+

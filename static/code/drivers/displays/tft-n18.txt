@@ -1,0 +1,158 @@
+##### TFT N18 Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+# 16 sel pin 
+# 17 reg sel pin
+ 
+_m = 0 # 0: buffered, 1: direct mode
+_p = 0 # 0: landscape, 1: portrait
+ 
+dim b1[2]
+ 
+fn Init(m, p)
+    SpiCfg(0, 24000)
+    _m = m
+    _p = p
+ 
+    If m = 0 # buffered
+        GfxCfg(2, {16,17},GetW(),GetH(), 2)
+ 
+    else # direct
+        GfxCfg(2,{16,17},GetW(),GetH(), 0)
+    end
+ 
+    DWrite(16, 1)#deselect
+    DWrite(9,0)#reset
+    Wait(10)
+    DWrite(9,1)#reset
+    Wait(120)
+    DWrite(8,1)# backlight
+    LcdCmd(0x11,[])
+    Wait(120)
+ 
+    LcdCmd(0xb1,[0x01,0x2C,0x2D])
+    LcdCmd(0xb2,[0x01,0x2C,0x2D])
+    LcdCmd(0xb3,[0x01,0x2C,0x2D,0x01,0x2C,0x2D])
+    LcdCmd(0xb4,[0x07])
+    LcdCmd(0xc0,[0xa2,0x02,0x84])
+    LcdCmd(0xc1,[0xC5])
+    LcdCmd(0xc2,[0x0a,0x00])
+    LcdCmd(0xc3,[0x8a,0x2a])
+    LcdCmd(0xc4,[0x8a,0xee])
+    LcdCmd(0xc5,[0x0E])
+    LcdCmd(0x36,[0xc0])
+    LcdCmd(0xE0,[0x0f,0x1a,0xf,0x18,0x2f,0x28,0x20,0x22,0x1f,0x1b,0x23,0x37,0,7,2,0x10])
+    LcdCmd(0xE1,[0xf,0x1b,0xf,0x17,0x33,0x2c,0x29,0x2e,0x30,0x30,0x39,0x3f,0,7,3,0x10])    
+    LcdCmd(0x2A,[0,0,0,0x7f])
+    LcdCmd(0x2b,[0,0,0,0x9f])
+    LcdCmd(0xf0,[1])
+    LcdCmd(0xf6,[0])
+    LcdCmd(0x3A,[0x05])
+    Wait(120)
+    
+    if (_p = 0)
+        SetDACtrl(1,0,1,0)
+        SetWindow(0,0,160,128)
+    else
+        # SetDACtrl(1,0,1,0)
+        SetWindow(0,0,128,160)
+    end
+    
+    LcdCmd(0x29,[])
+    
+    Clear(0)
+    Fill(0xFF0000, 18, 18, 45, 24)
+    Fill(0xFFFF00, 18, 20, 45, 20)
+    TextS("DUELink",0,21,23,1,2)
+    Show()
+    
+fend
+ 
+fn LcdCmd(c, b1)
+    DWrite(16, 0)#select
+    DWrite(17, 0)#LcdCmd
+    SpiWr(c)
+    DWrite(17, 1)#data
+    for i in Range(Len(b1))
+        SpiWr(b1[i])
+    next
+    DWrite(16, 1)#deselect
+fend
+ 
+fn IsColor()
+    return 1
+fend
+ 
+fn GetH()
+    if _m = 0
+        if (_p = 1)
+            return 80
+        else 
+            return 64
+        end    
+    else
+        if (_p = 1)
+            return 160
+        else 
+            return 128
+        end
+    end
+fend
+ 
+fn GetW()
+    if _m = 0
+        if (_p = 1)
+            return 64
+        else 
+            return 80
+        end    
+    else
+        if (_p = 1)
+            return 128
+        else 
+            return 160
+        end
+    end
+fend
+
+
+fn SetDACtrl(s,r,c,b)
+    v = 0
+    
+    if b = 1
+        v = v | (1<<3)
+    end
+    
+    if s = 1
+        v = v | (1<<5)
+    end
+    
+    if c = 1
+        v = v | (1<<6)
+    end
+    
+    if r = 1
+        v = v | (1<<7)
+    end
+    
+    LcdCmd(0x36, [v])
+fend
+
+fn SetWindow(x,y,w,h)
+    e = x + w
+    
+    LcdCmd(0x2A, [x>> 8, x, e >> 8, e])
+    
+    e = y + h
+    
+    LcdCmd(0x2B, [y>> 8, y, e >> 8, e])
+    
+    LcdCmd(0x2c, [])
+fend
+ 
+Init(0, 0)
+
+#########################

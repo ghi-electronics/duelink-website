@@ -1,0 +1,117 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# USB Wedge
+
+<ImageSection
+    product = 'usbwedge'
+    tagline = 'PCB USB DUELink Interface'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+  ]}>
+
+<TabItem value="overview">
+
+A PCB (Printed Circuit Board) USB wedge for connecting DUELink modules to the [USB Interface](../../interface/usb). It includes a power LED and 800mA power regulator.
+
+Note that this is not a standard USB connector, but a printed circuit. This should work on 99% of USB type A connectors with a rare failure.
+
+<table><td width='50%'>
+**Key features**
+
+• USB PCB connector<br/>
+• Connects DUELink modules to USB-A<br/>
+• 800mA power source<br/>
+• PWR LED<br/>
+• 22x23.5mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-axusbwedge-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-axusbwedge-a.step)<br/>
+
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="extensions">
+
+
+| Function | Description          | Use |
+| -------- | -------------------- | --- |
+| `statled()`  | Blink the Status LED | ... |
+
+<details>
+  <summary>Extension Script</summary>
+
+```py
+Python Code Sample
+```
+
+</details>
+</TabItem>
+
+<TabItem value="projects">
+These project samples will get you started.
+<Tabs queryString="proj" defaultValue="arduino"
+  values={[
+    {label: 'Arduino', value: 'arduino'},
+    {label: 'Standalone', value: 'standalone'},
+
+]}>
+
+<TabItem value="arduino">
+ This demo uses [Arduino](../../hw/arduino) UNO R4 to read analog A0 and show value on screen.
+
+image
+
+</TabItem>
+
+<TabItem value="standalone">
+Use the [Standalone](../../language/standalone) feature to create an analog clock.
+
+image
+
+The demo uses [USB Hook](../accessory/usb-hook) to set the time (and load [scripts](../../engine/scripting).)
+
+<details>
+  <summary>The Code!</summary>
+
+```py
+Python Code
+```
+
+</details>
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink USB Wedge"
+    partnumber = "GDL-AXUSBWEDGE-A"
+    price = "$00.00"
+></OrderSection>

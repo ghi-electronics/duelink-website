@@ -1,0 +1,118 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Step Pulse
+
+<ImageSection
+    product = 'steppulse'
+    tagline = 'Stepper Motor Signal Generator'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+  ]}>
+
+<TabItem value="overview">
+This module will generate the signal (pulses) necessary to drive stepper motor controllers. There is a wide range of available controllers, including nicely isolated ones. Here is an example!
+
+![Stepper Controller](pathname:///img/stepper-controller.jpg)
+
+<table><td width='50%'>
+**Key features**
+
+• X,Y,and Z axis control<br/>
+• Terminal Block Connectors<br/>
+• 62x22mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-acsteppulse-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-acsteppulse-a.step)<br/>
+
+</td></table>
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+| Function | Description          |
+| -------- | -------------------- |
+| `statled()`  | Blink the Status LED |
+
+<details>
+  <summary>The Code!</summary>
+
+
+
+```py reference title="Step Pulse Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/actuators/step-pulse.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'JavaScript', value: 'js'},
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/actuators/step-pulse.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/actuators/step-pulse.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/actuators/step-pulse.js
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink StepPulse"
+    partnumber = "GDL-ACSTEPPULSE-A"
+    price = "$00.00"
+></OrderSection>

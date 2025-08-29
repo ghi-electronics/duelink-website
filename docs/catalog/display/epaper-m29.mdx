@@ -1,0 +1,121 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# ePaper M29
+
+<ImageSection
+    product = 'epaper-m29'
+    tagline = '2.9" e-Ink Display'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+e-Ink (ePaper) displays only need power to update the screen. But then power can be disconnected and the display will retain the graphics with zero power requirements.
+
+<table><td width='50%'>
+**Key features**
+
+• 2.9" e-Ink display<br/>
+• 296x128 resolution<br/>
+• Red/White/Black Color<br/>
+• 102x37mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-depaperm29-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-depaperm29-a.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+
+Function | Description
+--- | ---
+`Width()` | Display width.
+`Height()` | Display Height.
+`DrawOnBW()` | Next drawing functions will go on B&W.
+`DrawOnRed()` | Next drawing functions will go on Red.
+`DVer()` | This driver version.
+
+<details>
+  <summary>The Code!</summary>
+
+
+
+```py reference title="ePaper M29 Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/displays/epaper-m29.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/displays/epaper-m29.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/displays/epaper-m29.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/displays/epaper-m29.js
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+<OrderSection
+    product = "DUELink ePaper M29"
+    partnumber = "GDL-DEPAPERM29-A"
+    price = "$00.00"
+></OrderSection>

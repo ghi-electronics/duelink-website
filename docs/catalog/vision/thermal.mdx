@@ -1,0 +1,117 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Thermal
+
+<ImageSection
+    product = 'thermal'
+    tagline = 'Thermal Imaging Camera'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+Capture 8x8 thermal images. Capable of measuring 0° to 80° celsius.
+
+<table><td width='50%'>
+**Key features**
+
+• Thermal camera<br/>
+• 8x8 pixels<br/>
+• 0° to 80° celsius<br/>
+• 22x24mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-vithermal-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-vithermal-a.step)<br/>
+
+
+</td></table>
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+Function | Description
+--- | ---
+`PixTemp(p)` | Read one of the `p` pixels' temp. There are 64 pixels (0 to 63).
+`DVer()` | This driver version.
+
+<details>
+  <summary>The Code!</summary>
+
+
+
+```py reference title="Thermal Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/vision/thermal.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/vision/thermal.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/vision/thermal.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/vision/thermal.js
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink Thermal Camera"
+    partnumber = "GDL-VITHERMAL-A"
+    price = "$00.00"
+></OrderSection>

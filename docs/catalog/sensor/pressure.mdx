@@ -1,0 +1,118 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Pressure
+
+<ImageSection
+    product = 'pressure'
+    tagline = 'Air and Liquid Pressure Sensor'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+Connect this sensor to your instrument using a tiny pipe to measure water/liquid pressure. Different ranges are available.
+
+<table><td width='50%'>
+**Key features**
+
+• Air and liquid pressure<br/>
+• Measure pressure<br/>
+• 17x26mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-sepressure-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-sepressure-b.step)<br/>
+
+</td></table>
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+:::tip
+No Driver! Use the [Standard Library API](../../engine/stdlib) `VRead(2)` directly.
+:::
+
+<details>
+  <summary>The Code!</summary>
+
+
+
+```py reference title="Pressure Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/sensors/pressure.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/sensors/pressure.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/sensors/pressure.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/sensors/pressure.js
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink Pressure Sensor 100 bar"
+    partnumber = "GDL-SEPRESSURE100-B"
+    price = "$00.00"
+    product2 = "DUELink Pressure Sensor 500 bar"
+    partnumber2 = "GDL-SEPRESSURE500-B"
+    price2 = "$00.00"
+></OrderSection>
+

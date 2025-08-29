@@ -1,0 +1,49 @@
+# Downlink
+
+---
+
+![Downlink](pathname:///img/downlink.png)
+
+The Downlink connector found on every single DUELink module is used to connect to the next Uplink connector on the next module. The DUELink software magically handles the data going across the entire [Daisylink](../engine/daisylink) chain of connected modules.
+
+![Downlink](pathname:///img/daisylink.png)
+
+There will be no signal degradation along the wires as data is repeated on every Downlink connector. In cases where power is dropping after several modules, a [Power Inject](../catalog/accessory/power-inject) module can be used.
+
+![Power Inject](pathname:///img/catalog/power-inject-front.png)
+
+This is not necessary in most modules as they are very low power. However, some modules, like large displays and motor drivers, do require a decent amount of power.
+
+---
+
+## Modes
+
+The Downlink connector has multiple modes of operations to give the user more control. See `DLMode(mode)` in [Standard Library](../engine/stdlib).
+
+Mode | Description
+--- |  ---
+0 | Null
+1 | Daisylink
+2 | Host
+3 | UART Gateway
+4 | I2C non-DUELink
+
+On power up, the Downlink connection is Null. To initiate the [Daisylink](../engine/daisylink) and enumerate all connected modules, a command must be seen by the first module. This is true even if there is a single module. This very first command is only seen by the first device and discarded by others. We recommend using an empty command (just a carriage return) to initiate the module enumeration and addressing. Upon enumeration, Downlink is switched from Null to Daisylink mode automatically.
+
+The user has the option to switch to `Host` or `UART Gateway` modes at anytime. However, once switched to these modes, the user must only switch between these modes and never switch to any other modes. `Host` mode is an options for [Daisylink](../engine/daisylink). `UART Gateway` is used in rare cases, like with [Wireless Hook](../catalog/accessory/wireless-hook), where the `UART gateway` mode allows the system to bridge and pipe the data from the UART interface (Bluetooth in this case) to the Downlink connector.
+
+---
+
+## non-DUELink Modules
+
+The main purpose of Downlink is to serve other DUELink modules. On the Uplink connector side, it is possible to use non-DUELink I2C modules in a daisychain as explained on the [I2C Interface](./i2c) page.
+
+![qwiic stemmaQT with DUElink](pathname:///img/qwiic-stemma-duelink.png)
+
+Beyond using non-DUELink modules on the Uplink connector side, the Downlink connector can be switched to I2C non-DUELink mode (mode #4). This mode will free up the Downlink connector from its normal use, giving the user access to `DLI2CWr()` function. This will give a I2C access to the connector, see [Standard Library](../engine/stdlib).
+
+![DUELink STEM I2C qwiic stemmaQT](pathname:///img/qwiic-stemma-i2c.png)
+
+It is also possible to have a [Daisylink](../engine/daisylink) of DUELink modules where the last module (and only the last module) is switched to `I2C non-DUELink` mode (mode #4). This last module can now use `DLI2CWr()` to access those I2C non-DUELink modules.
+
+![I2C non-DUELink](pathname:///img/i2c-nonduelink.png)

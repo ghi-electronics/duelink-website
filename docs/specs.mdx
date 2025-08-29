@@ -1,0 +1,129 @@
+# Specifications
+
+---
+
+DUELink unifies many aspects allowing modules to come in any shape and form and still conform to a unified user experience.
+
+---
+
+## Connections
+
+![JST Connectors](pathname:///img/jst-specs.png)
+
+Connections between modules and to microcomputers is accomplished using standard 4pin 1mm pitch JST connectors. These low-cost and common connectors are very small that you can throw on anything without compromising space. They are available in SMT for fast machine placement and in TH in case you need to hand solder them.
+
+![Pinout](pathname:///img/pinout.png)
+
+The pinout consists of:
+
+1. Common Ground
+2. Regulated 3.3V
+3. DRP
+4. CTN
+
+:::info
+DRP: [I2C](interface/i2c) SDA (Data), [UART](interface/uart) RX (Receive), and [USB](interface/usb) D+ (Positive).
+
+CTN : [I2C](interface/i2c) SCL (Clock), [UART](interface/uart) TX (Transmit), and [USB](interface/usb) D- (Negative).
+:::
+
+Each module includes both Uplink (white) and [Downlink](interface/downlink) (blue) connectors.
+
+![Uplink & Downlink](pathname:///img/uplink-downlink.png)
+
+The Uplink connector is used to connect the module to a microcomputer, such as Raspberry PI or Arduino, or a PC. It automatically works with [I2C](interface/i2c), [UART](interface/uart), and [USB](interface/usb).
+
+![Other Micros](pathname:///img/other-micros.png)
+
+When USB is mostly desired on specific boards, a USB C connector is used instead of the JST Uplink connector. This is the case with [DueDuino](catalog/microcomputer/dueduino) for example.
+
+![DueDuino](pathname:///img/dueduino-uplink.png)
+
+Every single module can still access USB by wiring a USB connector to the Uplink connector. We also offer [USB Hook](catalog/accessory/usb-hook) for convenience.
+
+![USBhook to Servo](pathname:///img/usbhook-servo-x1.png)
+
+In some rare case, a module might have both Uplink and USB connector, like we have on [Ghizzy](catalog/special/ghizzy.mdx). In this case, the user can use either USB or Uplink as they are both wired together internally.
+
+![Ghizzy Connections](pathname:///img/ghizzy-connections.png)
+
+DUELink Uplink connection is compatible with Sparkfun Qwiic and Adafruit STEMMA QT.
+Both use I2C, which is one of options available on any DUELink Uplink connection.
+
+![Uplink](pathname:///img/uplink.png)
+
+Always connect the non-DUELink modules first in line with the microcomputer then add as many DUELink modules as the wires can handle!!
+
+![Qwiic Stemma DUELink Chain](pathname:///img/qwiic-stemma-duelink.png)
+
+The second connector is Downlink. It connects to the next modules' Uplink connector.
+
+![Downlink](pathname:///img/downlink.png)
+
+Each module has intelligence to know what to transfer and return throughout the entire stream. Only connect DUELink modules on the Downlink connection. More details are on the [Downlink](interface/downlink) page.
+
+:::info
+Uplink JST connectors must be white, while Downlink JST connectors are blue. The Uplink and Downlink connectors must also be clearly marked with U and D respectively. 
+:::
+
+:::tip
+Tip: When looking at the front of the module, we recommend placing the U connector on the left side, with D connector on the right.
+:::
+
+---
+
+## Status LED
+
+![Status LED](pathname:///img/statled-blink.gif)
+
+Each DUELink module must include a STAT (Status) LED. This is used by the system automatically, and also accessible using the `StatLed()` command. On boards that have parts on both sides, STAT LED must be on the front face of the module.
+
+On power up, the STAT LED turns on automatically. It stays on until the device is ready. A ready device means it has selected an [Interface](./interface/intro.mdx) and it has an address. At this point, the STAT LED becomes an activity-LED.
+
+The status LED is also available to the user through the [`StatLed()`](./engine/stdlib.mdx) API. It is up to the user to control the LED manually or leave it as an activity-LED.
+
+---
+
+## Dimensions
+
+![size comparison](pathname:///img/duelink-modules.png)
+
+DUELink modules can be of any size and form; however, they must include mounting holes that are placed on a 5mm grid. On boards with right angle corners, holes must be placed 3.5mm from the edges of the circuit.Holes are 3mm diameter with 6.6mm circle around it with copper keep out.
+
+![Hole Specs](pathname:///img/duelink-hole-specs.png)
+
+This allows for the use of M3 screws and hardware without worrying about creating circuit shorts.
+
+![m3 screw](pathname:///img/m3-screw.png)
+
+The 5mm grid placement of holes aids in 3D-print and laser-cut enclosures design. It also allowed us to make [Holey Boards](catalog/accessory/holey-board)!
+
+![Holeyboard with Modules](pathname:///img/holeyboard-modules.png)
+
+DUELink Accessories include [Mounting Hardware](catalog/accessory/mount-hw) options.
+
+---
+
+## Processor
+
+Currently, only STM32C071 is supported with DUELink. We use QFN32 package but, fear not, we have made [Stick](catalog/microcomputer/stick) to help you make your own modules!
+
+![Pencil Stick](pathname:///img/pencil-stick.png)
+
+The DUELink [Sticker](catalog/accessory/sticker) is a mini development board that uses the [Stick](catalog/microcomputer/stick) to help you get started.
+
+![Pencil Stick](pathname:///img/catalog/sticker-front.png)
+
+---
+
+## Color
+
+We recommend to always use green PCB for all standard modules. Use Red PCB for modules that do not bare an address. These Red modules can be something that bridges connections like [USB Hook](./catalog/accessory/usb-hook), or a power module like [Power Inject](./catalog/accessory/power-inject). Microcomputer category of modules are recommended to be Black.
+
+Specialty boards are "special"! They can be of any shape and any color. The [Holiday Tree](./catalog/special/holiday-tree) is Green for example.
+
+---
+
+## Custom Modules
+
+We encourage everyone to help in growing the ecosystem by making modules, to be sold commercially or for fun! Visit the [Third Party Module](./catalog/third-party) page to see how we can help you.

@@ -1,0 +1,126 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# TFT R128
+
+<ImageSection
+    product = 'tft-r128'
+    tagline = '1.28" - 240x240 Color Round Display'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+   {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+1.28" - 240x240 Color TFT LCD round (no touch) display, supporting [Graphics](../../engine/graphics).
+
+<table><td width='50%'>
+**Key features**
+
+• 1.28" Round Display<br/>
+• 240x240<br/>
+• 47x47mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-dtftr128-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-dtftr128-b.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+
+Function | Description
+---| ---
+`Init(m)` | Initialize the display. Automatically called on power up `m`mode to (1-direct, 0-buffered (default)).
+`GetW()` | Get display width: 80 in buffered, 240 in direct.
+`GetH()` | Get display height: 80 in buffered, 240 in direct.
+`IsColor()` | Returns 1.
+`TouchX()` | Returns touch x.
+`TouchY()` | Returns touch y.
+`DVer()` | This driver version.
+
+By default, the display is initialized in buffered mode.
+
+:::tip
+See [Graphics](../../engine/graphics) for available drawing functions, such as `Text()` and `Circle()`.
+:::
+
+<details>
+  <summary>The Code!</summary>
+
+
+
+```py reference title="TFT R128 Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/displays/tft-r128.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/displays/tft-r128.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/displays/tft-r128.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/displays/tft-r128.js
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+<OrderSection
+    product = "DUELink TFT R128"
+    partnumber = "GDL-DTFTR128-B"
+    price = "$00.00"
+></OrderSection>

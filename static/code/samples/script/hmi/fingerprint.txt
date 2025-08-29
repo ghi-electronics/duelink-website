@@ -1,0 +1,91 @@
+PrintLn("Initialize.....")
+while Init() != 0
+    Wait(1000)
+wend
+
+s= GetSavedCnt() # check if no finger saved in database
+
+PrintLn("Fingerprint found: ", s)
+
+if s > 0  # if found then delete it for new setup, just test
+    DelModel(1)
+    s= GetSavedCnt() # make sure after deleted it is empty
+end
+
+while s = 0 # setup new finger
+    Wait (1000)
+    PrintLn("No saved fingerprint found, need to add")
+    
+    if (DRead(4,1) = 0) # pin 4 is low: detected user finger on surface
+        SetLed(1,1,0) # Setting: Blink Red
+        
+        PrintLn("Taking image of your fingerprint.....")
+        while TakeImg() != 0 # 0 FINGERPRINT_OK 
+            PrintLn("Bad image! Try again") 
+            Wait(1000)
+        wend
+
+        while ConvertImg(1) != 0
+            Wait(1000)
+        wend
+        
+        PrintLn("Remove your finger")
+        while (DRead(4,1) = 0) # Wait till user remove their finger
+            Wait (1)
+        wend
+        
+        Wait (100)
+        PrintLn("Place your same fingerprint again, we need to take image twice")
+        while (DRead(4,1) = 1) # Wait till user place their finger again
+            Wait (1)
+        wend
+        
+        while TakeImg() != 0 # 0 FINGERPRINT_OK 
+            PrintLn("Bad image! Try again") 
+            Wait(1000)
+        wend
+        
+        while ConvertImg(2) != 0
+            Wait(1000)
+        wend
+        
+        if CreateModel() = 0 # create model
+            if (StoreModel(1) = 0) # store to location 1
+
+                s= GetSavedCnt() # check database again
+                
+                if (s > 0) 
+                    PrintLn("Your finger is saved")
+                    SetLed(2,0,0) # Set led Blue
+                end
+            end
+        end
+    end
+wend
+
+_f = 0
+while (_f = 0)    
+    if (DRead(4,1) = 0) # pin 4 is low: detected user finger on surface
+        SetLed(3,0,0) # Turn led to purple
+        PrintLn("Detect finger. Taking image of your finger.....")
+        while TakeImg() != 0 # 0 FINGERPRINT_OK 
+            PrintLn("Bad image! Try again") 
+            Wait(1000)
+        wend
+        
+        while ConvertImg(1) != 0
+            Wait(1000)
+        wend
+        
+        if FastSearch() = 0
+            PrintLn("Your finger found in our database") 
+            SetLed(2,0,0) # Turn led to Blue
+            _f = 1# 
+        end
+    end
+    
+    Wait(100)
+    
+wend
+
+PrintLn("If you see here mean all good***") 

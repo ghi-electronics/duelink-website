@@ -1,0 +1,119 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Relay P16
+
+<ImageSection
+    product = 'relay-p16'
+    tagline = '16x Isolated Relay Controller'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+When it comes to power isolation, this module comes in perfectly handy. The relays are optically-isolated from the rest of the circuit. The 16x relays are capable of up to 10A @ 250V each. The relays are powered from a 12V barrel-jack power source. Use a regulated 5V transformer, capable of 500mA or higher. Note the module will continue to function without this power source, but the relays will not work. An indicator LED shows the power source availability.
+
+:::warning
+Do NOT mess with live AC power! You will get hurt or worse if you do not know what you are doing!
+:::
+
+<table><td width='50%'>
+**Key features**
+
+• 16x optically-isolated<br/>
+• 10A @ 250V<br/>
+• Screw terminal blocks<br/>
+• 187x90mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-acrelayp16-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-acrelayp16-a.step)<br/>
+
+</td></table>
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+Function | Description
+--- | ---
+`Sets(i, v)`  | Sets a relay at `i` index to `v` value (1 on, 0 off).
+`DVer()`   | This driver version.
+
+<details>
+  <summary>The Code!</summary>
+
+```py reference title="Relay P16 Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/actuators/relay-p16.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/actuators/relay-p16.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/actuators/relay-p16.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/actuators/relay-p16.js
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink Relay P16"
+    partnumber = "GDL-ACRELAYP16-A"
+    price = "$00.00"
+></OrderSection>

@@ -1,0 +1,116 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Servo P8
+
+<ImageSection
+    product = 'servo-p8'
+    tagline = '8x Servo Motor Controller'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+Control up to 8x servo motors. [Daisylink](../../engine/daisylink) multiple `Servo-P8` for controlling hundreds of servo motors!
+
+The module powers the servos via a terminal block. Use a power source that is compatible with the servos being used.
+
+<table><td width='50%'>
+**Key features**
+
+• 8x servo motor connections<br/>
+• Eight 3-pin male headers<br/>
+• Power terminal block<br/>
+• 37x27mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-acservop8-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-acservop8-b.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+:::tip
+Servo X1 module uses [Servo Motors API](../../engine/stdlib#servo-motors) directly. No other drivers are needed.
+:::
+
+<details>
+  <summary>The Code!</summary>
+
+```py reference title="Servo P8 Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/actuators/servo-p8.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/actuators/servo-p8.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/actuators/servo-p8.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/actuators/servo-p8.js
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink Servo P8"
+    partnumber = "GDL-ACSERVOP8-B"
+    price = "$00.00"
+></OrderSection>

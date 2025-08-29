@@ -1,0 +1,118 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# GNSS
+
+<ImageSection
+    product = 'gnss'
+    tagline = 'GNSS Positioning Module with uFL Connector'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+  ]}>
+
+<TabItem value="overview">
+
+This Global Navigation Satellite System (GPS, Galileo, GLONASS) module with uFL connector for external antenna. The required antenna is not included, giving the user the choice to select the right antenna. Consider [this GNSS](./gnss-wa) with built-in antenna.
+
+<table><td width='50%'>
+**Key features**
+
+• GNSS positioning<br/>
+• GPS, Galileo, GLONASS<br/>
+• uFL antenna connector<br/>
+• 37x27mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-wgnss-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-wgnss-a.step)<br/>
+
+</td></table>
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+| Function | Description          |
+| -------- | -------------------- |
+| `statled()`  | Blink the Status LED |
+
+<details>
+  <summary>The Code!</summary>
+
+
+
+```py reference title="GNSS Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/wireless/gnss.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'JavaScript', value: 'js'},
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/wireless/gnss.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/wireless/gnss.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/wireless/gnss.js
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink GNSS"
+    partnumber = "GDL-WGNSS-B"
+    price = "$00.00"
+></OrderSection>

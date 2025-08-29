@@ -1,0 +1,33 @@
+##### LED RGB Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn SetLed(i, c)
+
+  r = ((c>>16)&0xff)/255
+  g =((c>>8)&0xff)/255
+  b = (c&0xff)/255
+  
+  if i = 0
+      PWrite(1,b)
+      PWrite(2,r)
+      PWrite(3,g)
+  end
+  
+  if i = 1
+      PWrite(4,b)
+      PWrite(5,r)
+      PWrite(6,g)
+  end
+  
+  if i = 2
+      PWrite(7,b)
+      PWrite(8,r)
+      PWrite(11,g)
+  end
+  
+fend
+
+####################

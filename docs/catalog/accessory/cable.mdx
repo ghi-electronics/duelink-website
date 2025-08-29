@@ -1,0 +1,79 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Cables
+
+<ImageSection
+    product = 'cables'
+    tagline = 'DUELink Cables'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+
+]}>
+
+<TabItem value="overview">
+
+A variety of DUELink cable lengths are available to help projects of different needs.
+
+Cable sets are available in:
+
+* 5x 50mm
+* 5x 150mm
+* 5x 300mm
+* 5x 100mm JST to pin header breakout
+* Variety Pack 1x 300mm, 2x 150mm, 2x 50mm 
+
+<table><td width='50%'>
+**Key features**
+
+• 50mm DUELink Cable<br/>
+• 150mm DUELink Cable<br/>
+• 300mm DUELink Cable<br/>
+• 100mm DUELink Breakout Cable<br/>
+
+</td><td width='50%'>
+**Resources**
+
+🔩[3D STEP file](/)<br/>
+
+</td></table>
+
+</TabItem>
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink Cable 50mm (5pcs)"
+    partnumber = "GDL-XCABLE500-A"
+    price = "$00.00"
+    product2 = "DUELink Cable 150mm (5pcs)"
+    partnumber2 = "GDL-XCABLE150-A"
+    price2 = "$00.00"
+    product3 = "DUELink Cable 300mm (5pcs)"
+    partnumber3 = "GDL-XCABLE300-A"
+    price3 = "$00.00"
+    product4 = "DUELink 100mm Breakout (5pcs)"
+    partnumber4 = "GDL-XCABLE100BR-A"
+    price4 = "$00.00"
+    product5 = "DUELink Cable Variety Pack (5pcs)"
+    partnumber5 = "GDL-XCABLEVAR-A"
+    price5 = "$00.00"
+></OrderSection>
+

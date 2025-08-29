@@ -1,0 +1,124 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# LED SS805
+
+<ImageSection
+    product = 'led-ss805'
+    tagline = '0.80" 5-Digit 14-Segment Display'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+14-segment displays ar good to display alpha-numerical info. This 0.80 is a decent size to be visible from a few feet.
+
+<table><td width='50%'>
+**Key features**
+
+• 4 Digit 7 segment LEDs<br/>
+• Available in Red or Green<br/>
+• Counter or Timer formatted<br/>
+• 117x32mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](pathname:///sch/gdl-lledss805-c.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-lledss805-c.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+Function | Description
+-------- | ---
+`Init()`  | Initialize the module. Automatically called on power up.
+`Seg16(i, s)`  | Draw a single `s` character (0 to 9) on `i` digit (from the right).
+`Digit(n)`  | Draw 'n' number to LEDs.
+`PrntChr(i, c)` | print an ascii `c` character (A to Z and 0 to 9) at `i` index (from the left).
+`PrntStr(b1)` | Print a string of ascii characters.
+`Dot(i, v)`  | Draw dot at `i` index with `v` value (0 off, 1 on).
+`DVer()`  | This driver version.
+
+
+<details>
+  <summary>The Code!</summary>
+
+
+
+```py reference title="LED SS805 Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/leds/led-ss805.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/leds/led-ss805.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/leds/led-ss805.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/leds/led-ss805.js
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink LED SS805"
+    partnumber = "GDL-LLEDSS805-C"
+    price = "$00.00"
+></OrderSection>
+

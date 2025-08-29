@@ -1,0 +1,22 @@
+##### EKG Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn ProbeStat()
+    return DRead(4,0)<<1 DRead(5,0)
+fend
+
+fn ProbeVal()
+    return VRead(3)
+fend
+
+fn Init()
+    # Wake up
+    DWrite(6,1)
+fend
+
+Init()
+
+#############################

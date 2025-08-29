@@ -1,0 +1,128 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Buzzer
+
+<ImageSection
+    product = 'buzzer'
+    tagline = 'Peizo Buzzer Sound Generator'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+Use this peizo buzzer to generate tones and simple melodies. Sound an alarm, play a melody when a task is finished or even generate noises!
+
+<table><td width='50%'>
+**Key features**
+
+• Frequency Range 200Hz to 10Khz<br/>
+• 22x20mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](pathname:///sch/gdl-sobuzzer-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-sobuzzer-b.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+Function | Description
+--- | ---
+`PlayBeep(f, d)` | Play beep, (f: frequency, d: duration in ms).
+`PlaySound(f, d, c)` | Play sound, (f: frequency, d: duration in ms, c: duty cycle).
+`PlayMelody(a1)` | Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration).
+`StopMelody()` | Stop melody.
+`DVer()` | This driver version.
+
+
+<details>
+  <summary>The Code!</summary>
+
+
+
+```py reference title="Buzzer Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/sound/buzzer.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'JavaScript', value: 'js'},
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/sound/buzzer.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/sound/buzzer.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/sound/buzzer.js
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink Buzzer"
+    partnumber = "GDL-SOBUZZER-B"
+    price = "$00.00"
+></OrderSection>
+
+
+
+
+

@@ -1,0 +1,296 @@
+# Release Notes
+
+---
+
+## DUELink Firmware
+
+### v0.44 (2025-08-28)
+
+- Fixed double response when send a command
+- Known Issues:
+  - None.
+
+### v0.43 (2025-08-26)
+
+- Change Analog: vread, aread, awrite
+- Add DLmode(4) for i2c
+- Add DLI2cWr command
+- Known Issues:
+  - None.
+
+### v0.42 (2025-08-22)
+
+- Erase all only erase all on selected device
+- Fixed scale()
+- Software uart: Make sure closed before reopen
+- Known Issues:
+  - None.
+  
+### v0.41 (2025-08-18)
+
+- Fix btnread
+- Fix SD filesystem mount/unmount
+- Known Issues:
+  - None.
+  
+### v0.40 (2025-08-18)
+
+- Rework button, IR.
+- Add NeoPixel vertical scaning mode.
+- Known Issues:
+  - None.
+  
+### v0.39 (2025-08-12)
+
+- Fixed USB overwrite Button memory region.
+- Known Issues:
+  - None.
+  
+### v0.38 (2025-08-12)
+
+- Print shows value twice
+- Fix interrupt does not work after switched to region 1
+- Known Issues:
+  - None.
+  
+### v0.37 (2025-08-06)
+
+- Erase all put device to DFU mode automatically
+- Support DUEScript functions up to 16
+- Fix some bugs related to region
+- Known Issues:
+  - None.
+  
+### v0.35 (2025-08-01)
+
+- Support Led MT12x08
+- Asio mode returns response
+- Fix user function overwrite system function 
+- Fix can't use pin 22 (UART1 rx) after detected interface.
+- Known Issues:
+  - None.
+  
+### v0.34 (2025-07-11)
+
+- Fix enter coprocessor bootloader failed
+- Rework IR. Add IR transmit
+- Improve `cmd`
+- Fix Downlink bus swap bytes sometime
+- Known Issues:
+  - None.
+  
+### v0.33 (2025-06-25)
+
+- Rework chain enumeration.
+- Add dlmode command to support Downlink interfaces: None, Interface, Host, Uart
+- Rework command `cmd`. Command `cmd` work in Downlink host interface only
+- Add cmdtmot for `cmd` command timeout
+- Known Issues:
+  - SPI is slow.
+
+### v0.32 (2025-06-10)
+
+- Add support for `0i` prefix, int32 helper.
+- Add ePaper graphics support.
+- Change statled enumeration behavior: On - not enumerate, OFF: enumerated.
+- Fix Asio()
+- Improve enumeration in chain
+- Fix Spi: release CS too early
+- Fix GPIO: GetPinState does not work correctly sometime
+- Add Info(2): return device address
+- pwrite: Change to 1KHz 
+- Fix leak memory with melody
+- Known Issues:
+  - SPI is slow.
+  - Device communication may have problem if more than 5 devices in chain.
+
+### v0.31 (2025-05-14)
+
+- IStart(): Resistor pull is same as dread: 0-Nopull, 1: Pullup, 2: Pulldown
+- Improved USB for console
+- Known Issues:
+  - SPI is slow.
+  
+### v0.30 (2025-05-01)
+
+- Add SPI LSB
+- Fix `reset(x)` reset board even x not 0
+- Change `version()` and `info(0)` output to 12bit product ID
+- Fix SPI pull chip select before last byte sent
+- Hardware uart use native baudrate
+- NeoPixel use true color 24 bit
+- Fix color scale with 8 bit mode
+- Fix crash with gpio interrupt when P1 and P2 are used.
+- Known Issues:
+  - SPI is slow.
+
+### v0.29 (2025-04-21)
+
+- Add Stat LED activity
+- Add `sprintf()`
+- APIs taking strings can now accept byte arrays
+- Add `Hex()` and `Chr()`
+- Add math functions
+- Add hardware UART support, needed for DueDuino
+- Change indexer for float arrays to use []
+- Add `break` and `continue`
+- Add stream: `StrmRd()`, `StrmWr()`, and `StrmSpi()`
+- Fix nested interrupt and scheduling
+- Fix I2c return true/false instead of false always
+- Fix DMX
+- Fix distance returns int only
+- Known Issues:
+  - SPI is slow.
+
+### v0.28 (2025-04-03)
+
+- Change `Led()` to `StatLed()`.
+- Fix graphics bug in direct mode.
+- Known Issues:
+  - SPI is slow.
+
+### v0.27 (2025-03-21)
+
+- Fix `ImgS()` arguments.
+- `Reset(1)` will now show a message to wait 5 seconds.
+- `Reset(1`) disables USB automatically before system wipeout.
+- for loop basic style second argument is now exclusive, like Python style.
+- Array initializers can start on a new line.
+- LED Matrix scanner now supports dimensions other than 5x5.
+- PWM improvements when using mid-range frequencies.
+- An error inside a Scheduler will terminate the program and all schedulers.
+- Known Issues:
+  - SPI is slow.
+
+### v0.26 (2025-03-17)
+
+- Removed loader in favor of giving users an extra 12K of flash!
+- Fix `Asio()`.
+- Known Issues:
+  - SPI is slow.
+
+### v0.24 (2025-03-12)
+
+- Graphics: Add matrix list
+- Matrix LED graphics now only works in buffered mode.
+- Fix Device ID larger than 16 bit
+- Known Issues:
+  - SPI is slow.
+  - `Asio()` doesn't work.
+
+### v0.23 (2025-03-11)
+
+- Add PWM support to STAT LED.
+- Graphics configuration use float array now.
+- Improve interface detection mechanism.
+- Known Issues:
+  - SPI is slow.
+  - `Asio()` doesn't work.
+
+### v0.22 (2025-03-10)
+
+- Improve `print()`.
+- Add I2C restart support.
+- "Enter" now terminates a running program, like ESC.
+- Downlink and multi-device support improvements.
+- Add date/time support.
+- Remove `dumparry()`.
+- Known Issues:
+  - SPI is slow.
+  - `Asio()` doesn't work.
+
+### v0.21 (2025-03-01)
+
+- Initial public release:
+- Adds all major features.
+- Known Issues:
+  - `Sched()` will not abort when program terminates.
+  - SPI is slow.
+
+---
+
+## MicroBlocks Firmware
+
+### v344 (2025-08-18)
+
+- Add support ClipIt, DueSTEM
+- Known Issues:
+  - Large programs cause system lockup.
+  - Writing to pins 21-22 crashes Ghizzy and Stick
+
+### v343 (2025-08-18)
+
+- Support Tiny OLED
+- Internal improvements.
+- Known Issues:
+  - Large programs cause system lockup.
+  - Writing to pins 21-22 crashes Ghizzy and Stick
+  
+### v333 (2025-05-06)
+
+- Make Boot0 button available as pin 20
+- Fix Reading the light sensor (pin 11) on CincoBit made button B stop responding.
+- Known Issues:
+  - Large programs cause system lockup.
+  - Writing to pins 21-22 crashes Ghizzy and Stick
+
+### v331 (2025-04-30)
+
+- Enable pin Boot0.
+- Improve PWM support.
+- Disable servo primitives to free up timer for PWM.
+- Make Tone primitives work.
+- Known Issues:
+  - Large programs cause system lockup.
+  
+### v330 (2025-04-29)
+
+- Add PWM on more pins.
+- Fix analog issue on some pins.
+- Improve Tone output.
+- Known Issues:
+  - Large programs cause system lockup.
+
+### v329 (2025-04-23)
+
+- Fix reading analog pins.
+- Tone library now work on boards that have buzzers.
+- Known Issues:
+  - Large programs cause system lockup.
+
+### v329 (2025-04-23)
+
+- Fix reading analog pins.
+- Tone library now work on boards have buzzer
+- Known Issues:
+  - Large programs cause system lockup.
+
+### v327 (2025-04-09)
+
+- Programs are now persisted.
+- Increase user space.
+- Known Issues:
+  - Large programs cause system lockup.
+  
+### v326 (2025-04-04)
+
+- Add support for PixoBit.
+- Known Issues:
+  - Large programs cause system lockup.
+  - Programs are not persisted.
+
+### v324 (2025-03-22)
+
+- Add primitives for the DUELink Downlink.
+- Known Issues:
+  - Large programs cause system lockup.
+  - Programs are not persisted.
+
+### v322 (2025-03-21)
+
+- Initial universal release!
+- Supports dynamic pin mapping.
+- Known Issues:
+  - Large programs cause system lockup.
+  - Programs are not persisted.
+

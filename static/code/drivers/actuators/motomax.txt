@@ -1,0 +1,31 @@
+##### MotoMax Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+# Pin 7,8: RPWM, LPWM
+# Pin 6,5: R_EN, L_EN
+# Pin 4,3: R_IS, L_IS
+
+fn Init()
+    DWrite(5,1)
+    DWrite(6,1)
+    Freq(7, 500, 0, 0)
+    Freq(8, 500, 0, 0)
+fend
+
+fn Set(s)
+    if (s > 0)
+        Freq(8, 500, 0, 0)
+        Freq(7, 500, 0, s / 100)
+    else
+        s=s*-1
+        Freq(7, 500, 0, 0)
+        Freq(8, 500, 0, s / 100)
+    end
+fend
+
+Init()
+
+####################

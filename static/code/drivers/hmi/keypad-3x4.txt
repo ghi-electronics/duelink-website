@@ -1,0 +1,70 @@
+##### Keypad 3x4 Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+Alias(key=_k, prevkey=_p, newkey=_n)
+
+# Set col 8 10 5
+# Read row 9 6 4 3
+
+fn SelCol(c)
+    DWrite(8,0)
+    DWrite(10,0)
+    DWrite(5,0)
+    if c = 0
+        DWrite(10,1)
+    end
+    if c = 1
+        DWrite(8,1)
+    end
+    if c = 2
+        DWrite(5,1)
+    end
+fend
+
+Dim b0[] =[0,'*','7','4','1','0','8','5','2','#','9','6','3']
+Dim b1[] = [6,4,3,9]
+fn Scan()
+    key = 0
+    for _c in Range(3)
+        SelCol(_c)
+        
+        for _r in Range(4)
+            if DRead(b1[_r],2)
+            #PrintLn("col ", _c, " row  0")
+            key = key | (1<<((_c*4)+_r))
+            end
+        next
+    next
+
+    if prevkey != key
+        prevkey=key
+        newkey=1
+    else
+        newkey=0
+    end
+
+fend
+
+fn IsKeyChange()
+    return newkey
+fend
+
+fn RdKey()
+_r = 0
+    newkey = 0
+
+    for _i in Range(16)
+        if key & (1<<_i)
+            _r = _i+1
+        end
+    next
+
+    return b0[_r]
+fend
+
+SStart("Scan", 100, 0)
+
+#########################

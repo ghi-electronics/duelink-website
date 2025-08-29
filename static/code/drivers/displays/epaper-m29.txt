@@ -1,0 +1,86 @@
+##### ePaper M29 Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+Alias(select=1, reg=3, busy=4, rst=2)
+
+_s = 1
+_r = 3
+_b = 4
+
+fn DCmd(c, b1)
+    DWrite(select, 0)#select
+    DWrite(reg, 0)#cmd
+    SpiWr(c)
+    DWrite(reg, 1)#data
+    for i in Range(0,Len(b1))
+        SpiWr(b1[i])
+    next
+    DWrite(select, 1)#deselect
+fend
+ 
+fn WaitIdle()
+    while DRead(busy,0)
+        Wait(100)
+    wend
+fend
+ 
+fn DrawOnRed() 
+    DCmd(0x26, [])
+fend
+ 
+fn DrawOnBW() 
+    DCmd(0x24, [])
+fend
+
+fn SetDrawW(x,y,a,b)
+    DCmd(0x44, [(x >> 3) & 0xFF, (a >> 3) & 0xFF])
+    DCmd(0x45, [y & 0xFF, (y >> 8) & 0xFF, (b)  & 0xFF, ((b) >> 8)  & 0xFF])
+fend
+
+fn SetCursor(x,y)
+    DCmd(0x4E, [(x >> 3) & 0xFF])
+    DCmd(0x4F, [y & 0xFF, (y >> 8) & 0xFF])
+    WaitIdle()
+fend
+
+fn Width()
+    return 296
+fend
+
+fn Height()
+    return 128
+fend
+ 
+fn Init() 
+    SpiCfg(0, 8000)  
+ 
+    DWrite(rst,0)
+    Wait(10)
+    DWrite(rst,1)
+    Wait(200) 
+    
+    GfxCfg(6, {1, select, reg, busy}, Width(),Height(),1)
+
+    DCmd(0x01, [0x27,0x01, 0x00]) #Driver Output control
+    DCmd(0x11, [0x06]) # Data Entry mode setting
+    SetDrawW(Height()-1, 0, 0, Width()-1)
+    SetCursor(Height()-1,0)
+ 
+    DCmd(0x3C, [0x01]) #Border Waveform Control
+    DCmd(0x21, [0x00, 0x80])
+ 
+    DCmd(0x18, [0x80]) #Temperature Sensor Control
+    DCmd(0x22, [0xB1])
+ 
+    DCmd(0x20, [])
+ 
+    WaitIdle()
+    DrawOnBW() 
+fend
+
+Init()
+
+##############################

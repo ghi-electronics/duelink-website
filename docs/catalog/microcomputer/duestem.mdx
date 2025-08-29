@@ -1,0 +1,131 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# DueSTEM
+
+<ImageSection
+    product = 'duestem'
+    tagline = 'Complete All-in-One STEM Solution'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+`Input -> Process -> Output` is how DueSTEM brings everything [educators](../../start/educators) need to demonstrate physical computing. There are 4 inputs and 4 outputs. The graphical display can be used to show sensor levels or for building games!
+
+Extend the board with sensors and actuators on the female pin-header and the [Downlink](../../interface/downlink) connector.
+
+<table><td width='50%'>
+**Key features**
+
+• 128x64 OLED 0.96" Display<br/>
+• Temperature Sensor<br/>
+• Accelerometer<br/>
+• Light Sensor<br/>
+• 4 User Buttons<br/>
+• Light Sensor<br/>
+• 2 Servo Ports<br/>
+• RGB LED<br/>
+• Tunes Buzzer<br/>
+• 107x57mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-mcduestem-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-mcduestem-b.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+Function | Description
+--- | ---
+`GetW()` | Get display width: 128.
+`GetH()` | Get display height: 64.
+`IsColor()` | Returns 0.
+`BtnPin(a)` | Returns button's pin number, based on `a` alias ('U' = Up, 'D' = Down, 'L' = Left, 'R' = Right) 
+`GetX()` | Returns the X axis of the Accelerometer.
+`GetY()` | Returns the Y axis of the Accelerometer.
+`GetZ()` | Returns the Z axis of the Accelerometer.
+`SetBulb(c)` | Sets Lightbulb `c` color with 24bit RGB color (RRGGBB).
+`Tunes(f,d)` | Plays Tunes buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds.
+`Light()` | Returns voltage level from Light sensor.
+`ReadTemp()` | Returns voltage level from Temperature sensor.
+`DVer()` | This driver version.
+
+<details>
+  <summary>The Code!</summary>
+
+```py reference title="DueSTEM Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/microcomputers/duestem.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/microcomputers/duestem.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/microcomputers/duestem.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/microcomputers/duestem.js
+```
+
+</TabItem>
+</Tabs>
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+</Tabs>
+
+---
+<OrderSection
+    product = "DUELink DueSTEM"
+    partnumber = "GDL-MCDUESTEM-B"
+    price = "$00.00"
+></OrderSection>

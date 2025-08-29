@@ -1,0 +1,115 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# DueDuino
+
+<ImageSection
+    product = 'dueduino'
+    tagline = 'Arduino form factor inspired DUELink mainboard'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+Use the official DUELink engine firmware or use the [Arduino](../../hw/arduino) software IDE to program DueDuino.
+
+Of course, this is a DUELink board and [Downlink](../../interface/downlink) connector is ready for [Daisylinking](../../engine/daisylink) all of your modules.
+
+<table><td width='50%'>
+**Key features**
+
+• Arduino form factor<br/>
+• USB-C connector<br/>
+• PowerJack<br/>
+• 69x56mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-mcdueduino-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-mcdueduino-a.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+Function | Description
+--- | ---
+`BtnLdr()` | Returns 1 if LDR button is pressed.
+`DVer()` | This driver version.
+
+<details>
+  <summary>The Code!</summary>
+
+```py reference title="DueDuino Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/microcomputers/dueduino.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/microcomputers/dueduino.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/microcomputers/dueduino.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/microcomputers/dueduino.js
+```
+
+</TabItem>
+</Tabs>
+</TabItem>
+
+<TabItem value="projects">
+Coming Soon!
+</TabItem>
+</Tabs>
+
+---
+<OrderSection
+    product = "DueDuino"
+    partnumber = "GDL-MCDUEDUINO-A"
+    price = "$00.00"
+></OrderSection>
