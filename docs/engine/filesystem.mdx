@@ -145,7 +145,7 @@ FSClose(_h)
 duelink.FileSystem.Mount(1, 17, 8000, 4)
 
 # open file test.txt to write, mode (0x02 | 0x08)
-h = duelink.FileSystem.Open("test.txt", 0x02 | 0x08 )
+h = duelink.FileSystem.Open("/test.txt", 0x02 | 0x08 )
 
 # write 4 bytes to handle h
 wrote = duelink.FileSystem.Write(h, [1,2,3,4])
@@ -160,7 +160,7 @@ duelink.FileSystem.Close(h)
 await duelink.FileSystem.Mount(1, 17, 8000, 4)
 
 // open file test.txt to write, mode (0x02 | 0x08)
-let h = await duelink.FileSystem.Open("test.txt", 0x02 | 0x08 )
+let h = await duelink.FileSystem.Open("/test.txt", 0x02 | 0x08 )
 
 // write 4 bytes to handle h
 let wrote = await duelink.FileSystem.Write(h, [1,2,3,4])
