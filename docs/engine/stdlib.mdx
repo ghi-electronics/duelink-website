@@ -1221,14 +1221,18 @@ DLI2CWr(0x44,B1,[])
 ```
 </TabItem>
 <TabItem value="py">
-
-Script only functionality.
-
+```py
+# Can be done using WriteCommand()
+duelink.Engine.WriteCommand("DLMode(4)")
+duelink.Engine.WriteCommand("DLI2cWr(0x44, [0x11,0x22], []")
+```
 </TabItem>
 <TabItem value="js">
-
-Script only functionality.
-
+```js
+// Can be done using WriteCommand()
+await duelink.Engine.WriteCommand("DLMode(4)");
+await duelink.Engine.WriteCommand("DLI2cWr(0x44, [0x11,0x22], []");
+```
 </TabItem>
 </Tabs>
 </details>
@@ -1247,7 +1251,7 @@ Function | Description
 
 The `Sel(add)` command accepts multiple addresses. `Sel(3,7)` will activate the third and and seventh modules in [Daisylink](./daisylink). Any command issue from that point forward are executed by both modules. Zero is broadcast address, where `Sel(0)` will activate all modules. Use `GetAdd()` to detect what modules are currently active.
 
-Device addressing controls modules on a daisylink, not a device itself. For that, `Sel()` can only be issued by the host. Of course, the host can be a third-party board or a DUELink module in host mode.
+Device addressing controls modules on a [Daisylink](./daisylink), not a device itself. For that, `Sel()` can only be issued by the host. Of course, the host can be a third-party board or a DUELink module in host mode.
 
 <details>
   <summary>Samples</summary>
