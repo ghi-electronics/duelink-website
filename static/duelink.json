@@ -3,8 +3,8 @@
         "author": "GHI Electronics",
         "version": "0.1",
         "timestamp": "2025-08-05",
-        "image_url_base":"https://www.duelink.com/img/catalog",
-        "code_url":"https://www.duelink.com/code/drivers/"
+        "image_url_base": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/img/catalog/",
+        "code_url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/drivers/"
     },    
     "boards":
     [

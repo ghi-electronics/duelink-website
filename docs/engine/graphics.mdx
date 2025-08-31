@@ -70,17 +70,38 @@ Function | Description
 ]}>
 <TabItem value="script">
 ```py
-# Script
+# Clear screen with black color
+Clear(1)
+
+# draw text white color, at x = 5, y = 5, scale width = 1, scale height = 1
+texts("DUELink", 0, 5,5,1,1)
+
+# flush to screen
+show()
 ```
 </TabItem>
 <TabItem value="py">
 ```py
+# Clear screen with black color
+duelink.Graphics.Clear(1)
 
+# draw text white color, at x = 5, y = 5, scale width = 1, scale height = 1
+duelink.Graphics.Texts("DUELink", 0, 5,5,1,1)
+
+# flush to screen
+duelink.Graphics.Show()
 ```
 </TabItem>
 <TabItem value="js">
 ```js
+// Clear screen with black color
+await duelink.Graphics.Clear(1)
 
+// draw text white color, at x = 5, y = 5, scale width = 1, scale height = 1
+await duelink.Graphics.Texts("DUELink", 0, 5,5,1,1)
+
+//flush to screen
+await duelink.Graphics.Show()
 ```
 </TabItem>
 </Tabs>

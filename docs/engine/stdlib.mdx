@@ -455,13 +455,18 @@ next
 <TabItem value="py">
 ```py
 for x in range(800,8000,50)
-  Freq(3, _x, 100, 0.5)
+  duelink.Frequency.Write(3, _x, 100, 0.5)
   time.sleep(0.1)
 next
 ```
 </TabItem>
 <TabItem value="js">
 ```js
+
+for (let x = 800; x <= 8000; x += 50) {
+  await duelink.Frequency.Write(3, x, 100, 0.5);
+  await Util.sleep(100);
+}
 
 ```
 </TabItem>
@@ -499,13 +504,16 @@ wend
 ```py
 # Read cap-touch on pin 1 with 100ms charing at high state, with 1sec timeout
 while True:
-    print(duelink.Touch.Touch(1, 100, 1, 1000))
+    print(duelink.Touch.Read(1, 100, 1, 1000))
     time.sleep(1)
 ```
 </TabItem>
 <TabItem value="js">
 ```js
-
+while (true) {
+    console.log(await duelink.Touch.Read(1, 100, 1, 1000));
+    await Util.sleep(1000);
+}
 ```
 </TabItem>
 </Tabs>
@@ -531,17 +539,18 @@ Function | Description
 ]}>
 <TabItem value="script">
 ```py
-#Script
+# Detect low width on pin 3
+println(PulseIn(3,0,1000))
 ```
 </TabItem>
 <TabItem value="py">
 ```py
-
+print(duelink.Pulse.Read(3,0,1000))
 ```
 </TabItem>
 <TabItem value="js">
 ```js
-
+console.log(await duelink.Pulse.Read(3,0,1000))
 ```
 </TabItem>
 </Tabs>
@@ -613,7 +622,7 @@ This changes the timer frequency to 50Hz, see Special Pins.
 <TabItem value="script">
 ```py
 # Servo on pin 1 to 90 degrees
-ServoSet(1, 90)
+servost(1, 90)
 ```
 </TabItem>
 <TabItem value="py">
@@ -655,19 +664,24 @@ Pins used for I2C are 15-SCL and 16-SDA.
 <TabItem value="script">
 ```py
 # Write 2 bytes to 0x3C and do not read anything back
-b1[0] = 0
-b1[1] = c
+i2ccfg(100) # set clock 100KHz
+b1[0] = 1
+b1[1] = 2
 i2cwr(0x3C,b1,[])
 ```
 </TabItem>
 <TabItem value="py">
 ```py
-
+b1 = bytearray([0x01,0x02])
+duelink.I2C.Configuration(100)
+duelink.I2C.WriteRead(0x3c, b1, 0)
 ```
 </TabItem>
 <TabItem value="js">
 ```js
-
+let b1 = new Uint8Array([0x01, 0x02])
+await duelink.I2C.Configuration(100)
+await duelink.I2C.WriteRead(0x3c, b1, 0)
 ```
 </TabItem>
 </Tabs>
@@ -701,22 +715,41 @@ Pins used for SPI are 12-SCK, 13-MISO, 14-MOSI. Use any GPIO for manual use of C
 ]}>
 <TabItem value="script">
 ```py
+spicfg(0,8000)
 # Write/Read (exchange) a byte
 _R = SpiWr(0x55)
 # Write B1 array and read back B2
-Dim B1[10]
-Dim B2[10]
+Dim B1[2] = [1,2]
+Dim B2[2]
 SpiWrs(B1,B2)
 ```
 </TabItem>
 <TabItem value="py">
 ```py
+duelink.Spi.Configuration(0,8000)
 
+# Write/Read (exchange) a byte
+r = duelink.Spi.Write(0x55)
+
+# Write B1 array and read back B2
+b1 = bytearray([0x01,0x02])
+b2 = bytearray(2)
+
+duelink.Spi.WriteRead(b1,b2)
 ```
 </TabItem>
 <TabItem value="js">
 ```js
+await duelink.Spi.Configuration(0,8000)
 
+# Write/Read (exchange) a byte
+let r = await duelink.Spi.Write(0x55)
+
+# Write B1 array and read back B2
+let b1 = new Uint8Array([0x01, 0x02])
+let b2 = new Uint8Array()
+
+await duelink.Spi.WriteRead(b1,b2)
 ```
 </TabItem>
 </Tabs>
@@ -752,6 +785,8 @@ Serial is handled by software with special internal features. There is also basi
 ]}>
 <TabItem value="script">
 ```py
+SerCfg(9600, 1024)
+
 # If there is data, read a byte and write it back
 if SerB2R() > 0
   _B = SerRd()
@@ -761,12 +796,24 @@ end
 </TabItem>
 <TabItem value="py">
 ```py
+duelink.Uart.Configuration(9600, 1024)
+
+# If there is data, read a byte and write it back
+if duelink.Uart.BytesToRead() > 0:
+  data = duelink.Uart.ReadByte()
+  duelink.Uart.WriteByte(data)
 
 ```
 </TabItem>
 <TabItem value="js">
 ```js
+await duelink.Uart.Configuration(9600, 1024)
 
+// If there is data, read a byte and write it back
+if (duelink.Uart.BytesToRead() > 0) {
+  let data = await duelink.Uart.ReadByte()
+  await duelink.Uart.WriteByte(data)
+}
 ```
 </TabItem>
 </Tabs>
@@ -801,21 +848,38 @@ This feature only support DMX frames with `Start Code` zero.
 ```py
 # Enable DMX update on UART pins
 DmxU()
-# ...
-if DmxRdy()
-  # Read channel 3
-  _D = DmxR(3)
-end
+
+# wait until ready
+while DmxRdy() = 0
+  wait(200)
+wend
+
+# Read channel 3
+_D = DmxR(3)
+
 ```
 </TabItem>
 <TabItem value="py">
 ```py
+duelink.DMX.Update()
+
+# wait until ready
+while duelink.DMX.Ready() == 0:
+  time.sleep(0.2) 
+
+d = duelink.DMX.Read(3)
 
 ```
 </TabItem>
 <TabItem value="js">
 ```js
+await duelink.DMX.Update()
 
+# wait until ready
+while (duelink.DMX.Ready() == 0)
+  await Util.sleep(200)
+
+let d = await duelink.DMX.Read(3)
 ```
 </TabItem>
 </Tabs>
@@ -851,12 +915,18 @@ IrWrite(0x55)
 </TabItem>
 <TabItem value="py">
 ```py
+# Enable Ir transmit feature on pin 3, no receiver
+duelink.Infrared.Enable(3,-1)
 
+duelink.Infrared.Write(0x55)
 ```
 </TabItem>
 <TabItem value="js">
 ```js
+// Enable Ir transmit feature on pin 3, no receiver
+await duelink.Infrared.Enable(3,-1)
 
+await duelink.Infrared.Write(0x55)
 ```
 </TabItem>
 </Tabs>
@@ -1151,14 +1221,18 @@ DLI2CWr(0x44,B1,[])
 ```
 </TabItem>
 <TabItem value="py">
-
-Script only functionality.
-
+```py
+# Can be done using WriteCommand()
+duelink.Engine.WriteCommand("DLMode(4)")
+duelink.Engine.WriteCommand("DLI2cWr(0x44, [0x11,0x22], []")
+```
 </TabItem>
 <TabItem value="js">
-
-Script only functionality.
-
+```js
+// Can be done using WriteCommand()
+await duelink.Engine.WriteCommand("DLMode(4)");
+await duelink.Engine.WriteCommand("DLI2cWr(0x44, [0x11,0x22], []");
+```
 </TabItem>
 </Tabs>
 </details>
@@ -1177,7 +1251,7 @@ Function | Description
 
 The `Sel(add)` command accepts multiple addresses. `Sel(3,7)` will activate the third and and seventh modules in [Daisylink](./daisylink). Any command issue from that point forward are executed by both modules. Zero is broadcast address, where `Sel(0)` will activate all modules. Use `GetAdd()` to detect what modules are currently active.
 
-Device addressing controls modules on a daisylink, not a device itself. For that, `Sel()` can only be issued by the host. Of course, the host can be a third-party board or a DUELink module in host mode.
+Device addressing controls modules on a [Daisylink](./daisylink), not a device itself. For that, `Sel()` can only be issued by the host. Of course, the host can be a third-party board or a DUELink module in host mode.
 
 <details>
   <summary>Samples</summary>
@@ -1206,9 +1280,9 @@ duelink.System.StatLed(200, 200, 10)
 <TabItem value="js">
 ```js
 // Select device 2
-duelink.Engine.Select(1);
+await duelink.Engine.Select(1);
 // Blink the LED on selected device
-duelink.System.StatLed(200, 200, 10);
+await duelink.System.StatLed(200, 200, 10);
 ```
 </TabItem>
 </Tabs>
@@ -1376,12 +1450,16 @@ Reset(0)
 </TabItem>
 <TabItem value="py">
 ```py
-
+# Reset All devices
+duelink.Engine.Select(0)
+duelink.System.Reset(0)
 ```
 </TabItem>
 <TabItem value="js">
 ```js
-
+// Reset All devices
+await duelink.Engine.Select(0)
+await duelink.System.Reset(0)
 ```
 </TabItem>
 </Tabs>
@@ -1410,14 +1488,16 @@ ShtDn(1)
 ```
 </TabItem>
 <TabItem value="py">
-
-Script only functionality.
-
+```py
+# Go to sleep and wake up when pin 1 changes.
+duelink.System.Shutdown(1)
+```
 </TabItem>
 <TabItem value="js">
-
-Script only functionality.
-
+```js
+// Go to sleep and wake up when pin 1 changes.
+await duelink.System.Shutdown(1)
+```
 </TabItem>
 </Tabs>
 </details>
@@ -1453,12 +1533,14 @@ OtpR(12)
 </TabItem>
 <TabItem value="py">
 ```py
-
+# Read a value from OTP address 12
+duelink.Otp.Read(12)
 ```
 </TabItem>
 <TabItem value="js">
 ```js
-
+// Read a value from OTP address 12
+await duelink.Otp.Read(12)
 ```
 </TabItem>
 </Tabs>
@@ -1510,12 +1592,32 @@ RtcR(0)
 </TabItem>
 <TabItem value="py">
 ```py
+# Sets the current time to 18:10:00 27 Feb 2025
+b1 = bytearray([0,10,18,27,2,25])
 
+duelink.Rtc.Write(b1)
+
+# Read the time into array
+b2 = bytearray(6)
+duelink.Rtc.Read(b2)
+
+# Show (print) the current time
+duelink.Rtc.Show()
 ```
 </TabItem>
 <TabItem value="js">
 ```js
+// Sets the current time to 18:10:00 27 Feb 2025
+let b1 = Uint8Array([0,10,18,27,2,25])
 
+await duelink.Rtc.Write(b1)
+
+// Read the time into array
+let b2 = Uint8Array(6)
+await duelink.Rtc.Read(b2)
+
+// Show (print) the current time
+await duelink.Rtc.Show()
 ```
 </TabItem>
 </Tabs>
@@ -1555,12 +1657,12 @@ _V = ReadVCC()
 </TabItem>
 <TabItem value="py">
 ```py
-
+v = duelink.Analog.ReadVcc()
 ```
 </TabItem>
 <TabItem value="js">
 ```js
-
+let v = await duelink.Analog.ReadVcc()
 ```
 </TabItem>
 </Tabs>

@@ -126,16 +126,47 @@ Coding language libraries include access to the internal file system. This is no
 ]}>
 <TabItem value="script">
 ```py
-# Script
+# Mount SD card, pin 17 chip select, 8Mhz clock, 4 file handles max
+fsmnt(1, 17, 8000, 4)
+
+# open file test.txt to write, mode (0x02 | 0x08)
+_h = FsOpen("/test.txt", 0x2|0x8)
+
+# write 4 bytes to handle h
+_w = FsWrite_(h, [1,2,3,4])
+
+# close handle
+FSClose(_h)
 ```
 </TabItem>
 <TabItem value="py">
 ```py
+# Mount SD card, pin 17 chip select, 8Mhz clock, 4 file handles max
+duelink.FileSystem.Mount(1, 17, 8000, 4)
 
+# open file test.txt to write, mode (0x02 | 0x08)
+h = duelink.FileSystem.Open("/test.txt", 0x02 | 0x08 )
+
+# write 4 bytes to handle h
+wrote = duelink.FileSystem.Write(h, [1,2,3,4])
+
+# close handle
+duelink.FileSystem.Close(h)
 ```
 </TabItem>
 <TabItem value="js">
 ```js
+// Mount SD card, pin 17 chip select, 8Mhz clock, 4 file handles max
+await duelink.FileSystem.Mount(1, 17, 8000, 4)
+
+// open file test.txt to write, mode (0x02 | 0x08)
+let h = await duelink.FileSystem.Open("/test.txt", 0x02 | 0x08 )
+
+// write 4 bytes to handle h
+let wrote = await duelink.FileSystem.Write(h, [1,2,3,4])
+
+// close handle
+await duelink.FileSystem.Close(h)
 
 ```
 </TabItem>

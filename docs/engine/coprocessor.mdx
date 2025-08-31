@@ -1,3 +1,6 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 # Coprocessor
 
 ---
@@ -37,3 +40,37 @@ Once a coprocessor firmware is loaded, these commands provide means of data tran
 :::tip
 These functions are used by us to build drivers that you can simply use. We are documenting these here for reference only.
 :::
+
+---
+
+## Sample Code
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'JavaScript', value: 'js'},
+]}>
+<TabItem value="script">
+```py
+# return current version of coproc firmware
+println(CoprocV())
+```
+</TabItem>
+<TabItem value="py">
+```py
+# return current version of coproc firmware
+print(duelink.CoProcessor.Version())
+
+```
+</TabItem>
+<TabItem value="js">
+```js
+# return current version of coproc firmware
+console.log(await duelink.CoProcessor.Version())
+```
+</TabItem>
+</Tabs>
+</details>

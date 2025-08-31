@@ -308,8 +308,6 @@ const sidebars = {
       items: [
         "iot/aws",
         "iot/azure",
-        "iot/google-cloud",
-        "iot/ifttt",
       ],
     },
     "console",
