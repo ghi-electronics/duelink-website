@@ -1,6 +1,8 @@
 ##### Button S Test #####
 
-- Connect button device to test kit by downlink connector side. We call it Device Under Test (DUT)
+- Connect the button device to PC by USB hook on U socket. We call the button device is DUT.
+- Connect DUT to the test kit by D socket. 
+- Select "Button S Rev A" under Hmi from list view meny.
 - Make sure the image shown on the program matchs to DUT exactly. There are few kinds of buttons, be careful!
 
 Important: If wrong device is selected, wrong-OTP will be written to DUT and no way to erase it. The DUT becomes garbage. 
