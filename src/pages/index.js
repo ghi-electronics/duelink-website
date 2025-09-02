@@ -20,10 +20,12 @@ function HomepageHeader() {
         </p>
 
 
- <Heading as="h2" >
-        <b>D</b>ynamic <b>U</b>niversal <b>E</b>xtensible <b>Link</b>
+       <Heading as="h2" >
+        Dynamic Universal Extensible Link
         </Heading>
-        <p> DUELink brings hundreds of sensors, actuators, and displays to streamline electronics for Engineers, Makers, and Educators. Each module is a mini-computer with a <b>D</b>ynamic <b>U</b>niversal <b>E</b>xtencible Daisy<b>Link</b> to your favorite Hardware and Software!
+        <p> DUELink revolutionizes electronics innovating with a vast ecosystem of sensor, actuator, and display modules.
+        <br/>  
+        Each module is a mini-computer, equipped with a smart daisy-link that seamlessly connects to your favorite Hardware platform and Coding Language.
         </p>
 
          <div className={styles.buttons}>
@@ -48,6 +50,7 @@ export default function Home() {
       <main>
         <HomepageFeatures />
       </main>
+  
        <div className={styles.buttons}>
           <Link
             className="button button--primary button--lg"

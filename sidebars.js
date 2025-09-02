@@ -321,6 +321,7 @@ const sidebars = {
     },
     "support",
     "legal",
+    "safety",
     /*
     {
         type: 'link',
