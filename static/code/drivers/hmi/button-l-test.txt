@@ -1,4 +1,4 @@
-##### Button S Test #####
+##### Button L Test #####
 
 fn Test()
     println("Starting test...")
@@ -9,11 +9,11 @@ fn Test()
     while 1        
         if (dread(BtnPin(), 1))
             cmd("Clear(0)")
-            cmd("TextS(\n"Button pressed\n",1,0,0,1,1)")
+            cmd("TextS(\"Button up\",1,0,0,1,1)")
             cmd("Show()")
         else
             cmd("Clear(0)")
-            cmd("TextS(\n"Button up\n",1,0,0,1,1)")
+            cmd("TextS(\"Button pressed\",1,0,0,1,1)")
             cmd("Show()")
         end
         Wait(100)
