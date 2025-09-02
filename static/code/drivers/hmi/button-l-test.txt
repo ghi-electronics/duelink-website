@@ -2,10 +2,9 @@
 
 fn Test()
     println("Starting test...")
-    Init()
     while 1        
 
-        if (Btndown(BtnPin()))
+        if (dread(BtnPin(), 1))
             statled(1,0,0)
         else
             statled(0,1,0)
