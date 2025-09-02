@@ -243,7 +243,7 @@ Clear(0)
 Img(a1,50,35,8,8,0)
 Show()
 ```
-This example below creates the same sprite using color, note the use of `Alias()` to make the code more readable, and change the colors of sections easier.  
+This example below creates the same sprite using colors set to different elements of the sprite , note the use of `Alias()` to make the code more readable, and change the colors of sections easier.  
 
 ![Color Image Array](pathname:///img/image-array-color.png)
 
@@ -251,8 +251,8 @@ This example below creates the same sprite using color, note the use of `Alias()
 Alias(body=0x00ff00,hat=0xff00ff,legs=0x0000FF,back=0xFFFFFF)
 
 Dim a1[8*8] = {
-back,back,back, hat, hat,back,back,back,
-back,back, hat, hat, hat, hat,back,back,
+back,back,back,hat,hat,back,back,back,
+back,back,hat,hat,hat,hat,back,back,
 back,body,body,body,body,body,body,back,
 body,body,back,body,body,back,body,body,
 body,body,body,body,body,body,body,body,
