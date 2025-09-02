@@ -1,0 +1,19 @@
+##### CincoBit Test #####
+
+Init()
+fn Test()
+    println("Starting test...")
+    while 1        
+
+        if (Btndown(BtnPin())
+            statled(1,0,0)
+        else
+            statled(0,1,0)
+        end
+        Wait(100)
+        
+    wend
+fend   
+
+
+
