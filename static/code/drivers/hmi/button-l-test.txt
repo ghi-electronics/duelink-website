@@ -3,7 +3,6 @@
 fn Test()
     println("Starting test...")
     while 1        
-
         if (dread(BtnPin(), 1))
             statled(1,0,0)
         else

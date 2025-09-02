@@ -11,8 +11,8 @@ Important: If wrong DUT is selected, wrong-OTP will be written to DUT and no way
 - Once button "Do It all!" on the program is ready, click on that button.
 - The program will transfer firmware, OTP, driver and test code to DUT automatically. It will take about few seconds.
 - At the final step, "Device is running Test()" is shown up in progress bar of program, with green color.
-(1) Every time press the button on DUT: the DUT's status led should one. 
-(2) Every time release the button on DUE: the DUT's status led should off. 
+(1) Press the button on DUT: the DUT's status led should off. 
+(2) Release the button on DUE: the DUT's status led should on. 
 
 The test is PASSED if (1) and (2) are done exactly with those behaviors.
     
