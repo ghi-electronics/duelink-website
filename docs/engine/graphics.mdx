@@ -74,10 +74,10 @@ Function | Description
 Clear(1)
 
 # draw text white color, at x = 5, y = 5, scale width = 1, scale height = 1
-texts("DUELink", 0, 5,5,1,1)
+TextS("DUELink", 0, 5,5,1,1)
 
 # flush to screen
-show()
+Show()
 ```
 </TabItem>
 <TabItem value="py">
@@ -296,7 +296,7 @@ Finally the `Show()` function is called to display the overlapping image arrays 
 ![Final Binary image](pathname:///img/binary-image.png)
 
 ```py
-dim b1[] = [
+Dim b1[] = [
  0b00111111,0b01100011,0b00000000,
  0b01111111,0b01100011,0b00000000,
  0b11000000,0b01100011,0b00010000,
@@ -308,7 +308,7 @@ dim b1[] = [
 ]
 ImgB(b1,0x1377AB,41,32,24,8)
 
-dim b1[] = [
+Dim b1[] = [
  0b00000000,0b00000000,0b01110000,
  0b00000000,0b00000000,0b01100000,
  0b00000000,0b00000000,0b01000000,
@@ -339,22 +339,22 @@ _d = -9
 Init()
 
 while 1
-    clear(0)
-    text(fmt(_x), 0xffffff, 30, 5)
+    Clear(0)
+    Text(fmt(_x), 0xffffff, 30, 5)
     Circle(0xff,_x,50,5)
     _x = _x + _d
     if(_x < 0 || _x > 106)
         _d = _d * -1
     end
-    show()
+    Show()
 wend
 
 
 fn Init()
-	dwrite(4,1)
-	dwrite(7,1)
+	DWrite(4,1)
+	DWrite(7,1)
     SpiCfg(0, 24000)
-    gfxcfg(2, {_s,_r},106,80, 3)# type 2, 106x80 pixels, buffered x3
+    GfxCfg(2, {_s,_r},106,80, 3)# type 2, 106x80 pixels, buffered x3
 	LcdCmd(0xc8, [0xFF])
 	LcdCmd(0x93, [0xFF])
 	LcdCmd(0x36, [0xc8])
@@ -374,14 +374,14 @@ fend
 
 fn LcdCmd(c, b1)
     ##LcdCmd(c)
-    dwrite(_s, 0)#select
-    dwrite(_r, 0)#LcdCmd
+    DWrite(_s, 0)#select
+    DWrite(_r, 0)#LcdCmd
     SpiWr(c)
-    dwrite(_r, 1)#data
+    DWrite(_r, 1)#data
     for i in Range(0,Len(b1))
         SpiWr(b1[i])
     next
-    dwrite(_s, 1)#deselect
+    DWrite(_s, 1)#deselect
 fend
 ```
 
@@ -406,7 +406,7 @@ next
 
 while 1
     Circle(0xFF00ff, _x, 100, 8)
-    wait(10)
+    Wait(10)
     Circle(0, _x, 100, 8)# clear the circle area, not the whole screen
     _x=_x+_d
     if(_x < 120 || _x > 320-120)
@@ -416,10 +416,10 @@ wend
 
 
 fn Init()
-	dwrite(4,1)
-	dwrite(7,1)
+	DWrite(4,1)
+	DWrite(7,1)
     SpiCfg(0, 24000)
-    gfxcfg(2, {_s,_r},320,240, 0)# type 2, 320x240 pixels, direct
+    GfxCfg(2, {_s,_r},320,240, 0)# type 2, 320x240 pixels, direct
 	LcdCmd(0xc8, [0xFF])
 	LcdCmd(0x93, [0xFF])
 	LcdCmd(0x36, [0xc8])
@@ -439,14 +439,14 @@ fend
 
 fn LcdCmd(c, b1)
     ##LcdCmd(c)
-    dwrite(_s, 0)#select
-    dwrite(_r, 0)#LcdCmd
+    DWrite(_s, 0)#select
+    DWrite(_r, 0)#LcdCmd
     SpiWr(c)
-    dwrite(_r, 1)#data
+    DWrite(_r, 1)#data
     for i in Range(0,Len(b1))
         SpiWr(b1[i])
     next
-    dwrite(_s, 1)#deselect
+    DWrite(_s, 1)#deselect
 fend
 ```
 
@@ -459,7 +459,7 @@ I2C supports buffered mode only, with x1 multiplier.
 In this case, we are using SSD1306. This display is found on [PixoBit](../catalog/microcomputer/pixobit) microcomputer and [OLED 096](../catalog/display/oled-096) display.
 
 ```py
-dim b1[2]
+Dim b1[2]
 _x = 50
 _d = -9
 Init()
@@ -473,15 +473,15 @@ while 1
     if(_x < 0 || _x > 106)
         _d = _d * -1
     end
-    show()
+    Show()
 wend
 
 fn Init()
-	dwrite(11, 1) # reset pin
+	DWrite(11, 1) # reset pin
     # config I2C bus with 400Kz
-    i2ccfg(400)
+    I2cCfg(400)
 	Wait(20)
-    gfxcfg(1,{0x3C}, 128, 64, 1)# type 1, 128x64 pixels, buffered x1
+    GfxCfg(1,{0x3C}, 128, 64, 1)# type 1, 128x64 pixels, buffered x1
 
 
 	LcdCmd(0xAE):LcdCmd(0x00):LcdCmd(0x10)
@@ -525,7 +525,7 @@ This is the easiest setup to make long LED display.
 
 ```py
 # 2 vertical-scanned 32x8 panels creating 64x8 LED display
-dim a1[]={1,# Pin used
+Dim a1[]={1,# Pin used
     64, # Individual panel width
     8, # Individual panel height
     1} # Vertical scanning
@@ -541,7 +541,7 @@ while 1
     if _x < -40
         _x = 32*2
     end
-    wait(10)
+    Wait(10)
 wend
 
 ```
@@ -551,7 +551,7 @@ Things a quite different when using horizontal scanning as the system supports p
 
 ```py
 # 3 horizontal 16x16 panels creating 48x16 display
-dim a1[]={1,# Pin used
+Dim a1[]={1,# Pin used
     16, # Individual panel width
     16, # Individual panel height
     0} # Horizontal scanning
@@ -567,7 +567,7 @@ while 1
     if _x < -20
         _x = 16*3
     end
-    wait(10)
+    Wait(10)
 wend
 
 ```
@@ -578,7 +578,7 @@ When connecting panels in a matrix, to build up larger "panels", they need to be
 
 ```py
 # 4 panels placed as 2x2, where each one is 16x16 pixels, creating 48x48 pixel displays
-dim a1[]= {1,# Pin used
+Dim a1[]= {1,# Pin used
     16, # Individual panel width
     16, # Individual panel height
     0} # Horizontal scanning
@@ -594,7 +594,7 @@ while 1
     if _x < -20
         _x = 6
     end
-    wait(100)
+    Wait(100)
 wend
 
 ```
@@ -603,7 +603,7 @@ It is also possible to connect panels vertically by simply ordering them exactly
 
 ```py
 ## 3 vertical panels of 16x16 each creating 16x48 display
-dim a1[]={1,# Pin used
+Dim a1[]={1,# Pin used
     16, # Individual panel width
     16, # Individual panel height
     0} # Horizontal scanning
@@ -619,7 +619,7 @@ while 1
     if _x < -20
         _x = 6
     end
-    wait(100)
+    Wait(100)
 wend
 
 ```
@@ -631,7 +631,7 @@ This is a partial image to demonstrate the connections.
 ![LED strip signal path](pathname:///img/ledstrip-signal.png)
 
 ```py
-dim a1[]={1, # Pin used
+Dim a1[]={1, # Pin used
     50, # Individual panel width
     5, # Individual panel height
     0} # Horizontal scanning
@@ -647,7 +647,7 @@ while 1
     if _x < -20
         _x = 50
     end
-    wait(100)
+    Wait(100)
 wend
 
 ```
@@ -655,7 +655,7 @@ wend
 A single strip of NeoPixel LEDs is nothing but a panel with a single row. This example assumes a strip of 50 pixels.
 
 ```py
-dim a1[]={1, #pin used
+Dim a1[]={1, #pin used
     50, #individual panel width
     1, #individual panel height
     0} # Horizontal scanning
@@ -688,7 +688,7 @@ This is a perfect match for [CincoBit](../catalog/microcomputer/cincobit) with i
 ![CincoBit](pathname:///img/catalog/cincobit-front.png)
 
 ```py
-dim a1[11] = {0,11,19,18,21,22,7,5,0,8,6} # first number sets common-anode, second 5 for data, third 5 for scan
+Dim a1[11] = {0,11,19,18,21,22,7,5,0,8,6} # first number sets common-anode, second 5 for data, third 5 for scan
 
 GfxCfg(4, a1, 5, 5, 1)# type 4: 5x5 type, 1: buffered x1
 
@@ -699,7 +699,7 @@ while 1
     if _x < -40
         _x = 6
     end
-    wait(100)
+    Wait(100)
     clear(0) # need to clear for next character
 wend
 ```
@@ -709,9 +709,9 @@ The scanner also works great for other LED modules, such as [LED S404](../catalo
 The LED driver helps in setting the right pixels to show the wanted digits.
 
 ```py
-dim a1[13] = {1,1,2,3,4,5,6,7,8,9,10,11,12} # common pin, first 8 for data, second 4 for scan
+Dim a1[13] = {1,1,2,3,4,5,6,7,8,9,10,11,12} # common pin, first 8 for data, second 4 for scan
 
-gfxcfg(4, a1, 8, 4, 1)# type 4: 7seg (8 leds) x 4 digits, 1: buffered x1
+GfxCfg(4, a1, 8, 4, 1)# type 4: 7seg (8 leds) x 4 digits, 1: buffered x1
 
 # Show number 1 by turning on the right 2 LEDs on the first segment
 Clear(0)
@@ -730,7 +730,7 @@ In this mode, an array containing a list of each LED pins. This is only supporte
 
 
 ```py
-dim a1[]={1,12,
+Dim a1[]={1,12,
     12,1,
     1,3,
     3,1,
@@ -770,7 +770,7 @@ while 1
     if _x < -20
         _x = 6
     end
-    wait(100)
+    Wait(100)
 wend
 
 ```
