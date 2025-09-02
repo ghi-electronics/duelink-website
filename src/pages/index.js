@@ -23,7 +23,7 @@ function HomepageHeader() {
  <Heading as="h2" >
         <b>D</b>ynamic <b>U</b>niversal <b>E</b>xtensible <b>Link</b>
         </Heading>
-        <p> DUELink brings hundreds of sensors, actuators, and displays to streamline electronics for Engineers, Makers, and Educators. Each module is a mini-computer with a <b>D</b>ynamic <b>U</b>niversal <b>E</b>xtencible Daisy<b>Link</b> to your favorite Hardware and Software!
+        <p> DUELink brings hundreds of sensors, actuators, and displays to streamline electronics for Engineers, Makers, and Educators. Each module is a mini-computer with a <b>D</b>ynamic <b>U</b>niversal <b>E</b>xtensible Daisy<b>Link</b> to your favorite Hardware and Software!
         </p>
 
          <div className={styles.buttons}>

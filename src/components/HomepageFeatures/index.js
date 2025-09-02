@@ -17,7 +17,7 @@ const FeatureList = [
     Svg: require('@site/static/img/universal.svg').default,
     description: (
       <>
-        Works with desktops, laptops, phones, and Raspberry Pi and more!
+        Works with desktops, laptops, phones, Raspberry Pi, and more!
       </>
     ),
   },
