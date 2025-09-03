@@ -23,7 +23,6 @@ const sidebars = {
 
   tutorialSidebar: [
     "intro",
-    "start",
     {
       type: "category",
       label: "What is DUELink?",
@@ -34,6 +33,7 @@ const sidebars = {
         "educators",
       ],
     },
+    "start",
     {
       type: "category",
       label: "Product Catalog",
