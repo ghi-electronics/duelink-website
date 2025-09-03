@@ -23,17 +23,17 @@ const sidebars = {
 
   tutorialSidebar: [
     "intro",
-    "what-is",
     {
       type: "category",
-      label: "Getting Started",
-      link: { type: "doc", id: "start/intro" },
+      label: "What is DUELink?",
+      link: { type: "doc", id: "what-is" },
       items: [
-        "start/engineers",
-        "start/makers",
-        "start/educators",
+        "engineers",
+        "makers",
+        "educators",
       ],
     },
+    "start",
     {
       type: "category",
       label: "Product Catalog",

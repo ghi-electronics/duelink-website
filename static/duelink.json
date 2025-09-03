@@ -403,8 +403,8 @@
             "Code": "storage/sdcard.txt"
         },
         {
-            "Name": "Flash Rev A",
-            "PartNumber": "GDL-STFLASH-A",    
+            "Name": "MicroSD Rev A",
+            "PartNumber": "GDL-STMICROSD-A",    
             "PID": "0x080003",
             "Img": "microsd-front.png",
             "Code": "storage/microsd.txt"

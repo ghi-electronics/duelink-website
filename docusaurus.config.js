@@ -141,13 +141,13 @@ const config = {
             position: 'right',
             label: 'News',
           },
-          {
+          /*{
             href: 'https://forums.ghielectronics.com/c/duelink/31',
             //type: 'docSidebar',
             //sidebarId: 'tutorialSidebar',
             position: 'right',
             label: 'Forums',
-          },
+          },*/
           {
           href: 'https://www.x.com/ghielectronics',
           position: 'left',
