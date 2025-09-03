@@ -7,7 +7,7 @@ import TabItem from "@theme/TabItem";
 
 ![Getting Started](pathname:///img/getting-started.png)
 
-There are many ways to use DUELink, with its long list of supported [coding languages](../language/intro) and [supported hardware](../hw/intro) options. This page will focus on the bare minimum to get you started with **any** DUELink module!
+There are many ways to use DUELink, with its long list of supported [coding languages](./language/intro) and [supported hardware](./hw/intro) options. This page will focus on the bare minimum to get you started with **any** DUELink module!
 
 ---
 
@@ -22,11 +22,11 @@ This page focuses on the DUELink firmware. Users (especially [Educators](./educa
 
 ## Online Demo
 
-The fastest way to try DUELink is though this [Online Demo](https://demo.duelink.com/), which uses [JavaScript](../language/javascript) through a web browser to run some of the DUELink [Standard Library](../engine/stdlib) commands.
+The fastest way to try DUELink is though this [Online Demo](https://demo.duelink.com/), which uses [JavaScript](./language/javascript) through a web browser to run some of the DUELink [Standard Library](./engine/stdlib) commands.
 
 ![DUELink Demo website](pathname:///img/demo-website.png)
 
-All DUELink modules support the [USB Interface](../interface/usb). However, a few boards have a USB connector built but most will have an Uplink connector allowing for USB/I2C/UART interfaces. [USB Hook](../catalog/accessory/usb-hook) can be used to bring out the USB connection.
+All DUELink modules support the [USB Interface](./interface/usb). However, a few boards have a USB connector built but most will have an Uplink connector allowing for USB/I2C/UART interfaces. [USB Hook](./catalog/accessory/usb-hook) can be used to bring out the USB connection.
 
 Here is a Microcomputer module example, which has a USB connector built-in, vs an LED module that is connected to USB through a USB Hook module.
 
@@ -52,7 +52,7 @@ By the way, when connected, the demo site shows the device ID (module type) and 
 
 ## Firmware Update
 
-The DUELink Console is a useful online platform to handle many important tasks, such as firmware update and scripting. It is fully covered in details [here](../console).
+The DUELink Console is a useful online platform to handle many important tasks, such as firmware update and scripting. It is fully covered in details [here](./console).
 
 When you receive and new module, it is important that your board is using latest firmware. We will use the Console to check the firmware version, and update if necessary. 
 
@@ -65,20 +65,20 @@ The console will show the current version loaded on the module and also the late
 ![Console About](pathname:///img/console-about.png)
 
 :::tip
-The [Release Notes](../release-notes) lists the changes.
+The [Release Notes](./release-notes) lists the changes.
 :::
 
 To update the firmware, open DUELink console [https://console.duelink.com/](https://console.duelink.com/) and click `Firmware`.
 
 ![Firmware](pathname:///img/due-firmware.png)
 
-Follow the instructions and load the latest firmware. Full details are found on the [loader](../loader) page.
+Follow the instructions and load the latest firmware. Full details are found on the [loader](./loader) page.
 
 ---
 
 ## Demo Scripts
 
-The console includes a few simple scripts. Give some a try for an easy start with zero setup! These examples utilize the [Internal Engine's](../engine/intro) built-in [scripting language](../engine/scripting).
+The console includes a few simple scripts. Give some a try for an easy start with zero setup! These examples utilize the [Internal Engine's](./engine/intro) built-in [scripting language](./engine/scripting).
 
 ![Demos](pathname:///img/due-demos.png)
 
@@ -93,13 +93,13 @@ StatLed(200,200,50)
 
 ![Status LED](pathname:///img/statled-blink.gif)
 
-See the [Console](../console) page for full details.
+See the [Console](./console) page for full details.
 
 ---
 
 ## Hello World
 
-Now, you are ready to use one of the [languages](../language/intro), such as [Python](../language/python) or [JavaScript](../language/javascript). These are just some of the available [Coding Language](../language/intro) options. There are [standalone](../language/standalone) options as well. Those pages include full instructions on how to load programs, but here is a small example that shows what a full program looks like.  We will blink the STAT LED using `StatLed()`.
+Now, you are ready to use one of the [languages](./language/intro), such as [Python](./language/python) or [JavaScript](./language/javascript). These are just some of the available [Coding Language](./language/intro) options. There are [standalone](./language/standalone) options as well. Those pages include full instructions on how to load programs, but here is a small example that shows what a full program looks like.  We will blink the STAT LED using `StatLed()`.
 
 <Tabs groupid = "samples" queryString="show"
   values={[
@@ -110,7 +110,7 @@ Now, you are ready to use one of the [languages](../language/intro), such as [Py
 
 <TabItem value="py">
 
-You need ot install the DUELink Python library using `pip install DUELink`, see [Python](../language/python) page for details.
+You need ot install the DUELink Python library using `pip install DUELink`, see [Python](./language/python) page for details.
 
 ```py
 from DUELink.DUELinkController import DUELinkController
@@ -127,7 +127,7 @@ duelink.System.StatLed(200,200,50)
 </TabItem>
 
 <TabItem value="js">
-You need ot install the DUELink JavaScript library using `npm install DUELink` & `npm install serialport`, see [JavaScript](../language/javascript) page for details.
+You need ot install the DUELink JavaScript library using `npm install DUELink` & `npm install serialport`, see [JavaScript](./language/javascript) page for details.
 
 ```js
 const { SerialUSB } = require("dlserialusb");
@@ -144,7 +144,7 @@ await duelink.System.StatLed(200, 200, 50);
 
 </TabItem>
 <TabItem value="dotnet">
-You need ot install the DUELink Nuget `GHIElectronics.DUELink`, see [.NET](../language/dotnet.mdx) page for details.
+You need ot install the DUELink Nuget `GHIElectronics.DUELink`, see [.NET](./language/dotnet.mdx) page for details.
 
 ```csharp
 using GHIElectronics.DUELink
