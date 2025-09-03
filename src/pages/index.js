@@ -24,10 +24,9 @@ function HomepageHeader() {
         Dynamic Universal Extensible Link
         </Heading>
         <p> DUELink revolutionizes electronics innovating with a vast ecosystem of sensor, actuator, and display modules.
-        <br/>  
-        Each module is a mini-computer, equipped with a smart daisy-link that seamlessly connects to your favorite Hardware platform and Coding Language.
+        <br/> 
+        Each module is a mini-computer, powered by a smart daisylink that seamlessly connects to your favorite hardware platform and coding language.
         </p>
-
          <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
