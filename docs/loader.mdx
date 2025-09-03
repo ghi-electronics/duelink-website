@@ -2,9 +2,11 @@
 
 ---
 
-The STM32C071 chip utilized on all DUELink modules include an ST loader that we utilize for firmware updates using the `USB DFU` standard. 
+The STM32C071 chip utilized on all DUELink modules include an ST loader that we use for firmware updates using the `USB DFU` standard. 
 
-The loaded "firmware" can be the official  DUELink or MicroBlocks. It can also be a custom firmware built using [C++](./language/cpp) language page. The [Arduino](./hw/arduino) IDE can also be used to build custom firmware; however, the IDE has a built-in DFU upload capability.
+The loaded "firmware" can be the official DUELink or MicroBlocks firmware options. However, it can also be a custom firmware built using [C++](./language/cpp) language page for example. The [Arduino](./hw/arduino) IDE can also be used to build custom firmware as well.
+
+---
 
 ## Update Options
 
@@ -72,8 +74,8 @@ The board now has the desired file loaded!
 
 ---
 
-## I2C & UART Update
+## I2C Update
 
-This page focuses on firmware updates using USB DFU mode. We recommend to always use USB DFU when possible; however, using I2C and UART to send firmware updates are other possible options. 
+This page focuses on firmware updates using USB DFU mode. We recommend to use USB DFU whenever possible; however, using I2C to send firmware updates over Uplink connectors is an unsupported option.
 
 The "[STM32 microcontroller system memory boot mode](https://www.st.com/resource/en/application_note/an2606-stm32-microcontroller-system-memory-boot-mode-stmicroelectronics.pdf)" application note covers all the needed details.

@@ -7,15 +7,16 @@ import TabItem from "@theme/TabItem";
 
 ![Getting Started](pathname:///img/getting-started.png)
 
-DUELink is here to help you no matter if you are an [engineer](./engineers) building a commercial product, a [maker](./makers) doing-it-yourself, or an [educator](./educators) molding a learner's future.
+There are many ways to use DUELink, with its long list of supported [coding languages](../language/intro) and [supported hardware](../hw/intro) options. This page will focus on the bare minimum to get you started with **any** DUELink module!
 
-There are many ways to use DUELink, with its long list of supported [languages](../language/intro) and [hardware](../hw/intro) options. This page will focus on the bare minimum to get you started with one of the available DUELink microcomputers, such as the ultra-low-cost [CincoBit](../catalog/microcomputer/cincobit) and its cousin [PixoBit](../catalog/microcomputer/pixobit).
+---
 
-![CincoBit and Pixobit](pathname:///img/cincobit-pixobit.png)
+## MicroBlocks Getting started
 
-The Arduino-friendly [DueDuino](../catalog/microcomputer/dueduino) is another example.
+![MicroBlocks](pathname:///img/microblocks.png)
 
-![DueDuino](pathname:///img/dueduino.png)
+
+This page focuses on the DUELink firmware. Users (especially [Educators](./educators)) interested in block-coding can skip this page and start with [MicroBlocks](./language/microblocks).
 
 ---
 
@@ -25,9 +26,9 @@ The fastest way to try DUELink is though this [Online Demo](https://demo.duelink
 
 ![DUELink Demo website](pathname:///img/demo-website.png)
 
-While all DUELink modules support the [USB Interface](../interface/usb), some boards have a USB connector built in. Other boards have a standard Uplink connector and require a USB adaptor such as [USB Hook](../catalog/accessory/usb-hook).
+All DUELink modules support the [USB Interface](../interface/usb). However, a few boards have a USB connector built but most will have an Uplink connector allowing for USB/I2C/UART interfaces. [USB Hook](../catalog/accessory/usb-hook) can be used to bring out the USB connection.
 
-Here is a DueDuino example, which has a USB connector built-in, vs an LED module that is connected to USB through a USB Hook.
+Here is a Microcomputer module example, which has a USB connector built-in, vs an LED module that is connected to USB through a USB Hook module.
 
 ![DUELink Connection](pathname:///img/duelink-connection.png)
  
@@ -39,11 +40,11 @@ The first tab is for controlling the STAT LED. This is an LED that is found on a
 
 ![Demo LED tab](pathname:///img/demo-led-tab.png)
 
-If you are using a board with `A` or `LDR` buttons, you can also try Digital read on these buttons. These buttons are connected to pin `20`. You will need to set `Pull` to `Up`. You can now hold the button up or down while clicking `Read`.
+If you are using a board with `A` or `LDR` buttons, you can also try Digital read on these buttons. These buttons are connected to pin `20`. You will need to set `Pull` to `Down`. You can now hold the button up or down while clicking `Read`.
 
 ![Read Button](pathname:///img/demo-digital-read.png)
 
-By the way, when connected, the demo site shows the device ID and its firmware version.
+By the way, when connected, the demo site shows the device ID (module type) and its firmware version.
 
 ![Device Firmware](pathname:///img/demo-firmware-version.png)
 
@@ -98,7 +99,7 @@ See the [Console](../console) page for full details.
 
 ## Hello World
 
-Now, you are ready to use one of the [languages](../language/intro), such as [Python](../language/python) or [JavaScript](../language/javascript). These are just some of the available [Coding Language](../language/intro) options. There are [standalone](../language/standalone) options as well. These pages include full instructions on how to load programs but here is a small example that shows what a full program looks like. It uses the `StatLed()`.
+Now, you are ready to use one of the [languages](../language/intro), such as [Python](../language/python) or [JavaScript](../language/javascript). These are just some of the available [Coding Language](../language/intro) options. There are [standalone](../language/standalone) options as well. Those pages include full instructions on how to load programs, but here is a small example that shows what a full program looks like.  We will blink the STAT LED using `StatLed()`.
 
 <Tabs groupid = "samples" queryString="show"
   values={[
