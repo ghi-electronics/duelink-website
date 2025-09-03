@@ -9,12 +9,12 @@ fn Test()
     while 1        
         if (dread(BtnPin(), 1))
             cmd("Clear(0)")
-            cmd("TextS(\"Button up\",1,0,0,2,2)")
+            cmd("TextS(\"Button up\",1,0,0,1,2)")
             cmd("Show()") 
             println("Button up")
         else
             cmd("Clear(0)")
-            cmd("TextS(\"Button pressed\",1,0,0,2,2)")
+            cmd("TextS(\"Button pressed\",1,0,0,1,2)")
             cmd("Show()")
             println("Button pressed")
         end
