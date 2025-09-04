@@ -21,11 +21,11 @@ function HomepageHeader() {
 
 
        <Heading as="h2" >
-        Dynamic Universal Extensible Link
+        Smart Electronic Building Blocks
         </Heading>
         <p> DUELink revolutionizes electronics innovating with a vast ecosystem of sensor, actuator, and display modules.
         <br/> 
-        Each module is a mini-computer, powered by a smart daisylink that seamlessly connects to your favorite hardware platform and coding language.
+        Each module is a mini-computer, powered by a smart daisylink that seamlessly integrates with your favorite hardware platform and coding language.
         </p>
          <div className={styles.buttons}>
           <Link
