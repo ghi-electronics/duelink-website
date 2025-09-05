@@ -7,70 +7,32 @@ import TabItem from "@theme/TabItem";
 
 Some modules require a coprocessor that handles specific tasks. The DUELink's engine includes facilities to help with updating the coprocessor's firmware and also includes special commands for cross-chip communication.
 
-Specific module's [Drivers](./drivers) are always included to simplify the use of the coprocessor. These functions are provided for reference only.
+Specific module's [Drivers](./drivers) are always included to simplify the use of the coprocessor. This page is provided for reference only.
 
 ---
 
 ## Firmware Control
 
-These functions are provided to update the firmware running on the coprocessor.
+These functions provided coprocessor firmware update facilities.
 
-| Function    | Description                                            |
-| ----------- | ------------------------------------------------------ |
-| `CoprocE()` | Erase entire flash on coprocessor.                     |
-| `CoprocP()` | Upload application (firmware), use XModem 1K protocol. |
-| `CoprocS()` | Reset coprocessor.                                     |
+Function | Description
+--- | ---
+`CoprocE()` | Erase entire coprocessor flash.
+`CoprocP()` | Initiate coprocessor firmware update: uses XModem 1K protocol.
+`CoprocS()` | Reset coprocessor.
 
-The upload command simply opens up an xmodem 1K transfer through the main micro. Once `CoprocP()` is called, the system will start sending `CCCCC...` back indicating the coprocessor is ready for the new firmware. Any xmodem software, including TeraTerm, can be used to send the firmware. Do not forget to select the 1K option.
+The upload command simply opens up an xmodem 1K transfer through the main micro. Once `CoprocP()` is called, the system will start sending `CCCCC...` back, indicating the coprocessor is ready for a new firmware. Any xmodem software, including TeraTerm, can be used to send the firmware. Do not forget to select the 1K option.
 
-The other two commands are for erasing the firmware and for resetting the coprocessor.
+We recommend using [DUELink Programmer](../programmer) tool for updating the coprocessor firmware.
 
 ---
 
-### Application Command
+## Application Command
 
 Once a coprocessor firmware is loaded, these commands provide means of data transfer between the system's main micro and the coprocessor.
 
-| Function          | Description                                     |
-| ----------------- | ----------------------------------------------- |
-| `CoprocV()`       | Returns current firmware version on coprocessor. |
-| `CoprocW([data])` | Write a byte array to coprocessor.              |
-| `CoprocR([data])` | Read byte array from coprocessor.               |
-
-:::tip
-These functions are used by us to build drivers that you can simply use. We are documenting these here for reference only.
-:::
-
----
-
-## Sample Code
-
-<details>
-  <summary>Samples</summary>
-<Tabs groupid="language" queryString="show"
-  values={[
-    {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'JavaScript', value: 'js'},
-]}>
-<TabItem value="script">
-```py
-# return current version of coproc firmware
-println(CoprocV())
-```
-</TabItem>
-<TabItem value="py">
-```py
-# return current version of coproc firmware
-print(duelink.CoProcessor.Version())
-
-```
-</TabItem>
-<TabItem value="js">
-```js
-# return current version of coproc firmware
-console.log(await duelink.CoProcessor.Version())
-```
-</TabItem>
-</Tabs>
-</details>
+Function | Description
+--- | ---
+`CoprocV()`       | Returns current firmware version on coprocessor.
+`CoprocW([data])` | Write a byte-array to coprocessor. Returns how many bytes were written successfully.
+`CoprocR([data])` | Read byte-array from coprocessor. Returns how many bytes were read successfully.
