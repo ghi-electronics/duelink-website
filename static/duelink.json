@@ -1,8 +1,8 @@
 {
     "metadata": {
         "author": "GHI Electronics",
-        "version": "0.1",
-        "timestamp": "2025-08-05",
+        "version": "0.2",
+        "timestamp": "2025-09-05",
         "image_url_base": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/img/catalog/",
         "code_url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/drivers/"
     },    
@@ -13,7 +13,7 @@
             "PartNumber": "GDL-MCCINCOBIT-E",    
             "PID": "0x000001",
             "Img": "cincobit-front.png",                
-            "Code": "microcomputers/cincobit.txt",
+            "Code": "microcomputer/cincobit.txt",
             "Notes": "This is Cincobit notes"            
         },
         {
@@ -21,28 +21,28 @@
             "PartNumber": "GDL-MCCLIPIT-B",    
             "PID": "0x000011",
             "Img": "clipit-front.png",
-            "Code": "microcomputers/clipit.txt"        
+            "Code": "microcomputer/clipit.txt"        
         },
         {
             "Name": "DueDuino Rev A",
             "PartNumber": "GDL-MCDUEDUINO-A",    
             "PID": "0x000012",
             "Img": "dueduino-front.png",
-            "Code": "microcomputers/dueduino.txt"         
+            "Code": "microcomputer/dueduino.txt"         
         },
         {
             "Name": "DueSTEM Rev B",
             "PartNumber": "GDL-MCDUESTEM-B",    
             "PID": "0x000010",
             "Img": "duestem-front.png",
-            "Code": "microcomputers/duestem.txt"          
+            "Code": "microcomputer/duestem.txt"          
         },
         {
             "Name": "PixoBit Rev D",
             "PartNumber": "GDL-MCPIXOBIT-D",    
             "PID": "0x000002",
             "Img": "pixobit-front.png",
-            "Code": "microcomputers/pixobit.txt",
+            "Code": "microcomputer/pixobit.txt",
             "Notes": "This is PixoBit notes"            
         }, 
         {
@@ -50,203 +50,203 @@
             "PartNumber": "GDL-MCSTAMP-A",    
             "PID": "0x000013",
             "Img": "stamp-front.png",
-            "Code": "microcomputers/stamp.txt" 
+            "Code": "microcomputer/stamp.txt" 
         },
         {
             "Name": "Stick Rev A",
             "PartNumber": "GDL-MCSTICK-A",    
             "PID": "0x000014",
             "Img": "stick-front.png",
-            "Code": "microcomputers/stick.txt"
+            "Code": "microcomputer/stick.txt"
         },
         {
             "Name": "Ghizzy Jr Rev A",
             "PartNumber": "GDL-SPGHIZZYJR-A",    
             "PID": "0x0C0002",
             "Img": "ghizzy-jr-front.png",
-            "Code": "microcomputers/ghizzyjr.txt"
+            "Code": "microcomputer/ghizzyjr.txt"
         },
         {
             "Name": "Ghizzy Rev B",
             "PartNumber": "GDL-SPGHIZZY-B",    
             "PID": "0x0C0001",
             "Img": "ghizzy-front.png",
-            "Code": "microcomputers/ghizzy.txt"  
+            "Code": "microcomputer/ghizzy.txt"  
         },
         {
             "Name": "Holiday Tree Rev B",
             "PartNumber": "GDL-SPHOLIDAYTREE-B",    
             "PID": "0x0C0003",
             "Img": "holidaytree-front.png",
-            "Code": "microcomputers/holidaytree.txt"    
+            "Code": "microcomputer/holidaytree.txt"    
         },
         {
             "Name": "ePaper M29 Rev A",
             "PartNumber": "GDL-DEPAPERM29-A",    
             "PID": "0x01000B",
             "Img": "epaper-m29-front.png",
-            "Code": "displays/epaper-m29.txt"        
+            "Code": "display/epaper-m29.txt"        
         },
         {
             "Name": "ePaper M42 Rev A",
             "PartNumber": "GDL-DEPAPERM42-A",    
             "PID": "0x01000C",
             "Img": "epaper-m42-front.png",
-            "Code": "displays/epaper-m42.txt"         
+            "Code": "display/epaper-m42.txt"         
         },
         {
             "Name": "HDMI Rev B",
             "PartNumber": "GDL-DHDMI-B",    
             "PID": "0x010001",
             "Img": "hdmi-front.png",
-            "Code": "displays/hdmi.txt"  
+            "Code": "display/hdmi.txt"  
         },
         {
             "Name": "LCD 16x2 Rev C",
             "PartNumber": "GDL-DLCD16X2-C",    
             "PID": "0x010002",
             "Img": "lcd-16x2-front.png",
-            "Code": "displays/lcd-16x2.txt"       
+            "Code": "display/lcd-16x2.txt"       
         },
         {
             "Name": "LCD 20x4 Rev B",
             "PartNumber": "GDL-DLC20X4-B",    
             "PID": "0x010003",
             "Img": "lcd-20x4-front.png",
-            "Code": "displays/lcd-20x4.txt"        
+            "Code": "display/lcd-20x4.txt"        
         },
         {
             "Name": "OLED 096 Rev A",
             "PartNumber": "GDL-DOLED096-A",    
             "PID": "0x010004",
             "Img": "oled-096-front.png",
-            "Code": "displays/oled-096.txt"        
+            "Code": "display/oled-096.txt"        
         },
         {
             "Name": "Portal CP70 Rev B",
             "PartNumber": "GDL-DPORTALCP70-B",    
             "PID": "0x010009",
             "Img": "portal-cp70-front.png",
-            "Code": "displays/portal-cp70.txt"        
+            "Code": "display/portal-cp70.txt"        
         },
         {
             "Name": "TFT CP23 Rev B",
             "PartNumber": "GDL-DTFTCP23-B",    
             "PID": "0x010007",
             "Img": "tft-cp23-front.png",
-            "Code": "displays/tft-cp23.txt"           
+            "Code": "display/tft-cp23.txt"           
         },
         {
             "Name": "TFT N18 Rev B",
             "PartNumber": "GDL-DTFTN18-B",    
             "PID": "0x010006",
             "Img": "tft-n18-front.png",
-            "Code": "displays/tft-n18.txt"          
+            "Code": "display/tft-n18.txt"          
         },
         {
             "Name": "TFT R128 Rev B",
             "PartNumber": "GDL-DTFTR128-B",    
             "PID": "0x010005",
             "Img": "tft-r128-front.png",
-            "Code": "displays/tft-r128.txt"      
+            "Code": "display/tft-r128.txt"      
         },
         {
             "Name": "TFT T32 Rev C",
             "PartNumber": "GDL-DTFTT32-C",    
             "PID": "0x010008",
             "Img": "tft-t32-front.png",
-            "Code": "displays/tft-t32.txt"          
+            "Code": "display/tft-t32.txt"          
         },    
         {
             "Name": "VFD B8 Rev C",
             "PartNumber": "GDL-DVFDB8-C",    
             "PID": "0x01000A",
             "Img": "vfd-b8-front.png",
-            "Code": "displays/vfd-b8.txt"         
+            "Code": "display/vfd-b8.txt"         
         },
         {
             "Name": "Fan Rev B",
             "PartNumber": "GDL-ACFAN-B",    
             "PID": "0x020001",
             "Img": "fan-front.png",
-            "Code": "actuators/fan.txt"        
+            "Code": "actuator/fan.txt"        
         },
         {
             "Name": "Load Rev A",
             "PartNumber": "GDL-ACLOAD-A",    
             "PID": "0x020002",
             "Img": "load-front.png",
-            "Code": "actuators/load.txt"          
+            "Code": "actuator/load.txt"          
         },
         {
             "Name": "MotoMax Rev B",
             "PartNumber": "GDL-ACMOTOMAX-B",    
             "PID": "0x020003",
             "Img": "motomax-front.png",
-            "Code": "actuators/motomax.txt"         
+            "Code": "actuator/motomax.txt"         
         },
         {
             "Name": "MotoTwin Rev B",
             "PartNumber": "GDL-ACMOTOTWIN-B",    
             "PID": "0x020004",
             "Img": "mototwin-front.png",
-            "Code": "actuators/mototwin.txt"       
+            "Code": "actuator/mototwin.txt"       
         },
         {
             "Name": "Relay P16 Rev A",
             "PartNumber": "GDL-ACRELAYP16-A",    
             "PID": "0x020006",
             "Img": "relay-p16-front.png",
-            "Code": "actuators/relay-p16.txt"           
+            "Code": "actuator/relay-p16.txt"           
         },  
         {
             "Name": "Relay P4 Rev C",
             "PartNumber": "GDL-ACRELAYP4-C",    
             "PID": "0x020005",
             "Img": "relay-p4-front.png",
-            "Code": "actuators/relay-p4.txt"         
+            "Code": "actuator/relay-p4.txt"         
         },   
         {
             "Name": "Relay X1 Rev A",
             "PartNumber": "GDL-ACRELAYX1-A",    
             "PID": "0x020007",
             "Img": "relay-x1-front.png",
-            "Code": "actuators/relay-x1.txt"          
+            "Code": "actuator/relay-x1.txt"          
         },
         {
             "Name": "Servo P8 Rev B",
             "PartNumber": "GDL-ACSERVOP8-B",    
             "PID": "0x020008",
             "Img": "servo-p8-front.png",
-            "Code": "actuators/servo-p8.txt"          
+            "Code": "actuator/servo-p8.txt"          
         },
         {
             "Name": "Servo X1 Rev A",
             "PartNumber": "GDL-ACSERVOX1-A",    
             "PID": "0x020009",
             "Img": "servo-x1-front.png",
-            "Code": "actuators/servo-x1.txt"         
+            "Code": "actuator/servo-x1.txt"         
         },
         {
             "Name": "StepPulse Rev A",
             "PartNumber": "GDL-ACSTEPPULSE-A",    
             "PID": "0x02000C",
             "Img": "steppulse-front.png",
-            "Code": "actuators/steppulse.txt"           
+            "Code": "actuator/steppulse.txt"           
         },
         {
             "Name": "StepDrive P1 Rev A",
             "PartNumber": "GDL-ACSTEPDRIVEP1-A",    
             "PID": "0x02000A",
             "Img": "stepdrive-p1-front.png",
-            "Code": "actuators/stepdrive-p1.txt"        
+            "Code": "actuator/stepdrive-p1.txt"        
         },
         {
             "Name": "StepDrive P3 Rev B",
             "PartNumber": "GDL-ACSTEPDRIVEP3-B",    
             "PID": "0x02000B",
             "Img": "stepdrive-p3-front.png",
-            "Code": "actuators/stepdrive-p3.txt"         
+            "Code": "actuator/stepdrive-p3.txt"         
         },    
         {
             "Name": "CAN Rev B",
@@ -456,161 +456,161 @@
             "PartNumber": "GDL-SEACCEL-A",    
             "PID": "0x060001",
             "Img": "accel-front.png",
-            "Code": "sensors/accel.txt"
+            "Code": "sensor/accel.txt"
         },
         {
             "Name": "AirQuality Rev A",
             "PartNumber": "GDL-SEAIRQUALITY-A",    
             "PID": "0x060002",
             "Img": "airquality-front.png",
-            "Code": "sensors/airquality.txt"
+            "Code": "sensor/airquality.txt"
         },
         {
             "Name": "Barometer Rev B",
             "PartNumber": "GDL-SEBAROMETER-B",    
             "PID": "0x060003",
             "Img": "barometer-front.png",
-            "Code": "sensors/barometer.txt"
+            "Code": "sensor/barometer.txt"
         },
         {
             "Name": "ClipSense Rev A",
             "PartNumber": "GDL-SECLIPSENSE-A",    
             "PID": "0x060004",
             "Img": "clipsense-front.png",
-            "Code": "sensors/clipsense.txt"
+            "Code": "sensor/clipsense.txt"
         },
         {
             "Name": "Current Rev A",
             "PartNumber": "GDL-SECURRENT-A",    
             "PID": "0x060006",
             "Img": "current-front.png",
-            "Code": "sensors/current.txt"
+            "Code": "sensor/current.txt"
         },
         {
             "Name": "Distance Rev B",
             "PartNumber": "GDL-SEDISTANCE-B",    
             "PID": "0x060008",
             "Img": "distance-front.png",
-            "Code": "sensors/distance.txt"
+            "Code": "sensor/distance.txt"
         },
         {
             "Name": "DOF9 Rev C",
             "PartNumber": "GDL-SEDOF9-C",    
             "PID": "0x060007",
             "Img": "dof9-front.png",
-            "Code": "sensors/dof9.txt"
+            "Code": "sensor/dof9.txt"
         },
         {
             "Name": "EKG Rev A",
             "PartNumber": "GDL-SEEKG-A",    
             "PID": "0x060009",
             "Img": "ekg-front.png",
-            "Code": "sensors/ekg.txt"
+            "Code": "sensor/ekg.txt"
         },
         {
             "Name": "Gas Rev B",
             "PartNumber": "GDL-SEGAS-B",    
             "PID": "0x06000A",
             "Img": "gas-front.png",
-            "Code": "sensors/gas.txt"
+            "Code": "sensor/gas.txt"
         },
         {
             "Name": "Light Rev A",
             "PartNumber": "GDL-SELIGHT-A",    
             "PID": "0x06000B",
             "Img": "light-front.png",
-            "Code": "sensors/light.txt"
+            "Code": "sensor/light.txt"
         },
         {
             "Name": "Motion Rev B",
             "PartNumber": "GDL-SEMOTION-B",    
             "PID": "0x06000C",
             "Img": "motion-front.png",
-            "Code": "sensors/motion.txt"
+            "Code": "sensor/motion.txt"
         },
         {
             "Name": "Pressure Rev B",
             "PartNumber": "GDL-SEPRESSURE100-B",    
             "PID": "0x06000D",
             "Img": "pressure-front.png",
-            "Code": "sensors/pressure.txt"
+            "Code": "sensor/pressure.txt"
         },
         {
             "Name": "RTC Rev B",
             "PartNumber": "GDL-SERTC-B",    
             "PID": "0x06000F",
             "Img": "rtc-front.png",
-            "Code": "sensors/rtc.txt"
+            "Code": "sensor/rtc.txt"
         },
         {
             "Name": "TempHmd Rev B",
             "PartNumber": "GDL-SETEMPHMD-B",    
             "PID": "0x060010",
             "Img": "temphmd-front.png",
-            "Code": "sensors/temphmd.txt"
+            "Code": "sensor/temphmd.txt"
         },
         {
             "Name": "TempRTD Rev B",
             "PartNumber": "GDL-SETEMPRTD-A",    
             "PID": "0x060011",
             "Img": "temprtd-front.png",
-            "Code": "sensors/temprtd.txt"
+            "Code": "sensor/temprtd.txt"
         },
         {
             "Name": "LED MT1208 Rev A",
             "PartNumber": "GDL-LLEDMT1208R-A",    
             "PID": "0x050003",
             "Img": "led-mt1208-front.png",
-            "Code": "leds/led-mt1208.txt"
+            "Code": "led/led-mt1208.txt"
         },
         {
             "Name": "LED R16 Rev B",
             "PartNumber": "GDL-LLEDR16R-B",    
             "PID": "0x050004",
             "Img": "led-r16-front.png",
-            "Code": "leds/led-r16.txt"
+            "Code": "led/led-r16.txt"
         },
         {
             "Name": "LED RGB3 Rev A",
             "PartNumber": "GDL-LLEDRGB3-A",    
             "PID": "0x050005",
             "Img": "led-rgb3-front.png",
-            "Code": "leds/led-rgb3.txt"
+            "Code": "led/led-rgb3.txt"
         },
         {
             "Name": "LED S284 Rev B",
-            "PartNumber": "GDL-LLEDS284X-B",    
+            "PartNumber": "GDL-Lled284X-B",    
             "PID": "0x050006",
             "Img": "led-s284-front.png",
-            "Code": "leds/led-sxx4.txt"
+            "Code": "led/led-sxx4.txt"
         },
         {
             "Name": "LED S404 Rev A",
-            "PartNumber": "GDL-LLEDS404[  ]-A",    
+            "PartNumber": "GDL-Lled404[  ]-A",    
             "PID": "0x050008",
             "Img": "led-s404-front.png",
-            "Code": "leds/led-sxx4.txt"
+            "Code": "led/led-sxx4.txt"
         },
         {
             "Name": "LED S564 Rev A",
-            "PartNumber": "GDL-LLEDS564XX-A",    
+            "PartNumber": "GDL-Lled564XX-A",    
             "PID": "0x05000A",
             "Img": "led-s564-front.png",
-            "Code": "leds/led-sxx4.txt"
+            "Code": "led/led-sxx4.txt"
         },
          {
             "Name": "LED SS805",
-            "PartNumber": "GDL-LLEDSS805-C",    
+            "PartNumber": "GDL-LledS805-C",    
             "PID": "0x05000C",
             "Img": "led-ss805-front.png",
-            "Code": "leds/led-ss805.txt"
+            "Code": "led/led-ss805.txt"
         },
         {
             "Name": "Smart LED Rev A",
             "PartNumber": "GDL-LSMARTLED-A",    
             "PID": "0x05000D",
             "Img": "smart-led-front.png",
-            "Code": "leds/smart-led.txt"
+            "Code": "led/smart-led.txt"
         },
         {
             "Name": "Buzzer Rev B",
@@ -656,31 +656,31 @@
         },
         {
             "Name": "Dio X12 Rev A",
-            "PartNumber": "GDL-AXDIOX12-A",    
+            "PartNumber": "GDL-ADDIOX12-A",    
             "PID": "0x0A0002",
             "Img": "dio-x12-front.png",
-            "Code": "accessories/dio-x12.txt"
+            "Code": "adapter/dio-x12.txt"
         },
         {
             "Name": "DueClick Rev A",
-            "PartNumber": "GDL-AXDUECLICK-A",    
+            "PartNumber": "GDL-ADDUECLICK-A",    
             "PID": "0x0A0005",
             "Img": "dueclick-front.png",
-            "Code": "accessories/dueclick.txt"
+            "Code": "adapter/dueclick.txt"
         },
         {
             "Name": "DuePi Rev B",
-            "PartNumber": "GDL-AXDUEPI-B",    
+            "PartNumber": "GDL-ADDUEPI-B",    
             "PID": "0x0A0004",
             "Img": "duepi-front.png",
-            "Code": "accessories/duepi.txt"
+            "Code": "adapter/duepi.txt"
         },
         {
             "Name": "DuePico Rev B",
-            "PartNumber": "GDL-AXDUEPICO-B",    
+            "PartNumber": "GDL-ADDUEPICO-B",    
             "PID": "0x0A0003",
             "Img": "duepico-front.png",
-            "Code": "accessories/duepico.txt"
+            "Code": "adapter/duepico.txt"
         }
     ]
     
