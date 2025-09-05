@@ -605,9 +605,9 @@ Control servo motors.
 This changes the timer frequency to 50Hz, see Special Pins.
 :::
 
-| Function               | Description                                     |
-| ---------------------- | ----------------------------------------------- |
-| `ServoSt(pin, degree)` | Position a servo on `pin` to `degree`: 0 to 180 |
+Function | Description
+--- | ---
+`ServoSt(pin, degree)` | Position a servo on `pin` to `degree`: 0 to 180
 
 `ServoSt()` only works with PWM pins, see [Special Pins](#special-pins).
 
@@ -942,13 +942,13 @@ Function | Description
 --- | ---
 `Temp(pin, type)` | Read temperature sensor with `type` connected to `pin`. Returns temperature in Celsius.
 
-| ID  | Type                                      |
-| --- | ----------------------------------------- |
-| 0   | Internal CPU temperature (pin is ignored) |
-| 1   | DHT11                                     |
-| 2   | DHT12                                     |
-| 3   | DHT21                                     |
-| 4   | DHT22                                     |
+ID  | Type
+--- | ---
+0 | Internal CPU temperature (pin is ignored)
+1 | DHT11
+2 | DHT12
+3 | DHT21
+4 | DHT22
 
 <details>
   <summary>Samples</summary>
@@ -1192,9 +1192,9 @@ Script only functionality.
 
 Function | Description
 --- | ---
-`DLMode(mode)` | Sets Downlink `mode` to 0:Null, 1: Interface, 2: Host, 3: UART.
+`DLMode(mode)` | Sets Downlink `mode` (0:Null, 1: Interface, 2: Host, 3: UART).
 `DLI2cWr(address, [arrayWrite], [arrayRead])` | `address`: I2C slave address (7 bits) - `arrayWrite`: array to send, `arrayRead`: array to read. This only works with `DLMode(4)`.
-`Cmd("command")` | Sends a script command Downlink, only available in `DLMode(2)` mode, `Host` mode.
+`Cmd("command")` | Sends a script command Downlink, only available in `DLMode(2)` mode, `Host` mode. You can only to read a float from a function or a variable: `_W = Cmd("GetW()")` or `_W = Cmd("_W")`. Setting a remote value is done using `cmd(fmt("_x=",_x))`. 
 `CmdTmot(t)` | Sets `t` timeout for `Cmd()` in milliseconds, default 1000ms. 
 
 More info are found on the [Downlink](../interface/downlink) interface and [Daisylink](./daisylink) pages.
@@ -1221,17 +1221,17 @@ DLI2CWr(0x44,B1,[])
 ```
 </TabItem>
 <TabItem value="py">
+Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
 ```py
-# Can be done using WriteCommand()
-duelink.Engine.WriteCommand("DLMode(4)")
-duelink.Engine.WriteCommand("DLI2cWr(0x44, [0x11,0x22], []")
+duelink.Engine.ExecuteCommand("DLMode(4)")
+duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []")
 ```
 </TabItem>
 <TabItem value="js">
+Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
 ```js
-// Can be done using WriteCommand()
-await duelink.Engine.WriteCommand("DLMode(4)");
-await duelink.Engine.WriteCommand("DLI2cWr(0x44, [0x11,0x22], []");
+await duelink.Engine.ExecuteCommand("DLMode(4)");
+await duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []");
 ```
 </TabItem>
 </Tabs>
@@ -1558,12 +1558,12 @@ A few modules, such as [USB Host](../catalog/com/usb-host) include a coprocessor
 
 Access clock and date in the internal Real Time Clock (RTC).
 
-| Function         | Description                                                                                                                         |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| RtcW([timedate]) | Sets (write) the desired time and date from `timedate` array in the RTC.                                                             |
-| RtcR([timedate]) | Read the current time and date into array. If 0 is used instead of array then the rtc value is printed as `HH:MM:SS - DD MMM YYYY`. |
+Function | Description
+--- | ---
+RtcW([timedate]) | Sets (write) the desired time and date from `timedate` array in the RTC.
+RtcR([timedate]) | Read the current time and date into array. If 0 is used instead of array then the rtc value is printed as `HH:MM:SS - DD MMM YYYY`.
 
-The array used for all RTC functions is 6 bytes, organized as: `[Second,minute,hour,day,mon, year]`. Values must be proper for their field. For example, there is no 70 seconds in time. Also, year is starting from the year 2000. For year 2025, just use 25. Hours are military 24 hours.
+The array used for all RTC functions is 6 bytes, organized as: `[Second,minute,hour,day,mon,year]`. Values must be proper for their field. For example, there is no 70 seconds in time. Also, year is starting from the year 2000. For year 2025, just use 25. Hours are military 24 hours.
 
 :::tip
 Power loss will cause the internal RTC to lose its value. This is where [RTC Module](../catalog/sensor/rtc) comes in handy.
@@ -1633,13 +1633,13 @@ Streams allows a [Supported Hardware](../hw/intro.mdx) to "stream" data out of o
 
 ## Misc
 
-| Function           | Description                                                                                                         |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------- |
-| `Version()`        | Returns firmware version and device ID in this format: `GHI Electronics DUELink v01.03:BB01`. |
-| `Echo(enable)`     | Sets local echo functionality to `enable`: 1 = Enable or 0 = Disable. This is disabled by default. Run `Echo(1)` when using a terminal software.    |
-| `Len([array])` | Returns the length of `array`.                                                                                                   |
-| `ReadVCC()`        | Returns current system voltage.                                                                                      |
-| `Exit()`        | Terminate and exit the script.                                                                            |
+Function | Description
+--- | ---
+`Version()` | Returns firmware version and device ID in this format: `GHI Electronics DUELink v01.03:BB01`.
+`Echo(enable)` | Sets local echo functionality(1: Enable, 0: Disable). This is disabled by default.
+`Len([array])` | Returns the length of `array`.
+`ReadVCC()` | Returns current system voltage.
+`Exit()` | Terminate and exit the script.
 
 <details>
   <summary>Samples</summary>
@@ -1663,6 +1663,58 @@ v = duelink.Analog.ReadVcc()
 <TabItem value="js">
 ```js
 let v = await duelink.Analog.ReadVcc()
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## Library Specific
+
+These are library specific functions that are added to help with controlling modules and scripts. These functions do not exist on the script side.
+
+
+Function | Description                          
+--- | ---
+`float duelink.Engine.ExecuteCommand("cmd")` | Writes a command to a module and returns a float.
+`string duelink.Engine.ExecuteCommandRaw("cmd")` | Writes a command to a module and returns a raw string.
+
+Also, there are other functions to help with accessing the module's internal arrays, see [stream](./stream). 
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'JavaScript', value: 'js'},
+]}>
+<TabItem value="script">
+
+Library only functionality.
+
+</TabItem>
+<TabItem value="py">
+```py
+# Read the module's internal voltage
+v = Engine.ExecuteCommand("ReadVCC()")
+# Read the value of the script's global variable _X
+x = Engine.ExecuteCommand("_X")
+# Set the value of the script's global variable _Y to 10
+y = 10
+Engine.ExecuteCommand(f'_Y={y}')
+```
+</TabItem>
+<TabItem value="js">
+```js
+// Read the module's internal voltage
+await v = Engine.ExecuteCommand("ReadVCC()");
+// Read the value of the script's global variable _X
+await x = Engine.ExecuteCommand("_X");
+// Set the value of the script's global variable _Y to 10
+var y = 10;
+await Engine.ExecuteCommand("_Y=" + y);
 ```
 </TabItem>
 </Tabs>
