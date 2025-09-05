@@ -4,7 +4,7 @@
 
 ![Uplink-Downlink](pathname:///img/uplink-downlink.png)
 
-In a DUELink setup, where there are more than one module, there will always be a connection between the Uplink and Downlink connector, creating a Daisylink. Each single module in a Daisylink is an active repeater of the signal. There will be no degradation of the signal quality. If necessary, add [Power Inject](../catalog/adaptor/power-inject) to help in powering devices on its Downlink.
+In a DUELink setup, where there are more than one module, there will always be a connection between the Uplink and Downlink connector, creating a Daisylink. Each single module in a Daisylink is an active repeater of the signal. There will be no degradation of the signal quality. If necessary, add [Power Inject](../catalog/adapter/power-inject) to help in powering devices on its Downlink.
 ![Daisylink](pathname:///img/daisylink.png)
 
 ---
@@ -115,13 +115,13 @@ A device in "host" mode is still listening to commands coming from Uplink, but i
 
 ## Gateway
 
-In some cases, a specialized interface can be used to pipe data into Daisylink. For example, [Wireless Hook](../catalog/adaptor/wireless-hook) opens up a gateway between Bluetooth and the connected modules. Just like in host, the module itself has its own address, however the module runs in a special mode where it is a host to the connected modules.
+In some cases, a specialized interface can be used to pipe data into Daisylink. For example, [Wireless Hook](../catalog/adapter/wireless-hook) opens up a gateway between Bluetooth and the connected modules. Just like in host, the module itself has its own address, however the module runs in a special mode where it is a host to the connected modules.
 
 
 ![Wireless Hook Host](pathname:///img/daisylink-wireless-host.png)
 
 
-This example assumes the connection was established and only shows the connection part. The [Wireless Hook](../catalog/adaptor/wireless-hook) page has the full drivers to establish the connection.
+This example assumes the connection was established and only shows the connection part. The [Wireless Hook](../catalog/adapter/wireless-hook) page has the full drivers to establish the connection.
 
 
 ```py
