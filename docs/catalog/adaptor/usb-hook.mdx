@@ -12,11 +12,11 @@ import "react-medium-image-zoom/dist/styles.css";
 import ImageSection from "/src/components/ImageSection/index.js";
 import OrderSection from "/src/components/OrderSection/index.js";
 
-# USB Wedge
+# USB Hook
 
 <ImageSection
-    product = 'usbwedge'
-    tagline = 'PCB USB DUELink Interface'
+    product = 'usbhook'
+    tagline = 'USB Connection for DUELink Modules'
 ></ImageSection>
 
 ---
@@ -27,25 +27,25 @@ import OrderSection from "/src/components/OrderSection/index.js";
   ]}>
 
 <TabItem value="overview">
+USB Hook is handy to add [USB Interface](../../interface/usb) to any DUELink module. It includes an 800mA power source and a power LED.
 
-A PCB (Printed Circuit Board) USB wedge for connecting DUELink modules to the [USB Interface](../../interface/usb). It includes a power LED and 800mA power regulator.
+![Daisylink](pathname:///img/daisylink.png)
 
-Note that this is not a standard USB connector, but a printed circuit. This should work on 99% of USB type A connectors with a rare failure.
 
 <table><td width='50%'>
 **Key features**
 
-• USB PCB connector<br/>
-• Connects DUELink modules to USB-A<br/>
+• USB-C connector<br/>
 • 800mA power source<br/>
-• PWR LED<br/>
-• 22x23.5mm overall dimension<br/>
+• Power LED<br/>
+• DUELink USB interface<br/>
+• 27x27mm overall dimension<br/>
 
 </td><td width='50%'>
 **Resources**
 
-📄[Schematics](pathname:///sch/gdl-axusbwedge-a.pdf)<br/>
-🔩[3D STEP file](pathname:///3d/gdl-axusbwedge-a.step)<br/>
+📄[Schematics](pathname:///sch/gdl-axusbhook-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-axusbhook-a.step)<br/>
 
 
 </td></table>
@@ -90,7 +90,7 @@ Use the [Standalone](../../language/standalone) feature to create an analog cloc
 
 image
 
-The demo uses [USB Hook](../accessory/usb-hook) to set the time (and load [scripts](../../engine/scripting).)
+The demo uses [USB Hook](../adaptor/usb-hook) to set the time (and load [scripts](../../engine/scripting).)
 
 <details>
   <summary>The Code!</summary>
@@ -111,7 +111,7 @@ Python Code
 ---
 
 <OrderSection
-    product = "DUELink USB Wedge"
-    partnumber = "GDL-AXUSBWEDGE-A"
+    product = "DUELink USB Hook"
+    partnumber = "GDL-AXUSBHOOK-A"
     price = "$00.00"
 ></OrderSection>
