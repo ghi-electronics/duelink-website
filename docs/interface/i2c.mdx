@@ -34,7 +34,7 @@ When the device is too busy to accept data, it will use clock stretching feature
 
 ---
 
-## Mixing Module Types
+## Non-DUELink Modules
 
 Many modules on the market include a JST connector with I2C bus signals. They simply use I2C and most will not have any intelligence. DUELink gracefully allows for these modules to be connected on the same [Daisylink](../engine/daisylink). The only rule is you have to connect the non-DUELink modules first in the chain. Access those module like you normally would, as DUELink will simply ignore them.
 
@@ -48,6 +48,6 @@ You can't use any non-DUELink modules that have the same address as DUELink, whi
 
 ## Pull Up Resistors
 
-I2C requires pull up resistors to operate, typically 2.2K. Some boards on the market do not include these resistors. Instead, they rely on the internal weak pull up resistors inside the micro. This may cause problems in some cases. DUELink has a [PullUp](../catalog/accessory/pullup) module to solve this issue.
+I2C requires pull up resistors to operate, typically 2.2K. Some boards on the market do not include these resistors. Instead, they rely on the internal weak pull up resistors inside the micro. This may cause problems in some cases. DUELink has a [PullUp](../catalog/adapter/pullup) module to solve this issue.
 
 ![QTPY with Pull-up](pathname:///img/qtpy-pullup.png)
