@@ -53,7 +53,7 @@ const sidebars = {
             },
           ],
         },
-{
+        {
           type: "category",
           label: "Specialty",
           /*link: {
@@ -316,8 +316,15 @@ const sidebars = {
         "iot/azure",
       ],
     },
-    "console",
-    "loader",
+    {
+    type: "category",
+    label: "Tools",
+    items: [
+        "console",
+        "programmer",
+        "loader",
+      ],
+  },
     "specs",
     {
       type: "category",
