@@ -132,23 +132,29 @@ us = duelink.System.GetTickMicroseconds()
 <TabItem value="js">
 ```js
 // Wait is not provided, use native facilities
-ms = duelink.System.GetTickMilliseconds();
-us = duelink.System.GetTickMicroseconds();
+ms = await duelink.System.GetTickMilliseconds();
+us = await duelink.System.GetTickMicroseconds();
 ```
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+// Wait is not provided, use native facilities
+ms = duelink.System.GetTickMilliseconds();
+us = duelink.System.GetTickMicroseconds();
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+# Wait is not provided, use native facilities
+ms = duelink.System.GetTickMilliseconds()
+us = duelink.System.GetTickMicroseconds()
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+// Wait is not provided, use native facilities
+ms = duelink.System.GetTickMilliseconds();
+us = duelink.System.GetTickMicroseconds();
 ```
 </TabItem>
 </Tabs>
@@ -212,17 +218,32 @@ await duelink.System.StatLed(0, 0, 0);
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+// Blink the STAT LED on for 1000 milliseconds, off for 1000 milliseconds, 10 times. 
+duelink.System.StatLed(1000, 1000, 10);
+// Wait for 5 seconds
+delay(5000);
+// Release the Status LED back to the system
+duelink.System.StatLed(0, 0, 0);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+#Blink the STAT LED on for 1000 milliseconds, off for 1000 milliseconds, 10 times. 
+duelink.System.StatLed(1000, 1000, 10)
+# Wait for 5 seconds
+time.sleep(5)
+# Release the Status LED back to the system
+duelink.System.StatLed(0, 0, 0)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+// Blink the STAT LED on for 1000 milliseconds, off for 1000 milliseconds, 10 times. 
+duelink.System.StatLed(1000, 1000, 10);
+// Wait for 5 seconds
+Thread.Sleep(5000);
+// Release the Status LED back to the system
+duelink.System.StatLed(0, 0, 0);
 ```
 </TabItem>
 </Tabs>
@@ -278,17 +299,26 @@ await duelink.Digital.Write(2,1);
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+// Read the current level of pin 1, with pull-down resistor enabled
+pinState = duelink.Digital.Read(1,2);
+// Set pin 2 to high (active) state
+duelink.Digital.Write(2,1);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+# Read the current level of pin 1, with pull-down resistor enabled
+pinState = duelink.Digital.Read(1,2)
+# Set pin 2 to high (active) state
+duelink.Digital.Write(2,1)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+// Read the current level of pin 1, with pull-down resistor enabled
+pinState = duelink.Digital.Read(1,2);
+// Set pin 2 to high (active) state
+duelink.Digital.Write(2,1);
 ```
 </TabItem>
 </Tabs>
@@ -360,17 +390,32 @@ await duelink.Analog.Write(4, 0.33)
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+// Read the voltage level at pin 3
+voltage = duelink.Analog.VoltRead(3);
+// Read the analog input on pin 2
+analog = duelink.Analog.Read(2);
+// Set power level (duty-cycle) of pin 4 to 33%
+duelink.Analog.Write(4, 0.33);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+# Read the voltage level at pin 3
+voltage = duelink.Analog.VoltRead(3)
+# Read the analog input on pin 2
+analog = duelink.Analog.Read(2)
+# Set power level (duty-cycle) of pin 4 to 33%
+duelink.Analog.Write(4, 0.33)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+// Read the voltage level at pin 3
+voltage = duelink.Analog.VoltRead(3);
+// Read the analog input on pin 2
+analog = duelink.Analog.Read(2);
+// Set power level (duty-cycle) of pin 4 to 33%
+duelink.Analog.Write(4, 0.33);
 ```
 </TabItem>
 </Tabs>
@@ -418,17 +463,20 @@ await duelink.Sound.Beep(1, 1000, 200)
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+// Generate a frequency of 1KHz on pin 1 for 200ms
+duelink.Sound.Beep(1, 1000, 200);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+# Generate a frequency of 1KHz on pin 1 for 200ms
+duelink.Sound.Beep(1, 1000, 200)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+// Generate a frequency of 1KHz on pin 1 for 200ms
+duelink.Sound.Beep(1, 1000, 200);
 ```
 </TabItem>
 </Tabs>
@@ -484,17 +532,23 @@ await duelink.Sound.MelodyStop(4)
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+duelink.Sound.MelodyPlay(3, [500, 50, 1000, 100])
+delay(2);
+duelink.Sound.MelodyStop(4);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+duelink.Sound.MelodyPlay(3, [500, 50, 1000, 100])
+time.sleep(2)
+duelink.Sound.MelodyStop(4)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+duelink.Sound.MelodyPlay(3, new byte[500, 50, 1000, 100])
+time.sleep(2);
+duelink.Sound.MelodyStop(4);
 ```
 </TabItem>
 </Tabs>
@@ -551,17 +605,26 @@ await state = duelink.Button.Read(1);
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+// Enable button on pin 1 with a low for pressed-state.
+duelink.Button.Enable(1, False);
+// Read the current button state, pressed or unpressed.
+state = duelink.Button.Read(1);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+# Enable button on pin 1 with a low for pressed-state.
+duelink.Button.Enable(1, False)
+# Read the current button state, pressed or unpressed.
+state = duelink.Button.Read(1)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+// Enable button on pin 1 with a low for pressed-state.
+duelink.Button.Enable(1, False);
+// Read the current button state, pressed or unpressed.
+state = duelink.Button.Read(1);
 ```
 </TabItem>
 </Tabs>
@@ -622,17 +685,28 @@ for (let x = 800; x <= 8000; x += 50) {
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+for (x=800; x<8000, x=x+50)
+{
+  duelink.Frequency.Write(3, _x, 100, 0.5);
+  time.sleep(0.1);
+}
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+for x in range(800,8000,50)
+  duelink.Frequency.Write(3, _x, 100, 0.5)
+  time.sleep(0.1)
+next
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+for (x=800; x<8000, x=x+50)
+{
+  duelink.Frequency.Write(3, _x, 100, 0.5);
+  time.sleep(0.1);
+}
 ```
 </TabItem>
 </Tabs>
@@ -687,17 +761,30 @@ while (true) {
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+// Read cap-touch on pin 1 with 100ms charing at high state, with 1sec timeout
+while(true)
+{
+    Console.Print(duelink.Touch.Read(1, 100, 1, 1000));
+    delay(1000);
+}
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+# Read cap-touch on pin 1 with 100ms charing at high state, with 1sec timeout
+while True:
+    print(duelink.Touch.Read(1, 100, 1, 1000))
+    time.sleep(1)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+// Read cap-touch on pin 1 with 100ms charing at high state, with 1sec timeout
+while(true)
+{
+    Console.Print(duelink.Touch.Read(1, 100, 1, 1000));
+    Thread.Sleep(1000);
+}
 ```
 </TabItem>
 </Tabs>
@@ -743,17 +830,17 @@ console.log(await duelink.Pulse.Read(3,0,1000))
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+print(duelink.Pulse.Read(3,0,1000));
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+print(duelink.Pulse.Read(3,0,1000))
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+Console.Print(duelink.Pulse.Read(3,0,1000).ToString())
 ```
 </TabItem>
 </Tabs>
@@ -801,17 +888,17 @@ await distance = duelink.Distance.Read(2, 1);
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+distance = duelink.Distance.Read(2, 1);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+distance = duelink.Distance.Read(2, 1)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+distance = duelink.Distance.Read(2, 1);
 ```
 </TabItem>
 </Tabs>
@@ -865,17 +952,20 @@ await duelink.Servo.Set(1, 90);
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+// Servo on pin 1 to 90 degrees
+duelink.Servo.Set(1, 90);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+# Servo on pin 1 to 90 degrees
+duelink.Servo.Set(1, 90)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+// Servo on pin 1 to 90 degrees
+duelink.Servo.Set(1, 90);
 ```
 </TabItem>
 </Tabs>
@@ -931,17 +1021,23 @@ await duelink.I2C.WriteRead(0x3c, b1, 0)
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+var b1[] = [0x01,0x02]
+duelink.I2C.Configuration(100)
+duelink.I2C.WriteRead(0x3c, b1, 0)
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+b1 = bytearray([0x01,0x02])
+duelink.I2C.Configuration(100)
+duelink.I2C.WriteRead(0x3c, b1, 0)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+var b1 = new byte[]{0x01,0x02}
+duelink.I2C.Configuration(100)
+duelink.I2C.WriteRead(0x3c, b1, 0)
 ```
 </TabItem>
 </Tabs>
