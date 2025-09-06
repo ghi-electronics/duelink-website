@@ -66,7 +66,11 @@ Function | Description
   values={[
     {label: 'Script', value: 'script'},
     {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
     {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
 ]}>
 <TabItem value="script">
 ```py
@@ -102,6 +106,21 @@ await duelink.Graphics.Texts("DUELink", 0, 5,5,1,1)
 
 //flush to screen
 await duelink.Graphics.Show()
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+
 ```
 </TabItem>
 </Tabs>

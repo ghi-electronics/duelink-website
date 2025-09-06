@@ -122,7 +122,11 @@ Coding language libraries include access to the internal file system. This is no
   values={[
     {label: 'Script', value: 'script'},
     {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
     {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
 ]}>
 <TabItem value="script">
 ```py
@@ -167,6 +171,21 @@ let wrote = await duelink.FileSystem.Write(h, [1,2,3,4])
 
 // close handle
 await duelink.FileSystem.Close(h)
+
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
 
 ```
 </TabItem>
