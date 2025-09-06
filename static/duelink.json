@@ -4,7 +4,8 @@
         "version": "0.2",
         "timestamp": "2025-09-05",
         "image_url_base": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/img/catalog/",
-        "code_url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/drivers/"
+        "code_url_base": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/drivers/",
+        "fw_url_base": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/fw/"
     },    
     "boards":
     [
@@ -295,7 +296,8 @@
             "PartNumber": "GDL-CMUSBHOST-B",    
             "PID": "0x030007",
             "Img": "usbhost-front.png",
-            "Code": "com/usb-host.txt"
+            "Code": "com/usb-host.txt",
+            "CoProc": "duelink-coproc-fw-v03.bin"
         },
         {
             "Name": "USB Client Rev A",
