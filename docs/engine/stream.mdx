@@ -12,17 +12,85 @@ A direct benefit of streams is in giving a language, such as [Python](../languag
 
 This is an example to send a buffer to the module. This example is for Python but other languages work almost exactly the same.
 
-```py
-duelink.Stream.WriteBytes("b1", byte_array, 64) # write first 64 byte elements from byte_array to b1
-duelink.Stream.WriteFloats("a1", float_array, 64) # write first 64 float elements from float_array to a1
-```
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
 
-Similarly, you can also read a buffer from the module.
-
+]}>
+<TabItem value="script">
 ```py
-duelink.Stream.ReadBytes("b1", byte_array, 64) # read 64 byte elements from b1 to byte_array
-duelink.Stream.ReadFloats("a1", float_array, 64) # read 64 byte elements from a1 to float_array
+Library only functionality.
 ```
+</TabItem>
+<TabItem value="py">
+```py
+# write first 64 byte elements from byte_array to b1
+duelink.Stream.WriteBytes("b1", byte_array, 64) 
+# write first 64 float elements from float_array to a1
+duelink.Stream.WriteFloats("a1", float_array, 64) 
+# read 64 byte elements from b1 to byte_array
+duelink.Stream.ReadBytes("b1", byte_array, 64) 
+# read 64 byte elements from a1 to float_array
+duelink.Stream.ReadFloats("a1", float_array, 64) 
+```
+</TabItem>
+<TabItem value="js">
+```js
+// write first 64 byte elements from byte_array to b1
+await duelink.Stream.WriteBytes("b1", byte_array, 64);
+// write first 64 float elements from float_array to a1
+await duelink.Stream.WriteFloats("a1", float_array, 64);
+// read 64 byte elements from b1 to byte_array
+await duelink.Stream.ReadBytes("b1", byte_array, 64);
+// read 64 byte elements from a1 to float_array
+await duelink.Stream.ReadFloats("a1", float_array, 64);
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// write first 64 byte elements from byte_array to b1
+duelink.Stream.WriteBytes("b1", byte_array, 64);
+// write first 64 float elements from float_array to a1
+duelink.Stream.WriteFloats("a1", float_array, 64); 
+// read 64 byte elements from b1 to byte_array
+duelink.Stream.ReadBytes("b1", byte_array, 64);
+// read 64 byte elements from a1 to float_array
+duelink.Stream.ReadFloats("a1", float_array, 64);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# write first 64 byte elements from byte_array to b1
+duelink.Stream.WriteBytes("b1", byte_array, 64) 
+# write first 64 float elements from float_array to a1
+duelink.Stream.WriteFloats("a1", float_array, 64) 
+# read 64 byte elements from b1 to byte_array
+duelink.Stream.ReadBytes("b1", byte_array, 64) 
+# read 64 byte elements from a1 to float_array
+duelink.Stream.ReadFloats("a1", float_array, 64) 
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// write first 64 byte elements from byte_array to b1
+duelink.Stream.WriteBytes("b1", byte_array, 64);
+// write first 64 float elements from float_array to a1
+duelink.Stream.WriteFloats("a1", float_array, 64);
+// read 64 byte elements from b1 to byte_array
+duelink.Stream.ReadBytes("b1", byte_array, 64);
+// read 64 byte elements from a1 to float_array
+duelink.Stream.ReadFloats("a1", float_array, 64);
+```
+</TabItem>
+</Tabs>
+</details>
 
 
 :::tip
@@ -35,4 +103,4 @@ Stream can't be used directly by typing in ASCII commands, like when using the [
 
 Understanding and utilizing Stream mechanism is only needed by advanced users. See the source code of one of the provided libraries for reference.
 
-A Stream command initiates the request. Once this command is received and accepted by the device, the `&` symbol will be returned indicating readiness. The host can now send the entire binary data, exactly to the required byte count.
+A Stream command initiates the request. Once this command is received and accepted by the device, the `&` symbol will be returned indicating readiness. The host can then send the entire binary data, exactly to the required byte count, or float count. Keep in mind that a float is 4 bytes.

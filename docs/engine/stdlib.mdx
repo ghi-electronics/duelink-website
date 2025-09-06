@@ -1114,17 +1114,44 @@ await duelink.Spi.WriteRead(b1,b2)
 </TabItem>
 <TabItem value="arduino">
 ```cpp
+duelink.Spi.Configuration(0,8000);
 
+// Write/Read (exchange) a byte
+var r = duelink.Spi.Write(0x55);
+
+// Write B1 array and read back B2
+var b1 = byte[0x01,0x02];
+var b2 = byte[2];
+
+duelink.Spi.WriteRead(b1,b2);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
+duelink.Spi.Configuration(0,8000)
 
+# Write/Read (exchange) a byte
+r = duelink.Spi.Write(0x55)
+
+# Write B1 array and read back B2
+b1 = bytearray([0x01,0x02])
+b2 = bytearray(2)
+
+duelink.Spi.WriteRead(b1,b2)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
+duelink.Spi.Configuration(0,8000);
 
+// Write/Read (exchange) a byte
+var r = duelink.Spi.Write(0x55);
+
+// Write B1 array and read back B2
+var b1 = byte[] =[0x01,0x02];
+var b2 = byte[] =[2];
+
+duelink.Spi.WriteRead(b1,b2);
 ```
 </TabItem>
 </Tabs>
@@ -1197,17 +1224,36 @@ if (duelink.Uart.BytesToRead() > 0) {
 </TabItem>
 <TabItem value="arduino">
 ```cpp
+duelink.Uart.Configuration(9600, 1024);
 
+// If there is data, read a byte and write it back
+if (duelink.Uart.BytesToRead() > 0)
+{
+  var data = duelink.Uart.ReadByte();
+  duelink.Uart.WriteByte(data);
+}
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
+duelink.Uart.Configuration(9600, 1024)
 
+# If there is data, read a byte and write it back
+if duelink.Uart.BytesToRead() > 0:
+  data = duelink.Uart.ReadByte()
+  duelink.Uart.WriteByte(data)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
+duelink.Uart.Configuration(9600, 1024);
 
+// If there is data, read a byte and write it back
+if (duelink.Uart.BytesToRead() > 0)
+{
+  var data = duelink.Uart.ReadByte();
+  duelink.Uart.WriteByte(data);
+}
 ```
 </TabItem>
 </Tabs>
@@ -1282,16 +1328,39 @@ let d = await duelink.DMX.Read(3)
 </TabItem>
 <TabItem value="arduino">
 ```cpp
+duelink.DMX.Update();
+
+// wait until ready
+while(duelink.DMX.Ready() == 0)
+{
+  delay(200);
+}
+int d = duelink.DMX.Read(3);
 
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
+duelink.DMX.Update()
+
+# wait until ready
+while duelink.DMX.Ready() == 0:
+  time.sleep(0.2) 
+
+d = duelink.DMX.Read(3)
 
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
+duelink.DMX.Update()
+
+// wait until ready
+while(duelink.DMX.Ready() == 0)
+{
+  Thread.Sleep(200) 
+}
+var d = duelink.DMX.Read(3);
 
 ```
 </TabItem>
@@ -1348,17 +1417,26 @@ await duelink.Infrared.Write(0x55)
 </TabItem>
 <TabItem value="arduino">
 ```cpp
+// Enable Ir transmit feature on pin 3, no receiver
+duelink.Infrared.Enable(3,-1);
 
+duelink.Infrared.Write(0x55);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
+# Enable Ir transmit feature on pin 3, no receiver
+duelink.Infrared.Enable(3,-1)
 
+duelink.Infrared.Write(0x55)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
+// Enable Ir transmit feature on pin 3, no receiver
+duelink.Infrared.Enable(3,-1);
 
+duelink.Infrared.Write(0x55);
 ```
 </TabItem>
 </Tabs>
@@ -1414,17 +1492,20 @@ await duelink.Temperature.Read(5, 4)
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+// Read DH22 sensor on pin 5
+duelink.Temperature.Read(5, 4);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+# Read DH22 sensor on pin 5
+duelink.Temperature.Read(5, 4)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+// Read DH22 sensor on pin 5
+duelink.Temperature.Read(5, 4);
 ```
 </TabItem>
 </Tabs>
@@ -1480,17 +1561,20 @@ await duelink.Humidity.Read(5, 4)
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+// Read DH22 sensor on pin 5
+duelink.Humidity.Read(5, 4);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+# Read DH22 sensor on pin 5
+duelink.Humidity.Read(5, 4)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+// Read DH22 sensor on pin 5
+duelink.Humidity.Read(5, 4);
 ```
 </TabItem>
 </Tabs>
@@ -1545,17 +1629,20 @@ _v = duelink.System.Info(1)
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+// Read the firmware version
+int _v = duelink.System.Info(1);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+# Read the firmware version
+_v = duelink.System.Info(1)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+// Read the firmware version
+var _v = duelink.System.Info(1);
 ```
 </TabItem>
 </Tabs>
@@ -1627,19 +1714,19 @@ Script only functionality.
 
 </TabItem>
 <TabItem value="arduino">
-```cpp
 
-```
+Script only functionality.
+
 </TabItem>
 <TabItem value="micropy">
-```py
 
-```
+Script only functionality.
+
 </TabItem>
 <TabItem value="dotnet">
-```cs
 
-```
+Script only functionality.
+
 </TabItem>
 </Tabs>
 </details>
@@ -1696,19 +1783,19 @@ Script only functionality.
 
 </TabItem>
 <TabItem value="arduino">
-```cpp
 
-```
+Script only functionality.
+
 </TabItem>
 <TabItem value="micropy">
-```py
 
-```
+Script only functionality.
+
 </TabItem>
 <TabItem value="dotnet">
-```cs
 
-```
+Script only functionality.
+
 </TabItem>
 </Tabs>
 </details>
@@ -1766,18 +1853,24 @@ await duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []");
 ```
 </TabItem>
 <TabItem value="arduino">
+Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
 ```cpp
-
+duelink.Engine.ExecuteCommand("DLMode(4)");
+duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []");
 ```
 </TabItem>
 <TabItem value="micropy">
+Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
 ```py
-
+duelink.Engine.ExecuteCommand("DLMode(4)")
+duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []")
 ```
 </TabItem>
 <TabItem value="dotnet">
+Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
 ```cs
-
+duelink.Engine.ExecuteCommand("DLMode(4)");
+duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []");
 ```
 </TabItem>
 </Tabs>
@@ -1837,17 +1930,26 @@ await duelink.System.StatLed(200, 200, 10);
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+// Select device 2
+duelink.Engine.Select(1);
+// Blink the LED on selected device
+duelink.System.StatLed(200, 200, 10);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+# Select device 2
+duelink.Engine.Select(1)
+# Blink the LED on selected device
+duelink.System.StatLed(200, 200, 10)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+// Select device 2
+duelink.Engine.Select(1);
+// Blink the LED on selected device
+duelink.System.StatLed(200, 200, 10);
 ```
 </TabItem>
 </Tabs>
@@ -1900,19 +2002,19 @@ Use JavaScript native facilities.
 
 </TabItem>
 <TabItem value="arduino">
-```cpp
 
-```
+Use Arduino native facilities.
+
 </TabItem>
 <TabItem value="micropy">
-```py
 
-```
+Use MicroPython native facilities.
+
 </TabItem>
 <TabItem value="dotnet">
-```cs
 
-```
+Use .NET native facilities.
+
 </TabItem>
 </Tabs>
 </details>
@@ -1961,19 +2063,19 @@ Use JavaScript native facilities.
 
 </TabItem>
 <TabItem value="arduino">
-```cpp
 
-```
+Use Arduino native facilities.
+
 </TabItem>
 <TabItem value="micropy">
-```py
 
-```
+Use MicroPython native facilities.
+
 </TabItem>
 <TabItem value="dotnet">
-```cs
 
-```
+Use .NET native facilities.
+
 </TabItem>
 </Tabs>
 </details>
@@ -2021,19 +2123,19 @@ Script only functionality.
 
 </TabItem>
 <TabItem value="arduino">
-```cpp
 
-```
+Script only functionality.
+
 </TabItem>
 <TabItem value="micropy">
-```py
 
-```
+Script only functionality.
+
 </TabItem>
 <TabItem value="dotnet">
-```cs
 
-```
+Script only functionality.
+
 </TabItem>
 </Tabs>
 </details>
@@ -2090,17 +2192,23 @@ await duelink.System.Reset(0)
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+# Reset All devices
+duelink.Engine.Select(0);
+duelink.System.Reset(0);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+# Reset All devices
+duelink.Engine.Select(0)
+duelink.System.Reset(0)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+# Reset All devices
+duelink.Engine.Select(0);
+duelink.System.Reset(0);
 ```
 </TabItem>
 </Tabs>
@@ -2154,19 +2262,19 @@ Script only functionality.
 
 </TabItem>
 <TabItem value="arduino">
-```cpp
 
-```
+Script only functionality.
+
 </TabItem>
 <TabItem value="micropy">
-```py
 
-```
+Script only functionality.
+
 </TabItem>
 <TabItem value="dotnet">
-```cs
 
-```
+Script only functionality.
+
 </TabItem>
 </Tabs>
 </details>
@@ -2218,17 +2326,20 @@ await duelink.Otp.Read(12)
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+// Read a value from OTP address 12
+duelink.Otp.Read(12);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+# Read a value from OTP address 12
+duelink.Otp.Read(12)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+// Read a value from OTP address 12
+duelink.Otp.Read(12);
 ```
 </TabItem>
 </Tabs>
@@ -2292,9 +2403,6 @@ duelink.Rtc.Write(b1)
 # Read the time into array
 b2 = bytearray(6)
 duelink.Rtc.Read(b2)
-
-# Show (print) the current time
-duelink.Rtc.Show()
 ```
 </TabItem>
 <TabItem value="js">
@@ -2307,24 +2415,42 @@ await duelink.Rtc.Write(b1)
 // Read the time into array
 let b2 = Uint8Array(6)
 await duelink.Rtc.Read(b2)
-
-// Show (print) the current time
-await duelink.Rtc.Show()
 ```
 </TabItem>
 <TabItem value="arduino">
 ```cpp
+// Sets the current time to 18:10:00 27 Feb 2025
+byte[] b1 = {0,10,18,27,2,25};
 
+duelink.Rtc.Write(b1);
+
+// Read the time into array
+byte[] b2 = byte[6];
+duelink.Rtc.Read(b2);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
+# Sets the current time to 18:10:00 27 Feb 2025
+b1 = bytearray([0,10,18,27,2,25])
 
+duelink.Rtc.Write(b1)
+
+# Read the time into array
+b2 = bytearray(6)
+duelink.Rtc.Read(b2)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
+// Sets the current time to 18:10:00 27 Feb 2025
+var b1 = new byte[] {0,10,18,27,2,25};
 
+duelink.Rtc.Write(b1);
+
+// Read the time into array
+var b2 = new byte[6];
+duelink.Rtc.Read(b2);
 ```
 </TabItem>
 </Tabs>
@@ -2378,17 +2504,17 @@ let v = await duelink.Analog.ReadVcc()
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+float v = duelink.Analog.ReadVcc();
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+v = duelink.Analog.ReadVcc()
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+var v = duelink.Analog.ReadVcc();
 ```
 </TabItem>
 </Tabs>
@@ -2448,17 +2574,35 @@ await Engine.ExecuteCommand("_Y=" + y);
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-
+// Read the module's internal voltage
+float v = Engine.ExecuteCommand("ReadVCC()")
+// Read the value of the script's global variable _X
+float x = Engine.ExecuteCommand("_X")
+// Set the value of the script's global variable _Y to 10
+float y = 10
+Engine.ExecuteCommand(f'_Y={y}')
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
-
+# Read the module's internal voltage
+v = Engine.ExecuteCommand("ReadVCC()")
+# Read the value of the script's global variable _X
+x = Engine.ExecuteCommand("_X")
+# Set the value of the script's global variable _Y to 10
+y = 10
+Engine.ExecuteCommand(f'_Y={y}')
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
-
+// Read the module's internal voltage
+var v = Engine.ExecuteCommand("ReadVCC()");
+// Read the value of the script's global variable _X
+var x = Engine.ExecuteCommand("_X");
+// Set the value of the script's global variable _Y to 10
+var y = 10;
+Engine.ExecuteCommand($'_Y={y}');
 ```
 </TabItem>
 </Tabs>
