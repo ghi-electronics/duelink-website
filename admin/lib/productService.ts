@@ -1,16 +1,3 @@
-import { 
-  collection, 
-  getDocs, 
-  addDoc, 
-  updateDoc, 
-  deleteDoc, 
-  doc,
-  setDoc,
-  query,
-  orderBy
-} from 'firebase/firestore';
-import { db } from './firebase';
-
 export interface Product {
   id?: string;
   Name: string;
@@ -35,29 +22,30 @@ export interface DuelinkJSON {
   boards: Product[];
 }
 
-const COLLECTION_NAME = 'products';
+// In-memory storage for products
+let productsData: Product[] = [];
 
-// Get all products
+// Get all products from memory
 export const getProducts = async (): Promise<Product[]> => {
-  try {
-    const q = query(collection(db, COLLECTION_NAME), orderBy('Name'));
-    const querySnapshot = await getDocs(q);
-    const products: Product[] = [];
-    querySnapshot.forEach((doc) => {
-      products.push({ id: doc.id, ...doc.data() } as Product);
-    });
-    return products;
-  } catch (error) {
-    console.error('Error getting products:', error);
-    return [];
-  }
+  return [...productsData];
+};
+
+// Save products to memory
+const saveProducts = async (products: Product[]): Promise<void> => {
+  productsData = [...products];
 };
 
 // Add a new product
 export const addProduct = async (product: Product): Promise<Product> => {
   try {
-    const docRef = await addDoc(collection(db, COLLECTION_NAME), product);
-    return { id: docRef.id, ...product };
+    const products = await getProducts();
+    const newProduct = {
+      ...product,
+      id: `${product.PartNumber}-${Date.now()}`
+    };
+    products.push(newProduct);
+    await saveProducts(products);
+    return newProduct;
   } catch (error) {
     console.error('Error adding product:', error);
     throw error;
@@ -65,11 +53,15 @@ export const addProduct = async (product: Product): Promise<Product> => {
 };
 
 // Update a product
-export const updateProduct = async (id: string, product: Partial<Product>): Promise<Product> => {
+export const updateProduct = async (id: string, updates: Partial<Product>): Promise<Product> => {
   try {
-    const productRef = doc(db, COLLECTION_NAME, id);
-    await updateDoc(productRef, product);
-    return { id, ...product } as Product;
+    const products = await getProducts();
+    const index = products.findIndex(p => p.id === id);
+    if (index === -1) throw new Error('Product not found');
+    
+    products[index] = { ...products[index], ...updates };
+    await saveProducts(products);
+    return products[index];
   } catch (error) {
     console.error('Error updating product:', error);
     throw error;
@@ -79,7 +71,9 @@ export const updateProduct = async (id: string, product: Partial<Product>): Prom
 // Delete a product
 export const deleteProduct = async (id: string): Promise<string> => {
   try {
-    await deleteDoc(doc(db, COLLECTION_NAME, id));
+    const products = await getProducts();
+    const filtered = products.filter(p => p.id !== id);
+    await saveProducts(filtered);
     return id;
   } catch (error) {
     console.error('Error deleting product:', error);
@@ -87,20 +81,19 @@ export const deleteProduct = async (id: string): Promise<string> => {
   }
 };
 
-// Migrate products from JSON to Firestore
-export const migrateProducts = async (productsData: DuelinkJSON): Promise<boolean> => {
+// Import products from JSON
+export const importProducts = async (productsData: DuelinkJSON): Promise<boolean> => {
   try {
-    const promises = productsData.boards.map(async (product) => {
-      // Use PartNumber as document ID for consistency
-      const docRef = doc(db, COLLECTION_NAME, product.PartNumber);
-      await setDoc(docRef, product);
-    });
-    
-    await Promise.all(promises);
-    console.log('Migration completed successfully');
+    // Add IDs to imported products
+    const productsWithIds = productsData.boards.map((product, index) => ({
+      ...product,
+      id: `${product.PartNumber}-${index}`
+    }));
+    await saveProducts(productsWithIds);
+    console.log('Import completed successfully');
     return true;
   } catch (error) {
-    console.error('Error migrating products:', error);
+    console.error('Error importing products:', error);
     throw error;
   }
 };
@@ -109,9 +102,7 @@ export const migrateProducts = async (productsData: DuelinkJSON): Promise<boolea
 export const exportProductsToJSON = async (): Promise<DuelinkJSON> => {
   try {
     const products = await getProducts();
-    
-    // Build the JSON structure matching the existing format
-    const jsonData: DuelinkJSON = {
+    return {
       metadata: {
         author: "GHI Electronics",
         version: "0.2",
@@ -121,15 +112,15 @@ export const exportProductsToJSON = async (): Promise<DuelinkJSON> => {
         fw_url_base: "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/fw/"
       },
       boards: products.map(p => {
-        // Remove Firebase ID from the exported data
         const { id, ...productData } = p;
         return productData;
       })
     };
-    
-    return jsonData;
   } catch (error) {
     console.error('Error exporting products:', error);
     throw error;
   }
 };
+
+// For backward compatibility
+export const migrateProducts = importProducts;

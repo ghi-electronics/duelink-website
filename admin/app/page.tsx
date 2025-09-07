@@ -1,30 +1,27 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import {
   Container,
   Box,
   Paper,
   Typography,
-  Button,
-  Alert,
   Tab,
   Tabs,
   AppBar,
   Toolbar,
-  CircularProgress,
-  Snackbar,
   ThemeProvider,
-  createTheme
+  createTheme,
+  Button,
+  Chip
 } from '@mui/material';
 import {
-  Upload as UploadIcon,
-  CloudUpload as DeployIcon
+  Save as SaveIcon,
+  SaveAlt as SaveAltIcon
 } from '@mui/icons-material';
 import ProductTable from '@/components/ProductTable';
 import GenerateButton from '@/components/GenerateButton';
 import CategoriesManager from '@/components/CategoriesManager';
-import { migrateProducts, DuelinkJSON } from '@/lib/productService';
 
 const theme = createTheme({
   palette: {
@@ -65,53 +62,36 @@ function TabPanel(props: TabPanelProps) {
 
 export default function AdminPage() {
   const [tabValue, setTabValue] = useState(0);
-  const [migrating, setMigrating] = useState(false);
-  const [snackbar, setSnackbar] = useState({ 
-    open: false, 
-    message: '', 
-    severity: 'success' as 'success' | 'error' | 'info' | 'warning'
-  });
+  const [fileHandle, setFileHandle] = useState<any>(null);
+  const [autoSaveEnabled, setAutoSaveEnabled] = useState(false);
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue);
   };
 
-  const handleMigration = async () => {
-    if (!window.confirm('This will migrate all products from static/duelink.json to Firebase. Continue?')) {
+  const setupAutoSave = useCallback(async () => {
+    if (!('showSaveFilePicker' in window)) {
+      alert('Auto-save requires a modern browser (Chrome/Edge)');
       return;
     }
 
-    setMigrating(true);
     try {
-      // Fetch the existing JSON data
-      const response = await fetch('/duelink.json');
-      const data: DuelinkJSON = await response.json();
-      
-      // Migrate to Firebase
-      await migrateProducts(data);
-      
-      setSnackbar({
-        open: true,
-        message: `Successfully migrated ${data.boards.length} products to Firebase!`,
-        severity: 'success'
+      const handle = await (window as any).showSaveFilePicker({
+        suggestedName: 'duelink.json',
+        types: [{
+          description: 'JSON File',
+          accept: { 'application/json': ['.json'] }
+        }]
       });
       
-      // Refresh the page to show new data
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
-      
-    } catch (error) {
-      console.error('Migration error:', error);
-      setSnackbar({
-        open: true,
-        message: 'Migration failed: ' + (error as Error).message,
-        severity: 'error'
-      });
-    } finally {
-      setMigrating(false);
+      setFileHandle(handle);
+      setAutoSaveEnabled(true);
+    } catch (err) {
+      if (err instanceof Error && err.name !== 'AbortError') {
+        console.error('Failed to set up auto-save', err);
+      }
     }
-  };
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -119,18 +99,18 @@ export default function AdminPage() {
         <Container maxWidth="xl" sx={{ py: 4 }}>
           <Paper elevation={3}>
             <AppBar position="static" color="default">
-              <Toolbar>
-                <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
+              <Toolbar sx={{ py: 1 }}>
+                {/* Left side - Logos and Title */}
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                   {/* Superfly Logo */}
                   <Box sx={{ 
-                    width: 80, 
-                    height: 80, 
-                    mr: 3,
+                    width: 50, 
+                    height: 50, 
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     bgcolor: 'white',
-                    borderRadius: 2,
+                    borderRadius: 1,
                     overflow: 'hidden'
                   }}>
                     <img 
@@ -145,27 +125,44 @@ export default function AdminPage() {
                   </Box>
                   
                   {/* GHI Logo */}
-                  <svg width="300" height="60" viewBox="0 0 800 200" style={{ marginRight: '20px' }}>
+                  <svg width="150" height="40" viewBox="0 0 400 150">
                     <g>
-                      <text x="0" y="120" fontFamily="Arial, sans-serif" fontSize="100" fontWeight="bold" fill="#2980b9">GHI</text>
-                      <text x="0" y="160" fontFamily="Arial, sans-serif" fontSize="40" fill="#7f8c8d">electronics</text>
+                      <text x="0" y="80" fontFamily="Arial, sans-serif" fontSize="60" fontWeight="bold" fill="#2980b9">GHI</text>
+                      <text x="0" y="110" fontFamily="Arial, sans-serif" fontSize="24" fill="#7f8c8d">electronics</text>
                     </g>
                   </svg>
                   
-                  <Typography variant="h6" sx={{ ml: 2 }}>
+                  <Typography variant="h6">
                     Product Admin Panel
                   </Typography>
                 </Box>
-                <Button
-                  variant="outlined"
-                  startIcon={migrating ? <CircularProgress size={20} /> : <UploadIcon />}
-                  onClick={handleMigration}
-                  disabled={migrating}
-                  sx={{ mr: 2 }}
-                >
-                  {migrating ? 'Migrating...' : 'Migrate from JSON'}
-                </Button>
-                <GenerateButton />
+
+                {/* Spacer */}
+                <Box sx={{ flexGrow: 1 }} />
+
+                {/* Right side - Actions */}
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                  {autoSaveEnabled ? (
+                    <Chip
+                      icon={<SaveIcon />}
+                      label="Auto-save ON"
+                      color="success"
+                      onDelete={() => {
+                        setAutoSaveEnabled(false);
+                        setFileHandle(null);
+                      }}
+                    />
+                  ) : (
+                    <Button
+                      variant="outlined"
+                      startIcon={<SaveAltIcon />}
+                      onClick={setupAutoSave}
+                    >
+                      Enable Auto-save
+                    </Button>
+                  )}
+                  <GenerateButton />
+                </Box>
               </Toolbar>
             </AppBar>
 
@@ -178,7 +175,10 @@ export default function AdminPage() {
             </Box>
 
             <TabPanel value={tabValue} index={0}>
-              <ProductTable />
+              <ProductTable 
+                autoSaveEnabled={autoSaveEnabled} 
+                fileHandle={fileHandle} 
+              />
             </TabPanel>
 
             <TabPanel value={tabValue} index={1}>
@@ -196,10 +196,10 @@ export default function AdminPage() {
                 </Typography>
                 
                 <Typography variant="body1" paragraph>
-                  <strong>1. First Time Setup:</strong>
+                  <strong>1. Getting Started:</strong>
                 </Typography>
                 <Typography variant="body2" paragraph sx={{ ml: 2 }}>
-                  Click "Migrate from JSON" to import your existing products from static/duelink.json into Firebase.
+                  Click "Import JSON" to load your existing products from a duelink.json file.
                 </Typography>
 
                 <Typography variant="body1" paragraph>
@@ -207,37 +207,22 @@ export default function AdminPage() {
                 </Typography>
                 <Typography variant="body2" paragraph sx={{ ml: 2 }}>
                   - Use the Products tab to add, edit, or delete products<br />
-                  - All changes are saved to Firebase in real-time<br />
+                  - Changes are stored in memory until exported<br />
                   - Use the search and filter options to find specific products
                 </Typography>
 
                 <Typography variant="body1" paragraph>
-                  <strong>3. Deploying Changes:</strong>
+                  <strong>3. Saving Your Work:</strong>
                 </Typography>
                 <Typography variant="body2" paragraph sx={{ ml: 2 }}>
-                  - Click "Generate & Deploy" to export products from Firebase<br />
-                  - This generates MDX files for each product and category<br />
-                  - Updates the static/duelink.json file<br />
-                  - Commits changes to Git (when server endpoint is configured)
+                  - Click "Export JSON" to save your products to a file<br />
+                  - Enable "Auto-save" to automatically save changes to a selected file<br />
+                  - Your browser will prompt you to choose where to save the file
                 </Typography>
 
               </Box>
             </TabPanel>
           </Paper>
-
-          <Snackbar
-            open={snackbar.open}
-            autoHideDuration={6000}
-            onClose={() => setSnackbar({ ...snackbar, open: false })}
-          >
-            <Alert
-              onClose={() => setSnackbar({ ...snackbar, open: false })}
-              severity={snackbar.severity}
-              sx={{ width: '100%' }}
-            >
-              {snackbar.message}
-            </Alert>
-          </Snackbar>
         </Container>
       </Box>
     </ThemeProvider>

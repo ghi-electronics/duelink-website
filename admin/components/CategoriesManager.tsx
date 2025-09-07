@@ -26,14 +26,19 @@ import {
   Save as SaveIcon,
   Cancel as CancelIcon
 } from '@mui/icons-material';
-import { db } from '@/lib/firebase';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { getProducts } from '@/lib/productService';
 
 interface Category {
   name: string;
   productCount?: number;
 }
+
+// In-memory storage for categories
+let categoriesData: string[] = [
+  'Microcomputer', 'Display', 'Actuator', 'Communication',
+  'HMI', 'Storage', 'Wireless', 'Sensor', 'LED', 'Sound',
+  'Vision', 'Adapter', 'Special'
+];
 
 const CategoriesManager: React.FC = () => {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -49,28 +54,9 @@ const CategoriesManager: React.FC = () => {
 
   const loadCategories = async () => {
     try {
-      // Load categories from Firebase
-      const docRef = doc(db, 'settings', 'categories');
-      const docSnap = await getDoc(docRef);
-      
-      let categoriesList: string[] = [];
-      
-      if (docSnap.exists()) {
-        categoriesList = docSnap.data().list || [];
-      } else {
-        // Default categories
-        categoriesList = [
-          'Microcomputer', 'Display', 'Actuator', 'Communication',
-          'HMI', 'Storage', 'Wireless', 'Sensor', 'LED', 'Sound',
-          'Vision', 'Adapter', 'Special'
-        ];
-        // Save default categories
-        await saveCategoriesToFirebase(categoriesList);
-      }
-
       // Get product counts
       const products = await getProducts();
-      const categoryData: Category[] = categoriesList.map(name => ({
+      const categoryData: Category[] = categoriesData.map(name => ({
         name,
         productCount: products.filter(p => p.Category === name).length
       }));
@@ -84,14 +70,9 @@ const CategoriesManager: React.FC = () => {
     }
   };
 
-  const saveCategoriesToFirebase = async (categoryList: string[]) => {
-    try {
-      const docRef = doc(db, 'settings', 'categories');
-      await setDoc(docRef, { list: categoryList });
-    } catch (err) {
-      console.error('Error saving categories:', err);
-      throw err;
-    }
+  const saveCategoriesToStorage = async (categoryList: string[]) => {
+    // Save to in-memory storage
+    categoriesData = [...categoryList];
   };
 
   const handleAddCategory = async () => {
@@ -105,7 +86,7 @@ const CategoriesManager: React.FC = () => {
     try {
       const updatedCategories = [...categories, { name: newCategory.trim(), productCount: 0 }];
       const categoryNames = updatedCategories.map(c => c.name);
-      await saveCategoriesToFirebase(categoryNames);
+      await saveCategoriesToStorage(categoryNames);
       setCategories(updatedCategories);
       setNewCategory('');
     } catch (err) {
@@ -135,7 +116,7 @@ const CategoriesManager: React.FC = () => {
         name: editValue.trim() 
       };
       const categoryNames = updatedCategories.map(c => c.name);
-      await saveCategoriesToFirebase(categoryNames);
+      await saveCategoriesToStorage(categoryNames);
       setCategories(updatedCategories);
       setEditingIndex(null);
       setEditValue('');
@@ -156,7 +137,7 @@ const CategoriesManager: React.FC = () => {
       try {
         const updatedCategories = categories.filter((_, i) => i !== index);
         const categoryNames = updatedCategories.map(c => c.name);
-        await saveCategoriesToFirebase(categoryNames);
+        await saveCategoriesToStorage(categoryNames);
         setCategories(updatedCategories);
       } catch (err) {
         setError('Failed to delete category');

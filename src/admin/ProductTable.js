@@ -181,17 +181,23 @@ const ProductTable = () => {
         <GridActionsCellItem
           icon={<EditIcon />}
           label="Edit"
+          title="Edit product"
           onClick={() => handleOpen(params.row)}
+          showInMenu={false}
         />,
         <GridActionsCellItem
           icon={<CopyIcon />}
           label="Duplicate"
+          title="Duplicate product"
           onClick={() => handleDuplicate(params.row)}
+          showInMenu={false}
         />,
         <GridActionsCellItem
           icon={<DeleteIcon />}
           label="Delete"
+          title="Delete product"
           onClick={() => handleDelete(params.row.id)}
+          showInMenu={false}
         />,
       ],
     },

@@ -20,9 +20,11 @@ import {
 } from '@mui/material';
 import {
   CloudUpload as DeployIcon,
-  Download as DownloadIcon
+  Download as DownloadIcon,
+  Upload as UploadIcon,
+  Save as SaveIcon
 } from '@mui/icons-material';
-import { exportProductsToJSON } from '@/lib/productService';
+import { exportProductsToJSON, importProducts, Product } from '@/lib/productService';
 
 const GenerateButton: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -32,7 +34,7 @@ const GenerateButton: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   const steps = [
-    'Export from Firebase',
+    'Export from Memory',
     'Generate MDX Files',
     'Update JSON',
     'Ready to Deploy'
@@ -46,7 +48,7 @@ const GenerateButton: React.FC = () => {
     setActiveStep(0);
 
     try {
-      // Step 1: Export from Firebase
+      // Step 1: Export from memory
       setActiveStep(0);
       const jsonData = await exportProductsToJSON();
       
@@ -75,14 +77,116 @@ const GenerateButton: React.FC = () => {
     }
   };
 
-  const handleDownload = () => {
-    if (result && result.downloadUrl) {
-      const a = document.createElement('a');
-      a.href = result.downloadUrl;
-      a.download = 'duelink.json';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+  const handleDownload = async () => {
+    if (result && result.jsonData) {
+      try {
+        const jsonString = JSON.stringify(result.jsonData, null, 2);
+        const blob = new Blob([jsonString], { type: 'application/json' });
+        
+        // Use File System Access API if available
+        if ('showSaveFilePicker' in window) {
+          try {
+            const handle = await (window as any).showSaveFilePicker({
+              suggestedName: 'duelink.json',
+              types: [{
+                description: 'JSON File',
+                accept: { 'application/json': ['.json'] }
+              }]
+            });
+            
+            const writable = await handle.createWritable();
+            await writable.write(blob);
+            await writable.close();
+          } catch (err) {
+            // User cancelled the save dialog
+            if (err instanceof Error && err.name !== 'AbortError') {
+              console.error('Error saving file:', err);
+              // Fall back to download link
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = 'duelink.json';
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+              URL.revokeObjectURL(url);
+            }
+          }
+        } else {
+          // Fallback to download link
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'duelink.json';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        }
+      } catch (error) {
+        console.error('Export error:', error);
+        setError('Error exporting products');
+      }
+    }
+  };
+
+  const handleImportJSON = async () => {
+    try {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = '.json';
+      
+      input.onchange = async (e) => {
+        const file = (e.target as HTMLInputElement).files?.[0];
+        if (!file) return;
+        
+        try {
+          setLoading(true);
+          setError(null);
+          
+          const text = await file.text();
+          const data = JSON.parse(text);
+          
+          if (!data.boards || !Array.isArray(data.boards)) {
+            setError('Invalid JSON format: missing boards array');
+            setLoading(false);
+            return;
+          }
+          
+          const confirmMessage = `This will load ${data.boards.length} products from the file. Continue?`;
+          
+          if (!window.confirm(confirmMessage)) {
+            setLoading(false);
+            return;
+          }
+          
+          // Import products using the service
+          await importProducts(data);
+          
+          setResult({
+            success: true,
+            imported: true,
+            products: data.boards.length,
+            categories: [...new Set(data.boards.map((b: any) => b.Category))].length
+          });
+          
+          // Reload the page to refresh the product table
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
+          
+        } catch (error) {
+          console.error('Import error:', error);
+          setError('Error importing products: ' + (error as Error).message);
+        } finally {
+          setLoading(false);
+        }
+      };
+      
+      input.click();
+    } catch (error) {
+      console.error('Import error:', error);
+      setError('Error importing products');
     }
   };
 
@@ -123,18 +227,26 @@ console.log('Run npm run generate-catalog to create MDX files');
 
   return (
     <>
-      <Button
-        variant="contained"
-        color="primary"
-        size="large"
-        startIcon={<DeployIcon />}
-        onClick={handleGenerate}
-      >
-        Generate
-      </Button>
+      <Box sx={{ display: 'flex', gap: 1 }}>
+        <Button
+          variant="outlined"
+          startIcon={<SaveIcon />}
+          onClick={handleGenerate}
+        >
+          Export JSON
+        </Button>
+        <Button
+          variant="outlined"
+          startIcon={<UploadIcon />}
+          onClick={handleImportJSON}
+          disabled={loading}
+        >
+          Import JSON
+        </Button>
+      </Box>
 
       <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
-        <DialogTitle>Generate Catalog</DialogTitle>
+        <DialogTitle>{result?.imported ? 'Import Products' : 'Export Products'}</DialogTitle>
         <DialogContent>
           <Box sx={{ mt: 2 }}>
             {loading && (
@@ -165,10 +277,12 @@ console.log('Run npm run generate-catalog to create MDX files');
               <>
                 <Alert severity="success" sx={{ mb: 2 }}>
                   <Typography variant="h6" gutterBottom>
-                    Export Successful!
+                    {result.imported ? 'Import Successful!' : 'Export Successful!'}
                   </Typography>
                   <Typography variant="body2">
-                    Products have been exported from Firebase. Download the files below and run the generation script.
+                    {result.imported 
+                      ? `Successfully imported ${result.products} products from the JSON file.`
+                      : 'Products have been exported. Save the file to your desired location.'}
                   </Typography>
                 </Alert>
                 
@@ -192,33 +306,27 @@ console.log('Run npm run generate-catalog to create MDX files');
                   </List>
                 </Box>
 
-                <Box sx={{ mt: 2 }}>
-                  <Typography variant="h6" gutterBottom>
-                    Next Steps:
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" paragraph>
-                    1. Download the generated JSON file<br />
-                    2. Copy it to your main project's /static folder<br />
-                    3. Run: <code>npm run generate-catalog</code><br />
-                    4. Commit and push the changes
-                  </Typography>
-                  
-                  <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
-                    <Button
-                      variant="contained"
-                      startIcon={<DownloadIcon />}
-                      onClick={handleDownload}
-                    >
-                      Download duelink.json
-                    </Button>
-                    <Button
-                      variant="outlined"
-                      onClick={handleGenerateScript}
-                    >
-                      Download Script
-                    </Button>
+                {!result.imported && (
+                  <Box sx={{ mt: 2 }}>
+                    <Typography variant="h6" gutterBottom>
+                      Choose Save Location:
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" paragraph>
+                      Click the button below to choose where to save the JSON file on your local system.
+                      You can then use this file to import products later or deploy to production.
+                    </Typography>
+                    
+                    <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
+                      <Button
+                        variant="contained"
+                        startIcon={<SaveIcon />}
+                        onClick={handleDownload}
+                      >
+                        Choose Location & Save
+                      </Button>
+                    </Box>
                   </Box>
-                </Box>
+                )}
               </>
             )}
           </Box>

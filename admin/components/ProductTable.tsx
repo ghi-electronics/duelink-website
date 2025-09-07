@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import Fuse from 'fuse.js';
 import {
   DataGrid,
   GridColDef,
@@ -21,7 +22,9 @@ import {
   InputLabel,
   Alert,
   Snackbar,
-  Chip
+  Chip,
+  Typography,
+  Tooltip
 } from '@mui/material';
 import {
   Edit as EditIcon,
@@ -29,12 +32,16 @@ import {
   Add as AddIcon,
   ContentCopy as CopyIcon
 } from '@mui/icons-material';
-import { getProducts, addProduct, updateProduct, deleteProduct, Product } from '@/lib/productService';
-import { db } from '@/lib/firebase';
-import { doc, getDoc } from 'firebase/firestore';
+import { getProducts, addProduct, updateProduct, deleteProduct, Product, exportProductsToJSON } from '@/lib/productService';
 
-const ProductTable: React.FC = () => {
+interface ProductTableProps {
+  autoSaveEnabled?: boolean;
+  fileHandle?: any;
+}
+
+const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fileHandle = null }) => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const [editMode, setEditMode] = useState(false);
@@ -60,30 +67,13 @@ const ProductTable: React.FC = () => {
   }, []);
 
   const loadCategories = async () => {
-    try {
-      const docRef = doc(db, 'settings', 'categories');
-      const docSnap = await getDoc(docRef);
-      
-      if (docSnap.exists()) {
-        setCategories(docSnap.data().list || []);
-      } else {
-        // Default categories
-        const defaultCategories = [
-          'Microcomputer', 'Display', 'Actuator', 'Communication',
-          'HMI', 'Storage', 'Wireless', 'Sensor', 'LED', 'Sound',
-          'Vision', 'Adapter', 'Special'
-        ];
-        setCategories(defaultCategories);
-      }
-    } catch (error) {
-      console.error('Error loading categories:', error);
-      // Fallback to default categories
-      setCategories([
-        'Microcomputer', 'Display', 'Actuator', 'Communication',
-        'HMI', 'Storage', 'Wireless', 'Sensor', 'LED', 'Sound',
-        'Vision', 'Adapter', 'Special'
-      ]);
-    }
+    // Use default categories
+    const defaultCategories = [
+      'Microcomputer', 'Display', 'Actuator', 'Communication',
+      'HMI', 'Storage', 'Wireless', 'Sensor', 'LED', 'Sound',
+      'Vision', 'Adapter', 'Special'
+    ];
+    setCategories(defaultCategories);
   };
 
   const loadProducts = async () => {
@@ -97,7 +87,7 @@ const ProductTable: React.FC = () => {
     setLoading(false);
   };
 
-  const handleOpen = (product: Product | null = null) => {
+  const handleOpen = useCallback((product: Product | null = null) => {
     if (product) {
       setCurrentProduct(product);
       setEditMode(true);
@@ -114,9 +104,9 @@ const ProductTable: React.FC = () => {
       setEditMode(false);
     }
     setOpen(true);
-  };
+  }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setOpen(false);
     setCurrentProduct({
       Name: '',
@@ -127,9 +117,9 @@ const ProductTable: React.FC = () => {
       Code: '',
       Notes: ''
     });
-  };
+  }, []);
 
-  const handleSave = async () => {
+  const handleSave = useCallback(async () => {
     try {
       if (editMode && currentProduct.id) {
         await updateProduct(currentProduct.id, currentProduct);
@@ -138,26 +128,36 @@ const ProductTable: React.FC = () => {
         await addProduct(currentProduct);
         showSnackbar('Product added successfully');
       }
-      loadProducts();
+      await loadProducts();
       handleClose();
+      
+      // Auto-save if enabled
+      if (autoSaveEnabled) {
+        await autoSaveJSON();
+      }
     } catch (error) {
       showSnackbar('Error saving product', 'error');
     }
-  };
+  }, [editMode, currentProduct, autoSaveEnabled]);
 
-  const handleDelete = async (id: string) => {
+  const handleDelete = useCallback(async (id: string) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
         await deleteProduct(id);
         showSnackbar('Product deleted successfully');
-        loadProducts();
+        await loadProducts();
+        
+        // Auto-save if enabled
+        if (autoSaveEnabled) {
+          await autoSaveJSON();
+        }
       } catch (error) {
         showSnackbar('Error deleting product', 'error');
       }
     }
-  };
+  }, [autoSaveEnabled]);
 
-  const handleDuplicate = (product: Product) => {
+  const handleDuplicate = useCallback((product: Product) => {
     const { id, ...productData } = product;
     setCurrentProduct({
       ...productData,
@@ -166,19 +166,89 @@ const ProductTable: React.FC = () => {
     });
     setEditMode(false);
     setOpen(true);
-  };
+  }, []);
 
   const showSnackbar = (message: string, severity: 'success' | 'error' = 'success') => {
     setSnackbar({ open: true, message, severity });
   };
 
-  const columns: GridColDef[] = [
+  const autoSaveJSON = async () => {
+    const saveHandle = fileHandle;
+    if (!saveHandle) return;
+    
+    try {
+      // Export current data from localStorage
+      const jsonData = await exportProductsToJSON();
+      const jsonString = JSON.stringify(jsonData, null, 2);
+      
+      // Write to the file
+      const writable = await saveHandle.createWritable();
+      await writable.write(jsonString);
+      await writable.close();
+      
+      console.log('Auto-saved to duelink.json');
+    } catch (error) {
+      console.error('Auto-save error:', error);
+      // If permission was revoked, show error
+      if (error instanceof Error && error.name === 'NotAllowedError') {
+        showSnackbar('Auto-save failed: File access permission lost', 'error');
+      }
+    }
+  };
+
+  // Fuzzy search configuration
+  const fuse = useMemo(() => {
+    return new Fuse(products, {
+      keys: [
+        { name: 'Name', weight: 0.4 },
+        { name: 'PartNumber', weight: 0.3 },
+        { name: 'Category', weight: 0.2 },
+        { name: 'PID', weight: 0.1 }
+      ],
+      threshold: 0.4,
+      includeScore: true,
+      shouldSort: true,
+      findAllMatches: true,
+      minMatchCharLength: 2
+    });
+  }, [products]);
+
+  // Filter products based on search term
+  const filteredProducts = useMemo(() => {
+    if (!searchTerm.trim()) {
+      return products;
+    }
+    const results = fuse.search(searchTerm);
+    return results.map(result => result.item);
+  }, [searchTerm, fuse, products]);
+
+  const columns: GridColDef[] = useMemo(() => [
     { 
       field: 'Img', 
       headerName: 'Image', 
       width: 100,
-      renderCell: (params) => (
-        params.value ? (
+      sortable: false,
+      filterable: false,
+      renderCell: (params) => {
+        const [imgError, setImgError] = useState(false);
+        
+        if (!params.value || imgError) {
+          return (
+            <Box sx={{ 
+              width: 80, 
+              height: 80, 
+              bgcolor: '#f0f0f0',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: 1
+            }}>
+              <span style={{ fontSize: '12px', color: '#999' }}>No Image</span>
+            </Box>
+          );
+        }
+        
+        return (
           <Box sx={{ 
             width: 80, 
             height: 80, 
@@ -188,6 +258,7 @@ const ProductTable: React.FC = () => {
             p: 0.5
           }}>
             <img 
+              loading="lazy"
               src={`https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/img/catalog/${params.value}`}
               alt={params.row.Name}
               style={{ 
@@ -195,25 +266,11 @@ const ProductTable: React.FC = () => {
                 maxHeight: '100%', 
                 objectFit: 'contain' 
               }}
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjRTBFMEUwIi8+CjxwYXRoIGQ9Ik0yOCA0NUw0MCAzM0w1MiA0NU0zNCAxOUgzNEMzNS42NTY5IDE5IDM3IDE3LjY1NjkgMzcgMTZWMTZDMzcgMTQuMzQzMSAzNS42NTY5IDEzIDM0IDEzVjEzQzMyLjM0MzEgMTMgMzEgMTQuMzQzMSAzMSAxNlYxNkMzMSAxNy42NTY5IDMyLjM0MzEgMTkgMzQgMTlaIiBzdHJva2U9IiM5RTlFOUUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPg==';
-              }}
+              onError={() => setImgError(true)}
             />
           </Box>
-        ) : (
-          <Box sx={{ 
-            width: 80, 
-            height: 80, 
-            bgcolor: '#f0f0f0',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: 1
-          }}>
-            <span style={{ fontSize: '12px', color: '#999' }}>No Image</span>
-          </Box>
-        )
-      )
+        );
+      }
     },
     { 
       field: 'Name', 
@@ -247,30 +304,69 @@ const ProductTable: React.FC = () => {
       getActions: (params) => [
         <GridActionsCellItem
           key="edit"
-          icon={<EditIcon />}
+          icon={
+            <Tooltip title="Edit product">
+              <EditIcon />
+            </Tooltip>
+          }
           label="Edit"
           onClick={() => handleOpen(params.row)}
+          showInMenu={false}
         />,
         <GridActionsCellItem
           key="copy"
-          icon={<CopyIcon />}
+          icon={
+            <Tooltip title="Duplicate product">
+              <CopyIcon />
+            </Tooltip>
+          }
           label="Duplicate"
           onClick={() => handleDuplicate(params.row)}
+          showInMenu={false}
         />,
         <GridActionsCellItem
           key="delete"
-          icon={<DeleteIcon />}
+          icon={
+            <Tooltip title="Delete product">
+              <DeleteIcon />
+            </Tooltip>
+          }
           label="Delete"
           onClick={() => handleDelete(params.row.id!)}
+          showInMenu={false}
         />,
       ],
     },
-  ];
+  ], [handleOpen, handleDuplicate, handleDelete]);
 
   return (
     <Box sx={{ height: '100%', width: '100%' }}>
-      <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h2>Product Management</h2>
+      <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 2 }}>
+        <h2 style={{ margin: 0 }}>Product Management</h2>
+        <TextField
+          placeholder="Search products..."
+          variant="outlined"
+          size="small"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          sx={{ flexGrow: 1, maxWidth: 400 }}
+          InputProps={{
+            startAdornment: (
+              <Box sx={{ display: 'flex', alignItems: 'center', mr: 1 }}>
+                🔍
+              </Box>
+            ),
+            endAdornment: searchTerm && (
+              <Button
+                size="small"
+                onClick={() => setSearchTerm('')}
+                sx={{ minWidth: 'auto', p: 0.5 }}
+              >
+                ✕
+              </Button>
+            )
+          }}
+        />
         <Button
           variant="contained"
           startIcon={<AddIcon />}
@@ -279,26 +375,55 @@ const ProductTable: React.FC = () => {
           Add Product
         </Button>
       </Box>
+      {searchTerm && (
+        <Box sx={{ mb: 1 }}>
+          <Typography variant="body2" color="text.secondary">
+            Found {filteredProducts.length} products matching "{searchTerm}"
+          </Typography>
+        </Box>
+      )}
 
-      <DataGrid
-        rows={products}
-        columns={columns}
-        pageSizeOptions={[25, 50, 100]}
-        loading={loading}
-        autoHeight
-        disableRowSelectionOnClick
-        rowHeight={90}
-        slots={{
-          toolbar: GridToolbar,
-        }}
-        sx={{
-          '& .MuiDataGrid-cell': {
-            borderBottom: '1px solid rgba(224, 224, 224, 1)',
-            display: 'flex',
-            alignItems: 'center'
-          }
-        }}
-      />
+      <Box sx={{ height: 'calc(100vh - 300px)', minHeight: 600 }}>
+        <DataGrid
+          rows={filteredProducts}
+          columns={columns}
+          pageSizeOptions={[25, 50, 100]}
+          initialState={{
+            pagination: {
+              paginationModel: { pageSize: 25, page: 0 },
+            },
+          }}
+          loading={loading}
+          disableRowSelectionOnClick
+          rowHeight={90}
+          columnBuffer={2}
+          rowBuffer={10}
+          disableVirtualization={false}
+          slots={{
+            toolbar: GridToolbar,
+          }}
+          slotProps={{
+            toolbar: {
+              showQuickFilter: true,
+              quickFilterProps: { debounceMs: 500 },
+            },
+          }}
+          sx={{
+            '& .MuiDataGrid-cell': {
+              borderBottom: '1px solid rgba(224, 224, 224, 1)',
+              display: 'flex',
+              alignItems: 'center'
+            },
+            '& .MuiDataGrid-virtualScroller': {
+              minHeight: 400,
+            },
+            '& .MuiDataGrid-virtualScrollerContent': {
+              minHeight: 400,
+            }
+          }}
+          getRowId={(row) => row.id || `${row.PartNumber}-${row.PID}`}
+        />
+      </Box>
 
       <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
         <DialogTitle>{editMode ? 'Edit Product' : 'Add New Product'}</DialogTitle>
