@@ -1,0 +1,105 @@
+---
+sidebar_position: 1
+title: Portal CP70 Rev B
+description: Portal CP70 Rev B - High-quality DUELink module
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ProductImageSelector from '@site/src/components/ProductImageSelector';
+
+# Portal CP70 Rev B
+
+<ProductImageSelector 
+  partNumber="dportalcp70-b"
+  productName="Portal CP70 Rev B"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+This is a high-quality DUELink module designed for easy integration into your projects.
+
+<table><td width='50%'>
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/dportalcp70-b.pdf)<br/>
+🔩[3D STEP file](/3d/dportalcp70-b.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+| Function | Description |
+| --- | --- |
+| `DVer()` | This driver version. |
+| `Init()` | Initialize the module. Automatically called on power up. |
+| `DVer()` | DVer function |
+| `SpiWrRd(d, o)` | SpiWrRd function |
+| `SetAddr(a,r)` | SetAddr function |
+| `MemRead(a, o)` | MemRead function |
+| `MemWrite(a, b3, o)` | MemWrite function |
+| `HCmdWrite(c,p)` | HCmdWrite function |
+| `Synth(n,p)` | Synth function |
+| `DLClear()` | DLClear function |
+| `DLSwap()` | DLSwap function |
+| `Init()` | Init function |
+| `DLCmd(c,a9)` | DLCmd function |
+
+<details>
+  <summary>The Code!</summary>
+
+```py reference title="Portal CP70 Rev B Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/display/portal-cp70.due
+```
+
+</details>
+
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+  values={[
+    {label: 'Script', value: 'script'},
+  ]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/display/portal-cp70.txt
+```
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+</Tabs>
+
+---
+
+## Ordering Information
+
+**GDL-DPORTALCP70-B** - Portal CP70 Rev B - High-quality DUELink module - **$19.99**

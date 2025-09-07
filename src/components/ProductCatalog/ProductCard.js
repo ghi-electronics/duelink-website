@@ -11,7 +11,7 @@ const ProductCard = memo(({ product, index }) => {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   
-  const imageTypes = ['front', 'back', 'front-45', 'back-45', 'pencil'];
+  const imageTypes = ['front', 'back', 'front45', 'back45', 'pencil'];
   
   useEffect(() => {
     const checkMobile = () => {
@@ -26,16 +26,17 @@ const ProductCard = memo(({ product, index }) => {
     setSelectedImage(imageTypes[currentImageIndex]);
   }, [currentImageIndex]);
 
-  const getImageName = (imgPath) => {
-    return imgPath.replace('.png', '').replace('-front', '');
+  const generateSlug = (name) => {
+    return name
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim('-');
   };
 
-  const getProductUrl = (product) => {
-    return product.slug || null;
-  };
-
-  const imageName = getImageName(product.Img);
-  const productUrl = getProductUrl(product);
+  const productSlug = generateSlug(product.name);
+  const productUrl = `/docs/products/${productSlug}`;
   
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
@@ -71,8 +72,8 @@ const ProductCard = memo(({ product, index }) => {
         >
           <Zoom zoomMargin={isMobile ? 20 : 40}>
             <LazyImage 
-              src={`/img/catalog/${imageName}-${selectedImage}.png`} 
-              alt={`${product.Name} ${selectedImage}`}
+              src={`/img/catalog/${product.images[selectedImage]}`} 
+              alt={`${product.name} ${selectedImage}`}
               className={styles.mainImage}
             />
           </Zoom>
@@ -102,7 +103,7 @@ const ProductCard = memo(({ product, index }) => {
                 aria-label={`${imageType} view`}
               >
                 <LazyImage 
-                  src={`/img/catalog/${imageName}-${imageType}.png`} 
+                  src={`/img/catalog/${product.images[imageType]}`} 
                   alt={imageType}
                 />
               </button>
@@ -112,43 +113,33 @@ const ProductCard = memo(({ product, index }) => {
       </div>
       
       <div className={styles.productDetails}>
-        {productUrl ? (
-          <a href={productUrl} className={styles.productLink}>
-            <h3 className={styles.productTitle}>{product.Name}</h3>
-          </a>
-        ) : (
-          <h3 className={styles.productTitle}>{product.Name}</h3>
-        )}
+        <a href={productUrl} className={styles.productLink}>
+          <h3 className={styles.productTitle}>{product.name}</h3>
+        </a>
+        
+        <p className={styles.shortDescription}>{product.shortDescription}</p>
         
         <div className={styles.productMeta}>
-          {!isMobile && (
-            <>
-              <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>Part Number</span>
-                <span className={styles.metaValue}>{product.PartNumber}</span>
-              </div>
-              <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>Product ID</span>
-                <span className={styles.metaValue}>{product.PID}</span>
-              </div>
-            </>
-          )}
-          {product.Category && (
-            <div className={styles.metaItem}>
-              <span className={styles.metaLabel}>Category</span>
-              <span className={styles.metaValue}>{product.Category}</span>
-            </div>
-          )}
+          <div className={styles.metaItem}>
+            <span className={styles.metaLabel}>Part Number</span>
+            <span className={styles.metaValue}>{product.partNumber}</span>
+          </div>
+          <div className={styles.metaItem}>
+            <span className={styles.metaLabel}>Category</span>
+            <span className={styles.metaValue}>{product.category}</span>
+          </div>
+          <div className={styles.metaItem}>
+            <span className={styles.metaLabel}>Price</span>
+            <span className={styles.metaValue}>${product.price}</span>
+          </div>
         </div>
 
-        {productUrl && (
-          <a 
-            href={productUrl} 
-            className={`${styles.viewDetailsBtn} ${isMobile ? styles.mobileViewDetailsBtn : ''}`}
-          >
-            View Details →
-          </a>
-        )}
+        <a 
+          href={productUrl} 
+          className={`${styles.viewDetailsBtn} ${isMobile ? styles.mobileViewDetailsBtn : ''}`}
+        >
+          View Details →
+        </a>
       </div>
     </div>
   );

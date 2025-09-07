@@ -39,470 +39,439 @@ interface ProductTableProps {
   fileHandle?: any;
 }
 
+// Simplified product interface for admin
+interface SimpleProduct {
+  id?: string;
+  name: string;
+  shortDescription: string;
+  partNumber: string;
+  category: string;
+  price: number;
+}
+
 const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fileHandle = null }) => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<SimpleProduct[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const [editMode, setEditMode] = useState(false);
-  const [currentProduct, setCurrentProduct] = useState<Product>({
-    Name: '',
-    PartNumber: '',
-    PID: '',
-    Category: '',
-    Img: '',
-    Code: '',
-    Notes: ''
+  const [currentProduct, setCurrentProduct] = useState<SimpleProduct>({
+    name: '',
+    shortDescription: '',
+    partNumber: '',
+    category: '',
+    price: 0
   });
   const [snackbar, setSnackbar] = useState({ 
     open: false, 
     message: '', 
     severity: 'success' as 'success' | 'error' 
   });
-  const [categories, setCategories] = useState<string[]>([]);
 
   useEffect(() => {
     loadProducts();
-    loadCategories();
-    
-    // Listen for import events
-    const handleImport = () => {
-      loadProducts();
-    };
-    
-    window.addEventListener('products-imported', handleImport);
-    
-    return () => {
-      window.removeEventListener('products-imported', handleImport);
-    };
   }, []);
-
-  const loadCategories = async () => {
-    // Use default categories
-    const defaultCategories = [
-      'Microcomputer', 'Display', 'Actuator', 'Communication',
-      'HMI', 'Storage', 'Wireless', 'Sensor', 'LED', 'Sound',
-      'Vision', 'Adapter', 'Special'
-    ];
-    setCategories(defaultCategories);
-  };
 
   const loadProducts = async () => {
-    setLoading(true);
     try {
+      setLoading(true);
       const data = await getProducts();
-      setProducts(data);
+      // Convert to simplified format
+      const simpleProducts = data.map((p: any) => ({
+        id: p.id,
+        name: p.name,
+        shortDescription: p.shortDescription,
+        partNumber: p.partNumber,
+        category: p.category,
+        price: p.price
+      }));
+      setProducts(simpleProducts);
     } catch (error) {
-      showSnackbar('Error loading products', 'error');
+      console.error('Error loading products:', error);
+      setSnackbar({ 
+        open: true, 
+        message: 'Failed to load products', 
+        severity: 'error' 
+      });
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
-  const handleOpen = useCallback((product: Product | null = null) => {
-    if (product) {
-      setCurrentProduct(product);
-      setEditMode(true);
-    } else {
-      setCurrentProduct({
-        Name: '',
-        PartNumber: '',
-        PID: '',
-        Category: '',
-        Img: '',
-        Code: '',
-        Notes: ''
-      });
-      setEditMode(false);
+  const categories = useMemo(() => {
+    const categorySet = new Set(products.map(p => p.category));
+    return Array.from(categorySet).sort();
+  }, [products]);
+
+  const fuse = useMemo(
+    () => new Fuse(products, {
+      keys: ['name', 'partNumber', 'shortDescription', 'category'],
+      threshold: 0.3,
+    }),
+    [products]
+  );
+
+  const filteredProducts = useMemo(() => {
+    let result = products;
+    
+    if (searchTerm) {
+      result = fuse.search(searchTerm).map(r => r.item);
     }
-    setOpen(true);
-  }, []);
+    
+    if (selectedCategory) {
+      result = result.filter(p => p.category === selectedCategory);
+    }
+    
+    return result;
+  }, [products, searchTerm, selectedCategory, fuse]);
 
-  const handleClose = useCallback(() => {
-    setOpen(false);
+  const handleOpen = () => {
+    setEditMode(false);
     setCurrentProduct({
-      Name: '',
-      PartNumber: '',
-      PID: '',
-      Category: '',
-      Img: '',
-      Code: '',
-      Notes: ''
+      name: '',
+      shortDescription: '',
+      partNumber: '',
+      category: '',
+      price: 0
     });
-  }, []);
+    setOpen(true);
+  };
 
-  const handleSave = useCallback(async () => {
+  const handleEdit = (product: SimpleProduct) => {
+    setEditMode(true);
+    setCurrentProduct(product);
+    setOpen(true);
+  };
+
+  const handleDuplicate = (product: SimpleProduct) => {
+    setEditMode(false);
+    const newProduct = {
+      ...product,
+      id: undefined,
+      name: `${product.name} (Copy)`,
+      partNumber: `${product.partNumber}-COPY`
+    };
+    setCurrentProduct(newProduct);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleSave = async () => {
     try {
+      // Convert back to full product format for saving
+      const fullProduct: Product = {
+        ...currentProduct,
+        variations: {},
+        images: {
+          front: '',
+          pencil: '',
+          back: '',
+          front45: '',
+          back45: ''
+        },
+        overviewText: '',
+        keyFeatures: [],
+        resources: {
+          model3d: '',
+          schematic: ''
+        },
+        driverCode: '',
+        samples: {
+          script: '',
+          python: '',
+          javascript: '',
+          dotnet: '',
+          micropython: '',
+          arduino: ''
+        }
+      };
+
       if (editMode && currentProduct.id) {
-        await updateProduct(currentProduct.id, currentProduct);
-        showSnackbar('Product updated successfully');
+        await updateProduct(currentProduct.id, fullProduct);
+        setSnackbar({ 
+          open: true, 
+          message: 'Product updated successfully', 
+          severity: 'success' 
+        });
       } else {
-        await addProduct(currentProduct);
-        showSnackbar('Product added successfully');
+        await addProduct(fullProduct);
+        setSnackbar({ 
+          open: true, 
+          message: 'Product added successfully', 
+          severity: 'success' 
+        });
       }
-      await loadProducts();
+      
+      loadProducts();
       handleClose();
       
-      // Auto-save if enabled
       if (autoSaveEnabled) {
-        await autoSaveJSON();
+        setTimeout(() => handleExport(), 500);
       }
     } catch (error) {
-      showSnackbar('Error saving product', 'error');
+      console.error('Error saving product:', error);
+      setSnackbar({ 
+        open: true, 
+        message: 'Failed to save product', 
+        severity: 'error' 
+      });
     }
-  }, [editMode, currentProduct, autoSaveEnabled]);
+  };
 
-  const handleDelete = useCallback(async (id: string) => {
+  const handleDelete = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
         await deleteProduct(id);
-        showSnackbar('Product deleted successfully');
-        await loadProducts();
+        setSnackbar({ 
+          open: true, 
+          message: 'Product deleted successfully', 
+          severity: 'success' 
+        });
+        loadProducts();
         
-        // Auto-save if enabled
         if (autoSaveEnabled) {
-          await autoSaveJSON();
+          setTimeout(() => handleExport(), 500);
         }
       } catch (error) {
-        showSnackbar('Error deleting product', 'error');
+        console.error('Error deleting product:', error);
+        setSnackbar({ 
+          open: true, 
+          message: 'Failed to delete product', 
+          severity: 'error' 
+        });
       }
     }
-  }, [autoSaveEnabled]);
-
-  const handleDuplicate = useCallback((product: Product) => {
-    const { id, ...productData } = product;
-    setCurrentProduct({
-      ...productData,
-      Name: `${productData.Name} (Copy)`,
-      PartNumber: `${productData.PartNumber}-COPY`
-    });
-    setEditMode(false);
-    setOpen(true);
-  }, []);
-
-  const showSnackbar = (message: string, severity: 'success' | 'error' = 'success') => {
-    setSnackbar({ open: true, message, severity });
   };
 
-  const autoSaveJSON = async () => {
-    const saveHandle = fileHandle;
-    if (!saveHandle) return;
-    
+  const handleExport = useCallback(async () => {
     try {
-      // Export current data from localStorage
-      const jsonData = await exportProductsToJSON();
-      const jsonString = JSON.stringify(jsonData, null, 2);
+      const jsonContent = await exportProductsToJSON();
       
-      // Write to the file
-      const writable = await saveHandle.createWritable();
-      await writable.write(jsonString);
-      await writable.close();
+      if (fileHandle) {
+        const writable = await fileHandle.createWritable();
+        await writable.write(jsonContent);
+        await writable.close();
+        console.log('Auto-saved to file');
+      } else {
+        const blob = new Blob([jsonContent], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'duelink-v3.json';
+        a.click();
+        URL.revokeObjectURL(url);
+      }
       
-      console.log('Auto-saved to duelink.json');
+      setSnackbar({ 
+        open: true, 
+        message: 'Products exported successfully', 
+        severity: 'success' 
+      });
     } catch (error) {
-      console.error('Auto-save error:', error);
-      // If permission was revoked, show error
-      if (error instanceof Error && error.name === 'NotAllowedError') {
-        showSnackbar('Auto-save failed: File access permission lost', 'error');
-      }
+      console.error('Error exporting products:', error);
+      setSnackbar({ 
+        open: true, 
+        message: 'Failed to export products', 
+        severity: 'error' 
+      });
     }
-  };
+  }, [fileHandle]);
 
-  // Fuzzy search configuration
-  const fuse = useMemo(() => {
-    return new Fuse(products, {
-      keys: [
-        { name: 'Name', weight: 0.4 },
-        { name: 'PartNumber', weight: 0.3 },
-        { name: 'Category', weight: 0.2 },
-        { name: 'PID', weight: 0.1 }
-      ],
-      threshold: 0.4,
-      includeScore: true,
-      shouldSort: true,
-      findAllMatches: true,
-      minMatchCharLength: 2
-    });
-  }, [products]);
-
-  // Filter products based on search term
-  const filteredProducts = useMemo(() => {
-    if (!searchTerm.trim()) {
-      return products;
-    }
-    const results = fuse.search(searchTerm);
-    return results.map(result => result.item);
-  }, [searchTerm, fuse, products]);
-
-  const columns: GridColDef[] = useMemo(() => [
+  const columns: GridColDef[] = [
     { 
-      field: 'Img', 
-      headerName: 'Image', 
-      width: 100,
-      sortable: false,
-      filterable: false,
-      renderCell: (params) => {
-        const [imgError, setImgError] = useState(false);
-        
-        if (!params.value || imgError) {
-          return (
-            <Box sx={{ 
-              width: 80, 
-              height: 80, 
-              bgcolor: '#f0f0f0',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: 1
-            }}>
-              <span style={{ fontSize: '12px', color: '#999' }}>No Image</span>
-            </Box>
-          );
-        }
-        
-        return (
-          <Box sx={{ 
-            width: 80, 
-            height: 80, 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center',
-            p: 0.5
-          }}>
-            <img 
-              loading="lazy"
-              src={`https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/img/catalog/${params.value}`}
-              alt={params.row.Name}
-              style={{ 
-                maxWidth: '100%', 
-                maxHeight: '100%', 
-                objectFit: 'contain' 
-              }}
-              onError={() => setImgError(true)}
-            />
-          </Box>
-        );
-      }
-    },
-    { 
-      field: 'Name', 
-      headerName: 'Product Name', 
+      field: 'name', 
+      headerName: 'Name', 
       flex: 1,
       minWidth: 200
     },
     { 
-      field: 'PartNumber', 
+      field: 'partNumber', 
       headerName: 'Part Number', 
-      width: 180
+      width: 150
     },
     { 
-      field: 'PID', 
-      headerName: 'PID', 
-      width: 100
-    },
-    { 
-      field: 'Category', 
-      headerName: 'Category',
-      width: 150,
+      field: 'category', 
+      headerName: 'Category', 
+      width: 120,
       renderCell: (params) => (
-        <Chip label={params.value} size="small" color="primary" variant="outlined" />
+        <Chip label={params.value} size="small" />
       )
+    },
+    { 
+      field: 'price', 
+      headerName: 'Price', 
+      width: 100,
+      valueFormatter: (value) => `$${value?.toFixed(2) || '0.00'}`
+    },
+    { 
+      field: 'shortDescription', 
+      headerName: 'Description', 
+      flex: 1,
+      minWidth: 250
     },
     {
       field: 'actions',
       type: 'actions',
       headerName: 'Actions',
-      width: 120,
+      width: 150,
       getActions: (params) => [
         <GridActionsCellItem
           key="edit"
-          icon={
-            <Tooltip title="Edit product">
-              <EditIcon />
-            </Tooltip>
-          }
+          icon={<EditIcon />}
           label="Edit"
-          onClick={() => handleOpen(params.row)}
-          showInMenu={false}
+          onClick={() => handleEdit(params.row)}
         />,
         <GridActionsCellItem
-          key="copy"
-          icon={
-            <Tooltip title="Duplicate product">
-              <CopyIcon />
-            </Tooltip>
-          }
+          key="duplicate"
+          icon={<CopyIcon />}
           label="Duplicate"
           onClick={() => handleDuplicate(params.row)}
-          showInMenu={false}
         />,
         <GridActionsCellItem
           key="delete"
-          icon={
-            <Tooltip title="Delete product">
-              <DeleteIcon />
-            </Tooltip>
-          }
+          icon={<DeleteIcon />}
           label="Delete"
-          onClick={() => handleDelete(params.row.id!)}
-          showInMenu={false}
+          onClick={() => handleDelete(params.row.id)}
         />,
       ],
     },
-  ], [handleOpen, handleDuplicate, handleDelete]);
+  ];
 
   return (
-    <Box sx={{ height: '100%', width: '100%' }}>
-      <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 2 }}>
-        <h2 style={{ margin: 0 }}>Product Management</h2>
+    <Box sx={{ width: '100%' }}>
+      <Box sx={{ mb: 2, display: 'flex', gap: 2 }}>
         <TextField
           placeholder="Search products..."
-          variant="outlined"
-          size="small"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          sx={{ flexGrow: 1, maxWidth: 400 }}
-          InputProps={{
-            startAdornment: (
-              <Box sx={{ display: 'flex', alignItems: 'center', mr: 1 }}>
-                🔍
-              </Box>
-            ),
-            endAdornment: searchTerm && (
-              <Button
-                size="small"
-                onClick={() => setSearchTerm('')}
-                sx={{ minWidth: 'auto', p: 0.5 }}
-              >
-                ✕
-              </Button>
-            )
-          }}
+          size="small"
+          sx={{ flex: 1 }}
         />
+        <FormControl size="small" sx={{ minWidth: 150 }}>
+          <InputLabel>Category</InputLabel>
+          <Select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            label="Category"
+          >
+            <MenuItem value="">All</MenuItem>
+            {categories.map(cat => (
+              <MenuItem key={cat} value={cat}>{cat}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
         <Button
           variant="contained"
           startIcon={<AddIcon />}
-          onClick={() => handleOpen()}
+          onClick={handleOpen}
         >
           Add Product
         </Button>
       </Box>
-      {searchTerm && (
-        <Box sx={{ mb: 1 }}>
-          <Typography variant="body2" color="text.secondary">
-            Found {filteredProducts.length} products matching "{searchTerm}"
-          </Typography>
-        </Box>
-      )}
 
-      <Box sx={{ height: 'calc(100vh - 300px)', minHeight: 600 }}>
-        <DataGrid
-          rows={filteredProducts}
-          columns={columns}
-          pageSizeOptions={[25, 50, 100]}
-          initialState={{
-            pagination: {
-              paginationModel: { pageSize: 25, page: 0 },
-            },
-          }}
-          loading={loading}
-          disableRowSelectionOnClick
-          rowHeight={90}
-          columnBuffer={2}
-          rowBuffer={10}
-          disableVirtualization={false}
-          slots={{
-            toolbar: GridToolbar,
-          }}
-          slotProps={{
-            toolbar: {
-              showQuickFilter: true,
-              quickFilterProps: { debounceMs: 500 },
-            },
-          }}
-          sx={{
-            '& .MuiDataGrid-cell': {
-              borderBottom: '1px solid rgba(224, 224, 224, 1)',
-              display: 'flex',
-              alignItems: 'center'
-            },
-            '& .MuiDataGrid-virtualScroller': {
-              minHeight: 400,
-            },
-            '& .MuiDataGrid-virtualScrollerContent': {
-              minHeight: 400,
-            }
-          }}
-          getRowId={(row) => row.id || `${row.PartNumber}-${row.PID}`}
-        />
-      </Box>
+      <DataGrid
+        rows={filteredProducts}
+        columns={columns}
+        loading={loading}
+        pageSizeOptions={[10, 25, 50, 100]}
+        initialState={{
+          pagination: {
+            paginationModel: { pageSize: 25, page: 0 },
+          },
+        }}
+        slots={{
+          toolbar: GridToolbar,
+        }}
+        slotProps={{
+          toolbar: {
+            showQuickFilter: true,
+            quickFilterProps: { debounceMs: 500 },
+          },
+        }}
+        sx={{ height: 600 }}
+      />
 
-      <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
-        <DialogTitle>{editMode ? 'Edit Product' : 'Add New Product'}</DialogTitle>
+      <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
+        <DialogTitle>
+          {editMode ? 'Edit Product' : 'Add New Product'}
+        </DialogTitle>
         <DialogContent>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 2 }}>
+          <Box sx={{ mt: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
             <TextField
               label="Product Name"
-              value={currentProduct.Name}
-              onChange={(e) => setCurrentProduct({ ...currentProduct, Name: e.target.value })}
+              value={currentProduct.name}
+              onChange={(e) => setCurrentProduct({ ...currentProduct, name: e.target.value })}
               fullWidth
               required
             />
+            
             <TextField
               label="Part Number"
-              value={currentProduct.PartNumber}
-              onChange={(e) => setCurrentProduct({ ...currentProduct, PartNumber: e.target.value })}
+              value={currentProduct.partNumber}
+              onChange={(e) => setCurrentProduct({ ...currentProduct, partNumber: e.target.value })}
               fullWidth
               required
+              helperText="Format: GDL-XXXX-X (will be used for resource paths)"
             />
-            <TextField
-              label="PID"
-              value={currentProduct.PID}
-              onChange={(e) => setCurrentProduct({ ...currentProduct, PID: e.target.value })}
-              fullWidth
-              required
-              placeholder="e.g., 0x000001"
-            />
+            
             <FormControl fullWidth required>
               <InputLabel>Category</InputLabel>
               <Select
-                value={currentProduct.Category}
-                onChange={(e) => setCurrentProduct({ ...currentProduct, Category: e.target.value })}
+                value={currentProduct.category}
+                onChange={(e) => setCurrentProduct({ ...currentProduct, category: e.target.value })}
                 label="Category"
               >
-                {categories.map((cat) => (
-                  <MenuItem key={cat} value={cat}>
-                    {cat}
-                  </MenuItem>
-                ))}
+                <MenuItem value="Microcomputer">Microcomputer</MenuItem>
+                <MenuItem value="Special">Special</MenuItem>
+                <MenuItem value="Display">Display</MenuItem>
+                <MenuItem value="Actuator">Actuator</MenuItem>
+                <MenuItem value="Communication">Communication</MenuItem>
+                <MenuItem value="HMI">HMI</MenuItem>
+                <MenuItem value="Storage">Storage</MenuItem>
+                <MenuItem value="Wireless">Wireless</MenuItem>
+                <MenuItem value="Sensor">Sensor</MenuItem>
+                <MenuItem value="LED">LED</MenuItem>
+                <MenuItem value="Sound">Sound</MenuItem>
+                <MenuItem value="Vision">Vision</MenuItem>
+                <MenuItem value="Adapter">Adapter</MenuItem>
               </Select>
             </FormControl>
+            
             <TextField
-              label="Image Filename"
-              value={currentProduct.Img}
-              onChange={(e) => setCurrentProduct({ ...currentProduct, Img: e.target.value })}
+              label="Price"
+              type="number"
+              value={currentProduct.price}
+              onChange={(e) => setCurrentProduct({ ...currentProduct, price: parseFloat(e.target.value) || 0 })}
               fullWidth
-              placeholder="e.g., product-name-front.png"
+              required
+              InputProps={{
+                startAdornment: '$',
+              }}
+              inputProps={{
+                step: 0.01,
+                min: 0
+              }}
             />
+            
             <TextField
-              label="Code Path"
-              value={currentProduct.Code}
-              onChange={(e) => setCurrentProduct({ ...currentProduct, Code: e.target.value })}
-              fullWidth
-              placeholder="e.g., microcomputer/product.txt"
-            />
-            <TextField
-              label="Notes"
-              value={currentProduct.Notes || ''}
-              onChange={(e) => setCurrentProduct({ ...currentProduct, Notes: e.target.value })}
+              label="Short Description"
+              value={currentProduct.shortDescription}
+              onChange={(e) => setCurrentProduct({ ...currentProduct, shortDescription: e.target.value })}
               fullWidth
               multiline
-              rows={3}
+              rows={2}
+              required
+              helperText="Brief product description (shown in catalog)"
             />
           </Box>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleSave} variant="contained" color="primary">
+          <Button onClick={handleSave} variant="contained">
             {editMode ? 'Update' : 'Add'}
           </Button>
         </DialogActions>
@@ -510,11 +479,11 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
 
       <Snackbar
         open={snackbar.open}
-        autoHideDuration={6000}
+        autoHideDuration={4000}
         onClose={() => setSnackbar({ ...snackbar, open: false })}
       >
-        <Alert
-          onClose={() => setSnackbar({ ...snackbar, open: false })}
+        <Alert 
+          onClose={() => setSnackbar({ ...snackbar, open: false })} 
           severity={snackbar.severity}
           sx={{ width: '100%' }}
         >

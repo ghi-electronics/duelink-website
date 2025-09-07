@@ -1,0 +1,99 @@
+---
+sidebar_position: 1
+title: Rotary Rev C
+description: Rotary Rev C - High-quality DUELink module
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ProductImageSelector from '@site/src/components/ProductImageSelector';
+
+# Rotary Rev C
+
+<ProductImageSelector 
+  partNumber="hikeypad4x4-c"
+  productName="Rotary Rev C"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+This is a high-quality DUELink module designed for easy integration into your projects.
+
+<table><td width='50%'>
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/hikeypad4x4-c.pdf)<br/>
+🔩[3D STEP file](/3d/hikeypad4x4-c.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+| Function | Description |
+| --- | --- |
+| `DVer()` | This driver version. |
+| `Init()` | Initialize the module. Automatically called on power up. |
+| `DVer()` | DVer function |
+| `Init()` | Init function |
+| `IntB()` | IntB function |
+| `IntA()` | IntA function |
+| `GetValue()` | GetValue function |
+
+<details>
+  <summary>The Code!</summary>
+
+```py reference title="Rotary Rev C Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/hmi/rotary.due
+```
+
+</details>
+
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+  values={[
+    {label: 'Script', value: 'script'},
+  ]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/hmi/rotary.txt
+```
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+</Tabs>
+
+---
+
+## Ordering Information
+
+**GDL-HIKEYPAD4X4-C** - Rotary Rev C - High-quality DUELink module - **$19.99**

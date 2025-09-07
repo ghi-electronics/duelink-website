@@ -454,6 +454,13 @@
   color: #3498db;
 }
 
+.shortDescription {
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: var(--font-size-sm);
+  color: #6c757d;
+  line-height: 1.4;
+}
+
 .productMeta {
   display: flex;
   flex-direction: column;

@@ -1,0 +1,99 @@
+---
+sidebar_position: 1
+title: Buzzer Rev B
+description: Buzzer Rev B - High-quality DUELink module
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ProductImageSelector from '@site/src/components/ProductImageSelector';
+
+# Buzzer Rev B
+
+<ProductImageSelector 
+  partNumber="sobuzzer-b"
+  productName="Buzzer Rev B"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+This is a high-quality DUELink module designed for easy integration into your projects.
+
+<table><td width='50%'>
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/sobuzzer-b.pdf)<br/>
+🔩[3D STEP file](/3d/sobuzzer-b.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+| Function | Description |
+| --- | --- |
+| `DVer()` | This driver version. |
+| `Init()` | Initialize the module. Automatically called on power up. |
+| `DVer()` | DVer function |
+| `PlayNote(n,d)` | PlayNote function |
+| `PlaySound(f, d, c)` | PlaySound function |
+| `PlayMelody(a1)` | PlayMelody function |
+| `StopMelody()` | StopMelody function |
+
+<details>
+  <summary>The Code!</summary>
+
+```py reference title="Buzzer Rev B Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/sound/buzzer.due
+```
+
+</details>
+
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+  values={[
+    {label: 'Script', value: 'script'},
+  ]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/sound/buzzer.txt
+```
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+</Tabs>
+
+---
+
+## Ordering Information
+
+**GDL-SOBUZZER-B** - Buzzer Rev B - High-quality DUELink module - **$19.99**

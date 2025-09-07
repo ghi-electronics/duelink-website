@@ -1,0 +1,96 @@
+---
+sidebar_position: 1
+title: Relay X1 Rev A
+description: Relay X1 Rev A - High-quality DUELink module
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ProductImageSelector from '@site/src/components/ProductImageSelector';
+
+# Relay X1 Rev A
+
+<ProductImageSelector 
+  partNumber="acrelayx1-a"
+  productName="Relay X1 Rev A"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+This is a high-quality DUELink module designed for easy integration into your projects.
+
+<table><td width='50%'>
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/acrelayx1-a.pdf)<br/>
+🔩[3D STEP file](/3d/acrelayx1-a.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+| Function | Description |
+| --- | --- |
+| `DVer()` | This driver version. |
+| `Init()` | Initialize the module. Automatically called on power up. |
+| `DVer()` | DVer function |
+| `Set(v)` | Set function |
+
+<details>
+  <summary>The Code!</summary>
+
+```py reference title="Relay X1 Rev A Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/actuator/relay-x1.due
+```
+
+</details>
+
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+  values={[
+    {label: 'Script', value: 'script'},
+  ]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/actuator/relay-x1.txt
+```
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+</Tabs>
+
+---
+
+## Ordering Information
+
+**GDL-ACRELAYX1-A** - Relay X1 Rev A - High-quality DUELink module - **$19.99**

@@ -1,0 +1,100 @@
+---
+sidebar_position: 1
+title: DOF9 Rev C
+description: DOF9 Rev C - High-quality DUELink module
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ProductImageSelector from '@site/src/components/ProductImageSelector';
+
+# DOF9 Rev C
+
+<ProductImageSelector 
+  partNumber="sedof9-c"
+  productName="DOF9 Rev C"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+This is a high-quality DUELink module designed for easy integration into your projects.
+
+<table><td width='50%'>
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/sedof9-c.pdf)<br/>
+🔩[3D STEP file](/3d/sedof9-c.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+| Function | Description |
+| --- | --- |
+| `DVer()` | This driver version. |
+| `Init()` | Initialize the module. Automatically called on power up. |
+| `DVer()` | DVer function |
+| `Init()` | Init function |
+| `RAccel()` | RAccel function |
+| `RCompass()` | RCompass function |
+| `RGyro()` | RGyro function |
+| `Convert(u,l)` | Convert function |
+
+<details>
+  <summary>The Code!</summary>
+
+```py reference title="DOF9 Rev C Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/sensor/dof9.due
+```
+
+</details>
+
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+  values={[
+    {label: 'Script', value: 'script'},
+  ]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/sensor/dof9.txt
+```
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+</Tabs>
+
+---
+
+## Ordering Information
+
+**GDL-SEDOF9-C** - DOF9 Rev C - High-quality DUELink module - **$19.99**

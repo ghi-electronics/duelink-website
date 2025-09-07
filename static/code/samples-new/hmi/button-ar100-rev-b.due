@@ -1,0 +1,14 @@
+_i=0
+
+while 1
+    SetRing(_i,rnd(3)*30,rnd(3)*30,rnd(3)*30)
+ 
+    _i=(_i+1)%3
+
+    if BtnRead(BtnPin())
+        Wait(50)
+    else
+        Wait(500)
+    end
+    SetCtr(_i)
+wend

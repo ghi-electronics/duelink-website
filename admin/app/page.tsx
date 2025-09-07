@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import {
   Container,
   Box,
@@ -13,26 +13,19 @@ import {
   ThemeProvider,
   createTheme,
   Button,
-  Chip
+  Chip,
+  IconButton,
+  PaletteMode
 } from '@mui/material';
 import {
   Save as SaveIcon,
-  SaveAlt as SaveAltIcon
+  SaveAlt as SaveAltIcon,
+  DarkMode as DarkModeIcon,
+  LightMode as LightModeIcon
 } from '@mui/icons-material';
 import ProductTable from '@/components/ProductTable';
 import GenerateButton from '@/components/GenerateButton';
 import CategoriesManager from '@/components/CategoriesManager';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#2980b9',
-    },
-    secondary: {
-      main: '#f39c12',
-    },
-  },
-});
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -64,6 +57,39 @@ export default function AdminPage() {
   const [tabValue, setTabValue] = useState(0);
   const [fileHandle, setFileHandle] = useState<any>(null);
   const [autoSaveEnabled, setAutoSaveEnabled] = useState(false);
+  const [darkMode, setDarkMode] = useState<PaletteMode>('light');
+
+  // Load dark mode preference from localStorage on mount
+  useEffect(() => {
+    const savedMode = localStorage.getItem('admin-dark-mode');
+    if (savedMode && (savedMode === 'dark' || savedMode === 'light')) {
+      setDarkMode(savedMode as PaletteMode);
+    }
+  }, []);
+
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: darkMode,
+          primary: {
+            main: '#2980b9',
+          },
+          secondary: {
+            main: '#f39c12',
+          },
+        },
+      }),
+    [darkMode]
+  );
+
+  const toggleDarkMode = () => {
+    setDarkMode(prev => {
+      const newMode = prev === 'light' ? 'dark' : 'light';
+      localStorage.setItem('admin-dark-mode', newMode);
+      return newMode;
+    });
+  };
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue);
@@ -95,7 +121,7 @@ export default function AdminPage() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ minHeight: '100vh', bgcolor: '#f5f5f5' }}>
+      <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
         <Container maxWidth="xl" sx={{ py: 4 }}>
           <Paper elevation={3}>
             <AppBar position="static" color="default">
@@ -161,6 +187,15 @@ export default function AdminPage() {
                       Enable Auto-save
                     </Button>
                   )}
+                  
+                  <IconButton 
+                    onClick={toggleDarkMode}
+                    color="inherit"
+                    aria-label="toggle dark mode"
+                  >
+                    {darkMode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
+                  </IconButton>
+                  
                   <GenerateButton />
                 </Box>
               </Toolbar>

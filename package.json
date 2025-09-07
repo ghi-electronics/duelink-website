@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
+    "generate-products": "node generate-product-pages-v4.js",
+    "prestart": "npm run generate-products",
     "start": "docusaurus start",
     "start:proxy": "concurrently \"npm run proxy\" \"npm run start\"",
     "proxy": "node proxy-server.js",
+    "prebuild": "npm run generate-products",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",

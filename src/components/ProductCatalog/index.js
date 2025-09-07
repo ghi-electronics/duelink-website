@@ -44,10 +44,10 @@ const ProductCatalog = () => {
   }, []);
 
   useEffect(() => {
-    fetch('/duelink.json')
+    fetch('/duelink-v2.json')
       .then(response => response.json())
       .then(data => {
-        setProducts(data.boards || []);
+        setProducts(data.products || []);
         setLoading(false);
       })
       .catch(error => {
@@ -58,7 +58,7 @@ const ProductCatalog = () => {
 
   // Memoize categories to avoid recalculation
   const categories = useMemo(() => {
-    const cats = new Set(products.map(p => p.Category || 'Other'));
+    const cats = new Set(products.map(p => p.category || 'Other'));
     return Array.from(cats).sort();
   }, [products]);
 
@@ -67,12 +67,13 @@ const ProductCatalog = () => {
     const filtered = products.filter(product => {
       const matchesSearch = 
         debouncedSearchTerm === '' || 
-        product.Name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
-        product.PartNumber.toLowerCase().includes(debouncedSearchTerm.toLowerCase());
+        product.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+        product.partNumber.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+        product.shortDescription.toLowerCase().includes(debouncedSearchTerm.toLowerCase());
       
       const matchesCategory = 
         selectedCategory === 'all' || 
-        (product.Category && product.Category.toLowerCase() === selectedCategory.toLowerCase());
+        (product.category && product.category.toLowerCase() === selectedCategory.toLowerCase());
       
       return matchesSearch && matchesCategory;
     });
@@ -81,19 +82,25 @@ const ProductCatalog = () => {
     const sorted = [...filtered];
     switch(sortBy) {
       case 'name-asc':
-        sorted.sort((a, b) => a.Name.localeCompare(b.Name));
+        sorted.sort((a, b) => a.name.localeCompare(b.name));
         break;
       case 'name-desc':
-        sorted.sort((a, b) => b.Name.localeCompare(a.Name));
+        sorted.sort((a, b) => b.name.localeCompare(a.name));
         break;
       case 'part-asc':
-        sorted.sort((a, b) => a.PartNumber.localeCompare(b.PartNumber));
+        sorted.sort((a, b) => a.partNumber.localeCompare(b.partNumber));
         break;
       case 'part-desc':
-        sorted.sort((a, b) => b.PartNumber.localeCompare(a.PartNumber));
+        sorted.sort((a, b) => b.partNumber.localeCompare(a.partNumber));
         break;
       case 'category':
-        sorted.sort((a, b) => (a.Category || '').localeCompare(b.Category || ''));
+        sorted.sort((a, b) => (a.category || '').localeCompare(b.category || ''));
+        break;
+      case 'price-asc':
+        sorted.sort((a, b) => a.price - b.price);
+        break;
+      case 'price-desc':
+        sorted.sort((a, b) => b.price - a.price);
         break;
       default:
         break;
@@ -251,6 +258,8 @@ const ProductCatalog = () => {
             <option value="part-asc">Part # (A-Z)</option>
             <option value="part-desc">Part # (Z-A)</option>
             <option value="category">Category</option>
+            <option value="price-asc">Price (Low to High)</option>
+            <option value="price-desc">Price (High to Low)</option>
           </select>
         </div>
         <div className={`${styles.categoryFilters} ${isMobile ? styles.mobileCategoryFilters : ''}`}>
@@ -262,7 +271,7 @@ const ProductCatalog = () => {
             All Products ({products.length})
           </button>
           {categories.map(category => {
-            const count = products.filter(p => p.Category === category).length;
+            const count = products.filter(p => p.category === category).length;
             return (
               <button 
                 key={category}
@@ -303,7 +312,7 @@ const ProductCatalog = () => {
         <div className={`${styles.productGrid} ${isMobile ? styles.mobileProductGrid : ''}`}>
           {filteredProducts.map((product, index) => (
             <ProductCard 
-              key={product.PID || index} 
+              key={product.partNumber || index} 
               product={product} 
               index={index}
             />

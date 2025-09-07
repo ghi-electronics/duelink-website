@@ -1,13 +1,33 @@
 export interface Product {
   id?: string;
-  Name: string;
-  PartNumber: string;
-  PID: string;
-  Category: string;
-  Img: string;
-  Code: string;
-  Notes?: string;
-  CoProc?: string;
+  name: string;
+  shortDescription: string;
+  partNumber: string;
+  category: string;
+  price: number;
+  variations: { [key: string]: { [key: string]: string } };
+  images: {
+    front: string;
+    pencil: string;
+    back: string;
+    front45: string;
+    back45: string;
+  };
+  overviewText: string;
+  keyFeatures: string[];
+  resources: {
+    model3d: string;
+    schematic: string;
+  };
+  driverCode: string;
+  samples: {
+    script: string;
+    python: string;
+    javascript: string;
+    dotnet: string;
+    micropython: string;
+    arduino: string;
+  };
 }
 
 export interface DuelinkJSON {
@@ -19,14 +39,42 @@ export interface DuelinkJSON {
     code_url_base: string;
     fw_url_base: string;
   };
-  boards: Product[];
+  products: Product[];
 }
 
 // In-memory storage for products
 let productsData: Product[] = [];
+let initialized = false;
+
+// Initialize products from the existing JSON file
+const initializeProducts = async (): Promise<void> => {
+  if (initialized) return;
+  
+  try {
+    // Load from the new schema only
+    const response = await fetch('/duelink-v2.json');
+    if (response.ok) {
+      const data = await response.json();
+      if (data.products) {
+        // Use new schema directly with IDs added
+        productsData = data.products.map((product: any) => ({
+          ...product,
+          id: product.partNumber
+        }));
+        initialized = true;
+        return;
+      }
+    }
+    throw new Error('duelink-v2.json not found or invalid');
+  } catch (error) {
+    console.warn('Could not load product data from duelink-v2.json:', error);
+    initialized = true; // Prevent infinite retries
+  }
+};
 
 // Get all products from memory
 export const getProducts = async (): Promise<Product[]> => {
+  await initializeProducts();
   return [...productsData];
 };
 
@@ -41,7 +89,7 @@ export const addProduct = async (product: Product): Promise<Product> => {
     const products = await getProducts();
     const newProduct = {
       ...product,
-      id: `${product.PartNumber}-${Date.now()}`
+      id: `${product.partNumber}-${Date.now()}`
     };
     products.push(newProduct);
     await saveProducts(products);
@@ -85,9 +133,9 @@ export const deleteProduct = async (id: string): Promise<string> => {
 export const importProducts = async (productsData: DuelinkJSON): Promise<boolean> => {
   try {
     // Add IDs to imported products
-    const productsWithIds = productsData.boards.map((product, index) => ({
+    const productsWithIds = productsData.products.map((product, index) => ({
       ...product,
-      id: `${product.PartNumber}-${index}`
+      id: `${product.partNumber}-${index}`
     }));
     await saveProducts(productsWithIds);
     console.log('Import completed successfully');
@@ -111,7 +159,7 @@ export const exportProductsToJSON = async (): Promise<DuelinkJSON> => {
         code_url_base: "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/drivers/",
         fw_url_base: "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/fw/"
       },
-      boards: products.map(p => {
+      products: products.map(p => {
         const { id, ...productData } = p;
         return productData;
       })

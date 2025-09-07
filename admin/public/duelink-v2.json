@@ -1,0 +1,3665 @@
+{
+  "metadata": {
+    "author": "GHI Electronics",
+    "version": "0.3",
+    "timestamp": "2025-09-07",
+    "image_url_base": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/img/catalog/",
+    "code_url_base": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/drivers/",
+    "fw_url_base": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/fw/"
+  },
+  "products": [
+    {
+      "name": "CincoBit Rev E",
+      "shortDescription": "CincoBit Rev E - High-quality DUELink module",
+      "partNumber": "GDL-MCCINCOBIT-E",
+      "category": "Microcomputer",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "cincobit-front.png",
+        "pencil": "cincobit-pencil.png",
+        "back": "cincobit-back.png",
+        "front45": "cincobit-front-45.png",
+        "back45": "cincobit-back-45.png"
+      },
+      "overviewText": "/desc/microcomputer/cincobit-rev-e.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-mccincobit-e.step",
+        "schematic": "/sch/gdl-mccincobit-e.pdf"
+      },
+      "driverCode": "/code/drivers/microcomputer/cincobit-rev-e.due",
+      "samples": {
+        "script": "/code/samples/microcomputer/cincobit-rev-e.due",
+        "python": "/code/samples/microcomputer/cincobit-rev-e.py",
+        "javascript": "/code/samples/microcomputer/cincobit-rev-e.js",
+        "dotnet": "/code/samples/microcomputer/cincobit-rev-e.cs",
+        "micropython": "/code/samples/microcomputer/cincobit-rev-e.mpy",
+        "arduino": "/code/samples/microcomputer/cincobit-rev-e.cpp"
+      }
+    },
+    {
+      "name": "ClipIt Rev B",
+      "shortDescription": "ClipIt Rev B - High-quality DUELink module",
+      "partNumber": "GDL-MCCLIPIT-B",
+      "category": "Microcomputer",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "clipit-front.png",
+        "pencil": "clipit-pencil.png",
+        "back": "clipit-back.png",
+        "front45": "clipit-front-45.png",
+        "back45": "clipit-back-45.png"
+      },
+      "overviewText": "/desc/microcomputer/clipit-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-mcclipit-b.step",
+        "schematic": "/sch/gdl-mcclipit-b.pdf"
+      },
+      "driverCode": "/code/drivers/microcomputer/clipit-rev-b.due",
+      "samples": {
+        "script": "/code/samples/microcomputer/clipit-rev-b.due",
+        "python": "/code/samples/microcomputer/clipit-rev-b.py",
+        "javascript": "/code/samples/microcomputer/clipit-rev-b.js",
+        "dotnet": "/code/samples/microcomputer/clipit-rev-b.cs",
+        "micropython": "/code/samples/microcomputer/clipit-rev-b.mpy",
+        "arduino": "/code/samples/microcomputer/clipit-rev-b.cpp"
+      }
+    },
+    {
+      "name": "DueDuino Rev A",
+      "shortDescription": "DueDuino Rev A - High-quality DUELink module",
+      "partNumber": "GDL-MCDUEDUINO-A",
+      "category": "Microcomputer",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "dueduino-front.png",
+        "pencil": "dueduino-pencil.png",
+        "back": "dueduino-back.png",
+        "front45": "dueduino-front-45.png",
+        "back45": "dueduino-back-45.png"
+      },
+      "overviewText": "/desc/microcomputer/dueduino-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-mcdueduino-a.step",
+        "schematic": "/sch/gdl-mcdueduino-a.pdf"
+      },
+      "driverCode": "/code/drivers/microcomputer/dueduino-rev-a.due",
+      "samples": {
+        "script": "/code/samples/microcomputer/dueduino-rev-a.due",
+        "python": "/code/samples/microcomputer/dueduino-rev-a.py",
+        "javascript": "/code/samples/microcomputer/dueduino-rev-a.js",
+        "dotnet": "/code/samples/microcomputer/dueduino-rev-a.cs",
+        "micropython": "/code/samples/microcomputer/dueduino-rev-a.mpy",
+        "arduino": "/code/samples/microcomputer/dueduino-rev-a.cpp"
+      }
+    },
+    {
+      "name": "DueSTEM Rev B",
+      "shortDescription": "DueSTEM Rev B - High-quality DUELink module",
+      "partNumber": "GDL-MCDUESTEM-B",
+      "category": "Microcomputer",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "duestem-front.png",
+        "pencil": "duestem-pencil.png",
+        "back": "duestem-back.png",
+        "front45": "duestem-front-45.png",
+        "back45": "duestem-back-45.png"
+      },
+      "overviewText": "/desc/microcomputer/duestem-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-mcduestem-b.step",
+        "schematic": "/sch/gdl-mcduestem-b.pdf"
+      },
+      "driverCode": "/code/drivers/microcomputer/duestem-rev-b.due",
+      "samples": {
+        "script": "/code/samples/microcomputer/duestem-rev-b.due",
+        "python": "/code/samples/microcomputer/duestem-rev-b.py",
+        "javascript": "/code/samples/microcomputer/duestem-rev-b.js",
+        "dotnet": "/code/samples/microcomputer/duestem-rev-b.cs",
+        "micropython": "/code/samples/microcomputer/duestem-rev-b.mpy",
+        "arduino": "/code/samples/microcomputer/duestem-rev-b.cpp"
+      }
+    },
+    {
+      "name": "PixoBit Rev D",
+      "shortDescription": "PixoBit Rev D - High-quality DUELink module",
+      "partNumber": "GDL-MCPIXOBIT-D",
+      "category": "Microcomputer",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "pixobit-front.png",
+        "pencil": "pixobit-pencil.png",
+        "back": "pixobit-back.png",
+        "front45": "pixobit-front-45.png",
+        "back45": "pixobit-back-45.png"
+      },
+      "overviewText": "/desc/microcomputer/pixobit-rev-d.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-mcpixobit-d.step",
+        "schematic": "/sch/gdl-mcpixobit-d.pdf"
+      },
+      "driverCode": "/code/drivers/microcomputer/pixobit-rev-d.due",
+      "samples": {
+        "script": "/code/samples/microcomputer/pixobit-rev-d.due",
+        "python": "/code/samples/microcomputer/pixobit-rev-d.py",
+        "javascript": "/code/samples/microcomputer/pixobit-rev-d.js",
+        "dotnet": "/code/samples/microcomputer/pixobit-rev-d.cs",
+        "micropython": "/code/samples/microcomputer/pixobit-rev-d.mpy",
+        "arduino": "/code/samples/microcomputer/pixobit-rev-d.cpp"
+      }
+    },
+    {
+      "name": "Stamp Rev A",
+      "shortDescription": "Stamp Rev A - High-quality DUELink module",
+      "partNumber": "GDL-MCSTAMP-A",
+      "category": "Microcomputer",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "stamp-front.png",
+        "pencil": "stamp-pencil.png",
+        "back": "stamp-back.png",
+        "front45": "stamp-front-45.png",
+        "back45": "stamp-back-45.png"
+      },
+      "overviewText": "/desc/microcomputer/stamp-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-mcstamp-a.step",
+        "schematic": "/sch/gdl-mcstamp-a.pdf"
+      },
+      "driverCode": "/code/drivers/microcomputer/stamp-rev-a.due",
+      "samples": {
+        "script": "/code/samples/microcomputer/stamp-rev-a.due",
+        "python": "/code/samples/microcomputer/stamp-rev-a.py",
+        "javascript": "/code/samples/microcomputer/stamp-rev-a.js",
+        "dotnet": "/code/samples/microcomputer/stamp-rev-a.cs",
+        "micropython": "/code/samples/microcomputer/stamp-rev-a.mpy",
+        "arduino": "/code/samples/microcomputer/stamp-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Stick Rev A",
+      "shortDescription": "Stick Rev A - High-quality DUELink module",
+      "partNumber": "GDL-MCSTICK-A",
+      "category": "Microcomputer",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "stick-front.png",
+        "pencil": "stick-pencil.png",
+        "back": "stick-back.png",
+        "front45": "stick-front-45.png",
+        "back45": "stick-back-45.png"
+      },
+      "overviewText": "/desc/microcomputer/stick-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-mcstick-a.step",
+        "schematic": "/sch/gdl-mcstick-a.pdf"
+      },
+      "driverCode": "/code/drivers/microcomputer/stick-rev-a.due",
+      "samples": {
+        "script": "/code/samples/microcomputer/stick-rev-a.due",
+        "python": "/code/samples/microcomputer/stick-rev-a.py",
+        "javascript": "/code/samples/microcomputer/stick-rev-a.js",
+        "dotnet": "/code/samples/microcomputer/stick-rev-a.cs",
+        "micropython": "/code/samples/microcomputer/stick-rev-a.mpy",
+        "arduino": "/code/samples/microcomputer/stick-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Ghizzy Jr Rev A",
+      "shortDescription": "Ghizzy Jr Rev A - High-quality DUELink module",
+      "partNumber": "GDL-SPGHIZZYJR-A",
+      "category": "Special",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "ghizzy-jr-front.png",
+        "pencil": "ghizzy-jr-pencil.png",
+        "back": "ghizzy-jr-back.png",
+        "front45": "ghizzy-jr-front-45.png",
+        "back45": "ghizzy-jr-back-45.png"
+      },
+      "overviewText": "/desc/special/ghizzy-jr-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-spghizzyjr-a.step",
+        "schematic": "/sch/gdl-spghizzyjr-a.pdf"
+      },
+      "driverCode": "/code/drivers/special/ghizzy-jr-rev-a.due",
+      "samples": {
+        "script": "/code/samples/special/ghizzy-jr-rev-a.due",
+        "python": "/code/samples/special/ghizzy-jr-rev-a.py",
+        "javascript": "/code/samples/special/ghizzy-jr-rev-a.js",
+        "dotnet": "/code/samples/special/ghizzy-jr-rev-a.cs",
+        "micropython": "/code/samples/special/ghizzy-jr-rev-a.mpy",
+        "arduino": "/code/samples/special/ghizzy-jr-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Ghizzy Rev B",
+      "shortDescription": "Ghizzy Rev B - High-quality DUELink module",
+      "partNumber": "GDL-SPGHIZZY-B",
+      "category": "Special",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "ghizzy-front.png",
+        "pencil": "ghizzy-pencil.png",
+        "back": "ghizzy-back.png",
+        "front45": "ghizzy-front-45.png",
+        "back45": "ghizzy-back-45.png"
+      },
+      "overviewText": "/desc/special/ghizzy-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-spghizzy-b.step",
+        "schematic": "/sch/gdl-spghizzy-b.pdf"
+      },
+      "driverCode": "/code/drivers/special/ghizzy-rev-b.due",
+      "samples": {
+        "script": "/code/samples/special/ghizzy-rev-b.due",
+        "python": "/code/samples/special/ghizzy-rev-b.py",
+        "javascript": "/code/samples/special/ghizzy-rev-b.js",
+        "dotnet": "/code/samples/special/ghizzy-rev-b.cs",
+        "micropython": "/code/samples/special/ghizzy-rev-b.mpy",
+        "arduino": "/code/samples/special/ghizzy-rev-b.cpp"
+      }
+    },
+    {
+      "name": "Holiday Tree Rev B",
+      "shortDescription": "Holiday Tree Rev B - High-quality DUELink module",
+      "partNumber": "GDL-SPHOLIDAYTREE-B",
+      "category": "Special",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "holidaytree-front.png",
+        "pencil": "holidaytree-pencil.png",
+        "back": "holidaytree-back.png",
+        "front45": "holidaytree-front-45.png",
+        "back45": "holidaytree-back-45.png"
+      },
+      "overviewText": "/desc/special/holiday-tree-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-spholidaytree-b.step",
+        "schematic": "/sch/gdl-spholidaytree-b.pdf"
+      },
+      "driverCode": "/code/drivers/special/holiday-tree-rev-b.due",
+      "samples": {
+        "script": "/code/samples/special/holiday-tree-rev-b.due",
+        "python": "/code/samples/special/holiday-tree-rev-b.py",
+        "javascript": "/code/samples/special/holiday-tree-rev-b.js",
+        "dotnet": "/code/samples/special/holiday-tree-rev-b.cs",
+        "micropython": "/code/samples/special/holiday-tree-rev-b.mpy",
+        "arduino": "/code/samples/special/holiday-tree-rev-b.cpp"
+      }
+    },
+    {
+      "name": "ePaper M29 Rev A",
+      "shortDescription": "ePaper M29 Rev A - High-quality DUELink module",
+      "partNumber": "GDL-DEPAPERM29-A",
+      "category": "Display",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "epaper-m29-front.png",
+        "pencil": "epaper-m29-pencil.png",
+        "back": "epaper-m29-back.png",
+        "front45": "epaper-m29-front-45.png",
+        "back45": "epaper-m29-back-45.png"
+      },
+      "overviewText": "/desc/display/epaper-m29-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-depaperm29-a.step",
+        "schematic": "/sch/gdl-depaperm29-a.pdf"
+      },
+      "driverCode": "/code/drivers/display/epaper-m29-rev-a.due",
+      "samples": {
+        "script": "/code/samples/display/epaper-m29-rev-a.due",
+        "python": "/code/samples/display/epaper-m29-rev-a.py",
+        "javascript": "/code/samples/display/epaper-m29-rev-a.js",
+        "dotnet": "/code/samples/display/epaper-m29-rev-a.cs",
+        "micropython": "/code/samples/display/epaper-m29-rev-a.mpy",
+        "arduino": "/code/samples/display/epaper-m29-rev-a.cpp"
+      }
+    },
+    {
+      "name": "ePaper M42 Rev A",
+      "shortDescription": "ePaper M42 Rev A - High-quality DUELink module",
+      "partNumber": "GDL-DEPAPERM42-A",
+      "category": "Display",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "epaper-m42-front.png",
+        "pencil": "epaper-m42-pencil.png",
+        "back": "epaper-m42-back.png",
+        "front45": "epaper-m42-front-45.png",
+        "back45": "epaper-m42-back-45.png"
+      },
+      "overviewText": "/desc/display/epaper-m42-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-depaperm42-a.step",
+        "schematic": "/sch/gdl-depaperm42-a.pdf"
+      },
+      "driverCode": "/code/drivers/display/epaper-m42-rev-a.due",
+      "samples": {
+        "script": "/code/samples/display/epaper-m42-rev-a.due",
+        "python": "/code/samples/display/epaper-m42-rev-a.py",
+        "javascript": "/code/samples/display/epaper-m42-rev-a.js",
+        "dotnet": "/code/samples/display/epaper-m42-rev-a.cs",
+        "micropython": "/code/samples/display/epaper-m42-rev-a.mpy",
+        "arduino": "/code/samples/display/epaper-m42-rev-a.cpp"
+      }
+    },
+    {
+      "name": "HDMI Rev B",
+      "shortDescription": "HDMI Rev B - High-quality DUELink module",
+      "partNumber": "GDL-DHDMI-B",
+      "category": "Display",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "hdmi-front.png",
+        "pencil": "hdmi-pencil.png",
+        "back": "hdmi-back.png",
+        "front45": "hdmi-front-45.png",
+        "back45": "hdmi-back-45.png"
+      },
+      "overviewText": "/desc/display/hdmi-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-dhdmi-b.step",
+        "schematic": "/sch/gdl-dhdmi-b.pdf"
+      },
+      "driverCode": "/code/drivers/display/hdmi-rev-b.due",
+      "samples": {
+        "script": "/code/samples/display/hdmi-rev-b.due",
+        "python": "/code/samples/display/hdmi-rev-b.py",
+        "javascript": "/code/samples/display/hdmi-rev-b.js",
+        "dotnet": "/code/samples/display/hdmi-rev-b.cs",
+        "micropython": "/code/samples/display/hdmi-rev-b.mpy",
+        "arduino": "/code/samples/display/hdmi-rev-b.cpp"
+      }
+    },
+    {
+      "name": "LCD 16x2 Rev C",
+      "shortDescription": "LCD 16x2 Rev C - High-quality DUELink module",
+      "partNumber": "GDL-DLCD16X2-C",
+      "category": "Display",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "lcd-16x2-front.png",
+        "pencil": "lcd-16x2-pencil.png",
+        "back": "lcd-16x2-back.png",
+        "front45": "lcd-16x2-front-45.png",
+        "back45": "lcd-16x2-back-45.png"
+      },
+      "overviewText": "/desc/display/lcd-16x2-rev-c.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-dlcd16x2-c.step",
+        "schematic": "/sch/gdl-dlcd16x2-c.pdf"
+      },
+      "driverCode": "/code/drivers/display/lcd-16x2-rev-c.due",
+      "samples": {
+        "script": "/code/samples/display/lcd-16x2-rev-c.due",
+        "python": "/code/samples/display/lcd-16x2-rev-c.py",
+        "javascript": "/code/samples/display/lcd-16x2-rev-c.js",
+        "dotnet": "/code/samples/display/lcd-16x2-rev-c.cs",
+        "micropython": "/code/samples/display/lcd-16x2-rev-c.mpy",
+        "arduino": "/code/samples/display/lcd-16x2-rev-c.cpp"
+      }
+    },
+    {
+      "name": "LCD 20x4 Rev B",
+      "shortDescription": "LCD 20x4 Rev B - High-quality DUELink module",
+      "partNumber": "GDL-DLC20X4-B",
+      "category": "Display",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "lcd-20x4-front.png",
+        "pencil": "lcd-20x4-pencil.png",
+        "back": "lcd-20x4-back.png",
+        "front45": "lcd-20x4-front-45.png",
+        "back45": "lcd-20x4-back-45.png"
+      },
+      "overviewText": "/desc/display/lcd-20x4-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-dlc20x4-b.step",
+        "schematic": "/sch/gdl-dlc20x4-b.pdf"
+      },
+      "driverCode": "/code/drivers/display/lcd-20x4-rev-b.due",
+      "samples": {
+        "script": "/code/samples/display/lcd-20x4-rev-b.due",
+        "python": "/code/samples/display/lcd-20x4-rev-b.py",
+        "javascript": "/code/samples/display/lcd-20x4-rev-b.js",
+        "dotnet": "/code/samples/display/lcd-20x4-rev-b.cs",
+        "micropython": "/code/samples/display/lcd-20x4-rev-b.mpy",
+        "arduino": "/code/samples/display/lcd-20x4-rev-b.cpp"
+      }
+    },
+    {
+      "name": "OLED 096 Rev A",
+      "shortDescription": "OLED 096 Rev A - High-quality DUELink module",
+      "partNumber": "GDL-DOLED096-A",
+      "category": "Display",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "oled-096-front.png",
+        "pencil": "oled-096-pencil.png",
+        "back": "oled-096-back.png",
+        "front45": "oled-096-front-45.png",
+        "back45": "oled-096-back-45.png"
+      },
+      "overviewText": "/desc/display/oled-096-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-doled096-a.step",
+        "schematic": "/sch/gdl-doled096-a.pdf"
+      },
+      "driverCode": "/code/drivers/display/oled-096-rev-a.due",
+      "samples": {
+        "script": "/code/samples/display/oled-096-rev-a.due",
+        "python": "/code/samples/display/oled-096-rev-a.py",
+        "javascript": "/code/samples/display/oled-096-rev-a.js",
+        "dotnet": "/code/samples/display/oled-096-rev-a.cs",
+        "micropython": "/code/samples/display/oled-096-rev-a.mpy",
+        "arduino": "/code/samples/display/oled-096-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Portal CP70 Rev B",
+      "shortDescription": "Portal CP70 Rev B - High-quality DUELink module",
+      "partNumber": "GDL-DPORTALCP70-B",
+      "category": "Display",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "portal-cp70-front.png",
+        "pencil": "portal-cp70-pencil.png",
+        "back": "portal-cp70-back.png",
+        "front45": "portal-cp70-front-45.png",
+        "back45": "portal-cp70-back-45.png"
+      },
+      "overviewText": "/desc/display/portal-cp70-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-dportalcp70-b.step",
+        "schematic": "/sch/gdl-dportalcp70-b.pdf"
+      },
+      "driverCode": "/code/drivers/display/portal-cp70-rev-b.due",
+      "samples": {
+        "script": "/code/samples/display/portal-cp70-rev-b.due",
+        "python": "/code/samples/display/portal-cp70-rev-b.py",
+        "javascript": "/code/samples/display/portal-cp70-rev-b.js",
+        "dotnet": "/code/samples/display/portal-cp70-rev-b.cs",
+        "micropython": "/code/samples/display/portal-cp70-rev-b.mpy",
+        "arduino": "/code/samples/display/portal-cp70-rev-b.cpp"
+      }
+    },
+    {
+      "name": "TFT CP23 Rev B",
+      "shortDescription": "TFT CP23 Rev B - High-quality DUELink module",
+      "partNumber": "GDL-DTFTCP23-B",
+      "category": "Display",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "tft-cp23-front.png",
+        "pencil": "tft-cp23-pencil.png",
+        "back": "tft-cp23-back.png",
+        "front45": "tft-cp23-front-45.png",
+        "back45": "tft-cp23-back-45.png"
+      },
+      "overviewText": "/desc/display/tft-cp23-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-dtftcp23-b.step",
+        "schematic": "/sch/gdl-dtftcp23-b.pdf"
+      },
+      "driverCode": "/code/drivers/display/tft-cp23-rev-b.due",
+      "samples": {
+        "script": "/code/samples/display/tft-cp23-rev-b.due",
+        "python": "/code/samples/display/tft-cp23-rev-b.py",
+        "javascript": "/code/samples/display/tft-cp23-rev-b.js",
+        "dotnet": "/code/samples/display/tft-cp23-rev-b.cs",
+        "micropython": "/code/samples/display/tft-cp23-rev-b.mpy",
+        "arduino": "/code/samples/display/tft-cp23-rev-b.cpp"
+      }
+    },
+    {
+      "name": "TFT N18 Rev B",
+      "shortDescription": "TFT N18 Rev B - High-quality DUELink module",
+      "partNumber": "GDL-DTFTN18-B",
+      "category": "Display",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "tft-n18-front.png",
+        "pencil": "tft-n18-pencil.png",
+        "back": "tft-n18-back.png",
+        "front45": "tft-n18-front-45.png",
+        "back45": "tft-n18-back-45.png"
+      },
+      "overviewText": "/desc/display/tft-n18-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-dtftn18-b.step",
+        "schematic": "/sch/gdl-dtftn18-b.pdf"
+      },
+      "driverCode": "/code/drivers/display/tft-n18-rev-b.due",
+      "samples": {
+        "script": "/code/samples/display/tft-n18-rev-b.due",
+        "python": "/code/samples/display/tft-n18-rev-b.py",
+        "javascript": "/code/samples/display/tft-n18-rev-b.js",
+        "dotnet": "/code/samples/display/tft-n18-rev-b.cs",
+        "micropython": "/code/samples/display/tft-n18-rev-b.mpy",
+        "arduino": "/code/samples/display/tft-n18-rev-b.cpp"
+      }
+    },
+    {
+      "name": "TFT R128 Rev B",
+      "shortDescription": "TFT R128 Rev B - High-quality DUELink module",
+      "partNumber": "GDL-DTFTR128-B",
+      "category": "Display",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "tft-r128-front.png",
+        "pencil": "tft-r128-pencil.png",
+        "back": "tft-r128-back.png",
+        "front45": "tft-r128-front-45.png",
+        "back45": "tft-r128-back-45.png"
+      },
+      "overviewText": "/desc/display/tft-r128-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-dtftr128-b.step",
+        "schematic": "/sch/gdl-dtftr128-b.pdf"
+      },
+      "driverCode": "/code/drivers/display/tft-r128-rev-b.due",
+      "samples": {
+        "script": "/code/samples/display/tft-r128-rev-b.due",
+        "python": "/code/samples/display/tft-r128-rev-b.py",
+        "javascript": "/code/samples/display/tft-r128-rev-b.js",
+        "dotnet": "/code/samples/display/tft-r128-rev-b.cs",
+        "micropython": "/code/samples/display/tft-r128-rev-b.mpy",
+        "arduino": "/code/samples/display/tft-r128-rev-b.cpp"
+      }
+    },
+    {
+      "name": "TFT T32 Rev C",
+      "shortDescription": "TFT T32 Rev C - High-quality DUELink module",
+      "partNumber": "GDL-DTFTT32-C",
+      "category": "Display",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "tft-t32-front.png",
+        "pencil": "tft-t32-pencil.png",
+        "back": "tft-t32-back.png",
+        "front45": "tft-t32-front-45.png",
+        "back45": "tft-t32-back-45.png"
+      },
+      "overviewText": "/desc/display/tft-t32-rev-c.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-dtftt32-c.step",
+        "schematic": "/sch/gdl-dtftt32-c.pdf"
+      },
+      "driverCode": "/code/drivers/display/tft-t32-rev-c.due",
+      "samples": {
+        "script": "/code/samples/display/tft-t32-rev-c.due",
+        "python": "/code/samples/display/tft-t32-rev-c.py",
+        "javascript": "/code/samples/display/tft-t32-rev-c.js",
+        "dotnet": "/code/samples/display/tft-t32-rev-c.cs",
+        "micropython": "/code/samples/display/tft-t32-rev-c.mpy",
+        "arduino": "/code/samples/display/tft-t32-rev-c.cpp"
+      }
+    },
+    {
+      "name": "VFD B8 Rev C",
+      "shortDescription": "VFD B8 Rev C - High-quality DUELink module",
+      "partNumber": "GDL-DVFDB8-C",
+      "category": "Display",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "vfd-b8-front.png",
+        "pencil": "vfd-b8-pencil.png",
+        "back": "vfd-b8-back.png",
+        "front45": "vfd-b8-front-45.png",
+        "back45": "vfd-b8-back-45.png"
+      },
+      "overviewText": "/desc/display/vfd-b8-rev-c.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-dvfdb8-c.step",
+        "schematic": "/sch/gdl-dvfdb8-c.pdf"
+      },
+      "driverCode": "/code/drivers/display/vfd-b8-rev-c.due",
+      "samples": {
+        "script": "/code/samples/display/vfd-b8-rev-c.due",
+        "python": "/code/samples/display/vfd-b8-rev-c.py",
+        "javascript": "/code/samples/display/vfd-b8-rev-c.js",
+        "dotnet": "/code/samples/display/vfd-b8-rev-c.cs",
+        "micropython": "/code/samples/display/vfd-b8-rev-c.mpy",
+        "arduino": "/code/samples/display/vfd-b8-rev-c.cpp"
+      }
+    },
+    {
+      "name": "Fan Rev B",
+      "shortDescription": "Fan Rev B - High-quality DUELink module",
+      "partNumber": "GDL-ACFAN-B",
+      "category": "Actuator",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "fan-front.png",
+        "pencil": "fan-pencil.png",
+        "back": "fan-back.png",
+        "front45": "fan-front-45.png",
+        "back45": "fan-back-45.png"
+      },
+      "overviewText": "/desc/actuator/fan-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-acfan-b.step",
+        "schematic": "/sch/gdl-acfan-b.pdf"
+      },
+      "driverCode": "/code/drivers/actuator/fan-rev-b.due",
+      "samples": {
+        "script": "/code/samples/actuator/fan-rev-b.due",
+        "python": "/code/samples/actuator/fan-rev-b.py",
+        "javascript": "/code/samples/actuator/fan-rev-b.js",
+        "dotnet": "/code/samples/actuator/fan-rev-b.cs",
+        "micropython": "/code/samples/actuator/fan-rev-b.mpy",
+        "arduino": "/code/samples/actuator/fan-rev-b.cpp"
+      }
+    },
+    {
+      "name": "Load Rev A",
+      "shortDescription": "Load Rev A - High-quality DUELink module",
+      "partNumber": "GDL-ACLOAD-A",
+      "category": "Actuator",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "load-front.png",
+        "pencil": "load-pencil.png",
+        "back": "load-back.png",
+        "front45": "load-front-45.png",
+        "back45": "load-back-45.png"
+      },
+      "overviewText": "/desc/actuator/load-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-acload-a.step",
+        "schematic": "/sch/gdl-acload-a.pdf"
+      },
+      "driverCode": "/code/drivers/actuator/load-rev-a.due",
+      "samples": {
+        "script": "/code/samples/actuator/load-rev-a.due",
+        "python": "/code/samples/actuator/load-rev-a.py",
+        "javascript": "/code/samples/actuator/load-rev-a.js",
+        "dotnet": "/code/samples/actuator/load-rev-a.cs",
+        "micropython": "/code/samples/actuator/load-rev-a.mpy",
+        "arduino": "/code/samples/actuator/load-rev-a.cpp"
+      }
+    },
+    {
+      "name": "MotoMax Rev B",
+      "shortDescription": "MotoMax Rev B - High-quality DUELink module",
+      "partNumber": "GDL-ACMOTOMAX-B",
+      "category": "Actuator",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "motomax-front.png",
+        "pencil": "motomax-pencil.png",
+        "back": "motomax-back.png",
+        "front45": "motomax-front-45.png",
+        "back45": "motomax-back-45.png"
+      },
+      "overviewText": "/desc/actuator/motomax-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-acmotomax-b.step",
+        "schematic": "/sch/gdl-acmotomax-b.pdf"
+      },
+      "driverCode": "/code/drivers/actuator/motomax-rev-b.due",
+      "samples": {
+        "script": "/code/samples/actuator/motomax-rev-b.due",
+        "python": "/code/samples/actuator/motomax-rev-b.py",
+        "javascript": "/code/samples/actuator/motomax-rev-b.js",
+        "dotnet": "/code/samples/actuator/motomax-rev-b.cs",
+        "micropython": "/code/samples/actuator/motomax-rev-b.mpy",
+        "arduino": "/code/samples/actuator/motomax-rev-b.cpp"
+      }
+    },
+    {
+      "name": "MotoTwin Rev B",
+      "shortDescription": "MotoTwin Rev B - High-quality DUELink module",
+      "partNumber": "GDL-ACMOTOTWIN-B",
+      "category": "Actuator",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "mototwin-front.png",
+        "pencil": "mototwin-pencil.png",
+        "back": "mototwin-back.png",
+        "front45": "mototwin-front-45.png",
+        "back45": "mototwin-back-45.png"
+      },
+      "overviewText": "/desc/actuator/mototwin-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-acmototwin-b.step",
+        "schematic": "/sch/gdl-acmototwin-b.pdf"
+      },
+      "driverCode": "/code/drivers/actuator/mototwin-rev-b.due",
+      "samples": {
+        "script": "/code/samples/actuator/mototwin-rev-b.due",
+        "python": "/code/samples/actuator/mototwin-rev-b.py",
+        "javascript": "/code/samples/actuator/mototwin-rev-b.js",
+        "dotnet": "/code/samples/actuator/mototwin-rev-b.cs",
+        "micropython": "/code/samples/actuator/mototwin-rev-b.mpy",
+        "arduino": "/code/samples/actuator/mototwin-rev-b.cpp"
+      }
+    },
+    {
+      "name": "Relay P16 Rev A",
+      "shortDescription": "Relay P16 Rev A - High-quality DUELink module",
+      "partNumber": "GDL-ACRELAYP16-A",
+      "category": "Actuator",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "relay-p16-front.png",
+        "pencil": "relay-p16-pencil.png",
+        "back": "relay-p16-back.png",
+        "front45": "relay-p16-front-45.png",
+        "back45": "relay-p16-back-45.png"
+      },
+      "overviewText": "/desc/actuator/relay-p16-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-acrelayp16-a.step",
+        "schematic": "/sch/gdl-acrelayp16-a.pdf"
+      },
+      "driverCode": "/code/drivers/actuator/relay-p16-rev-a.due",
+      "samples": {
+        "script": "/code/samples/actuator/relay-p16-rev-a.due",
+        "python": "/code/samples/actuator/relay-p16-rev-a.py",
+        "javascript": "/code/samples/actuator/relay-p16-rev-a.js",
+        "dotnet": "/code/samples/actuator/relay-p16-rev-a.cs",
+        "micropython": "/code/samples/actuator/relay-p16-rev-a.mpy",
+        "arduino": "/code/samples/actuator/relay-p16-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Relay P4 Rev C",
+      "shortDescription": "Relay P4 Rev C - High-quality DUELink module",
+      "partNumber": "GDL-ACRELAYP4-C",
+      "category": "Actuator",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "relay-p4-front.png",
+        "pencil": "relay-p4-pencil.png",
+        "back": "relay-p4-back.png",
+        "front45": "relay-p4-front-45.png",
+        "back45": "relay-p4-back-45.png"
+      },
+      "overviewText": "/desc/actuator/relay-p4-rev-c.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-acrelayp4-c.step",
+        "schematic": "/sch/gdl-acrelayp4-c.pdf"
+      },
+      "driverCode": "/code/drivers/actuator/relay-p4-rev-c.due",
+      "samples": {
+        "script": "/code/samples/actuator/relay-p4-rev-c.due",
+        "python": "/code/samples/actuator/relay-p4-rev-c.py",
+        "javascript": "/code/samples/actuator/relay-p4-rev-c.js",
+        "dotnet": "/code/samples/actuator/relay-p4-rev-c.cs",
+        "micropython": "/code/samples/actuator/relay-p4-rev-c.mpy",
+        "arduino": "/code/samples/actuator/relay-p4-rev-c.cpp"
+      }
+    },
+    {
+      "name": "Relay X1 Rev A",
+      "shortDescription": "Relay X1 Rev A - High-quality DUELink module",
+      "partNumber": "GDL-ACRELAYX1-A",
+      "category": "Actuator",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "relay-x1-front.png",
+        "pencil": "relay-x1-pencil.png",
+        "back": "relay-x1-back.png",
+        "front45": "relay-x1-front-45.png",
+        "back45": "relay-x1-back-45.png"
+      },
+      "overviewText": "/desc/actuator/relay-x1-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-acrelayx1-a.step",
+        "schematic": "/sch/gdl-acrelayx1-a.pdf"
+      },
+      "driverCode": "/code/drivers/actuator/relay-x1-rev-a.due",
+      "samples": {
+        "script": "/code/samples/actuator/relay-x1-rev-a.due",
+        "python": "/code/samples/actuator/relay-x1-rev-a.py",
+        "javascript": "/code/samples/actuator/relay-x1-rev-a.js",
+        "dotnet": "/code/samples/actuator/relay-x1-rev-a.cs",
+        "micropython": "/code/samples/actuator/relay-x1-rev-a.mpy",
+        "arduino": "/code/samples/actuator/relay-x1-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Servo P8 Rev B",
+      "shortDescription": "Servo P8 Rev B - High-quality DUELink module",
+      "partNumber": "GDL-ACSERVOP8-B",
+      "category": "Actuator",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "servo-p8-front.png",
+        "pencil": "servo-p8-pencil.png",
+        "back": "servo-p8-back.png",
+        "front45": "servo-p8-front-45.png",
+        "back45": "servo-p8-back-45.png"
+      },
+      "overviewText": "/desc/actuator/servo-p8-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-acservop8-b.step",
+        "schematic": "/sch/gdl-acservop8-b.pdf"
+      },
+      "driverCode": "/code/drivers/actuator/servo-p8-rev-b.due",
+      "samples": {
+        "script": "/code/samples/actuator/servo-p8-rev-b.due",
+        "python": "/code/samples/actuator/servo-p8-rev-b.py",
+        "javascript": "/code/samples/actuator/servo-p8-rev-b.js",
+        "dotnet": "/code/samples/actuator/servo-p8-rev-b.cs",
+        "micropython": "/code/samples/actuator/servo-p8-rev-b.mpy",
+        "arduino": "/code/samples/actuator/servo-p8-rev-b.cpp"
+      }
+    },
+    {
+      "name": "Servo X1 Rev A",
+      "shortDescription": "Servo X1 Rev A - High-quality DUELink module",
+      "partNumber": "GDL-ACSERVOX1-A",
+      "category": "Actuator",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "servo-x1-front.png",
+        "pencil": "servo-x1-pencil.png",
+        "back": "servo-x1-back.png",
+        "front45": "servo-x1-front-45.png",
+        "back45": "servo-x1-back-45.png"
+      },
+      "overviewText": "/desc/actuator/servo-x1-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-acservox1-a.step",
+        "schematic": "/sch/gdl-acservox1-a.pdf"
+      },
+      "driverCode": "/code/drivers/actuator/servo-x1-rev-a.due",
+      "samples": {
+        "script": "/code/samples/actuator/servo-x1-rev-a.due",
+        "python": "/code/samples/actuator/servo-x1-rev-a.py",
+        "javascript": "/code/samples/actuator/servo-x1-rev-a.js",
+        "dotnet": "/code/samples/actuator/servo-x1-rev-a.cs",
+        "micropython": "/code/samples/actuator/servo-x1-rev-a.mpy",
+        "arduino": "/code/samples/actuator/servo-x1-rev-a.cpp"
+      }
+    },
+    {
+      "name": "StepPulse Rev A",
+      "shortDescription": "StepPulse Rev A - High-quality DUELink module",
+      "partNumber": "GDL-ACSTEPPULSE-A",
+      "category": "Actuator",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "steppulse-front.png",
+        "pencil": "steppulse-pencil.png",
+        "back": "steppulse-back.png",
+        "front45": "steppulse-front-45.png",
+        "back45": "steppulse-back-45.png"
+      },
+      "overviewText": "/desc/actuator/steppulse-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-acsteppulse-a.step",
+        "schematic": "/sch/gdl-acsteppulse-a.pdf"
+      },
+      "driverCode": "/code/drivers/actuator/steppulse-rev-a.due",
+      "samples": {
+        "script": "/code/samples/actuator/steppulse-rev-a.due",
+        "python": "/code/samples/actuator/steppulse-rev-a.py",
+        "javascript": "/code/samples/actuator/steppulse-rev-a.js",
+        "dotnet": "/code/samples/actuator/steppulse-rev-a.cs",
+        "micropython": "/code/samples/actuator/steppulse-rev-a.mpy",
+        "arduino": "/code/samples/actuator/steppulse-rev-a.cpp"
+      }
+    },
+    {
+      "name": "StepDrive P1 Rev A",
+      "shortDescription": "StepDrive P1 Rev A - High-quality DUELink module",
+      "partNumber": "GDL-ACSTEPDRIVEP1-A",
+      "category": "Actuator",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "stepdrive-p1-front.png",
+        "pencil": "stepdrive-p1-pencil.png",
+        "back": "stepdrive-p1-back.png",
+        "front45": "stepdrive-p1-front-45.png",
+        "back45": "stepdrive-p1-back-45.png"
+      },
+      "overviewText": "/desc/actuator/stepdrive-p1-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-acstepdrivep1-a.step",
+        "schematic": "/sch/gdl-acstepdrivep1-a.pdf"
+      },
+      "driverCode": "/code/drivers/actuator/stepdrive-p1-rev-a.due",
+      "samples": {
+        "script": "/code/samples/actuator/stepdrive-p1-rev-a.due",
+        "python": "/code/samples/actuator/stepdrive-p1-rev-a.py",
+        "javascript": "/code/samples/actuator/stepdrive-p1-rev-a.js",
+        "dotnet": "/code/samples/actuator/stepdrive-p1-rev-a.cs",
+        "micropython": "/code/samples/actuator/stepdrive-p1-rev-a.mpy",
+        "arduino": "/code/samples/actuator/stepdrive-p1-rev-a.cpp"
+      }
+    },
+    {
+      "name": "StepDrive P3 Rev B",
+      "shortDescription": "StepDrive P3 Rev B - High-quality DUELink module",
+      "partNumber": "GDL-ACSTEPDRIVEP3-B",
+      "category": "Actuator",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "stepdrive-p3-front.png",
+        "pencil": "stepdrive-p3-pencil.png",
+        "back": "stepdrive-p3-back.png",
+        "front45": "stepdrive-p3-front-45.png",
+        "back45": "stepdrive-p3-back-45.png"
+      },
+      "overviewText": "/desc/actuator/stepdrive-p3-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-acstepdrivep3-b.step",
+        "schematic": "/sch/gdl-acstepdrivep3-b.pdf"
+      },
+      "driverCode": "/code/drivers/actuator/stepdrive-p3-rev-b.due",
+      "samples": {
+        "script": "/code/samples/actuator/stepdrive-p3-rev-b.due",
+        "python": "/code/samples/actuator/stepdrive-p3-rev-b.py",
+        "javascript": "/code/samples/actuator/stepdrive-p3-rev-b.js",
+        "dotnet": "/code/samples/actuator/stepdrive-p3-rev-b.cs",
+        "micropython": "/code/samples/actuator/stepdrive-p3-rev-b.mpy",
+        "arduino": "/code/samples/actuator/stepdrive-p3-rev-b.cpp"
+      }
+    },
+    {
+      "name": "CAN Rev B",
+      "shortDescription": "CAN Rev B - High-quality DUELink module",
+      "partNumber": "GDL-CMCAN-B",
+      "category": "Communication",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "can-front.png",
+        "pencil": "can-pencil.png",
+        "back": "can-back.png",
+        "front45": "can-front-45.png",
+        "back45": "can-back-45.png"
+      },
+      "overviewText": "/desc/communication/can-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-cmcan-b.step",
+        "schematic": "/sch/gdl-cmcan-b.pdf"
+      },
+      "driverCode": "/code/drivers/communication/can-rev-b.due",
+      "samples": {
+        "script": "/code/samples/communication/can-rev-b.due",
+        "python": "/code/samples/communication/can-rev-b.py",
+        "javascript": "/code/samples/communication/can-rev-b.js",
+        "dotnet": "/code/samples/communication/can-rev-b.cs",
+        "micropython": "/code/samples/communication/can-rev-b.mpy",
+        "arduino": "/code/samples/communication/can-rev-b.cpp"
+      }
+    },
+    {
+      "name": "DMX Rev B",
+      "shortDescription": "DMX Rev B - High-quality DUELink module",
+      "partNumber": "GDL-CMDMX-B",
+      "category": "Communication",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "dmx-front.png",
+        "pencil": "dmx-pencil.png",
+        "back": "dmx-back.png",
+        "front45": "dmx-front-45.png",
+        "back45": "dmx-back-45.png"
+      },
+      "overviewText": "/desc/communication/dmx-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-cmdmx-b.step",
+        "schematic": "/sch/gdl-cmdmx-b.pdf"
+      },
+      "driverCode": "/code/drivers/communication/dmx-rev-b.due",
+      "samples": {
+        "script": "/code/samples/communication/dmx-rev-b.due",
+        "python": "/code/samples/communication/dmx-rev-b.py",
+        "javascript": "/code/samples/communication/dmx-rev-b.js",
+        "dotnet": "/code/samples/communication/dmx-rev-b.cs",
+        "micropython": "/code/samples/communication/dmx-rev-b.mpy",
+        "arduino": "/code/samples/communication/dmx-rev-b.cpp"
+      }
+    },
+    {
+      "name": "Ethernet Rev C",
+      "shortDescription": "Ethernet Rev C - High-quality DUELink module",
+      "partNumber": "GDL-CMETHERNET-C",
+      "category": "Communication",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "ethernet-front.png",
+        "pencil": "ethernet-pencil.png",
+        "back": "ethernet-back.png",
+        "front45": "ethernet-front-45.png",
+        "back45": "ethernet-back-45.png"
+      },
+      "overviewText": "/desc/communication/ethernet-rev-c.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-cmethernet-c.step",
+        "schematic": "/sch/gdl-cmethernet-c.pdf"
+      },
+      "driverCode": "/code/drivers/communication/ethernet-rev-c.due",
+      "samples": {
+        "script": "/code/samples/communication/ethernet-rev-c.due",
+        "python": "/code/samples/communication/ethernet-rev-c.py",
+        "javascript": "/code/samples/communication/ethernet-rev-c.js",
+        "dotnet": "/code/samples/communication/ethernet-rev-c.cs",
+        "micropython": "/code/samples/communication/ethernet-rev-c.mpy",
+        "arduino": "/code/samples/communication/ethernet-rev-c.cpp"
+      }
+    },
+    {
+      "name": "MIDI Rev A",
+      "shortDescription": "MIDI Rev A - High-quality DUELink module",
+      "partNumber": "GDL-CMMIDI-A",
+      "category": "Communication",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "midi-front.png",
+        "pencil": "midi-pencil.png",
+        "back": "midi-back.png",
+        "front45": "midi-front-45.png",
+        "back45": "midi-back-45.png"
+      },
+      "overviewText": "/desc/communication/midi-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-cmmidi-a.step",
+        "schematic": "/sch/gdl-cmmidi-a.pdf"
+      },
+      "driverCode": "/code/drivers/communication/midi-rev-a.due",
+      "samples": {
+        "script": "/code/samples/communication/midi-rev-a.due",
+        "python": "/code/samples/communication/midi-rev-a.py",
+        "javascript": "/code/samples/communication/midi-rev-a.js",
+        "dotnet": "/code/samples/communication/midi-rev-a.cs",
+        "micropython": "/code/samples/communication/midi-rev-a.mpy",
+        "arduino": "/code/samples/communication/midi-rev-a.cpp"
+      }
+    },
+    {
+      "name": "RS485 Rev A",
+      "shortDescription": "RS485 Rev A - High-quality DUELink module",
+      "partNumber": "GDL-CMRS485-A",
+      "category": "Communication",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "rs485-front.png",
+        "pencil": "rs485-pencil.png",
+        "back": "rs485-back.png",
+        "front45": "rs485-front-45.png",
+        "back45": "rs485-back-45.png"
+      },
+      "overviewText": "/desc/communication/rs485-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-cmrs485-a.step",
+        "schematic": "/sch/gdl-cmrs485-a.pdf"
+      },
+      "driverCode": "/code/drivers/communication/rs485-rev-a.due",
+      "samples": {
+        "script": "/code/samples/communication/rs485-rev-a.due",
+        "python": "/code/samples/communication/rs485-rev-a.py",
+        "javascript": "/code/samples/communication/rs485-rev-a.js",
+        "dotnet": "/code/samples/communication/rs485-rev-a.cs",
+        "micropython": "/code/samples/communication/rs485-rev-a.mpy",
+        "arduino": "/code/samples/communication/rs485-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Serial USB Rev A",
+      "shortDescription": "Serial USB Rev A - High-quality DUELink module",
+      "partNumber": "GDL-CMSERIALUSB-A",
+      "category": "Communication",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "serialusb-front.png",
+        "pencil": "serialusb-pencil.png",
+        "back": "serialusb-back.png",
+        "front45": "serialusb-front-45.png",
+        "back45": "serialusb-back-45.png"
+      },
+      "overviewText": "/desc/communication/serial-usb-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-cmserialusb-a.step",
+        "schematic": "/sch/gdl-cmserialusb-a.pdf"
+      },
+      "driverCode": "/code/drivers/communication/serial-usb-rev-a.due",
+      "samples": {
+        "script": "/code/samples/communication/serial-usb-rev-a.due",
+        "python": "/code/samples/communication/serial-usb-rev-a.py",
+        "javascript": "/code/samples/communication/serial-usb-rev-a.js",
+        "dotnet": "/code/samples/communication/serial-usb-rev-a.cs",
+        "micropython": "/code/samples/communication/serial-usb-rev-a.mpy",
+        "arduino": "/code/samples/communication/serial-usb-rev-a.cpp"
+      }
+    },
+    {
+      "name": "USB Host Rev B",
+      "shortDescription": "USB Host Rev B - High-quality DUELink module",
+      "partNumber": "GDL-CMUSBHOST-B",
+      "category": "Communication",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "usbhost-front.png",
+        "pencil": "usbhost-pencil.png",
+        "back": "usbhost-back.png",
+        "front45": "usbhost-front-45.png",
+        "back45": "usbhost-back-45.png"
+      },
+      "overviewText": "/desc/communication/usb-host-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-cmusbhost-b.step",
+        "schematic": "/sch/gdl-cmusbhost-b.pdf"
+      },
+      "driverCode": "/code/drivers/communication/usb-host-rev-b.due",
+      "samples": {
+        "script": "/code/samples/communication/usb-host-rev-b.due",
+        "python": "/code/samples/communication/usb-host-rev-b.py",
+        "javascript": "/code/samples/communication/usb-host-rev-b.js",
+        "dotnet": "/code/samples/communication/usb-host-rev-b.cs",
+        "micropython": "/code/samples/communication/usb-host-rev-b.mpy",
+        "arduino": "/code/samples/communication/usb-host-rev-b.cpp"
+      }
+    },
+    {
+      "name": "USB Client Rev A",
+      "shortDescription": "USB Client Rev A - High-quality DUELink module",
+      "partNumber": "GDL-CMUSBCLIENT-A",
+      "category": "Communication",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "usbclient-front.png",
+        "pencil": "usbclient-pencil.png",
+        "back": "usbclient-back.png",
+        "front45": "usbclient-front-45.png",
+        "back45": "usbclient-back-45.png"
+      },
+      "overviewText": "/desc/communication/usb-client-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-cmusbclient-a.step",
+        "schematic": "/sch/gdl-cmusbclient-a.pdf"
+      },
+      "driverCode": "/code/drivers/communication/usb-client-rev-a.due",
+      "samples": {
+        "script": "/code/samples/communication/usb-client-rev-a.due",
+        "python": "/code/samples/communication/usb-client-rev-a.py",
+        "javascript": "/code/samples/communication/usb-client-rev-a.js",
+        "dotnet": "/code/samples/communication/usb-client-rev-a.cs",
+        "micropython": "/code/samples/communication/usb-client-rev-a.mpy",
+        "arduino": "/code/samples/communication/usb-client-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Button AR100 Rev B",
+      "shortDescription": "Button AR100 Rev B - High-quality DUELink module",
+      "partNumber": "GDL-HIBTNAR100-B",
+      "category": "HMI",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "btn-ar100-front.png",
+        "pencil": "btn-ar100-pencil.png",
+        "back": "btn-ar100-back.png",
+        "front45": "btn-ar100-front-45.png",
+        "back45": "btn-ar100-back-45.png"
+      },
+      "overviewText": "/desc/hmi/button-ar100-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-hibtnar100-b.step",
+        "schematic": "/sch/gdl-hibtnar100-b.pdf"
+      },
+      "driverCode": "/code/drivers/hmi/button-ar100-rev-b.due",
+      "samples": {
+        "script": "/code/samples/hmi/button-ar100-rev-b.due",
+        "python": "/code/samples/hmi/button-ar100-rev-b.py",
+        "javascript": "/code/samples/hmi/button-ar100-rev-b.js",
+        "dotnet": "/code/samples/hmi/button-ar100-rev-b.cs",
+        "micropython": "/code/samples/hmi/button-ar100-rev-b.mpy",
+        "arduino": "/code/samples/hmi/button-ar100-rev-b.cpp"
+      }
+    },
+    {
+      "name": "BTN RGB28x4 Rev B",
+      "shortDescription": "BTN RGB28x4 Rev B - High-quality DUELink module",
+      "partNumber": "GDL-HIBTNRGB28X4-B",
+      "category": "HMI",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "btn-rgb28x4-front.png",
+        "pencil": "btn-rgb28x4-pencil.png",
+        "back": "btn-rgb28x4-back.png",
+        "front45": "btn-rgb28x4-front-45.png",
+        "back45": "btn-rgb28x4-back-45.png"
+      },
+      "overviewText": "/desc/hmi/btn-rgb28x4-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-hibtnrgb28x4-b.step",
+        "schematic": "/sch/gdl-hibtnrgb28x4-b.pdf"
+      },
+      "driverCode": "/code/drivers/hmi/btn-rgb28x4-rev-b.due",
+      "samples": {
+        "script": "/code/samples/hmi/btn-rgb28x4-rev-b.due",
+        "python": "/code/samples/hmi/btn-rgb28x4-rev-b.py",
+        "javascript": "/code/samples/hmi/btn-rgb28x4-rev-b.js",
+        "dotnet": "/code/samples/hmi/btn-rgb28x4-rev-b.cs",
+        "micropython": "/code/samples/hmi/btn-rgb28x4-rev-b.mpy",
+        "arduino": "/code/samples/hmi/btn-rgb28x4-rev-b.cpp"
+      }
+    },
+    {
+      "name": "Button L Rev A",
+      "shortDescription": "Button L Rev A - High-quality DUELink module",
+      "partNumber": "GDL-HIBUTTONL-A",
+      "category": "HMI",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "button-l-front.png",
+        "pencil": "button-l-pencil.png",
+        "back": "button-l-back.png",
+        "front45": "button-l-front-45.png",
+        "back45": "button-l-back-45.png"
+      },
+      "overviewText": "/desc/hmi/button-l-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-hibuttonl-a.step",
+        "schematic": "/sch/gdl-hibuttonl-a.pdf"
+      },
+      "driverCode": "/code/drivers/hmi/button-l-rev-a.due",
+      "samples": {
+        "script": "/code/samples/hmi/button-l-rev-a.due",
+        "python": "/code/samples/hmi/button-l-rev-a.py",
+        "javascript": "/code/samples/hmi/button-l-rev-a.js",
+        "dotnet": "/code/samples/hmi/button-l-rev-a.cs",
+        "micropython": "/code/samples/hmi/button-l-rev-a.mpy",
+        "arduino": "/code/samples/hmi/button-l-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Button L7 Rev B",
+      "shortDescription": "Button L7 Rev B - High-quality DUELink module",
+      "partNumber": "GDL-HIBUTTONL7-B",
+      "category": "HMI",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "button-l7-front.png",
+        "pencil": "button-l7-pencil.png",
+        "back": "button-l7-back.png",
+        "front45": "button-l7-front-45.png",
+        "back45": "button-l7-back-45.png"
+      },
+      "overviewText": "/desc/hmi/button-l7-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-hibuttonl7-b.step",
+        "schematic": "/sch/gdl-hibuttonl7-b.pdf"
+      },
+      "driverCode": "/code/drivers/hmi/button-l7-rev-b.due",
+      "samples": {
+        "script": "/code/samples/hmi/button-l7-rev-b.due",
+        "python": "/code/samples/hmi/button-l7-rev-b.py",
+        "javascript": "/code/samples/hmi/button-l7-rev-b.js",
+        "dotnet": "/code/samples/hmi/button-l7-rev-b.cs",
+        "micropython": "/code/samples/hmi/button-l7-rev-b.mpy",
+        "arduino": "/code/samples/hmi/button-l7-rev-b.cpp"
+      }
+    },
+    {
+      "name": "Button S Rev A",
+      "shortDescription": "Button S Rev A - High-quality DUELink module",
+      "partNumber": "GDL-HIBUTTONS-A",
+      "category": "HMI",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "button-s-front.png",
+        "pencil": "button-s-pencil.png",
+        "back": "button-s-back.png",
+        "front45": "button-s-front-45.png",
+        "back45": "button-s-back-45.png"
+      },
+      "overviewText": "/desc/hmi/button-s-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-hibuttons-a.step",
+        "schematic": "/sch/gdl-hibuttons-a.pdf"
+      },
+      "driverCode": "/code/drivers/hmi/button-s-rev-a.due",
+      "samples": {
+        "script": "/code/samples/hmi/button-s-rev-a.due",
+        "python": "/code/samples/hmi/button-s-rev-a.py",
+        "javascript": "/code/samples/hmi/button-s-rev-a.js",
+        "dotnet": "/code/samples/hmi/button-s-rev-a.cs",
+        "micropython": "/code/samples/hmi/button-s-rev-a.mpy",
+        "arduino": "/code/samples/hmi/button-s-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Dial Rev A",
+      "shortDescription": "Dial Rev A - High-quality DUELink module",
+      "partNumber": "GDL-HIDIAL-A",
+      "category": "HMI",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "dial-front.png",
+        "pencil": "dial-pencil.png",
+        "back": "dial-back.png",
+        "front45": "dial-front-45.png",
+        "back45": "dial-back-45.png"
+      },
+      "overviewText": "/desc/hmi/dial-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-hidial-a.step",
+        "schematic": "/sch/gdl-hidial-a.pdf"
+      },
+      "driverCode": "/code/drivers/hmi/dial-rev-a.due",
+      "samples": {
+        "script": "/code/samples/hmi/dial-rev-a.due",
+        "python": "/code/samples/hmi/dial-rev-a.py",
+        "javascript": "/code/samples/hmi/dial-rev-a.js",
+        "dotnet": "/code/samples/hmi/dial-rev-a.cs",
+        "micropython": "/code/samples/hmi/dial-rev-a.mpy",
+        "arduino": "/code/samples/hmi/dial-rev-a.cpp"
+      }
+    },
+    {
+      "name": "DipSwitch Rev B",
+      "shortDescription": "DipSwitch Rev B - High-quality DUELink module",
+      "partNumber": "GDL-HIDIPSWITCH-B",
+      "category": "HMI",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "dipswitch-front.png",
+        "pencil": "dipswitch-pencil.png",
+        "back": "dipswitch-back.png",
+        "front45": "dipswitch-front-45.png",
+        "back45": "dipswitch-back-45.png"
+      },
+      "overviewText": "/desc/hmi/dipswitch-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-hidipswitch-b.step",
+        "schematic": "/sch/gdl-hidipswitch-b.pdf"
+      },
+      "driverCode": "/code/drivers/hmi/dipswitch-rev-b.due",
+      "samples": {
+        "script": "/code/samples/hmi/dipswitch-rev-b.due",
+        "python": "/code/samples/hmi/dipswitch-rev-b.py",
+        "javascript": "/code/samples/hmi/dipswitch-rev-b.js",
+        "dotnet": "/code/samples/hmi/dipswitch-rev-b.cs",
+        "micropython": "/code/samples/hmi/dipswitch-rev-b.mpy",
+        "arduino": "/code/samples/hmi/dipswitch-rev-b.cpp"
+      }
+    },
+    {
+      "name": "Fingerprint Rev B",
+      "shortDescription": "Fingerprint Rev B - High-quality DUELink module",
+      "partNumber": "GDL-HIFINGERPRINT-B",
+      "category": "HMI",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "fingerprint-front.png",
+        "pencil": "fingerprint-pencil.png",
+        "back": "fingerprint-back.png",
+        "front45": "fingerprint-front-45.png",
+        "back45": "fingerprint-back-45.png"
+      },
+      "overviewText": "/desc/hmi/fingerprint-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-hifingerprint-b.step",
+        "schematic": "/sch/gdl-hifingerprint-b.pdf"
+      },
+      "driverCode": "/code/drivers/hmi/fingerprint-rev-b.due",
+      "samples": {
+        "script": "/code/samples/hmi/fingerprint-rev-b.due",
+        "python": "/code/samples/hmi/fingerprint-rev-b.py",
+        "javascript": "/code/samples/hmi/fingerprint-rev-b.js",
+        "dotnet": "/code/samples/hmi/fingerprint-rev-b.cs",
+        "micropython": "/code/samples/hmi/fingerprint-rev-b.mpy",
+        "arduino": "/code/samples/hmi/fingerprint-rev-b.cpp"
+      }
+    },
+    {
+      "name": "Joystick L Rev B",
+      "shortDescription": "Joystick L Rev B - High-quality DUELink module",
+      "partNumber": "GDL-HIJOYSTICKL-B",
+      "category": "HMI",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "joystick-l-front.png",
+        "pencil": "joystick-l-pencil.png",
+        "back": "joystick-l-back.png",
+        "front45": "joystick-l-front-45.png",
+        "back45": "joystick-l-back-45.png"
+      },
+      "overviewText": "/desc/hmi/joystick-l-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-hijoystickl-b.step",
+        "schematic": "/sch/gdl-hijoystickl-b.pdf"
+      },
+      "driverCode": "/code/drivers/hmi/joystick-l-rev-b.due",
+      "samples": {
+        "script": "/code/samples/hmi/joystick-l-rev-b.due",
+        "python": "/code/samples/hmi/joystick-l-rev-b.py",
+        "javascript": "/code/samples/hmi/joystick-l-rev-b.js",
+        "dotnet": "/code/samples/hmi/joystick-l-rev-b.cs",
+        "micropython": "/code/samples/hmi/joystick-l-rev-b.mpy",
+        "arduino": "/code/samples/hmi/joystick-l-rev-b.cpp"
+      }
+    },
+    {
+      "name": "Keypad 3x4 Rev B",
+      "shortDescription": "Keypad 3x4 Rev B - High-quality DUELink module",
+      "partNumber": "GDL-HIKEYPAD3X4-B",
+      "category": "HMI",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "keypad-3x4-front.png",
+        "pencil": "keypad-3x4-pencil.png",
+        "back": "keypad-3x4-back.png",
+        "front45": "keypad-3x4-front-45.png",
+        "back45": "keypad-3x4-back-45.png"
+      },
+      "overviewText": "/desc/hmi/keypad-3x4-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-hikeypad3x4-b.step",
+        "schematic": "/sch/gdl-hikeypad3x4-b.pdf"
+      },
+      "driverCode": "/code/drivers/hmi/keypad-3x4-rev-b.due",
+      "samples": {
+        "script": "/code/samples/hmi/keypad-3x4-rev-b.due",
+        "python": "/code/samples/hmi/keypad-3x4-rev-b.py",
+        "javascript": "/code/samples/hmi/keypad-3x4-rev-b.js",
+        "dotnet": "/code/samples/hmi/keypad-3x4-rev-b.cs",
+        "micropython": "/code/samples/hmi/keypad-3x4-rev-b.mpy",
+        "arduino": "/code/samples/hmi/keypad-3x4-rev-b.cpp"
+      }
+    },
+    {
+      "name": "Keypad 4x4 Rev B",
+      "shortDescription": "Keypad 4x4 Rev B - High-quality DUELink module",
+      "partNumber": "GDL-HIKEYPAD4X4-B",
+      "category": "HMI",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "keypad-4x4-front.png",
+        "pencil": "keypad-4x4-pencil.png",
+        "back": "keypad-4x4-back.png",
+        "front45": "keypad-4x4-front-45.png",
+        "back45": "keypad-4x4-back-45.png"
+      },
+      "overviewText": "/desc/hmi/keypad-4x4-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-hikeypad4x4-b.step",
+        "schematic": "/sch/gdl-hikeypad4x4-b.pdf"
+      },
+      "driverCode": "/code/drivers/hmi/keypad-4x4-rev-b.due",
+      "samples": {
+        "script": "/code/samples/hmi/keypad-4x4-rev-b.due",
+        "python": "/code/samples/hmi/keypad-4x4-rev-b.py",
+        "javascript": "/code/samples/hmi/keypad-4x4-rev-b.js",
+        "dotnet": "/code/samples/hmi/keypad-4x4-rev-b.cs",
+        "micropython": "/code/samples/hmi/keypad-4x4-rev-b.mpy",
+        "arduino": "/code/samples/hmi/keypad-4x4-rev-b.cpp"
+      }
+    },
+    {
+      "name": "Rotary Rev C",
+      "shortDescription": "Rotary Rev C - High-quality DUELink module",
+      "partNumber": "GDL-HIKEYPAD4X4-C",
+      "category": "HMI",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "rotary-front.png",
+        "pencil": "rotary-pencil.png",
+        "back": "rotary-back.png",
+        "front45": "rotary-front-45.png",
+        "back45": "rotary-back-45.png"
+      },
+      "overviewText": "/desc/hmi/rotary-rev-c.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-hikeypad4x4-c.step",
+        "schematic": "/sch/gdl-hikeypad4x4-c.pdf"
+      },
+      "driverCode": "/code/drivers/hmi/rotary-rev-c.due",
+      "samples": {
+        "script": "/code/samples/hmi/rotary-rev-c.due",
+        "python": "/code/samples/hmi/rotary-rev-c.py",
+        "javascript": "/code/samples/hmi/rotary-rev-c.js",
+        "dotnet": "/code/samples/hmi/rotary-rev-c.cs",
+        "micropython": "/code/samples/hmi/rotary-rev-c.mpy",
+        "arduino": "/code/samples/hmi/rotary-rev-c.cpp"
+      }
+    },
+    {
+      "name": "Flash Rev A",
+      "shortDescription": "Flash Rev A - High-quality DUELink module",
+      "partNumber": "GDL-STFLASH-A",
+      "category": "Storage",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "flash-front.png",
+        "pencil": "flash-pencil.png",
+        "back": "flash-back.png",
+        "front45": "flash-front-45.png",
+        "back45": "flash-back-45.png"
+      },
+      "overviewText": "/desc/storage/flash-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-stflash-a.step",
+        "schematic": "/sch/gdl-stflash-a.pdf"
+      },
+      "driverCode": "/code/drivers/storage/flash-rev-a.due",
+      "samples": {
+        "script": "/code/samples/storage/flash-rev-a.due",
+        "python": "/code/samples/storage/flash-rev-a.py",
+        "javascript": "/code/samples/storage/flash-rev-a.js",
+        "dotnet": "/code/samples/storage/flash-rev-a.cs",
+        "micropython": "/code/samples/storage/flash-rev-a.mpy",
+        "arduino": "/code/samples/storage/flash-rev-a.cpp"
+      }
+    },
+    {
+      "name": "SD Card Rev B",
+      "shortDescription": "SD Card Rev B - High-quality DUELink module",
+      "partNumber": "GDL-STSDCARD-B",
+      "category": "Storage",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "sdcard-front.png",
+        "pencil": "sdcard-pencil.png",
+        "back": "sdcard-back.png",
+        "front45": "sdcard-front-45.png",
+        "back45": "sdcard-back-45.png"
+      },
+      "overviewText": "/desc/storage/sd-card-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-stsdcard-b.step",
+        "schematic": "/sch/gdl-stsdcard-b.pdf"
+      },
+      "driverCode": "/code/drivers/storage/sd-card-rev-b.due",
+      "samples": {
+        "script": "/code/samples/storage/sd-card-rev-b.due",
+        "python": "/code/samples/storage/sd-card-rev-b.py",
+        "javascript": "/code/samples/storage/sd-card-rev-b.js",
+        "dotnet": "/code/samples/storage/sd-card-rev-b.cs",
+        "micropython": "/code/samples/storage/sd-card-rev-b.mpy",
+        "arduino": "/code/samples/storage/sd-card-rev-b.cpp"
+      }
+    },
+    {
+      "name": "MicroSD Rev A",
+      "shortDescription": "MicroSD Rev A - High-quality DUELink module",
+      "partNumber": "GDL-STMICROSD-A",
+      "category": "Storage",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "microsd-front.png",
+        "pencil": "microsd-pencil.png",
+        "back": "microsd-back.png",
+        "front45": "microsd-front-45.png",
+        "back45": "microsd-back-45.png"
+      },
+      "overviewText": "/desc/storage/microsd-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-stmicrosd-a.step",
+        "schematic": "/sch/gdl-stmicrosd-a.pdf"
+      },
+      "driverCode": "/code/drivers/storage/microsd-rev-a.due",
+      "samples": {
+        "script": "/code/samples/storage/microsd-rev-a.due",
+        "python": "/code/samples/storage/microsd-rev-a.py",
+        "javascript": "/code/samples/storage/microsd-rev-a.js",
+        "dotnet": "/code/samples/storage/microsd-rev-a.cs",
+        "micropython": "/code/samples/storage/microsd-rev-a.mpy",
+        "arduino": "/code/samples/storage/microsd-rev-a.cpp"
+      }
+    },
+    {
+      "name": "GNSS WA Rev A",
+      "shortDescription": "GNSS WA Rev A - High-quality DUELink module",
+      "partNumber": "GDL-WGNSSWA-A",
+      "category": "Wireless",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "gnsswa-front.png",
+        "pencil": "gnsswa-pencil.png",
+        "back": "gnsswa-back.png",
+        "front45": "gnsswa-front-45.png",
+        "back45": "gnsswa-back-45.png"
+      },
+      "overviewText": "/desc/wireless/gnss-wa-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-wgnsswa-a.step",
+        "schematic": "/sch/gdl-wgnsswa-a.pdf"
+      },
+      "driverCode": "/code/drivers/wireless/gnss-wa-rev-a.due",
+      "samples": {
+        "script": "/code/samples/wireless/gnss-wa-rev-a.due",
+        "python": "/code/samples/wireless/gnss-wa-rev-a.py",
+        "javascript": "/code/samples/wireless/gnss-wa-rev-a.js",
+        "dotnet": "/code/samples/wireless/gnss-wa-rev-a.cs",
+        "micropython": "/code/samples/wireless/gnss-wa-rev-a.mpy",
+        "arduino": "/code/samples/wireless/gnss-wa-rev-a.cpp"
+      }
+    },
+    {
+      "name": "GNSS Rev B",
+      "shortDescription": "GNSS Rev B - High-quality DUELink module",
+      "partNumber": "GDL-WGNSS-B",
+      "category": "Wireless",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "gnss-front.png",
+        "pencil": "gnss-pencil.png",
+        "back": "gnss-back.png",
+        "front45": "gnss-front-45.png",
+        "back45": "gnss-back-45.png"
+      },
+      "overviewText": "/desc/wireless/gnss-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-wgnss-b.step",
+        "schematic": "/sch/gdl-wgnss-b.pdf"
+      },
+      "driverCode": "/code/drivers/wireless/gnss-rev-b.due",
+      "samples": {
+        "script": "/code/samples/wireless/gnss-rev-b.due",
+        "python": "/code/samples/wireless/gnss-rev-b.py",
+        "javascript": "/code/samples/wireless/gnss-rev-b.js",
+        "dotnet": "/code/samples/wireless/gnss-rev-b.cs",
+        "micropython": "/code/samples/wireless/gnss-rev-b.mpy",
+        "arduino": "/code/samples/wireless/gnss-rev-b.cpp"
+      }
+    },
+    {
+      "name": "Infrared Rev A",
+      "shortDescription": "Infrared Rev A - High-quality DUELink module",
+      "partNumber": "GDL-WINFRARED-A",
+      "category": "Wireless",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "infrared-front.png",
+        "pencil": "infrared-pencil.png",
+        "back": "infrared-back.png",
+        "front45": "infrared-front-45.png",
+        "back45": "infrared-back-45.png"
+      },
+      "overviewText": "/desc/wireless/infrared-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-winfrared-a.step",
+        "schematic": "/sch/gdl-winfrared-a.pdf"
+      },
+      "driverCode": "/code/drivers/wireless/infrared-rev-a.due",
+      "samples": {
+        "script": "/code/samples/wireless/infrared-rev-a.due",
+        "python": "/code/samples/wireless/infrared-rev-a.py",
+        "javascript": "/code/samples/wireless/infrared-rev-a.js",
+        "dotnet": "/code/samples/wireless/infrared-rev-a.cs",
+        "micropython": "/code/samples/wireless/infrared-rev-a.mpy",
+        "arduino": "/code/samples/wireless/infrared-rev-a.cpp"
+      }
+    },
+    {
+      "name": "NRF24 Max Rev C",
+      "shortDescription": "NRF24 Max Rev C - High-quality DUELink module",
+      "partNumber": "GDL-WNRF24MAX-C",
+      "category": "Wireless",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "nrf24-max-front.png",
+        "pencil": "nrf24-max-pencil.png",
+        "back": "nrf24-max-back.png",
+        "front45": "nrf24-max-front-45.png",
+        "back45": "nrf24-max-back-45.png"
+      },
+      "overviewText": "/desc/wireless/nrf24-max-rev-c.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-wnrf24max-c.step",
+        "schematic": "/sch/gdl-wnrf24max-c.pdf"
+      },
+      "driverCode": "/code/drivers/wireless/nrf24-max-rev-c.due",
+      "samples": {
+        "script": "/code/samples/wireless/nrf24-max-rev-c.due",
+        "python": "/code/samples/wireless/nrf24-max-rev-c.py",
+        "javascript": "/code/samples/wireless/nrf24-max-rev-c.js",
+        "dotnet": "/code/samples/wireless/nrf24-max-rev-c.cs",
+        "micropython": "/code/samples/wireless/nrf24-max-rev-c.mpy",
+        "arduino": "/code/samples/wireless/nrf24-max-rev-c.cpp"
+      }
+    },
+    {
+      "name": "NRF24 Min Rev C",
+      "shortDescription": "NRF24 Min Rev C - High-quality DUELink module",
+      "partNumber": "GDL-WNRF24MIN-C",
+      "category": "Wireless",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "nrf24-min-front.png",
+        "pencil": "nrf24-min-pencil.png",
+        "back": "nrf24-min-back.png",
+        "front45": "nrf24-min-front-45.png",
+        "back45": "nrf24-min-back-45.png"
+      },
+      "overviewText": "/desc/wireless/nrf24-min-rev-c.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-wnrf24min-c.step",
+        "schematic": "/sch/gdl-wnrf24min-c.pdf"
+      },
+      "driverCode": "/code/drivers/wireless/nrf24-min-rev-c.due",
+      "samples": {
+        "script": "/code/samples/wireless/nrf24-min-rev-c.due",
+        "python": "/code/samples/wireless/nrf24-min-rev-c.py",
+        "javascript": "/code/samples/wireless/nrf24-min-rev-c.js",
+        "dotnet": "/code/samples/wireless/nrf24-min-rev-c.cs",
+        "micropython": "/code/samples/wireless/nrf24-min-rev-c.mpy",
+        "arduino": "/code/samples/wireless/nrf24-min-rev-c.cpp"
+      }
+    },
+    {
+      "name": "RFID Rev B",
+      "shortDescription": "RFID Rev B - High-quality DUELink module",
+      "partNumber": "GDL-WRFID-B",
+      "category": "Wireless",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "rfid-front.png",
+        "pencil": "rfid-pencil.png",
+        "back": "rfid-back.png",
+        "front45": "rfid-front-45.png",
+        "back45": "rfid-back-45.png"
+      },
+      "overviewText": "/desc/wireless/rfid-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-wrfid-b.step",
+        "schematic": "/sch/gdl-wrfid-b.pdf"
+      },
+      "driverCode": "/code/drivers/wireless/rfid-rev-b.due",
+      "samples": {
+        "script": "/code/samples/wireless/rfid-rev-b.due",
+        "python": "/code/samples/wireless/rfid-rev-b.py",
+        "javascript": "/code/samples/wireless/rfid-rev-b.js",
+        "dotnet": "/code/samples/wireless/rfid-rev-b.cs",
+        "micropython": "/code/samples/wireless/rfid-rev-b.mpy",
+        "arduino": "/code/samples/wireless/rfid-rev-b.cpp"
+      }
+    },
+    {
+      "name": "Accel Rev A",
+      "shortDescription": "Accel Rev A - High-quality DUELink module",
+      "partNumber": "GDL-SEACCEL-A",
+      "category": "Sensor",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "accel-front.png",
+        "pencil": "accel-pencil.png",
+        "back": "accel-back.png",
+        "front45": "accel-front-45.png",
+        "back45": "accel-back-45.png"
+      },
+      "overviewText": "/desc/sensor/accel-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-seaccel-a.step",
+        "schematic": "/sch/gdl-seaccel-a.pdf"
+      },
+      "driverCode": "/code/drivers/sensor/accel-rev-a.due",
+      "samples": {
+        "script": "/code/samples/sensor/accel-rev-a.due",
+        "python": "/code/samples/sensor/accel-rev-a.py",
+        "javascript": "/code/samples/sensor/accel-rev-a.js",
+        "dotnet": "/code/samples/sensor/accel-rev-a.cs",
+        "micropython": "/code/samples/sensor/accel-rev-a.mpy",
+        "arduino": "/code/samples/sensor/accel-rev-a.cpp"
+      }
+    },
+    {
+      "name": "AirQuality Rev A",
+      "shortDescription": "AirQuality Rev A - High-quality DUELink module",
+      "partNumber": "GDL-SEAIRQUALITY-A",
+      "category": "Sensor",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "airquality-front.png",
+        "pencil": "airquality-pencil.png",
+        "back": "airquality-back.png",
+        "front45": "airquality-front-45.png",
+        "back45": "airquality-back-45.png"
+      },
+      "overviewText": "/desc/sensor/airquality-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-seairquality-a.step",
+        "schematic": "/sch/gdl-seairquality-a.pdf"
+      },
+      "driverCode": "/code/drivers/sensor/airquality-rev-a.due",
+      "samples": {
+        "script": "/code/samples/sensor/airquality-rev-a.due",
+        "python": "/code/samples/sensor/airquality-rev-a.py",
+        "javascript": "/code/samples/sensor/airquality-rev-a.js",
+        "dotnet": "/code/samples/sensor/airquality-rev-a.cs",
+        "micropython": "/code/samples/sensor/airquality-rev-a.mpy",
+        "arduino": "/code/samples/sensor/airquality-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Barometer Rev B",
+      "shortDescription": "Barometer Rev B - High-quality DUELink module",
+      "partNumber": "GDL-SEBAROMETER-B",
+      "category": "Sensor",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "barometer-front.png",
+        "pencil": "barometer-pencil.png",
+        "back": "barometer-back.png",
+        "front45": "barometer-front-45.png",
+        "back45": "barometer-back-45.png"
+      },
+      "overviewText": "/desc/sensor/barometer-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-sebarometer-b.step",
+        "schematic": "/sch/gdl-sebarometer-b.pdf"
+      },
+      "driverCode": "/code/drivers/sensor/barometer-rev-b.due",
+      "samples": {
+        "script": "/code/samples/sensor/barometer-rev-b.due",
+        "python": "/code/samples/sensor/barometer-rev-b.py",
+        "javascript": "/code/samples/sensor/barometer-rev-b.js",
+        "dotnet": "/code/samples/sensor/barometer-rev-b.cs",
+        "micropython": "/code/samples/sensor/barometer-rev-b.mpy",
+        "arduino": "/code/samples/sensor/barometer-rev-b.cpp"
+      }
+    },
+    {
+      "name": "ClipSense Rev A",
+      "shortDescription": "ClipSense Rev A - High-quality DUELink module",
+      "partNumber": "GDL-SECLIPSENSE-A",
+      "category": "Sensor",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "clipsense-front.png",
+        "pencil": "clipsense-pencil.png",
+        "back": "clipsense-back.png",
+        "front45": "clipsense-front-45.png",
+        "back45": "clipsense-back-45.png"
+      },
+      "overviewText": "/desc/sensor/clipsense-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-seclipsense-a.step",
+        "schematic": "/sch/gdl-seclipsense-a.pdf"
+      },
+      "driverCode": "/code/drivers/sensor/clipsense-rev-a.due",
+      "samples": {
+        "script": "/code/samples/sensor/clipsense-rev-a.due",
+        "python": "/code/samples/sensor/clipsense-rev-a.py",
+        "javascript": "/code/samples/sensor/clipsense-rev-a.js",
+        "dotnet": "/code/samples/sensor/clipsense-rev-a.cs",
+        "micropython": "/code/samples/sensor/clipsense-rev-a.mpy",
+        "arduino": "/code/samples/sensor/clipsense-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Current Rev A",
+      "shortDescription": "Current Rev A - High-quality DUELink module",
+      "partNumber": "GDL-SECURRENT-A",
+      "category": "Sensor",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "current-front.png",
+        "pencil": "current-pencil.png",
+        "back": "current-back.png",
+        "front45": "current-front-45.png",
+        "back45": "current-back-45.png"
+      },
+      "overviewText": "/desc/sensor/current-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-securrent-a.step",
+        "schematic": "/sch/gdl-securrent-a.pdf"
+      },
+      "driverCode": "/code/drivers/sensor/current-rev-a.due",
+      "samples": {
+        "script": "/code/samples/sensor/current-rev-a.due",
+        "python": "/code/samples/sensor/current-rev-a.py",
+        "javascript": "/code/samples/sensor/current-rev-a.js",
+        "dotnet": "/code/samples/sensor/current-rev-a.cs",
+        "micropython": "/code/samples/sensor/current-rev-a.mpy",
+        "arduino": "/code/samples/sensor/current-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Distance Rev B",
+      "shortDescription": "Distance Rev B - High-quality DUELink module",
+      "partNumber": "GDL-SEDISTANCE-B",
+      "category": "Sensor",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "distance-front.png",
+        "pencil": "distance-pencil.png",
+        "back": "distance-back.png",
+        "front45": "distance-front-45.png",
+        "back45": "distance-back-45.png"
+      },
+      "overviewText": "/desc/sensor/distance-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-sedistance-b.step",
+        "schematic": "/sch/gdl-sedistance-b.pdf"
+      },
+      "driverCode": "/code/drivers/sensor/distance-rev-b.due",
+      "samples": {
+        "script": "/code/samples/sensor/distance-rev-b.due",
+        "python": "/code/samples/sensor/distance-rev-b.py",
+        "javascript": "/code/samples/sensor/distance-rev-b.js",
+        "dotnet": "/code/samples/sensor/distance-rev-b.cs",
+        "micropython": "/code/samples/sensor/distance-rev-b.mpy",
+        "arduino": "/code/samples/sensor/distance-rev-b.cpp"
+      }
+    },
+    {
+      "name": "DOF9 Rev C",
+      "shortDescription": "DOF9 Rev C - High-quality DUELink module",
+      "partNumber": "GDL-SEDOF9-C",
+      "category": "Sensor",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "dof9-front.png",
+        "pencil": "dof9-pencil.png",
+        "back": "dof9-back.png",
+        "front45": "dof9-front-45.png",
+        "back45": "dof9-back-45.png"
+      },
+      "overviewText": "/desc/sensor/dof9-rev-c.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-sedof9-c.step",
+        "schematic": "/sch/gdl-sedof9-c.pdf"
+      },
+      "driverCode": "/code/drivers/sensor/dof9-rev-c.due",
+      "samples": {
+        "script": "/code/samples/sensor/dof9-rev-c.due",
+        "python": "/code/samples/sensor/dof9-rev-c.py",
+        "javascript": "/code/samples/sensor/dof9-rev-c.js",
+        "dotnet": "/code/samples/sensor/dof9-rev-c.cs",
+        "micropython": "/code/samples/sensor/dof9-rev-c.mpy",
+        "arduino": "/code/samples/sensor/dof9-rev-c.cpp"
+      }
+    },
+    {
+      "name": "EKG Rev A",
+      "shortDescription": "EKG Rev A - High-quality DUELink module",
+      "partNumber": "GDL-SEEKG-A",
+      "category": "Sensor",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "ekg-front.png",
+        "pencil": "ekg-pencil.png",
+        "back": "ekg-back.png",
+        "front45": "ekg-front-45.png",
+        "back45": "ekg-back-45.png"
+      },
+      "overviewText": "/desc/sensor/ekg-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-seekg-a.step",
+        "schematic": "/sch/gdl-seekg-a.pdf"
+      },
+      "driverCode": "/code/drivers/sensor/ekg-rev-a.due",
+      "samples": {
+        "script": "/code/samples/sensor/ekg-rev-a.due",
+        "python": "/code/samples/sensor/ekg-rev-a.py",
+        "javascript": "/code/samples/sensor/ekg-rev-a.js",
+        "dotnet": "/code/samples/sensor/ekg-rev-a.cs",
+        "micropython": "/code/samples/sensor/ekg-rev-a.mpy",
+        "arduino": "/code/samples/sensor/ekg-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Gas Rev B",
+      "shortDescription": "Gas Rev B - High-quality DUELink module",
+      "partNumber": "GDL-SEGAS-B",
+      "category": "Sensor",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "gas-front.png",
+        "pencil": "gas-pencil.png",
+        "back": "gas-back.png",
+        "front45": "gas-front-45.png",
+        "back45": "gas-back-45.png"
+      },
+      "overviewText": "/desc/sensor/gas-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-segas-b.step",
+        "schematic": "/sch/gdl-segas-b.pdf"
+      },
+      "driverCode": "/code/drivers/sensor/gas-rev-b.due",
+      "samples": {
+        "script": "/code/samples/sensor/gas-rev-b.due",
+        "python": "/code/samples/sensor/gas-rev-b.py",
+        "javascript": "/code/samples/sensor/gas-rev-b.js",
+        "dotnet": "/code/samples/sensor/gas-rev-b.cs",
+        "micropython": "/code/samples/sensor/gas-rev-b.mpy",
+        "arduino": "/code/samples/sensor/gas-rev-b.cpp"
+      }
+    },
+    {
+      "name": "Light Rev A",
+      "shortDescription": "Light Rev A - High-quality DUELink module",
+      "partNumber": "GDL-SELIGHT-A",
+      "category": "Sensor",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "light-front.png",
+        "pencil": "light-pencil.png",
+        "back": "light-back.png",
+        "front45": "light-front-45.png",
+        "back45": "light-back-45.png"
+      },
+      "overviewText": "/desc/sensor/light-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-selight-a.step",
+        "schematic": "/sch/gdl-selight-a.pdf"
+      },
+      "driverCode": "/code/drivers/sensor/light-rev-a.due",
+      "samples": {
+        "script": "/code/samples/sensor/light-rev-a.due",
+        "python": "/code/samples/sensor/light-rev-a.py",
+        "javascript": "/code/samples/sensor/light-rev-a.js",
+        "dotnet": "/code/samples/sensor/light-rev-a.cs",
+        "micropython": "/code/samples/sensor/light-rev-a.mpy",
+        "arduino": "/code/samples/sensor/light-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Motion Rev B",
+      "shortDescription": "Motion Rev B - High-quality DUELink module",
+      "partNumber": "GDL-SEMOTION-B",
+      "category": "Sensor",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "motion-front.png",
+        "pencil": "motion-pencil.png",
+        "back": "motion-back.png",
+        "front45": "motion-front-45.png",
+        "back45": "motion-back-45.png"
+      },
+      "overviewText": "/desc/sensor/motion-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-semotion-b.step",
+        "schematic": "/sch/gdl-semotion-b.pdf"
+      },
+      "driverCode": "/code/drivers/sensor/motion-rev-b.due",
+      "samples": {
+        "script": "/code/samples/sensor/motion-rev-b.due",
+        "python": "/code/samples/sensor/motion-rev-b.py",
+        "javascript": "/code/samples/sensor/motion-rev-b.js",
+        "dotnet": "/code/samples/sensor/motion-rev-b.cs",
+        "micropython": "/code/samples/sensor/motion-rev-b.mpy",
+        "arduino": "/code/samples/sensor/motion-rev-b.cpp"
+      }
+    },
+    {
+      "name": "Pressure Rev B",
+      "shortDescription": "Pressure Rev B - High-quality DUELink module",
+      "partNumber": "GDL-SEPRESSURE100-B",
+      "category": "Sensor",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "pressure-front.png",
+        "pencil": "pressure-pencil.png",
+        "back": "pressure-back.png",
+        "front45": "pressure-front-45.png",
+        "back45": "pressure-back-45.png"
+      },
+      "overviewText": "/desc/sensor/pressure-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-sepressure100-b.step",
+        "schematic": "/sch/gdl-sepressure100-b.pdf"
+      },
+      "driverCode": "/code/drivers/sensor/pressure-rev-b.due",
+      "samples": {
+        "script": "/code/samples/sensor/pressure-rev-b.due",
+        "python": "/code/samples/sensor/pressure-rev-b.py",
+        "javascript": "/code/samples/sensor/pressure-rev-b.js",
+        "dotnet": "/code/samples/sensor/pressure-rev-b.cs",
+        "micropython": "/code/samples/sensor/pressure-rev-b.mpy",
+        "arduino": "/code/samples/sensor/pressure-rev-b.cpp"
+      }
+    },
+    {
+      "name": "RTC Rev B",
+      "shortDescription": "RTC Rev B - High-quality DUELink module",
+      "partNumber": "GDL-SERTC-B",
+      "category": "Sensor",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "rtc-front.png",
+        "pencil": "rtc-pencil.png",
+        "back": "rtc-back.png",
+        "front45": "rtc-front-45.png",
+        "back45": "rtc-back-45.png"
+      },
+      "overviewText": "/desc/sensor/rtc-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-sertc-b.step",
+        "schematic": "/sch/gdl-sertc-b.pdf"
+      },
+      "driverCode": "/code/drivers/sensor/rtc-rev-b.due",
+      "samples": {
+        "script": "/code/samples/sensor/rtc-rev-b.due",
+        "python": "/code/samples/sensor/rtc-rev-b.py",
+        "javascript": "/code/samples/sensor/rtc-rev-b.js",
+        "dotnet": "/code/samples/sensor/rtc-rev-b.cs",
+        "micropython": "/code/samples/sensor/rtc-rev-b.mpy",
+        "arduino": "/code/samples/sensor/rtc-rev-b.cpp"
+      }
+    },
+    {
+      "name": "TempHmd Rev B",
+      "shortDescription": "TempHmd Rev B - High-quality DUELink module",
+      "partNumber": "GDL-SETEMPHMD-B",
+      "category": "Sensor",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "temphmd-front.png",
+        "pencil": "temphmd-pencil.png",
+        "back": "temphmd-back.png",
+        "front45": "temphmd-front-45.png",
+        "back45": "temphmd-back-45.png"
+      },
+      "overviewText": "/desc/sensor/temphmd-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-setemphmd-b.step",
+        "schematic": "/sch/gdl-setemphmd-b.pdf"
+      },
+      "driverCode": "/code/drivers/sensor/temphmd-rev-b.due",
+      "samples": {
+        "script": "/code/samples/sensor/temphmd-rev-b.due",
+        "python": "/code/samples/sensor/temphmd-rev-b.py",
+        "javascript": "/code/samples/sensor/temphmd-rev-b.js",
+        "dotnet": "/code/samples/sensor/temphmd-rev-b.cs",
+        "micropython": "/code/samples/sensor/temphmd-rev-b.mpy",
+        "arduino": "/code/samples/sensor/temphmd-rev-b.cpp"
+      }
+    },
+    {
+      "name": "TempRTD Rev B",
+      "shortDescription": "TempRTD Rev B - High-quality DUELink module",
+      "partNumber": "GDL-SETEMPRTD-A",
+      "category": "Sensor",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "temprtd-front.png",
+        "pencil": "temprtd-pencil.png",
+        "back": "temprtd-back.png",
+        "front45": "temprtd-front-45.png",
+        "back45": "temprtd-back-45.png"
+      },
+      "overviewText": "/desc/sensor/temprtd-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-setemprtd-a.step",
+        "schematic": "/sch/gdl-setemprtd-a.pdf"
+      },
+      "driverCode": "/code/drivers/sensor/temprtd-rev-b.due",
+      "samples": {
+        "script": "/code/samples/sensor/temprtd-rev-b.due",
+        "python": "/code/samples/sensor/temprtd-rev-b.py",
+        "javascript": "/code/samples/sensor/temprtd-rev-b.js",
+        "dotnet": "/code/samples/sensor/temprtd-rev-b.cs",
+        "micropython": "/code/samples/sensor/temprtd-rev-b.mpy",
+        "arduino": "/code/samples/sensor/temprtd-rev-b.cpp"
+      }
+    },
+    {
+      "name": "LED MT1208 Rev A",
+      "shortDescription": "LED MT1208 Rev A - High-quality DUELink module",
+      "partNumber": "GDL-LLEDMT1208R-A",
+      "category": "LED",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "led-mt1208-front.png",
+        "pencil": "led-mt1208-pencil.png",
+        "back": "led-mt1208-back.png",
+        "front45": "led-mt1208-front-45.png",
+        "back45": "led-mt1208-back-45.png"
+      },
+      "overviewText": "/desc/led/led-mt1208-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-lledmt1208r-a.step",
+        "schematic": "/sch/gdl-lledmt1208r-a.pdf"
+      },
+      "driverCode": "/code/drivers/led/led-mt1208-rev-a.due",
+      "samples": {
+        "script": "/code/samples/led/led-mt1208-rev-a.due",
+        "python": "/code/samples/led/led-mt1208-rev-a.py",
+        "javascript": "/code/samples/led/led-mt1208-rev-a.js",
+        "dotnet": "/code/samples/led/led-mt1208-rev-a.cs",
+        "micropython": "/code/samples/led/led-mt1208-rev-a.mpy",
+        "arduino": "/code/samples/led/led-mt1208-rev-a.cpp"
+      }
+    },
+    {
+      "name": "LED R16 Rev B",
+      "shortDescription": "LED R16 Rev B - High-quality DUELink module",
+      "partNumber": "GDL-LLEDR16R-B",
+      "category": "LED",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "led-r16-front.png",
+        "pencil": "led-r16-pencil.png",
+        "back": "led-r16-back.png",
+        "front45": "led-r16-front-45.png",
+        "back45": "led-r16-back-45.png"
+      },
+      "overviewText": "/desc/led/led-r16-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-lledr16r-b.step",
+        "schematic": "/sch/gdl-lledr16r-b.pdf"
+      },
+      "driverCode": "/code/drivers/led/led-r16-rev-b.due",
+      "samples": {
+        "script": "/code/samples/led/led-r16-rev-b.due",
+        "python": "/code/samples/led/led-r16-rev-b.py",
+        "javascript": "/code/samples/led/led-r16-rev-b.js",
+        "dotnet": "/code/samples/led/led-r16-rev-b.cs",
+        "micropython": "/code/samples/led/led-r16-rev-b.mpy",
+        "arduino": "/code/samples/led/led-r16-rev-b.cpp"
+      }
+    },
+    {
+      "name": "LED RGB3 Rev A",
+      "shortDescription": "LED RGB3 Rev A - High-quality DUELink module",
+      "partNumber": "GDL-LLEDRGB3-A",
+      "category": "LED",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "led-rgb3-front.png",
+        "pencil": "led-rgb3-pencil.png",
+        "back": "led-rgb3-back.png",
+        "front45": "led-rgb3-front-45.png",
+        "back45": "led-rgb3-back-45.png"
+      },
+      "overviewText": "/desc/led/led-rgb3-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-lledrgb3-a.step",
+        "schematic": "/sch/gdl-lledrgb3-a.pdf"
+      },
+      "driverCode": "/code/drivers/led/led-rgb3-rev-a.due",
+      "samples": {
+        "script": "/code/samples/led/led-rgb3-rev-a.due",
+        "python": "/code/samples/led/led-rgb3-rev-a.py",
+        "javascript": "/code/samples/led/led-rgb3-rev-a.js",
+        "dotnet": "/code/samples/led/led-rgb3-rev-a.cs",
+        "micropython": "/code/samples/led/led-rgb3-rev-a.mpy",
+        "arduino": "/code/samples/led/led-rgb3-rev-a.cpp"
+      }
+    },
+    {
+      "name": "LED S284 Rev B",
+      "shortDescription": "LED S284 Rev B - High-quality DUELink module",
+      "partNumber": "GDL-Lled284X-B",
+      "category": "LED",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "led-s284-front.png",
+        "pencil": "led-s284-pencil.png",
+        "back": "led-s284-back.png",
+        "front45": "led-s284-front-45.png",
+        "back45": "led-s284-back-45.png"
+      },
+      "overviewText": "/desc/led/led-s284-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-lled284x-b.step",
+        "schematic": "/sch/gdl-lled284x-b.pdf"
+      },
+      "driverCode": "/code/drivers/led/led-s284-rev-b.due",
+      "samples": {
+        "script": "/code/samples/led/led-s284-rev-b.due",
+        "python": "/code/samples/led/led-s284-rev-b.py",
+        "javascript": "/code/samples/led/led-s284-rev-b.js",
+        "dotnet": "/code/samples/led/led-s284-rev-b.cs",
+        "micropython": "/code/samples/led/led-s284-rev-b.mpy",
+        "arduino": "/code/samples/led/led-s284-rev-b.cpp"
+      }
+    },
+    {
+      "name": "LED S404 Rev A",
+      "shortDescription": "LED S404 Rev A - High-quality DUELink module",
+      "partNumber": "GDL-Lled404[  ]-A",
+      "category": "LED",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "led-s404-front.png",
+        "pencil": "led-s404-pencil.png",
+        "back": "led-s404-back.png",
+        "front45": "led-s404-front-45.png",
+        "back45": "led-s404-back-45.png"
+      },
+      "overviewText": "/desc/led/led-s404-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-lled404[  ]-a.step",
+        "schematic": "/sch/gdl-lled404[  ]-a.pdf"
+      },
+      "driverCode": "/code/drivers/led/led-s404-rev-a.due",
+      "samples": {
+        "script": "/code/samples/led/led-s404-rev-a.due",
+        "python": "/code/samples/led/led-s404-rev-a.py",
+        "javascript": "/code/samples/led/led-s404-rev-a.js",
+        "dotnet": "/code/samples/led/led-s404-rev-a.cs",
+        "micropython": "/code/samples/led/led-s404-rev-a.mpy",
+        "arduino": "/code/samples/led/led-s404-rev-a.cpp"
+      }
+    },
+    {
+      "name": "LED S564 Rev A",
+      "shortDescription": "LED S564 Rev A - High-quality DUELink module",
+      "partNumber": "GDL-Lled564XX-A",
+      "category": "LED",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "led-s564-front.png",
+        "pencil": "led-s564-pencil.png",
+        "back": "led-s564-back.png",
+        "front45": "led-s564-front-45.png",
+        "back45": "led-s564-back-45.png"
+      },
+      "overviewText": "/desc/led/led-s564-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-lled564xx-a.step",
+        "schematic": "/sch/gdl-lled564xx-a.pdf"
+      },
+      "driverCode": "/code/drivers/led/led-s564-rev-a.due",
+      "samples": {
+        "script": "/code/samples/led/led-s564-rev-a.due",
+        "python": "/code/samples/led/led-s564-rev-a.py",
+        "javascript": "/code/samples/led/led-s564-rev-a.js",
+        "dotnet": "/code/samples/led/led-s564-rev-a.cs",
+        "micropython": "/code/samples/led/led-s564-rev-a.mpy",
+        "arduino": "/code/samples/led/led-s564-rev-a.cpp"
+      }
+    },
+    {
+      "name": "LED SS805",
+      "shortDescription": "LED SS805 - High-quality DUELink module",
+      "partNumber": "GDL-LledS805-C",
+      "category": "LED",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "led-ss805-front.png",
+        "pencil": "led-ss805-pencil.png",
+        "back": "led-ss805-back.png",
+        "front45": "led-ss805-front-45.png",
+        "back45": "led-ss805-back-45.png"
+      },
+      "overviewText": "/desc/led/led-ss805.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-lleds805-c.step",
+        "schematic": "/sch/gdl-lleds805-c.pdf"
+      },
+      "driverCode": "/code/drivers/led/led-ss805.due",
+      "samples": {
+        "script": "/code/samples/led/led-ss805.due",
+        "python": "/code/samples/led/led-ss805.py",
+        "javascript": "/code/samples/led/led-ss805.js",
+        "dotnet": "/code/samples/led/led-ss805.cs",
+        "micropython": "/code/samples/led/led-ss805.mpy",
+        "arduino": "/code/samples/led/led-ss805.cpp"
+      }
+    },
+    {
+      "name": "Smart LED Rev A",
+      "shortDescription": "Smart LED Rev A - High-quality DUELink module",
+      "partNumber": "GDL-LSMARTLED-A",
+      "category": "LED",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "smart-led-front.png",
+        "pencil": "smart-led-pencil.png",
+        "back": "smart-led-back.png",
+        "front45": "smart-led-front-45.png",
+        "back45": "smart-led-back-45.png"
+      },
+      "overviewText": "/desc/led/smart-led-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-lsmartled-a.step",
+        "schematic": "/sch/gdl-lsmartled-a.pdf"
+      },
+      "driverCode": "/code/drivers/led/smart-led-rev-a.due",
+      "samples": {
+        "script": "/code/samples/led/smart-led-rev-a.due",
+        "python": "/code/samples/led/smart-led-rev-a.py",
+        "javascript": "/code/samples/led/smart-led-rev-a.js",
+        "dotnet": "/code/samples/led/smart-led-rev-a.cs",
+        "micropython": "/code/samples/led/smart-led-rev-a.mpy",
+        "arduino": "/code/samples/led/smart-led-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Buzzer Rev B",
+      "shortDescription": "Buzzer Rev B - High-quality DUELink module",
+      "partNumber": "GDL-SOBUZZER-B",
+      "category": "Sound",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "buzzer-front.png",
+        "pencil": "buzzer-pencil.png",
+        "back": "buzzer-back.png",
+        "front45": "buzzer-front-45.png",
+        "back45": "buzzer-back-45.png"
+      },
+      "overviewText": "/desc/sound/buzzer-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-sobuzzer-b.step",
+        "schematic": "/sch/gdl-sobuzzer-b.pdf"
+      },
+      "driverCode": "/code/drivers/sound/buzzer-rev-b.due",
+      "samples": {
+        "script": "/code/samples/sound/buzzer-rev-b.due",
+        "python": "/code/samples/sound/buzzer-rev-b.py",
+        "javascript": "/code/samples/sound/buzzer-rev-b.js",
+        "dotnet": "/code/samples/sound/buzzer-rev-b.cs",
+        "micropython": "/code/samples/sound/buzzer-rev-b.mpy",
+        "arduino": "/code/samples/sound/buzzer-rev-b.cpp"
+      }
+    },
+    {
+      "name": "MP3 Rev A",
+      "shortDescription": "MP3 Rev A - High-quality DUELink module",
+      "partNumber": "GDL-SOMP3-A",
+      "category": "Sound",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "mp3-front.png",
+        "pencil": "mp3-pencil.png",
+        "back": "mp3-back.png",
+        "front45": "mp3-front-45.png",
+        "back45": "mp3-back-45.png"
+      },
+      "overviewText": "/desc/sound/mp3-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-somp3-a.step",
+        "schematic": "/sch/gdl-somp3-a.pdf"
+      },
+      "driverCode": "/code/drivers/sound/mp3-rev-a.due",
+      "samples": {
+        "script": "/code/samples/sound/mp3-rev-a.due",
+        "python": "/code/samples/sound/mp3-rev-a.py",
+        "javascript": "/code/samples/sound/mp3-rev-a.js",
+        "dotnet": "/code/samples/sound/mp3-rev-a.cs",
+        "micropython": "/code/samples/sound/mp3-rev-a.mpy",
+        "arduino": "/code/samples/sound/mp3-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Radio FM Rev A",
+      "shortDescription": "Radio FM Rev A - High-quality DUELink module",
+      "partNumber": "GDL-SOMP3-A",
+      "category": "Sound",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "radio-fm-front.png",
+        "pencil": "radio-fm-pencil.png",
+        "back": "radio-fm-back.png",
+        "front45": "radio-fm-front-45.png",
+        "back45": "radio-fm-back-45.png"
+      },
+      "overviewText": "/desc/sound/radio-fm-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-somp3-a.step",
+        "schematic": "/sch/gdl-somp3-a.pdf"
+      },
+      "driverCode": "/code/drivers/sound/radio-fm-rev-a.due",
+      "samples": {
+        "script": "/code/samples/sound/radio-fm-rev-a.due",
+        "python": "/code/samples/sound/radio-fm-rev-a.py",
+        "javascript": "/code/samples/sound/radio-fm-rev-a.js",
+        "dotnet": "/code/samples/sound/radio-fm-rev-a.cs",
+        "micropython": "/code/samples/sound/radio-fm-rev-a.mpy",
+        "arduino": "/code/samples/sound/radio-fm-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Spectrum Rev A",
+      "shortDescription": "Spectrum Rev A - High-quality DUELink module",
+      "partNumber": "GDL-SOSPECTRUM-A",
+      "category": "Sound",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "radio-fm-front.png",
+        "pencil": "radio-fm-pencil.png",
+        "back": "radio-fm-back.png",
+        "front45": "radio-fm-front-45.png",
+        "back45": "radio-fm-back-45.png"
+      },
+      "overviewText": "/desc/sound/spectrum-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-sospectrum-a.step",
+        "schematic": "/sch/gdl-sospectrum-a.pdf"
+      },
+      "driverCode": "/code/drivers/sound/spectrum-rev-a.due",
+      "samples": {
+        "script": "/code/samples/sound/spectrum-rev-a.due",
+        "python": "/code/samples/sound/spectrum-rev-a.py",
+        "javascript": "/code/samples/sound/spectrum-rev-a.js",
+        "dotnet": "/code/samples/sound/spectrum-rev-a.cs",
+        "micropython": "/code/samples/sound/spectrum-rev-a.mpy",
+        "arduino": "/code/samples/sound/spectrum-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Barcode L1D2D Rev A",
+      "shortDescription": "Barcode L1D2D Rev A - High-quality DUELink module",
+      "partNumber": "GDL-VIBARCODEL1D2D-A",
+      "category": "Vision",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "barcode-l1d2d-front.png",
+        "pencil": "barcode-l1d2d-pencil.png",
+        "back": "barcode-l1d2d-back.png",
+        "front45": "barcode-l1d2d-front-45.png",
+        "back45": "barcode-l1d2d-back-45.png"
+      },
+      "overviewText": "/desc/vision/barcode-l1d2d-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-vibarcodel1d2d-a.step",
+        "schematic": "/sch/gdl-vibarcodel1d2d-a.pdf"
+      },
+      "driverCode": "/code/drivers/vision/barcode-l1d2d-rev-a.due",
+      "samples": {
+        "script": "/code/samples/vision/barcode-l1d2d-rev-a.due",
+        "python": "/code/samples/vision/barcode-l1d2d-rev-a.py",
+        "javascript": "/code/samples/vision/barcode-l1d2d-rev-a.js",
+        "dotnet": "/code/samples/vision/barcode-l1d2d-rev-a.cs",
+        "micropython": "/code/samples/vision/barcode-l1d2d-rev-a.mpy",
+        "arduino": "/code/samples/vision/barcode-l1d2d-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Thermal Rev A",
+      "shortDescription": "Thermal Rev A - High-quality DUELink module",
+      "partNumber": "GDL-VITHERMAL-A",
+      "category": "Vision",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "thermal-front.png",
+        "pencil": "thermal-pencil.png",
+        "back": "thermal-back.png",
+        "front45": "thermal-front-45.png",
+        "back45": "thermal-back-45.png"
+      },
+      "overviewText": "/desc/vision/thermal-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-vithermal-a.step",
+        "schematic": "/sch/gdl-vithermal-a.pdf"
+      },
+      "driverCode": "/code/drivers/vision/thermal-rev-a.due",
+      "samples": {
+        "script": "/code/samples/vision/thermal-rev-a.due",
+        "python": "/code/samples/vision/thermal-rev-a.py",
+        "javascript": "/code/samples/vision/thermal-rev-a.js",
+        "dotnet": "/code/samples/vision/thermal-rev-a.cs",
+        "micropython": "/code/samples/vision/thermal-rev-a.mpy",
+        "arduino": "/code/samples/vision/thermal-rev-a.cpp"
+      }
+    },
+    {
+      "name": "Dio X12 Rev A",
+      "shortDescription": "Dio X12 Rev A - High-quality DUELink module",
+      "partNumber": "GDL-ADDIOX12-A",
+      "category": "Adapter",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "dio-x12-front.png",
+        "pencil": "dio-x12-pencil.png",
+        "back": "dio-x12-back.png",
+        "front45": "dio-x12-front-45.png",
+        "back45": "dio-x12-back-45.png"
+      },
+      "overviewText": "/desc/adapter/dio-x12-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-addiox12-a.step",
+        "schematic": "/sch/gdl-addiox12-a.pdf"
+      },
+      "driverCode": "/code/drivers/adapter/dio-x12-rev-a.due",
+      "samples": {
+        "script": "/code/samples/adapter/dio-x12-rev-a.due",
+        "python": "/code/samples/adapter/dio-x12-rev-a.py",
+        "javascript": "/code/samples/adapter/dio-x12-rev-a.js",
+        "dotnet": "/code/samples/adapter/dio-x12-rev-a.cs",
+        "micropython": "/code/samples/adapter/dio-x12-rev-a.mpy",
+        "arduino": "/code/samples/adapter/dio-x12-rev-a.cpp"
+      }
+    },
+    {
+      "name": "DueClick Rev A",
+      "shortDescription": "DueClick Rev A - High-quality DUELink module",
+      "partNumber": "GDL-ADDUECLICK-A",
+      "category": "Adapter",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "dueclick-front.png",
+        "pencil": "dueclick-pencil.png",
+        "back": "dueclick-back.png",
+        "front45": "dueclick-front-45.png",
+        "back45": "dueclick-back-45.png"
+      },
+      "overviewText": "/desc/adapter/dueclick-rev-a.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-addueclick-a.step",
+        "schematic": "/sch/gdl-addueclick-a.pdf"
+      },
+      "driverCode": "/code/drivers/adapter/dueclick-rev-a.due",
+      "samples": {
+        "script": "/code/samples/adapter/dueclick-rev-a.due",
+        "python": "/code/samples/adapter/dueclick-rev-a.py",
+        "javascript": "/code/samples/adapter/dueclick-rev-a.js",
+        "dotnet": "/code/samples/adapter/dueclick-rev-a.cs",
+        "micropython": "/code/samples/adapter/dueclick-rev-a.mpy",
+        "arduino": "/code/samples/adapter/dueclick-rev-a.cpp"
+      }
+    },
+    {
+      "name": "DuePi Rev B",
+      "shortDescription": "DuePi Rev B - High-quality DUELink module",
+      "partNumber": "GDL-ADDUEPI-B",
+      "category": "Adapter",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "duepi-front.png",
+        "pencil": "duepi-pencil.png",
+        "back": "duepi-back.png",
+        "front45": "duepi-front-45.png",
+        "back45": "duepi-back-45.png"
+      },
+      "overviewText": "/desc/adapter/duepi-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-adduepi-b.step",
+        "schematic": "/sch/gdl-adduepi-b.pdf"
+      },
+      "driverCode": "/code/drivers/adapter/duepi-rev-b.due",
+      "samples": {
+        "script": "/code/samples/adapter/duepi-rev-b.due",
+        "python": "/code/samples/adapter/duepi-rev-b.py",
+        "javascript": "/code/samples/adapter/duepi-rev-b.js",
+        "dotnet": "/code/samples/adapter/duepi-rev-b.cs",
+        "micropython": "/code/samples/adapter/duepi-rev-b.mpy",
+        "arduino": "/code/samples/adapter/duepi-rev-b.cpp"
+      }
+    },
+    {
+      "name": "DuePico Rev B",
+      "shortDescription": "DuePico Rev B - High-quality DUELink module",
+      "partNumber": "GDL-ADDUEPICO-B",
+      "category": "Adapter",
+      "price": 19.99,
+      "variations": {},
+      "images": {
+        "front": "duepico-front.png",
+        "pencil": "duepico-pencil.png",
+        "back": "duepico-back.png",
+        "front45": "duepico-front-45.png",
+        "back45": "duepico-back-45.png"
+      },
+      "overviewText": "/desc/adapter/duepico-rev-b.txt",
+      "keyFeatures": [],
+      "resources": {
+        "model3d": "/3d/gdl-adduepico-b.step",
+        "schematic": "/sch/gdl-adduepico-b.pdf"
+      },
+      "driverCode": "/code/drivers/adapter/duepico-rev-b.due",
+      "samples": {
+        "script": "/code/samples/adapter/duepico-rev-b.due",
+        "python": "/code/samples/adapter/duepico-rev-b.py",
+        "javascript": "/code/samples/adapter/duepico-rev-b.js",
+        "dotnet": "/code/samples/adapter/duepico-rev-b.cs",
+        "micropython": "/code/samples/adapter/duepico-rev-b.mpy",
+        "arduino": "/code/samples/adapter/duepico-rev-b.cpp"
+      }
+    }
+  ],
+  "boards": [
+    {
+      "Name": "CincoBit Rev E",
+      "PartNumber": "GDL-MCCINCOBIT-E",
+      "PID": "0x000001",
+      "Category": "Microcomputer",
+      "Img": "cincobit-front.png",
+      "Code": "microcomputer/cincobit.txt",
+      "Notes": "This is Cincobit notes"
+    },
+    {
+      "Name": "ClipIt Rev B",
+      "PartNumber": "GDL-MCCLIPIT-B",
+      "PID": "0x000011",
+      "Category": "Microcomputer",
+      "Img": "clipit-front.png",
+      "Code": "microcomputer/clipit.txt"
+    },
+    {
+      "Name": "DueDuino Rev A",
+      "PartNumber": "GDL-MCDUEDUINO-A",
+      "PID": "0x000012",
+      "Category": "Microcomputer",
+      "Img": "dueduino-front.png",
+      "Code": "microcomputer/dueduino.txt"
+    },
+    {
+      "Name": "DueSTEM Rev B",
+      "PartNumber": "GDL-MCDUESTEM-B",
+      "PID": "0x000010",
+      "Category": "Microcomputer",
+      "Img": "duestem-front.png",
+      "Code": "microcomputer/duestem.txt"
+    },
+    {
+      "Name": "PixoBit Rev D",
+      "PartNumber": "GDL-MCPIXOBIT-D",
+      "PID": "0x000002",
+      "Category": "Microcomputer",
+      "Img": "pixobit-front.png",
+      "Code": "microcomputer/pixobit.txt",
+      "Notes": "This is PixoBit notes"
+    },
+    {
+      "Name": "Stamp Rev A",
+      "PartNumber": "GDL-MCSTAMP-A",
+      "PID": "0x000013",
+      "Category": "Microcomputer",
+      "Img": "stamp-front.png",
+      "Code": "microcomputer/stamp.txt"
+    },
+    {
+      "Name": "Stick Rev A",
+      "PartNumber": "GDL-MCSTICK-A",
+      "PID": "0x000014",
+      "Category": "Microcomputer",
+      "Img": "stick-front.png",
+      "Code": "microcomputer/stick.txt"
+    },
+    {
+      "Name": "Ghizzy Jr Rev A",
+      "PartNumber": "GDL-SPGHIZZYJR-A",
+      "PID": "0x0C0002",
+      "Category": "Special",
+      "Img": "ghizzy-jr-front.png",
+      "Code": "microcomputer/ghizzyjr.txt"
+    },
+    {
+      "Name": "Ghizzy Rev B",
+      "PartNumber": "GDL-SPGHIZZY-B",
+      "PID": "0x0C0001",
+      "Category": "Special",
+      "Img": "ghizzy-front.png",
+      "Code": "microcomputer/ghizzy.txt"
+    },
+    {
+      "Name": "Holiday Tree Rev B",
+      "PartNumber": "GDL-SPHOLIDAYTREE-B",
+      "PID": "0x0C0003",
+      "Category": "Special",
+      "Img": "holidaytree-front.png",
+      "Code": "microcomputer/holidaytree.txt"
+    },
+    {
+      "Name": "ePaper M29 Rev A",
+      "PartNumber": "GDL-DEPAPERM29-A",
+      "PID": "0x01000B",
+      "Category": "Display",
+      "Img": "epaper-m29-front.png",
+      "Code": "display/epaper-m29.txt"
+    },
+    {
+      "Name": "ePaper M42 Rev A",
+      "PartNumber": "GDL-DEPAPERM42-A",
+      "PID": "0x01000C",
+      "Category": "Display",
+      "Img": "epaper-m42-front.png",
+      "Code": "display/epaper-m42.txt"
+    },
+    {
+      "Name": "HDMI Rev B",
+      "PartNumber": "GDL-DHDMI-B",
+      "PID": "0x010001",
+      "Category": "Display",
+      "Img": "hdmi-front.png",
+      "Code": "display/hdmi.txt"
+    },
+    {
+      "Name": "LCD 16x2 Rev C",
+      "PartNumber": "GDL-DLCD16X2-C",
+      "PID": "0x010002",
+      "Category": "Display",
+      "Img": "lcd-16x2-front.png",
+      "Code": "display/lcd-16x2.txt"
+    },
+    {
+      "Name": "LCD 20x4 Rev B",
+      "PartNumber": "GDL-DLC20X4-B",
+      "PID": "0x010003",
+      "Category": "Display",
+      "Img": "lcd-20x4-front.png",
+      "Code": "display/lcd-20x4.txt"
+    },
+    {
+      "Name": "OLED 096 Rev A",
+      "PartNumber": "GDL-DOLED096-A",
+      "PID": "0x010004",
+      "Category": "Display",
+      "Img": "oled-096-front.png",
+      "Code": "display/oled-096.txt"
+    },
+    {
+      "Name": "Portal CP70 Rev B",
+      "PartNumber": "GDL-DPORTALCP70-B",
+      "PID": "0x010009",
+      "Category": "Display",
+      "Img": "portal-cp70-front.png",
+      "Code": "display/portal-cp70.txt"
+    },
+    {
+      "Name": "TFT CP23 Rev B",
+      "PartNumber": "GDL-DTFTCP23-B",
+      "PID": "0x010007",
+      "Category": "Display",
+      "Img": "tft-cp23-front.png",
+      "Code": "display/tft-cp23.txt"
+    },
+    {
+      "Name": "TFT N18 Rev B",
+      "PartNumber": "GDL-DTFTN18-B",
+      "PID": "0x010006",
+      "Category": "Display",
+      "Img": "tft-n18-front.png",
+      "Code": "display/tft-n18.txt"
+    },
+    {
+      "Name": "TFT R128 Rev B",
+      "PartNumber": "GDL-DTFTR128-B",
+      "PID": "0x010005",
+      "Category": "Display",
+      "Img": "tft-r128-front.png",
+      "Code": "display/tft-r128.txt"
+    },
+    {
+      "Name": "TFT T32 Rev C",
+      "PartNumber": "GDL-DTFTT32-C",
+      "PID": "0x010008",
+      "Category": "Display",
+      "Img": "tft-t32-front.png",
+      "Code": "display/tft-t32.txt"
+    },
+    {
+      "Name": "VFD B8 Rev C",
+      "PartNumber": "GDL-DVFDB8-C",
+      "PID": "0x01000A",
+      "Category": "Display",
+      "Img": "vfd-b8-front.png",
+      "Code": "display/vfd-b8.txt"
+    },
+    {
+      "Name": "Fan Rev B",
+      "PartNumber": "GDL-ACFAN-B",
+      "PID": "0x020001",
+      "Category": "Actuator",
+      "Img": "fan-front.png",
+      "Code": "actuator/fan.txt"
+    },
+    {
+      "Name": "Load Rev A",
+      "PartNumber": "GDL-ACLOAD-A",
+      "PID": "0x020002",
+      "Category": "Actuator",
+      "Img": "load-front.png",
+      "Code": "actuator/load.txt"
+    },
+    {
+      "Name": "MotoMax Rev B",
+      "PartNumber": "GDL-ACMOTOMAX-B",
+      "PID": "0x020003",
+      "Category": "Actuator",
+      "Img": "motomax-front.png",
+      "Code": "actuator/motomax.txt"
+    },
+    {
+      "Name": "MotoTwin Rev B",
+      "PartNumber": "GDL-ACMOTOTWIN-B",
+      "PID": "0x020004",
+      "Img": "mototwin-front.png",
+      "Code": "actuator/mototwin.txt",
+      "Category": "Actuator"
+    },
+    {
+      "Name": "Relay P16 Rev A",
+      "PartNumber": "GDL-ACRELAYP16-A",
+      "PID": "0x020006",
+      "Img": "relay-p16-front.png",
+      "Code": "actuator/relay-p16.txt",
+      "Category": "Actuator"
+    },
+    {
+      "Name": "Relay P4 Rev C",
+      "PartNumber": "GDL-ACRELAYP4-C",
+      "PID": "0x020005",
+      "Img": "relay-p4-front.png",
+      "Code": "actuator/relay-p4.txt",
+      "Category": "Actuator"
+    },
+    {
+      "Name": "Relay X1 Rev A",
+      "PartNumber": "GDL-ACRELAYX1-A",
+      "PID": "0x020007",
+      "Img": "relay-x1-front.png",
+      "Code": "actuator/relay-x1.txt",
+      "Category": "Actuator"
+    },
+    {
+      "Name": "Servo P8 Rev B",
+      "PartNumber": "GDL-ACSERVOP8-B",
+      "PID": "0x020008",
+      "Img": "servo-p8-front.png",
+      "Code": "actuator/servo-p8.txt",
+      "Category": "Actuator"
+    },
+    {
+      "Name": "Servo X1 Rev A",
+      "PartNumber": "GDL-ACSERVOX1-A",
+      "PID": "0x020009",
+      "Img": "servo-x1-front.png",
+      "Code": "actuator/servo-x1.txt",
+      "Category": "Actuator"
+    },
+    {
+      "Name": "StepPulse Rev A",
+      "PartNumber": "GDL-ACSTEPPULSE-A",
+      "PID": "0x02000C",
+      "Img": "steppulse-front.png",
+      "Code": "actuator/steppulse.txt",
+      "Category": "Actuator"
+    },
+    {
+      "Name": "StepDrive P1 Rev A",
+      "PartNumber": "GDL-ACSTEPDRIVEP1-A",
+      "PID": "0x02000A",
+      "Img": "stepdrive-p1-front.png",
+      "Code": "actuator/stepdrive-p1.txt",
+      "Category": "Actuator"
+    },
+    {
+      "Name": "StepDrive P3 Rev B",
+      "PartNumber": "GDL-ACSTEPDRIVEP3-B",
+      "PID": "0x02000B",
+      "Img": "stepdrive-p3-front.png",
+      "Code": "actuator/stepdrive-p3.txt",
+      "Category": "Actuator"
+    },
+    {
+      "Name": "CAN Rev B",
+      "PartNumber": "GDL-CMCAN-B",
+      "PID": "0x030001",
+      "Img": "can-front.png",
+      "Code": "com/can.txt",
+      "Category": "Communication"
+    },
+    {
+      "Name": "DMX Rev B",
+      "PartNumber": "GDL-CMDMX-B",
+      "PID": "0x030002",
+      "Img": "dmx-front.png",
+      "Code": "com/dmx.txt",
+      "Category": "Communication"
+    },
+    {
+      "Name": "Ethernet Rev C",
+      "PartNumber": "GDL-CMETHERNET-C",
+      "PID": "0x030003",
+      "Img": "ethernet-front.png",
+      "Code": "com/ethernet.txt",
+      "Category": "Communication"
+    },
+    {
+      "Name": "MIDI Rev A",
+      "PartNumber": "GDL-CMMIDI-A",
+      "PID": "0x030004",
+      "Img": "midi-front.png",
+      "Code": "com/midi.txt",
+      "Category": "Communication"
+    },
+    {
+      "Name": "RS485 Rev A",
+      "PartNumber": "GDL-CMRS485-A",
+      "PID": "0x030005",
+      "Img": "rs485-front.png",
+      "Code": "com/rs485.txt",
+      "Category": "Communication"
+    },
+    {
+      "Name": "Serial USB Rev A",
+      "PartNumber": "GDL-CMSERIALUSB-A",
+      "PID": "0x030006",
+      "Img": "serialusb-front.png",
+      "Code": "com/serial-usb.txt",
+      "Category": "Communication"
+    },
+    {
+      "Name": "USB Host Rev B",
+      "PartNumber": "GDL-CMUSBHOST-B",
+      "PID": "0x030007",
+      "Img": "usbhost-front.png",
+      "Code": "com/usb-host.txt",
+      "CoProc": "duelink-coproc-fw-v03.bin",
+      "Category": "Communication"
+    },
+    {
+      "Name": "USB Client Rev A",
+      "PartNumber": "GDL-CMUSBCLIENT-A",
+      "PID": "0x030008",
+      "Img": "usbclient-front.png",
+      "Code": "com/usb-client.txt",
+      "Category": "Communication"
+    },
+    {
+      "Name": "Button AR100 Rev B",
+      "PartNumber": "GDL-HIBTNAR100-B",
+      "PID": "0x040001",
+      "Img": "btn-ar100-front.png",
+      "Code": "hmi/btn-ar100.txt",
+      "Category": "HMI"
+    },
+    {
+      "Name": "BTN RGB28x4 Rev B",
+      "PartNumber": "GDL-HIBTNRGB28X4-B",
+      "PID": "0x040002",
+      "Img": "btn-rgb28x4-front.png",
+      "Code": "hmi/btn-rgb28x4.txt",
+      "Category": "HMI"
+    },
+    {
+      "Name": "Button L Rev A",
+      "PartNumber": "GDL-HIBUTTONL-A",
+      "PID": "0x040003",
+      "Img": "button-l-front.png",
+      "Code": "hmi/button-l.txt",
+      "Category": "HMI"
+    },
+    {
+      "Name": "Button L7 Rev B",
+      "PartNumber": "GDL-HIBUTTONL7-B",
+      "PID": "0x040004",
+      "Img": "button-l7-front.png",
+      "Code": "hmi/button-l7.txt",
+      "Category": "HMI"
+    },
+    {
+      "Name": "Button S Rev A",
+      "PartNumber": "GDL-HIBUTTONS-A",
+      "PID": "0x040005",
+      "Img": "button-s-front.png",
+      "Code": "hmi/button-s.txt",
+      "Category": "HMI"
+    },
+    {
+      "Name": "Dial Rev A",
+      "PartNumber": "GDL-HIDIAL-A",
+      "PID": "0x040007",
+      "Img": "dial-front.png",
+      "Code": "hmi/dial.txt",
+      "Category": "HMI"
+    },
+    {
+      "Name": "DipSwitch Rev B",
+      "PartNumber": "GDL-HIDIPSWITCH-B",
+      "PID": "0x040008",
+      "Img": "dipswitch-front.png",
+      "Code": "hmi/dipswitch.txt",
+      "Category": "HMI"
+    },
+    {
+      "Name": "Fingerprint Rev B",
+      "PartNumber": "GDL-HIFINGERPRINT-B",
+      "PID": "0x040009",
+      "Img": "fingerprint-front.png",
+      "Code": "hmi/fingerprint.txt",
+      "Category": "HMI"
+    },
+    {
+      "Name": "Joystick L Rev B",
+      "PartNumber": "GDL-HIJOYSTICKL-B",
+      "PID": "0x04000A",
+      "Img": "joystick-l-front.png",
+      "Code": "hmi/joystick-l.txt",
+      "Category": "HMI"
+    },
+    {
+      "Name": "Keypad 3x4 Rev B",
+      "PartNumber": "GDL-HIKEYPAD3X4-B",
+      "PID": "0x04000B",
+      "Img": "keypad-3x4-front.png",
+      "Code": "hmi/keypad-3x4.txt",
+      "Category": "HMI"
+    },
+    {
+      "Name": "Keypad 4x4 Rev B",
+      "PartNumber": "GDL-HIKEYPAD4X4-B",
+      "PID": "0x04000C",
+      "Img": "keypad-4x4-front.png",
+      "Code": "hmi/keypad-4x4.txt",
+      "Category": "HMI"
+    },
+    {
+      "Name": "Rotary Rev C",
+      "PartNumber": "GDL-HIKEYPAD4X4-C",
+      "PID": "0x04000D",
+      "Img": "rotary-front.png",
+      "Code": "hmi/rotary.txt",
+      "Category": "HMI"
+    },
+    {
+      "Name": "Flash Rev A",
+      "PartNumber": "GDL-STFLASH-A",
+      "PID": "0x080001",
+      "Img": "flash-front.png",
+      "Code": "storage/flash.txt",
+      "Category": "Storage"
+    },
+    {
+      "Name": "SD Card Rev B",
+      "PartNumber": "GDL-STSDCARD-B",
+      "PID": "0x080002",
+      "Img": "sdcard-front.png",
+      "Code": "storage/sdcard.txt",
+      "Category": "Storage"
+    },
+    {
+      "Name": "MicroSD Rev A",
+      "PartNumber": "GDL-STMICROSD-A",
+      "PID": "0x080003",
+      "Img": "microsd-front.png",
+      "Code": "storage/microsd.txt",
+      "Category": "Storage"
+    },
+    {
+      "Name": "GNSS WA Rev A",
+      "PartNumber": "GDL-WGNSSWA-A",
+      "PID": "0x090001",
+      "Img": "gnsswa-front.png",
+      "Code": "wireless/gnss-wa.txt",
+      "Category": "Wireless"
+    },
+    {
+      "Name": "GNSS Rev B",
+      "PartNumber": "GDL-WGNSS-B",
+      "PID": "0x090002",
+      "Img": "gnss-front.png",
+      "Code": "wireless/gnss.txt",
+      "Category": "Wireless"
+    },
+    {
+      "Name": "Infrared Rev A",
+      "PartNumber": "GDL-WINFRARED-A",
+      "PID": "0x090006",
+      "Img": "infrared-front.png",
+      "Code": "wireless/infrared.txt",
+      "Category": "Wireless"
+    },
+    {
+      "Name": "NRF24 Max Rev C",
+      "PartNumber": "GDL-WNRF24MAX-C",
+      "PID": "0x090003",
+      "Img": "nrf24-max-front.png",
+      "Code": "wireless/nrf24-max.txt",
+      "Category": "Wireless"
+    },
+    {
+      "Name": "NRF24 Min Rev C",
+      "PartNumber": "GDL-WNRF24MIN-C",
+      "PID": "0x090004",
+      "Img": "nrf24-min-front.png",
+      "Code": "wireless/nrf24-min.txt",
+      "Category": "Wireless"
+    },
+    {
+      "Name": "RFID Rev B",
+      "PartNumber": "GDL-WRFID-B",
+      "PID": "0x090005",
+      "Img": "rfid-front.png",
+      "Code": "wireless/rfid.txt",
+      "Category": "Wireless"
+    },
+    {
+      "Name": "Accel Rev A",
+      "PartNumber": "GDL-SEACCEL-A",
+      "PID": "0x060001",
+      "Img": "accel-front.png",
+      "Code": "sensor/accel.txt",
+      "Category": "Sensor"
+    },
+    {
+      "Name": "AirQuality Rev A",
+      "PartNumber": "GDL-SEAIRQUALITY-A",
+      "PID": "0x060002",
+      "Img": "airquality-front.png",
+      "Code": "sensor/airquality.txt",
+      "Category": "Sensor"
+    },
+    {
+      "Name": "Barometer Rev B",
+      "PartNumber": "GDL-SEBAROMETER-B",
+      "PID": "0x060003",
+      "Img": "barometer-front.png",
+      "Code": "sensor/barometer.txt",
+      "Category": "Sensor"
+    },
+    {
+      "Name": "ClipSense Rev A",
+      "PartNumber": "GDL-SECLIPSENSE-A",
+      "PID": "0x060004",
+      "Img": "clipsense-front.png",
+      "Code": "sensor/clipsense.txt",
+      "Category": "Sensor"
+    },
+    {
+      "Name": "Current Rev A",
+      "PartNumber": "GDL-SECURRENT-A",
+      "PID": "0x060006",
+      "Img": "current-front.png",
+      "Code": "sensor/current.txt",
+      "Category": "Sensor"
+    },
+    {
+      "Name": "Distance Rev B",
+      "PartNumber": "GDL-SEDISTANCE-B",
+      "PID": "0x060008",
+      "Img": "distance-front.png",
+      "Code": "sensor/distance.txt",
+      "Category": "Sensor"
+    },
+    {
+      "Name": "DOF9 Rev C",
+      "PartNumber": "GDL-SEDOF9-C",
+      "PID": "0x060007",
+      "Img": "dof9-front.png",
+      "Code": "sensor/dof9.txt",
+      "Category": "Sensor"
+    },
+    {
+      "Name": "EKG Rev A",
+      "PartNumber": "GDL-SEEKG-A",
+      "PID": "0x060009",
+      "Img": "ekg-front.png",
+      "Code": "sensor/ekg.txt",
+      "Category": "Sensor"
+    },
+    {
+      "Name": "Gas Rev B",
+      "PartNumber": "GDL-SEGAS-B",
+      "PID": "0x06000A",
+      "Img": "gas-front.png",
+      "Code": "sensor/gas.txt",
+      "Category": "Sensor"
+    },
+    {
+      "Name": "Light Rev A",
+      "PartNumber": "GDL-SELIGHT-A",
+      "PID": "0x06000B",
+      "Img": "light-front.png",
+      "Code": "sensor/light.txt",
+      "Category": "Sensor"
+    },
+    {
+      "Name": "Motion Rev B",
+      "PartNumber": "GDL-SEMOTION-B",
+      "PID": "0x06000C",
+      "Img": "motion-front.png",
+      "Code": "sensor/motion.txt",
+      "Category": "Sensor"
+    },
+    {
+      "Name": "Pressure Rev B",
+      "PartNumber": "GDL-SEPRESSURE100-B",
+      "PID": "0x06000D",
+      "Img": "pressure-front.png",
+      "Code": "sensor/pressure.txt",
+      "Category": "Sensor"
+    },
+    {
+      "Name": "RTC Rev B",
+      "PartNumber": "GDL-SERTC-B",
+      "PID": "0x06000F",
+      "Img": "rtc-front.png",
+      "Code": "sensor/rtc.txt",
+      "Category": "Sensor"
+    },
+    {
+      "Name": "TempHmd Rev B",
+      "PartNumber": "GDL-SETEMPHMD-B",
+      "PID": "0x060010",
+      "Img": "temphmd-front.png",
+      "Code": "sensor/temphmd.txt",
+      "Category": "Sensor"
+    },
+    {
+      "Name": "TempRTD Rev B",
+      "PartNumber": "GDL-SETEMPRTD-A",
+      "PID": "0x060011",
+      "Img": "temprtd-front.png",
+      "Code": "sensor/temprtd.txt",
+      "Category": "Sensor"
+    },
+    {
+      "Name": "LED MT1208 Rev A",
+      "PartNumber": "GDL-LLEDMT1208R-A",
+      "PID": "0x050003",
+      "Img": "led-mt1208-front.png",
+      "Code": "led/led-mt1208.txt",
+      "Category": "LED"
+    },
+    {
+      "Name": "LED R16 Rev B",
+      "PartNumber": "GDL-LLEDR16R-B",
+      "PID": "0x050004",
+      "Img": "led-r16-front.png",
+      "Code": "led/led-r16.txt",
+      "Category": "LED"
+    },
+    {
+      "Name": "LED RGB3 Rev A",
+      "PartNumber": "GDL-LLEDRGB3-A",
+      "PID": "0x050005",
+      "Img": "led-rgb3-front.png",
+      "Code": "led/led-rgb3.txt",
+      "Category": "LED"
+    },
+    {
+      "Name": "LED S284 Rev B",
+      "PartNumber": "GDL-Lled284X-B",
+      "PID": "0x050006",
+      "Img": "led-s284-front.png",
+      "Code": "led/led-sxx4.txt",
+      "Category": "LED"
+    },
+    {
+      "Name": "LED S404 Rev A",
+      "PartNumber": "GDL-Lled404[  ]-A",
+      "PID": "0x050008",
+      "Img": "led-s404-front.png",
+      "Code": "led/led-sxx4.txt",
+      "Category": "LED"
+    },
+    {
+      "Name": "LED S564 Rev A",
+      "PartNumber": "GDL-Lled564XX-A",
+      "PID": "0x05000A",
+      "Img": "led-s564-front.png",
+      "Code": "led/led-sxx4.txt",
+      "Category": "LED"
+    },
+    {
+      "Name": "LED SS805",
+      "PartNumber": "GDL-LledS805-C",
+      "PID": "0x05000C",
+      "Img": "led-ss805-front.png",
+      "Code": "led/led-ss805.txt",
+      "Category": "LED"
+    },
+    {
+      "Name": "Smart LED Rev A",
+      "PartNumber": "GDL-LSMARTLED-A",
+      "PID": "0x05000D",
+      "Img": "smart-led-front.png",
+      "Code": "led/smart-led.txt",
+      "Category": "LED"
+    },
+    {
+      "Name": "Buzzer Rev B",
+      "PartNumber": "GDL-SOBUZZER-B",
+      "PID": "0x070001",
+      "Img": "buzzer-front.png",
+      "Code": "sound/buzzer.txt",
+      "Category": "Sound"
+    },
+    {
+      "Name": "MP3 Rev A",
+      "PartNumber": "GDL-SOMP3-A",
+      "PID": "0x070003",
+      "Img": "mp3-front.png",
+      "Code": "sound/mp3.txt",
+      "Category": "Sound"
+    },
+    {
+      "Name": "Radio FM Rev A",
+      "PartNumber": "GDL-SOMP3-A",
+      "PID": "0x070004",
+      "Img": "radio-fm-front.png",
+      "Code": "sound/radio-fm.txt",
+      "Category": "Sound"
+    },
+    {
+      "Name": "Spectrum Rev A",
+      "PartNumber": "GDL-SOSPECTRUM-A",
+      "PID": "0x070005",
+      "Img": "radio-fm-front.png",
+      "Code": "sound/radio-fm.txt",
+      "Category": "Sound"
+    },
+    {
+      "Name": "Barcode L1D2D Rev A",
+      "PartNumber": "GDL-VIBARCODEL1D2D-A",
+      "PID": "0x0B0003",
+      "Img": "barcode-l1d2d-front.png",
+      "Code": "vision/barcode-l1d2d.txt",
+      "Category": "Vision"
+    },
+    {
+      "Name": "Thermal Rev A",
+      "PartNumber": "GDL-VITHERMAL-A",
+      "PID": "0x0B0002",
+      "Img": "thermal-front.png",
+      "Code": "vision/thermal.txt",
+      "Category": "Vision"
+    },
+    {
+      "Name": "Dio X12 Rev A",
+      "PartNumber": "GDL-ADDIOX12-A",
+      "PID": "0x0A0002",
+      "Img": "dio-x12-front.png",
+      "Code": "adapter/dio-x12.txt",
+      "Category": "Adapter"
+    },
+    {
+      "Name": "DueClick Rev A",
+      "PartNumber": "GDL-ADDUECLICK-A",
+      "PID": "0x0A0005",
+      "Img": "dueclick-front.png",
+      "Code": "adapter/dueclick.txt",
+      "Category": "Adapter"
+    },
+    {
+      "Name": "DuePi Rev B",
+      "PartNumber": "GDL-ADDUEPI-B",
+      "PID": "0x0A0004",
+      "Img": "duepi-front.png",
+      "Code": "adapter/duepi.txt",
+      "Category": "Adapter"
+    },
+    {
+      "Name": "DuePico Rev B",
+      "PartNumber": "GDL-ADDUEPICO-B",
+      "PID": "0x0A0003",
+      "Img": "duepico-front.png",
+      "Code": "adapter/duepico.txt",
+      "Category": "Adapter"
+    }
+  ]
+}
