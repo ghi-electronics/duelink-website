@@ -45,24 +45,26 @@ function extractPartPrefix(partNumber) {
 
 // Generate MDX content for each product
 function generateMDX(product, index) {
-    const partPrefix = extractPartPrefix(product.PartNumber);
+    const partPrefix = extractPartPrefix(product.partNumber);
     
     const mdxContent = `---
 sidebar_position: ${index + 1}
-title: ${product.Name}
-description: ${product.Name} - High-quality DUELink module
+title: ${product.name}
+description: ${product.name} - High-quality DUELink module
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ProductImageSelector from '@site/src/components/ProductImageSelector';
 
-# ${product.Name}
+# ${product.name}
 
 <ProductImageSelector 
   partNumber="${partPrefix}"
-  productName="${product.Name}"
+  productName="${product.name}"
 />
+
+${product.shortDescription || `${product.name} - High-quality DUELink module`}
 
 ---
 
@@ -109,9 +111,9 @@ dl = duelink.DueLink()
 ### Basic Usage
 
 \`\`\`python
-# Example code for ${product.Name}
+# Example code for ${product.name}
 # Initialize the module
-module = dl.${product.Category.toLowerCase()}.${product.Name.split(' ')[0].toLowerCase()}()
+module = dl.${product.category.toLowerCase()}.${product.name.split(' ')[0].toLowerCase()}()
 
 # Basic operations
 module.initialize()
@@ -124,7 +126,7 @@ module.read()
 
 ### Example Projects
 
-Coming soon! Check back for sample projects and tutorials using the ${product.Name}.
+Coming soon! Check back for sample projects and tutorials using the ${product.name}.
 
 ### Community Examples
 
@@ -138,9 +140,8 @@ Share your projects using this module in our [community forum](https://forums.gh
 
 ## Specifications
 
-- **Part Number:** ${product.PartNumber}
-- **Product ID:** ${product.PID}
-- **Category:** ${product.Category}
+- **Part Number:** ${product.partNumber}
+- **Category:** ${product.category}
 
 ## Support
 
@@ -155,9 +156,9 @@ console.log('Generating product pages...');
 let generatedCount = 0;
 let errors = [];
 
-productData.boards.forEach((product, index) => {
+productData.products.forEach((product, index) => {
     try {
-        const filename = generateFilename(product.Name);
+        const filename = generateFilename(product.name);
         const filepath = path.join(outputDir, filename);
         const content = generateMDX(product, index);
         
@@ -165,8 +166,8 @@ productData.boards.forEach((product, index) => {
         generatedCount++;
         console.log(`✓ Generated: ${filename}`);
     } catch (error) {
-        errors.push({ product: product.Name, error: error.message });
-        console.error(`✗ Error generating ${product.Name}:`, error.message);
+        errors.push({ product: product.name, error: error.message });
+        console.error(`✗ Error generating ${product.name}:`, error.message);
     }
 });
 

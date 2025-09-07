@@ -84,3 +84,12 @@ img {
   --ifm-color-primary-lightest: #ffaa55;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Override Docusaurus container max-width */
+.padding-top--md.padding-bottom--lg {
+  max-width: 100% !important;
+}
+
+.docMainContainer_TBSr {
+  max-width: 100% !important;
+}

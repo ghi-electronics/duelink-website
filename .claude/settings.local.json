@@ -20,7 +20,8 @@
       "Bash(start chrome \"http://localhost:3005\")",
       "Bash(start chrome \"http://localhost:4444\")",
       "Bash(git ls-tree:*)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(node:*)"
     ],
     "deny": [],
     "ask": []
