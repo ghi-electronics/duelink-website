@@ -191,7 +191,7 @@ ${categories.map(cat => {
       console.log('📤 Committing to Git...');
       try {
         execSync('git add docs/catalog* static/duelink.json', { stdio: 'inherit' });
-        execSync('git commit -m "Update product catalog from Firebase"', { stdio: 'inherit' });
+        execSync('git commit -m "Update product catalog from JSON"', { stdio: 'inherit' });
         console.log('✅ Changes committed successfully!');
         
         if (process.argv.includes('--push')) {
