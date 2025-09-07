@@ -25,9 +25,23 @@ const ProductCatalog = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('name-asc');
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   
   // Debounce search term for better performance
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
+
+  // Detect mobile viewport
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     fetch('/duelink.json')
@@ -95,11 +109,68 @@ const ProductCatalog = () => {
 
   const handleCategoryChange = useCallback((category) => {
     setSelectedCategory(category);
-  }, []);
+    
+    // Always scroll to show products after category change
+    setTimeout(() => {
+      if (isMobile) {
+        setMobileFiltersOpen(false);
+        // Mobile: Scroll to product grid
+        const productsSection = document.querySelector('[class*="productGrid"]');
+        if (productsSection) {
+          const offset = 130; // Account for fixed header + filter button
+          const elementPosition = productsSection.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      } else {
+        // Desktop: Scroll up to show the filter bar and products clearly
+        const catalogContainer = document.querySelector('[class*="catalogContainer"]');
+        if (catalogContainer) {
+          // Scroll to top of catalog section
+          const offset = 20; // Small offset from top
+          const elementPosition = catalogContainer.getBoundingClientRect().top;
+          const scrollPosition = elementPosition + window.pageYOffset - offset;
+          
+          // Force scroll up to show everything
+          window.scrollTo({
+            top: Math.max(0, scrollPosition - 100), // Extra 100px to ensure we scroll up enough
+            behavior: 'smooth'
+          });
+        }
+      }
+    }, isMobile ? 150 : 50); // Slightly longer delay on mobile for filter to close
+  }, [isMobile]);
 
   const handleSortChange = useCallback((e) => {
     setSortBy(e.target.value);
+    if (isMobile) {
+      setMobileFiltersOpen(false);
+      // Scroll to products after sort change on mobile
+      setTimeout(() => {
+        const productsSection = document.querySelector('[class*="productGrid"]');
+        if (productsSection) {
+          const offset = 80;
+          const elementPosition = productsSection.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }
+  }, [isMobile]);
+
+  const toggleMobileFilters = useCallback(() => {
+    setMobileFiltersOpen(prev => !prev);
   }, []);
+
+  const activeFiltersCount = (selectedCategory !== 'all' ? 1 : 0) + (searchTerm ? 1 : 0);
 
   if (loading) {
     return (
@@ -112,8 +183,54 @@ const ProductCatalog = () => {
 
   return (
     <div className={styles.catalogContainer}>
-      <div className={styles.filterBar}>
-        <div className={styles.searchRow}>
+      {isMobile && (
+        <div className={`${styles.mobileFilterHeader} ${mobileFiltersOpen ? styles.mobileFilterHeaderActive : ''}`}>
+          <button 
+            className={styles.mobileFilterToggle}
+            onClick={toggleMobileFilters}
+            aria-expanded={mobileFiltersOpen}
+            aria-label="Toggle filters"
+          >
+            <span className={styles.filterIcon}>☰</span>
+            <span>Filters</span>
+            {activeFiltersCount > 0 && (
+              <span className={styles.filterBadge}>{activeFiltersCount}</span>
+            )}
+          </button>
+          {activeFiltersCount > 0 && (
+            <button
+              className={styles.clearFiltersBtn}
+              onClick={() => {
+                setSearchTerm('');
+                setSelectedCategory('all');
+                setSortBy('name-asc');
+                // Scroll to show all products after clearing filters
+                setTimeout(() => {
+                  const productsSection = document.querySelector('[class*="productGrid"]');
+                  if (productsSection) {
+                    const offset = 130;
+                    const elementPosition = productsSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                  }
+                }, 100);
+              }}
+              aria-label="Clear all filters"
+            >
+              Clear all
+            </button>
+          )}
+        </div>
+      )}
+      {isMobile && mobileFiltersOpen && (
+        <div className={styles.mobileFilterOverlay} onClick={() => setMobileFiltersOpen(false)} />
+      )}
+      <div className={`${styles.filterBar} ${isMobile ? styles.mobileFilterBar : ''} ${isMobile && mobileFiltersOpen ? styles.mobileFilterBarOpen : ''}`}>
+        <div className={`${styles.searchRow} ${isMobile ? styles.mobileSearchRow : ''}`}>
           <input
             type="text"
             placeholder="Search products..."
@@ -121,7 +238,7 @@ const ProductCatalog = () => {
             value={searchTerm}
             onChange={handleSearchChange}
             aria-label="Search products"
-            autoFocus
+            autoFocus={!isMobile}
           />
           <select 
             className={styles.sortSelect}
@@ -136,7 +253,7 @@ const ProductCatalog = () => {
             <option value="category">Category</option>
           </select>
         </div>
-        <div className={styles.categoryFilters}>
+        <div className={`${styles.categoryFilters} ${isMobile ? styles.mobileCategoryFilters : ''}`}>
           <button 
             className={`${styles.filterButton} ${selectedCategory === 'all' ? styles.active : ''}`}
             onClick={() => handleCategoryChange('all')}
@@ -160,12 +277,14 @@ const ProductCatalog = () => {
         </div>
       </div>
 
-      <div className={styles.resultsCount}>
-        {debouncedSearchTerm && (
-          <span>Searching for "{debouncedSearchTerm}"... </span>
-        )}
-        Showing {filteredProducts.length} of {products.length} products
-      </div>
+      {(!isMobile || !mobileFiltersOpen) && (
+        <div className={styles.resultsCount}>
+          {debouncedSearchTerm && (
+            <span className={styles.searchingText}>Searching for "{debouncedSearchTerm}"... </span>
+          )}
+          <span className={styles.countText}>Showing {filteredProducts.length} of {products.length} products</span>
+        </div>
+      )}
 
       {filteredProducts.length === 0 ? (
         <div className={styles.noResults}>
@@ -181,7 +300,7 @@ const ProductCatalog = () => {
           </button>
         </div>
       ) : (
-        <div className={styles.productGrid}>
+        <div className={`${styles.productGrid} ${isMobile ? styles.mobileProductGrid : ''}`}>
           {filteredProducts.map((product, index) => (
             <ProductCard 
               key={product.PID || index} 
