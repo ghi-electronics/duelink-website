@@ -13,10 +13,7 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids",
-    "generate-catalog": "node scripts/generate-catalog.js",
-    "generate-catalog:commit": "node scripts/generate-catalog.js --commit",
-    "generate-catalog:deploy": "node scripts/generate-catalog.js --commit --push"
+    "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
     "@devbookhq/docusaurus-code-video-plugin": "^1.2.1",
