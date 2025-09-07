@@ -11,7 +11,14 @@ const ProductCard = memo(({ product, index }) => {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   
-  const imageTypes = ['front', 'back', 'front45', 'back45', 'pencil'];
+  const imageTypes = ['front', 'back', 'pencil', 'front45', 'back45'];
+  
+  // Generate clean part number for image paths
+  const cleanPN = product.partNumber
+    .replace(/GDL-/g, '')
+    .replace(/\[\s*\]/g, '')
+    .replace(/[^a-zA-Z0-9-]/g, '')
+    .toLowerCase();
   
   useEffect(() => {
     const checkMobile = () => {
@@ -72,7 +79,7 @@ const ProductCard = memo(({ product, index }) => {
         >
           <Zoom zoomMargin={isMobile ? 20 : 40}>
             <LazyImage 
-              src={`/img/catalog/${product.images[selectedImage]}`} 
+              src={`/img/catalog/${cleanPN}-${currentImageIndex + 1}.png`} 
               alt={`${product.name} ${selectedImage}`}
               className={styles.mainImage}
             />
@@ -95,15 +102,18 @@ const ProductCard = memo(({ product, index }) => {
           </div>
         ) : (
           <div className={styles.imageThumbs}>
-            {imageTypes.map(imageType => (
+            {imageTypes.map((imageType, idx) => (
               <button 
                 key={imageType}
                 className={`${styles.thumbButton} ${selectedImage === imageType ? styles.activeThumb : ''}`}
-                onClick={() => setSelectedImage(imageType)}
+                onClick={() => {
+                  setSelectedImage(imageType);
+                  setCurrentImageIndex(idx);
+                }}
                 aria-label={`${imageType} view`}
               >
                 <LazyImage 
-                  src={`/img/catalog/${product.images[imageType]}`} 
+                  src={`/img/catalog/${cleanPN}-${idx + 1}.png`} 
                   alt={imageType}
                 />
               </button>

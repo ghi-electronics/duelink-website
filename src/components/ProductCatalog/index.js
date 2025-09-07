@@ -44,7 +44,7 @@ const ProductCatalog = () => {
   }, []);
 
   useEffect(() => {
-    fetch('/duelink-v2.json')
+    fetch('/duelink-v3.json')
       .then(response => response.json())
       .then(data => {
         setProducts(data.products || []);
