@@ -8,6 +8,7 @@ const ProductCard = memo(({ product, index }) => {
   const [selectedImage, setSelectedImage] = useState('front');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   
@@ -69,8 +70,28 @@ const ProductCard = memo(({ product, index }) => {
     }
   };
 
+  const handlePrevImage = () => {
+    if (currentImageIndex > 0) {
+      setCurrentImageIndex(prev => prev - 1);
+    } else {
+      setCurrentImageIndex(imageTypes.length - 1);
+    }
+  };
+
+  const handleNextImage = () => {
+    if (currentImageIndex < imageTypes.length - 1) {
+      setCurrentImageIndex(prev => prev + 1);
+    } else {
+      setCurrentImageIndex(0);
+    }
+  };
+
   return (
-    <div className={styles.productCard}>
+    <div 
+      className={styles.productCard}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className={styles.imageContainer}>
         <div 
           className={styles.mainImageWrapper}
@@ -101,24 +122,44 @@ const ProductCard = memo(({ product, index }) => {
             ))}
           </div>
         ) : (
-          <div className={styles.imageThumbs}>
-            {imageTypes.map((imageType, idx) => (
-              <button 
-                key={imageType}
-                className={`${styles.thumbButton} ${selectedImage === imageType ? styles.activeThumb : ''}`}
-                onClick={() => {
-                  setSelectedImage(imageType);
-                  setCurrentImageIndex(idx);
-                }}
-                aria-label={`${imageType} view`}
-              >
-                <LazyImage 
-                  src={`/img/catalog/${cleanPN}-${idx + 1}.png`} 
-                  alt={imageType}
-                />
-              </button>
-            ))}
-          </div>
+          <>
+            {isHovered && imageTypes.length > 1 && (
+              <>
+                <button 
+                  className={styles.imageNavPrev}
+                  onClick={handlePrevImage}
+                  aria-label="Previous image"
+                >
+                  ‹
+                </button>
+                <button 
+                  className={styles.imageNavNext}
+                  onClick={handleNextImage}
+                  aria-label="Next image"
+                >
+                  ›
+                </button>
+                <div className={styles.imageThumbs}>
+                  {imageTypes.map((imageType, idx) => (
+                    <button 
+                      key={imageType}
+                      className={`${styles.thumbButton} ${selectedImage === imageType ? styles.activeThumb : ''}`}
+                      onClick={() => {
+                        setSelectedImage(imageType);
+                        setCurrentImageIndex(idx);
+                      }}
+                      aria-label={`${imageType} view`}
+                    >
+                      <LazyImage 
+                        src={`/img/catalog/${cleanPN}-${idx + 1}.png`} 
+                        alt={imageType}
+                      />
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+          </>
         )}
       </div>
       
@@ -130,14 +171,6 @@ const ProductCard = memo(({ product, index }) => {
         <p className={styles.shortDescription}>{product.shortDescription}</p>
         
         <div className={styles.productMeta}>
-          <div className={styles.metaItem}>
-            <span className={styles.metaLabel}>Part Number</span>
-            <span className={styles.metaValue}>{product.partNumber}</span>
-          </div>
-          <div className={styles.metaItem}>
-            <span className={styles.metaLabel}>Category</span>
-            <span className={styles.metaValue}>{product.category}</span>
-          </div>
           <div className={styles.metaItem}>
             <span className={styles.metaLabel}>Price</span>
             <span className={styles.metaValue}>${product.price}</span>

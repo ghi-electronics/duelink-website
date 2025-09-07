@@ -1,9 +1,0 @@
-## See Standard Library https://www.duelink.com/docs/engine/stdlib
-
-# Make pin5 high
-DWrite(5, 1)
-
-
-
-
-
