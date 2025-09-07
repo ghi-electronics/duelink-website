@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+  <!-- GHI Logo Components -->
+  <g id="ghi-logo">
+    <!-- Left connector piece -->
+    <path d="M100 50 Q100 20 70 20 L30 20 Q0 20 0 50 L0 80 L30 80 Q60 80 60 110 L60 150 Q60 180 90 180 L120 180 L120 150 Q120 120 90 120 L60 120" fill="#2980b9"/>
+    
+    <!-- Top center piece -->
+    <path d="M150 20 Q150 50 180 50 L220 50 Q250 50 250 20 L250 0 L220 0 Q190 0 190 30 L190 20" fill="#7f8c8d"/>
+    
+    <!-- Center square with S -->
+    <rect x="150" y="80" width="50" height="50" rx="10" fill="#f39c12"/>
+    
+    <!-- Right side connections -->
+    <path d="M250 80 Q280 80 280 110 L280 150 Q280 180 250 180 L220 180 L220 150 Q220 120 250 120 L280 120" fill="#7f8c8d"/>
+    
+    <!-- Bottom S curve -->
+    <path d="M120 200 Q120 230 150 230 L180 230 Q210 230 210 200 L210 180 L180 180 Q150 180 150 210 L150 230" fill="#f39c12"/>
+  </g>
+  
+  <!-- GHI Text -->
+  <g id="ghi-text" transform="translate(320, 50)">
+    <text x="0" y="130" font-family="Arial, sans-serif" font-size="120" font-weight="bold" fill="#2980b9">GHI</text>
+  </g>
+  
+  <!-- Electronics text -->
+  <g id="electronics-text" transform="translate(320, 180)">
+    <text x="0" y="40" font-family="Arial, sans-serif" font-size="48" fill="#7f8c8d">electronics</text>
+  </g>
+</svg>
