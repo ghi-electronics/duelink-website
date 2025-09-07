@@ -584,7 +584,7 @@
 
 .viewDetailsBtn {
   display: inline-block;
-  padding: var(--spacing-md) var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-md);
   background: #3498db;
   color: white;
   text-decoration: none;
@@ -592,8 +592,8 @@
   font-weight: 500;
   text-align: center;
   transition: all var(--transition-base);
-  font-size: var(--font-size-base);
-  min-height: var(--touch-target-min);
+  font-size: var(--font-size-sm);
+  min-height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
