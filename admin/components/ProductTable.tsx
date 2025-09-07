@@ -64,6 +64,17 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
   useEffect(() => {
     loadProducts();
     loadCategories();
+    
+    // Listen for import events
+    const handleImport = () => {
+      loadProducts();
+    };
+    
+    window.addEventListener('products-imported', handleImport);
+    
+    return () => {
+      window.removeEventListener('products-imported', handleImport);
+    };
   }, []);
 
   const loadCategories = async () => {

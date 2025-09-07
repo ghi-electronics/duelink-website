@@ -83,46 +83,20 @@ const GenerateButton: React.FC = () => {
         const jsonString = JSON.stringify(result.jsonData, null, 2);
         const blob = new Blob([jsonString], { type: 'application/json' });
         
-        // Use File System Access API if available
-        if ('showSaveFilePicker' in window) {
-          try {
-            const handle = await (window as any).showSaveFilePicker({
-              suggestedName: 'duelink.json',
-              types: [{
-                description: 'JSON File',
-                accept: { 'application/json': ['.json'] }
-              }]
-            });
-            
-            const writable = await handle.createWritable();
-            await writable.write(blob);
-            await writable.close();
-          } catch (err) {
-            // User cancelled the save dialog
-            if (err instanceof Error && err.name !== 'AbortError') {
-              console.error('Error saving file:', err);
-              // Fall back to download link
-              const url = URL.createObjectURL(blob);
-              const a = document.createElement('a');
-              a.href = url;
-              a.download = 'duelink.json';
-              document.body.appendChild(a);
-              a.click();
-              document.body.removeChild(a);
-              URL.revokeObjectURL(url);
-            }
-          }
-        } else {
-          // Fallback to download link
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'duelink.json';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-        }
+        // Always use standard download
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'duelink.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        // Close the dialog after download
+        setTimeout(() => {
+          handleClose();
+        }, 500);
       } catch (error) {
         console.error('Export error:', error);
         setError('Error exporting products');
@@ -170,9 +144,12 @@ const GenerateButton: React.FC = () => {
             categories: [...new Set(data.boards.map((b: any) => b.Category))].length
           });
           
-          // Reload the page to refresh the product table
+          // Close dialog after a delay to show success message
           setTimeout(() => {
-            window.location.reload();
+            setOpen(false);
+            setResult(null);
+            // Trigger a page refresh by dispatching a custom event
+            window.dispatchEvent(new CustomEvent('products-imported'));
           }, 2000);
           
         } catch (error) {
@@ -309,20 +286,20 @@ console.log('Run npm run generate-catalog to create MDX files');
                 {!result.imported && (
                   <Box sx={{ mt: 2 }}>
                     <Typography variant="h6" gutterBottom>
-                      Choose Save Location:
+                      Download JSON File:
                     </Typography>
                     <Typography variant="body2" color="text.secondary" paragraph>
-                      Click the button below to choose where to save the JSON file on your local system.
+                      Click the button below to download the JSON file to your Downloads folder.
                       You can then use this file to import products later or deploy to production.
                     </Typography>
                     
                     <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
                       <Button
                         variant="contained"
-                        startIcon={<SaveIcon />}
+                        startIcon={<DownloadIcon />}
                         onClick={handleDownload}
                       >
-                        Choose Location & Save
+                        Download duelink.json
                       </Button>
                     </Box>
                   </Box>
