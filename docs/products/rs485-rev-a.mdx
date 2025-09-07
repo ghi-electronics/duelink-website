@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 39
 title: RS485 Rev A
 description: RS485 Rev A - High-quality DUELink module
 ---
@@ -47,13 +47,39 @@ This is a high-quality DUELink module designed for easy integration into your pr
 
 <TabItem value="drivers">
 
-No driver documentation available for this module.
+See [Drivers](../../engine/drivers) page for further details.
+
+### Installation
+
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
+```
+
+### Basic Usage
+
+```python
+# Example code for RS485 Rev A
+# Initialize the module
+module = dl.communication.rs485()
+
+# Basic operations
+module.initialize()
+module.read()
+```
 
 </TabItem>
 
 <TabItem value="samples">
 
-No sample code available for this module yet.
+### Example Projects
+
+Coming soon! Check back for sample projects and tutorials using the RS485 Rev A.
+
+### Community Examples
+
+Share your projects using this module in our [community forum](https://forums.ghielectronics.com).
 
 </TabItem>
 
@@ -61,6 +87,12 @@ No sample code available for this module yet.
 
 ---
 
-## Ordering Information
+## Specifications
 
-**GDL-CMRS485-A** - RS485 Rev A - High-quality DUELink module - **$19.99**
+- **Part Number:** GDL-CMRS485-A
+- **Product ID:** 0x030005
+- **Category:** Communication
+
+## Support
+
+For technical support and questions, visit our [support page](../../support) or post in the [community forum](https://forums.ghielectronics.com).

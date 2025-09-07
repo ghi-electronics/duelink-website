@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 69
 title: Distance Rev B
 description: Distance Rev B - High-quality DUELink module
 ---
@@ -49,41 +49,37 @@ This is a high-quality DUELink module designed for easy integration into your pr
 
 See [Drivers](../../engine/drivers) page for further details.
 
-| Function | Description |
-| --- | --- |
-| `DVer()` | This driver version. |
-| `Init()` | Initialize the module. Automatically called on power up. |
-| `DVer()` | DVer function |
-| `Distance()` | Distance function |
+### Installation
 
-<details>
-  <summary>The Code!</summary>
-
-```py reference title="Distance Rev B Driver"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/sensor/distance.due
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
 ```
 
-</details>
+### Basic Usage
+
+```python
+# Example code for Distance Rev B
+# Initialize the module
+module = dl.sensor.distance()
+
+# Basic operations
+module.initialize()
+module.read()
+```
 
 </TabItem>
 
 <TabItem value="samples">
 
-Samples assumes [Drivers](../../engine/drivers) are installed.
+### Example Projects
 
-<Tabs
-  values={[
-    {label: 'Script', value: 'script'},
-  ]}>
+Coming soon! Check back for sample projects and tutorials using the Distance Rev B.
 
-<TabItem value="script">
+### Community Examples
 
-```py reference title="Script Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/sensor/distance.txt
-```
-</TabItem>
-
-</Tabs>
+Share your projects using this module in our [community forum](https://forums.ghielectronics.com).
 
 </TabItem>
 
@@ -91,6 +87,12 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/
 
 ---
 
-## Ordering Information
+## Specifications
 
-**GDL-SEDISTANCE-B** - Distance Rev B - High-quality DUELink module - **$19.99**
+- **Part Number:** GDL-SEDISTANCE-B
+- **Product ID:** 0x060008
+- **Category:** Sensor
+
+## Support
+
+For technical support and questions, visit our [support page](../../support) or post in the [community forum](https://forums.ghielectronics.com).

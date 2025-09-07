@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 12
 title: ePaper M42 Rev A
 description: ePaper M42 Rev A - High-quality DUELink module
 ---
@@ -49,49 +49,37 @@ This is a high-quality DUELink module designed for easy integration into your pr
 
 See [Drivers](../../engine/drivers) page for further details.
 
-| Function | Description |
-| --- | --- |
-| `DVer()` | This driver version. |
-| `Init()` | Initialize the module. Automatically called on power up. |
-| `DVer()` | DVer function |
-| `DCmd(c, b1)` | DCmd function |
-| `WaitIdle()` | WaitIdle function |
-| `DrawOnRed()` | DrawOnRed function |
-| `DrawOnBW()` | DrawOnBW function |
-| `SetDrawW(x,y,a,b)` | SetDrawW function |
-| `SetCursor(x,y)` | SetCursor function |
-| `Width()` | Width function |
-| `Height()` | Height function |
-| `Init()` | Init function |
+### Installation
 
-<details>
-  <summary>The Code!</summary>
-
-```py reference title="ePaper M42 Rev A Driver"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/display/epaper-m42.due
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
 ```
 
-</details>
+### Basic Usage
+
+```python
+# Example code for ePaper M42 Rev A
+# Initialize the module
+module = dl.display.epaper()
+
+# Basic operations
+module.initialize()
+module.read()
+```
 
 </TabItem>
 
 <TabItem value="samples">
 
-Samples assumes [Drivers](../../engine/drivers) are installed.
+### Example Projects
 
-<Tabs
-  values={[
-    {label: 'Script', value: 'script'},
-  ]}>
+Coming soon! Check back for sample projects and tutorials using the ePaper M42 Rev A.
 
-<TabItem value="script">
+### Community Examples
 
-```py reference title="Script Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/display/epaper-m42.txt
-```
-</TabItem>
-
-</Tabs>
+Share your projects using this module in our [community forum](https://forums.ghielectronics.com).
 
 </TabItem>
 
@@ -99,6 +87,12 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/
 
 ---
 
-## Ordering Information
+## Specifications
 
-**GDL-DEPAPERM42-A** - ePaper M42 Rev A - High-quality DUELink module - **$19.99**
+- **Part Number:** GDL-DEPAPERM42-A
+- **Product ID:** 0x01000C
+- **Category:** Display
+
+## Support
+
+For technical support and questions, visit our [support page](../../support) or post in the [community forum](https://forums.ghielectronics.com).

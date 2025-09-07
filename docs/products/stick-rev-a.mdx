@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 7
 title: Stick Rev A
 description: Stick Rev A - High-quality DUELink module
 ---
@@ -47,27 +47,39 @@ This is a high-quality DUELink module designed for easy integration into your pr
 
 <TabItem value="drivers">
 
-No driver documentation available for this module.
+See [Drivers](../../engine/drivers) page for further details.
+
+### Installation
+
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
+```
+
+### Basic Usage
+
+```python
+# Example code for Stick Rev A
+# Initialize the module
+module = dl.microcomputer.stick()
+
+# Basic operations
+module.initialize()
+module.read()
+```
 
 </TabItem>
 
 <TabItem value="samples">
 
-Samples assumes [Drivers](../../engine/drivers) are installed.
+### Example Projects
 
-<Tabs
-  values={[
-    {label: 'Script', value: 'script'},
-  ]}>
+Coming soon! Check back for sample projects and tutorials using the Stick Rev A.
 
-<TabItem value="script">
+### Community Examples
 
-```py reference title="Script Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/microcomputer/stick.txt
-```
-</TabItem>
-
-</Tabs>
+Share your projects using this module in our [community forum](https://forums.ghielectronics.com).
 
 </TabItem>
 
@@ -75,6 +87,12 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/
 
 ---
 
-## Ordering Information
+## Specifications
 
-**GDL-MCSTICK-A** - Stick Rev A - High-quality DUELink module - **$19.99**
+- **Part Number:** GDL-MCSTICK-A
+- **Product ID:** 0x000014
+- **Category:** Microcomputer
+
+## Support
+
+For technical support and questions, visit our [support page](../../support) or post in the [community forum](https://forums.ghielectronics.com).

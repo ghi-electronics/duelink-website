@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DueLink Admin Panel
+
+Admin interface for managing DueLink products and configurations.
 
 ## Getting Started
 
-First, run the development server:
+### Development Server
+
+Run the development server on port 4444:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The admin panel will be available at [http://localhost:4444](http://localhost:4444)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Alternative Commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Development with specific port
+npm run dev -- -p 4444
 
-## Learn More
+# Production build
+npm run build
 
-To learn more about Next.js, take a look at the following resources:
+# Start production server
+npm start
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Export static site
+npm run export
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Lint code
+npm run lint
 
-## Deploy on Vercel
+# Serve exported static files
+npm run serve
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Available Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Script | Description |
+|--------|-------------|
+| `dev` | Start development server with Turbopack on port 4000 (default) |
+| `build` | Create production build |
+| `start` | Start production server |
+| `export` | Build and export static site |
+| `lint` | Run ESLint |
+| `serve` | Serve exported static files |
+
+## Tech Stack
+
+- **Next.js 15.5.2** - React framework with Turbopack
+- **React 19.1.0** - UI library
+- **Material-UI** - Component library
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Utility-first CSS
+
+## Project Structure
+
+```
+admin/
+├── app/           # Next.js app directory
+├── components/    # Reusable React components
+├── lib/          # Utility functions and libraries
+├── public/       # Static assets
+└── package.json  # Dependencies and scripts
+```
+
+## Environment
+
+The development server runs on port 4000 by default, but can be configured:
+
+```bash
+# Run on different port
+npm run dev -- -p 4444
+```
+
+## Notes
+
+- Uses Turbopack for faster development builds
+- Material-UI components for consistent design
+- TypeScript for type safety
+- ESLint for code quality

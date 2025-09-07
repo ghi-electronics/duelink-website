@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 60
 title: Infrared Rev A
 description: Infrared Rev A - High-quality DUELink module
 ---
@@ -47,27 +47,39 @@ This is a high-quality DUELink module designed for easy integration into your pr
 
 <TabItem value="drivers">
 
-No driver documentation available for this module.
+See [Drivers](../../engine/drivers) page for further details.
+
+### Installation
+
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
+```
+
+### Basic Usage
+
+```python
+# Example code for Infrared Rev A
+# Initialize the module
+module = dl.wireless.infrared()
+
+# Basic operations
+module.initialize()
+module.read()
+```
 
 </TabItem>
 
 <TabItem value="samples">
 
-Samples assumes [Drivers](../../engine/drivers) are installed.
+### Example Projects
 
-<Tabs
-  values={[
-    {label: 'Script', value: 'script'},
-  ]}>
+Coming soon! Check back for sample projects and tutorials using the Infrared Rev A.
 
-<TabItem value="script">
+### Community Examples
 
-```py reference title="Script Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/wireless/infrared.txt
-```
-</TabItem>
-
-</Tabs>
+Share your projects using this module in our [community forum](https://forums.ghielectronics.com).
 
 </TabItem>
 
@@ -75,6 +87,12 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/
 
 ---
 
-## Ordering Information
+## Specifications
 
-**GDL-WINFRARED-A** - Infrared Rev A - High-quality DUELink module - **$19.99**
+- **Part Number:** GDL-WINFRARED-A
+- **Product ID:** 0x090006
+- **Category:** Wireless
+
+## Support
+
+For technical support and questions, visit our [support page](../../support) or post in the [community forum](https://forums.ghielectronics.com).

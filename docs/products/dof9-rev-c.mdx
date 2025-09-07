@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 70
 title: DOF9 Rev C
 description: DOF9 Rev C - High-quality DUELink module
 ---
@@ -49,45 +49,37 @@ This is a high-quality DUELink module designed for easy integration into your pr
 
 See [Drivers](../../engine/drivers) page for further details.
 
-| Function | Description |
-| --- | --- |
-| `DVer()` | This driver version. |
-| `Init()` | Initialize the module. Automatically called on power up. |
-| `DVer()` | DVer function |
-| `Init()` | Init function |
-| `RAccel()` | RAccel function |
-| `RCompass()` | RCompass function |
-| `RGyro()` | RGyro function |
-| `Convert(u,l)` | Convert function |
+### Installation
 
-<details>
-  <summary>The Code!</summary>
-
-```py reference title="DOF9 Rev C Driver"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/sensor/dof9.due
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
 ```
 
-</details>
+### Basic Usage
+
+```python
+# Example code for DOF9 Rev C
+# Initialize the module
+module = dl.sensor.dof9()
+
+# Basic operations
+module.initialize()
+module.read()
+```
 
 </TabItem>
 
 <TabItem value="samples">
 
-Samples assumes [Drivers](../../engine/drivers) are installed.
+### Example Projects
 
-<Tabs
-  values={[
-    {label: 'Script', value: 'script'},
-  ]}>
+Coming soon! Check back for sample projects and tutorials using the DOF9 Rev C.
 
-<TabItem value="script">
+### Community Examples
 
-```py reference title="Script Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/sensor/dof9.txt
-```
-</TabItem>
-
-</Tabs>
+Share your projects using this module in our [community forum](https://forums.ghielectronics.com).
 
 </TabItem>
 
@@ -95,6 +87,12 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/
 
 ---
 
-## Ordering Information
+## Specifications
 
-**GDL-SEDOF9-C** - DOF9 Rev C - High-quality DUELink module - **$19.99**
+- **Part Number:** GDL-SEDOF9-C
+- **Product ID:** 0x060007
+- **Category:** Sensor
+
+## Support
+
+For technical support and questions, visit our [support page](../../support) or post in the [community forum](https://forums.ghielectronics.com).

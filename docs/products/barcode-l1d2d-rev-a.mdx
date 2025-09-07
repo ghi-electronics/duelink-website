@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 91
 title: Barcode L1D2D Rev A
 description: Barcode L1D2D Rev A - High-quality DUELink module
 ---
@@ -49,43 +49,37 @@ This is a high-quality DUELink module designed for easy integration into your pr
 
 See [Drivers](../../engine/drivers) page for further details.
 
-| Function | Description |
-| --- | --- |
-| `DVer()` | This driver version. |
-| `Init()` | Initialize the module. Automatically called on power up. |
-| `DVer()` | DVer function |
-| `Init()` | Init function |
-| `SetMode(m)` | SetMode function |
-| `Trigger()` | Trigger function |
+### Installation
 
-<details>
-  <summary>The Code!</summary>
-
-```py reference title="Barcode L1D2D Rev A Driver"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/vision/barcode-l1d2d.due
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
 ```
 
-</details>
+### Basic Usage
+
+```python
+# Example code for Barcode L1D2D Rev A
+# Initialize the module
+module = dl.vision.barcode()
+
+# Basic operations
+module.initialize()
+module.read()
+```
 
 </TabItem>
 
 <TabItem value="samples">
 
-Samples assumes [Drivers](../../engine/drivers) are installed.
+### Example Projects
 
-<Tabs
-  values={[
-    {label: 'Script', value: 'script'},
-  ]}>
+Coming soon! Check back for sample projects and tutorials using the Barcode L1D2D Rev A.
 
-<TabItem value="script">
+### Community Examples
 
-```py reference title="Script Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/vision/barcode-l1d2d.txt
-```
-</TabItem>
-
-</Tabs>
+Share your projects using this module in our [community forum](https://forums.ghielectronics.com).
 
 </TabItem>
 
@@ -93,6 +87,12 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/
 
 ---
 
-## Ordering Information
+## Specifications
 
-**GDL-VIBARCODEL1D2D-A** - Barcode L1D2D Rev A - High-quality DUELink module - **$19.99**
+- **Part Number:** GDL-VIBARCODEL1D2D-A
+- **Product ID:** 0x0B0003
+- **Category:** Vision
+
+## Support
+
+For technical support and questions, visit our [support page](../../support) or post in the [community forum](https://forums.ghielectronics.com).
