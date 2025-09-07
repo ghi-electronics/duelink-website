@@ -66,7 +66,11 @@ Function | Description
   values={[
     {label: 'Script', value: 'script'},
     {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
     {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
 ]}>
 <TabItem value="script">
 ```py
@@ -104,15 +108,44 @@ await duelink.Graphics.Texts("DUELink", 0, 5,5,1,1)
 await duelink.Graphics.Show()
 ```
 </TabItem>
+<TabItem value="arduino">
+```cpp
+// Clear screen with black color
+duelink.Graphics.Clear(1);
+
+// draw text white color, at x = 5, y = 5, scale width = 1, scale height = 1
+duelink.Graphics.Texts("DUELink", 0, 5,5,1,1);
+
+// flush to screen
+duelink.Graphics.Show();
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# Clear screen with black color
+duelink.Graphics.Clear(1)
+
+# draw text white color, at x = 5, y = 5, scale width = 1, scale height = 1
+duelink.Graphics.Texts("DUELink", 0, 5,5,1,1)
+
+# flush to screen
+duelink.Graphics.Show()
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// Clear screen with black color
+duelink.Graphics.Clear(1);
+
+// draw text white color, at x = 5, y = 5, scale width = 1, scale height = 1
+duelink.Graphics.Texts("DUELink", 0, 5,5,1,1);
+
+// flush to screen
+duelink.Graphics.Show();
+```
+</TabItem>
 </Tabs>
 </details>
-
-
-:::tip
-When using buffered mode, the graphics buffer is not cleared automatically. Also, the display is not cleared automatically in direct mode.
-
-Always start with `Clear()`.
-:::
 
 ---
 
