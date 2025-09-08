@@ -61,22 +61,6 @@ Product data is stored in `static/duelink.json` with the following structure:
 
 **Note:** The simplified structure uses camelCase field names and resources (images, code, schematics) are resolved by convention from the part number.
 
-## Categories
-
-Valid product categories:
-- **Microcomputer** - Development boards and computers
-- **Display** - Screens and visual output devices  
-- **Control** - Motor drivers, relays, servos
-- **Network** - Communication interfaces
-- **Input** - Buttons, keyboards, joysticks
-- **Memory** - Storage devices
-- **Positioning** - GPS/GNSS modules
-- **Wireless** - Radio, WiFi, Bluetooth modules
-- **Sensor** - Input and measurement devices
-- **Visual** - LEDs and indicators
-- **Audio** - Sound generation and processing
-- **Encoding** - Barcode, printing
-- **Special** - Unique or seasonal products
 
 ## File Naming Conventions
 

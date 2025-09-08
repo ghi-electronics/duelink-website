@@ -1,3 +1,8 @@
 /.docusaurus
 /node_modules
 /build
+
+# Claude settings
+.claude/
+*.claude.json
+settings.local.json
