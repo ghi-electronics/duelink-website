@@ -41,13 +41,11 @@ Product data is stored in `static/duelink.json` with the following structure:
 ### Product Entry Structure
 ```json
 {
-    "Name": "Product Name Rev A",
-    "PartNumber": "GDL-XXPRODUCT-A",
-    "PID": "0x000001",
-    "Category": "Microcomputer|Display|Sensor|Special",
-    "Img": "product-front.png",
-    "Code": "category/product.txt",
-    "Notes": "Optional product notes"
+    "name": "Product Name Rev A",
+    "partNumber": "GDL-XXPRODUCT-A",
+    "category": "Microcomputer",
+    "price": 19.99,
+    "shortDescription": "Brief description of the product"
 }
 ```
 
@@ -55,20 +53,29 @@ Product data is stored in `static/duelink.json` with the following structure:
 
 | Field | Required | Description | Example |
 |-------|----------|-------------|---------|
-| `Name` | Yes | Display name with revision | "CincoBit Rev E" |
-| `PartNumber` | Yes | Unique part identifier | "GDL-MCCINCOBIT-E" |
-| `PID` | Yes | Product ID in hex format | "0x000001" |
-| `Category` | Yes | Product category | "Microcomputer" |
-| `Img` | Yes | Image filename | "cincobit-front.png" |
-| `Code` | Yes | Driver code path | "microcomputer/cincobit.txt" |
-| `Notes` | No | Additional information | "Special features..." |
+| `name` | Yes | Display name with revision | "CincoBit Rev E" |
+| `partNumber` | Yes | Unique part identifier | "GDL-MCCINCOBIT-E" |
+| `category` | Yes | Product category | "Microcomputer" |
+| `price` | Yes | Product price in USD | 19.99 |
+| `shortDescription` | Yes | Brief product description | "CincoBit Rev E - High-quality DUELink module" |
+
+**Note:** The simplified structure uses camelCase field names and resources (images, code, schematics) are resolved by convention from the part number.
 
 ## Categories
 
 Valid product categories:
 - **Microcomputer** - Development boards and computers
-- **Display** - Screens and visual output devices
+- **Display** - Screens and visual output devices  
+- **Control** - Motor drivers, relays, servos
+- **Network** - Communication interfaces
+- **Input** - Buttons, keyboards, joysticks
+- **Memory** - Storage devices
+- **Positioning** - GPS/GNSS modules
+- **Wireless** - Radio, WiFi, Bluetooth modules
 - **Sensor** - Input and measurement devices
+- **Visual** - LEDs and indicators
+- **Audio** - Sound generation and processing
+- **Encoding** - Barcode, printing
 - **Special** - Unique or seasonal products
 
 ## File Naming Conventions
@@ -84,15 +91,21 @@ MDX files are created as: `[product-name]-rev-[revision].mdx`
 - Example: `cincobit-rev-e.mdx`
 - All lowercase with hyphens
 
-### Image Files
+### Image Files (Convention-Based)
 Located in `static/img/catalog/`:
-- Format: `[product]-front.png`
-- Example: `cincobit-front.png`
+- Images are resolved from part number (removing GDL- prefix, lowercase)
+- Format: `[product]-[1-5].png`
+- Example for GDL-MCCINCOBIT-E:
+  - `mccincobit-e-1.png` (front view)
+  - `mccincobit-e-2.png` (back view)
+  - `mccincobit-e-3.png` (pencil/size reference)
+  - `mccincobit-e-4.png` (front 45° angle)
+  - `mccincobit-e-5.png` (back 45° angle)
 
-### Driver Code Files
-Located in `static/code/drivers/[category]/`:
-- Format: `[product].txt`
-- Example: `microcomputer/cincobit.txt`
+### Other Resource Files (Convention-Based)
+- **Schematic PDFs**: `static/sch/[product].pdf`
+- **3D STEP files**: `static/3d/[product].step`
+- Resolved automatically from part number
 
 ## Directory Structure
 
@@ -157,11 +170,10 @@ import ProductImageSelector from '@site/src/components/ProductImageSelector';
 ## Validation Rules
 
 The generation script validates:
-- Required fields are present
+- Required fields are present (name, partNumber, category, price, shortDescription)
 - Part numbers are unique
-- Image files exist
 - Category is valid
-- PID format is correct (hex)
+- All fields use camelCase naming
 
 ## Troubleshooting
 
