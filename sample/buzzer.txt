@@ -1,0 +1,29 @@
+#Play One Octave using Array of frequencies
+Dim a1[10*2]= {262,200,
+               294,200,
+               311,200,
+               349,200,
+               370,200,
+               392,200,
+               415,200,
+               440,200,
+               466,200,
+               494,200}
+
+PlayMelody(a1)
+Wait(2000)
+StopMelody()
+
+#Play One Octave using Note
+PlayNote(CNote,200)
+PlayNote(CSharpNote,200)
+PlayNote(DNote,200)
+PlayNote(DSharpNote,200)
+PlayNote(ENote,200)
+PlayNote(FNote,200)
+PlayNote(FSharpNote,200)
+PlayNote(GNote,200)
+PlayNote(GSharpNote,200)
+PlayNote(ANote,200)
+PlayNote(ASharpNote,200)
+PlayNote(BNote,200)

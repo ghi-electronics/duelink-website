@@ -1,0 +1,6 @@
+while 1
+  Set(1)
+  wait(1000)
+  Set(0)
+  wait(2000)
+wend

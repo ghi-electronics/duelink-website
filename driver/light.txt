@@ -1,0 +1,11 @@
+##### Light Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn Light()
+    return Trunc(VRead(1)/(ReadVcc() )*100)
+fend
+
+#########################

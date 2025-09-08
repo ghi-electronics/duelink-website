@@ -1,0 +1,26 @@
+# This sample is, when received a message, DUELink will write back a message
+_c = 0
+
+Dim b1[9] = [0,0,0,0,0,0,0,0,0]
+while (1 )
+    _i = RxRd(b1)
+    
+    if _i >=0 # id >= 0 valid, -1: invalid = no message
+        
+        PrintLn("id: ", hex(_i))
+        PrintLn("length: ", b1[0])
+
+        for _i = 1 to 9
+            PrintLn("data ", b1[_i])
+        next 
+
+        Dim b3[8]=[0x11,0x22,0x33,0x44,0x55,0x66,0x77,0x88]
+        
+        PrintLn("sent: ", TxReq(_c,len(b3),b3)) 
+
+        _c = _c + 1
+        
+    end
+
+    Wait(100)
+wend

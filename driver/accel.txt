@@ -1,0 +1,50 @@
+##### Accel Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+Dim b1[1]
+
+fn Init()
+    I2cCfg(400)    
+    I2cWr(0x4c, [0x20, 2], 0) # 0x4c: I2c address, [0x20,1] MC3216_Outcfg
+    I2cWr(0x4c, [0x07, 1], 0) # 0x4c: I2c address, [0x07,1] MC3216_Mode
+fend
+
+fn Convert(c)
+    if (c > 127)
+        c = c - 256
+    end
+    
+    c = c * 1024 / 64
+    
+    if (c > 1024)
+        c = 1024
+    end
+    
+    if (c < -1024)
+        c = -1024
+    end
+    
+    return c
+fend
+
+fn GetX()
+    I2cWr(0x4C, [0x0D], b1) # 0x0D MC3216_XOut
+    return Convert(b1[0])
+fend
+
+fn GetY()
+    I2cWr(0x4C, [0x0F], b1) # 0x0F MC3216_YOut
+    return Convert(b1[0])
+fend
+
+fn GetZ()
+    I2cWr(0x4C, [0x11], b1) # 0x11 MC3216_ZOut
+    return Convert(b1[0])
+fend
+
+Init()
+
+#########################

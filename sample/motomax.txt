@@ -1,0 +1,9 @@
+while 1
+
+    SMotor(50)
+    Wait(10000)
+
+    SMotor(-80)
+    Wait(10000)
+
+wend

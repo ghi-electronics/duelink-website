@@ -1,0 +1,15 @@
+_i = 10
+_d = 1
+CPos(5,0)
+CPrintS("DUELink")
+while 1
+    CPos(_i , 1)
+    CPrint('*')
+    wait(100)
+    CPos(_i , 1)
+    CPrint(' ')
+    _i = _i + _d
+    if _i > 12 || _i < 3
+        _d = _d * -1
+    end
+wend

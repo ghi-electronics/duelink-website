@@ -1,0 +1,17 @@
+PrintLn("Mount")
+_r = 0x01 # Read only
+FsMnt(2, 0, 0, 4)
+ 
+# Read text file
+PrintLn("Open")
+h = FsOpen("/test.txt", _r)
+
+PrintLn("Read")
+Dim b2[13]
+FsRead(h, b2)
+PrintLn(b2)
+
+PrintLn("Close")
+FsClose(h)
+FsUnmnt()
+ 

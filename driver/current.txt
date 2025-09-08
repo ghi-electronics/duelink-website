@@ -1,0 +1,11 @@
+##### Current Driver #####
+ 
+fn DVer()
+    return 1.0
+fend
+
+fn Current()
+    return (VRead(3)-1.65)/1100
+fend
+
+####################

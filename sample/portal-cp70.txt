@@ -1,0 +1,48 @@
+
+# Show something on the screen
+# DL Commands are documented in the Bridgetek docs
+
+DLClear()
+
+DLCmd(C_CLEAR_COLOR,{0,0,0})
+DLCmd(C_CLEAR,{})
+
+DLCmd(C_COLOR,{255,255,0})
+DLCmd(C_BEGIN, {RECTS})
+DLCmd(C_VERTEX2F, {0,0})
+DLCmd(C_VERTEX2F, {6400,1800})
+DLCmd(C_END,{})
+
+DLCmd(C_BEGIN,{LINES})
+DLCmd(C_COLOR,{255,0,0})
+for y=1000 to 1700 step 100
+  DLCmd(C_VERTEX2F, {0,y})
+  DLCmd(C_VERTEX2F, {6400,y})
+next
+DLCmd(C_END,{})
+
+DLCmd(C_COLOR,{0,0,255})
+DLCmd(C_BEGIN,{BITMAPS})
+DLCmd(C_VERTEX2II, {150,10,31,'G'})
+DLCmd(C_VERTEX2II, {185,10,31,'H'})
+DLCmd(C_VERTEX2II, {220,10,31,'I'})
+DLCmd(C_END,{})
+
+DLCmd(C_COLOR,{255,0,255})
+DLCmd(C_BEGIN,{POINTS})
+DLCmd(C_POINT_SIZE,{20<<4})
+DLCmd(C_VERTEX2F, {192<<4,1350})
+DLCmd(C_POINT_SIZE,{18<<4})
+DLCmd(C_COLOR,{0,0,0})
+DLCmd(C_VERTEX2F, {192<<4,1350})
+DLCmd(C_END,{})
+
+DLCmd(C_DISPLAY,{})
+
+DLSwap()
+
+# Play sound beep
+Synth(0x05, 1) # play note index 5 (built-in)
+Wait(500)
+# Play stop
+Synth(0x00, 0)

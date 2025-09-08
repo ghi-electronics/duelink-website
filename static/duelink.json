@@ -4,7 +4,7 @@
     "version": "0.4",
     "timestamp": "2025-09-07",
     "image_url_base": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/img/catalog/",
-    "code_url_base": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/drivers/",
+    "code_url_base": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/driver/",
     "fw_url_base": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/fw/",
     "description": "Simplified product schema with convention-based resource resolution"
   },

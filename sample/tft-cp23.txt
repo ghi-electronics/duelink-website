@@ -1,0 +1,28 @@
+Clear(0)
+_t = 1 #_t = 0 test draw, _t =1 test touch
+
+if _t = 0
+    _i = 50
+    _d = 10
+    _w = GetW()
+
+    while 1
+        Circle(0xFF0000,_i,GetH()/2-40,10)
+        Circle(0x00ff00,_i,GetH()/2-20,10)
+        Circle(0x0000ff,_i,GetH()/2,10)
+        Circle(0xFFffff,_i,GetH()/2+20,10)
+        Show()
+        _i=_i+_d
+        if (_i > _w || _i <0)
+            _d = _d * -1
+            Clear(0)
+        end
+        Wait(10)
+    wend
+else
+    while 1        
+        Circle(0xFF0000,TouchX(),TouchY(),10)
+        Show()       
+        Wait(1)
+    wend
+end

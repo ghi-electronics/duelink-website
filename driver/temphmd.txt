@@ -1,0 +1,15 @@
+##### TempHumid Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn SenPin()
+    return 18
+fend
+
+fn SenType()
+    return 4
+fend
+
+#########################

@@ -32,7 +32,7 @@ Product data is stored in `static/duelink.json` with the following structure:
         "version": "0.2",
         "timestamp": "2025-09-05",
         "image_url_base": "https://raw.githubusercontent.com/.../static/img/catalog/",
-        "code_url_base": "https://raw.githubusercontent.com/.../static/code/drivers/",
+        "code_url_base": "https://raw.githubusercontent.com/.../driver/",
         "fw_url_base": "https://raw.githubusercontent.com/.../static/bin/fw/"
     }
 }
@@ -99,12 +99,8 @@ duelink/
 │   ├── duelink.json         # Product data source
 │   ├── img/
 │   │   └── catalog/         # Product images
-│   ├── code/
-│   │   └── drivers/         # Driver code files
-│   │       ├── microcomputer/
-│   │       ├── display/
-│   │       ├── sensor/
-│   │       └── special/
+│   ├── driver/              # Driver code files (flat structure)
+│   ├── sample/              # Sample code files (flat structure)
 │   ├── sch/                 # Schematic PDFs
 │   └── 3d/                  # 3D STEP files
 ├── docs/
@@ -146,7 +142,7 @@ import ProductImageSelector from '@site/src/components/ProductImageSelector';
 
 1. Add product entry to `static/duelink.json`
 2. Place product image in `static/img/catalog/`
-3. Add driver code to `static/code/drivers/[category]/`
+3. Add driver code to `driver/`
 4. Add schematic PDF to `static/sch/` (optional)
 5. Add 3D STEP file to `static/3d/` (optional)
 6. Run `npm run generate-products`

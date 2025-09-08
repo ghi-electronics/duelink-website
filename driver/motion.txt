@@ -1,0 +1,11 @@
+##### Motion Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn Detect()
+    return DRead(3, 2)
+fend
+
+####################

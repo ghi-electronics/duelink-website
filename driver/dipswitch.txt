@@ -1,0 +1,15 @@
+##### DipSwitch Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn Read(i)
+    if i > 10 || i < 1
+        return 0            
+    end
+    
+    return !DRead(i, 1)
+fend
+
+#########################

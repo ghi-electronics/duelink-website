@@ -1,0 +1,6 @@
+while 1
+    PrintLn("x = ", GetX())
+    PrintLn("y = ", GetY())
+    PrintLn("z = ", GetZ())
+    Wait(1000)
+wend

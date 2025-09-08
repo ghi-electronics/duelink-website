@@ -95,19 +95,19 @@ function getAvailableSamples(product) {
     const samples = {};
     
     // Check for Python sample
-    const pythonPath = path.join(__dirname, 'static', 'code', 'samples', 'python', categoryFolder, `${baseName}.py`);
+    const pythonPath = path.join(__dirname, 'sample', `${baseName}.py`);
     if (fs.existsSync(pythonPath)) {
         samples.python = pythonPath;
     }
     
     // Check for JavaScript sample
-    const jsPath = path.join(__dirname, 'static', 'code', 'samples', 'javascript', categoryFolder, `${baseName}.js`);
+    const jsPath = path.join(__dirname, 'sample', `${baseName}.js`);
     if (fs.existsSync(jsPath)) {
         samples.javascript = jsPath;
     }
     
     // Check for Script sample
-    const scriptPath = path.join(__dirname, 'static', 'code', 'samples', 'script', categoryFolder, `${baseName}.txt`);
+    const scriptPath = path.join(__dirname, 'sample', `${baseName}.txt`);
     if (fs.existsSync(scriptPath)) {
         samples.script = scriptPath;
     }
@@ -131,7 +131,7 @@ function getDriverPath(product) {
         .toLowerCase()
         .replace(/\s+/g, '-');
     const categoryFolder = getCategoryFolder(product.category);
-    const driverPath = path.join(__dirname, 'static', 'code', 'drivers', categoryFolder, `${baseName}.txt`);
+    const driverPath = path.join(__dirname, 'driver', `${baseName}.txt`);
     
     if (fs.existsSync(driverPath)) {
         return driverPath;
@@ -220,6 +220,11 @@ function generateMDX(product, index) {
     const partNumberClean = product.partNumber.replace(/^GDL-/, '');
     const details = productDetails[product.partNumber] || {};
     
+    // Generate base name for file references  
+    const baseName = product.name.replace(/\s+[A-Z]$/i, '')
+        .toLowerCase()
+        .replace(/\s+/g, '-');
+    
     // Use part prefix directly for image names
     let imagePrefix = partPrefix;
     
@@ -281,6 +286,8 @@ ${resourceLinks.join('<br/>\n')}<br/>`
 ${scriptCode}
 \`\`\`
 
+[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/blob/dev/sample/${baseName}.txt)
+
 </TabItem>`);
             }
         }
@@ -294,6 +301,8 @@ ${scriptCode}
 \`\`\`python
 ${pythonCode}
 \`\`\`
+
+[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/blob/dev/sample/${baseName}.py)
 
 </TabItem>`);
             }
@@ -309,6 +318,8 @@ ${pythonCode}
 ${jsCode}
 \`\`\`
 
+[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/blob/dev/sample/${baseName}.js)
+
 </TabItem>`);
             }
         }
@@ -317,14 +328,14 @@ ${jsCode}
             sampleContent = `
 <TabItem value="samples">
 
+Samples assumes [Drivers](/docs/engine/drivers) are installed.
+
 <Tabs groupid="language" queryString="lang" defaultValue="${sampleTabs[0].value}"
   values={${JSON.stringify(sampleTabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>
 
 ${sampleTabItems.join('\n')}
 
 </Tabs>
-
-[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
 
 </TabItem>`;
         }
@@ -386,7 +397,7 @@ ${driverContent}
 
 </details>
 
-[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/blob/dev/driver/${productBaseName.toLowerCase().replace(/\s+/g, '-')}.txt)
 
 </TabItem>`;
         }
