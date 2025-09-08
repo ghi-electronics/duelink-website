@@ -56,7 +56,7 @@
       "category": "Microcomputer",
       "price": 0,
       "tagline": "Arduino form factor inspired DUELink mainboard",
-      "description": "Use the official DUELink engine firmware or use the [Arduino](/docs/hw/arduino) software IDE to program DueDuino. Of course, this is a DUELink board and [Downlink](/docs/interface/downlink) connector is ready for [Daisylinking](/docs/engine/daisylink) all of your modules.",
+      "description": "Use the official DUELink engine firmware or use the [Arduino](/docs/hw/arduino) software IDE to program DueDuino.\n\nOf course, this is a DUELink board and [Downlink](/docs/interface/downlink) connector is ready for [Daisylinking](/docs/engine/daisylink) all of your modules.",
       "keyFeatures": [
         "Arduino form factor",
         "USB-C connector",
