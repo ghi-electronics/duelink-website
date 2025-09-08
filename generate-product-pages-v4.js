@@ -125,6 +125,77 @@ function loadSampleContent(filepath) {
     }
 }
 
+// Check if driver file exists for product
+function getDriverPath(product) {
+    const baseName = product.name.replace(/\s+[A-Z]$/i, '')
+        .toLowerCase()
+        .replace(/\s+/g, '-');
+    const categoryFolder = getCategoryFolder(product.category);
+    const driverPath = path.join(__dirname, 'static', 'code', 'drivers', categoryFolder, `${baseName}.due`);
+    
+    if (fs.existsSync(driverPath)) {
+        return driverPath;
+    }
+    return null;
+}
+
+// Load driver content from file
+function loadDriverContent(filepath) {
+    try {
+        return fs.readFileSync(filepath, 'utf8');
+    } catch (error) {
+        console.error(`Error loading driver from ${filepath}:`, error.message);
+        return null;
+    }
+}
+
+// Parse driver functions from content
+function parseDriverFunctions(content) {
+    const functions = [];
+    const fnRegex = /fn\s+(\w+)\s*\(([^)]*)\)/g;
+    let match;
+    
+    // Only include descriptions we're absolutely sure about from documentation
+    const knownDescriptions = {
+        'DVer': 'This driver version.',
+        'Init': 'Initialize the module. Automatically called on power up.'
+    };
+    
+    while ((match = fnRegex.exec(content)) !== null) {
+        const funcName = match[1];
+        const params = match[2].trim();
+        functions.push({
+            name: funcName,
+            params: params || '',
+            description: knownDescriptions[funcName] || ''
+        });
+    }
+    
+    return functions;
+}
+
+// Generate driver documentation table
+function generateDriverTable(functions) {
+    if (!functions || functions.length === 0) {
+        return '';
+    }
+    
+    // Only show table if we have functions with descriptions
+    const functionsWithDesc = functions.filter(f => f.description);
+    if (functionsWithDesc.length === 0) {
+        return '';
+    }
+    
+    let table = '| Function | Description |\n';
+    table += '|----------|-------------|\n';
+    
+    functionsWithDesc.forEach(func => {
+        const signature = func.params ? `${func.name}(${func.params})` : `${func.name}()`;
+        table += `| \`${signature}\` | ${func.description} |\n`;
+    });
+    
+    return table;
+}
 
 // Ensure output directory exists
 if (!fs.existsSync(outputDir)) {
@@ -212,11 +283,25 @@ function generateMDX(product, index) {
 ${resourceLinks.join('<br/>\n')}<br/>`
         : '';
     
+    // Check for driver first
+    const driverPath = getDriverPath(product);
+    let hasDriver = false;
+    let driverContent = null;
+    
+    if (driverPath) {
+        driverContent = loadDriverContent(driverPath);
+        hasDriver = !!driverContent;
+    }
+    
     // Build tabs array dynamically
     const tabs = [
-        {label: 'Overview', value: 'overview'},
-        {label: 'Drivers', value: 'drivers'}
+        {label: 'Overview', value: 'overview'}
     ];
+    
+    // Only add Drivers tab if driver exists
+    if (hasDriver) {
+        tabs.push({label: 'Drivers', value: 'drivers'});
+    }
     
     // Check for available samples and add tab if any exist
     const availableSamples = getAvailableSamples(product);
@@ -274,6 +359,39 @@ ${sampleSections.join('\n\n')}
         }
     }
     
+    // Generate driver tab content if driver exists
+    let driverTabContent = '';
+    
+    if (hasDriver) {
+        const functions = parseDriverFunctions(driverContent);
+        const functionTable = generateDriverTable(functions);
+        
+        // Extract just the product name without revision
+        const productBaseName = product.name.replace(/\s+[A-Z]$/i, '');
+        
+        // Use triple backticks for code block to avoid MDX JSX parsing
+        // This creates a markdown code block instead of using CodeBlock component
+        driverTabContent = `
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+${functionTable ? functionTable + '\n' : ''}<details>
+<summary><strong>The Code!</strong></summary>
+
+**${productBaseName} Driver**
+
+\`\`\`basic
+${driverContent}
+\`\`\`
+
+</details>
+
+[See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+
+</TabItem>`;
+    }
+    
     const mdxContent = `---
 sidebar_position: ${index + 1}
 title: ${product.name}
@@ -305,35 +423,14 @@ ${details.overview || product.shortDescription || 'This is a high-quality DUELin
 <table><td width='50%'>
 **Key features**
 
-${details.features ? details.features.map(f => `• ${f}<br/>`).join('\n') : `• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>`}
+${(product.keyFeatures || []).map(f => `• ${f}<br/>`).join('\n')}
 
 </td><td width='50%'>
 ${resourcesSection}
 </td></table>
 
 </TabItem>
-
-<TabItem value="drivers">
-
-See [Drivers](/docs/engine/drivers) page for further details.
-
-\`\`\`python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
-
-# Example code for ${product.name}
-# Initialize the module
-module = dl.${product.category.toLowerCase()}.${product.name.split(' ')[0].toLowerCase()}()
-
-# Basic operations
-module.initialize()
-module.read()
-\`\`\`
-
-</TabItem>
+${driverTabContent}
 ${sampleContent}
 
 </Tabs>

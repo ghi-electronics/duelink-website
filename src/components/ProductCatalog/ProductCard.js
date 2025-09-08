@@ -1,7 +1,6 @@
 import React, { useState, memo, useRef, useEffect } from 'react';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
-import ReactMarkdown from 'react-markdown';
 import LazyImage from './LazyImage';
 import styles from './styles.module.css';
 
@@ -170,14 +169,7 @@ const ProductCard = memo(({ product, index }) => {
         </a>
         
         <div className={styles.shortDescription}>
-          <ReactMarkdown 
-            components={{
-              img: ({node, ...props}) => <img {...props} style={{height: '20px', verticalAlign: 'middle', marginRight: '8px'}} alt={props.alt || ''} />,
-              p: ({children}) => <span>{children}</span>
-            }}
-          >
-            {product.shortDescription}
-          </ReactMarkdown>
+          {product.tagline || ''}
         </div>
         
         <div className={styles.productMeta}>
