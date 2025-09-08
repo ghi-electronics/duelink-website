@@ -3,6 +3,8 @@ sidebar_position: 87
 title: Buzzer
 description: Buzzer - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -58,12 +60,19 @@ Use this peizo buzzer to generate tones and simple melodies. Sound an alarm, pla
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `PlayBeep(f, d)` | Play beep, (f: frequency, d: duration in ms). |
+| `PlaySound(f, d, c)` | Play sound, (f: frequency, d: duration in ms, c: duty cycle). |
+| `PlayMelody(a1)` | Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration). |
+| `StopMelody()` | Stop melody. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
 **Buzzer Driver**
 
-```text
+```batch
 ##### Buzzer Driver #####
 
 fn DVer()
@@ -117,7 +126,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 #Play One Octave using Array of frequencies
 Dim a1[10*2]= {262,200,
                294,200,

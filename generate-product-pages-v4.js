@@ -294,7 +294,7 @@ ${jsCode}
             if (scriptCode) {
                 sampleSections.push(`### Script
 
-\`\`\`text
+\`\`\`batch
 ${scriptCode}
 \`\`\``)
             }
@@ -334,7 +334,7 @@ ${driverTable ? driverTable + '\n' : ''}<details>
 
 **${productBaseName} Driver**
 
-\`\`\`text
+\`\`\`batch
 ${driverContent}
 \`\`\`
 
@@ -350,6 +350,8 @@ sidebar_position: ${index + 1}
 title: ${product.name}
 description: ${product.name} - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';

@@ -3,6 +3,8 @@ sidebar_position: 40
 title: Serial USB
 description: Serial USB - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -65,7 +67,7 @@ See [Drivers](/docs/engine/drivers) page for further details.
 
 **Serial USB Driver**
 
-```text
+```batch
 ##### SerialUSB Driver #####
 
 # No need for a driver!
@@ -100,7 +102,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 SerCfg(115200, 1024) # set baudrate 115200, 1024 byte buffer
 
 Dim b1[1]

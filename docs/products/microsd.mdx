@@ -3,6 +3,8 @@ sidebar_position: 57
 title: MicroSD
 description: MicroSD - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -64,7 +66,7 @@ See [Drivers](/docs/engine/drivers) page for further details.
 
 **MicroSD Driver**
 
-```text
+```batch
 ##### Micro SD Driver #####
 
 # No need for a driver!
@@ -100,7 +102,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 PrintLn("Mount")
 _r = 0x01 # Read only
 FsMnt(1, 17, 8000, 4)

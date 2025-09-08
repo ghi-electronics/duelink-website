@@ -3,6 +3,8 @@ sidebar_position: 73
 title: Light
 description: Light - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -58,12 +60,16 @@ A good sensor for detecting daytime or when lights are turned on. This is not an
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `Light()` | Returns value from 0 to 100. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
 **Light Driver**
 
-```text
+```batch
 ##### Light Driver #####
 
 fn DVer()
@@ -104,7 +110,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 while 1
     PrintLn(Light())
     Wait(200) 

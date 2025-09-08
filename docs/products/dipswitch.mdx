@@ -3,6 +3,8 @@ sidebar_position: 49
 title: DipSwitch
 description: DipSwitch - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -63,7 +65,7 @@ See [Drivers](/docs/engine/drivers) page for further details.
 
 **DipSwitch Driver**
 
-```text
+```batch
 ##### DipSwitch Driver #####
 
 fn DVer()
@@ -107,7 +109,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 while 1
     for _i in range (1, 11)
         PrintLn(Read(_i))

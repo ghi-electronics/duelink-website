@@ -3,6 +3,8 @@ sidebar_position: 28
 title: Relay P4
 description: Relay P4 - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -60,12 +62,16 @@ import OrderSection from '@site/src/components/OrderSection';
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `Sets(i, v)` | Sets a relay at `i` index to `v` value (1 on, 0 off). |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
 **Relay P4 Driver**
 
-```text
+```batch
 ##### Relay P4 Driver #####
 
 fn DVer()
@@ -109,7 +115,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 while 1
 
 ## All off

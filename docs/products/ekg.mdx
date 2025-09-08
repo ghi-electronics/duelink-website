@@ -3,6 +3,8 @@ sidebar_position: 71
 title: EKG
 description: EKG - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -65,7 +67,7 @@ See [Drivers](/docs/engine/drivers) page for further details.
 
 **EKG Driver**
 
-```text
+```batch
 ##### EKG Driver #####
 
 fn DVer()
@@ -116,7 +118,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 while (1)  
     PrintLn("Stat: ", ProbeStat(), " - Val: ", ProbeVal())
     wait(100)

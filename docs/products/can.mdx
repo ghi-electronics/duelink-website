@@ -3,6 +3,8 @@ sidebar_position: 35
 title: CAN
 description: CAN - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -61,12 +63,20 @@ CAN bus interface module for automotive and industrial networks
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `Bitrate(b)` | Sets the `b` bitrate (125K, 250K, 500K, 1M) |
+| `RxFull()` | Returns 1 if there is a received CAN message. |
+| `RxRd()` | Reads a received message. Returns the ArbID of the message or -1 if none. `b9` is a 9-byte array contains the message body, with first element containing DLC followed by 0 to 8 bytes of data. |
+| `TxFree()` | Returns 1 if ready for new data, or previous transmit request succeeded. |
+| `TxReq(i,l,b9)` | Request to send a message with `i` EID and `l` length of the `b9` data array. Returns 1 if a message was posted or 0 if busy to take a new one. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
 **CAN Driver**
 
-```text
+```batch
 ##### CAN Driver #####
 
 fn RdReg(r)
@@ -350,7 +360,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 # This sample is, when received a message, DUELink will write back a message
 _c = 0
 

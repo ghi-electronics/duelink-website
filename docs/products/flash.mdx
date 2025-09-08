@@ -3,6 +3,8 @@ sidebar_position: 55
 title: Flash
 description: Flash - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -57,12 +59,19 @@ Add 16MB of flash storage to any project. Create your own file management system
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `SfGetid(b9)` | Returns 3 bytes in `b9` |
+| `SfErase(a)` | Erases a block at `a` address. |
+| `SfWrite(a,b9)` | Writes a byte array `b9` at `a` address. |
+| `SfRead(a,b9)` | Reads a byte array from flash at `a` address. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
 **Flash Driver**
 
-```text
+```batch
 ##### Flash Driver #####
 
 fn DVer()
@@ -193,7 +202,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 fn Dump(b1)
     for i=0 to len(b1)
     if (i) 

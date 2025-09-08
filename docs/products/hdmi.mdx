@@ -3,6 +3,8 @@ sidebar_position: 13
 title: HDMI
 description: HDMI - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -70,7 +72,7 @@ See [Drivers](/docs/engine/drivers) page for further details.
 
 **HDMI Driver**
 
-```text
+```batch
 ##### HDMI Driver #####
 
 fn DVer()
@@ -414,7 +416,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 # Play sound beep
 Synth(0x05, 1) # play note index 5 (built-in)
 Wait(500)

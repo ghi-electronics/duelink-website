@@ -3,6 +3,8 @@ sidebar_position: 81
 title: LED RGB3
 description: LED RGB3 - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -58,12 +60,16 @@ A visual LED with 3x RGB LEDs. These lights can be set to any of 7 colors or can
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `SetLed(i, c)` | sets an LED at `i` (0 to 3) to `c` (RRGGBB color). |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
 **LED RGB3 Driver**
 
-```text
+```batch
 ##### LED RGB Driver #####
 
 fn DVer()
@@ -110,7 +116,7 @@ fend
 
 ### Script
 
-```text
+```batch
 i = 0
 while 1
     

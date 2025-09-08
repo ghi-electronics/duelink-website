@@ -3,6 +3,8 @@ sidebar_position: 65
 title: AirQuality
 description: AirQuality - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -58,12 +60,20 @@ This multi-gas digital sensor is used to detect surrounding air quality.
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `AhtTemp()` | Returns ambient temperature in celsius. |
+| `AhtHumid()` | Returns relative humidity. |
+| `EnsAqi()` | Returns air quality index. |
+| `EnsTvoc()` | Returns Total Volatile Organic Compounds. |
+| `EnsEco2()` | Returns equivalent CO2. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
 **AirQuality Driver**
 
-```text
+```batch
 ##### AirQuality Driver #####
 
 fn DVer()
@@ -251,7 +261,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 while (1) 
     PrintLn("temp: ",AhtTemp(),"C - humidity: ",AhtHumid(),"%")
     PrintLn("AQI: ",EnsAqi()," - TVOC: ",EnsTvoc()," - eCO2: ",EnsEco2())

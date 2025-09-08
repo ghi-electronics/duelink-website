@@ -3,6 +3,8 @@ sidebar_position: 41
 title: USB Host
 description: USB Host - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -66,7 +68,7 @@ See [Drivers](/docs/engine/drivers) page for further details.
 
 **USB Host Driver**
 
-```text
+```batch
 ##### USB Host Driver #####
 
 # No need for a driver!
@@ -101,7 +103,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 PrintLn("Mount")
 _r = 0x01 # Read only
 FsMnt(2, 0, 0, 4)

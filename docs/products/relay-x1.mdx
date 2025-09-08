@@ -3,6 +3,8 @@ sidebar_position: 29
 title: Relay X1
 description: Relay X1 - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -60,12 +62,16 @@ This single mechanical relay controller is self-powered, right from the DUELink 
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `Sets(v)` | Activate the relay (1 on, 0 off). |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
 **Relay X1 Driver**
 
-```text
+```batch
 ##### Relay X1 Driver #####
 
 fn DVer()
@@ -106,7 +112,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 while 1
   Set(1)
   wait(1000)

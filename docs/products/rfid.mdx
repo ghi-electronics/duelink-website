@@ -3,6 +3,8 @@ sidebar_position: 63
 title: RFID
 description: RFID - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -59,12 +61,17 @@ Read RFID (Radio-Frequency IDentification) unique IDs from tags and access cards
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `isCard()` | Returns 1 if a new card is detected. |
+| `ReadCard(a1)` | read the new card in a 16byte array. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
 **RFID Driver**
 
-```text
+```batch
 ##### RFID Driver #####
 
 fn DVer()
@@ -337,7 +344,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 dim b1[16]
 while (1)
     if (isCard() = 1)

@@ -3,6 +3,8 @@ sidebar_position: 88
 title: MP3
 description: MP3 - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -67,7 +69,7 @@ See [Drivers](/docs/engine/drivers) page for further details.
 
 **MP3 Driver**
 
-```text
+```batch
 Alias(resp_to=2000, min_last=200, reset_to=3000, min_vol=0, max_vol=30, code_ok=0x41, code_err=0x40, code_done=0x3D, code_rdy=0x3F, last_sent = _l, busy_pin = 5, message=b2 )
 
 ##### MP3 Driver #####
@@ -210,7 +212,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 if (Rst()) # reset module
     SetVol(30) # set volume to max
     if (PlayFile(1, 1)) # play file 001.mp3 in folder 01        

@@ -699,7 +699,8 @@
         "Fingerprint detector",
         "Biometric sensor",
         "47x42mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `GetSavedCnt()` | Returns how many fingerprint model are saved. |\n| `DelModel(l)` | Deletes model at `l` location. |\n| `StoreModel(l)` | Stores a converted model at `l` location. |\n| `TakeImg()` | Captures a fingerprint image. Returns 0 if succeeded. |\n| `ConvertImg(s)` | Converts captured image and stores it in `s` slot (1 or 2). |\n| `FastSearch()` | Searches the internal database for a converted image. |\n| `SetLed(c,b,k)` | Sets the LED to `c` color (1 red, 2 blue, 3 purple), with `b` blink(0 always on, 1 blink), with `k` count (0 is forever!). |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Joystick L",
@@ -713,7 +714,8 @@
         "X/Y Axis",
         "Push Button",
         "32x32mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `JoystickX()` | Returns X value from 0 to 100. |\n| `JoystickY()` | Returns Y value from 0 to 100. |\n| `BtnPin()` | Returns button's pin number. |\n| `DVer()` | Returns the driver version. |"
     },
     {
       "name": "Keypad 3x4",
@@ -726,7 +728,8 @@
         "3x4 numerical keypad",
         "12 buttons",
         "50x87mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `IsKeyChange()` | Returns true if a a change happened, press or unpress. |\n| `RdKey()` | Read the current key state, in ASCII. Zero for no press. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Keypad 4x4",
@@ -943,7 +946,8 @@
         "12.5A current sensor",
         "25A current option",
         "27x22mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `Current()` | Reads the current flow level in Amps. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Distance",
@@ -972,7 +976,8 @@
         "3axis Gyro",
         "3axis Magnetometer",
         "22x25mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `RAccel()` | Reads the acceleration XYZ in `_x`, `_y`, `_Z` variables. |\n| `RCompass()` | Reads the compass XYZ in `_x`, `_y`, `_Z` variables. |\n| `RGyro()` | Reads the gyro XYZ and its internal temp in `_x`, `_y`, `_Z`, `_T` variables. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "EKG",
@@ -1000,7 +1005,8 @@
         "Sensor Socket",
         "Heating control circuit",
         "27x42mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `Heater(s)` | Sets the heater `s` state (1 on, 0 off). |\n| `Read()` | Reads the current voltage level in Volts. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Light",
@@ -1012,7 +1018,8 @@
       "keyFeatures": [
         "Light sensor",
         "17x19mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `Light()` | Returns value from 0 to 100. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Motion",
@@ -1024,7 +1031,8 @@
       "keyFeatures": [
         "Digital motion sensing",
         "27x22mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `Detect()` | Returns 1 if motion is detected. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Pressure",
@@ -1050,7 +1058,8 @@
         "Real Time Clock",
         "Button Battery Holder",
         "37x22mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `SetTime(y,n,d,h,m,s)` | Sets date/time to `y` year, `n` month, `d` day, `h` hour, `m` minute, and `s` second. |\n| `GetTime()` | Returns current time in \\_y, \\_n, \\_d, \\_h, \\_m, \\_s variables. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "TempHmd",
@@ -1063,7 +1072,8 @@
         "DHT22 Digital Sensor",
         "Temperature and Humidity",
         "27x33mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `SenPin()` | Returns the sensor's pin number. |\n| `SenType()` | Returns the sensor's type. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "TempRTD",
@@ -1100,7 +1110,8 @@
       "keyFeatures": [
         "16 LED Ring",
         "32x32mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `SetLed(l, v)` | Sets Led at `l` (1 to 16) to a `v` value (1 on, 0 off). |\n| `LedOff()` | Resets all leds to off. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "LED RGB3",
@@ -1112,7 +1123,8 @@
       "keyFeatures": [
         "3 RGB LEDs",
         "32x22mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `SetLed(i, c)` | sets an LED at `i` (0 to 3) to `c` (RRGGBB color). |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "LED S284",
@@ -1257,7 +1269,8 @@
         "Auto playback",
         "Micro SD card reader",
         "37x22mm Overall Dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `SendCmd(c, a)` | Send `c` command & `a` argument to mp3 module. |\n| `WResponse(t, c, a)` | `t` timeout, `c` code, `a` argument. Wait for response. |\n| `Stop()` | Stop playing. |\n| `SetVol(v)` | Sets `v` volume. (Min 0, max 30) |\n| `IsBusy()` | Returns 1 if busy. |\n| `Loop(r)` | Sets `r` repeat. |\n| `Rst()` | Reset mp3 module. |\n| `PlayFile(f, d)` | Play file. `f` Files and `d` directories must be named in numerics. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Radio FM",
@@ -1309,7 +1322,8 @@
         "8x8 pixels",
         "0° to 80° celsius",
         "22x24mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `PixTemp(p)` | Read one of the `p` pixels' temp. There are 64 pixels (0 to 63). |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Dio X12",

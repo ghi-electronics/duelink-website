@@ -3,6 +3,8 @@ sidebar_position: 24
 title: Load
 description: Load - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -64,7 +66,7 @@ See [Drivers](/docs/engine/drivers) page for further details.
 
 **Load Driver**
 
-```text
+```batch
 ##### Load Driver #####
 
 # No need for a driver!
@@ -100,7 +102,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 while 1
     PWrite(1, 0.5) # L1 to half power
     DWrite(2, 1) # L2 fully on

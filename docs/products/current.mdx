@@ -3,6 +3,8 @@ sidebar_position: 68
 title: Current
 description: Current - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -59,12 +61,16 @@ Connect the terminal block inline of AC or DC power to measure its current. The 
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `Current()` | Reads the current flow level in Amps. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
 **Current Driver**
 
-```text
+```batch
 ##### Current Driver #####
  
 fn DVer()
@@ -104,7 +110,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 while 1
     PrintLn("Current: ", Current(),"A")
     Wait(200) 

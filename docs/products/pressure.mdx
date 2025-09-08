@@ -3,6 +3,8 @@ sidebar_position: 75
 title: Pressure
 description: Pressure - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -61,7 +63,7 @@ See [Drivers](/docs/engine/drivers) page for further details.
 
 **Pressure Driver**
 
-```text
+```batch
 ##### Pressure Driver #####
 
 # No need for a driver!
@@ -96,7 +98,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 while 1
     PrintLn(VRead(2),"V")
     Wait(200)

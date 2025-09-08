@@ -3,6 +3,8 @@ sidebar_position: 80
 title: LED R16
 description: LED R16 - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -55,12 +57,17 @@ A ring with 16 LEDs.
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `SetLed(l, v)` | Sets Led at `l` (1 to 16) to a `v` value (1 on, 0 off). |
+| `LedOff()` | Resets all leds to off. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
 **LED R16 Driver**
 
-```text
+```batch
 ##### LED R16 Driver #####
  
 fn DVer()
@@ -94,7 +101,7 @@ fend
 
 ### Script
 
-```text
+```batch
 _i = 1
  
 while 1

@@ -3,6 +3,8 @@ sidebar_position: 74
 title: Motion
 description: Motion - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -58,12 +60,16 @@ PIR (Passive Infrared) motion sensors use light in its view to detect motion.
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `Detect()` | Returns 1 if motion is detected. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
 **Motion Driver**
 
-```text
+```batch
 ##### Motion Driver #####
 
 fn DVer()
@@ -103,7 +109,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 while 1
     if Detect()
         PrintLn("ALARM!!")

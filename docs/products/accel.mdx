@@ -3,6 +3,8 @@ sidebar_position: 64
 title: Accel
 description: Accel - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -58,12 +60,18 @@ This 3-axis accelerometer can be used to detect motion, tilt, and acceleration j
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `GetX()` | Returns X value. |
+| `GetY()` | Returns Y value. |
+| `GetZ()` | Returns Z value. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
 **Accel Driver**
 
-```text
+```batch
 ##### Accel Driver #####
 
 fn DVer()
@@ -151,7 +159,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 while 1
     PrintLn("x = ", GetX())
     PrintLn("y = ", GetY())

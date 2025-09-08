@@ -3,6 +3,8 @@ sidebar_position: 77
 title: TempHmd
 description: TempHmd - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -59,12 +61,17 @@ Measure temperature with +-0.5 degree of accuracy at 0.1 celsius resolution. The
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `SenPin()` | Returns the sensor's pin number. |
+| `SenType()` | Returns the sensor's type. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
 **TempHmd Driver**
 
-```text
+```batch
 ##### TempHumid Driver #####
 
 fn DVer()
@@ -108,7 +115,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 while 1
     PrintLn(Temp(SenPin(), SenType()),"c - ",Humid(SenPin(), SenType()),"%")
     Wait(500)

@@ -3,6 +3,8 @@ sidebar_position: 86
 title: Smart LED
 description: Smart LED - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -60,12 +62,22 @@ The DUELink standard library includes support for WS2811 smart LEDs. When using 
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `WS2811()` | Returns the pin number used for DAT pin to be used with `WS2811` Smart LED [Graphics](/docs/engine/graphics). |
+| `IntAPA(c)` | Get the system ready for `APA102C`. |
+| `SetAPA(i, c, l)` | Sets the color at `i` index to `c` color (RRGGBB) and `l` luminance (0 to 31). |
+| `ShwAPA()` | Show/update the actual LEDs with preassigned colors. |
+| `IntLPD(c)` | Get the system ready for `LPD8806`. |
+| `SetLPD(i, c)` | Sets the color at `i` index to `c` color (RRGGBB) |
+| `ShwLPD()` | Show/update the actual LEDs with preassigned colors. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
 **Smart LED Driver**
 
-```text
+```batch
 ##### SmartLED Driver #####
 
 fn DVer()
@@ -144,7 +156,7 @@ fend
 
 ### Script
 
-```text
+```batch
 # WS2811 Sample - supports graphics
 # 3 horizontal 16x16 panels creating 48x16 display
 dim a1[]={WS2811(),# Pin used

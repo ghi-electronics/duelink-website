@@ -3,6 +3,8 @@ sidebar_position: 70
 title: DOF9
 description: DOF9 - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -65,7 +67,7 @@ See [Drivers](/docs/engine/drivers) page for further details.
 
 **DOF9 Driver**
 
-```text
+```batch
 ##### Distance Driver #####
 ## Priliminary driver. Needs improvements!
 
@@ -212,7 +214,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 while (1)  
     RAccel()
     PrintLn("accel XYZ: ",_x," ",_y," ",_z)

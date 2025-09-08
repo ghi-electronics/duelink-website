@@ -3,6 +3,8 @@ sidebar_position: 69
 title: Distance
 description: Distance - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -60,12 +62,16 @@ This sensor sends an ultrasonic chirp, then it measures the time it takes for th
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `Distance()` | Reads the current distance in cm. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
 **Distance Driver**
 
-```text
+```batch
 ##### Distance Driver #####
 
 fn DVer()
@@ -105,7 +111,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 while 1
     PrintLn("Distance: ", Distance(),"cm")
     Wait(200) 

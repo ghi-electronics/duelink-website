@@ -3,6 +3,8 @@ sidebar_position: 54
 title: Rotary
 description: Rotary - High-quality DUELink module
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Tabs from '@theme/Tabs';
@@ -56,12 +58,16 @@ Rotary encoder with push button for menu navigation
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `GetValue()` | Returns the current rotary reading. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
 **Rotary Driver**
 
-```text
+```batch
 ##### Rotary Driver #####
 
 fn DVer()
@@ -155,7 +161,7 @@ const { DUELinkController } = require("duelink");
 
 ### Script
 
-```text
+```batch
 _k = 0 # Previous value
  
 while (1)
