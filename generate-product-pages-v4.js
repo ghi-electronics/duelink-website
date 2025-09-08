@@ -46,6 +46,23 @@ const productDetails = {
     // Add more products as needed
 };
 
+// Paths for resource files
+const schematicsDir = path.join(__dirname, 'static', 'sch');
+const modelsDir = path.join(__dirname, 'static', '3d');
+
+// Helper functions to check resource availability
+function hasSchematic(partNumber) {
+    const partPrefix = extractPartPrefix(partNumber);
+    const schematicPath = path.join(schematicsDir, `gdl-${partPrefix}.pdf`);
+    return fs.existsSync(schematicPath);
+}
+
+function has3DModel(partNumber) {
+    const partPrefix = extractPartPrefix(partNumber);
+    const modelPath = path.join(modelsDir, `gdl-${partPrefix}.step`);
+    return fs.existsSync(modelPath);
+}
+
 // Ensure output directory exists
 if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
@@ -90,6 +107,22 @@ function generateMDX(product, index) {
     const partNumberClean = product.partNumber.replace(/^GDL-/, '');
     const details = productDetails[product.partNumber] || {};
     
+    // Build resources section dynamically
+    let resourceLinks = [];
+    if (hasSchematic(product.partNumber)) {
+        resourceLinks.push(`📄[Schematics](/sch/gdl-${partPrefix}.pdf)`);
+    }
+    if (has3DModel(product.partNumber)) {
+        resourceLinks.push(`🔩[3D STEP file](/3d/gdl-${partPrefix}.step)`);
+    }
+    
+    // Create resources section only if there are resources
+    const resourcesSection = resourceLinks.length > 0 
+        ? `**Resources**
+ 
+${resourceLinks.join('<br/>\n')}<br/>`
+        : '';
+    
     const mdxContent = `---
 sidebar_position: ${index + 1}
 title: ${product.name}
@@ -131,11 +164,7 @@ ${details.features ? details.features.map(f => `• ${f}<br/>`).join('\n') : `�
 • Professional grade components<br/>`}
 
 </td><td width='50%'>
-**Resources**
- 
-📄[Schematics](/sch/gdl-${partPrefix}.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-${partPrefix}.step)<br/>
-
+${resourcesSection}
 </td></table>
 
 </TabItem>
