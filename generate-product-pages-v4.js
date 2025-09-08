@@ -94,20 +94,21 @@ function generateMDX(product, index) {
 sidebar_position: ${index + 1}
 title: ${product.name}
 description: ${product.name} - High-quality DUELink module
+pagination_prev: null
+pagination_next: null
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ProductImageSelector from '@site/src/components/ProductImageSelector';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
 
 # ${product.name}
 
-<ProductImageSelector 
-  partNumber="${partPrefix}"
-  productName="${product.name}"
+<ImageSection 
+  product="${partPrefix}"
+  tagline="${(product.tagline || 'High-quality DUELink module').replace(/"/g, '')}"
 />
-
-${product.shortDescription || `${product.name} - High-quality DUELink module`}
 
 ---
 
@@ -132,8 +133,8 @@ ${details.features ? details.features.map(f => `• ${f}<br/>`).join('\n') : `�
 </td><td width='50%'>
 **Resources**
  
-📄[Schematics](/static/sch/gdl-${partPrefix}.pdf)<br/>
-🔩[3D STEP file](/static/3d/gdl-${partPrefix}.step)<br/>
+📄[Schematics](/sch/gdl-${partPrefix}.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-${partPrefix}.step)<br/>
 
 </td></table>
 
@@ -166,6 +167,14 @@ Coming soon! Check back for sample projects and tutorials using the ${product.na
 </TabItem>
 
 </Tabs>
+
+---
+
+<OrderSection
+    product="DUELink ${product.name.replace(' Rev ', ' ')}"
+    partnumber="${product.partNumber}"
+    price="$${product.price || '00.00'}"
+/>
 `;
 
     return mdxContent;
