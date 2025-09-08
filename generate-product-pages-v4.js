@@ -46,6 +46,7 @@ function extractPartPrefix(partNumber) {
 // Generate MDX content for each product
 function generateMDX(product, index) {
     const partPrefix = extractPartPrefix(product.partNumber);
+    const partNumberClean = product.partNumber.replace(/^GDL-/, '');
     
     const mdxContent = `---
 sidebar_position: ${index + 1}
@@ -77,7 +78,7 @@ ${product.shortDescription || `${product.name} - High-quality DUELink module`}
 
 <TabItem value="overview">
 
-This is a high-quality DUELink module designed for easy integration into your projects.${product.Notes ? '\n\n' + product.Notes : ''}
+${product.shortDescription || 'This is a high-quality DUELink module designed for easy integration into your projects.'}${product.Notes ? '\n\n' + product.Notes : ''}
 
 <table><td width='50%'>
 **Key features**
@@ -89,8 +90,8 @@ This is a high-quality DUELink module designed for easy integration into your pr
 </td><td width='50%'>
 **Resources**
  
-📄[Schematics](/sch/${partPrefix}.pdf)<br/>
-🔩[3D STEP file](/3d/${partPrefix}.step)<br/>
+📄[Schematics](/static/sch/${partPrefix}.pdf)<br/>
+🔩[3D STEP file](/static/3d/${partNumberClean}.step)<br/>
 
 </td></table>
 
