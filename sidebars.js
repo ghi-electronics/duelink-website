@@ -213,6 +213,16 @@ const sidebars = {
             "products/duepico"
           ],
         },
+        {
+          type: "category",
+          label: "Accessories",
+          items: [
+            "products/cables-1",
+            "products/connectors-1",
+            "products/holey-boards-1",
+            "products/mounting-hardware-1"
+          ],
+        },
         "catalog/third-party",
       ],
     },

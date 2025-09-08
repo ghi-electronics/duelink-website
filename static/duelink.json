@@ -1113,7 +1113,8 @@
         "12x8 LED Matrix",
         "96 Total LEDs",
         "42x32mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "LED R16",
@@ -1408,12 +1409,13 @@
       "category": "Accessories",
       "price": 0,
       "tagline": "DUELink Cables",
-      "description": "A variety of DUELink cable lengths available: 5x 50mm, 5x 150mm, 5x 300mm, 5x 100mm JST to pin header breakout, and Variety Pack (1x 300mm, 2x 150mm, 2x 50mm)",
+      "description": "We have a variety of DUELink cable lengths available to help projects of different needs.",
       "keyFeatures": [
-        "50mm DUELink Cable",
-        "150mm DUELink Cable",
-        "300mm DUELink Cable",
-        "100mm DUELink Breakout Cable"
+        "5x 50mm cables",
+        "5x 150mm cables",
+        "5x 300mm cables",
+        "5x 100mm JST to pin header breakout",
+        "Variety Pack (1x 300mm, 2x 150mm, 2x 50mm)"
       ]
     },
     {
@@ -1422,10 +1424,10 @@
       "category": "Accessories",
       "price": 0,
       "tagline": "DUELink JST Connectors",
-      "description": "Standard 4-pin 1mm JST connectors for building your own DUELink modules. Available in Uplink and Downlink configurations, blue and white, surface mount.",
+      "description": "These are the standard 4pin 1mm JST connectors that are used on all DUELink modules. You can build your own!",
       "keyFeatures": [
-        "4pin 1mm JST connector",
-        "Blue and White",
+        "Uplink Blue JST connector",
+        "Downlink White JST connector",
         "Surface Mount JST Connectors"
       ]
     },
@@ -1435,14 +1437,14 @@
       "category": "Accessories",
       "price": 0,
       "tagline": "Holey Boards for Mounting DUELink Modules",
-      "description": "Blank circuits with standard 5mm-pitched holes for mounting DUELink modules. Available in three sizes: Holey Smally (18x12 holes), Holey Board (36x18 holes), and Holey Moley (46x36 holes).",
+      "description": "These blank circuits with standard 5mm-pitch holes. Use to mount DUELink modules or build your own circuits.",
       "keyFeatures": [
-        "5mm-pitch holes",
+        "5mm-pitch holes standard",
         "Front grid markings",
-        "Back clean printing",
-        "Holey Smally: 92x62",
-        "Holey: 182x92mm",
-        "Holey Moley Board: 182x232mm"
+        "Back clean printing area",
+        "Holey Smally: 92x62mm (18x12 holes)",
+        "Holey Board: 182x92mm (36x18 holes)",
+        "Holey Moley: 182x232mm (46x36 holes)"
       ]
     },
     {
@@ -1451,10 +1453,42 @@
       "category": "Accessories",
       "price": 0,
       "tagline": "Mounting Hardware",
-      "description": "Complete mounting hardware kit including M3 standoffs (male-female and female-female), nylon screws, nuts, and metal footpads for mounting DUELink modules.",
+      "description": "Standoffs, Screws, Nuts, and Footpads are available to help in mounting all DUELink modules. While you can use these options with 3D printed and laser cut enclosures, the ideal use with any of the Holey Boards!",
       "keyFeatures": [
         "Universal M3 Size",
-        "Perfect for [Holey Boards](holey-board)"
+        "Perfect for Holey Boards",
+        "10x Male to Female Nylon standoffs",
+        "10x Female to Female Nylon standoffs",
+        "10x M3 Nylon Screws",
+        "10x M3 Nylon Nuts",
+        "4x M3 Metal Footpads"
+      ],
+      "variations": [
+        {
+          "name": "DUELink Nylon Standoffs M-F (10pcs)",
+          "partNumber": "GDL-AXSTANDOFFS-MF-A",
+          "price": 0
+        },
+        {
+          "name": "DUELink Nylon Standoffs F-F (10pcs)",
+          "partNumber": "GDL-AXSTANDOFFS-FF-A",
+          "price": 0
+        },
+        {
+          "name": "DUELink Nylon Screws (10pcs)",
+          "partNumber": "GDL-AXSCREWS-A",
+          "price": 0
+        },
+        {
+          "name": "DUELink Nylon Nuts (10pcs)",
+          "partNumber": "GDL-AXNUTS-A",
+          "price": 0
+        },
+        {
+          "name": "Metal Footpads (4pcs)",
+          "partNumber": "GDL-AXFOOTPADS-A",
+          "price": 0
+        }
       ]
     }
   ]
