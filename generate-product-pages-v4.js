@@ -49,7 +49,6 @@ const productDetails = {
 // Paths for resource files
 const schematicsDir = path.join(__dirname, 'static', 'sch');
 const modelsDir = path.join(__dirname, 'static', '3d');
-const samplesDir = path.join(__dirname, 'static', 'code', 'samples', 'script');
 
 // Helper functions to check resource availability
 function hasSchematic(partNumber) {
@@ -64,14 +63,6 @@ function has3DModel(partNumber) {
     return fs.existsSync(modelPath);
 }
 
-// Convert product name to sample filename
-function getSampleFilename(productName) {
-    // Remove "Rev X" suffix and convert to lowercase with hyphens
-    const cleanName = productName.replace(/\s+Rev\s+[A-Z]$/i, '')
-        .toLowerCase()
-        .replace(/\s+/g, '-');
-    return `${cleanName}.txt`;
-}
 
 // Map category names to folder names
 function getCategoryFolder(category) {
@@ -93,12 +84,45 @@ function getCategoryFolder(category) {
     return categoryMap[category] || category.toLowerCase();
 }
 
-// Check if sample exists for product
-function hasSample(product) {
-    const sampleFilename = getSampleFilename(product.name);
+// Check which sample languages exist for product
+function getAvailableSamples(product) {
+    // Remove revision letter (like "B" or "C") from the end and convert to lowercase
+    const baseName = product.name.replace(/\s+[A-Z]$/i, '')
+        .toLowerCase()
+        .replace(/\s+/g, '-');
     const categoryFolder = getCategoryFolder(product.category);
-    const samplePath = path.join(samplesDir, categoryFolder, sampleFilename);
-    return fs.existsSync(samplePath);
+    
+    const samples = {};
+    
+    // Check for Python sample
+    const pythonPath = path.join(__dirname, 'static', 'code', 'samples', 'python', categoryFolder, `${baseName}.py`);
+    if (fs.existsSync(pythonPath)) {
+        samples.python = pythonPath;
+    }
+    
+    // Check for JavaScript sample
+    const jsPath = path.join(__dirname, 'static', 'code', 'samples', 'javascript', categoryFolder, `${baseName}.js`);
+    if (fs.existsSync(jsPath)) {
+        samples.javascript = jsPath;
+    }
+    
+    // Check for Script sample
+    const scriptPath = path.join(__dirname, 'static', 'code', 'samples', 'script', categoryFolder, `${baseName}.txt`);
+    if (fs.existsSync(scriptPath)) {
+        samples.script = scriptPath;
+    }
+    
+    return samples;
+}
+
+// Load sample content from file
+function loadSampleContent(filepath) {
+    try {
+        return fs.readFileSync(filepath, 'utf8');
+    } catch (error) {
+        console.error(`Error loading sample from ${filepath}:`, error.message);
+        return null;
+    }
 }
 
 
@@ -168,27 +192,57 @@ ${resourceLinks.join('<br/>\n')}<br/>`
         {label: 'Drivers', value: 'drivers'}
     ];
     
-    // Check if sample exists and add tab if it does
-    const sampleExists = hasSample(product);
+    // Check for available samples and add tab if any exist
+    const availableSamples = getAvailableSamples(product);
+    const hasSamples = Object.keys(availableSamples).length > 0;
     let sampleContent = '';
-    if (sampleExists) {
+    
+    if (hasSamples) {
         tabs.push({label: 'Samples', value: 'samples'});
-        const sample = loadSample(product);
-        if (sample) {
+        
+        // Build sample content for each available language
+        let sampleSections = [];
+        
+        if (availableSamples.python) {
+            const pythonCode = loadSampleContent(availableSamples.python);
+            if (pythonCode) {
+                sampleSections.push(`### Python
+
+\`\`\`python
+${pythonCode}
+\`\`\``);
+            }
+        }
+        
+        if (availableSamples.javascript) {
+            const jsCode = loadSampleContent(availableSamples.javascript);
+            if (jsCode) {
+                sampleSections.push(`### JavaScript
+
+\`\`\`javascript
+${jsCode}
+\`\`\``);
+            }
+        }
+        
+        if (availableSamples.script) {
+            const scriptCode = loadSampleContent(availableSamples.script);
+            if (scriptCode) {
+                sampleSections.push(`### Script
+
+\`\`\`basic
+${scriptCode}
+\`\`\``);
+            }
+        }
+        
+        if (sampleSections.length > 0) {
             sampleContent = `
 <TabItem value="samples">
 
-**Samples assumes Drivers are installed.**
+${sampleSections.join('\n\n')}
 
-### Script
-
-**Script Sample**
-
-\`\`\`basic
-${sample}
-\`\`\`
-
-[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
 
 </TabItem>`;
         }
@@ -198,8 +252,6 @@ ${sample}
 sidebar_position: ${index + 1}
 title: ${product.name}
 description: ${product.name} - High-quality DUELink module
-pagination_prev: null
-pagination_next: null
 hide_table_of_contents: true
 ---
 
@@ -239,7 +291,7 @@ ${resourcesSection}
 
 <TabItem value="drivers">
 
-See [Drivers](../../engine/drivers) page for further details.
+See [Drivers](/docs/engine/drivers) page for further details.
 
 \`\`\`python
 # Python driver installation

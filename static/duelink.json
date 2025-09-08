@@ -703,7 +703,7 @@
     },
     {
       "name": "Radio FM A",
-      "partNumber": "GDL-SOMP3-A",
+      "partNumber": "GDL-SORADIOFM-A",
       "category": "Sound",
       "price": 19.99,
       "tagline": "FM Radio Receiver",

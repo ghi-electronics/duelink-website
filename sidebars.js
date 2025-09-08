@@ -199,8 +199,8 @@ const sidebars = {
           type: "category",
           label: "Vision",
           items: [
-            "products/barcode-l1d2d-rev-a",
-            "products/thermal-rev-a"
+            "products/barcode-l1d2d-a",
+            "products/thermal-a"
           ],
         },
         {
