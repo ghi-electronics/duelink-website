@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # RTC
 
 <ImageSection
-    product = 'sertc'
+    product = 'rtc'
     tagline = 'Realtime Clock'
 ></ImageSection>
 
@@ -29,60 +29,88 @@ import OrderSection from "/src/components/OrderSection/index.js";
   ]}>
 
 <TabItem value="overview">
-
 This module is a RTC (Real Time Clock) "time sensor" with a backup battery to keep time running even when the system is powered off.
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• Real Time Clock<br/>
+• Button Battery Holder<br/>
+• 37x22mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-sertc-b.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-sertc-b.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-sertc-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-sertc-b.step)<br/>
 
 </td></table>
-
 </TabItem>
 
 <TabItem value="drivers">
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+--- | ---
+`SetTime(y,n,d,h,m,s)` | Sets date/time to `y` year, `n` month, `d` day, `h` hour, `m` minute, and `s` second. 
+`GetTime()`  | Returns current time in _y, _n, _d, _h, _m, _s variables.
+`DVer()`  | This driver version.
 
-# Example code for RTC
-# Initialize the module
-module = dl.sensor.rtc()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="RTC Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/sensor/rtc.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the RTC.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/sensor/rtc.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/sensor/rtc.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/sensor/rtc.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink RTC B"
-    partnumber = "GDL-SERTC-B"
-    price = "$19.99"
-/>
+    product = "DUELink RTC Sensor"
+    partnumber = "GDL-SERTC-B	"
+    price = "$00.00"
+></OrderSection>

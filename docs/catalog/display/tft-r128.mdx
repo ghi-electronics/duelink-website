@@ -15,37 +15,34 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # TFT R128
 
 <ImageSection
-    product = 'dtftr128'
-    tagline = '1.28"'
+    product = 'tft-r128'
+    tagline = '1.28" - 240x240 Color Round Display'
 ></ImageSection>
 
 ---
 
 <Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
   values={[
-    {label: 'Overview', value: 'overview'},
+   {label: 'Overview', value: 'overview'},
     {label: 'Drivers', value: 'drivers'},
     {label: 'Samples', value: 'samples'},
   ]}>
 
 <TabItem value="overview">
-
-1.28" - 240x240 Color TFT LCD round (no touch) display, supporting Graphics.
+1.28" - 240x240 Color TFT LCD round (no touch) display, supporting [Graphics](../../engine/graphics).
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• 1.28" Round Display<br/>
+• 240x240<br/>
+• 47x47mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-dtftr128-b.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-dtftr128-b.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-dtftr128-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-dtftr128-b.step)<br/>
 
 </td></table>
 
@@ -55,34 +52,75 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
 
-# Example code for TFT R128
-# Initialize the module
-module = dl.display.tft()
+Function | Description
+---| ---
+`Init(m)` | Initialize the display. Automatically called on power up `m`mode to (1-direct, 0-buffered (default)).
+`GetW()` | Get display width: 80 in buffered, 240 in direct.
+`GetH()` | Get display height: 80 in buffered, 240 in direct.
+`IsColor()` | Returns 1.
+`TouchX()` | Returns touch x.
+`TouchY()` | Returns touch y.
+`DVer()` | This driver version.
 
-# Basic operations
-module.initialize()
-module.read()
+By default, the display is initialized in buffered mode.
+
+:::tip
+See [Graphics](../../engine/graphics) for available drawing functions, such as `Text()` and `Circle()`.
+:::
+
+<details>
+  <summary>The Code!</summary>
+
+
+
+```py reference title="TFT R128 Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/display/tft-r128.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the TFT R128.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/display/tft-r128.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/display/tft-r128.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/display/tft-r128.js
+```
 
 </TabItem>
 
 </Tabs>
 
----
+</TabItem>
 
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
 <OrderSection
-    product = "DUELink TFT R128 B"
+    product = "DUELink TFT R128"
     partnumber = "GDL-DTFTR128-B"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

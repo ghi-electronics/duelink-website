@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # RFID
 
 <ImageSection
-    product = 'wrfid'
+    product = 'rfid'
     tagline = 'RFID Tag and Card Reader'
 ></ImageSection>
 
@@ -33,56 +33,83 @@ import OrderSection from "/src/components/OrderSection/index.js";
 Read RFID (Radio-Frequency IDentification) unique IDs from tags and access cards. The module includes tags, but any other standard tags should work.
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• RFID reader<br/>
+• Tags and Cards<br/>
+• 57x63mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-wrfid-b.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-wrfid-b.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-wrfid-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-wrfid-a.step)<br/>
 
 </td></table>
-
 </TabItem>
 
 <TabItem value="drivers">
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+--- | ---
+`isCard()` | Returns 1 if a new card is detected.
+`ReadCard(a1)` | read the new card in a 16byte array.
+`DVer()` | This driver version.
 
-# Example code for RFID
-# Initialize the module
-module = dl.wireless.rfid()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+```py reference title="RFID Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/wireless/rfid.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the RFID.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/wireless/rfid.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/wireless/rfid.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/wireless/rfid.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink RFID B"
+    product = "DUELink RFID"
     partnumber = "GDL-WRFID-B"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

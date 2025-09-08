@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # CincoBit
 
 <ImageSection
-    product = 'mccincobit'
+    product = 'cincobit'
     tagline = 'Ultra low-cost, micro:bit inspired, educational board'
 ></ImageSection>
 
@@ -26,26 +26,29 @@ import OrderSection from "/src/components/OrderSection/index.js";
     {label: 'Overview', value: 'overview'},
     {label: 'Drivers', value: 'drivers'},
     {label: 'Samples', value: 'samples'},
+
   ]}>
 
 <TabItem value="overview">
 
-Educators and Makers will find great value in this ultra low-cost board. This is an excellent micro:bit alternative, giving you alligator clip connections and DUELink Downlink connector for Daisylinking modules.
+[Educators](../../educators) and [Makers](../../makers) will find great value in this ultra low-cost board. This is an excellent [micro:bit](../../hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](../../interface/downlink) connector for [Daisylinking](../../engine/daisylink) modules.
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• 5x5 LED Matrix<br/>
+• micro:bit inspired edge connector<br/>
+• USB-C connector<br/>
+• Buzzer<br/>
+• Light Sensor<br/>
+• 2x User Buttons<br/>
+• 52x42mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-mccincobit-e.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-mccincobit-e.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-mccincobit-e.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-mccincobit-e.step)<br/>
 
 </td></table>
 
@@ -55,34 +58,78 @@ Educators and Makers will find great value in this ultra low-cost board. This is
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
 
-# Example code for CincoBit
-# Initialize the module
-module = dl.microcomputer.cincobit()
+Function | Description
+--- | ---
+`GetW()` | Get display width: 5.
+`GetH()` | Get display height: 5.
+`IsColor()` | Returns 0.
+`BtnA()` | Returns 1 if button A is pressed.
+`BtnB()` | Returns 1 if button B is pressed.
+`IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched.
+`Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds.
+`Light()` | Returns voltage from light sensor.
+`DVer()` | This driver version.
 
-# Basic operations
-module.initialize()
-module.read()
+:::tip
+See [Graphics](../../engine/graphics) for available drawing functions.
+:::
+
+<details>
+  <summary>The Code!</summary>
+
+
+```py reference title="CincoBit Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/microcomputer/cincobit.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the CincoBit.
+Samples assumes [Drivers](../../engine/drivers) are installed.
 
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/microcomputer/cincobit.txt
+```
 </TabItem>
 
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/microcomputer/cincobit.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/microcomputer/cincobit.js
+```
+
+</TabItem>
+</Tabs>
+</TabItem>
+
+<TabItem value="projects">
+Coming Soon!
+</TabItem>
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink CincoBit E"
+    product = "DUELink CincoBit"
     partnumber = "GDL-MCCINCOBIT-E"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

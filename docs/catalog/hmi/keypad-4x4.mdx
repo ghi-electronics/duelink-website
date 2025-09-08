@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # Keypad 4x4
 
 <ImageSection
-    product = 'hikeypad4x4'
+    product = 'keypad-4x4'
     tagline = '4x4 Button Keypad'
 ></ImageSection>
 
@@ -32,20 +32,19 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 4x4 keypad with 16x "squishy" push buttons.
 
-<table><td width='50%'>
 
+<table><td width='50%'>
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• 4x4 numerical keypad<br/>
+• 16 buttons<br/>
+• 65x87mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-hikeypad4x4-b.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-hikeypad4x4-b.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-hikeypad4x4-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-hikeypad4x4-b.step)<br/>
 
 </td></table>
 
@@ -55,34 +54,67 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+--- | ---
+`IsKeyChange()` | Returns true if a a change happened, press or unpress.
+`RdKey()` | Read the current key state, in ASCII. Zero for no press.
+`DVer()` | This driver version.
 
-# Example code for Keypad 4x4
-# Initialize the module
-module = dl.hmi.keypad()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="Keypad 4x4 Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/hmi/keypad-4x4.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the Keypad 4x4.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/hmi/keypad-4x4.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/hmi/keypad-4x4.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/hmi/keypad-4x4.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink Keypad 4x4 B"
+    product = "DUELink Keypad 4x4"
     partnumber = "GDL-HIKEYPAD4X4-B"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>
+

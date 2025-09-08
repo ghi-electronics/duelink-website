@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # Relay P4
 
 <ImageSection
-    product = 'acrelayp4'
+    product = 'relay-p4'
     tagline = '4x 10A Relay Controller'
 ></ImageSection>
 
@@ -30,59 +30,93 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 <TabItem value="overview">
 
-Control high current loads using these 4x mechanical relays. Each relay is capable of driving up to 1A at 250V. The relays are powered from a 5V barrel-jack power source.
+Control high current loads using these 4x mechanical relays. Each relay is capable of driving up to 1A at 250V. The relays are powered from a 5V barrel-jack power source. Use a regulated 5V transformer, capable of 100mA or higher. Note the module will continue to function without this power source, but the relays will not work. An indicator LED shows the power source availability.
+
+:::warning
+Do NOT mess with live AC power! You will get hurt or worse if you do not know what you are doing!
+:::
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• 10A at 250V<br/>
+• Screw terminal blocks<br/>
+• External Power Barrel Jack <br/>
+• 87x52mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-acrelayp4-c.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-acrelayp4-c.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-acrelayp4-c.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-acrelayp4-c.step)<br/>
 
 </td></table>
-
 </TabItem>
 
 <TabItem value="drivers">
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+--- | ---
+`Sets(i, v)`  | Sets a relay at `i` index to `v` value (1 on, 0 off).
+`DVer()`   | This driver version.
 
-# Example code for Relay P4
-# Initialize the module
-module = dl.actuator.relay()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="Relay P4 Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/actuator/relay-p4.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the Relay P4.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/actuator/relay-p4.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/actuator/relay-p4.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/actuator/relay-p4.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink Relay P4 C"
+    product = "DUELink Relay P4"
     partnumber = "GDL-ACRELAYP4-C"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>
+

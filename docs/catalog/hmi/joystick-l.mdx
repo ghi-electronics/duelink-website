@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # Joystick L
 
 <ImageSection
-    product = 'hijoystickl'
+    product = 'joystick-l'
     tagline = 'Joystick with Push Button'
 ></ImageSection>
 
@@ -30,22 +30,21 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 <TabItem value="overview">
 
-This is a 2-axis joystick with push button.
+This is a 2-axis joystick  with push button.
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• Analog Output<br/>
+• X/Y Axis<br/>
+• Push Button<br/>
+• 32x32mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-hijoystickl-b.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-hijoystickl-b.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-hijoystickl-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-hijoystickl-b.step)<br/>
 
 </td></table>
 
@@ -55,34 +54,66 @@ This is a 2-axis joystick with push button.
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+--- | ---
+`JoystickX()` | Returns X value from 0 to 100.
+`JoystickY()` | Returns Y value from 0 to 100.
+`BtnPin()` | Returns button's pin number.
+`DVer()` | Returns the driver version.
 
-# Example code for Joystick L
-# Initialize the module
-module = dl.hmi.joystick()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="Joystick L Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/hmi/joystick-l.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the Joystick L.
+Samples assumes [Drivers](../../engine/drivers) are installed.
 
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/hmi/joystick-l.txt
+```
 </TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/hmi/joystick-l.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/hmi/joystick-l.js
+```
+</TabItem>
+
+</Tabs>
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink Joystick L B"
+    product = "DUELink Joystick L"
     partnumber = "GDL-HIJOYSTICKL-B"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

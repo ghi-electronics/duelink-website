@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # StepDrive P3
 
 <ImageSection
-    product = 'acstepdrivep3'
+    product = 'stepdrive-p3'
     tagline = '3x Stepper Motor Driver'
 ></ImageSection>
 
@@ -25,63 +25,94 @@ import OrderSection from "/src/components/OrderSection/index.js";
   values={[
     {label: 'Overview', value: 'overview'},
     {label: 'Drivers', value: 'drivers'},
-    {label: 'Samples', value: 'samples'},
   ]}>
-
 <TabItem value="overview">
-
 This module utilizes the very common stepper motor drivers commonly used in Arduino CNC Shield. They are available in multiple models. We include drivers capable of 30V @ 1A each, but you can easily swap them with your favorite driver if desired.
 
-<table><td width='50%'>
 
+Multiple terminal blocks are installed for wiring the power source and the stepper motors, no soldering is necessary!
+
+<table><td width='50%'>
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• 3x stepper motor control<br/>
+• Terminal Block Connectors<br/>
+• 77x42mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-acstepdrivep3-b.pdf)<br/>
+
+📄[Schematics](pathname:///sch/gdl-acstepdrivep3-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-acstepdrivep3-b.step)<br/>
 
 </td></table>
-
 </TabItem>
 
 <TabItem value="drivers">
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+| Function | Description          |
+| -------- | -------------------- |
+| `statled()`  | Blink the Status LED |
 
-# Example code for StepDrive P3
-# Initialize the module
-module = dl.actuator.stepdrive()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="StepDrive P3 Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/actuator/stepdrive-p3.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the StepDrive P3.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'JavaScript', value: 'js'},
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/actuator/stepdrive-p3.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/actuator/stepdrive-p3.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/actuator/stepdrive-p3.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink StepDrive P3 B"
+    product = "DUELink StepDrive P3"
     partnumber = "GDL-ACSTEPDRIVEP3-B"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

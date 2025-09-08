@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # Distance
 
 <ImageSection
-    product = 'sedistance'
+    product = 'distance'
     tagline = 'Ultrasonic Distance Sensor'
 ></ImageSection>
 
@@ -30,59 +30,90 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 <TabItem value="overview">
 
-This sensor sends an ultrasonic chirp, then it measures the time it takes for the sound to bounce back. The time it takes maps to the distance between the sensor and the object it's facing.
+This sensor sends an ultrasonic chirp, then it measures the time it takes for the sound to bounce back. The time it takes maps to the distance between the sensor and the object it's facing. This sensor works best on flat solid objects and can measure 40 millimeters to 4 meters.
+
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• Ultrasonic Type<br/>
+• 15° range<br/>
+• 40mm to 4meter<br/>
+• 47x30mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-sedistance-b.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-sedistance-b.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-sedistance-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-sedistance-b.step)<br/>
 
 </td></table>
-
 </TabItem>
 
 <TabItem value="drivers">
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
 
-# Example code for Distance
-# Initialize the module
-module = dl.sensor.distance()
+Function | Description
+--- | ---
+`Distance()` | Reads the current distance in cm.
+`DVer()`   | This driver version.
 
-# Basic operations
-module.initialize()
-module.read()
+<details>
+  <summary>The Code!</summary>
+
+
+
+```py reference title="Distance Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/sensor/distance.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the Distance.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/sensor/distance.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/sensor/distance.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/sensor/distance.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink Distance B"
+    product = "DUELink Distance Sensor"
     partnumber = "GDL-SEDISTANCE-B"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # EKG
 
 <ImageSection
-    product = 'seekg'
+    product = 'ekg'
     tagline = 'Heart EKG Sensor'
 ></ImageSection>
 
@@ -30,59 +30,87 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 <TabItem value="overview">
 
-Use this module to experiment with heart EKG signals. This is NOT a medical device but an educational sensor for experimentation. The kit includes probes and sticker pads.
+Use this module to experiment with heart EKG signals. This is **NOT a medical device** but an educational sensor for experimentation. The kit includes probes and sticker pads.
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• EKG (ECG) <br/>
+• Includes probes and pads<br/>
+• Electrocardiogram <br/>
+• 52x32mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-seekg-a.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-seekg-a.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-seekg-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-seekg-a.step)<br/>
 
 </td></table>
-
 </TabItem>
 
 <TabItem value="drivers">
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+--- | ---
+`ProbeStat()` | Returns status of the connections. 0b11 for 2 status connections, 0 for a good connection.
+`ProbeValue()` | Returns the probe reading.
+`DVer()` | This driver version.
 
-# Example code for EKG
-# Initialize the module
-module = dl.sensor.ekg()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+```py reference title="EKG Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/sensor/ekg.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the EKG.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/sensor/ekg.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/sensor/ekg.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/sensor/ekg.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink EKG A"
+    product = "DUELink EKG Sensor"
     partnumber = "GDL-SEEKG-A"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

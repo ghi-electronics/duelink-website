@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # Current
 
 <ImageSection
-    product = 'securrent'
+    product = 'current'
     tagline = 'Current Sensor'
 ></ImageSection>
 
@@ -30,59 +30,94 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 <TabItem value="overview">
 
-Connect the terminal block inline of AC or DC power to measure its current. The sensor has an internal resistance of 1.2 milli-ohm. It is capable of measuring up to 12.5A.
+Connect the terminal block inline of AC or DC power to measure its current. The sensor has an internal resistance of 1.2 milli-ohm. It is capable of measuring up to 12.5A. A higher current model is available that is capable of up to 25A.
+
+:::warning
+DO NOT mess with live AC power! You will get hurt or worse if you do not know what you are doing!
+:::
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• 12.5A current sensor<br/>
+• 25A current option<br/>
+• 27x22mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-securrent-a.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-securrent-a.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-securrent-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-securrent-a.step)<br/>
 
 </td></table>
-
 </TabItem>
 
 <TabItem value="drivers">
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+--- | ---
+`Current()` | Reads the current flow level in Amps.
+`DVer()`   | This driver version.
 
-# Example code for Current
-# Initialize the module
-module = dl.sensor.current()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="Current Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/sensor/current.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the Current.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/sensor/current.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/sensor/current.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/sensor/current.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink Current A"
-    partnumber = "GDL-SECURRENT-A"
-    price = "$19.99"
-/>
+    product = "DUELink Current Sensor 12.5A"
+    partnumber = "GDL-SECURRENT12-A"
+    price = "$00.00"
+    product2 = "DUELink Current Sensor 25A"
+    partnumber2 = "GDL-SECURRENT25-A"
+    price2 = "$00.00"
+></OrderSection>

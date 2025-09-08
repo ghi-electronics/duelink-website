@@ -15,8 +15,8 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # Ethernet
 
 <ImageSection
-    product = 'cmethernet'
-    tagline = ''
+    product = 'ethernet'
+    tagline = 'Ethernet LAN Interface'
 ></ImageSection>
 
 ---
@@ -30,59 +30,83 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 <TabItem value="overview">
 
-Ethernet connectivity module for network communications
+Take your projects online with this Ethernet module. Full TCP/IP stack is built-in with complete TCP and UDP support. The PHY is capable of 10/100 Base connections. No TLS/SSL support.
+
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• Complete TCP/IP stack<br/>
+• TCP and UDP support<br/>
+• 10/100 Base<br/>
+• On-board LAN Connector<br/>
+• 37x27mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-cmethernet-c.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-cmethernet-c.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-cmethernet-c.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-cmethernet-c.step)<br/>
 
 </td></table>
-
 </TabItem>
 
 <TabItem value="drivers">
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+<details>
+  <summary>The Code!</summary>
 
-# Example code for Ethernet
-# Initialize the module
-module = dl.communication.ethernet()
 
-# Basic operations
-module.initialize()
-module.read()
+```py reference title="Ethernet Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/com/ethernet.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the Ethernet.
+Samples assumes [Drivers](../../engine/drivers) are installed.
 
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/com/ethernet.txt
+```
 </TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/com/ethernet.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/com/ethernet.js
+```
+</TabItem>
+
+</Tabs>
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink Ethernet C"
+    product = "DUELink Ethernet"
     partnumber = "GDL-CMETHERNET-C"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>
+

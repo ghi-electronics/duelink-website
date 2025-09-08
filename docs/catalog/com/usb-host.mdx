@@ -15,8 +15,8 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # USB Host
 
 <ImageSection
-    product = 'cmusbhost'
-    tagline = ''
+    product = 'usbhost'
+    tagline = 'USB Host Controller'
 ></ImageSection>
 
 ---
@@ -30,22 +30,22 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 <TabItem value="overview">
 
-USB host controller for connecting USB peripherals
+Access files on USB memory devices using this USB Host controller. Full FAT16/FAT32 support with long-file name. See [File System](../../engine/filesystem).
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• USB Host interface<br/>
+• MSC class<br/>
+• FAT16/FAT32 with LFN support<br/>
+• USB-A Host Connector<br/>
+• 32x27mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-cmusbhost-b.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-cmusbhost-b.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-cmusbhost-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-cmusbhost-b.step)<br/>
 
 </td></table>
 
@@ -55,34 +55,64 @@ USB host controller for connecting USB peripherals
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+:::tip
+USB Host module uses the [Standard Library File System](../../engine/filesystem). No other drivers are needed.
+:::
 
-# Example code for USB Host
-# Initialize the module
-module = dl.communication.usb()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="USB Host Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/com/usb-host.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the USB Host.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/com/usb-host.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/com/usb-host.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/com/usb-host.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink USB Host B"
+    product = "DUELink USB Host"
     partnumber = "GDL-CMUSBHOST-B"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

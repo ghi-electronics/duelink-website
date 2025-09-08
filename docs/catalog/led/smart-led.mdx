@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # Smart LED
 
 <ImageSection
-    product = 'lsmartled'
+    product = 'smart-led'
     tagline = 'Smart LED Controller'
 ></ImageSection>
 
@@ -30,22 +30,27 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 <TabItem value="overview">
 
-The DUELink standard library includes support for WS2811 smart LEDs. When using matrices, the support is even included with the graphics function.
+The DUELink [standard library](../../engine/stdlib) includes support for `WS2811` smart LEDs. When using matrices, the support is even included with the [graphics](../../engine/graphics) function.
+
+The screw terminal block is also connected to SPI bus to support `LPD8806` and `APA102C` 2pin smart LEDs (CLK & DAT). However, these type of LEDs are not supported by the internal graphics library.
+
+![Smart LED Matrix](pathname:///img/neopixel-zigzag.png)
+
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• WS2811 LED Controller<br/>
+• Support for DAT/CLK type<br/>
+• Terminal Block Connection<br/>
+• 37x22mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
  
-📄[Schematics](/sch/gdl-lsmartled-a.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-lsmartled-a.step)<br/>
+ 
+📄[Schematics](pathname:///sch/gdl-lsmartled-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-lsmartled-a.step)<br/>
 
 </td></table>
 
@@ -55,34 +60,72 @@ The DUELink standard library includes support for WS2811 smart LEDs. When using 
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+--- | ---
+`WS2811()` | Returns the pin number used for DAT pin to be used with `WS2811` Smart LED [Graphics](../../engine/graphics).
+`IntAPA(c)` | Get the system ready for `APA102C`.
+`SetAPA(i, c, l)` | Sets the color at `i` index to `c` color (RRGGBB) and `l` luminance (0 to 31). 
+`ShwAPA()` | Show/update the actual LEDs with preassigned colors.
+`IntLPD(c)` | Get the system ready for `LPD8806`.
+`SetLPD(i, c)` | Sets the color at `i` index to `c` color (RRGGBB)
+`ShwLPD()` | Show/update the actual LEDs with preassigned colors.
+`DVer()`  | This driver version.
 
-# Example code for Smart LED
-# Initialize the module
-module = dl.led.smart()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="Smart LED Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/led/smart-led.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the Smart LED.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/led/smart-led.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/led/smart-led.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/led/smart-led.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink Smart LED A"
+    product = "DUELink Smart LED Controller"
     partnumber = "GDL-LSMARTLED-A"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>
+

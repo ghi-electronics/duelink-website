@@ -15,8 +15,8 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # Serial USB
 
 <ImageSection
-    product = 'cmserialusb'
-    tagline = ''
+    product = 'serialusb'
+    tagline = 'USB Virtual Serial Port'
 ></ImageSection>
 
 ---
@@ -30,59 +30,85 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 <TabItem value="overview">
 
-USB to serial converter for legacy device connectivity
+A virtual serial connection (COM port) is presented by this module. An application can send serial data to a computer over a USB connection.
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• USB Serial<br/>
+• Virtual Serial Port<br/>
+• USB-C connector<br/>
+• 32x27mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-cmserialusb-a.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-cmserialusb-a.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-cmserialusb-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-cmserialusb-a.step)<br/>
 
 </td></table>
-
 </TabItem>
 
 <TabItem value="drivers">
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+:::tip
+SerialUSB module uses the [Standard Library](../../engine/stdlib) serial bus. No other drivers are needed.
+:::
 
-# Example code for Serial USB
-# Initialize the module
-module = dl.communication.serial()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+```py reference title="Serial USB Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/com/serial-usb.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the Serial USB.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/com/serial-usb.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/com/serial-usb.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/com/serial-usb.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink Serial USB A"
+    product = "DUELink Serial USB"
     partnumber = "GDL-CMSERIALUSB-A"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

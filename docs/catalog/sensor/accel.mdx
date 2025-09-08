@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # Accel
 
 <ImageSection
-    product = 'seaccel'
+    product = 'accel'
     tagline = '3-Axis Accelerometer'
 ></ImageSection>
 
@@ -33,19 +33,16 @@ import OrderSection from "/src/components/OrderSection/index.js";
 This 3-axis accelerometer can be used to detect motion, tilt, and acceleration just to name a few.
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• Detect motion, tilt and acceleration<br/>
+• 22x20mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
  
-📄[Schematics](/sch/gdl-seaccel-a.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-seaccel-a.step)<br/>
+📄[Schematics](pathname:///sch/gdl-seaccel-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-seaccel-a.step)<br/>
 
 </td></table>
 
@@ -55,34 +52,73 @@ This 3-axis accelerometer can be used to detect motion, tilt, and acceleration j
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+--- | ---
+`GetX()`  | Returns X value.
+`GetY()`  | Returns Y value.
+`GetZ()`  | Returns Z value.
+`DVer()`  | This driver version.
 
-# Example code for Accel
-# Initialize the module
-module = dl.sensor.accel()
 
-# Basic operations
-module.initialize()
-module.read()
+<details>
+  <summary>The Code!</summary>
+
+
+
+```py reference title="Accel Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/sensor/accel.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the Accel.
+<Tabs
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'JavaScript', value: 'js'},
+
+]}>
+
+<TabItem value="script">
+ Use [Console](../../console) to modify the default driver by adding this sample.
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/sensor/accel.txt
+```
 
 </TabItem>
+
+<TabItem value="py">
+
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/sensor/accel.py
+```
+
+</TabItem>
+
+<TabItem value="js">
+
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/sensor/accel.js
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink Accel A"
+    product = "DUELink Accel Sensor"
     partnumber = "GDL-SEACCEL-A"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

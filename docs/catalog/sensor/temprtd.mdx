@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # TempRTD
 
 <ImageSection
-    product = 'setemprtd'
+    product = 'temprtd'
     tagline = 'TempRTD Sensor'
 ></ImageSection>
 
@@ -33,56 +33,81 @@ import OrderSection from "/src/components/OrderSection/index.js";
 This sensor uses the included RTD (Resistance Temperature Detector) to measure temperatures.
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• RTD Temperature Sensor<br/>
+• 42x27 overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-setemprtd-a.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-setemprtd-a.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-setemprtd-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-setemprtd-a.step)<br/>
 
 </td></table>
-
 </TabItem>
 
 <TabItem value="drivers">
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+--- | ---
+`ReadTemp()` | Reads the current temperature in celsius.
+`DVer()`  | This driver version.
 
-# Example code for TempRTD
-# Initialize the module
-module = dl.sensor.temprtd()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="TempRTD Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/sensor/temprtd.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the TempRTD.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/sensor/temprtd.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/sensor/temprtd.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/sensor/temprtd.js
+```
 
 </TabItem>
 
 </Tabs>
 
----
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
 
 <OrderSection
-    product = "DUELink TempRTD B"
+    product = "DUELink TempRTD Sensor"
     partnumber = "GDL-SETEMPRTD-A"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

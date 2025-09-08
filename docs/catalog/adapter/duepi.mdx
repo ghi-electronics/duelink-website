@@ -15,8 +15,8 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # DuePi
 
 <ImageSection
-    product = 'adduepi'
-    tagline = ''
+    product = 'duepi'
+    tagline = 'DUELink Hat for Raspberry Pi & Pi Zero'
 ></ImageSection>
 
 ---
@@ -30,22 +30,36 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 <TabItem value="overview">
 
-Raspberry Pi HAT adapter for Pi compatibility
+DuePi is the perfect adapter for all RPI (Raspberry Pi) models, including RPI Zero. The outer mounting holes are standard mounting holes for RPI. The bottom half of the board is a 5mm-pitched holes for mounting DUELink modules. This bottom side is breakable to make the board smaller to make it the right size for RPI Zero.
+
+![DuePi with Raspberry Pi Zero](pathname:///img/duepi-zero.png)
+
+The board includes several onboard peripherals, including buttons, buzzer, and a graphical display. The display is controlled using the DUELink native [Graphics](../../engine/graphics) support. Simple commands are used to control the display instead of using Linux.
+
+The onboard 800mA regulator is used to feed power to the Downlink connector, keeping any loads away from the RPI's 3.3V source.
+
+The USB connector is conveniently there to help with loading/updating the DUELink processor's firmware/drivers. It should not be used when DuePi is used with a Raspberry Pi.
+
+:::note
+With the USB connector and the onboard power regulator, this adapter can be used as a Microcomputer with full functionality without the need of any RPI!
+:::
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• Attaches to Raspberry Pi or Pi Zero Header<br/>
+• 0.96" OLED Display<br/>
+• 2x User Buttons<br/>
+• Piezo Buzzer<br/>
+• Breakaway "Holey" Section<br/>
+• Terminal Block for Additional Connectivity<br/>
+• 65x56.5mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-adduepi-b.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-adduepi-b.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-adduepi-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-adduepi-b.step)<br/>
 
 </td></table>
 
@@ -55,34 +69,67 @@ Raspberry Pi HAT adapter for Pi compatibility
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+---| ---
+`GetW()` | Get display width: 128.
+`GetH()` | Get display height: 64.
+`IsColor()` | Returns 0.
+`BtnA()` | Returns 1 if button A is pressed.
+`BtnB()` | Returns 1 if button B is pressed.
+`Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds.
+`DVer()` | This driver version.
 
-# Example code for DuePi
-# Initialize the module
-module = dl.adapter.duepi()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+```py reference title="DuePi"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/adapter/duepi.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the DuePi.
+Samples assumes [Drivers](../../engine/drivers) are installed.
 
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/adapter/duepi.txt
+```
 </TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/adapter/duepi.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/adapter/duepi.js
+```
+</TabItem>
+
+</Tabs>
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink DuePi B"
+    product = "DUELink DuePi"
     partnumber = "GDL-ADDUEPI-B"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

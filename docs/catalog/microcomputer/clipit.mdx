@@ -12,11 +12,11 @@ import "react-medium-image-zoom/dist/styles.css";
 import ImageSection from "/src/components/ImageSection/index.js";
 import OrderSection from "/src/components/OrderSection/index.js";
 
-# ClipIt
+# Clipit
 
 <ImageSection
-    product = 'mcclipit'
-    tagline = 'Alligator clip friendly STEM-microcomputer'
+    product = 'clipit'
+    tagline = "Alligator clip friendly STEM-microcomputer"
 ></ImageSection>
 
 ---
@@ -29,23 +29,28 @@ import OrderSection from "/src/components/OrderSection/index.js";
   ]}>
 
 <TabItem value="overview">
+[Educators](../../educators) can now elevate their STEM-mission with Clipit. Start immediately with light sensor and touch pads to read inputs. Then use any of the supported [Languages](../../language/intro) to process those inputs and then control the output on the 5x5 LED matrix and buzzer.
 
-Educators can now elevate their STEM-mission with Clipit. Start immediately with light sensor and touch pads to read inputs. Then use any of the supported Languages to process those inputs and then control the output on the 5x5 LED matrix and buzzer.
+Go beyond and add alligator clips for reading touch from objects, or control other circuits.
+
+Of course, this is a DUELink board and [Downlink](../../interface/downlink) is ready for [Daisylinking](../../engine/daisylink) all of your modules.
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• Clip Friendly Holes<br/>
+• Capacitive Touchpads<br/>
+• USB-C connector<br/>
+• 5x5 LED Matrix<br/>
+• Buzzer<br/>
+• Light Sensor<br/>
+• 120x60mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-mcclipit-b.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-mcclipit-b.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-mcclipit-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-mcclipit-b.step)<br/>
 
 </td></table>
 
@@ -55,34 +60,68 @@ Educators can now elevate their STEM-mission with Clipit. Start immediately with
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+---| ---
+`TouchA()` | Returns 1 if A pad is touched.
+`TouchB()` | Returns 1 if B pad is touched.
+`TouchUp()` | Returns 1 if Up pad is touched.
+`TouchDown()` | Returns 1 if Down pad is touched.
+`TouchLeft()` | Returns 1 if Left pad is touched.
+`TouchRight()` | Returns 1 if Right pad is touched.
+`Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds.
+`Light()` | Returns voltage level from light sensor.
+`DVer()` | This driver version.
 
-# Example code for ClipIt
-# Initialize the module
-module = dl.microcomputer.clipit()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+```py reference title="Clipit Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/microcomputer/clipit.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the ClipIt.
+Samples assumes [Drivers](../../engine/drivers) are installed.
 
+<Tabs
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/microcomputer/clipit.txt
+```
 </TabItem>
 
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/microcomputer/clipit.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/microcomputer/clipit.js
+```
+
+</TabItem>
+</Tabs>
+</TabItem>
+
+<TabItem value="projects">
+Coming Soon!
+</TabItem>
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink ClipIt B"
+    product = "DUELink Clipit"
     partnumber = "GDL-MCCLIPIT-B"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # ClipSense
 
 <ImageSection
-    product = 'seclipsense'
+    product = 'clipsense'
     tagline = 'Clip-friendly IOs with Capacitive Sensing'
 ></ImageSection>
 
@@ -30,59 +30,90 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 <TabItem value="overview">
 
-With these alligator-clip-friendly pads, users can easily connect(clip) anything that requires digital inputs/outputs. These pads also support analog and PWM (analog out) functionality.
+With these alligator-clip-friendly pads, users can easily connect(clip) anything that requires digital inputs/outputs. These pads also support analog and PWM (analog out) functionality. 
+
+The pads also support capacitive sensing to detect touch from a connected object. 
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• 8x Digital GPIO<br/>
+• 8x Analog inputs<br/>
+• 8x Digital outputs<br/>
+• 8x Capacitive touch<br/>
+• 37x34mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-seclipsense-a.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-seclipsense-a.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-seclipsense-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-seclipsense-a.step)<br/>
 
 </td></table>
-
 </TabItem>
 
 <TabItem value="drivers">
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+:::tip
+Use the [Standard Library API](../../engine/stdlib) directly to utilize ClipSense's pins.
+:::
 
-# Example code for ClipSense
-# Initialize the module
-module = dl.sensor.clipsense()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="ClipSense Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/sensor/clipsense.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the ClipSense.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/sensor/clipsense.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/sensor/clipsense.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/sensor/clipsense.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink ClipSense A"
+    product = "DUELink ClipSense Sensor"
     partnumber = "GDL-SECLIPSENSE-A"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

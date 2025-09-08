@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # MP3
 
 <ImageSection
-    product = 'somp3'
+    product = 'mp3'
     tagline = 'MP3 Micro SD Player'
 ></ImageSection>
 
@@ -30,59 +30,103 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 <TabItem value="overview">
 
-Play MP3 audio/music from files found on the attached Micro SD card. The audio quality is reasonable and single mono channel. There is no system load as the module only receives and processes simple commands.
+Play MP3 audio/music from files found on the attached Micro SD card. The audio quality is reasonable and single mono channel. There is no system load as the module only receives and processes simple commands, like `start` playing, or `stop`. The files on the Micro SD card are saved in standard FAT16/FAT32 file system and can handle SD cards up to 32GB. Note that you will not have access to the files directly. Only the MP3 decoder can read the files. You will need to move the Micro SD card to a PC to load it with MP3 files.
+
+Micro SD card is required and is not included.
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• MP3 decoder<br/>
+• Auto playback<br/>
+• Micro SD card reader<br/>
+• 37x22mm Overall Dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-somp3-a.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-somp3-a.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-somp3-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-somp3-a.step)<br/>
 
 </td></table>
-
 </TabItem>
 
 <TabItem value="drivers">
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
 
-# Example code for MP3
-# Initialize the module
-module = dl.sound.mp3()
 
-# Basic operations
-module.initialize()
-module.read()
+Function | Description
+---| ---
+`SendCmd(c, a)` | Send `c` command & `a` argument to mp3 module.
+`WResponse(t, c, a)` | `t` timeout, `c` code, `a` argument. Wait for response.
+`Stop()` | Stop playing.
+`SetVol(v)` | Sets `v` volume. (Min 0, max 30)
+`IsBusy()` | Returns 1 if busy.
+`Loop(r)` | Sets `r` repeat.
+`Rst()` | Reset mp3 module.
+`PlayFile(f, d)`  | Play file. `f` Files and `d` directories must be named in numerics.
+`DVer()`  | This driver version.
+
+:::tip
+Example: The function PlayFile(3, 1) will play file named `003.mp3` in a folder named `01`. Max MP3 file number is 255 in a single folder, and max folder count is 99.
+:::
+
+<details>
+ <summary>The Code!</summary>
+
+
+
+```py reference title="MP3 Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/sound/mp3.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the MP3.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/sound/mp3.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/sound/mp3.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/sound/mp3.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink MP3 A"
+    product = "DUELink MP3 Micro SD Player"
     partnumber = "GDL-SOMP3-A"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

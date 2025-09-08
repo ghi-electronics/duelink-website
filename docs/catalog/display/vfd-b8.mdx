@@ -12,10 +12,10 @@ import "react-medium-image-zoom/dist/styles.css";
 import ImageSection from "/src/components/ImageSection/index.js";
 import OrderSection from "/src/components/OrderSection/index.js";
 
-# VFD B8
+# VFD-B8
 
 <ImageSection
-    product = 'dvfdb8'
+    product = 'vfd-b8'
     tagline = 'Vacuum Fluorescent Character Display'
 ></ImageSection>
 
@@ -33,56 +33,83 @@ import OrderSection from "/src/components/OrderSection/index.js";
 Vacuum fluorescent displays are visually pleasing. This 8x character display looks great at any time, but it will look especially amazing in the dark!
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• Monochrome Vacuum Fluorescent Display<br/>
+• 107x22mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-dvfdb8-c.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-dvfdb8-c.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-dvfdb8-c.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-dvfdb8-c.step)<br/>
 
 </td></table>
-
 </TabItem>
 
 <TabItem value="drivers">
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+--- | ---
+`CPrint(x, c)` | Print an ASCII `c` character at `x` pos.
+`CPrintS(str)` | Print a string.
+`DVer()` | This driver version.
 
-# Example code for VFD B8
-# Initialize the module
-module = dl.display.vfd()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="VFD B8 Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/display/vfd-b8.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the VFD B8.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/display/vfd-b8.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/display/vfd-b8.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/display/vfd-b8.js
+```
 
 </TabItem>
 
 </Tabs>
 
----
+</TabItem>
 
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
 <OrderSection
-    product = "DUELink VFD B8 C"
+    product = "DUELink VFD B8"
     partnumber = "GDL-DVFDB8-C"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

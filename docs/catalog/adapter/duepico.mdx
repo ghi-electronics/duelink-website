@@ -15,8 +15,8 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # DuePico
 
 <ImageSection
-    product = 'adduepico'
-    tagline = ''
+    product = 'duepico'
+    tagline = 'DUELink Perfect Mate for Rasbperry Pi Pico'
 ></ImageSection>
 
 ---
@@ -30,22 +30,35 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 <TabItem value="overview">
 
-Raspberry Pi Pico adapter for RP2040 integration
+DuePico is the perfect adapter for RPI (Raspberry Pi) Pico. It gracefully takes the RPI Pico on its back side and offers all RPI Pico connections on female headers, allowing to connect it as you wish. 
+
+![DuePico with Raspberry Pi Pico](pathname:///img/duepico-pico.png)
+
+On the front side, the board includes several peripherals, including buttons, buzzer, and a graphical display. The display is controlled using the DUELink native [Graphics](../../engine/graphics) support. Simple commands are used to control the display instead of replying on RPI Pico.
+
+The onboard 800mA regulator is used to feed power to the Downlink connector, keeping any loads away from the RPI Pico's 3.3V source.
+
+The USB connector is conveniently there to help with loading/updating the DUELink processor's firmware/drivers. It should not be used when DuePico is used with a RPI Pico.
+
+:::note
+With the USB connector and the onboard power regulator, this adapter can be used as a Microcomputer with full functionality without the need of any RPI!
+:::
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• Raspberry Pi Pico Headers<br/>
+• 0.96" OLED Display<br/>
+• 2x User Buttons<br/>
+• 8 Pin Header<br/>
+• Piezo Buzzer<br/>
+• 65x37mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-adduepico-b.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-adduepico-b.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-adduepico-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-adduepico-b.step)<br/>
 
 </td></table>
 
@@ -55,34 +68,75 @@ Raspberry Pi Pico adapter for RP2040 integration
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+---| ---
+`GetW()` | Get display width: 128.
+`GetH()` | Get display height: 64.
+`IsColor()` | Returns 0.
+`BtnA()` | Returns 1 if button A is pressed.
+`BtnB()` | Returns 1 if button B is pressed.
+`Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds.
+`DVer()` | This driver version.
 
-# Example code for DuePico
-# Initialize the module
-module = dl.adapter.duepico()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+:::tip
+DuePico Driver is included here but isn't necessary when using MicroPython DUElink libraries.
+:::
+
+```py reference title="DuePico Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/adapter/duepico.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the DuePico.
+Samples assumes [Drivers](../../engine/drivers) are installed.
 
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+
+]}>
+
+<TabItem value="script">
+
+
+:::tip
+Script sample is provided for testing. The DuePico is intended to be controlled with Raspberry Pi Pico.
+:::
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/adapter/duepico.txt
+```
 </TabItem>
+
+<TabItem value="py">
+```py reference title="MicroPython Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/adapter/duepico.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/adapter/duepico.js
+```
+</TabItem>
+</Tabs>
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink DuePico B"
+    product = "DUELink DuePico"
     partnumber = "GDL-ADDUEPICO-B"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

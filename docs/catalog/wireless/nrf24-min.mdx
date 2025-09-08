@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # NRF24 Min
 
 <ImageSection
-    product = 'wnrf24min'
+    product = 'nrf24-min'
     tagline = 'Wireless NRF24 Transceiver'
 ></ImageSection>
 
@@ -25,61 +25,94 @@ import OrderSection from "/src/components/OrderSection/index.js";
   values={[
     {label: 'Overview', value: 'overview'},
     {label: 'Drivers', value: 'drivers'},
-    {label: 'Samples', value: 'samples'},
   ]}>
 
 <TabItem value="overview">
 
-Send and receive data wirelessly using SMA 2.4Ghz. This module uses a simple PCB antenna. Consider NRF24 Max for a coverage of up to a 1000 meters!
+Send and receive data wirelessly using SMA 2.4Ghz. This module uses a simple PCB antenna. Consider [NRF24 Max](./nrf24-max) for a coverage of up to a 1000 meters!
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• 2.4Ghz SMA signal<br/>
+• 125 channels<br/>
+• PCB antenna<br/>
+• [Min Version Available](../wireless/nrf24-max)<br/>
 
 </td><td width='50%'>
+**Resources**
 
-
+📄[Schematics](pathname:///sch/gdl-wnrf24-c.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-wnrf24-min-c.step)<br/>
 
 </td></table>
-
 </TabItem>
 
 <TabItem value="drivers">
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+| Function | Description          |
+| -------- | -------------------- |
+| `statled()`  | Blink the Status LED |
 
-# Example code for NRF24 Min
-# Initialize the module
-module = dl.wireless.nrf24()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="NRF24 Min Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/wireless/nrf24-min.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the NRF24 Min.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'JavaScript', value: 'js'},
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/wireless/nrf24-min.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/wireless/nrf24-min.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/wireless/nrf24-min.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink NRF24 Min C"
+    product = "DUELink NRF24 Min"
     partnumber = "GDL-WNRF24MIN-C"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

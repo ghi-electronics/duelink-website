@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # Barometer
 
 <ImageSection
-    product = 'sebarometer'
+    product = 'barometer'
     tagline = 'Barometric Pressure Sensor'
 ></ImageSection>
 
@@ -25,7 +25,6 @@ import OrderSection from "/src/components/OrderSection/index.js";
   values={[
     {label: 'Overview', value: 'overview'},
     {label: 'Drivers', value: 'drivers'},
-    {label: 'Samples', value: 'samples'},
   ]}>
 
 <TabItem value="overview">
@@ -33,56 +32,86 @@ import OrderSection from "/src/components/OrderSection/index.js";
 This barometric pressure sensor also includes temperature and humidity measurements.
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• Reads pressure levels<br/>
+• Humidity and temperature<br/>
+• 17x20mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-sebarometer-b.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-sebarometer-b.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-sebarometer-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-sebarometer-a.step)<br/>
 
 </td></table>
-
 </TabItem>
 
 <TabItem value="drivers">
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+| Function | Description          |
+| -------- | -------------------- |
+| `statled()`  | Blink the Status LED |
 
-# Example code for Barometer
-# Initialize the module
-module = dl.sensor.barometer()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="Barometer Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/sensor/barometer.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the Barometer.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'JavaScript', value: 'js'},
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/sensor/barometer.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/sensor/barometer.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/sensor/barometer.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink Barometer B"
+    product = "DUELink Barometer Sensor"
     partnumber = "GDL-SEBAROMETER-B"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

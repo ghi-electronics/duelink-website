@@ -15,8 +15,8 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # LED S284
 
 <ImageSection
-    product = 'lled284x'
-    tagline = '0.28"'
+    product = 'led-s284'
+    tagline = '0.28" 4-Digit 7-Segment Display'
 ></ImageSection>
 
 ---
@@ -32,17 +32,22 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 These 0.28" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.
 
-<table><td width='50%'>
+![7seg types](pathname:///img/led-7seg-time-count.png)
 
+
+<table><td width='50%'>
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• 4-digit 7-segment LEDs<br/>
+• Available in Red or Green<br/>
+• Counter or Timer formatted<br/>
+• 47x17mm overall dimension<br/>
 
 </td><td width='50%'>
-
-
+**Resources**
+ 
+📄[Schematics](pathname:///sch/gdl-lleds284-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-lleds284-b.step)<br/>
 
 </td></table>
 
@@ -52,34 +57,78 @@ These 0.28" 4-digit 7-segment displays come in two types: a counter with decimal
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+ Function | Description          
+ --- | --- 
+ `Init()`  | Initialize the module. Automatically called on power up.
+ `Digit(n)`  | Draw `n` number to LEDs. 
+ `Seg7(i, s)`  | Draw a single `s` digit (0 to 9) on `i` digit. 
+ `Dot(i, v)`  | Draw a dot at `i` index with `v` value (0 off 1 on) on count-type LED.
+ `Colon(n)`  | Show colon on time-type LED. 
+ `DVer()`  | This driver version.
 
-# Example code for LED S284
-# Initialize the module
-module = dl.led.led()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="LED S284 Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/led/led-sxx4.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the LED S284.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/led/led-sxx4.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/led/led-sxx4.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/led/led-sxx4.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink LED S284 B"
-    partnumber = "GDL-Lled284X-B"
-    price = "$19.99"
-/>
+    product = "DUELink LED S284-C Red"
+    partnumber = "GDL-LLEDS284CR-B"
+    price = "$00.00"
+    product2 = "DUELink LED S284-T Red"
+    partnumber2 = "GDL-LLEDS284TR-B"
+    price2 = "$00.00"
+    product3 = "DUELink LED S284-C Green"
+    partnumber3 = "GDL-LLEDS284CG-B"
+    price3 = "$00.00"
+    product4 = "DUELink LED S284-T Green"
+    partnumber4 = "GDL-LLEDS284TG-B"
+    price4 = "$00.00"
+></OrderSection>

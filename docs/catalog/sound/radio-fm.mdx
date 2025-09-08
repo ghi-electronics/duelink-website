@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # Radio FM
 
 <ImageSection
-    product = 'somp3'
+    product = 'radio-fm'
     tagline = 'FM Radio Receiver'
 ></ImageSection>
 
@@ -25,27 +25,26 @@ import OrderSection from "/src/components/OrderSection/index.js";
   values={[
     {label: 'Overview', value: 'overview'},
     {label: 'Drivers', value: 'drivers'},
-    {label: 'Samples', value: 'samples'},
   ]}>
+
 
 <TabItem value="overview">
 
-Use simple commands to set the channel and audio level on this FM Radio Receiver. The module includes a standard 3.5mm stereo audio plug, for connecting headphones or amplified speakers.
+Use simple commands to set the channel and audio level on this FM Radio Receiver. The module includes a standard 3.5mm stereo audio plug, for connecting headphones or amplified speakers. 
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• FM Radio Receiver<br/>
+• Sets channel and audio level<br/>
+• 3.5mm stereo audio connector<br/>
+• 47x27mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-somp3-a.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-somp3-a.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-soradiofm-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-soradiofm-a.step)<br/>
 
 </td></table>
 
@@ -55,34 +54,68 @@ Use simple commands to set the channel and audio level on this FM Radio Receiver
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+| Function | Description          |
+| -------- | -------------------- |
+| `statled()`  | Blink the Status LED |
 
-# Example code for Radio FM
-# Initialize the module
-module = dl.sound.radio()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="Radio FM Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/sound/radio-fm.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the Radio FM.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'JavaScript', value: 'js'},
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/sound/radio-fm.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/sound/radio-fm.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/sound/radio-fm.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink Radio FM A"
-    partnumber = "GDL-SOMP3-A"
-    price = "$19.99"
-/>
+    product = "DUELink Radio FM"
+    partnumber = "GDL-SORADIOFM-A"
+    price = "$00.00"
+></OrderSection>
+

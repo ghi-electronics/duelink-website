@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # Relay X1
 
 <ImageSection
-    product = 'acrelayx1'
+    product = 'relay-x1'
     tagline = 'Single Relay Controller'
 ></ImageSection>
 
@@ -29,23 +29,25 @@ import OrderSection from "/src/components/OrderSection/index.js";
   ]}>
 
 <TabItem value="overview">
-
 This single mechanical relay controller is self-powered, right from the DUELink bus. It is capable of 10A @ 250V.
 
-<table><td width='50%'>
+:::warning
+Do NOT mess with live AC power! You will get hurt or worse if you do not know what you are doing!
+:::
 
+<table><td width='50%'>
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• Self-powered relay<br/>
+• 10A @ 250V<br/>
+• Screw terminal<br/>
+• 32x37mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-acrelayx1-a.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-acrelayx1-a.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-acrelayx1-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-acrelayx1-a.step)<br/>
 
 </td></table>
 
@@ -55,34 +57,64 @@ This single mechanical relay controller is self-powered, right from the DUELink 
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+--- | ---
+`Sets(v)`  | Activate the relay (1 on, 0 off).
+`DVer()`   | This driver version.
 
-# Example code for Relay X1
-# Initialize the module
-module = dl.actuator.relay()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+```py reference title="Relay X1 Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/actuator/relay-x1.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the Relay X1.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/actuator/relay-x1.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/actuator/relay-x1.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/actuator/relay-x1.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink Relay X1 A"
+    product = "DUELink Relay X1"
     partnumber = "GDL-ACRELAYX1-A"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

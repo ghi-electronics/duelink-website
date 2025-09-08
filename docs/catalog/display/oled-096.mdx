@@ -15,8 +15,8 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # OLED 096
 
 <ImageSection
-    product = 'doled096'
-    tagline = '0.96"'
+    product = 'oled-096'
+    tagline = '0.96" - 128x64 OLED BW Display'
 ></ImageSection>
 
 ---
@@ -30,22 +30,20 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 <TabItem value="overview">
 
-This small 0.96" display is very sharp due to its OLED construction. It is B&W color, but with 128x64 pixels, it has enough resolution to show plenty of data and graphics.
+This small 0.96" display is very sharp due to its OLED construction. It is B&W color, but with 128x64 pixels, it has enough resolution to show plenty of data and [graphics](../../engine/graphics).
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• 0.96" display<br/>
+• 128x64<br/>
+• 40x27mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-doled096-a.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-doled096-a.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-doled096-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-doled096-a.step)<br/>
 
 </td></table>
 
@@ -55,34 +53,67 @@ This small 0.96" display is very sharp due to its OLED construction. It is B&W c
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+--- | ---
+`GetW()` | Get display width: 128.
+`GetH()` | Get display height: 64.
+`IsColor()` | Returns 0.
+`DVer()` | This driver version.
 
-# Example code for OLED 096
-# Initialize the module
-module = dl.display.oled()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="OLED 096"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/display/oled-96.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the OLED 096.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+  values={[
+    {label: 'Script', value: 'script'},
+
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/display/oled-96.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/display/oled-96.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/display/oled-96.js
+```
 
 </TabItem>
 
 </Tabs>
 
----
+</TabItem>
 
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
 <OrderSection
-    product = "DUELink OLED 096 A"
+    product = "DUELink OLED 096"
     partnumber = "GDL-DOLED096-A"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # DOF9
 
 <ImageSection
-    product = 'sedof9'
+    product = 'dof9'
     tagline = '9DoF MEMS Sensor'
 ></ImageSection>
 
@@ -33,56 +33,87 @@ import OrderSection from "/src/components/OrderSection/index.js";
 This 9DoF (Degrees of Freedom) MEMS (Micro Electro Mechanical System) sensor includes 3axis accelerometer, 3axis gyro, & 3axis magnetometer. The combination of these inputs can be used to get exact tilt and orientation.
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• 3axis Accelerometer<br/>
+• 3axis Gyro<br/>
+• 3axis Magnetometer<br/>
+• 22x25mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-sedof9-c.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-sedof9-c.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-sedof9-c.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-sedof9-c.step)<br/>
 
 </td></table>
-
 </TabItem>
 
 <TabItem value="drivers">
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+--- | ---
+`RAccel()` | Reads the acceleration XYZ in `_x`, `_y`, `_Z` variables.
+`RCompass()` | Reads the compass XYZ in `_x`, `_y`, `_Z` variables.
+`RGyro()` | Reads the gyro XYZ and its internal temp in `_x`, `_y`, `_Z`, `_T` variables.
+`DVer()`   | This driver version.
 
-# Example code for DOF9
-# Initialize the module
-module = dl.sensor.dof9()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="DOF9 Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/sensor/dof9.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the DOF9.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/sensor/dof9.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/sensor/dof9.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/sensor/dof9.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink DOF9 C"
+    product = "DUELink DOF9 Sensor"
     partnumber = "GDL-SEDOF9-C"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

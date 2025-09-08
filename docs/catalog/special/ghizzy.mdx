@@ -15,8 +15,8 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # Ghizzy
 
 <ImageSection
-    product = 'spghizzy'
-    tagline = ''
+    product = 'ghizzy'
+    tagline = 'Robot-shaped Pocket-sized Microcomputer'
 ></ImageSection>
 
 ---
@@ -30,22 +30,30 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 <TabItem value="overview">
 
-Advanced gaming and graphics module with enhanced capabilities
+Ghizzy extends [Ghizzy Jr](./ghizzy-jr) with a buzzer, more LEDs, and a CR2032 battery holder "backpack".
+
+The Uplink [Interface](../../interface/intro) is available via a JST connector or through [USB](../../interface/usb) "feet".
+
+Note that this is not a standard USB connector, but a printed circuit. This should work on 99% of USB type A connectors with a rare failure.
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• 2 RGB LEDs<br/>
+• Buzzer<br/>
+• Uplink & Downlink DUELink Connectors<br/>
+• 2x User Buttons<br/>
+• CR2032 button battery powered<br/>
+• PCB USB-A<br/>
+• 27x61mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-spghizzy-b.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-spghizzy-b.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-spghizzy-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-spghizzy-b.step)<br/>
+▶YouTube Videos:<br/>
+⁃ [The Making of John Due(Ghizzy)"](https://www.youtube.com/watch?v=D4073veneWI)<br/>
 
 </td></table>
 
@@ -55,34 +63,69 @@ Advanced gaming and graphics module with enhanced capabilities
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
 
-# Example code for Ghizzy
-# Initialize the module
-module = dl.special.ghizzy()
+Function | Description 
+--- | ---
+`Eye(l,r)` | Sets the `l` left and `r` right "Eyes" with 24bit RGB color (RRGGBB).
+`Ear(l,r)` | Activate the `l` left and `r` "ears" LEDs (1 on, 0 off).
+`Mouth(o)` | Activate the `m` "mouth" LED (1 on, 0 off).
+`BtnLdr()` | Returns 1 if LDR button is pressed.
+`Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds.
+`DVer()` | This driver version.
 
-# Basic operations
-module.initialize()
-module.read()
+<details>
+  <summary>The Code!</summary>
+
+
+
+```py reference title="Ghizzy Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/special/ghizzy.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the Ghizzy.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+  values={[
+    {label: 'Script', value: 'script'},
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/special/ghizzy.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/special/ghizzy.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/special/ghizzy.js
+```
 
 </TabItem>
 
 </Tabs>
 
----
+</TabItem>
 
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
 <OrderSection
-    product = "DUELink Ghizzy B"
+    product = "Ghizzy"
     partnumber = "GDL-SPGHIZZY-B"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

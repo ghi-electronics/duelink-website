@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # GNSS WA
 
 <ImageSection
-    product = 'wgnsswa'
+    product = 'gnsswa'
     tagline = 'GNSS Positioning Module with Antenna'
 ></ImageSection>
 
@@ -25,64 +25,94 @@ import OrderSection from "/src/components/OrderSection/index.js";
   values={[
     {label: 'Overview', value: 'overview'},
     {label: 'Drivers', value: 'drivers'},
-    {label: 'Samples', value: 'samples'},
   ]}>
 
 <TabItem value="overview">
 
-This Global Navigation Satellite System (GPS, Galileo, GLONASS) module has a built-in antenna. Consider this GNSS module if you want to add your own antenna.
+This Global Navigation Satellite System (GPS, Galileo, GLONASS) module has a built-in antenna. Consider [this GNSS](./gnss) module if you want to add your own antenna.
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• GNSS positioning<br/>
+• GPS, Galileo, GLONASS<br/>
+• Built-in antenna<br/>
+• 37x27mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-wgnsswa-a.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-wgnsswa-a.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-wgnsswa-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-wgnsswa-a.step)<br/>
 
 </td></table>
-
 </TabItem>
 
 <TabItem value="drivers">
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+| Function | Description          |
+| -------- | -------------------- |
+| `statled()`  | Blink the Status LED |
 
-# Example code for GNSS WA
-# Initialize the module
-module = dl.wireless.gnss()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="GNSS WA Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/wireless/gnss-wa.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the GNSS WA.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'JavaScript', value: 'js'},
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/wireless/gnss-wa.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/wireless/gnss-wa.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/wireless/gnss-wa.js
+```
 
 </TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
 
 </Tabs>
 
 ---
 
 <OrderSection
-    product = "DUELink GNSS WA A"
+    product = "DUELink GNSS WA"
     partnumber = "GDL-WGNSSWA-A"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>

@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # HDMI
 
 <ImageSection
-    product = 'dhdmi'
+    product = 'hdmi'
     tagline = 'HDMI Graphics Module'
 ></ImageSection>
 
@@ -30,22 +30,22 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 <TabItem value="overview">
 
-Add HDMI graphics to any Supported Hardware. The board has its own graphics processor and memory. Your system will only need to issue simple commands to show graphics on a 90" TV screen!
+Add HDMI graphics to any [Supported Hardware](../../hw/intro). The board has its own graphics processor and memory. Your system will only need to issue simple commands to show graphics on a 90" TV screen!
+
+The module uses [BT817Q](https://brtchip.com/product/bt817q/). Drawing with this module will be done via the graphics coprocessor and not the internal graphics engine.
+
 
 <table><td width='50%'>
-
 **Key features**
 
-• High-quality DUELink module<br/>
-• Easy integration<br/>
-• Professional grade components<br/>
+• HDMI interface<br/>
+• 57x77mm overall dimension<br/>
 
 </td><td width='50%'>
-
 **Resources**
- 
-📄[Schematics](/sch/gdl-dhdmi-b.pdf)<br/>
-🔩[3D STEP file](/3d/gdl-dhdmi-b.step)<br/>
+
+📄[Schematics](pathname:///sch/gdl-dhdmi-b.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-dhdmi-b.step)<br/>
 
 </td></table>
 
@@ -55,34 +55,67 @@ Add HDMI graphics to any Supported Hardware. The board has its own graphics proc
 
 See [Drivers](../../engine/drivers) page for further details.
 
-```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
+Function | Description
+---| ---
+`Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start.
+`DLClear()` | Clear the commands.
+`DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments.
+`DLSwap()` | Execute the graphics commands and swap working buffers.
+`DVer()` | This driver version.
 
-# Example code for HDMI
-# Initialize the module
-module = dl.display.hdmi()
+<details>
+  <summary>The Code!</summary>
 
-# Basic operations
-module.initialize()
-module.read()
+
+
+```py reference title="HDMI Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/display/hdmi.txt
 ```
 
+</details>
 </TabItem>
 
 <TabItem value="samples">
 
-Coming soon! Check back for sample projects and tutorials using the HDMI.
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/display/hdmi.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/display/hdmi.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/display/hdmi.js
+```
 
 </TabItem>
 
 </Tabs>
 
----
+</TabItem>
 
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
 <OrderSection
-    product = "DUELink HDMI B"
+    product = "DUELink HDMI"
     partnumber = "GDL-DHDMI-B"
-    price = "$19.99"
-/>
+    price = "$00.00"
+></OrderSection>
