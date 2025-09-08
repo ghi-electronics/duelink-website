@@ -75,7 +75,6 @@ const sidebars = {
             "products/tft-cp23",
             "products/tft-n18",
             "products/tft-r128",
-            "products/tft-t32",
             "products/vfd-b8"
           ],
         },
@@ -92,7 +91,6 @@ const sidebars = {
             "products/relay-x1",
             "products/servo-p8",
             "products/servo-x1",
-            "products/steppulse",
             "products/stepdrive-p1",
             "products/stepdrive-p3"
           ],
@@ -104,24 +102,20 @@ const sidebars = {
             "products/can",
             "products/dmx",
             "products/ethernet",
-            "products/midi",
             "products/rs485",
             "products/serial-usb",
             "products/usb-host",
-            "products/usb-client"
           ],
         },
         {
           type: "category",
           label: "Human Machine Interface",
           items: [
-            "products/button-ar100",
             "products/btn-rgb28x4",
             "products/button-l",
             "products/button-l7",
             "products/button-s",
             "products/dial",
-            "products/dipswitch",
             "products/fingerprint",
             "products/joystick-l",
             "products/keypad-3x4",
@@ -135,7 +129,6 @@ const sidebars = {
           items: [
             "products/flash",
             "products/sd-card",
-            "products/microsd"
           ],
         },
         {
@@ -155,7 +148,6 @@ const sidebars = {
           label: "Sensors",
           items: [
             "products/accel",
-            "products/airquality",
             "products/barometer",
             "products/clipsense",
             "products/current",
