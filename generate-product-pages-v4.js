@@ -131,7 +131,7 @@ function getDriverPath(product) {
         .toLowerCase()
         .replace(/\s+/g, '-');
     const categoryFolder = getCategoryFolder(product.category);
-    const driverPath = path.join(__dirname, 'static', 'code', 'drivers', categoryFolder, `${baseName}.due`);
+    const driverPath = path.join(__dirname, 'static', 'code', 'drivers', categoryFolder, `${baseName}.txt`);
     
     if (fs.existsSync(driverPath)) {
         return driverPath;

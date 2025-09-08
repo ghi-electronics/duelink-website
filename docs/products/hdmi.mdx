@@ -58,6 +58,13 @@ Add HDMI graphics to any Supported Hardware. The board has its own graphics proc
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start. |
+| `DLClear()` | Clear the commands. |
+| `DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments. |
+| `DLSwap()` | Execute the graphics commands and swap working buffers. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 

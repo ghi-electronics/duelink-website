@@ -59,6 +59,17 @@ import OrderSection from '@site/src/components/OrderSection';
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `Init(m,o)` | Initialize display `m` mode (buffered = 0 , direct = 1). `o` orientation (landscape = 0, portrait = 1). Init(0, 0) automatically called on power-up. |
+| `GetW()` | Get display width: 106 in buffered, 320 in direct. |
+| `GetH()` | Get display height: 80 in buffered, 240 in direct. |
+| `IsColor()` | Returns 1. |
+| `TouchX()` | Returns touch x. |
+| `TouchY()` | Returns touch y. |
+| `SetDACtrl(s,r,c,b)` | Data access control `s` swapRowCol, `r` invertRow, `c` invertCol, `b` swapBGRSet data access control. |
+| `SetWindow(x,y,w,h)` | Sets draw window `x` display's x value, `y` display's y value., `w` display's width value, `h` display's height value. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
