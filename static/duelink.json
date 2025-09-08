@@ -56,7 +56,7 @@
       "category": "Microcomputer",
       "price": 0,
       "tagline": "Arduino form factor inspired DUELink mainboard",
-      "description": "Use the official DUELink engine firmware or use the Arduino software IDE to program DueDuino.\n\nOf course, this is a DUELink board and Downlink connector is ready for [Daisylinking](/docs/engine/daisylink) all of your modules.",
+      "description": "Use the official DUELink engine firmware or use the [Arduino](/docs/hw/arduino) software IDE to program DueDuino. Of course, this is a DUELink board and [Downlink](/docs/interface/downlink) connector is ready for [Daisylinking](/docs/engine/daisylink) all of your modules.",
       "keyFeatures": [
         "Arduino form factor",
         "USB-C connector",
@@ -74,7 +74,7 @@
       "category": "Microcomputer",
       "price": 0,
       "tagline": "Complete All-in-One STEM Solution",
-      "description": "Input -> Process -> Output is how DueSTEM brings everything educators need to demonstrate physical computing. There are 4 inputs and 4 outputs. The graphical display can be used to show sensor levels or for building games!",
+      "description": "`Input -> Process -> Output` is how DueSTEM brings everything [educators](/docs/educators) need to demonstrate physical computing. There are 4 inputs and 4 outputs. The graphical display can be used to show sensor levels or for building games!\n\nExtend the board with sensors and actuators on the female pin-header and the [Downlink](/docs/interface/downlink) connector.",
       "keyFeatures": [
         "128x64 OLED 0.96\" Display",
         "Temperature Sensor",
@@ -96,8 +96,8 @@
       "PID": "0x000002",
       "category": "Microcomputer",
       "price": 0,
-      "tagline": "micro:bit Form Factor with 128x64 OLED 0.96\"",
-      "description": "PixoBit upgrades CincoBit with a graphical display. You can now show sensor data or build video games!",
+      "tagline": "micro:bit Form Factor with 128x64 OLED 0.96\" Display",
+      "description": "PixoBit upgrades [CincoBit](/docs/catalog/microcomputer/cincobit) with a graphical display. You can now show sensor data or build video games!",
       "keyFeatures": [
         "128x64 OLED 0.96\" display",
         "Light Sensor",
@@ -117,7 +117,7 @@
       "category": "Microcomputer",
       "price": 0,
       "tagline": "Seeed Xaio Form Factor DUELink Microcomputer",
-      "description": "This fingertip-sized tiny board is as capable as any other DUELink module. Plug it in a breadboard using male headers, or solder it directly using the edge pads. It includes an upgraded regulator allowing for connecting many DUELink modules on the Downlink connector.",
+      "description": "This fingertip-sized tiny board is as capable as any other DUELink module. Plug it in a breadboard using male headers, or solder it directly using the edge pads. It includes an upgraded regulator allowing for connecting many DUELink modules on the [Downlink](/docs/interface/downlink) connector.\n\nThis is a great choice to help you in making your own DUELink modules. Don't want USB? Then consider using [Stick](/docs/catalog/microcomputer/stick).",
       "keyFeatures": [
         "Seeed Xaio form factor",
         "Downlink DUELink connector",
@@ -151,7 +151,7 @@
       "category": "Specialty",
       "price": 0,
       "tagline": "Tiny Robot-shaped Microcomputer",
-      "description": "Is this the smallest, cutest, and smartest key chain in the world? You decide, but this is a mini robot-shaped pocket-sized microcomputer that plugs right into a USB socket!",
+      "description": "Is this the smallest, cutest, and smartest key chain in the world? You decide, but this is a mini robot-shaped pocket-sized microcomputer that plugs right into a USB socket!\n\nIt has RGB eyes and a \"STAT\" mouth as a start, but then the [Downlink](/docs/interface/downlink) connector will allow Ghizzy Jr to control hundreds of modules!",
       "keyFeatures": [
         "2 RGB LEDs",
         "Downlink DUELink Connector",
