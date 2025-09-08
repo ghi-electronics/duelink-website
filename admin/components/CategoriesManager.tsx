@@ -37,7 +37,7 @@ interface Category {
 let categoriesData: string[] = [
   'Microcomputer', 'Display', 'Actuator', 'Communication',
   'HMI', 'Storage', 'Wireless', 'Sensor', 'LED', 'Sound',
-  'Vision', 'Adapter', 'Special'
+  'Vision', 'Adapter', 'Special', 'Accessories'
 ];
 
 const CategoriesManager: React.FC = () => {

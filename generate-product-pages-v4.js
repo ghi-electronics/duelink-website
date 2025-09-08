@@ -49,6 +49,7 @@ const productDetails = {
 // Paths for resource files
 const schematicsDir = path.join(__dirname, 'static', 'sch');
 const modelsDir = path.join(__dirname, 'static', '3d');
+const samplesDir = path.join(__dirname, 'static', 'code', 'samples', 'script');
 
 // Helper functions to check resource availability
 function hasSchematic(partNumber) {
@@ -62,6 +63,44 @@ function has3DModel(partNumber) {
     const modelPath = path.join(modelsDir, `gdl-${partPrefix}.step`);
     return fs.existsSync(modelPath);
 }
+
+// Convert product name to sample filename
+function getSampleFilename(productName) {
+    // Remove "Rev X" suffix and convert to lowercase with hyphens
+    const cleanName = productName.replace(/\s+Rev\s+[A-Z]$/i, '')
+        .toLowerCase()
+        .replace(/\s+/g, '-');
+    return `${cleanName}.txt`;
+}
+
+// Map category names to folder names
+function getCategoryFolder(category) {
+    const categoryMap = {
+        'LED': 'led',
+        'HMI': 'hmi',
+        'Sensor': 'sensor',
+        'Actuator': 'actuator',
+        'Display': 'display',
+        'Communication': 'com',
+        'Adapter': 'adapter',
+        'Storage': 'storage',
+        'Wireless': 'wireless',
+        'Sound': 'sound',
+        'Vision': 'vision',
+        'Special': 'special',
+        'Microcomputer': 'microcomputer'
+    };
+    return categoryMap[category] || category.toLowerCase();
+}
+
+// Check if sample exists for product
+function hasSample(product) {
+    const sampleFilename = getSampleFilename(product.name);
+    const categoryFolder = getCategoryFolder(product.category);
+    const samplePath = path.join(samplesDir, categoryFolder, sampleFilename);
+    return fs.existsSync(samplePath);
+}
+
 
 // Ensure output directory exists
 if (!fs.existsSync(outputDir)) {
@@ -123,12 +162,45 @@ function generateMDX(product, index) {
 ${resourceLinks.join('<br/>\n')}<br/>`
         : '';
     
+    // Build tabs array dynamically
+    const tabs = [
+        {label: 'Overview', value: 'overview'},
+        {label: 'Drivers', value: 'drivers'}
+    ];
+    
+    // Check if sample exists and add tab if it does
+    const sampleExists = hasSample(product);
+    let sampleContent = '';
+    if (sampleExists) {
+        tabs.push({label: 'Samples', value: 'samples'});
+        const sample = loadSample(product);
+        if (sample) {
+            sampleContent = `
+<TabItem value="samples">
+
+**Samples assumes Drivers are installed.**
+
+### Script
+
+**Script Sample**
+
+\`\`\`basic
+${sample}
+\`\`\`
+
+[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>`;
+        }
+    }
+    
     const mdxContent = `---
 sidebar_position: ${index + 1}
 title: ${product.name}
 description: ${product.name} - High-quality DUELink module
 pagination_prev: null
 pagination_next: null
+hide_table_of_contents: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -146,11 +218,7 @@ import OrderSection from '@site/src/components/OrderSection';
 ---
 
 <Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
-  values={[
-    {label: 'Overview', value: 'overview'},
-    {label: 'Drivers', value: 'drivers'},
-    {label: 'Samples', value: 'samples'},
-  ]}>
+  values={${JSON.stringify(tabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>
 
 <TabItem value="overview">
 
@@ -188,12 +256,7 @@ module.read()
 \`\`\`
 
 </TabItem>
-
-<TabItem value="samples">
-
-Coming soon! Check back for sample projects and tutorials using the ${product.name}.
-
-</TabItem>
+${sampleContent}
 
 </Tabs>
 
