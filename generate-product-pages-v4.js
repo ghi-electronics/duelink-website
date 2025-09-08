@@ -5,6 +5,47 @@ const path = require('path');
 const dataPath = path.join(__dirname, 'static', 'duelink.json');
 const outputDir = path.join(__dirname, 'docs', 'products');
 
+// Product-specific descriptions and features
+const productDetails = {
+    'GDL-ACMOTOMAX-B': {
+        overview: 'This heavy-duty single motor controller has some serious driving power with up to 27V and 43A!',
+        features: [
+            '43A H-Bridge',
+            '6 to 27V',
+            'Screw terminal connections',
+            '52x50mm overall dimension'
+        ]
+    },
+    'GDL-ACMOTOTWIN-B': {
+        overview: 'Dual motor controller with independent control of two DC motors.',
+        features: [
+            'Dual H-Bridge',
+            '6 to 27V',
+            'Independent motor control',
+            'Compact design'
+        ]
+    },
+    'GDL-ACRELAYP4-C': {
+        overview: '4-channel power relay module for high-current switching applications.',
+        features: [
+            '4 relay channels',
+            'High current switching',
+            'LED status indicators',
+            'Screw terminal connections'
+        ]
+    },
+    'GDL-ACSERVOP8-B': {
+        overview: '8-channel servo controller for precise servo motor control.',
+        features: [
+            '8 servo channels',
+            'PWM control',
+            'Standard servo compatibility',
+            'Daisy-chain capable'
+        ]
+    }
+    // Add more products as needed
+};
+
 // Ensure output directory exists
 if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
@@ -47,6 +88,7 @@ function extractPartPrefix(partNumber) {
 function generateMDX(product, index) {
     const partPrefix = extractPartPrefix(product.partNumber);
     const partNumberClean = product.partNumber.replace(/^GDL-/, '');
+    const details = productDetails[product.partNumber] || {};
     
     const mdxContent = `---
 sidebar_position: ${index + 1}
@@ -78,20 +120,20 @@ ${product.shortDescription || `${product.name} - High-quality DUELink module`}
 
 <TabItem value="overview">
 
-${product.shortDescription || 'This is a high-quality DUELink module designed for easy integration into your projects.'}${product.Notes ? '\n\n' + product.Notes : ''}
+${details.overview || product.shortDescription || 'This is a high-quality DUELink module designed for easy integration into your projects.'}${product.Notes ? '\n\n' + product.Notes : ''}
 
 <table><td width='50%'>
 **Key features**
 
-• High-quality DUELink module<br/>
+${details.features ? details.features.map(f => `• ${f}<br/>`).join('\n') : `• High-quality DUELink module<br/>
 • Easy integration<br/>
-• Professional grade components<br/>
+• Professional grade components<br/>`}
 
 </td><td width='50%'>
 **Resources**
  
-📄[Schematics](/static/sch/${partPrefix}.pdf)<br/>
-🔩[3D STEP file](/static/3d/${partNumberClean}.step)<br/>
+📄[Schematics](/static/sch/gdl-${partPrefix}.pdf)<br/>
+🔩[3D STEP file](/static/3d/gdl-${partPrefix}.step)<br/>
 
 </td></table>
 
@@ -101,17 +143,11 @@ ${product.shortDescription || 'This is a high-quality DUELink module designed fo
 
 See [Drivers](../../engine/drivers) page for further details.
 
-### Installation
-
 \`\`\`python
 # Python driver installation
 import duelink
 dl = duelink.DueLink()
-\`\`\`
 
-### Basic Usage
-
-\`\`\`python
 # Example code for ${product.name}
 # Initialize the module
 module = dl.${product.category.toLowerCase()}.${product.name.split(' ')[0].toLowerCase()}()
@@ -125,28 +161,11 @@ module.read()
 
 <TabItem value="samples">
 
-### Example Projects
-
 Coming soon! Check back for sample projects and tutorials using the ${product.name}.
-
-### Community Examples
-
-Share your projects using this module in our [community forum](https://forums.ghielectronics.com).
 
 </TabItem>
 
 </Tabs>
-
----
-
-## Specifications
-
-- **Part Number:** ${product.partNumber}
-- **Category:** ${product.category}
-
-## Support
-
-For technical support and questions, visit our [support page](../../support) or post in the [community forum](https://forums.ghielectronics.com).
 `;
 
     return mdxContent;

@@ -14,672 +14,672 @@
       "partNumber": "GDL-MCCINCOBIT-E",
       "category": "Microcomputer",
       "price": 19.99,
-      "shortDescription": "CincoBit Rev E - High-quality DUELink module"
+      "shortDescription": "Powerful educational microcomputer with DUELink technology for STEM learning"
     },
     {
       "name": "ClipIt Rev B",
       "partNumber": "GDL-MCCLIPIT-B",
       "category": "Microcomputer",
       "price": 19.99,
-      "shortDescription": "ClipIt Rev B - High-quality DUELink module"
+      "shortDescription": "Compact clip-on microcomputer module for wearable and portable projects"
     },
     {
       "name": "DueDuino Rev A",
       "partNumber": "GDL-MCDUEDUINO-A",
       "category": "Microcomputer",
       "price": 19.99,
-      "shortDescription": "DueDuino Rev A - High-quality DUELink module"
+      "shortDescription": "Arduino-compatible DUELink microcomputer for familiar development"
     },
     {
       "name": "DueSTEM Rev B",
       "partNumber": "GDL-MCDUESTEM-B",
       "category": "Microcomputer",
       "price": 19.99,
-      "shortDescription": "DueSTEM Rev B - High-quality DUELink module"
+      "shortDescription": "STEM-focused microcomputer designed for classroom education"
     },
     {
       "name": "PixoBit Rev D",
       "partNumber": "GDL-MCPIXOBIT-D",
       "category": "Microcomputer",
       "price": 19.99,
-      "shortDescription": "PixoBit Rev D - High-quality DUELink module"
+      "shortDescription": "Pixel-based microcomputer with built-in LED matrix display"
     },
     {
       "name": "Stamp Rev A",
       "partNumber": "GDL-MCSTAMP-A",
       "category": "Microcomputer",
       "price": 19.99,
-      "shortDescription": "Stamp Rev A - High-quality DUELink module"
+      "shortDescription": "Ultra-compact stamp-sized microcomputer for embedded applications"
     },
     {
       "name": "Stick Rev A",
       "partNumber": "GDL-MCSTICK-A",
       "category": "Microcomputer",
       "price": 19.99,
-      "shortDescription": "Stick Rev A - High-quality DUELink module"
+      "shortDescription": "USB stick form-factor microcomputer for portable computing"
     },
     {
       "name": "Ghizzy Jr Rev A",
       "partNumber": "GDL-SPGHIZZYJR-A",
       "category": "Special",
       "price": 19.99,
-      "shortDescription": "Ghizzy Jr Rev A - High-quality DUELink module"
+      "shortDescription": "Entry-level gaming and graphics module for beginners"
     },
     {
       "name": "Ghizzy Rev B",
       "partNumber": "GDL-SPGHIZZY-B",
       "category": "Special",
       "price": 19.99,
-      "shortDescription": "Ghizzy Rev B - High-quality DUELink module"
+      "shortDescription": "Advanced gaming and graphics module with enhanced capabilities"
     },
     {
       "name": "Holiday Tree Rev B",
       "partNumber": "GDL-SPHOLIDAYTREE-B",
       "category": "Special",
       "price": 19.99,
-      "shortDescription": "Holiday Tree Rev B - High-quality DUELink module"
+      "shortDescription": "Festive LED tree module for seasonal projects and decorations"
     },
     {
       "name": "ePaper M29 Rev A",
       "partNumber": "GDL-DEPAPERM29-A",
       "category": "Display",
       "price": 19.99,
-      "shortDescription": "ePaper M29 Rev A - High-quality DUELink module"
+      "shortDescription": "2.9-inch e-paper display with ultra-low power consumption"
     },
     {
       "name": "ePaper M42 Rev A",
       "partNumber": "GDL-DEPAPERM42-A",
       "category": "Display",
       "price": 19.99,
-      "shortDescription": "ePaper M42 Rev A - High-quality DUELink module"
+      "shortDescription": "4.2-inch e-paper display for larger information displays"
     },
     {
       "name": "HDMI Rev B",
       "partNumber": "GDL-DHDMI-B",
       "category": "Display",
       "price": 19.99,
-      "shortDescription": "HDMI Rev B - High-quality DUELink module"
+      "shortDescription": "HDMI output module for connecting to monitors and TVs"
     },
     {
       "name": "LCD 16x2 Rev C",
       "partNumber": "GDL-DLCD16X2-C",
       "category": "Display",
       "price": 19.99,
-      "shortDescription": "LCD 16x2 Rev C - High-quality DUELink module"
+      "shortDescription": "Classic 16x2 character LCD display module"
     },
     {
       "name": "LCD 20x4 Rev B",
       "partNumber": "GDL-DLC20X4-B",
       "category": "Display",
       "price": 19.99,
-      "shortDescription": "LCD 20x4 Rev B - High-quality DUELink module"
+      "shortDescription": "Large 20x4 character LCD for detailed text display"
     },
     {
       "name": "OLED 096 Rev A",
       "partNumber": "GDL-DOLED096-A",
       "category": "Display",
       "price": 19.99,
-      "shortDescription": "OLED 096 Rev A - High-quality DUELink module"
+      "shortDescription": "0.96-inch OLED display with high contrast and wide viewing angle"
     },
     {
       "name": "Portal CP70 Rev B",
       "partNumber": "GDL-DPORTALCP70-B",
       "category": "Display",
       "price": 19.99,
-      "shortDescription": "Portal CP70 Rev B - High-quality DUELink module"
+      "shortDescription": "7-inch capacitive touch portal display for interactive projects"
     },
     {
       "name": "TFT CP23 Rev B",
       "partNumber": "GDL-DTFTCP23-B",
       "category": "Display",
       "price": 19.99,
-      "shortDescription": "TFT CP23 Rev B - High-quality DUELink module"
+      "shortDescription": "2.3-inch color TFT display with capacitive touch"
     },
     {
       "name": "TFT N18 Rev B",
       "partNumber": "GDL-DTFTN18-B",
       "category": "Display",
       "price": 19.99,
-      "shortDescription": "TFT N18 Rev B - High-quality DUELink module"
+      "shortDescription": "1.8-inch color TFT display for compact visual output"
     },
     {
       "name": "TFT R128 Rev B",
       "partNumber": "GDL-DTFTR128-B",
       "category": "Display",
       "price": 19.99,
-      "shortDescription": "TFT R128 Rev B - High-quality DUELink module"
+      "shortDescription": "1.28-inch round TFT display for unique circular interfaces"
     },
     {
       "name": "TFT T32 Rev C",
       "partNumber": "GDL-DTFTT32-C",
       "category": "Display",
       "price": 19.99,
-      "shortDescription": "TFT T32 Rev C - High-quality DUELink module"
+      "shortDescription": "3.2-inch TFT touchscreen display for interactive applications"
     },
     {
       "name": "VFD B8 Rev C",
       "partNumber": "GDL-DVFDB8-C",
       "category": "Display",
       "price": 19.99,
-      "shortDescription": "VFD B8 Rev C - High-quality DUELink module"
+      "shortDescription": "Vacuum fluorescent display with retro aesthetic and bright output"
     },
     {
       "name": "Fan Rev B",
       "partNumber": "GDL-ACFAN-B",
       "category": "Actuator",
       "price": 19.99,
-      "shortDescription": "Fan Rev B - High-quality DUELink module"
+      "shortDescription": "PWM-controlled cooling fan module for temperature management"
     },
     {
       "name": "Load Rev A",
       "partNumber": "GDL-ACLOAD-A",
       "category": "Actuator",
       "price": 19.99,
-      "shortDescription": "Load Rev A - High-quality DUELink module"
+      "shortDescription": "High-power load control module for AC/DC switching"
     },
     {
       "name": "MotoMax Rev B",
       "partNumber": "GDL-ACMOTOMAX-B",
       "category": "Actuator",
       "price": 19.99,
-      "shortDescription": "MotoMax Rev B - High-quality DUELink module"
+      "shortDescription": "High-torque motor driver for demanding motor control"
     },
     {
       "name": "MotoTwin Rev B",
       "partNumber": "GDL-ACMOTOTWIN-B",
       "category": "Actuator",
       "price": 19.99,
-      "shortDescription": "MotoTwin Rev B - High-quality DUELink module"
+      "shortDescription": "Dual motor driver for controlling two motors simultaneously"
     },
     {
       "name": "Relay P16 Rev A",
       "partNumber": "GDL-ACRELAYP16-A",
       "category": "Actuator",
       "price": 19.99,
-      "shortDescription": "Relay P16 Rev A - High-quality DUELink module"
+      "shortDescription": "16-channel relay module for multiple switching applications"
     },
     {
       "name": "Relay P4 Rev C",
       "partNumber": "GDL-ACRELAYP4-C",
       "category": "Actuator",
       "price": 19.99,
-      "shortDescription": "Relay P4 Rev C - High-quality DUELink module"
+      "shortDescription": "4-channel power relay module for high-current switching"
     },
     {
       "name": "Relay X1 Rev A",
       "partNumber": "GDL-ACRELAYX1-A",
       "category": "Actuator",
       "price": 19.99,
-      "shortDescription": "Relay X1 Rev A - High-quality DUELink module"
+      "shortDescription": "Single relay module for simple on/off control"
     },
     {
       "name": "Servo P8 Rev B",
       "partNumber": "GDL-ACSERVOP8-B",
       "category": "Actuator",
       "price": 19.99,
-      "shortDescription": "Servo P8 Rev B - High-quality DUELink module"
+      "shortDescription": "8-channel servo controller for multi-servo projects"
     },
     {
       "name": "Servo X1 Rev A",
       "partNumber": "GDL-ACSERVOX1-A",
       "category": "Actuator",
       "price": 19.99,
-      "shortDescription": "Servo X1 Rev A - High-quality DUELink module"
+      "shortDescription": "Single servo controller for precise position control"
     },
     {
       "name": "StepPulse Rev A",
       "partNumber": "GDL-ACSTEPPULSE-A",
       "category": "Actuator",
       "price": 19.99,
-      "shortDescription": "StepPulse Rev A - High-quality DUELink module"
+      "shortDescription": "Stepper motor driver with pulse/direction interface"
     },
     {
       "name": "StepDrive P1 Rev A",
       "partNumber": "GDL-ACSTEPDRIVEP1-A",
       "category": "Actuator",
       "price": 19.99,
-      "shortDescription": "StepDrive P1 Rev A - High-quality DUELink module"
+      "shortDescription": "Single stepper motor driver with advanced control"
     },
     {
       "name": "StepDrive P3 Rev B",
       "partNumber": "GDL-ACSTEPDRIVEP3-B",
       "category": "Actuator",
       "price": 19.99,
-      "shortDescription": "StepDrive P3 Rev B - High-quality DUELink module"
+      "shortDescription": "Triple stepper motor driver for multi-axis control"
     },
     {
       "name": "CAN Rev B",
       "partNumber": "GDL-CMCAN-B",
       "category": "Communication",
       "price": 19.99,
-      "shortDescription": "CAN Rev B - High-quality DUELink module"
+      "shortDescription": "CAN bus interface module for automotive and industrial networks"
     },
     {
       "name": "DMX Rev B",
       "partNumber": "GDL-CMDMX-B",
       "category": "Communication",
       "price": 19.99,
-      "shortDescription": "DMX Rev B - High-quality DUELink module"
+      "shortDescription": "DMX512 lighting control interface for stage and architectural lighting"
     },
     {
       "name": "Ethernet Rev C",
       "partNumber": "GDL-CMETHERNET-C",
       "category": "Communication",
       "price": 19.99,
-      "shortDescription": "Ethernet Rev C - High-quality DUELink module"
+      "shortDescription": "Ethernet connectivity module for network communications"
     },
     {
       "name": "MIDI Rev A",
       "partNumber": "GDL-CMMIDI-A",
       "category": "Communication",
       "price": 19.99,
-      "shortDescription": "MIDI Rev A - High-quality DUELink module"
+      "shortDescription": "MIDI interface for musical instrument connectivity"
     },
     {
       "name": "RS485 Rev A",
       "partNumber": "GDL-CMRS485-A",
       "category": "Communication",
       "price": 19.99,
-      "shortDescription": "RS485 Rev A - High-quality DUELink module"
+      "shortDescription": "RS485 serial communication for long-distance data transfer"
     },
     {
       "name": "Serial USB Rev A",
       "partNumber": "GDL-CMSERIALUSB-A",
       "category": "Communication",
       "price": 19.99,
-      "shortDescription": "Serial USB Rev A - High-quality DUELink module"
+      "shortDescription": "USB to serial converter for legacy device connectivity"
     },
     {
       "name": "USB Host Rev B",
       "partNumber": "GDL-CMUSBHOST-B",
       "category": "Communication",
       "price": 19.99,
-      "shortDescription": "USB Host Rev B - High-quality DUELink module"
+      "shortDescription": "USB host controller for connecting USB peripherals"
     },
     {
       "name": "USB Client Rev A",
       "partNumber": "GDL-CMUSBCLIENT-A",
       "category": "Communication",
       "price": 19.99,
-      "shortDescription": "USB Client Rev A - High-quality DUELink module"
+      "shortDescription": "USB client interface for device-mode connectivity"
     },
     {
       "name": "Button AR100 Rev B",
       "partNumber": "GDL-HIBTNAR100-B",
       "category": "HMI",
       "price": 19.99,
-      "shortDescription": "Button AR100 Rev B - High-quality DUELink module"
+      "shortDescription": "Arcade-style button with built-in LED illumination"
     },
     {
       "name": "BTN RGB28x4 Rev B",
       "partNumber": "GDL-HIBTNRGB28X4-B",
       "category": "HMI",
       "price": 19.99,
-      "shortDescription": "BTN RGB28x4 Rev B - High-quality DUELink module"
+      "shortDescription": "4x7 RGB button matrix for colorful interactive controls"
     },
     {
       "name": "Button L Rev A",
       "partNumber": "GDL-HIBUTTONL-A",
       "category": "HMI",
       "price": 19.99,
-      "shortDescription": "Button L Rev A - High-quality DUELink module"
+      "shortDescription": "Large momentary push button for user input"
     },
     {
       "name": "Button L7 Rev B",
       "partNumber": "GDL-HIBUTTONL7-B",
       "category": "HMI",
       "price": 19.99,
-      "shortDescription": "Button L7 Rev B - High-quality DUELink module"
+      "shortDescription": "7 large buttons arranged for multi-option selection"
     },
     {
       "name": "Button S Rev A",
       "partNumber": "GDL-HIBUTTONS-A",
       "category": "HMI",
       "price": 19.99,
-      "shortDescription": "Button S Rev A - High-quality DUELink module"
+      "shortDescription": "Small tactile button for compact user interfaces"
     },
     {
       "name": "Dial Rev A",
       "partNumber": "GDL-HIDIAL-A",
       "category": "HMI",
       "price": 19.99,
-      "shortDescription": "Dial Rev A - High-quality DUELink module"
+      "shortDescription": "Rotary dial encoder for analog-style input control"
     },
     {
       "name": "DipSwitch Rev B",
       "partNumber": "GDL-HIDIPSWITCH-B",
       "category": "HMI",
       "price": 19.99,
-      "shortDescription": "DipSwitch Rev B - High-quality DUELink module"
+      "shortDescription": "DIP switch module for hardware configuration settings"
     },
     {
       "name": "Fingerprint Rev B",
       "partNumber": "GDL-HIFINGERPRINT-B",
       "category": "HMI",
       "price": 19.99,
-      "shortDescription": "Fingerprint Rev B - High-quality DUELink module"
+      "shortDescription": "Biometric fingerprint sensor for security applications"
     },
     {
       "name": "Joystick L Rev B",
       "partNumber": "GDL-HIJOYSTICKL-B",
       "category": "HMI",
       "price": 19.99,
-      "shortDescription": "Joystick L Rev B - High-quality DUELink module"
+      "shortDescription": "Large analog joystick for precise directional control"
     },
     {
       "name": "Keypad 3x4 Rev B",
       "partNumber": "GDL-HIKEYPAD3X4-B",
       "category": "HMI",
       "price": 19.99,
-      "shortDescription": "Keypad 3x4 Rev B - High-quality DUELink module"
+      "shortDescription": "12-key telephone-style keypad for numeric input"
     },
     {
       "name": "Keypad 4x4 Rev B",
       "partNumber": "GDL-HIKEYPAD4X4-B",
       "category": "HMI",
       "price": 19.99,
-      "shortDescription": "Keypad 4x4 Rev B - High-quality DUELink module"
+      "shortDescription": "16-key matrix keypad for alphanumeric input"
     },
     {
       "name": "Rotary Rev C",
       "partNumber": "GDL-HIKEYPAD4X4-C",
       "category": "HMI",
       "price": 19.99,
-      "shortDescription": "Rotary Rev C - High-quality DUELink module"
+      "shortDescription": "Rotary encoder with push button for menu navigation"
     },
     {
       "name": "Flash Rev A",
       "partNumber": "GDL-STFLASH-A",
       "category": "Storage",
       "price": 19.99,
-      "shortDescription": "Flash Rev A - High-quality DUELink module"
+      "shortDescription": "SPI flash memory module for data storage"
     },
     {
       "name": "SD Card Rev B",
       "partNumber": "GDL-STSDCARD-B",
       "category": "Storage",
       "price": 19.99,
-      "shortDescription": "SD Card Rev B - High-quality DUELink module"
+      "shortDescription": "Full-size SD card interface for mass storage"
     },
     {
       "name": "MicroSD Rev A",
       "partNumber": "GDL-STMICROSD-A",
       "category": "Storage",
       "price": 19.99,
-      "shortDescription": "MicroSD Rev A - High-quality DUELink module"
+      "shortDescription": "MicroSD card slot for compact storage solutions"
     },
     {
       "name": "GNSS WA Rev A",
       "partNumber": "GDL-WGNSSWA-A",
       "category": "Wireless",
       "price": 19.99,
-      "shortDescription": "GNSS WA Rev A - High-quality DUELink module"
+      "shortDescription": "GPS/GNSS module with external antenna for precise positioning"
     },
     {
       "name": "GNSS Rev B",
       "partNumber": "GDL-WGNSS-B",
       "category": "Wireless",
       "price": 19.99,
-      "shortDescription": "GNSS Rev B - High-quality DUELink module"
+      "shortDescription": "Integrated GPS/GNSS receiver for location tracking"
     },
     {
       "name": "Infrared Rev A",
       "partNumber": "GDL-WINFRARED-A",
       "category": "Wireless",
       "price": 19.99,
-      "shortDescription": "Infrared Rev A - High-quality DUELink module"
+      "shortDescription": "IR transmitter and receiver for remote control applications"
     },
     {
       "name": "NRF24 Max Rev C",
       "partNumber": "GDL-WNRF24MAX-C",
       "category": "Wireless",
       "price": 19.99,
-      "shortDescription": "NRF24 Max Rev C - High-quality DUELink module"
+      "shortDescription": "Long-range 2.4GHz wireless module with amplifier"
     },
     {
       "name": "NRF24 Min Rev C",
       "partNumber": "GDL-WNRF24MIN-C",
       "category": "Wireless",
       "price": 19.99,
-      "shortDescription": "NRF24 Min Rev C - High-quality DUELink module"
+      "shortDescription": "Compact 2.4GHz wireless module for IoT connectivity"
     },
     {
       "name": "RFID Rev B",
       "partNumber": "GDL-WRFID-B",
       "category": "Wireless",
       "price": 19.99,
-      "shortDescription": "RFID Rev B - High-quality DUELink module"
+      "shortDescription": "RFID reader/writer for contactless identification"
     },
     {
       "name": "Accel Rev A",
       "partNumber": "GDL-SEACCEL-A",
       "category": "Sensor",
       "price": 19.99,
-      "shortDescription": "Accel Rev A - High-quality DUELink module"
+      "shortDescription": "3-axis accelerometer for motion and orientation detection"
     },
     {
       "name": "AirQuality Rev A",
       "partNumber": "GDL-SEAIRQUALITY-A",
       "category": "Sensor",
       "price": 19.99,
-      "shortDescription": "AirQuality Rev A - High-quality DUELink module"
+      "shortDescription": "Air quality sensor for environmental monitoring"
     },
     {
       "name": "Barometer Rev B",
       "partNumber": "GDL-SEBAROMETER-B",
       "category": "Sensor",
       "price": 19.99,
-      "shortDescription": "Barometer Rev B - High-quality DUELink module"
+      "shortDescription": "Barometric pressure sensor for weather and altitude measurement"
     },
     {
       "name": "ClipSense Rev A",
       "partNumber": "GDL-SECLIPSENSE-A",
       "category": "Sensor",
       "price": 19.99,
-      "shortDescription": "ClipSense Rev A - High-quality DUELink module"
+      "shortDescription": "Multi-sensor clip module with various environmental sensors"
     },
     {
       "name": "Current Rev A",
       "partNumber": "GDL-SECURRENT-A",
       "category": "Sensor",
       "price": 19.99,
-      "shortDescription": "Current Rev A - High-quality DUELink module"
+      "shortDescription": "Current sensing module for power monitoring"
     },
     {
       "name": "Distance Rev B",
       "partNumber": "GDL-SEDISTANCE-B",
       "category": "Sensor",
       "price": 19.99,
-      "shortDescription": "Distance Rev B - High-quality DUELink module"
+      "shortDescription": "Ultrasonic distance sensor for proximity detection"
     },
     {
       "name": "DOF9 Rev C",
       "partNumber": "GDL-SEDOF9-C",
       "category": "Sensor",
       "price": 19.99,
-      "shortDescription": "DOF9 Rev C - High-quality DUELink module"
+      "shortDescription": "9 degrees of freedom IMU with accelerometer, gyroscope, and magnetometer"
     },
     {
       "name": "EKG Rev A",
       "partNumber": "GDL-SEEKG-A",
       "category": "Sensor",
       "price": 19.99,
-      "shortDescription": "EKG Rev A - High-quality DUELink module"
+      "shortDescription": "Electrocardiogram sensor for heart rate monitoring"
     },
     {
       "name": "Gas Rev B",
       "partNumber": "GDL-SEGAS-B",
       "category": "Sensor",
       "price": 19.99,
-      "shortDescription": "Gas Rev B - High-quality DUELink module"
+      "shortDescription": "Multi-gas sensor for detecting various gases"
     },
     {
       "name": "Light Rev A",
       "partNumber": "GDL-SELIGHT-A",
       "category": "Sensor",
       "price": 19.99,
-      "shortDescription": "Light Rev A - High-quality DUELink module"
+      "shortDescription": "Ambient light sensor for brightness detection"
     },
     {
       "name": "Motion Rev B",
       "partNumber": "GDL-SEMOTION-B",
       "category": "Sensor",
       "price": 19.99,
-      "shortDescription": "Motion Rev B - High-quality DUELink module"
+      "shortDescription": "PIR motion sensor for detecting movement"
     },
     {
       "name": "Pressure Rev B",
       "partNumber": "GDL-SEPRESSURE100-B",
       "category": "Sensor",
       "price": 19.99,
-      "shortDescription": "Pressure Rev B - High-quality DUELink module"
+      "shortDescription": "Force-sensitive resistor for pressure measurement"
     },
     {
       "name": "RTC Rev B",
       "partNumber": "GDL-SERTC-B",
       "category": "Sensor",
       "price": 19.99,
-      "shortDescription": "RTC Rev B - High-quality DUELink module"
+      "shortDescription": "Real-time clock module with battery backup"
     },
     {
       "name": "TempHmd Rev B",
       "partNumber": "GDL-SETEMPHMD-B",
       "category": "Sensor",
       "price": 19.99,
-      "shortDescription": "TempHmd Rev B - High-quality DUELink module"
+      "shortDescription": "Temperature and humidity sensor for climate monitoring"
     },
     {
       "name": "TempRTD Rev B",
       "partNumber": "GDL-SETEMPRTD-A",
       "category": "Sensor",
       "price": 19.99,
-      "shortDescription": "TempRTD Rev B - High-quality DUELink module"
+      "shortDescription": "High-precision RTD temperature sensor"
     },
     {
       "name": "LED MT1208 Rev A",
       "partNumber": "GDL-LLEDMT1208R-A",
       "category": "LED",
       "price": 19.99,
-      "shortDescription": "LED MT1208 Rev A - High-quality DUELink module"
+      "shortDescription": "12x8 LED matrix display for scrolling text and graphics"
     },
     {
       "name": "LED R16 Rev B",
       "partNumber": "GDL-LLEDR16R-B",
       "category": "LED",
       "price": 19.99,
-      "shortDescription": "LED R16 Rev B - High-quality DUELink module"
+      "shortDescription": "16 individual red LEDs for status indication"
     },
     {
       "name": "LED RGB3 Rev A",
       "partNumber": "GDL-LLEDRGB3-A",
       "category": "LED",
       "price": 19.99,
-      "shortDescription": "LED RGB3 Rev A - High-quality DUELink module"
+      "shortDescription": "3 RGB LEDs for colorful light effects"
     },
     {
       "name": "LED S284 Rev B",
       "partNumber": "GDL-Lled284X-B",
       "category": "LED",
       "price": 19.99,
-      "shortDescription": "LED S284 Rev B - High-quality DUELink module"
+      "shortDescription": "4-digit 7-segment display for numeric output"
     },
     {
       "name": "LED S404 Rev A",
       "partNumber": "GDL-Lled404[  ]-A",
       "category": "LED",
       "price": 19.99,
-      "shortDescription": "LED S404 Rev A - High-quality DUELink module"
+      "shortDescription": "4-digit 14-segment display for alphanumeric output"
     },
     {
       "name": "LED S564 Rev A",
       "partNumber": "GDL-Lled564XX-A",
       "category": "LED",
       "price": 19.99,
-      "shortDescription": "LED S564 Rev A - High-quality DUELink module"
+      "shortDescription": "4-digit 16-segment display for full character display"
     },
     {
       "name": "LED SS805",
       "partNumber": "GDL-LledS805-C",
       "category": "LED",
       "price": 19.99,
-      "shortDescription": "LED SS805 - High-quality DUELink module"
+      "shortDescription": "8x8 RGB LED matrix for colorful animations"
     },
     {
       "name": "Smart LED Rev A",
       "partNumber": "GDL-LSMARTLED-A",
       "category": "LED",
       "price": 19.99,
-      "shortDescription": "Smart LED Rev A - High-quality DUELink module"
+      "shortDescription": "Addressable RGB LED strip controller"
     },
     {
       "name": "Buzzer Rev B",
       "partNumber": "GDL-SOBUZZER-B",
       "category": "Sound",
       "price": 19.99,
-      "shortDescription": "Buzzer Rev B - High-quality DUELink module"
+      "shortDescription": "Piezo buzzer for audio alerts and simple tones"
     },
     {
       "name": "MP3 Rev A",
       "partNumber": "GDL-SOMP3-A",
       "category": "Sound",
       "price": 19.99,
-      "shortDescription": "MP3 Rev A - High-quality DUELink module"
+      "shortDescription": "MP3 audio decoder and player module"
     },
     {
       "name": "Radio FM Rev A",
       "partNumber": "GDL-SOMP3-A",
       "category": "Sound",
       "price": 19.99,
-      "shortDescription": "Radio FM Rev A - High-quality DUELink module"
+      "shortDescription": "FM radio receiver module for broadcast reception"
     },
     {
       "name": "Spectrum Rev A",
       "partNumber": "GDL-SOSPECTRUM-A",
       "category": "Sound",
       "price": 19.99,
-      "shortDescription": "Spectrum Rev A - High-quality DUELink module"
+      "shortDescription": "Audio spectrum analyzer with visual display"
     },
     {
       "name": "Barcode L1D2D Rev A",
       "partNumber": "GDL-VIBARCODEL1D2D-A",
       "category": "Vision",
       "price": 19.99,
-      "shortDescription": "Barcode L1D2D Rev A - High-quality DUELink module"
+      "shortDescription": "1D/2D barcode and QR code scanner module"
     },
     {
       "name": "Thermal Rev A",
       "partNumber": "GDL-VITHERMAL-A",
       "category": "Vision",
       "price": 19.99,
-      "shortDescription": "Thermal Rev A - High-quality DUELink module"
+      "shortDescription": "Thermal imaging camera for heat detection"
     },
     {
       "name": "Dio X12 Rev A",
       "partNumber": "GDL-ADDIOX12-A",
       "category": "Adapter",
       "price": 19.99,
-      "shortDescription": "Dio X12 Rev A - High-quality DUELink module"
+      "shortDescription": "12-channel digital I/O expansion module"
     },
     {
       "name": "DueClick Rev A",
       "partNumber": "GDL-ADDUECLICK-A",
       "category": "Adapter",
       "price": 19.99,
-      "shortDescription": "DueClick Rev A - High-quality DUELink module"
+      "shortDescription": "MikroE Click board adapter for extended functionality"
     },
     {
       "name": "DuePi Rev B",
       "partNumber": "GDL-ADDUEPI-B",
       "category": "Adapter",
       "price": 19.99,
-      "shortDescription": "DuePi Rev B - High-quality DUELink module"
+      "shortDescription": "Raspberry Pi HAT adapter for Pi compatibility"
     },
     {
       "name": "DuePico Rev B",
       "partNumber": "GDL-ADDUEPICO-B",
       "category": "Adapter",
       "price": 19.99,
-      "shortDescription": "DuePico Rev B - High-quality DUELink module"
+      "shortDescription": "Raspberry Pi Pico adapter for RP2040 integration"
     }
   ]
 }

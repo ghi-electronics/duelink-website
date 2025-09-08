@@ -44,6 +44,7 @@ const OrderSection = ({
                 <th>Price</th>
 
             </tr>
+            <tr>
                 <td>
                     {product}
                 </td>
@@ -53,6 +54,7 @@ const OrderSection = ({
                 <td>
                     {price}
                 </td>
+            </tr>
             <tr>
                 <td>
                     {product2}
@@ -122,6 +124,7 @@ const OrderSection = ({
                 <th>Price</th>
 
             </tr>
+            <tr>
                 <td>
                     {product}
                 </td>
@@ -131,6 +134,7 @@ const OrderSection = ({
                 <td>
                     {price}
                 </td>
+            </tr>
             <tr>
                 <td>
                     {product2}
@@ -188,6 +192,7 @@ const OrderSection = ({
                 <th>Price</th>
 
             </tr>
+            <tr>
                 <td>
                     {product}
                 </td>
@@ -197,6 +202,7 @@ const OrderSection = ({
                 <td>
                     {price}
                 </td>
+            </tr>
             <tr>
                 <td>
                     {product2}
@@ -243,6 +249,7 @@ const OrderSection = ({
                 <th>Price</th>
 
             </tr>
+            <tr>
                 <td>
                     {product}
                 </td>
@@ -252,6 +259,7 @@ const OrderSection = ({
                 <td>
                     {price}
                 </td>
+            </tr>
             <tr>
                 <td>
                     {product2}
@@ -287,6 +295,7 @@ const OrderSection = ({
                     <th>Price</th>
 
                 </tr>
+                <tr>
                     <td>
                         {product}
                     </td>
@@ -296,6 +305,7 @@ const OrderSection = ({
                     <td>
                         {price}
                     </td>
+                </tr>
                 </table>
 
                             </>
