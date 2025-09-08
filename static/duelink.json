@@ -240,7 +240,7 @@
       "category": "Display",
       "price": 0,
       "tagline": "HDMI Graphics Module",
-      "description": "Add HDMI graphics to any Supported Hardware. The board has its own graphics processor and memory. Your system will only need to issue simple commands to show graphics on a 90\" TV screen! The module uses BT817Q. Drawing with this module will be done via the graphics coprocessor and not the internal graphics engine.",
+      "description": "Add HDMI graphics to any [Supported Hardware](/docs/hw/intro). The board has its own graphics processor and memory. Your system will only need to issue simple commands to show graphics on a 90\" TV screen!\n\nThe module uses [BT817Q](https://brtchip.com/product/bt817q/). Drawing with this module will be done via the graphics coprocessor and not the internal graphics engine.",
       "keyFeatures": [
         "HDMI interface",
         "BT817Q graphics processor",
