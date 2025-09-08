@@ -220,6 +220,9 @@ function generateMDX(product, index) {
     const partNumberClean = product.partNumber.replace(/^GDL-/, '');
     const details = productDetails[product.partNumber] || {};
     
+    // Use part prefix directly for image names
+    let imagePrefix = partPrefix;
+    
     // Build resources section dynamically
     let resourceLinks = [];
     if (hasSchematic(product.partNumber)) {
@@ -264,47 +267,62 @@ ${resourceLinks.join('<br/>\n')}<br/>`
     if (hasSamples) {
         tabs.push({label: 'Samples', value: 'samples'});
         
-        // Build sample content for each available language
-        let sampleSections = [];
+        // Build sample tabs for each available language
+        let sampleTabs = [];
+        let sampleTabItems = [];
+        
+        if (availableSamples.script) {
+            const scriptCode = loadSampleContent(availableSamples.script);
+            if (scriptCode) {
+                sampleTabs.push({label: 'Script', value: 'script'});
+                sampleTabItems.push(`<TabItem value="script">
+
+\`\`\`batch
+${scriptCode}
+\`\`\`
+
+</TabItem>`);
+            }
+        }
         
         if (availableSamples.python) {
             const pythonCode = loadSampleContent(availableSamples.python);
             if (pythonCode) {
-                sampleSections.push(`### Python
+                sampleTabs.push({label: 'Python', value: 'python'});
+                sampleTabItems.push(`<TabItem value="python">
 
 \`\`\`python
 ${pythonCode}
-\`\`\``);
+\`\`\`
+
+</TabItem>`);
             }
         }
         
         if (availableSamples.javascript) {
             const jsCode = loadSampleContent(availableSamples.javascript);
             if (jsCode) {
-                sampleSections.push(`### JavaScript
+                sampleTabs.push({label: 'JavaScript', value: 'javascript'});
+                sampleTabItems.push(`<TabItem value="javascript">
 
 \`\`\`javascript
 ${jsCode}
-\`\`\``);
-            }
-        }
-        
-        if (availableSamples.script) {
-            const scriptCode = loadSampleContent(availableSamples.script);
-            if (scriptCode) {
-                sampleSections.push(`### Script
+\`\`\`
 
-\`\`\`batch
-${scriptCode}
-\`\`\``)
+</TabItem>`);
             }
         }
         
-        if (sampleSections.length > 0) {
+        if (sampleTabItems.length > 0) {
             sampleContent = `
 <TabItem value="samples">
 
-${sampleSections.join('\n\n')}
+<Tabs groupid="language" queryString="lang" defaultValue="${sampleTabs[0].value}"
+  values={${JSON.stringify(sampleTabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>
+
+${sampleTabItems.join('\n')}
+
+</Tabs>
 
 [See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
 
@@ -368,7 +386,7 @@ ${driverContent}
 
 </details>
 
-[See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
 
 </TabItem>`;
         }
@@ -390,10 +408,10 @@ import OrderSection from '@site/src/components/OrderSection';
 
 # ${product.name}
 
-<ImageSection 
-  product="${partPrefix}"
+${imagePrefix !== null ? `<ImageSection 
+  product="${imagePrefix}"
   tagline="${(product.tagline || 'High-quality DUELink module').replace(/"/g, '')}"
-/>
+/>` : ''}
 
 ---
 

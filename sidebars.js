@@ -54,7 +54,7 @@ const sidebars = {
         },
         {
           type: "category",
-          label: "Special",
+          label: "Specialty",
           items: [
             "products/ghizzy-jr",
             "products/ghizzy",
