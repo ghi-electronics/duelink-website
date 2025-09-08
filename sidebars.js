@@ -207,10 +207,20 @@ const sidebars = {
           type: "category",
           label: "Adapters",
           items: [
+            "products/breakout",
             "products/dio-x12",
             "products/dueclick",
             "products/duepi",
-            "products/duepico"
+            "products/duepico",
+            "products/linkbit",
+            "products/power-hook",
+            "products/power-inject",
+            "products/pullup",
+            "products/power-switch",
+            "products/sticker",
+            "products/usb-hook",
+            "products/usb-wedge",
+            "products/wireless-hook"
           ],
         },
         {

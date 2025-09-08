@@ -15,7 +15,7 @@ import OrderSection from "/src/components/OrderSection/index.js";
 # Dio X12
 
 <ImageSection
-    product = 'addiox12'
+    product = 'addiox12-a'
     tagline = ''
 ></ImageSection>
 
@@ -53,21 +53,50 @@ import OrderSection from "/src/components/OrderSection/index.js";
 
 <TabItem value="drivers">
 
-See [Drivers](../../engine/drivers) page for further details.
+:::tip
+Dio X12 module uses the Standard Library API directly. No other drivers are needed.
+:::
+
+## The Code
+
+<Tabs groupId="prog-lang">
+<TabItem value="script" label="Script">
+
+```basic
+' The Code
+' No special driver needed - use standard pin functions
+PinMode(0, 1) ' Set pin 0 as output
+PinWrite(0, 1) ' Write high to pin 0
+```
+
+[Full example on GitHub](https://github.com/ghi-electronics/duelink/tree/main/samples/dio-x12)
+
+</TabItem>
+<TabItem value="python" label="Python">
 
 ```python
-# Python driver installation
-import duelink
-dl = duelink.DueLink()
-
-# Example code for Dio X12
-# Initialize the module
-module = dl.adapter.dio()
-
-# Basic operations
-module.initialize()
-module.read()
+# The Code
+# No special driver needed - use standard pin functions
+dl.Pin.Mode(0, 1)  # Set pin 0 as output
+dl.Pin.Write(0, 1)  # Write high to pin 0
 ```
+
+[Full example on GitHub](https://github.com/ghi-electronics/duelink/tree/main/samples/dio-x12)
+
+</TabItem>
+<TabItem value="javascript" label="JavaScript">
+
+```javascript
+// The Code
+// No special driver needed - use standard pin functions
+await dl.Pin.Mode(0, 1);  // Set pin 0 as output
+await dl.Pin.Write(0, 1); // Write high to pin 0
+```
+
+[Full example on GitHub](https://github.com/ghi-electronics/duelink/tree/main/samples/dio-x12)
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 

@@ -1439,15 +1439,15 @@
       "partNumber": "GDL-VIBARCODEL1D2D-A",
       "PID": "0x0B0003",
       "category": "Vision",
-      "price": 0,
+      "price": 19.99,
       "tagline": "1D/2D Barcode Scanner",
-      "description": "1D/2D barcode and QR code scanner module",
+      "description": "This camera can capture and decode different barcodes.<br/><br/>1D Formats: EAN-13, EAN-8, UPC-A, UPC-E ISSN, ISBN, CodaBar,Code 128, Code93, ITF-14, ITF-6, Interleaved 2 of 5, Industrial 2 of 5, Matrix 2 of 5, Code 39,Code 11, MSI-Plessey, GS1 Composite,GS1-Databar (RSS)<br/>2D Formats: QR Code, Data Matrix, PDF417<br/>Scanning angle: Roll: 360° Pitch: 65° Yaw: 65°",
       "keyFeatures": [
         "Barcode scanner",
         "1D and 2D formats",
         "47x42mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetMode(m)` | Sets the `m` mode to 1 Trigger 2 Continuous |\n| `Trigger()` | Trigger the reading when in trigger mode |\n| `DVer()` | This driver version |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetMode(m)` | Set scanning mode (1: Trigger, 2: Continuous) |\n| `Trigger()` | Manually trigger barcode reading when in trigger mode |\n| `DVer()` | Check driver version |"
     },
     {
       "name": "Thermal",
@@ -1525,6 +1525,139 @@
         "8 Pin Header",
         "Piezo Buzzer",
         "65x37mm overall dimension"
+      ]
+    },
+    {
+      "name": "Breakout",
+      "partNumber": "GDL-ADBREAKOUT-A",
+      "category": "Adapter",
+      "price": 0,
+      "tagline": "Signals Breakout and Cable Extender",
+      "description": "This module can be used as a DUELink cable extender. It also exposes all DUELink cable signals on a female header. This is useful to wire a Supported Hardware that does not have a JST connector.\n\nThe DRP and CTN signals are a mix of UART, I2C and USB Interfaces.\n\nHere is a UART example:\n![Arduino Breakout UART](https://www.duelink.com/img/arduino-breakout-uart.png)\n\nHere is an I2C example:\n![Arduino Breakout I2C](https://www.duelink.com/img/arduino-breakout-i2c.png)",
+      "keyFeatures": [
+        "Access to DUELink Pins",
+        "Female Header",
+        "27x18mm overall dimension"
+      ]
+    },
+    {
+      "name": "LinkBit",
+      "partNumber": "GDL-ADLINKBIT-A",
+      "category": "Adapter",
+      "price": 0,
+      "tagline": "BBC micro:bit Compatible DUELink Extender",
+      "description": "Bring a standard DUELink Downlink to your BBC micro:bit.",
+      "keyFeatures": [
+        "micro:bit female header",
+        "Downlink connector",
+        "57.5x28.5mm overall dimension"
+      ]
+    },
+    {
+      "name": "Power Hook",
+      "partNumber": "GDL-ADPOWERHOOK-A",
+      "category": "Adapter",
+      "price": 0,
+      "tagline": "Rechargeable Battery Power Hook",
+      "description": "The Power Hook works just like the USB Hook, but then it also includes a recharging circuit for 3.7V 10440 battery, which is required but not included.",
+      "keyFeatures": [
+        "3.7v 10440 Battery Module",
+        "77x27mm overall dimension"
+      ]
+    },
+    {
+      "name": "Power Inject",
+      "partNumber": "GDL-ADPOWERINJECT-A",
+      "category": "Adapter",
+      "price": 0,
+      "tagline": "Power Inject",
+      "description": "When necessary, this module injects power in a long chain of DUELink modules. This also helps power any modules that have extra power needs than available on the main power source.",
+      "keyFeatures": [
+        "Additional Power Downlink",
+        "USB Type C for Power Only",
+        "Terminal Block Power Connector",
+        "47x27mm overall dimension"
+      ]
+    },
+    {
+      "name": "PullUp",
+      "partNumber": "GDL-ADPULLUP-A",
+      "category": "Adapter",
+      "price": 0,
+      "tagline": "Inline 2.2k Pull-Up Module",
+      "description": "If the I2C was chosen and the system does not have the proper I2C pull up resistors, then these PullUp modules come in very handy.",
+      "keyFeatures": [
+        "2.2k pull-up to I2C",
+        "8x18mm overall dimension"
+      ]
+    },
+    {
+      "name": "Power Switch",
+      "partNumber": "GDL-ADPWRSWITCH-A",
+      "category": "Adapter",
+      "price": 0,
+      "tagline": "Downlink Power Switch Control",
+      "description": "The power switch will disconnect power going to its downlink connector.",
+      "keyFeatures": [
+        "Toggle switch",
+        "On/Off indicator LED",
+        "22x22mm overall dimension"
+      ]
+    },
+    {
+      "name": "Sticker",
+      "partNumber": "GDL-ADSTICKER-C",
+      "category": "Adapter",
+      "price": 0,
+      "tagline": "Development Board for Stick Modules",
+      "description": "This is the ideal combo for Stick Microcomputer. It exposes all pins, some on male and some on female headers. The male headers add power and ground in a standard servo pinout.",
+      "keyFeatures": [
+        "RST/LDR buttons",
+        "Pin headers",
+        "52x37mm overall dimension"
+      ]
+    },
+    {
+      "name": "USB Hook",
+      "partNumber": "GDL-ADUSBHOOK-A",
+      "category": "Adapter",
+      "price": 0,
+      "tagline": "USB Connection for DUELink Modules",
+      "description": "USB Hook is handy to add USB Interface to any DUELink module. It includes an 800mA power source and a power LED.",
+      "keyFeatures": [
+        "USB-C connector",
+        "800mA power source",
+        "Power LED",
+        "DUELink USB interface",
+        "27x27mm overall dimension"
+      ]
+    },
+    {
+      "name": "USB Wedge",
+      "partNumber": "GDL-ADUSBWEDGE-A",
+      "category": "Adapter",
+      "price": 0,
+      "tagline": "PCB USB DUELink Interface",
+      "description": "A PCB (Printed Circuit Board) USB wedge for connecting DUELink modules to the USB Interface. It includes a power LED and 800mA power regulator.",
+      "keyFeatures": [
+        "USB PCB connector",
+        "Connects DUELink modules to USB-A",
+        "800mA power source",
+        "PWR LED",
+        "22x23.5mm overall dimension"
+      ]
+    },
+    {
+      "name": "Wireless Hook",
+      "partNumber": "GDL-ADWIRELESSHOOK-A",
+      "category": "Adapter",
+      "price": 0,
+      "tagline": "Connects DUELink Modules Wirelessly",
+      "description": "This module works just like the USB Hook, but then it also adds wireless connectivity, allowing for wireless control of DUELink modules.",
+      "keyFeatures": [
+        "BlueTooth or Wi-Fi Connectivity",
+        "Program DUELink Modules Wirelessly",
+        "32x42mm overall dimension"
       ]
     },
     {
