@@ -217,10 +217,10 @@ const sidebars = {
           type: "category",
           label: "Accessories",
           items: [
-            "products/cables-1",
-            "products/connectors-1",
-            "products/holey-boards-1",
-            "products/mounting-hardware-1"
+            "products/cables",
+            "products/connectors",
+            "products/holey-boards",
+            "products/mounting-hardware"
           ],
         },
         "catalog/third-party",

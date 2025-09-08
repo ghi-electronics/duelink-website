@@ -1404,7 +1404,7 @@
       ]
     },
     {
-      "name": "Cables-1",
+      "name": "Cables",
       "partNumber": "GDL-AXCABLES-A",
       "category": "Accessories",
       "price": 0,
@@ -1419,7 +1419,7 @@
       ]
     },
     {
-      "name": "Connectors-1",
+      "name": "Connectors",
       "partNumber": "GDL-AXCONNECTORS-A",
       "category": "Accessories",
       "price": 0,
@@ -1432,7 +1432,7 @@
       ]
     },
     {
-      "name": "Holey Boards-1",
+      "name": "Holey Boards",
       "partNumber": "GDL-AXHOLEYBOARDS-A",
       "category": "Accessories",
       "price": 0,
@@ -1448,7 +1448,7 @@
       ]
     },
     {
-      "name": "Mounting Hardware-1",
+      "name": "Mounting Hardware",
       "partNumber": "GDL-AXMOUNTING-A",
       "category": "Accessories",
       "price": 0,
