@@ -69,7 +69,7 @@ const ProductCatalog = () => {
         debouncedSearchTerm === '' || 
         product.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
         product.partNumber.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
-        product.shortDescription.toLowerCase().includes(debouncedSearchTerm.toLowerCase());
+        (product.description && product.description.toLowerCase().includes(debouncedSearchTerm.toLowerCase()));
       
       const matchesCategory = 
         selectedCategory === 'all' || 

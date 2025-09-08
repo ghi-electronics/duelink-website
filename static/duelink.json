@@ -15,7 +15,7 @@
       "category": "Microcomputer",
       "price": 0,
       "tagline": "Ultra low-cost, micro:bit inspired, educational board",
-      "shortDescription": "Educators and Makers will find great value in this ultra low-cost board. This is an excellent micro:bit alternative, giving you alligator clip connections and DUELink Downlink connector for Daisylinking modules.",
+      "description": "Educators and Makers will find great value in this ultra low-cost board. This is an excellent micro:bit alternative, giving you alligator clip connections and DUELink Downlink connector for Daisylinking modules.",
       "keyFeatures": [
         "5x5 LED Matrix",
         "micro:bit inspired edge connector",
@@ -33,7 +33,7 @@
       "category": "Microcomputer",
       "price": 0,
       "tagline": "Alligator clip friendly STEM-microcomputer",
-      "shortDescription": "Educators can now elevate their STEM-mission with Clipit. Start immediately with light sensor and touch pads to read inputs. Then use any of the supported Languages to process those inputs and then control the output on the 5x5 LED matrix and buzzer.",
+      "description": "Educators can now elevate their STEM-mission with Clipit. Start immediately with light sensor and touch pads to read inputs. Then use any of the supported Languages to process those inputs and then control the output on the 5x5 LED matrix and buzzer.",
       "keyFeatures": [
         "Clip Friendly Holes",
         "Capacitive Touchpads",
@@ -51,7 +51,7 @@
       "category": "Microcomputer",
       "price": 0,
       "tagline": "Arduino form factor inspired DUELink mainboard",
-      "shortDescription": "Use the official DUELink engine firmware or use the Arduino software IDE to program DueDuino.",
+      "description": "Use the official DUELink engine firmware or use the Arduino software IDE to program DueDuino.",
       "keyFeatures": [
         "Arduino form factor",
         "USB-C connector",
@@ -66,7 +66,7 @@
       "category": "Microcomputer",
       "price": 0,
       "tagline": "Complete All-in-One STEM Solution",
-      "shortDescription": "Input -> Process -> Output is how DueSTEM brings everything educators need to demonstrate physical computing. There are 4 inputs and 4 outputs. The graphical display can be used to show sensor levels or for building games!",
+      "description": "Input -> Process -> Output is how DueSTEM brings everything educators need to demonstrate physical computing. There are 4 inputs and 4 outputs. The graphical display can be used to show sensor levels or for building games!",
       "keyFeatures": [
         "128x64 OLED 0.96\" Display",
         "Temperature Sensor",
@@ -87,7 +87,7 @@
       "category": "Microcomputer",
       "price": 0,
       "tagline": "micro:bit Form Factor with 128x64 OLED 0.96\"",
-      "shortDescription": "PixoBit upgrades CincoBit with a graphical display. You can now show sensor data or build video games!",
+      "description": "PixoBit upgrades CincoBit with a graphical display. You can now show sensor data or build video games!",
       "keyFeatures": [
         "128x64 OLED 0.96\" display",
         "Light Sensor",
@@ -105,7 +105,7 @@
       "category": "Microcomputer",
       "price": 0,
       "tagline": "Seeed Xaio Form Factor DUELink Microcomputer",
-      "shortDescription": "This fingertip-sized tiny board is as capable as any other DUELink module. Plug it in a breadboard using male headers, or solder it directly using the edge pads. It includes an upgraded regulator allowing for connecting many DUELink modules on the Downlink connector.",
+      "description": "This fingertip-sized tiny board is as capable as any other DUELink module. Plug it in a breadboard using male headers, or solder it directly using the edge pads. It includes an upgraded regulator allowing for connecting many DUELink modules on the Downlink connector.",
       "keyFeatures": [
         "Seeed Xaio form factor",
         "Downlink DUELink connector",
@@ -121,7 +121,7 @@
       "category": "Microcomputer",
       "price": 0,
       "tagline": "DIP24 Form Factor SMT DUELink SoM",
-      "shortDescription": "Start making your own DUELink modules using this Surface-Mountable DUELink SoM that is also DIP24 form-factor.",
+      "description": "Start making your own DUELink modules using this Surface-Mountable DUELink SoM that is also DIP24 form-factor.",
       "keyFeatures": [
         "Uplink & Downlink DUELink connectors",
         "DIP24 form factor",
@@ -135,7 +135,7 @@
       "category": "Special",
       "price": 0,
       "tagline": "Tiny Robot-shaped Microcomputer",
-      "shortDescription": "Is this the smallest, cutest, and smartest key chain in the world? You decide, but this is a mini robot-shaped pocket-sized microcomputer that plugs right into a USB socket!",
+      "description": "Is this the smallest, cutest, and smartest key chain in the world? You decide, but this is a mini robot-shaped pocket-sized microcomputer that plugs right into a USB socket!",
       "keyFeatures": [
         "2 RGB LEDs",
         "Downlink DUELink Connector",
@@ -149,7 +149,8 @@
       "partNumber": "GDL-SPGHIZZY-B",
       "category": "Special",
       "price": 0,
-      "shortDescription": "Advanced gaming and graphics module with enhanced capabilities",
+      "tagline": "Robot-shaped Microcomputer",
+      "description": "Advanced gaming and graphics module with enhanced capabilities",
       "keyFeatures": [
         "2 RGB LEDs",
         "Buzzer",
@@ -166,7 +167,8 @@
       "partNumber": "GDL-SPHOLIDAYTREE-B",
       "category": "Special",
       "price": 0,
-      "shortDescription": "This is arguably the smartest holiday tree in the world! Control the LEDs in Standalone mode or connect to a host and control the tree from one of the many supported languages and devices. The 2 boards (A and B) slide into each other, turning this into a 3D-ish module!",
+      "tagline": "Smart Holiday Tree with 26 LEDs",
+      "description": "This is arguably the smartest holiday tree in the world! Control the LEDs in Standalone mode or connect to a host and control the tree from one of the many supported languages and devices. The 2 boards (A and B) slide into each other, turning this into a 3D-ish module!",
       "keyFeatures": [
         "Stand-up Design",
         "26 Smart LEDs",
@@ -181,7 +183,7 @@
       "category": "Display",
       "price": 0,
       "tagline": "2.9\"",
-      "shortDescription": "e-Ink (ePaper) displays only need power to update the screen. But then power can be disconnected and the display will retain the graphics with zero power requirements.",
+      "description": "e-Ink (ePaper) displays only need power to update the screen. But then power can be disconnected and the display will retain the graphics with zero power requirements.",
       "keyFeatures": [
         "2.9\" e-Ink display",
         "296x128 resolution",
@@ -196,7 +198,7 @@
       "category": "Display",
       "price": 0,
       "tagline": "4.2\"",
-      "shortDescription": "e-Ink (ePaper) displays only need power to update the screen. But then power can be disconnected and the display will retain the graphics with zero power requirements.",
+      "description": "e-Ink (ePaper) displays only need power to update the screen. But then power can be disconnected and the display will retain the graphics with zero power requirements.",
       "keyFeatures": [
         "4.2\" e-Ink display",
         "400x300 resolution",
@@ -212,7 +214,7 @@
       "category": "Display",
       "price": 0,
       "tagline": "HDMI Graphics Module",
-      "shortDescription": "Add HDMI graphics to any Supported Hardware. The board has its own graphics processor and memory. Your system will only need to issue simple commands to show graphics on a 90\" TV screen!",
+      "description": "Add HDMI graphics to any Supported Hardware. The board has its own graphics processor and memory. Your system will only need to issue simple commands to show graphics on a 90\" TV screen!",
       "keyFeatures": [
         "HDMI interface",
         "57x77mm overall dimension"
@@ -225,7 +227,7 @@
       "category": "Display",
       "price": 0,
       "tagline": "16x2 Character Display",
-      "shortDescription": "Print up to 16 characters over 2 rows on this character display.",
+      "description": "Print up to 16 characters over 2 rows on this character display.",
       "keyFeatures": [
         "16 Characters by 2 rows",
         "97x37mm overall dimension"
@@ -238,7 +240,7 @@
       "category": "Display",
       "price": 0,
       "tagline": "20x4 Character Display",
-      "shortDescription": "Print up to 20 characters over 4 rows on this character display.",
+      "description": "Print up to 20 characters over 4 rows on this character display.",
       "keyFeatures": [
         "20 Characters by 4 Rows",
         "112x62mm overall dimension"
@@ -251,7 +253,7 @@
       "category": "Display",
       "price": 0,
       "tagline": "0.96\"",
-      "shortDescription": "This small 0.96\" display is very sharp due to its OLED construction. It is B&W color, but with 128x64 pixels, it has enough resolution to show plenty of data and graphics.",
+      "description": "This small 0.96\" display is very sharp due to its OLED construction. It is B&W color, but with 128x64 pixels, it has enough resolution to show plenty of data and graphics.",
       "keyFeatures": [
         "0.96\" display",
         "128x64",
@@ -265,7 +267,7 @@
       "category": "Display",
       "price": 0,
       "tagline": "7\"",
-      "shortDescription": "Portal CP70 7\" 800x400 capacitive touch display with a graphics co-processor BT817Q. Drawing using this module will be done via the graphics coprocessor and not the internal graphics engine.",
+      "description": "Portal CP70 7\" 800x400 capacitive touch display with a graphics co-processor BT817Q. Drawing using this module will be done via the graphics coprocessor and not the internal graphics engine.",
       "keyFeatures": [
         "Full Color 800x400 Pixels",
         "Graphics co-processor",
@@ -280,7 +282,7 @@
       "category": "Display",
       "price": 0,
       "tagline": "2.3\"",
-      "shortDescription": "2.3\" 320x240 color TFT display with capacitive touch screen, supporting Graphics in buffered and in direct modes.",
+      "description": "2.3\" 320x240 color TFT display with capacitive touch screen, supporting Graphics in buffered and in direct modes.",
       "keyFeatures": [
         "Full Color 320x240 Pixels",
         "Capacitive Multi-Touch",
@@ -294,7 +296,7 @@
       "category": "Display",
       "price": 0,
       "tagline": "1.8\"",
-      "shortDescription": "1.8\" - 160x128 Color TFT LCD (no touch) display, supporting Graphics.",
+      "description": "1.8\" - 160x128 Color TFT LCD (no touch) display, supporting Graphics.",
       "keyFeatures": [
         "1.8\" display",
         "160x128 pixels",
@@ -308,7 +310,7 @@
       "category": "Display",
       "price": 0,
       "tagline": "1.28\"",
-      "shortDescription": "1.28\" - 240x240 Color TFT LCD round (no touch) display, supporting Graphics.",
+      "description": "1.28\" - 240x240 Color TFT LCD round (no touch) display, supporting Graphics.",
       "keyFeatures": [
         "1.28\" Round Display",
         "240x240",
@@ -321,7 +323,8 @@
       "partNumber": "GDL-DTFTT32-C",
       "category": "Display",
       "price": 0,
-      "shortDescription": "3.2-inch TFT touchscreen display for interactive applications"
+      "tagline": "3.2\"",
+      "description": "3.2-inch TFT touchscreen display for interactive applications"
     },
     {
       "name": "VFD B8",
@@ -329,7 +332,7 @@
       "category": "Display",
       "price": 0,
       "tagline": "Vacuum Fluorescent Character Display",
-      "shortDescription": "Vacuum fluorescent displays are visually pleasing. This 8x character display looks great at any time, but it will look especially amazing in the dark!",
+      "description": "Vacuum fluorescent displays are visually pleasing. This 8x character display looks great at any time, but it will look especially amazing in the dark!",
       "keyFeatures": [
         "Monochrome Vacuum Fluorescent Display",
         "107x22mm overall dimension"
@@ -342,7 +345,7 @@
       "category": "Actuator",
       "price": 0,
       "tagline": "Fan Motor Module",
-      "shortDescription": "This smart DUELink fan has speed and direction control.",
+      "description": "This smart DUELink fan has speed and direction control.",
       "keyFeatures": [
         "On-board motor",
         "2 blade fan",
@@ -356,7 +359,7 @@
       "category": "Actuator",
       "price": 0,
       "tagline": "Load Actuator with 8x Connections",
-      "shortDescription": "The Load module is designed to control up to 8 actuators. No soldering is necessary as all connections are found on a screw terminal block.",
+      "description": "The Load module is designed to control up to 8 actuators. No soldering is necessary as all connections are found on a screw terminal block.",
       "keyFeatures": [
         "8 Load Screw Terminal Connections",
         "80V 1.5A Max",
@@ -369,7 +372,7 @@
       "category": "Actuator",
       "price": 0,
       "tagline": "Heavy Duty 43A Motor Controller",
-      "shortDescription": "This heavy-duty single motor controller has some serious driving power with up to 27V and 43A!",
+      "description": "This heavy-duty single motor controller has some serious driving power with up to 27V and 43A!",
       "keyFeatures": [
         "43A H-Bridge",
         "6 to 27V",
@@ -384,7 +387,7 @@
       "category": "Actuator",
       "price": 0,
       "tagline": "Dual Motor Controller",
-      "shortDescription": "This dual motor controller is capable of driving 2 motors at 1A each, with up to 18V from two screw terminal block.",
+      "description": "This dual motor controller is capable of driving 2 motors at 1A each, with up to 18V from two screw terminal block.",
       "keyFeatures": [
         "4 to 18V",
         "2A (1A for each motor)",
@@ -400,7 +403,7 @@
       "category": "Actuator",
       "price": 0,
       "tagline": "16x Isolated Relay Controller",
-      "shortDescription": "When it comes to power isolation, this module comes in perfectly handy. The relays are optically-isolated from the rest of the circuit. The 16x relays are capable of up to 10A @ 250V each. The relays are powered from a 12V barrel-jack power source.",
+      "description": "When it comes to power isolation, this module comes in perfectly handy. The relays are optically-isolated from the rest of the circuit. The 16x relays are capable of up to 10A @ 250V each. The relays are powered from a 12V barrel-jack power source.",
       "keyFeatures": [
         "16x optically-isolated",
         "10A @ 250V",
@@ -415,7 +418,7 @@
       "category": "Actuator",
       "price": 0,
       "tagline": "4x 10A Relay Controller",
-      "shortDescription": "Control high current loads using these 4x mechanical relays. Each relay is capable of driving up to 1A at 250V. The relays are powered from a 5V barrel-jack power source.",
+      "description": "Control high current loads using these 4x mechanical relays. Each relay is capable of driving up to 1A at 250V. The relays are powered from a 5V barrel-jack power source.",
       "keyFeatures": [
         "10A at 250V",
         "Screw terminal blocks",
@@ -430,7 +433,7 @@
       "category": "Actuator",
       "price": 0,
       "tagline": "Single Relay Controller",
-      "shortDescription": "This single mechanical relay controller is self-powered, right from the DUELink bus. It is capable of 10A @ 250V.",
+      "description": "This single mechanical relay controller is self-powered, right from the DUELink bus. It is capable of 10A @ 250V.",
       "keyFeatures": [
         "Self-powered relay",
         "10A @ 250V",
@@ -445,7 +448,7 @@
       "category": "Actuator",
       "price": 0,
       "tagline": "8x Servo Motor Controller",
-      "shortDescription": "Control up to 8x servo motors. Daisylink multiple Servo-P8 for controlling hundreds of servo motors!",
+      "description": "Control up to 8x servo motors. Daisylink multiple Servo-P8 for controlling hundreds of servo motors!",
       "keyFeatures": [
         "8x servo motor connections",
         "Eight 3-pin male headers",
@@ -459,7 +462,7 @@
       "category": "Actuator",
       "price": 0,
       "tagline": "Self-Power Single Servo Motor",
-      "shortDescription": "This DUELink 9G micro servo has everything in a single package. The motor uses power right from the DUELink bus, where it is being controlled as well.",
+      "description": "This DUELink 9G micro servo has everything in a single package. The motor uses power right from the DUELink bus, where it is being controlled as well.",
       "keyFeatures": [
         "Single positional 180 degree servo",
         "9G micro servo included",
@@ -473,7 +476,7 @@
       "category": "Actuator",
       "price": 0,
       "tagline": "Stepper Motor Signal Generator",
-      "shortDescription": "This module will generate the signal (pulses) necessary to drive stepper motor controllers. There is a wide range of available controllers, including nicely isolated ones.",
+      "description": "This module will generate the signal (pulses) necessary to drive stepper motor controllers. There is a wide range of available controllers, including nicely isolated ones.",
       "keyFeatures": [
         "X,Y,and Z axis control",
         "Terminal Block Connectors",
@@ -486,7 +489,7 @@
       "category": "Actuator",
       "price": 0,
       "tagline": "Single Stepper Motor Driver",
-      "shortDescription": "This module utilizes the very common stepper motor drivers commonly used in Arduino CNC Shield. They are available in multiple models. We include a driver capable of 30V @ 1A, but you can easily swap it with your favorite driver if desired.",
+      "description": "This module utilizes the very common stepper motor drivers commonly used in Arduino CNC Shield. They are available in multiple models. We include a driver capable of 30V @ 1A, but you can easily swap it with your favorite driver if desired.",
       "keyFeatures": [
         "Single stepper motor control",
         "30V @ 1A",
@@ -500,7 +503,7 @@
       "category": "Actuator",
       "price": 0,
       "tagline": "3x Stepper Motor Driver",
-      "shortDescription": "This module utilizes the very common stepper motor drivers commonly used in Arduino CNC Shield. They are available in multiple models. We include drivers capable of 30V @ 1A each, but you can easily swap them with your favorite driver if desired.",
+      "description": "This module utilizes the very common stepper motor drivers commonly used in Arduino CNC Shield. They are available in multiple models. We include drivers capable of 30V @ 1A each, but you can easily swap them with your favorite driver if desired.",
       "keyFeatures": [
         "3x stepper motor control",
         "Terminal Block Connectors",
@@ -512,7 +515,7 @@
       "partNumber": "GDL-CMCAN-B",
       "category": "Communication",
       "price": 0,
-      "shortDescription": "CAN bus interface module for automotive and industrial networks",
+      "description": "CAN bus interface module for automotive and industrial networks",
       "keyFeatures": [
         "Support CAN V2.0B",
         "Standard and extended ArbID",
@@ -527,7 +530,7 @@
       "partNumber": "GDL-CMDMX-B",
       "category": "Communication",
       "price": 0,
-      "shortDescription": "DMX512 lighting control interface for stage and architectural lighting",
+      "description": "DMX512 lighting control interface for stage and architectural lighting",
       "keyFeatures": [
         "Light Control Module",
         "On-board Female XLR Connector",
@@ -539,7 +542,7 @@
       "partNumber": "GDL-CMETHERNET-C",
       "category": "Communication",
       "price": 0,
-      "shortDescription": "Ethernet connectivity module for network communications",
+      "description": "Ethernet connectivity module for network communications",
       "keyFeatures": [
         "Complete TCP/IP stack",
         "TCP and UDP support",
@@ -553,14 +556,15 @@
       "partNumber": "GDL-CMMIDI-A",
       "category": "Communication",
       "price": 0,
-      "shortDescription": "MIDI interface for musical instrument connectivity"
+      "tagline": "MIDI Interface",
+      "description": "MIDI interface for musical instrument connectivity"
     },
     {
       "name": "RS485",
       "partNumber": "GDL-CMRS485-A",
       "category": "Communication",
       "price": 0,
-      "shortDescription": "RS485 serial communication for long-distance data transfer",
+      "description": "RS485 serial communication for long-distance data transfer",
       "keyFeatures": [
         "RS485 Transceiver",
         "Serial Communication",
@@ -573,7 +577,7 @@
       "partNumber": "GDL-CMSERIALUSB-A",
       "category": "Communication",
       "price": 0,
-      "shortDescription": "USB to serial converter for legacy device connectivity",
+      "description": "USB to serial converter for legacy device connectivity",
       "keyFeatures": [
         "USB Serial",
         "Virtual Serial Port",
@@ -586,7 +590,7 @@
       "partNumber": "GDL-CMUSBHOST-B",
       "category": "Communication",
       "price": 0,
-      "shortDescription": "USB host controller for connecting USB peripherals",
+      "description": "USB host controller for connecting USB peripherals",
       "keyFeatures": [
         "USB Host interface",
         "MSC class",
@@ -600,7 +604,8 @@
       "partNumber": "GDL-CMUSBCLIENT-A",
       "category": "Communication",
       "price": 0,
-      "shortDescription": "USB client interface for device-mode connectivity"
+      "tagline": "USB Client Interface",
+      "description": "USB client interface for device-mode connectivity"
     },
     {
       "name": "Button AR100",
@@ -608,7 +613,7 @@
       "category": "HMI",
       "price": 0,
       "tagline": "Extra Large 100mm Backlit Button",
-      "shortDescription": "This large 100mm Red arcade button has an internal light and can take serious punches! We also added 3x RGB LEDs around it for some exciting light shows!",
+      "description": "This large 100mm Red arcade button has an internal light and can take serious punches! We also added 3x RGB LEDs around it for some exciting light shows!",
       "keyFeatures": [
         "Light Up 100mm Red button",
         "3x RGB LEDs",
@@ -621,7 +626,7 @@
       "category": "HMI",
       "price": 0,
       "tagline": "4x RGB Backlit Buttons",
-      "shortDescription": "These four 28mm buttons are transparent white on the outside but are backlit with RGB LEDs. There are 7 possible color combinations, plus off!",
+      "description": "These four 28mm buttons are transparent white on the outside but are backlit with RGB LEDs. There are 7 possible color combinations, plus off!",
       "keyFeatures": [
         "4x 28mm buttons",
         "Backlit RGB LEDs",
@@ -634,7 +639,7 @@
       "category": "HMI",
       "price": 0,
       "tagline": "Large 10x10mm Tactile Button",
-      "shortDescription": "Add a 10x10mm button to any project!",
+      "description": "Add a 10x10mm button to any project!",
       "keyFeatures": [
         "Single 10x10mm Button",
         "27x22mm overall dimension"
@@ -647,7 +652,7 @@
       "category": "HMI",
       "price": 0,
       "tagline": "7x 10x10mm Tactile Buttons",
-      "shortDescription": "This module includes 7x 10x10mm tactile buttons.",
+      "description": "This module includes 7x 10x10mm tactile buttons.",
       "keyFeatures": [
         "7x 10x10mm buttons",
         "52x67mm overall dimension"
@@ -659,7 +664,7 @@
       "category": "HMI",
       "price": 0,
       "tagline": "Small 5x5mm Tactile Button",
-      "shortDescription": "This module offers a small \"squishy\" 5x5mm tactile button.",
+      "description": "This module offers a small \"squishy\" 5x5mm tactile button.",
       "keyFeatures": [
         "Single 5x5mm tactile button",
         "Soft touch",
@@ -672,7 +677,7 @@
       "category": "HMI",
       "price": 0,
       "tagline": "Dial Module",
-      "shortDescription": "Use this module to read the position of the dial (potentiometer).",
+      "description": "Use this module to read the position of the dial (potentiometer).",
       "keyFeatures": [
         "Dial (pot) measurement",
         "300 degree rotation",
@@ -685,7 +690,7 @@
       "category": "HMI",
       "price": 0,
       "tagline": "10x Config DIP Switches",
-      "shortDescription": "Use these 10x DIP switches as you wish, usually for config, in your project.",
+      "description": "Use these 10x DIP switches as you wish, usually for config, in your project.",
       "keyFeatures": [
         "10 switch selector",
         "32x22mm overall dimension"
@@ -697,7 +702,7 @@
       "category": "HMI",
       "price": 0,
       "tagline": "Biometric Fingerprint Detector",
-      "shortDescription": "Read and match prerecorded fingerprints with this intelligent HMI sensor.",
+      "description": "Read and match prerecorded fingerprints with this intelligent HMI sensor.",
       "keyFeatures": [
         "Fingerprint detector",
         "Biometric sensor",
@@ -711,7 +716,7 @@
       "category": "HMI",
       "price": 0,
       "tagline": "Joystick with Push Button",
-      "shortDescription": "This is a 2-axis joystick with push button.",
+      "description": "This is a 2-axis joystick with push button.",
       "keyFeatures": [
         "Analog Output",
         "X/Y Axis",
@@ -726,7 +731,7 @@
       "category": "HMI",
       "price": 0,
       "tagline": "3x4 Numerical Keypad",
-      "shortDescription": "3x4 numerical keypad with 12x \"squishy\" push buttons.",
+      "description": "3x4 numerical keypad with 12x \"squishy\" push buttons.",
       "keyFeatures": [
         "3x4 numerical keypad",
         "12 buttons",
@@ -740,7 +745,7 @@
       "category": "HMI",
       "price": 0,
       "tagline": "4x4 Button Keypad",
-      "shortDescription": "4x4 keypad with 16x \"squishy\" push buttons.",
+      "description": "4x4 keypad with 16x \"squishy\" push buttons.",
       "keyFeatures": [
         "4x4 numerical keypad",
         "16 buttons",
@@ -753,7 +758,7 @@
       "partNumber": "GDL-HIKEYPAD4X4-C",
       "category": "HMI",
       "price": 0,
-      "shortDescription": "Rotary encoder with push button for menu navigation",
+      "description": "Rotary encoder with push button for menu navigation",
       "keyFeatures": [
         "Encoder",
         "360 degree rotation",
@@ -767,7 +772,7 @@
       "category": "Storage",
       "price": 0,
       "tagline": "Flash Memory Storage",
-      "shortDescription": "Add 16MB of flash storage to any project. Create your own file management system or use the provided sector read/write methods.",
+      "description": "Add 16MB of flash storage to any project. Create your own file management system or use the provided sector read/write methods.",
       "keyFeatures": [
         "16MB Flash Storage",
         "22x22mm overall dimension"
@@ -780,7 +785,7 @@
       "category": "Storage",
       "price": 0,
       "tagline": "SD Card Module",
-      "shortDescription": "Access files on SD cards. Full file system facilities are provided, see File System.",
+      "description": "Access files on SD cards. Full file system facilities are provided, see File System.",
       "keyFeatures": [
         "SD card slot",
         "FAT file system",
@@ -793,7 +798,7 @@
       "category": "Storage",
       "price": 0,
       "tagline": "MicroSD Card Module",
-      "shortDescription": "Access files on micro SD cards. Full file system facilities are provided, see File System.",
+      "description": "Access files on micro SD cards. Full file system facilities are provided, see File System.",
       "keyFeatures": [
         "Micro SD card slot",
         "FAT file system",
@@ -806,7 +811,7 @@
       "category": "Wireless",
       "price": 0,
       "tagline": "GNSS Positioning Module with Antenna",
-      "shortDescription": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module has a built-in antenna. Consider this GNSS module if you want to add your own antenna.",
+      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module has a built-in antenna. Consider this GNSS module if you want to add your own antenna.",
       "keyFeatures": [
         "GNSS positioning",
         "GPS, Galileo, GLONASS",
@@ -820,7 +825,7 @@
       "category": "Wireless",
       "price": 0,
       "tagline": "GNSS Positioning Module with uFL Connector",
-      "shortDescription": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module with uFL connector for external antenna. The required antenna is not included, giving the user the choice to select the right antenna.",
+      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module with uFL connector for external antenna. The required antenna is not included, giving the user the choice to select the right antenna.",
       "keyFeatures": [
         "GNSS positioning",
         "GPS, Galileo, GLONASS",
@@ -834,7 +839,7 @@
       "category": "Wireless",
       "price": 0,
       "tagline": "Infrared Transmitter & Receiver",
-      "shortDescription": "Use light, infrared to be exact, to send and receive data. The data is transferred over a 38Khz frequency to filter out any other surrounding infrared light.",
+      "description": "Use light, infrared to be exact, to send and receive data. The data is transferred over a 38Khz frequency to filter out any other surrounding infrared light.",
       "keyFeatures": [
         "Infrared Connectivity",
         "Transmitter and Receiver",
@@ -848,7 +853,7 @@
       "category": "Wireless",
       "price": 0,
       "tagline": "Wireless NRF24 Transceiver with Amplified Antenna",
-      "shortDescription": "Send and receive data wirelessly using SMA 2.4Ghz. The PA+LNA gives this module a coverage of up to a 1000 meters!",
+      "description": "Send and receive data wirelessly using SMA 2.4Ghz. The PA+LNA gives this module a coverage of up to a 1000 meters!",
       "keyFeatures": [
         "2.4Ghz SMA signal",
         "125 channels",
@@ -862,7 +867,7 @@
       "category": "Wireless",
       "price": 0,
       "tagline": "Wireless NRF24 Transceiver",
-      "shortDescription": "Send and receive data wirelessly using SMA 2.4Ghz. This module uses a simple PCB antenna. Consider NRF24 Max for a coverage of up to a 1000 meters!",
+      "description": "Send and receive data wirelessly using SMA 2.4Ghz. This module uses a simple PCB antenna. Consider NRF24 Max for a coverage of up to a 1000 meters!",
       "keyFeatures": [
         "2.4Ghz SMA signal",
         "125 channels",
@@ -876,7 +881,7 @@
       "category": "Wireless",
       "price": 0,
       "tagline": "RFID Tag and Card Reader",
-      "shortDescription": "Read RFID (Radio-Frequency IDentification) unique IDs from tags and access cards. The module includes tags, but any other standard tags should work.",
+      "description": "Read RFID (Radio-Frequency IDentification) unique IDs from tags and access cards. The module includes tags, but any other standard tags should work.",
       "keyFeatures": [
         "RFID reader",
         "Tags and Cards",
@@ -890,7 +895,7 @@
       "category": "Sensor",
       "price": 0,
       "tagline": "3-Axis Accelerometer",
-      "shortDescription": "This 3-axis accelerometer can be used to detect motion, tilt, and acceleration just to name a few.",
+      "description": "This 3-axis accelerometer can be used to detect motion, tilt, and acceleration just to name a few.",
       "keyFeatures": [
         "Detect motion, tilt and acceleration",
         "22x20mm overall dimension"
@@ -903,7 +908,7 @@
       "category": "Sensor",
       "price": 0,
       "tagline": "Air Quality Sensor",
-      "shortDescription": "This multi-gas digital sensor is used to detect surrounding air quality.",
+      "description": "This multi-gas digital sensor is used to detect surrounding air quality.",
       "keyFeatures": [
         "Reads air quality",
         "37x27mm overall dimension"
@@ -916,7 +921,7 @@
       "category": "Sensor",
       "price": 0,
       "tagline": "Barometric Pressure Sensor",
-      "shortDescription": "This barometric pressure sensor also includes temperature and humidity measurements.",
+      "description": "This barometric pressure sensor also includes temperature and humidity measurements.",
       "keyFeatures": [
         "Reads pressure levels",
         "Humidity and temperature",
@@ -929,7 +934,7 @@
       "category": "Sensor",
       "price": 0,
       "tagline": "Clip-friendly IOs with Capacitive Sensing",
-      "shortDescription": "With these alligator-clip-friendly pads, users can easily connect(clip) anything that requires digital inputs/outputs. These pads also support analog and PWM (analog out) functionality.",
+      "description": "With these alligator-clip-friendly pads, users can easily connect(clip) anything that requires digital inputs/outputs. These pads also support analog and PWM (analog out) functionality.",
       "keyFeatures": [
         "8x Digital GPIO",
         "8x Analog inputs",
@@ -944,7 +949,7 @@
       "category": "Sensor",
       "price": 0,
       "tagline": "Current Sensor",
-      "shortDescription": "Connect the terminal block inline of AC or DC power to measure its current. The sensor has an internal resistance of 1.2 milli-ohm. It is capable of measuring up to 12.5A.",
+      "description": "Connect the terminal block inline of AC or DC power to measure its current. The sensor has an internal resistance of 1.2 milli-ohm. It is capable of measuring up to 12.5A.",
       "keyFeatures": [
         "12.5A current sensor",
         "25A current option",
@@ -958,7 +963,7 @@
       "category": "Sensor",
       "price": 0,
       "tagline": "Ultrasonic Distance Sensor",
-      "shortDescription": "This sensor sends an ultrasonic chirp, then it measures the time it takes for the sound to bounce back. The time it takes maps to the distance between the sensor and the object it's facing.",
+      "description": "This sensor sends an ultrasonic chirp, then it measures the time it takes for the sound to bounce back. The time it takes maps to the distance between the sensor and the object it's facing.",
       "keyFeatures": [
         "Ultrasonic Type",
         "15° range",
@@ -973,7 +978,7 @@
       "category": "Sensor",
       "price": 0,
       "tagline": "9DoF MEMS Sensor",
-      "shortDescription": "This 9DoF (Degrees of Freedom) MEMS (Micro Electro Mechanical System) sensor includes 3axis accelerometer, 3axis gyro, & 3axis magnetometer. The combination of these inputs can be used to get exact tilt and orientation.",
+      "description": "This 9DoF (Degrees of Freedom) MEMS (Micro Electro Mechanical System) sensor includes 3axis accelerometer, 3axis gyro, & 3axis magnetometer. The combination of these inputs can be used to get exact tilt and orientation.",
       "keyFeatures": [
         "3axis Accelerometer",
         "3axis Gyro",
@@ -988,7 +993,7 @@
       "category": "Sensor",
       "price": 0,
       "tagline": "Heart EKG Sensor",
-      "shortDescription": "Use this module to experiment with heart EKG signals. This is NOT a medical device but an educational sensor for experimentation. The kit includes probes and sticker pads.",
+      "description": "Use this module to experiment with heart EKG signals. This is NOT a medical device but an educational sensor for experimentation. The kit includes probes and sticker pads.",
       "keyFeatures": [
         "EKG (ECG)",
         "Includes probes and pads",
@@ -1002,7 +1007,7 @@
       "category": "Sensor",
       "price": 0,
       "tagline": "Gas Sensor",
-      "shortDescription": "This gas sensor ships with MQ-7 (carbon monoxide) installed. However, the module uses a socket allowing the sensor be be easily swapped with other gas sensors, like MQ-3 alcohol gas sensor.",
+      "description": "This gas sensor ships with MQ-7 (carbon monoxide) installed. However, the module uses a socket allowing the sensor be be easily swapped with other gas sensors, like MQ-3 alcohol gas sensor.",
       "keyFeatures": [
         "Gas Sensing",
         "Sensor Socket",
@@ -1017,7 +1022,7 @@
       "category": "Sensor",
       "price": 0,
       "tagline": "Ambient Light Sensor",
-      "shortDescription": "A good sensor for detecting daytime or when lights are turned on. This is not an accurate light level sensor, but provides overall ambient light levels.",
+      "description": "A good sensor for detecting daytime or when lights are turned on. This is not an accurate light level sensor, but provides overall ambient light levels.",
       "keyFeatures": [
         "Light sensor",
         "17x19mm overall dimension"
@@ -1030,7 +1035,7 @@
       "category": "Sensor",
       "price": 0,
       "tagline": "PIR Motion Sensor",
-      "shortDescription": "PIR (Passive Infrared) motion sensors use light in its view to detect motion.",
+      "description": "PIR (Passive Infrared) motion sensors use light in its view to detect motion.",
       "keyFeatures": [
         "Digital motion sensing",
         "27x22mm overall dimension"
@@ -1043,7 +1048,7 @@
       "category": "Sensor",
       "price": 0,
       "tagline": "Air and Liquid Pressure Sensor",
-      "shortDescription": "Connect this sensor to your instrument using a tiny pipe to measure water/liquid pressure. Different ranges are available.",
+      "description": "Connect this sensor to your instrument using a tiny pipe to measure water/liquid pressure. Different ranges are available.",
       "keyFeatures": [
         "Air and liquid pressure",
         "Measure pressure",
@@ -1056,7 +1061,7 @@
       "category": "Sensor",
       "price": 0,
       "tagline": "Realtime Clock",
-      "shortDescription": "This module is a RTC (Real Time Clock) \"time sensor\" with a backup battery to keep time running even when the system is powered off.",
+      "description": "This module is a RTC (Real Time Clock) \"time sensor\" with a backup battery to keep time running even when the system is powered off.",
       "keyFeatures": [
         "Real Time Clock",
         "Button Battery Holder",
@@ -1070,7 +1075,7 @@
       "category": "Sensor",
       "price": 0,
       "tagline": "Temperature & Humidity Sensor",
-      "shortDescription": "Measure temperature with +-0.5 degree of accuracy at 0.1 celsius resolution. The humidity sensor is +=2RH% accurate with a resolution of 0.1%RH.",
+      "description": "Measure temperature with +-0.5 degree of accuracy at 0.1 celsius resolution. The humidity sensor is +=2RH% accurate with a resolution of 0.1%RH.",
       "keyFeatures": [
         "DHT22 Digital Sensor",
         "Temperature and Humidity",
@@ -1084,7 +1089,7 @@
       "category": "Sensor",
       "price": 0,
       "tagline": "TempRTD Sensor",
-      "shortDescription": "This sensor uses the included RTD (Resistance Temperature Detector) to measure temperatures.",
+      "description": "This sensor uses the included RTD (Resistance Temperature Detector) to measure temperatures.",
       "keyFeatures": [
         "RTD Temperature Sensor",
         "42x27 overall dimension"
@@ -1096,7 +1101,7 @@
       "category": "LED",
       "price": 0,
       "tagline": "12x8 LED Matrix",
-      "shortDescription": "Use these 96 dazzling LEDs to show text, create flashy games, or run whatever effect you desire. You will be surprised with how much you can do with a 12x8 LED matrix!",
+      "description": "Use these 96 dazzling LEDs to show text, create flashy games, or run whatever effect you desire. You will be surprised with how much you can do with a 12x8 LED matrix!",
       "keyFeatures": [
         "12x8 LED Matrix",
         "96 Total LEDs",
@@ -1109,7 +1114,7 @@
       "category": "LED",
       "price": 0,
       "tagline": "16x LED Ring",
-      "shortDescription": "A ring with 16 LEDs.",
+      "description": "A ring with 16 LEDs.",
       "keyFeatures": [
         "16 LED Ring",
         "32x32mm overall dimension"
@@ -1122,7 +1127,7 @@
       "category": "LED",
       "price": 0,
       "tagline": "3x RGB LED",
-      "shortDescription": "A visual LED with 3x RGB LEDs. These lights can be set to any of 7 colors or can be turned off.",
+      "description": "A visual LED with 3x RGB LEDs. These lights can be set to any of 7 colors or can be turned off.",
       "keyFeatures": [
         "3 RGB LEDs",
         "32x22mm overall dimension"
@@ -1135,7 +1140,7 @@
       "category": "LED",
       "price": 0.00,
       "tagline": "0.28\" 4-Digit 7-Segment Display",
-      "shortDescription": "These 0.28\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.",
+      "description": "These 0.28\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.",
       "keyFeatures": [
         "4-digit 7-segment LEDs",
         "Available in Red or Green",
@@ -1172,7 +1177,7 @@
       "category": "LED",
       "price": 0.00,
       "tagline": "0.40\"",
-      "shortDescription": "These 0.40\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.",
+      "description": "These 0.40\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.",
       "keyFeatures": [
         "4 Digit 7 segment LEDs",
         "Available in Red or Green",
@@ -1209,7 +1214,7 @@
       "category": "LED",
       "price": 0,
       "tagline": "0.56\"",
-      "shortDescription": "These 0.56\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.",
+      "description": "These 0.56\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.",
       "keyFeatures": [
         "4 Digit 7 segment LEDs",
         "Available in Red or Green",
@@ -1224,7 +1229,7 @@
       "category": "LED",
       "price": 0,
       "tagline": "0.80\"",
-      "shortDescription": "14-segment displays ar good to display alpha-numerical info. This 0.80 is a decent size to be visible from a few feet.",
+      "description": "14-segment displays ar good to display alpha-numerical info. This 0.80 is a decent size to be visible from a few feet.",
       "keyFeatures": [
         "4 Digit 7 segment LEDs",
         "Available in Red or Green",
@@ -1238,7 +1243,7 @@
       "category": "LED",
       "price": 0,
       "tagline": "Smart LED Controller",
-      "shortDescription": "The DUELink standard library includes support for WS2811 smart LEDs. When using matrices, the support is even included with the graphics function.",
+      "description": "The DUELink standard library includes support for WS2811 smart LEDs. When using matrices, the support is even included with the graphics function.",
       "keyFeatures": [
         "WS2811 LED Controller",
         "Support for DAT/CLK type",
@@ -1253,7 +1258,7 @@
       "category": "Sound",
       "price": 0,
       "tagline": "Peizo Buzzer Sound Generator",
-      "shortDescription": "Use this peizo buzzer to generate tones and simple melodies. Sound an alarm, play a melody when a task is finished or even generate noises!",
+      "description": "Use this peizo buzzer to generate tones and simple melodies. Sound an alarm, play a melody when a task is finished or even generate noises!",
       "keyFeatures": [
         "Frequency Range 200Hz to 10Khz",
         "22x20mm overall dimension"
@@ -1266,7 +1271,7 @@
       "category": "Sound",
       "price": 0,
       "tagline": "MP3 Micro SD Player",
-      "shortDescription": "Play MP3 audio/music from files found on the attached Micro SD card. The audio quality is reasonable and single mono channel. There is no system load as the module only receives and processes simple commands, like start playing, or stop. The files on the Micro SD card are saved in standard FAT16/FAT32 file system and can handle SD cards up to 32GB. Note that you will not have access to the files directly. Only the MP3 decoder can read the files. You will need to move the Micro SD card to a PC to load it with MP3 files.\n\nMicro SD card is required and is not included.",
+      "description": "Play MP3 audio/music from files found on the attached Micro SD card. The audio quality is reasonable and single mono channel. There is no system load as the module only receives and processes simple commands, like start playing, or stop. The files on the Micro SD card are saved in standard FAT16/FAT32 file system and can handle SD cards up to 32GB. Note that you will not have access to the files directly. Only the MP3 decoder can read the files. You will need to move the Micro SD card to a PC to load it with MP3 files.\n\nMicro SD card is required and is not included.",
       "keyFeatures": [
         "MP3 decoder",
         "Auto playback",
@@ -1281,7 +1286,7 @@
       "category": "Sound",
       "price": 0,
       "tagline": "FM Radio Receiver",
-      "shortDescription": "Use simple commands to set the channel and audio level on this FM Radio Receiver. The module includes a standard 3.5mm stereo audio plug, for connecting headphones or amplified speakers.",
+      "description": "Use simple commands to set the channel and audio level on this FM Radio Receiver. The module includes a standard 3.5mm stereo audio plug, for connecting headphones or amplified speakers.",
       "keyFeatures": [
         "FM Radio Receiver",
         "Sets channel and audio level",
@@ -1295,7 +1300,7 @@
       "category": "Sound",
       "price": 0,
       "tagline": "Spectrum Analyzer",
-      "shortDescription": "This module breaks down the incoming audio into 63Hz, 160Hz, 400Hz, 1Khz, 2.5Khz, 6.25Khz, 16Khz. It then measures the audio level at these frequencies.",
+      "description": "This module breaks down the incoming audio into 63Hz, 160Hz, 400Hz, 1Khz, 2.5Khz, 6.25Khz, 16Khz. It then measures the audio level at these frequencies.",
       "keyFeatures": [
         "Frequency Analyzer",
         "7 individual frequency filters",
@@ -1308,7 +1313,7 @@
       "partNumber": "GDL-VIBARCODEL1D2D-A",
       "category": "Vision",
       "price": 0,
-      "shortDescription": "1D/2D barcode and QR code scanner module",
+      "description": "1D/2D barcode and QR code scanner module",
       "keyFeatures": [
         "Barcode scanner",
         "1D and 2D formats",
@@ -1321,7 +1326,7 @@
       "partNumber": "GDL-VITHERMAL-A",
       "category": "Vision",
       "price": 0,
-      "shortDescription": "Thermal imaging camera for heat detection",
+      "description": "Thermal imaging camera for heat detection",
       "keyFeatures": [
         "Thermal camera",
         "8x8 pixels",
@@ -1335,7 +1340,7 @@
       "partNumber": "GDL-ADDIOX12-A",
       "category": "Adapter",
       "price": 0,
-      "shortDescription": "12-channel digital I/O expansion module",
+      "description": "12-channel digital I/O expansion module",
       "keyFeatures": [
         "12x inputs & outputs",
         "Terminal Block Header",
@@ -1347,7 +1352,7 @@
       "partNumber": "GDL-ADDUECLICK-A",
       "category": "Adapter",
       "price": 0,
-      "shortDescription": "MikroE Click board adapter for extended functionality",
+      "description": "MikroE Click board adapter for extended functionality",
       "keyFeatures": [
         "MikroBus headers",
         "42x27mm overall dimension"
@@ -1358,7 +1363,7 @@
       "partNumber": "GDL-ADDUEPI-B",
       "category": "Adapter",
       "price": 0,
-      "shortDescription": "Raspberry Pi HAT adapter for Pi compatibility",
+      "description": "Raspberry Pi HAT adapter for Pi compatibility",
       "keyFeatures": [
         "Attaches to Raspberry Pi or Pi Zero Header",
         "0.96\" OLED Display",
@@ -1374,7 +1379,7 @@
       "partNumber": "GDL-ADDUEPICO-B",
       "category": "Adapter",
       "price": 0,
-      "shortDescription": "Raspberry Pi Pico adapter for RP2040 integration",
+      "description": "Raspberry Pi Pico adapter for RP2040 integration",
       "keyFeatures": [
         "Raspberry Pi Pico Headers",
         "0.96\" OLED Display",
@@ -1390,7 +1395,7 @@
       "category": "Accessories",
       "price": 0,
       "tagline": "DUELink Cables",
-      "shortDescription": "A variety of DUELink cable lengths available: 5x 50mm, 5x 150mm, 5x 300mm, 5x 100mm JST to pin header breakout, and Variety Pack (1x 300mm, 2x 150mm, 2x 50mm)",
+      "description": "A variety of DUELink cable lengths available: 5x 50mm, 5x 150mm, 5x 300mm, 5x 100mm JST to pin header breakout, and Variety Pack (1x 300mm, 2x 150mm, 2x 50mm)",
       "keyFeatures": [
         "50mm DUELink Cable",
         "150mm DUELink Cable",
@@ -1404,7 +1409,7 @@
       "category": "Accessories",
       "price": 0,
       "tagline": "DUELink JST Connectors",
-      "shortDescription": "Standard 4-pin 1mm JST connectors for building your own DUELink modules. Available in Uplink and Downlink configurations, blue and white, surface mount.",
+      "description": "Standard 4-pin 1mm JST connectors for building your own DUELink modules. Available in Uplink and Downlink configurations, blue and white, surface mount.",
       "keyFeatures": [
         "4pin 1mm JST connector",
         "Blue and White",
@@ -1417,7 +1422,7 @@
       "category": "Accessories",
       "price": 0,
       "tagline": "Holey Boards for Mounting DUELink Modules",
-      "shortDescription": "Blank circuits with standard 5mm-pitched holes for mounting DUELink modules. Available in three sizes: Holey Smally (18x12 holes), Holey Board (36x18 holes), and Holey Moley (46x36 holes).",
+      "description": "Blank circuits with standard 5mm-pitched holes for mounting DUELink modules. Available in three sizes: Holey Smally (18x12 holes), Holey Board (36x18 holes), and Holey Moley (46x36 holes).",
       "keyFeatures": [
         "5mm-pitch holes",
         "Front grid markings",
@@ -1433,7 +1438,7 @@
       "category": "Accessories",
       "price": 0,
       "tagline": "Mounting Hardware",
-      "shortDescription": "Complete mounting hardware kit including M3 standoffs (male-female and female-female), nylon screws, nuts, and metal footpads for mounting DUELink modules.",
+      "description": "Complete mounting hardware kit including M3 standoffs (male-female and female-female), nylon screws, nuts, and metal footpads for mounting DUELink modules.",
       "keyFeatures": [
         "Universal M3 Size",
         "Perfect for [Holey Boards](holey-board)"

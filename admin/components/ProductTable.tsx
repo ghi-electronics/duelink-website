@@ -50,7 +50,7 @@ interface ProductTableProps {
 interface SimpleProduct {
   id?: string;
   name: string;
-  shortDescription: string;
+  description: string;
   partNumber: string;
   category: string;
   price: number;
@@ -65,7 +65,7 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
   const [editMode, setEditMode] = useState(false);
   const [currentProduct, setCurrentProduct] = useState<SimpleProduct>({
     name: '',
-    shortDescription: '',
+    description: '',
     partNumber: '',
     category: '',
     price: 0
@@ -88,7 +88,7 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
       const simpleProducts = data.map((p: any) => ({
         id: p.id,
         name: p.name,
-        shortDescription: p.shortDescription,
+        description: p.description,
         partNumber: p.partNumber,
         category: p.category,
         price: p.price
@@ -113,7 +113,7 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
 
   const fuse = useMemo(
     () => new Fuse(products, {
-      keys: ['name', 'partNumber', 'shortDescription', 'category'],
+      keys: ['name', 'partNumber', 'description', 'category'],
       threshold: 0.3,
     }),
     [products]
@@ -137,7 +137,7 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
     setEditMode(false);
     setCurrentProduct({
       name: '',
-      shortDescription: '',
+      description: '',
       partNumber: '',
       category: '',
       price: 0
@@ -315,7 +315,7 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
       valueFormatter: (value) => `$${value?.toFixed(2) || '0.00'}`
     },
     { 
-      field: 'shortDescription', 
+      field: 'description', 
       headerName: 'Description', 
       flex: 1,
       minWidth: 250
@@ -466,11 +466,11 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
             
             <Box sx={{ mt: 2 }}>
               <Typography variant="subtitle2" gutterBottom>
-                Short Description (Markdown supported)
+                Description (Markdown supported)
               </Typography>
               <MDEditor
-                value={currentProduct.shortDescription}
-                onChange={(value) => setCurrentProduct({ ...currentProduct, shortDescription: value || '' })}
+                value={currentProduct.description}
+                onChange={(value) => setCurrentProduct({ ...currentProduct, description: value || '' })}
                 preview="live"
                 height={200}
                 data-color-mode="light"

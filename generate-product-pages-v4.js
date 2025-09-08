@@ -223,10 +223,10 @@ function generateMDX(product, index) {
     // Build resources section dynamically
     let resourceLinks = [];
     if (hasSchematic(product.partNumber)) {
-        resourceLinks.push(`📄[Schematics](/sch/gdl-${partPrefix}.pdf)`);
+        resourceLinks.push(`📄<a href="/sch/gdl-${partPrefix}.pdf" download>Schematics</a>`);
     }
     if (has3DModel(product.partNumber)) {
-        resourceLinks.push(`🔩[3D STEP file](/3d/gdl-${partPrefix}.step)`);
+        resourceLinks.push(`🔩<a href="/3d/gdl-${partPrefix}.step" download>3D STEP file</a>`);
     }
     
     // Create resources section only if there are resources
@@ -402,7 +402,7 @@ import OrderSection from '@site/src/components/OrderSection';
 
 <TabItem value="overview">
 
-${details.overview || product.shortDescription || 'This is a high-quality DUELink module designed for easy integration into your projects.'}${product.Notes ? '\n\n' + product.Notes : ''}
+${details.overview || product.description || 'This is a high-quality DUELink module designed for easy integration into your projects.'}${product.Notes ? '\n\n' + product.Notes : ''}
 
 <table><td width='50%'>
 **Key features**
