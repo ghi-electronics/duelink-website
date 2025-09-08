@@ -213,6 +213,7 @@ const sidebars = {
             "products/duepico"
           ],
         },
+        "catalog/third-party",
       ],
     },
 
