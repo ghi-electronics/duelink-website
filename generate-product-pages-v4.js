@@ -223,10 +223,10 @@ function generateMDX(product, index) {
     // Build resources section dynamically
     let resourceLinks = [];
     if (hasSchematic(product.partNumber)) {
-        resourceLinks.push(`📄<a href="/sch/gdl-${partPrefix}.pdf" download>Schematics</a>`);
+        resourceLinks.push(`📄<a href="/sch/gdl-${partPrefix}.pdf">Schematics</a>`);
     }
     if (has3DModel(product.partNumber)) {
-        resourceLinks.push(`🔩<a href="/3d/gdl-${partPrefix}.step" download>3D STEP file</a>`);
+        resourceLinks.push(`🔩<a href="/3d/gdl-${partPrefix}.step">3D STEP file</a>`);
     }
     
     // Create resources section only if there are resources

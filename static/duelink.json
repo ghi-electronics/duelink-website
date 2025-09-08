@@ -515,6 +515,7 @@
       "partNumber": "GDL-CMCAN-B",
       "category": "Communication",
       "price": 0,
+      "tagline": "CAN Bus Interface",
       "description": "CAN bus interface module for automotive and industrial networks",
       "keyFeatures": [
         "Support CAN V2.0B",
@@ -530,6 +531,7 @@
       "partNumber": "GDL-CMDMX-B",
       "category": "Communication",
       "price": 0,
+      "tagline": "DMX512 Lighting Control",
       "description": "DMX512 lighting control interface for stage and architectural lighting",
       "keyFeatures": [
         "Light Control Module",
@@ -542,6 +544,7 @@
       "partNumber": "GDL-CMETHERNET-C",
       "category": "Communication",
       "price": 0,
+      "tagline": "Ethernet Network Module",
       "description": "Ethernet connectivity module for network communications",
       "keyFeatures": [
         "Complete TCP/IP stack",
@@ -564,6 +567,7 @@
       "partNumber": "GDL-CMRS485-A",
       "category": "Communication",
       "price": 0,
+      "tagline": "RS485 Serial Communication",
       "description": "RS485 serial communication for long-distance data transfer",
       "keyFeatures": [
         "RS485 Transceiver",
@@ -577,6 +581,7 @@
       "partNumber": "GDL-CMSERIALUSB-A",
       "category": "Communication",
       "price": 0,
+      "tagline": "USB to Serial Converter",
       "description": "USB to serial converter for legacy device connectivity",
       "keyFeatures": [
         "USB Serial",
@@ -590,6 +595,7 @@
       "partNumber": "GDL-CMUSBHOST-B",
       "category": "Communication",
       "price": 0,
+      "tagline": "USB Host Controller",
       "description": "USB host controller for connecting USB peripherals",
       "keyFeatures": [
         "USB Host interface",
@@ -758,6 +764,7 @@
       "partNumber": "GDL-HIKEYPAD4X4-C",
       "category": "HMI",
       "price": 0,
+      "tagline": "Rotary Encoder",
       "description": "Rotary encoder with push button for menu navigation",
       "keyFeatures": [
         "Encoder",
@@ -1313,6 +1320,7 @@
       "partNumber": "GDL-VIBARCODEL1D2D-A",
       "category": "Vision",
       "price": 0,
+      "tagline": "1D/2D Barcode Scanner",
       "description": "1D/2D barcode and QR code scanner module",
       "keyFeatures": [
         "Barcode scanner",
@@ -1326,7 +1334,8 @@
       "partNumber": "GDL-VITHERMAL-A",
       "category": "Vision",
       "price": 0,
-      "description": "Thermal imaging camera for heat detection",
+      "tagline": "Thermal Imaging Camera",
+      "description": "Capture 8x8 thermal images. Capable of measuring 0° to 80° celsius.",
       "keyFeatures": [
         "Thermal camera",
         "8x8 pixels",
@@ -1340,6 +1349,7 @@
       "partNumber": "GDL-ADDIOX12-A",
       "category": "Adapter",
       "price": 0,
+      "tagline": "12-Channel Digital I/O",
       "description": "12-channel digital I/O expansion module",
       "keyFeatures": [
         "12x inputs & outputs",
@@ -1352,6 +1362,7 @@
       "partNumber": "GDL-ADDUECLICK-A",
       "category": "Adapter",
       "price": 0,
+      "tagline": "MikroE Click Board Adapter",
       "description": "MikroE Click board adapter for extended functionality",
       "keyFeatures": [
         "MikroBus headers",
@@ -1363,6 +1374,7 @@
       "partNumber": "GDL-ADDUEPI-B",
       "category": "Adapter",
       "price": 0,
+      "tagline": "Raspberry Pi HAT Adapter",
       "description": "Raspberry Pi HAT adapter for Pi compatibility",
       "keyFeatures": [
         "Attaches to Raspberry Pi or Pi Zero Header",
@@ -1379,6 +1391,7 @@
       "partNumber": "GDL-ADDUEPICO-B",
       "category": "Adapter",
       "price": 0,
+      "tagline": "Raspberry Pi Pico Adapter",
       "description": "Raspberry Pi Pico adapter for RP2040 integration",
       "keyFeatures": [
         "Raspberry Pi Pico Headers",
