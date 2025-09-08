@@ -1223,7 +1223,8 @@
         "Support for DAT/CLK type",
         "Terminal Block Connection",
         "37x22mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `WS2811()` | Returns the pin number used for DAT pin to be used with `WS2811` Smart LED [Graphics](/docs/engine/graphics). |\n| `IntAPA(c)` | Get the system ready for `APA102C`. |\n| `SetAPA(i, c, l)` | Sets the color at `i` index to `c` color (RRGGBB) and `l` luminance (0 to 31). |\n| `ShwAPA()` | Show/update the actual LEDs with preassigned colors. |\n| `IntLPD(c)` | Get the system ready for `LPD8806`. |\n| `SetLPD(i, c)` | Sets the color at `i` index to `c` color (RRGGBB) |\n| `ShwLPD()` | Show/update the actual LEDs with preassigned colors. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Buzzer",
@@ -1235,7 +1236,8 @@
       "keyFeatures": [
         "Frequency Range 200Hz to 10Khz",
         "22x20mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `PlayBeep(f, d)` | Play beep, (f: frequency, d: duration in ms). |\n| `PlaySound(f, d, c)` | Play sound, (f: frequency, d: duration in ms, c: duty cycle). |\n| `PlayMelody(a1)` | Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration). |\n| `StopMelody()` | Stop melody. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "MP3",
