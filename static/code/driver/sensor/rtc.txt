@@ -1,0 +1,55 @@
+##### RTC Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn Init()
+    #time array
+    dim b1[8]
+    dim b2[1]
+    I2cCfg(400)
+fend
+
+fn toBCD(v)
+    return ((v / 10) <<4) | (v % 10)
+fend
+
+fn toDEC(v)
+    l=v&0xf
+    v=(v>>4)*10
+    v=v+l
+    return v
+fend
+
+fn SetTime(y,n,d,h,m,s)
+    b1[0]=0x11# Write to register 0x11 onwards, seconds!!
+    b1[1]=toBCD(s)#seconds
+    b1[2]=toBCD(m)#minutes
+    b1[3]=toBCD(h)#hours
+    b1[4]=4# Only one bit can be set
+    b1[5]=toBCD(d)#day
+    b1[6]=toBCD(n)#month
+    b1[7]=toBCD(y-2000)#year
+    # Set time
+    I2cWr(0x32,b1,[])
+    I2cWr(0x32,[0x1F],b2)
+    b2[0] = b2[0] & 0xfe
+    I2cWr(0x32,[0x1f,b2[0]],[])
+fend
+
+fn ReadTime()
+    I2cWr(0x32,[0],b1)
+    _s=toDEC(b1[0])
+    _m=toDEC(b1[1])
+    _h=toDEC(b1[2])
+    #_w=toDEC(b1[3])
+    _d=toDEC(b1[4])
+    _n=toDEC(b1[5])
+    _y=toDEC(b1[6])+2000
+
+fend
+
+Init()
+
+#########################

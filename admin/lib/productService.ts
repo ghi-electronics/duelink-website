@@ -156,7 +156,7 @@ export const exportProductsToJSON = async (): Promise<DuelinkJSON> => {
         version: "0.2",
         timestamp: new Date().toISOString().split('T')[0],
         image_url_base: "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/img/catalog/",
-        code_url_base: "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/driver/",
+        code_url_base: "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/driver/",
         fw_url_base: "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/fw/"
       },
       products: products.map(p => {

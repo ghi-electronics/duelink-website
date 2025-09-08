@@ -1,0 +1,92 @@
+##### DuePico Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+Dim b1[2]
+
+fn LcdCmd(c)
+	b1[0] = 0
+	b1[1] = c
+    I2cWr(0x3c,b1,[])
+fend
+
+fn Init()
+    BtnEn(BtnPin('A'), 1) # Btn A
+    BtnEn(BtnPin('B'), 1) # Btn B
+
+    DWrite(9,0) # reset pin
+    DWrite(9,1) 
+    Wait(10)
+
+    # config I2C bus with 400Kz
+    I2cCfg(400)
+    Wait(20)
+    GfxCfg(1,{0x3C},128,64, 1)
+    
+    LcdCmd(0xAE):LcdCmd(0x00):LcdCmd(0x10)
+    LcdCmd(0x40):LcdCmd(0x81):LcdCmd(0xCF)
+    LcdCmd(0xA1):LcdCmd(0xA6):LcdCmd(0xA8)
+    LcdCmd(0x3F):LcdCmd(0xD3):LcdCmd(0x00)
+    LcdCmd(0xD5):LcdCmd(0x80):LcdCmd(0xD9)
+    LcdCmd(0xF1):LcdCmd(0xDA):LcdCmd(0x12)
+    LcdCmd(0xDB):LcdCmd(0x40):LcdCmd(0x8D)
+    LcdCmd(0x14):LcdCmd(0xAF):LcdCmd(0xC8)
+    LcdCmd(0x20):LcdCmd(0x00):LcdCmd(0x21)
+    LcdCmd(0):LcdCmd(128-1)
+    LcdCmd(0x22):LcdCmd(0):LcdCmd(7)
+
+    Clear(0)
+    TextS("DUELink",1,25,25,2,3)
+    Show()
+fend
+
+fn BtnPin(a)
+    if a = 'A'
+        return 20
+    end
+    if a = 'B'
+        return 7
+    end
+    while 1
+        PrintLn("ERROR!!")
+        Wait(200)
+    wend
+fend
+
+fn IsColor()
+    return 0
+fend
+
+fn GetW()
+    return 128
+fend
+
+fn GetH()
+    return 64
+fend
+
+fn BtnA()
+    if BtnDown(BtnPin('A')) 
+        Return 1
+    else
+        Return 0
+    end
+fend
+
+fn BtnB()
+    if BtnDown(BtnPin('B'))
+        Return 1
+    else
+        Return 0
+    end
+fend
+
+fn Buzzer(f,d)
+    Freq(11, f, d,0.5)
+fend
+
+Init()
+
+#########################

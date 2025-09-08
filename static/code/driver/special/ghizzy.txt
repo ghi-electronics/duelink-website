@@ -1,0 +1,48 @@
+##### Ghizzy Driver #####
+
+fn DVer()
+    return 1.0
+fend
+ 
+fn Init()
+    BtnEn(BtnPin(), 0) # Btn LDR
+fend
+
+fn Eye(l,r)
+    DWrite(4,(l >> 0) & 0xFF)
+    DWrite(5,(l >> 16) & 0xFF)
+    DWrite(6,(l >> 8) & 0xFF)
+ 
+    DWrite(7,(r >> 0) & 0xFF)
+    DWrite(8,(r >> 16) & 0xFF)
+    DWrite(9,(r >> 8) & 0xFF)
+fend
+ 
+fn Ear(l,r)
+    DWrite(12,l)
+    DWrite(13,r)
+fend
+ 
+fn Mouth(o)
+    DWrite(14,o)
+    DWrite(15,o)
+    DWrite(16,o)
+fend
+ 
+fn BtnPin()
+    return 20
+fend
+
+fn BtnLdr()
+    if BtnDown(BtnPin())
+    return 1
+fend
+
+ 
+fn Buzzer(f,d)
+    Beep(3, f, d)
+fend
+ 
+Init()
+
+#########################

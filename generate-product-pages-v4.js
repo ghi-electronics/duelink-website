@@ -93,19 +93,19 @@ function getAvailableSamples(product) {
     const samples = {};
     
     // Check for Python sample
-    const pythonPath = path.join(__dirname, 'sample', `${baseName}.py`);
+    const pythonPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.py`);
     if (fs.existsSync(pythonPath)) {
         samples.python = pythonPath;
     }
     
     // Check for JavaScript sample
-    const jsPath = path.join(__dirname, 'sample', `${baseName}.js`);
+    const jsPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.js`);
     if (fs.existsSync(jsPath)) {
         samples.javascript = jsPath;
     }
     
     // Check for Script sample
-    const scriptPath = path.join(__dirname, 'sample', `${baseName}.txt`);
+    const scriptPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.txt`);
     if (fs.existsSync(scriptPath)) {
         samples.script = scriptPath;
     }
@@ -128,7 +128,7 @@ function getDriverPath(product) {
     // Use partNumber as base filename (already includes revision)
     const baseName = product.partNumber.toLowerCase();
     const categoryFolder = getCategoryFolder(product.category);
-    const driverPath = path.join(__dirname, 'driver', `${baseName}.txt`);
+    const driverPath = path.join(__dirname, 'static', 'code', 'driver', `${baseName}.txt`);
     
     if (fs.existsSync(driverPath)) {
         return driverPath;
@@ -277,11 +277,9 @@ ${resourceLinks.join('<br/>\n')}<br/>`
                 sampleTabs.push({label: 'Script', value: 'script'});
                 sampleTabItems.push(`<TabItem value="script">
 
-\`\`\`batch
-${scriptCode}
+\`\`\`py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/${baseName}.txt
 \`\`\`
-
-[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/blob/dev/sample/${baseName}.txt)
 
 </TabItem>`);
             }
@@ -293,11 +291,9 @@ ${scriptCode}
                 sampleTabs.push({label: 'Python', value: 'python'});
                 sampleTabItems.push(`<TabItem value="python">
 
-\`\`\`python
-${pythonCode}
+\`\`\`py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/${baseName}.py
 \`\`\`
-
-[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/blob/dev/sample/${baseName}.py)
 
 </TabItem>`);
             }
@@ -309,11 +305,9 @@ ${pythonCode}
                 sampleTabs.push({label: 'JavaScript', value: 'javascript'});
                 sampleTabItems.push(`<TabItem value="javascript">
 
-\`\`\`javascript
-${jsCode}
+\`\`\`js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/${baseName}.js
 \`\`\`
-
-[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/blob/dev/sample/${baseName}.js)
 
 </TabItem>`);
             }
@@ -374,8 +368,7 @@ ${tipMessage}
 
 </TabItem>`;
         } else {
-            // Use triple backticks for code block to avoid MDX JSX parsing
-            // This creates a markdown code block instead of using CodeBlock component
+            // Use reference attribute for GitHub CodeBlock plugin
             driverTabContent = `
 <TabItem value="drivers">
 
@@ -384,15 +377,11 @@ See [Drivers](/docs/engine/drivers) page for further details.
 ${driverTable ? driverTable + '\n' : ''}<details>
 <summary><strong>The Code!</strong></summary>
 
-**${productBaseName} Driver**
-
-\`\`\`batch
-${driverContent}
+\`\`\`py reference title="${productBaseName} Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/driver/${baseName}.txt
 \`\`\`
 
 </details>
-
-[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/blob/dev/driver/${baseName}.txt)
 
 </TabItem>`;
         }

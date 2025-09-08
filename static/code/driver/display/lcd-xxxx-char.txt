@@ -1,0 +1,82 @@
+##### LCD 20x4 & LCD 16x2 Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+# 5 = backlight
+# 4 5 6 7 = 1 2 3 4
+# e = 6
+# rs = 7
+Dim b0[] = [0x00, 0x40, 0x14, 0x54]#ROW_OFFSETS 
+
+fn Blight(l)
+    PWrite(5,l)
+fend
+
+fn Init()
+    Blight(1)
+    SendCmd(0x33)
+    SendCmd(0x32)
+    SendCmd(0x0C)#on
+    Clr()
+    Wait(3)
+fend
+
+fn nib(b)
+    DWrite(4,(b>>3)&1)
+    DWrite(3,(b>>2)&1)
+    DWrite(2,(b>>1)&1)
+    DWrite(1,(b>>0)&1)
+     
+    DWrite(6,1)#e
+    DWrite(6,0)#e
+    Wait(1)
+fend 
+ 
+ 
+fn SendCmd(c)
+    DWrite(7,0)#rs
+    Nib(c>>4)
+    Nib(c)
+    Wait(2)  
+    DWrite(7,1)#rs
+fend
+
+fn CPos(c, r)
+    if (c > 15 || c < 0) 
+        return 
+    end
+
+    if (r > 3 || r < 0) 
+        return 
+    end
+    
+    SendCmd(0x80 | b0[r] + c)
+fend
+
+fn Home()
+    SendCmd(2) 
+    Wait(2)
+fend
+ 
+fn Clr()
+    SendCmd(1)
+    Wait(2)
+fend
+
+fn CPrintS(b2)
+    for i in Range(len(b2))
+        CPrint(b2[i])
+    next
+fend
+
+fn CPrint(c)
+    Nib(c>>4)
+    Nib(c) 
+fend
+
+Init()
+
+#########################
+

@@ -1,0 +1,21 @@
+##### LED R16 Driver #####
+ 
+fn DVer()
+  return 1.0
+fend
+ 
+fn SetLed(l, v) 
+    if l > 16
+        return
+    end
+ 
+    DWrite(l,v)    
+fend
+ 
+fn LedOff()
+    For l=1 to 17
+        SetLed(l,0)
+    Next
+fend
+ 
+#########################
