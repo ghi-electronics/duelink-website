@@ -1095,6 +1095,7 @@
         "Counter or Timer formatted",
         "47x17mm overall dimension"
       ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `Digit(n)` | Draw `n` number to LEDs. |\n| `Seg7(i, s)` | Draw a single `s` digit (0 to 9) on `i` digit. |\n| `Dot(i, v)` | Draw a dot at `i` index with `v` value (0 off 1 on) on count-type LED. |\n| `Colon(n)` | Show colon on time-type LED. |\n| `DVer()` | This driver version. |",
       "variations": [
         {
           "name": "LED S284-C Red",
@@ -1131,6 +1132,7 @@
         "Counter or Timer formatted",
         "57x17mm overall dimension"
       ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `Digit(n)` | Draw `n` number to LEDs. |\n| `Seg7(i, s)` | Draw a single `s` digit (0 to 9) on `i` digit. |\n| `Dot(i, v)` | Draw a dot at `i` index with `v` value (0 off 1 on) on count-type LED. |\n| `Colon(n)` | Show colon on time-type LED. |\n| `DVer()` | This driver version. |",
       "variations": [
         {
           "name": "LED S404-C Red",
@@ -1166,7 +1168,8 @@
         "Available in Red or Green",
         "Counter or Timer formatted",
         "67x22mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `Digit(n)` | Draw `n` number to LEDs. |\n| `Seg7(i, s)` | Draw a single `s` digit (0 to 9) on `i` digit. |\n| `Dot(i, v)` | Draw a dot at `i` index with `v` value (0 off 1 on) on count-type LED. |\n| `Colon(n)` | Show colon on time-type LED. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "LED SS805",

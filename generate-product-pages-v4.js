@@ -149,53 +149,6 @@ function loadDriverContent(filepath) {
     }
 }
 
-// Parse driver functions from content
-function parseDriverFunctions(content) {
-    const functions = [];
-    const fnRegex = /fn\s+(\w+)\s*\(([^)]*)\)/g;
-    let match;
-    
-    // Only include descriptions we're absolutely sure about from documentation
-    const knownDescriptions = {
-        'DVer': 'This driver version.',
-        'Init': 'Initialize the module. Automatically called on power up.'
-    };
-    
-    while ((match = fnRegex.exec(content)) !== null) {
-        const funcName = match[1];
-        const params = match[2].trim();
-        functions.push({
-            name: funcName,
-            params: params || '',
-            description: knownDescriptions[funcName] || ''
-        });
-    }
-    
-    return functions;
-}
-
-// Generate driver documentation table
-function generateDriverTable(functions) {
-    if (!functions || functions.length === 0) {
-        return '';
-    }
-    
-    // Only show table if we have functions with descriptions
-    const functionsWithDesc = functions.filter(f => f.description);
-    if (functionsWithDesc.length === 0) {
-        return '';
-    }
-    
-    let table = '| Function | Description |\n';
-    table += '|----------|-------------|\n';
-    
-    functionsWithDesc.forEach(func => {
-        const signature = func.params ? `${func.name}(${func.params})` : `${func.name}()`;
-        table += `| \`${signature}\` | ${func.description} |\n`;
-    });
-    
-    return table;
-}
 
 // Ensure output directory exists
 if (!fs.existsSync(outputDir)) {
@@ -363,8 +316,8 @@ ${sampleSections.join('\n\n')}
     let driverTabContent = '';
     
     if (hasDriver) {
-        const functions = parseDriverFunctions(driverContent);
-        const functionTable = generateDriverTable(functions);
+        // Use driverTable from product JSON if available, otherwise no table
+        const driverTable = product.driverTable || '';
         
         // Extract just the product name without revision
         const productBaseName = product.name.replace(/\s+[A-Z]$/i, '');
@@ -376,7 +329,7 @@ ${sampleSections.join('\n\n')}
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
-${functionTable ? functionTable + '\n' : ''}<details>
+${driverTable ? driverTable + '\n' : ''}<details>
 <summary><strong>The Code!</strong></summary>
 
 **${productBaseName} Driver**
