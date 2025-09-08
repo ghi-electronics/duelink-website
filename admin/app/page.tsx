@@ -55,7 +55,7 @@ function TabPanel(props: TabPanelProps) {
 
 export default function AdminPage() {
   const [tabValue, setTabValue] = useState(0);
-  const [fileHandle, setFileHandle] = useState<any>(null);
+  const [fileHandle, setFileHandle] = useState<FileSystemFileHandle | null>(null);
   const [autoSaveEnabled, setAutoSaveEnabled] = useState(false);
   const [darkMode, setDarkMode] = useState<PaletteMode>('light');
 
@@ -102,7 +102,15 @@ export default function AdminPage() {
     }
 
     try {
-      const handle = await (window as any).showSaveFilePicker({
+      const handle = await (window as typeof window & { 
+        showSaveFilePicker: (options: {
+          suggestedName: string;
+          types: Array<{
+            description: string;
+            accept: { [key: string]: string[] };
+          }>;
+        }) => Promise<FileSystemFileHandle>;
+      }).showSaveFilePicker({
         suggestedName: 'duelink.json',
         types: [{
           description: 'JSON File',
@@ -234,7 +242,7 @@ export default function AdminPage() {
                   <strong>1. Getting Started:</strong>
                 </Typography>
                 <Typography variant="body2" paragraph sx={{ ml: 2 }}>
-                  Click "Import JSON" to load your existing products from a duelink.json file.
+                  Click &quot;Import JSON&quot; to load your existing products from a duelink.json file.
                 </Typography>
 
                 <Typography variant="body1" paragraph>
@@ -250,8 +258,8 @@ export default function AdminPage() {
                   <strong>3. Saving Your Work:</strong>
                 </Typography>
                 <Typography variant="body2" paragraph sx={{ ml: 2 }}>
-                  - Click "Export JSON" to save your products to a file<br />
-                  - Enable "Auto-save" to automatically save changes to a selected file<br />
+                  - Click &quot;Export JSON&quot; to save your products to a file<br />
+                  - Enable &quot;Auto-save&quot; to automatically save changes to a selected file<br />
                   - Your browser will prompt you to choose where to save the file
                 </Typography>
 

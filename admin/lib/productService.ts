@@ -57,7 +57,7 @@ const initializeProducts = async (): Promise<void> => {
       const data = await response.json();
       if (data.products) {
         // Use new schema directly with IDs added
-        productsData = data.products.map((product: any) => ({
+        productsData = data.products.map((product: Product) => ({
           ...product,
           id: product.partNumber || `product-${Date.now()}-${Math.random()}`
         }));
@@ -160,7 +160,7 @@ export const exportProductsToJSON = async (): Promise<DuelinkJSON> => {
         fw_url_base: "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/fw/"
       },
       products: products.map(p => {
-        const { id, ...productData } = p;
+        const { id: _id, ...productData } = p;
         return productData;
       })
     };

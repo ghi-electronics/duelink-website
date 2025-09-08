@@ -24,8 +24,7 @@ import {
   Alert,
   Snackbar,
   Chip,
-  Typography,
-  Tooltip
+  Typography
 } from '@mui/material';
 import {
   Edit as EditIcon,
@@ -43,7 +42,7 @@ const MDEditor = dynamic(
 
 interface ProductTableProps {
   autoSaveEnabled?: boolean;
-  fileHandle?: any;
+  fileHandle?: FileSystemFileHandle | null;
 }
 
 // Simplified product interface for admin
@@ -85,7 +84,7 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
       setLoading(true);
       const data = await getProducts();
       // Convert to simplified format
-      const simpleProducts = data.map((p: any) => ({
+      const simpleProducts = data.map((p: Product) => ({
         id: p.id,
         name: p.name,
         description: p.description,
@@ -260,11 +259,11 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
       
       if (fileHandle) {
         const writable = await fileHandle.createWritable();
-        await writable.write(jsonContent);
+        await writable.write(JSON.stringify(jsonContent, null, 2));
         await writable.close();
         console.log('Auto-saved to file');
       } else {
-        const blob = new Blob([jsonContent], { type: 'application/json' });
+        const blob = new Blob([JSON.stringify(jsonContent, null, 2)], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
@@ -312,7 +311,7 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
       field: 'price', 
       headerName: 'Price', 
       width: 100,
-      valueFormatter: (value) => `$${value?.toFixed(2) || '0.00'}`
+      valueFormatter: (value: number) => `$${value?.toFixed(2) || '0.00'}`
     },
     { 
       field: 'description', 

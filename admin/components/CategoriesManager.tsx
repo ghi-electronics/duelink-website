@@ -12,10 +12,6 @@ import {
   Button,
   Paper,
   Typography,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
   Alert,
   Chip
 } from '@mui/material';
@@ -58,7 +54,7 @@ const CategoriesManager: React.FC = () => {
       const products = await getProducts();
       const categoryData: Category[] = categoriesData.map(name => ({
         name,
-        productCount: products.filter(p => p.Category === name).length
+        productCount: products.filter(p => p.category === name).length
       }));
 
       setCategories(categoryData);
@@ -234,7 +230,7 @@ const CategoriesManager: React.FC = () => {
                     <IconButton 
                       edge="end" 
                       onClick={() => handleDeleteCategory(index)}
-                      disabled={category.productCount && category.productCount > 0}
+                      disabled={(category.productCount || 0) > 0}
                     >
                       <DeleteIcon />
                     </IconButton>

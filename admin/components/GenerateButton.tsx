@@ -19,18 +19,24 @@ import {
   StepLabel
 } from '@mui/material';
 import {
-  CloudUpload as DeployIcon,
   Download as DownloadIcon,
   Upload as UploadIcon,
   Save as SaveIcon
 } from '@mui/icons-material';
-import { exportProductsToJSON, importProducts, Product } from '@/lib/productService';
+import { exportProductsToJSON, importProducts, DuelinkJSON } from '@/lib/productService';
 
 const GenerateButton: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<{
+    success: boolean;
+    downloadUrl?: string;
+    products: number;
+    categories: number;
+    jsonData?: DuelinkJSON;
+    imported?: boolean;
+  } | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const steps = [
@@ -141,7 +147,7 @@ const GenerateButton: React.FC = () => {
             success: true,
             imported: true,
             products: data.products.length,
-            categories: [...new Set(data.products.map((p: any) => p.category))].length
+            categories: [...new Set(data.products.map((p: { category: string }) => p.category))].length
           });
           
           // Close dialog after a delay to show success message

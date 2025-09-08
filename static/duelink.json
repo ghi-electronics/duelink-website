@@ -135,7 +135,7 @@
       "category": "Microcomputer",
       "price": 0,
       "tagline": "DIP24 Form Factor SMT DUELink SoM",
-      "description": "Start making your own DUELink modules using this Surface-Mountable DUELink SoM that is also DIP24 form-factor.",
+      "description": "Start making your own DUELink modules using this Surface-Mountable DUELink SoM that is also DIP24 form-factor.\n\nBoth U and D connectors are included. The USB connections are also exposed if you want to add a USB connector, such as Stamp (for tiny board with USB).",
       "keyFeatures": [
         "Uplink & Downlink DUELink connectors",
         "DIP24 form factor",
@@ -222,7 +222,7 @@
       "category": "Display",
       "price": 0,
       "tagline": "4.2\" e-Ink Display",
-      "description": "e-Ink (ePaper) displays only need power to update the screen. But then power can be disconnected and the display will retain the graphics with zero power requirements.",
+      "description": "e-Ink (ePaper) displays only need power to update the screen. But then power can be disconnected and the display will retain the graphics with zero power requirements.\n\nThis display works via the graphics internal services with 2x pixel multiplier, giving the user 200x150 pixels.",
       "keyFeatures": [
         "4.2\" e-Ink display",
         "400x300 resolution",
@@ -240,11 +240,26 @@
       "category": "Display",
       "price": 0,
       "tagline": "HDMI Graphics Module",
-      "description": "Add HDMI graphics to any Supported Hardware. The board has its own graphics processor and memory. Your system will only need to issue simple commands to show graphics on a 90\" TV screen!",
+      "description": "Add HDMI graphics to any Supported Hardware. The board has its own graphics processor and memory. Your system will only need to issue simple commands to show graphics on a 90\" TV screen! The module uses BT817Q. Drawing with this module will be done via the graphics coprocessor and not the internal graphics engine.",
       "keyFeatures": [
         "HDMI interface",
+        "BT817Q graphics processor",
+        "Dedicated graphics processor and memory",
+        "90\" TV screen support",
+        "Graphics coprocessor drawing (not internal graphics engine)",
         "57x77mm overall dimension"
       ],
+      "resources": {
+        "schematic": "/sch/gdl-dhdmi-b.pdf",
+        "3dModel": "/3d/gdl-dhdmi-b.step",
+        "driver": "https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/display/hdmi.txt",
+        "samples": {
+          "script": "https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/display/hdmi.txt",
+          "python": "https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/display/hdmi.py",
+          "javascript": "https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/display/hdmi.js"
+        },
+        "chipInfo": "https://brtchip.com/product/bt817q/"
+      },
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start. |\n| `DLClear()` | Clear the commands. |\n| `DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments. |\n| `DLSwap()` | Execute the graphics commands and swap working buffers. |\n| `DVer()` | This driver version. |",
       "orderingInfo": "| Info | Value |\n|------|-------|\n| Part Number | GDL-DHDMI-B |"
     },
