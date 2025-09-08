@@ -392,7 +392,7 @@ ${driverContent}
 
 </details>
 
-[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/blob/dev/driver/${productBaseName.toLowerCase().replace(/\s+/g, '-')}.txt)
+[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/blob/dev/driver/${baseName}.txt)
 
 </TabItem>`;
         }

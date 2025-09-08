@@ -1,2 +1,0 @@
-##### CincoBit Readme #####
-
