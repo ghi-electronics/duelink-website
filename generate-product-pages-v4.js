@@ -440,6 +440,8 @@ ${sampleContent}
 ---
 
 ${generateOrderSection(product)}
+
+**PID:** ${product.PID}
 `;
 
     return mdxContent;
