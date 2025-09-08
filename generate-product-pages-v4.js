@@ -86,10 +86,8 @@ function getCategoryFolder(category) {
 
 // Check which sample languages exist for product
 function getAvailableSamples(product) {
-    // Remove revision letter (like "B" or "C") from the end and convert to lowercase
-    const baseName = product.name.replace(/\s+[A-Z]$/i, '')
-        .toLowerCase()
-        .replace(/\s+/g, '-');
+    // Use partNumber as base filename (already includes revision)
+    const baseName = product.partNumber.toLowerCase();
     const categoryFolder = getCategoryFolder(product.category);
     
     const samples = {};
@@ -127,9 +125,8 @@ function loadSampleContent(filepath) {
 
 // Check if driver file exists for product
 function getDriverPath(product) {
-    const baseName = product.name.replace(/\s+[A-Z]$/i, '')
-        .toLowerCase()
-        .replace(/\s+/g, '-');
+    // Use partNumber as base filename (already includes revision)
+    const baseName = product.partNumber.toLowerCase();
     const categoryFolder = getCategoryFolder(product.category);
     const driverPath = path.join(__dirname, 'driver', `${baseName}.txt`);
     
@@ -220,10 +217,8 @@ function generateMDX(product, index) {
     const partNumberClean = product.partNumber.replace(/^GDL-/, '');
     const details = productDetails[product.partNumber] || {};
     
-    // Generate base name for file references  
-    const baseName = product.name.replace(/\s+[A-Z]$/i, '')
-        .toLowerCase()
-        .replace(/\s+/g, '-');
+    // Generate base name for file references using partNumber
+    const baseName = product.partNumber.toLowerCase();
     
     // Use part prefix directly for image names
     let imagePrefix = partPrefix;
