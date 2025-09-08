@@ -64,6 +64,17 @@ Micro SD card is required and is not included.
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `SendCmd(c, a)` | Send `c` command & `a` argument to mp3 module. |
+| `WResponse(t, c, a)` | `t` timeout, `c` code, `a` argument. Wait for response. |
+| `Stop()` | Stop playing. |
+| `SetVol(v)` | Sets `v` volume. (Min 0, max 30) |
+| `IsBusy()` | Returns 1 if busy. |
+| `Loop(r)` | Sets `r` repeat. |
+| `Rst()` | Reset mp3 module. |
+| `PlayFile(f, d)` | Play file. `f` Files and `d` directories must be named in numerics. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 

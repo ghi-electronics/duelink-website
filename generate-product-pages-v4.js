@@ -316,15 +316,43 @@ ${sampleSections.join('\n\n')}
     let driverTabContent = '';
     
     if (hasDriver) {
+        // Check if driver indicates no driver is needed
+        const noDriverNeeded = driverContent.includes('No need for a driver!');
+        
         // Use driverTable from product JSON if available, otherwise no table
         const driverTable = product.driverTable || '';
         
         // Extract just the product name without revision
         const productBaseName = product.name.replace(/\s+[A-Z]$/i, '');
         
-        // Use triple backticks for code block to avoid MDX JSX parsing
-        // This creates a markdown code block instead of using CodeBlock component
-        driverTabContent = `
+        if (noDriverNeeded) {
+            // Extract the instruction line after "No need for a driver!" if it exists
+            const lines = driverContent.split('\n');
+            const noDriverIndex = lines.findIndex(line => line.includes('No need for a driver!'));
+            let tipMessage = 'No need for a driver! ';
+            
+            // Look for the next non-empty line after "No need for a driver!"
+            if (noDriverIndex !== -1 && noDriverIndex + 1 < lines.length) {
+                const nextLine = lines[noDriverIndex + 1].replace(/^#\s*/, '').trim();
+                if (nextLine && !nextLine.startsWith('#')) {
+                    tipMessage += nextLine;
+                }
+            }
+            
+            driverTabContent = `
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+:::tip
+${tipMessage}
+:::
+
+</TabItem>`;
+        } else {
+            // Use triple backticks for code block to avoid MDX JSX parsing
+            // This creates a markdown code block instead of using CodeBlock component
+            driverTabContent = `
 <TabItem value="drivers">
 
 See [Drivers](/docs/engine/drivers) page for further details.
@@ -343,6 +371,7 @@ ${driverContent}
 [See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
 
 </TabItem>`;
+        }
     }
     
     const mdxContent = `---

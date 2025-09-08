@@ -299,7 +299,8 @@
         "1.8\" display",
         "160x128 pixels",
         "62x37mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `Init(m,o)` | Initialize display `m` mode (buffered = 0 , direct = 1). `o` orientation (landscape = 0, portrait = 1). Init(0, 0) automatically called on power-up. |\n| `GetW()` | Get display width: 64 in buffered, 128 in direct. |\n| `GetH()` | Get display height: 80 in buffered, 160 in direct. |\n| `IsColor()` | Returns 1. |\n| `TouchX()` | Returns touch x. |\n| `TouchY()` | Returns touch y. |\n| `SetDACtrl(s,r,c,b)` | Data access control `s` swapRowCol, `r` invertRow, `c` invertCol, `b` swapBGRSet data access control. |\n| `SetWindow(x,y,w,h)` | Sets draw window `x` display's x value, `y` display's y value., `w` display's width value, `h` display's height value. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "TFT R128",
@@ -312,7 +313,8 @@
         "1.28\" Round Display",
         "240x240",
         "47x47mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `Init(m)` | Initialize the display. Automatically called on power up `m`mode to (1-direct, 0-buffered (default)). |\n| `GetW()` | Get display width: 80 in buffered, 240 in direct. |\n| `GetH()` | Get display height: 80 in buffered, 240 in direct. |\n| `IsColor()` | Returns 1. |\n| `TouchX()` | Returns touch x. |\n| `TouchY()` | Returns touch y. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "TFT T32",
@@ -331,7 +333,8 @@
       "keyFeatures": [
         "Monochrome Vacuum Fluorescent Display",
         "107x22mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `CPrint(x, c)` | Print an ASCII `c` character at `x` pos. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Fan",
@@ -1297,7 +1300,8 @@
         "Frequency Analyzer",
         "7 individual frequency filters",
         "37x22mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `UpdBnd()` | Update all 7 bands. Values are stored in `a1[]` array (0 to 100). |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Barcode L1D2D",
@@ -1309,7 +1313,8 @@
         "Barcode scanner",
         "1D and 2D formats",
         "47x42mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `SetMode(m)` | Sets the `m` mode to 1 Trigger 2 Continuous |\n| `Trigger()` | Trigger the reading when in trigger mode |\n| `DVer()` | This driver version |"
     },
     {
       "name": "Thermal",

@@ -10,13 +10,12 @@ const ImageBlock = ({
     <div style={{ textAlign: "center"}}>
       <div style={{ 
         display: "flex", 
-        flexDirection: "row",
+        flexDirection: "column",
         gap: "20px",
-        alignItems: "flex-start",
-        justifyContent: "center",
-        flexWrap: "wrap"
+        alignItems: "center",
+        justifyContent: "center"
       }}>
-        <div style={{ flex: "1 1 auto", maxWidth: "65%" }}>
+        <div style={{ width: "100%", maxWidth: "600px" }}>
           <Zoom>
             <img alt="Main" width="100%" src={`/img/catalog/${product}-1.png`} />
           </Zoom>
@@ -24,9 +23,10 @@ const ImageBlock = ({
         
         <div style={{ 
           display: "flex", 
-          flexDirection: "column",
+          flexDirection: "row",
           gap: "10px",
-          flex: "0 0 auto"
+          justifyContent: "center",
+          flexWrap: "wrap"
         }}>
           <Zoom>
             <img alt="Back" width="120px" src={`/img/catalog/${product}-2.png`} />

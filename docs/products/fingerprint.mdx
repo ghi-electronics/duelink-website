@@ -61,6 +61,16 @@ Read and match prerecorded fingerprints with this intelligent HMI sensor.
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `GetSavedCnt()` | Returns how many fingerprint model are saved. |
+| `DelModel(l)` | Deletes model at `l` location. |
+| `StoreModel(l)` | Stores a converted model at `l` location. |
+| `TakeImg()` | Captures a fingerprint image. Returns 0 if succeeded. |
+| `ConvertImg(s)` | Converts captured image and stores it in `s` slot (1 or 2). |
+| `FastSearch()` | Searches the internal database for a converted image. |
+| `SetLed(c,b,k)` | Sets the LED to `c` color (1 red, 2 blue, 3 purple), with `b` blink(0 always on, 1 blink), with `k` count (0 is forever!). |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 

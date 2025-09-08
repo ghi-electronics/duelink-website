@@ -61,6 +61,15 @@ import OrderSection from '@site/src/components/OrderSection';
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
+| Function | Description |
+|----------|-------------|
+| `Init(m)` | Initialize the display. Automatically called on power up `m`mode to (1-direct, 0-buffered (default)). |
+| `GetW()` | Get display width: 80 in buffered, 240 in direct. |
+| `GetH()` | Get display height: 80 in buffered, 240 in direct. |
+| `IsColor()` | Returns 1. |
+| `TouchX()` | Returns touch x. |
+| `TouchY()` | Returns touch y. |
+| `DVer()` | This driver version. |
 <details>
 <summary><strong>The Code!</strong></summary>
 
