@@ -62,8 +62,8 @@ const GenerateButton: React.FC = () => {
       setResult({
         success: true,
         downloadUrl: url,
-        products: jsonData.boards.length,
-        categories: [...new Set(jsonData.boards.map(b => b.Category))].length,
+        products: jsonData.products.length,
+        categories: [...new Set(jsonData.products.map(p => p.category))].length,
         jsonData: jsonData
       });
       
@@ -121,13 +121,13 @@ const GenerateButton: React.FC = () => {
           const text = await file.text();
           const data = JSON.parse(text);
           
-          if (!data.boards || !Array.isArray(data.boards)) {
-            setError('Invalid JSON format: missing boards array');
+          if (!data.products || !Array.isArray(data.products)) {
+            setError('Invalid JSON format: missing products array');
             setLoading(false);
             return;
           }
           
-          const confirmMessage = `This will load ${data.boards.length} products from the file. Continue?`;
+          const confirmMessage = `This will load ${data.products.length} products from the file. Continue?`;
           
           if (!window.confirm(confirmMessage)) {
             setLoading(false);
@@ -140,8 +140,8 @@ const GenerateButton: React.FC = () => {
           setResult({
             success: true,
             imported: true,
-            products: data.boards.length,
-            categories: [...new Set(data.boards.map((b: any) => b.Category))].length
+            products: data.products.length,
+            categories: [...new Set(data.products.map((p: any) => p.category))].length
           });
           
           // Close dialog after a delay to show success message
@@ -180,7 +180,7 @@ const jsonData = ${JSON.stringify(result.jsonData, null, 2)};
 // Save JSON file
 fs.writeFileSync(path.join(__dirname, 'static', 'duelink.json'), JSON.stringify(jsonData, null, 2));
 
-console.log('Generated duelink.json with ' + jsonData.boards.length + ' products');
+console.log('Generated duelink.json with ' + jsonData.products.length + ' products');
 console.log('Run npm run generate-catalog to create MDX files');
 `;
       

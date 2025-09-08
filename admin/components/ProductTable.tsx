@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import dynamic from 'next/dynamic';
 import Fuse from 'fuse.js';
 import {
   DataGrid,
@@ -33,6 +34,12 @@ import {
   ContentCopy as CopyIcon
 } from '@mui/icons-material';
 import { getProducts, addProduct, updateProduct, deleteProduct, Product, exportProductsToJSON } from '@/lib/productService';
+
+// Dynamic import to avoid SSR issues
+const MDEditor = dynamic(
+  () => import('@uiw/react-md-editor'),
+  { ssr: false }
+);
 
 interface ProductTableProps {
   autoSaveEnabled?: boolean;
@@ -457,16 +464,21 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
               }}
             />
             
-            <TextField
-              label="Short Description"
-              value={currentProduct.shortDescription}
-              onChange={(e) => setCurrentProduct({ ...currentProduct, shortDescription: e.target.value })}
-              fullWidth
-              multiline
-              rows={2}
-              required
-              helperText="Brief product description (shown in catalog)"
-            />
+            <Box sx={{ mt: 2 }}>
+              <Typography variant="subtitle2" gutterBottom>
+                Short Description (Markdown supported)
+              </Typography>
+              <MDEditor
+                value={currentProduct.shortDescription}
+                onChange={(value) => setCurrentProduct({ ...currentProduct, shortDescription: value || '' })}
+                preview="live"
+                height={200}
+                data-color-mode="light"
+              />
+              <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: 'block' }}>
+                You can use markdown to add images: ![alt text](/img/filename.png)
+              </Typography>
+            </Box>
           </Box>
         </DialogContent>
         <DialogActions>

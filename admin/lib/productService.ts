@@ -51,23 +51,23 @@ const initializeProducts = async (): Promise<void> => {
   if (initialized) return;
   
   try {
-    // Load from the new schema only
-    const response = await fetch('/duelink-v2.json');
+    // Try to load from duelink.json first
+    const response = await fetch('/duelink.json');
     if (response.ok) {
       const data = await response.json();
       if (data.products) {
         // Use new schema directly with IDs added
         productsData = data.products.map((product: any) => ({
           ...product,
-          id: product.partNumber
+          id: product.partNumber || `product-${Date.now()}-${Math.random()}`
         }));
         initialized = true;
         return;
       }
     }
-    throw new Error('duelink-v2.json not found or invalid');
+    throw new Error('duelink.json not found or invalid');
   } catch (error) {
-    console.warn('Could not load product data from duelink-v2.json:', error);
+    console.warn('Could not load product data from duelink.json:', error);
     initialized = true; // Prevent infinite retries
   }
 };

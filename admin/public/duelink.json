@@ -10,7 +10,7 @@
   },
   "products": [
     {
-      "name": "CincoBit",
+      "name": "CincoBit E",
       "partNumber": "GDL-MCCINCOBIT-E",
       "category": "Microcomputer",
       "price": 19.99,
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "name": "ClipIt",
+      "name": "ClipIt B",
       "partNumber": "GDL-MCCLIPIT-B",
       "category": "Microcomputer",
       "price": 19.99,
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "name": "DueDuino",
+      "name": "DueDuino A",
       "partNumber": "GDL-MCDUEDUINO-A",
       "category": "Microcomputer",
       "price": 19.99,
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "name": "DueSTEM",
+      "name": "DueSTEM B",
       "partNumber": "GDL-MCDUESTEM-B",
       "category": "Microcomputer",
       "price": 19.99,
@@ -78,7 +78,7 @@
       ]
     },
     {
-      "name": "PixoBit",
+      "name": "PixoBit D",
       "partNumber": "GDL-MCPIXOBIT-D",
       "category": "Microcomputer",
       "price": 19.99,
@@ -95,7 +95,7 @@
       ]
     },
     {
-      "name": "Stamp",
+      "name": "Stamp A",
       "partNumber": "GDL-MCSTAMP-A",
       "category": "Microcomputer",
       "price": 19.99,
@@ -110,7 +110,7 @@
       ]
     },
     {
-      "name": "Stick",
+      "name": "Stick A",
       "partNumber": "GDL-MCSTICK-A",
       "category": "Microcomputer",
       "price": 19.99,
@@ -124,7 +124,7 @@
       ]
     },
     {
-      "name": "Ghizzy Jr",
+      "name": "Ghizzy Jr A",
       "partNumber": "GDL-SPGHIZZYJR-A",
       "category": "Special",
       "price": 19.99,
@@ -138,7 +138,7 @@
       ]
     },
     {
-      "name": "Ghizzy",
+      "name": "Ghizzy B",
       "partNumber": "GDL-SPGHIZZY-B",
       "category": "Special",
       "price": 19.99,
@@ -154,7 +154,7 @@
       ]
     },
     {
-      "name": "Holiday Tree",
+      "name": "Holiday Tree B",
       "partNumber": "GDL-SPHOLIDAYTREE-B",
       "category": "Special",
       "price": 19.99,
@@ -167,7 +167,7 @@
       ]
     },
     {
-      "name": "ePaper M29",
+      "name": "ePaper M29 A",
       "partNumber": "GDL-DEPAPERM29-A",
       "category": "Display",
       "price": 19.99,
@@ -181,7 +181,7 @@
       ]
     },
     {
-      "name": "ePaper M42",
+      "name": "ePaper M42 A",
       "partNumber": "GDL-DEPAPERM42-A",
       "category": "Display",
       "price": 19.99,
@@ -196,7 +196,7 @@
       ]
     },
     {
-      "name": "HDMI",
+      "name": "HDMI B",
       "partNumber": "GDL-DHDMI-B",
       "category": "Display",
       "price": 19.99,
@@ -208,7 +208,7 @@
       ]
     },
     {
-      "name": "LCD 16x2",
+      "name": "LCD 16x2 C",
       "partNumber": "GDL-DLCD16X2-C",
       "category": "Display",
       "price": 19.99,
@@ -220,7 +220,7 @@
       ]
     },
     {
-      "name": "LCD 20x4",
+      "name": "LCD 20x4 B",
       "partNumber": "GDL-DLC20X4-B",
       "category": "Display",
       "price": 19.99,
@@ -245,7 +245,7 @@
       ]
     },
     {
-      "name": "Portal CP70",
+      "name": "Portal CP70 B",
       "partNumber": "GDL-DPORTALCP70-B",
       "category": "Display",
       "price": 19.99,
@@ -259,7 +259,7 @@
       ]
     },
     {
-      "name": "TFT CP23",
+      "name": "TFT CP23 B",
       "partNumber": "GDL-DTFTCP23-B",
       "category": "Display",
       "price": 19.99,
@@ -272,7 +272,7 @@
       ]
     },
     {
-      "name": "TFT N18",
+      "name": "TFT N18 B",
       "partNumber": "GDL-DTFTN18-B",
       "category": "Display",
       "price": 19.99,
@@ -285,7 +285,7 @@
       ]
     },
     {
-      "name": "TFT R128",
+      "name": "TFT R128 B",
       "partNumber": "GDL-DTFTR128-B",
       "category": "Display",
       "price": 19.99,
@@ -298,14 +298,14 @@
       ]
     },
     {
-      "name": "TFT T32",
+      "name": "TFT T32 C",
       "partNumber": "GDL-DTFTT32-C",
       "category": "Display",
       "price": 19.99,
       "shortDescription": "3.2-inch TFT touchscreen display for interactive applications"
     },
     {
-      "name": "VFD B8",
+      "name": "VFD B8 C",
       "partNumber": "GDL-DVFDB8-C",
       "category": "Display",
       "price": 19.99,
@@ -317,7 +317,7 @@
       ]
     },
     {
-      "name": "Fan",
+      "name": "Fan B",
       "partNumber": "GDL-ACFAN-B",
       "category": "Actuator",
       "price": 19.99,
@@ -330,7 +330,7 @@
       ]
     },
     {
-      "name": "Load",
+      "name": "Load A",
       "partNumber": "GDL-ACLOAD-A",
       "category": "Actuator",
       "price": 19.99,
@@ -343,7 +343,7 @@
       ]
     },
     {
-      "name": "MotoMax",
+      "name": "MotoMax B",
       "partNumber": "GDL-ACMOTOMAX-B",
       "category": "Actuator",
       "price": 19.99,
@@ -357,7 +357,7 @@
       ]
     },
     {
-      "name": "MotoTwin",
+      "name": "MotoTwin B",
       "partNumber": "GDL-ACMOTOTWIN-B",
       "category": "Actuator",
       "price": 19.99,
@@ -372,7 +372,7 @@
       ]
     },
     {
-      "name": "Relay P16",
+      "name": "Relay P16 A",
       "partNumber": "GDL-ACRELAYP16-A",
       "category": "Actuator",
       "price": 19.99,
@@ -386,7 +386,7 @@
       ]
     },
     {
-      "name": "Relay P4",
+      "name": "Relay P4 C",
       "partNumber": "GDL-ACRELAYP4-C",
       "category": "Actuator",
       "price": 19.99,
@@ -400,7 +400,7 @@
       ]
     },
     {
-      "name": "Relay X1",
+      "name": "Relay X1 A",
       "partNumber": "GDL-ACRELAYX1-A",
       "category": "Actuator",
       "price": 19.99,
@@ -414,7 +414,7 @@
       ]
     },
     {
-      "name": "Servo P8",
+      "name": "Servo P8 B",
       "partNumber": "GDL-ACSERVOP8-B",
       "category": "Actuator",
       "price": 19.99,
@@ -428,7 +428,7 @@
       ]
     },
     {
-      "name": "Servo X1",
+      "name": "Servo X1 A",
       "partNumber": "GDL-ACSERVOX1-A",
       "category": "Actuator",
       "price": 19.99,
@@ -442,7 +442,7 @@
       ]
     },
     {
-      "name": "StepPulse",
+      "name": "StepPulse A",
       "partNumber": "GDL-ACSTEPPULSE-A",
       "category": "Actuator",
       "price": 19.99,
@@ -455,7 +455,7 @@
       ]
     },
     {
-      "name": "StepDrive P1",
+      "name": "StepDrive P1 A",
       "partNumber": "GDL-ACSTEPDRIVEP1-A",
       "category": "Actuator",
       "price": 19.99,
@@ -469,7 +469,7 @@
       ]
     },
     {
-      "name": "StepDrive P3",
+      "name": "StepDrive P3 B",
       "partNumber": "GDL-ACSTEPDRIVEP3-B",
       "category": "Actuator",
       "price": 19.99,
@@ -482,7 +482,7 @@
       ]
     },
     {
-      "name": "CAN",
+      "name": "CAN B",
       "partNumber": "GDL-CMCAN-B",
       "category": "Communication",
       "price": 19.99,
@@ -496,7 +496,7 @@
       ]
     },
     {
-      "name": "DMX",
+      "name": "DMX B",
       "partNumber": "GDL-CMDMX-B",
       "category": "Communication",
       "price": 19.99,
@@ -508,7 +508,7 @@
       ]
     },
     {
-      "name": "Ethernet",
+      "name": "Ethernet C",
       "partNumber": "GDL-CMETHERNET-C",
       "category": "Communication",
       "price": 19.99,
@@ -522,14 +522,14 @@
       ]
     },
     {
-      "name": "MIDI",
+      "name": "MIDI A",
       "partNumber": "GDL-CMMIDI-A",
       "category": "Communication",
       "price": 19.99,
       "shortDescription": "MIDI interface for musical instrument connectivity"
     },
     {
-      "name": "RS485",
+      "name": "RS485 A",
       "partNumber": "GDL-CMRS485-A",
       "category": "Communication",
       "price": 19.99,
@@ -542,7 +542,7 @@
       ]
     },
     {
-      "name": "Serial USB",
+      "name": "Serial USB A",
       "partNumber": "GDL-CMSERIALUSB-A",
       "category": "Communication",
       "price": 19.99,
@@ -555,7 +555,7 @@
       ]
     },
     {
-      "name": "USB Host",
+      "name": "USB Host B",
       "partNumber": "GDL-CMUSBHOST-B",
       "category": "Communication",
       "price": 19.99,
@@ -569,14 +569,14 @@
       ]
     },
     {
-      "name": "USB Client",
+      "name": "USB Client A",
       "partNumber": "GDL-CMUSBCLIENT-A",
       "category": "Communication",
       "price": 19.99,
       "shortDescription": "USB client interface for device-mode connectivity"
     },
     {
-      "name": "Button AR100",
+      "name": "Button AR100 B",
       "partNumber": "GDL-HIBTNAR100-B",
       "category": "HMI",
       "price": 19.99,
@@ -589,7 +589,7 @@
       ]
     },
     {
-      "name": "BTN RGB28x4",
+      "name": "BTN RGB28x4 B",
       "partNumber": "GDL-HIBTNRGB28X4-B",
       "category": "HMI",
       "price": 19.99,
@@ -602,7 +602,7 @@
       ]
     },
     {
-      "name": "Button L",
+      "name": "Button L A",
       "partNumber": "GDL-HIBUTTONL-A",
       "category": "HMI",
       "price": 19.99,
@@ -614,7 +614,7 @@
       ]
     },
     {
-      "name": "Button L7",
+      "name": "Button L7 B",
       "partNumber": "GDL-HIBUTTONL7-B",
       "category": "HMI",
       "price": 19.99,
@@ -626,7 +626,7 @@
       ]
     },
     {
-      "name": "Button S",
+      "name": "Button S A",
       "partNumber": "GDL-HIBUTTONS-A",
       "category": "HMI",
       "price": 19.99,
@@ -639,7 +639,7 @@
       ]
     },
     {
-      "name": "Dial",
+      "name": "Dial A",
       "partNumber": "GDL-HIDIAL-A",
       "category": "HMI",
       "price": 19.99,
@@ -652,7 +652,7 @@
       ]
     },
     {
-      "name": "DipSwitch",
+      "name": "DipSwitch B",
       "partNumber": "GDL-HIDIPSWITCH-B",
       "category": "HMI",
       "price": 19.99,
@@ -664,7 +664,7 @@
       ]
     },
     {
-      "name": "Fingerprint",
+      "name": "Fingerprint B",
       "partNumber": "GDL-HIFINGERPRINT-B",
       "category": "HMI",
       "price": 19.99,
@@ -677,7 +677,7 @@
       ]
     },
     {
-      "name": "Joystick L",
+      "name": "Joystick L B",
       "partNumber": "GDL-HIJOYSTICKL-B",
       "category": "HMI",
       "price": 19.99,
@@ -691,7 +691,7 @@
       ]
     },
     {
-      "name": "Keypad 3x4",
+      "name": "Keypad 3x4 B",
       "partNumber": "GDL-HIKEYPAD3X4-B",
       "category": "HMI",
       "price": 19.99,
@@ -704,7 +704,7 @@
       ]
     },
     {
-      "name": "Keypad 4x4",
+      "name": "Keypad 4x4 B",
       "partNumber": "GDL-HIKEYPAD4X4-B",
       "category": "HMI",
       "price": 19.99,
@@ -717,7 +717,7 @@
       ]
     },
     {
-      "name": "Rotary",
+      "name": "Rotary C",
       "partNumber": "GDL-HIKEYPAD4X4-C",
       "category": "HMI",
       "price": 19.99,
@@ -729,7 +729,7 @@
       ]
     },
     {
-      "name": "Flash",
+      "name": "Flash A",
       "partNumber": "GDL-STFLASH-A",
       "category": "Storage",
       "price": 19.99,
@@ -741,7 +741,7 @@
       ]
     },
     {
-      "name": "SD Card",
+      "name": "SD Card B",
       "partNumber": "GDL-STSDCARD-B",
       "category": "Storage",
       "price": 19.99,
@@ -754,7 +754,7 @@
       ]
     },
     {
-      "name": "MicroSD",
+      "name": "MicroSD A",
       "partNumber": "GDL-STMICROSD-A",
       "category": "Storage",
       "price": 19.99,
@@ -767,7 +767,7 @@
       ]
     },
     {
-      "name": "GNSS WA",
+      "name": "GNSS WA A",
       "partNumber": "GDL-WGNSSWA-A",
       "category": "Wireless",
       "price": 19.99,
@@ -781,7 +781,7 @@
       ]
     },
     {
-      "name": "GNSS",
+      "name": "GNSS B",
       "partNumber": "GDL-WGNSS-B",
       "category": "Wireless",
       "price": 19.99,
@@ -795,7 +795,7 @@
       ]
     },
     {
-      "name": "Infrared",
+      "name": "Infrared A",
       "partNumber": "GDL-WINFRARED-A",
       "category": "Wireless",
       "price": 19.99,
@@ -809,7 +809,7 @@
       ]
     },
     {
-      "name": "NRF24 Max",
+      "name": "NRF24 Max C",
       "partNumber": "GDL-WNRF24MAX-C",
       "category": "Wireless",
       "price": 19.99,
@@ -823,7 +823,7 @@
       ]
     },
     {
-      "name": "NRF24 Min",
+      "name": "NRF24 Min C",
       "partNumber": "GDL-WNRF24MIN-C",
       "category": "Wireless",
       "price": 19.99,
@@ -837,7 +837,7 @@
       ]
     },
     {
-      "name": "RFID",
+      "name": "RFID B",
       "partNumber": "GDL-WRFID-B",
       "category": "Wireless",
       "price": 19.99,
@@ -850,7 +850,7 @@
       ]
     },
     {
-      "name": "Accel",
+      "name": "Accel A",
       "partNumber": "GDL-SEACCEL-A",
       "category": "Sensor",
       "price": 19.99,
@@ -862,7 +862,7 @@
       ]
     },
     {
-      "name": "AirQuality",
+      "name": "AirQuality A",
       "partNumber": "GDL-SEAIRQUALITY-A",
       "category": "Sensor",
       "price": 19.99,
@@ -874,7 +874,7 @@
       ]
     },
     {
-      "name": "Barometer",
+      "name": "Barometer B",
       "partNumber": "GDL-SEBAROMETER-B",
       "category": "Sensor",
       "price": 19.99,
@@ -887,7 +887,7 @@
       ]
     },
     {
-      "name": "ClipSense",
+      "name": "ClipSense A",
       "partNumber": "GDL-SECLIPSENSE-A",
       "category": "Sensor",
       "price": 19.99,
@@ -902,7 +902,7 @@
       ]
     },
     {
-      "name": "Current",
+      "name": "Current A",
       "partNumber": "GDL-SECURRENT-A",
       "category": "Sensor",
       "price": 19.99,
@@ -915,7 +915,7 @@
       ]
     },
     {
-      "name": "Distance",
+      "name": "Distance B",
       "partNumber": "GDL-SEDISTANCE-B",
       "category": "Sensor",
       "price": 19.99,
@@ -929,7 +929,7 @@
       ]
     },
     {
-      "name": "DOF9",
+      "name": "DOF9 C",
       "partNumber": "GDL-SEDOF9-C",
       "category": "Sensor",
       "price": 19.99,
@@ -943,7 +943,7 @@
       ]
     },
     {
-      "name": "EKG",
+      "name": "EKG A",
       "partNumber": "GDL-SEEKG-A",
       "category": "Sensor",
       "price": 19.99,
@@ -957,7 +957,7 @@
       ]
     },
     {
-      "name": "Gas",
+      "name": "Gas B",
       "partNumber": "GDL-SEGAS-B",
       "category": "Sensor",
       "price": 19.99,
@@ -971,7 +971,7 @@
       ]
     },
     {
-      "name": "Light",
+      "name": "Light A",
       "partNumber": "GDL-SELIGHT-A",
       "category": "Sensor",
       "price": 19.99,
@@ -983,7 +983,7 @@
       ]
     },
     {
-      "name": "Motion",
+      "name": "Motion B",
       "partNumber": "GDL-SEMOTION-B",
       "category": "Sensor",
       "price": 19.99,
@@ -995,7 +995,7 @@
       ]
     },
     {
-      "name": "Pressure",
+      "name": "Pressure B",
       "partNumber": "GDL-SEPRESSURE100-B",
       "category": "Sensor",
       "price": 19.99,
@@ -1008,7 +1008,7 @@
       ]
     },
     {
-      "name": "RTC",
+      "name": "RTC B",
       "partNumber": "GDL-SERTC-B",
       "category": "Sensor",
       "price": 19.99,
@@ -1021,7 +1021,7 @@
       ]
     },
     {
-      "name": "TempHmd",
+      "name": "TempHmd B",
       "partNumber": "GDL-SETEMPHMD-B",
       "category": "Sensor",
       "price": 19.99,
@@ -1034,7 +1034,7 @@
       ]
     },
     {
-      "name": "TempRTD",
+      "name": "TempRTD B",
       "partNumber": "GDL-SETEMPRTD-A",
       "category": "Sensor",
       "price": 19.99,
@@ -1197,7 +1197,7 @@
       ]
     },
     {
-      "name": "Buzzer",
+      "name": "Buzzer B",
       "partNumber": "GDL-SOBUZZER-B",
       "category": "Sound",
       "price": 19.99,
@@ -1209,7 +1209,7 @@
       ]
     },
     {
-      "name": "MP3",
+      "name": "MP3 A",
       "partNumber": "GDL-SOMP3-A",
       "category": "Sound",
       "price": 19.99,
@@ -1223,7 +1223,7 @@
       ]
     },
     {
-      "name": "Radio FM",
+      "name": "Radio FM A",
       "partNumber": "GDL-SORADIOFM-A",
       "category": "Sound",
       "price": 19.99,
@@ -1237,7 +1237,7 @@
       ]
     },
     {
-      "name": "Spectrum",
+      "name": "Spectrum A",
       "partNumber": "GDL-SOSPECTRUM-A",
       "category": "Sound",
       "price": 19.99,
@@ -1250,7 +1250,7 @@
       ]
     },
     {
-      "name": "Barcode L1D2D",
+      "name": "Barcode L1D2D A",
       "partNumber": "GDL-VIBARCODEL1D2D-A",
       "category": "Vision",
       "price": 19.99,
@@ -1262,7 +1262,7 @@
       ]
     },
     {
-      "name": "Thermal",
+      "name": "Thermal A",
       "partNumber": "GDL-VITHERMAL-A",
       "category": "Vision",
       "price": 19.99,
@@ -1275,7 +1275,7 @@
       ]
     },
     {
-      "name": "Dio X12",
+      "name": "Dio X12 A",
       "partNumber": "GDL-ADDIOX12-A",
       "category": "Adapter",
       "price": 19.99,
@@ -1287,7 +1287,7 @@
       ]
     },
     {
-      "name": "DueClick",
+      "name": "DueClick A",
       "partNumber": "GDL-ADDUECLICK-A",
       "category": "Adapter",
       "price": 19.99,
@@ -1298,7 +1298,7 @@
       ]
     },
     {
-      "name": "DuePi",
+      "name": "DuePi B",
       "partNumber": "GDL-ADDUEPI-B",
       "category": "Adapter",
       "price": 19.99,
@@ -1314,7 +1314,7 @@
       ]
     },
     {
-      "name": "DuePico",
+      "name": "DuePico B",
       "partNumber": "GDL-ADDUEPICO-B",
       "category": "Adapter",
       "price": 19.99,

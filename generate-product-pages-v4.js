@@ -150,6 +150,8 @@ function generateFilename(name) {
         const revision = match[2].toLowerCase();
         return `${productName}-rev-${revision}.mdx`;
     }
+    // For LED and OLED products that used to have A/B/C suffix, generate filename without suffix
+    // This applies to products that previously had suffix but now don't
     // Fallback for names without revision
     return name.toLowerCase().replace(/\s+/g, '-') + '.mdx';
 }
@@ -162,6 +164,30 @@ function extractPartPrefix(partNumber) {
         return match[1].toLowerCase();
     }
     return partNumber.toLowerCase();
+}
+
+// Generate OrderSection based on whether product has variations
+function generateOrderSection(product) {
+    if (product.variations && product.variations.length > 0) {
+        // Generate props for each variation
+        const orderProps = product.variations.map((variation, idx) => {
+            const propNum = idx === 0 ? '' : (idx + 1).toString();
+            return `
+    product${propNum}="DUELink ${variation.name}"
+    partnumber${propNum}="${variation.partNumber}"
+    price${propNum}="$${variation.price?.toFixed(2) || '00.00'}"`;
+        }).join('');
+        
+        return `<OrderSection${orderProps}
+/>`;
+    } else {
+        // No variations, use standard format
+        return `<OrderSection
+    product="DUELink ${product.name.replace(' Rev ', ' ')}"
+    partnumber="${product.partNumber}"
+    price="$${product.price?.toFixed(2) || '00.00'}"
+/>`;
+    }
 }
 
 // Generate MDX content for each product
@@ -314,11 +340,7 @@ ${sampleContent}
 
 ---
 
-<OrderSection
-    product="DUELink ${product.name.replace(' Rev ', ' ')}"
-    partnumber="${product.partNumber}"
-    price="$${product.price || '00.00'}"
-/>
+${generateOrderSection(product)}
 `;
 
     return mdxContent;
