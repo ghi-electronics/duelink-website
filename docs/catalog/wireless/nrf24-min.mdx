@@ -1,0 +1,85 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# NRF24 Min
+
+<ImageSection
+    product = 'wnrf24min'
+    tagline = 'Wireless NRF24 Transceiver'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+Send and receive data wirelessly using SMA 2.4Ghz. This module uses a simple PCB antenna. Consider NRF24 Max for a coverage of up to a 1000 meters!
+
+<table><td width='50%'>
+
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+
+
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
+
+# Example code for NRF24 Min
+# Initialize the module
+module = dl.wireless.nrf24()
+
+# Basic operations
+module.initialize()
+module.read()
+```
+
+</TabItem>
+
+<TabItem value="samples">
+
+Coming soon! Check back for sample projects and tutorials using the NRF24 Min.
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink NRF24 Min C"
+    partnumber = "GDL-WNRF24MIN-C"
+    price = "$19.99"
+/>

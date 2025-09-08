@@ -1,0 +1,66 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Breakout
+
+<ImageSection
+    product = 'breakout'
+    tagline = 'Signals Breakout and Cable Extender'
+></ImageSection>
+
+---
+  
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+  ]}>
+
+<TabItem value="overview">
+This module can be used as a DUELink cable extender. It also exposes all DUELink cable signals on a female header. This is useful to wire a [Supported Hardware](../../hw/intro) that does not have a JST connector.
+
+The DRP and CTN signals are a mix of [UART](../../interface/i2c), [I2C](../../interface/uart) and [USB](../../interface/usb) [Interfaces](../../interface/intro).
+
+Here is a UART example:
+
+![Arduino Breakout UART](pathname:///img/arduino-breakout-uart.png)
+
+Here is an I2C example:
+
+![Arduino Breakout I2C](pathname:///img/arduino-breakout-i2c.png)
+
+
+<table><td width='50%'>
+**Key features**
+
+• Access to DUELink Pins<br/>
+• Female Header<br/>
+• 27x18mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-adbreakout-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-adbreakout-a.step)<br/>
+
+</td></table>
+</TabItem>
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink Breakout"
+    partnumber = "GDL-ADBREAKOUT-A"
+    price = "$00.00"
+></OrderSection>

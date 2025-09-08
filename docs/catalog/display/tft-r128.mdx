@@ -1,0 +1,88 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# TFT R128
+
+<ImageSection
+    product = 'dtftr128'
+    tagline = '1.28"'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+1.28" - 240x240 Color TFT LCD round (no touch) display, supporting Graphics.
+
+<table><td width='50%'>
+
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+
+**Resources**
+ 
+📄[Schematics](/sch/gdl-dtftr128-b.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-dtftr128-b.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
+
+# Example code for TFT R128
+# Initialize the module
+module = dl.display.tft()
+
+# Basic operations
+module.initialize()
+module.read()
+```
+
+</TabItem>
+
+<TabItem value="samples">
+
+Coming soon! Check back for sample projects and tutorials using the TFT R128.
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink TFT R128 B"
+    partnumber = "GDL-DTFTR128-B"
+    price = "$19.99"
+/>

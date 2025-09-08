@@ -2,9 +2,6 @@
 /node_modules
 /build
 
-# Generated pages
-/docs/products/
-/docs/catalog/
 
 # Claude settings
 .claude/

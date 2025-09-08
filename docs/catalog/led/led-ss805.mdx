@@ -1,0 +1,85 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# LED SS805
+
+<ImageSection
+    product = 'lleds805'
+    tagline = '0.80"'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+14-segment displays ar good to display alpha-numerical info. This 0.80 is a decent size to be visible from a few feet.
+
+<table><td width='50%'>
+
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+
+
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
+
+# Example code for LED SS805
+# Initialize the module
+module = dl.led.led()
+
+# Basic operations
+module.initialize()
+module.read()
+```
+
+</TabItem>
+
+<TabItem value="samples">
+
+Coming soon! Check back for sample projects and tutorials using the LED SS805.
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink LED SS805"
+    partnumber = "GDL-LledS805-C"
+    price = "$19.99"
+/>

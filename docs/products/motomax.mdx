@@ -1,0 +1,153 @@
+---
+sidebar_position: 25
+title: MotoMax
+description: MotoMax - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# MotoMax
+
+<ImageSection 
+  product="acmotomax-b"
+  tagline="Heavy Duty 43A Motor Controller"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+This heavy-duty single motor controller has some serious driving power with up to 27V and 43A!
+
+<table><td width='50%'>
+**Key features**
+
+• 43A H-Bridge<br/>
+• 6 to 27V<br/>
+• Screw terminal connections<br/>
+• 52x50mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-acmotomax-b.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-acmotomax-b.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+<details>
+<summary><strong>The Code!</strong></summary>
+
+**MotoMax Driver**
+
+```text
+##### MotoMax Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+# Pin 7,8: RPWM, LPWM
+# Pin 6,5: R_EN, L_EN
+# Pin 4,3: R_IS, L_IS
+
+fn Init()
+    DWrite(5,1)
+    DWrite(6,1)
+    Freq(7, 500, 0, 0)
+    Freq(8, 500, 0, 0)
+fend
+
+fn Set(s)
+    if (s > 0)
+        Freq(8, 500, 0, 0)
+        Freq(7, 500, 0, s / 100)
+    else
+        s=s*-1
+        Freq(7, 500, 0, 0)
+        Freq(8, 500, 0, s / 100)
+    end
+fend
+
+Init()
+
+####################
+
+```
+
+</details>
+
+[See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+
+</TabItem>
+
+<TabItem value="samples">
+
+### Python
+
+```python
+from DUELink.DUELinkController import DUELinkController
+import time
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+```
+
+### JavaScript
+
+```javascript
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+```
+
+### Script
+
+```text
+while 1
+
+    SMotor(50)
+    Wait(10000)
+
+    SMotor(-80)
+    Wait(10000)
+
+wend
+```
+
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink MotoMax"
+    partnumber="GDL-ACMOTOMAX-B"
+    price="$0.00"
+/>

@@ -1,0 +1,88 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# ClipSense
+
+<ImageSection
+    product = 'seclipsense'
+    tagline = 'Clip-friendly IOs with Capacitive Sensing'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+With these alligator-clip-friendly pads, users can easily connect(clip) anything that requires digital inputs/outputs. These pads also support analog and PWM (analog out) functionality.
+
+<table><td width='50%'>
+
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+
+**Resources**
+ 
+📄[Schematics](/sch/gdl-seclipsense-a.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-seclipsense-a.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
+
+# Example code for ClipSense
+# Initialize the module
+module = dl.sensor.clipsense()
+
+# Basic operations
+module.initialize()
+module.read()
+```
+
+</TabItem>
+
+<TabItem value="samples">
+
+Coming soon! Check back for sample projects and tutorials using the ClipSense.
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink ClipSense A"
+    partnumber = "GDL-SECLIPSENSE-A"
+    price = "$19.99"
+/>

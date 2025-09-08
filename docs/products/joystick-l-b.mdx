@@ -1,0 +1,137 @@
+---
+sidebar_position: 51
+title: Joystick L B
+description: Joystick L B - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# Joystick L B
+
+<ImageSection 
+  product="hijoystickl-b"
+  tagline="Joystick with Push Button"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+This is a 2-axis joystick with push button.
+
+<table><td width='50%'>
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-hijoystickl-b.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-hijoystickl-b.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
+
+# Example code for Joystick L B
+# Initialize the module
+module = dl.hmi.joystick()
+
+# Basic operations
+module.initialize()
+module.read()
+```
+
+</TabItem>
+
+<TabItem value="samples">
+
+### Python
+
+```python
+from DUELink.DUELinkController import DUELinkController
+import time
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+```
+
+### JavaScript
+
+```javascript
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+```
+
+### Script
+
+```basic
+_a = 0
+_b = 0
+BtnEn(BtnPin(),0)
+
+while 1
+    _x = JoystickX()
+    _y = JoystickY()
+    
+    if(_a < _x - 1 || _a > _x + 1)
+        PrintLn("X = ", _x)
+        _a = _x
+    end
+    
+    if(_b < _y - 1 || _b > _y + 1)
+        PrintLn("Y = ", _y)
+        _b = _y
+    end
+    
+    if(BtnDown(BtnPin()))
+        PrintLn("Joystick Pressed")
+    end
+
+    Wait(10)
+wend 
+```
+
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink Joystick L B"
+    partnumber="GDL-HIJOYSTICKL-B"
+    price="$19.99"
+/>

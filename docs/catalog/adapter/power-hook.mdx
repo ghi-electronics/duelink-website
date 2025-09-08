@@ -1,0 +1,124 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Power Hook
+
+<ImageSection
+    product = 'power-hook'
+    tagline = 'Rechargeable Battery Power Hook'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+  ]}>
+
+<TabItem value="overview">
+
+The Power Hook works just like the [USB Hook](./usb-hook), but then it also includes a recharging circuit for 3.7V 10440 battery, which is required but not included. Note that the required 10440 battery is the same size as standard AAA batteries, but they are NOT compatible. **NEVER install a AAA battery on this module!**
+
+<table><td width='50%'>
+**Key features**
+
+• 3.7v 10440 Battery Module<br/>
+• 77x27mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-adpowerhook-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-adpowerhook-a.step)<br/>
+
+</td></table>
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+| Function | Description          |
+| -------- | -------------------- |
+| `statled()`  | Blink the Status LED |
+
+<details>
+  <summary>The Code!</summary>
+
+
+
+```py
+##### Driver Code Starts Here ###
+
+##### User Code Starts Here #####
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+<Tabs
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'JavaScript', value: 'js'},
+
+]}>
+
+<TabItem value="script">
+ Use [Console](../../console) to modify the default driver by adding this sample.
+
+```py
+# Append this code at the bottom of the script, right after the driver.
+# You MUST keep the driver code!!
+```
+
+</TabItem>
+
+<TabItem value="py">
+
+```py
+from DUELink.DUELinkController import DUELinkController
+import time
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+```
+
+</TabItem>
+
+<TabItem value="js">
+
+```js
+//code
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink Power Hook"
+    partnumber = "GDL-ADPOWERHOOK-A"
+    price = "$00.00"
+></OrderSection>
+

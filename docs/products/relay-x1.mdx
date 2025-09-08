@@ -1,0 +1,130 @@
+---
+sidebar_position: 29
+title: Relay X1
+description: Relay X1 - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# Relay X1
+
+<ImageSection 
+  product="acrelayx1-a"
+  tagline="Single Relay Controller"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+This single mechanical relay controller is self-powered, right from the DUELink bus. It is capable of 10A @ 250V.
+
+<table><td width='50%'>
+**Key features**
+
+• Self-powered relay<br/>
+• 10A @ 250V<br/>
+• Screw terminal<br/>
+• 32x37mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-acrelayx1-a.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-acrelayx1-a.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+<details>
+<summary><strong>The Code!</strong></summary>
+
+**Relay X1 Driver**
+
+```text
+##### Relay X1 Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn Set(v)
+    DWrite(19, v)
+fend
+
+####################
+
+```
+
+</details>
+
+[See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+
+</TabItem>
+
+<TabItem value="samples">
+
+### Python
+
+```python
+from DUELink.DUELinkController import DUELinkController
+import time
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+```
+
+### JavaScript
+
+```javascript
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+```
+
+### Script
+
+```text
+while 1
+  Set(1)
+  wait(1000)
+  Set(0)
+  wait(2000)
+wend
+```
+
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink Relay X1"
+    partnumber="GDL-ACRELAYX1-A"
+    price="$0.00"
+/>

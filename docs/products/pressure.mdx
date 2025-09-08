@@ -1,0 +1,119 @@
+---
+sidebar_position: 75
+title: Pressure
+description: Pressure - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# Pressure
+
+<ImageSection 
+  product="sepressure100-b"
+  tagline="Air and Liquid Pressure Sensor"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+Connect this sensor to your instrument using a tiny pipe to measure water/liquid pressure. Different ranges are available.
+
+<table><td width='50%'>
+**Key features**
+
+• Air and liquid pressure<br/>
+• Measure pressure<br/>
+• 17x26mm overall dimension<br/>
+
+</td><td width='50%'>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+<details>
+<summary><strong>The Code!</strong></summary>
+
+**Pressure Driver**
+
+```text
+##### Pressure Driver #####
+
+# No need for a driver!
+# Use standard library VRead(2) to read the voltage then convert to pressure level
+
+####################
+```
+
+</details>
+
+[See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+
+</TabItem>
+
+<TabItem value="samples">
+
+### Python
+
+```python
+from DUELink.DUELinkController import DUELinkController
+import time
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+```
+
+### JavaScript
+
+```javascript
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+```
+
+### Script
+
+```text
+while 1
+    PrintLn(VRead(2),"V")
+    Wait(200)
+wend
+
+```
+
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink Pressure"
+    partnumber="GDL-SEPRESSURE100-B"
+    price="$0.00"
+/>

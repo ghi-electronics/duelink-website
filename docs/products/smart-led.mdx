@@ -1,0 +1,200 @@
+---
+sidebar_position: 86
+title: Smart LED
+description: Smart LED - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# Smart LED
+
+<ImageSection 
+  product="lsmartled-a"
+  tagline="Smart LED Controller"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+The DUELink standard library includes support for WS2811 smart LEDs. When using matrices, the support is even included with the graphics function.
+
+<table><td width='50%'>
+**Key features**
+
+• WS2811 LED Controller<br/>
+• Support for DAT/CLK type<br/>
+• Terminal Block Connection<br/>
+• 37x22mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-lsmartled-a.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-lsmartled-a.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+<details>
+<summary><strong>The Code!</strong></summary>
+
+**Smart LED Driver**
+
+```text
+##### SmartLED Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+## 2Pin (SCK, DAT) LPD8806 Smart LEDs work using SPI and can't be used with graphics libs.
+# Uses b1 and b2 arrays
+fn IntLPD(c)
+    SpiCfg(0,8000)
+    Dim b1[3*c]
+    Dim b2[3 * ((c + 63) / 64)]
+    for i in Range(c)
+        SetLPD(i, 0)
+    next
+fend
+
+fn SetLPD(i, c)
+    r = (c>>16) & 0x7f
+    g = (c>>8) & 0x7f
+    b = c & 0x7f
+    b1[i * 3 + 2] = 0x80 | b 
+    b1[i * 3 + 1] = 0x80 | r 
+    b1[i * 3 + 0] = 0x80 | g
+fend
+
+fn ShwLPD()
+    SpiWrs(b1,0)#color
+    SpiWrs(b2,0)#zero terminator
+fend
+
+####################
+
+## 2Pin (SCK, DAT) APA102C Smart LEDs work using SPI and can't be used with graphics libs.
+# Uses b1 array
+fn IntAPA(c)
+    SpiCfg(0,8000)
+    Dim b1[4+c*4+4] # Num of led x 4, plus first and last 4 bytes
+    for i in Range(c)
+        SetAPA(i, 0, 10)
+    next
+fend
+
+fn SetAPA(i, c, l)
+    r = (c>>16) & 0x7f
+    g = (c>>8) & 0x7f
+    b = c & 0x7f
+    b1[i*4+4+0] = 0xE0 | l # luminance (0 to 31)
+    b1[i*4+4+1] = ((c >> 0) & 0xFF) # blue
+    b1[i*4+4+2] = ((c >> 8) & 0xFF) # green
+    b1[i*4+4+3] = ((c >> 16) & 0xFF) # red
+fend
+
+fn ShwAPA()
+    SpiWrs(b1,0)
+fend
+
+####################
+
+## 1Pin WS2811 work through internal graphics, and with panel support
+fn WS2811()
+    return 14
+fend
+
+####################
+
+```
+
+</details>
+
+[See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+
+</TabItem>
+
+<TabItem value="samples">
+
+### Script
+
+```text
+# WS2811 Sample - supports graphics
+# 3 horizontal 16x16 panels creating 48x16 display
+dim a1[]={WS2811(),# Pin used
+    16, # Individual panel width
+    16, # Individual panel height
+    0} # Horizontal scanning
+    GfxCfg(3, a1, 16, 16, 1)# type 3, 16x16 leds, buffered x1
+
+_x = 16*3
+
+while 1
+    Clear(0)
+    Text("DUELink", 0x1F0F00, _x, 0)
+    Show()
+    _x = _x - 1
+    if _x < -40
+        _x = 16*3
+    end
+    wait(10)
+wend
+
+# APA102 Sample - No graphics!
+IntAPA(6)
+SetAPA(0,0xff0000, 10)
+SetAPA(1,0x00ff00, 10)
+SetAPA(2,0x0000ff, 10)
+
+ShwAPA()
+
+
+# LPD8806 Sample - No graphics!
+IntLPD(6)
+SetLPD(0,0xff0000)
+SetLPD(1,0x00ff00)
+SetLPD(2,0x0000ff)
+
+ShwLPD()
+
+```
+
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink Smart LED"
+    partnumber="GDL-LSMARTLED-A"
+    price="$0.00"
+/>

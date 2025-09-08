@@ -1,0 +1,117 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Sticker
+
+<ImageSection
+    product = 'sticker'
+    tagline = 'Development Board for Stick Modules'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+  ]}>
+
+<TabItem value="overview">
+
+This is the ideal combo for [Stick](../microcomputer/stick) Microcomputer. It exposes all pins, some on male and some on female headers. The male headers add power and ground in a standard servo pinout". Signals and busses are clearly marked on the circuit. It also includes buttons and a regulator to complete the list of requirements to start making [your own modules](../third-party)!
+
+<table><td width='50%'>
+**Key features**
+
+• Made for [Stick](catalog/microcomputer/stick.mdx) Microcomputer<br/>
+• RST/LDR buttons<br/>
+• Pin headers<br/>
+• 52x37mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-adsticker-c.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-adsticker-c.step)<br/>
+
+</td></table>
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+| Function | Description          |
+| -------- | -------------------- |
+| `statled()`  | Blink the Status LED |
+
+<details>
+  <summary>The Code!</summary>
+
+
+
+```py reference title="Sticker Driver"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/adapter/sticker.txt
+```
+
+</details>
+</TabItem>
+
+<TabItem value="samples">
+
+Samples assumes [Drivers](../../engine/drivers) are installed.
+
+<Tabs
+
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'JavaScript', value: 'js'},
+
+]}>
+
+<TabItem value="script">
+
+```py reference title="Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/adapter/sticker.txt
+```
+</TabItem>
+
+<TabItem value="py">
+```py reference title="Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/adapter/sticker.py
+```
+</TabItem>
+
+<TabItem value="js">
+```js reference title="JavaScript Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/adapter/sticker.js
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+<TabItem value="projects">Coming soon!</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink Sticker"
+    partnumber = "GDL-ADSTICKER-C"
+    price = "$00.00"
+></OrderSection>

@@ -1,0 +1,336 @@
+---
+sidebar_position: 4
+title: DueSTEM
+description: DueSTEM - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# DueSTEM
+
+<ImageSection 
+  product="mcduestem-b"
+  tagline="Complete All-in-One STEM Solution"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+Input -> Process -> Output is how DueSTEM brings everything educators need to demonstrate physical computing. There are 4 inputs and 4 outputs. The graphical display can be used to show sensor levels or for building games!
+
+<table><td width='50%'>
+**Key features**
+
+• 128x64 OLED 0.96" Display<br/>
+• Temperature Sensor<br/>
+• Accelerometer<br/>
+• Light Sensor<br/>
+• 4 User Buttons<br/>
+• Light Sensor<br/>
+• 2 Servo Ports<br/>
+• RGB LED<br/>
+• Tunes Buzzer<br/>
+• 107x57mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-mcduestem-b.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-mcduestem-b.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+| Function | Description |
+|----------|-------------|
+| `GetW()` | Get display width: 128. |
+| `GetH()` | Get display height: 64. |
+| `IsColor()` | Returns 0. |
+| `BtnPin(a)` | Returns button's pin number, based on `a` alias ('U' = Up, 'D' = Down, 'L' = Left, 'R' = Right) |
+| `GetX()` | Returns the X axis of the Accelerometer. |
+| `GetY()` | Returns the Y axis of the Accelerometer. |
+| `GetZ()` | Returns the Z axis of the Accelerometer. |
+| `SetBulb(c)` | Sets Lightbulb `c` color with 24bit RGB color (RRGGBB). |
+| `Tunes(f,d)` | Plays Tunes buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |
+| `Light()` | Returns voltage level from Light sensor. |
+| `ReadTemp()` | Returns voltage level from Temperature sensor. |
+| `DVer()` | This driver version. |
+<details>
+<summary><strong>The Code!</strong></summary>
+
+**DueSTEM Driver**
+
+```text
+##### DueSTEM Driver  #####
+
+fn DVer()
+    return 1.0
+fend
+ 
+fn Init()
+    I2cCfg(400)    
+    I2cWr(0x4c, [0x20, 2], 0) # 0x4c: I2C address, [0x20,1] MC3216_Outcfg
+    I2cWr(0x4c, [0x07, 1], 0) # 0x4c: I2C address, [0x07,1] MC3216_Mode
+ 
+    BtnEn(BtnPin('U'), 1) # Btn Up
+    BtnEn(BtnPin('D'), 1) # Btn Down
+    BtnEn(BtnPin('L'), 1) # Btn Left
+    BtnEn(BtnPin('R'), 1) # Btn Right
+
+
+    DWrite(22,0) # reset pin
+    DWrite(22,1) 
+    Wait(10)
+ 
+    # config I2C bus with 400Kz
+    I2cCfg(400)
+    Wait(20)
+    GfxCfg(1,{0x3C}, 128, 64, 1)# type 1, 128x64 pixels, buffered x1
+ 
+    LcdCmd(0xAE):LcdCmd(0x00):LcdCmd(0x10)
+    LcdCmd(0x40):LcdCmd(0x81):LcdCmd(0xCF)
+    LcdCmd(0xA1):LcdCmd(0xA6):LcdCmd(0xA8)
+    LcdCmd(0x3F):LcdCmd(0xD3):LcdCmd(0x00)
+    LcdCmd(0xD5):LcdCmd(0x80):LcdCmd(0xD9)
+    LcdCmd(0xF1):LcdCmd(0xDA):LcdCmd(0x12)
+    LcdCmd(0xDB):LcdCmd(0x40):LcdCmd(0x8D)
+    LcdCmd(0x14):LcdCmd(0xAF):LcdCmd(0xC8)
+    LcdCmd(0x20):LcdCmd(0x00):LcdCmd(0x21)
+    LcdCmd(0):LcdCmd(128-1)
+    LcdCmd(0x22):LcdCmd(0):LcdCmd(7)
+    
+    Dim a1[]={131, 200, 
+        147, 200,
+        262, 500}
+        MelodyP(3, a1)      
+
+    Clear(0)
+    TextS("DUELink",1,25,25,2,3)
+    Show()
+fend
+
+fn BtnPin(a)
+    if a = 'U'
+        return 18
+    end
+    if a = 'D'
+        return 10
+    end
+    if a = 'L'
+        return 20
+    end
+    if a = 'R'
+        return 1
+    end
+    while 1
+        PrintLn("ERROR!!")
+        Wait(200)
+    wend
+fend
+
+ 
+##### Display #####
+ 
+fn LcdCmd(c)
+    I2cWr(0x3c, [0, c], 0)
+fend
+ 
+fn GetH()
+    return 64
+fend
+ 
+fn GetW()
+    return 128
+fend
+ 
+fn IsColor()
+    return 0
+fend
+ 
+##### Accelerometer #####
+ 
+Dim b1[1]
+ 
+fn Convert(c)
+    if (c > 127)
+        c = c - 256
+    end
+ 
+    c = c * 1024 / 64
+ 
+    if (c > 1024)
+        c = 1024
+    end
+ 
+    if (c < -1024)
+        c = -1024
+    end
+ 
+    return c
+fend
+ 
+fn GetX()
+    I2cWr(0x4C, [0x0D], b1) # 0x0D MC3216_XOut
+    return Convert(b1[0])
+fend
+ 
+fn GetY()
+    I2cWr(0x4C, [0x0F], b1) # 0x0F MC3216_YOut
+    return Convert(b1[0])
+fend
+ 
+fn GetZ()
+    I2cWr(0x4C, [0x11], b1) # 0x11 MC3216_ZOut
+    return Convert(b1[0])
+fend
+
+##### LightBulb #####
+ 
+fn SetBulb(c) #c = Hex Value
+    r = ((c>>16)&0xff)/255
+    g =((c>>8)&0xff)/255
+    b = (c&0xff)/255
+ 
+    PWrite(2,b)
+    PWrite(11,r)
+    PWrite(4,g)
+fend
+
+fn Light()
+    return Trunc(VRead(17)/(ReadVCC() )*100)
+fend
+
+##### Temperature #####
+
+fn ReadTemp()
+    return Trunc(VRead(9)/(ReadVCC() )*100)
+fend
+
+##### Tunes #####
+
+fn Tunes(f,d)
+    Beep(3, f, d)
+fend
+ 
+Init()
+ 
+#########################
+
+```
+
+</details>
+
+[See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+
+</TabItem>
+
+<TabItem value="samples">
+
+### Python
+
+```python
+from DUELink.DUELinkController import DUELinkController
+import time
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+```
+
+### JavaScript
+
+```javascript
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+```
+
+### Script
+
+```text
+_x = 0
+_d = -9
+ 
+Dim a1[]={261, 200, 
+        293, 200,
+        523, 500}
+MelodyP(3, a1)
+
+SetBulb(0xff0000)
+ 
+while 1
+    if BtnDown(BtnPin('U'))
+        Tunes(100, 1000)
+    end
+    if BtnDown(BtnPin('D'))
+        Tunes(200, 1000)
+    end
+     if BtnDown(BtnPin('L'))
+        Tunes(300, 1000)
+    end
+     if BtnDown(BtnPin('R'))
+        Tunes(400, 1000)
+    end
+ 
+    Clear(1) 
+ 
+    TextS("Temperature", 0, 10, 6, 1, 1)
+    TextS(Fmt(ReadTemp()), 0,80, 5, 2, 2)
+ 
+    TextS("Light Level", 0, 10, 24, 1, 1)
+    TextS(Fmt(Light()), 0, 80, 20, 2, 2)
+ 
+    TextS("X", 0, 5, 35, 2, 2)
+    TextS(Fmt(GetX()), 0, 20, 40,1, 1)
+ 
+    TextS("Y", 0, 45, 35, 2, 2)
+    TextS(Fmt(GetY()), 0, 60, 40,1, 1)
+ 
+    TextS("Z", 0, 90, 35, 2, 2)
+    TextS(Fmt(GetZ()), 0, 100, 40,1, 1)
+ 
+    Circle(0, _x, 55, 5)
+    _x=_x+_d
+    if(_x < 0 || _x > 128)
+        _d = _d * -1
+    end
+    Show()
+    Wait(100)
+wend 
+```
+
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink DueSTEM"
+    partnumber="GDL-MCDUESTEM-B"
+    price="$0.00"
+/>

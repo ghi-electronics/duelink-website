@@ -1,0 +1,119 @@
+---
+sidebar_position: 57
+title: MicroSD Rev A
+description: MicroSD Rev A - High-quality DUELink module
+pagination_prev: null
+pagination_next: null
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# MicroSD Rev A
+
+<ImageSection 
+  product="stmicrosd-a"
+  tagline="MicroSD Card Module"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+Access files on micro SD cards. Full file system facilities are provided, see File System.
+
+<table><td width='50%'>
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-stmicrosd-a.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-stmicrosd-a.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
+
+# Example code for MicroSD Rev A
+# Initialize the module
+module = dl.storage.microsd()
+
+# Basic operations
+module.initialize()
+module.read()
+```
+
+</TabItem>
+
+<TabItem value="samples">
+
+**Samples assumes Drivers are installed.**
+
+### Script
+
+**Script Sample**
+
+```basic
+PrintLn("Mount")
+_r = 0x01 # Read only
+FsMnt(1, 17, 8000, 4)
+ 
+# Read text file
+PrintLn("Open")
+h = FsOpen("/test.txt", _r)
+
+PrintLn("Read")
+Dim b2[13]
+FsRead(h, b2)
+PrintLn(b2)
+
+PrintLn("Close")
+FSClose(h)
+FsUnMnt()
+```
+
+[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink MicroSD A"
+    partnumber="GDL-STMICROSD-A"
+    price="$19.99"
+/>

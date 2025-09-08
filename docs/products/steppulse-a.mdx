@@ -1,0 +1,83 @@
+---
+sidebar_position: 32
+title: StepPulse A
+description: StepPulse A - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# StepPulse A
+
+<ImageSection 
+  product="acsteppulse-a"
+  tagline="Stepper Motor Signal Generator"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    }
+]}>
+
+<TabItem value="overview">
+
+This module will generate the signal (pulses) necessary to drive stepper motor controllers. There is a wide range of available controllers, including nicely isolated ones.
+
+<table><td width='50%'>
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-acsteppulse-a.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-acsteppulse-a.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
+
+# Example code for StepPulse A
+# Initialize the module
+module = dl.actuator.steppulse()
+
+# Basic operations
+module.initialize()
+module.read()
+```
+
+</TabItem>
+
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink StepPulse A"
+    partnumber="GDL-ACSTEPPULSE-A"
+    price="$19.99"
+/>

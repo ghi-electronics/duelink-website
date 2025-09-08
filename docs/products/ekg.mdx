@@ -1,0 +1,138 @@
+---
+sidebar_position: 71
+title: EKG
+description: EKG - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# EKG
+
+<ImageSection 
+  product="seekg-a"
+  tagline="Heart EKG Sensor"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+Use this module to experiment with heart EKG signals. This is NOT a medical device but an educational sensor for experimentation. The kit includes probes and sticker pads.
+
+<table><td width='50%'>
+**Key features**
+
+• EKG (ECG)<br/>
+• Includes probes and pads<br/>
+• Electrocardiogram<br/>
+• 52x32mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-seekg-a.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-seekg-a.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+<details>
+<summary><strong>The Code!</strong></summary>
+
+**EKG Driver**
+
+```text
+##### EKG Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn ProbeStat()
+    return DRead(4,0)<<1 DRead(5,0)
+fend
+
+fn ProbeVal()
+    return VRead(3)
+fend
+
+fn Init()
+    # Wake up
+    DWrite(6,1)
+fend
+
+Init()
+
+#############################
+```
+
+</details>
+
+[See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+
+</TabItem>
+
+<TabItem value="samples">
+
+### Python
+
+```python
+from DUELink.DUELinkController import DUELinkController
+import time
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+```
+
+### JavaScript
+
+```javascript
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+```
+
+### Script
+
+```text
+while (1)  
+    PrintLn("Stat: ", ProbeStat(), " - Val: ", ProbeVal())
+    wait(100)
+wend
+```
+
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink EKG"
+    partnumber="GDL-SEEKG-A"
+    price="$0.00"
+/>

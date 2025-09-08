@@ -294,9 +294,9 @@ ${jsCode}
             if (scriptCode) {
                 sampleSections.push(`### Script
 
-\`\`\`basic
+\`\`\`text
 ${scriptCode}
-\`\`\``);
+\`\`\``)
             }
         }
         
@@ -334,7 +334,7 @@ ${driverTable ? driverTable + '\n' : ''}<details>
 
 **${productBaseName} Driver**
 
-\`\`\`basic
+\`\`\`text
 ${driverContent}
 \`\`\`
 

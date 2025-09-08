@@ -1,0 +1,117 @@
+---
+sidebar_position: 30
+title: Servo P8 Rev B
+description: Servo P8 Rev B - High-quality DUELink module
+pagination_prev: null
+pagination_next: null
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# Servo P8 Rev B
+
+<ImageSection 
+  product="acservop8-b"
+  tagline="8x Servo Motor Controller"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+8-channel servo controller for precise servo motor control.
+
+<table><td width='50%'>
+**Key features**
+
+• 8 servo channels<br/>
+• PWM control<br/>
+• Standard servo compatibility<br/>
+• Daisy-chain capable<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-acservop8-b.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-acservop8-b.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
+
+# Example code for Servo P8 Rev B
+# Initialize the module
+module = dl.actuator.servo()
+
+# Basic operations
+module.initialize()
+module.read()
+```
+
+</TabItem>
+
+<TabItem value="samples">
+
+**Samples assumes Drivers are installed.**
+
+### Script
+
+**Script Sample**
+
+```basic
+_i = 0
+while 1
+
+    servost(1, _i)    
+    PrintLn(_i)
+    _i = _i + 20
+    if _i > 180
+        _i = 0
+    end
+    Wait(100)
+
+wend
+
+```
+
+[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink Servo P8 B"
+    partnumber="GDL-ACSERVOP8-B"
+    price="$19.99"
+/>

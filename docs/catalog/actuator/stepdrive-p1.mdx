@@ -1,0 +1,88 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# StepDrive P1
+
+<ImageSection
+    product = 'acstepdrivep1'
+    tagline = 'Single Stepper Motor Driver'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+    {label: 'Drivers', value: 'drivers'},
+    {label: 'Samples', value: 'samples'},
+  ]}>
+
+<TabItem value="overview">
+
+This module utilizes the very common stepper motor drivers commonly used in Arduino CNC Shield. They are available in multiple models. We include a driver capable of 30V @ 1A, but you can easily swap it with your favorite driver if desired.
+
+<table><td width='50%'>
+
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+
+**Resources**
+ 
+📄[Schematics](/sch/gdl-acstepdrivep1-a.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-acstepdrivep1-a.step)<br/>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
+
+# Example code for StepDrive P1
+# Initialize the module
+module = dl.actuator.stepdrive()
+
+# Basic operations
+module.initialize()
+module.read()
+```
+
+</TabItem>
+
+<TabItem value="samples">
+
+Coming soon! Check back for sample projects and tutorials using the StepDrive P1.
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink StepDrive P1 A"
+    partnumber = "GDL-ACSTEPDRIVEP1-A"
+    price = "$19.99"
+/>

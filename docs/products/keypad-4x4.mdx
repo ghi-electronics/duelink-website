@@ -1,0 +1,196 @@
+---
+sidebar_position: 53
+title: Keypad 4x4
+description: Keypad 4x4 - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# Keypad 4x4
+
+<ImageSection 
+  product="hikeypad4x4-b"
+  tagline="4x4 Button Keypad"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+4x4 keypad with 16x "squishy" push buttons.
+
+<table><td width='50%'>
+**Key features**
+
+• 4x4 numerical keypad<br/>
+• 16 buttons<br/>
+• 65x87mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-hikeypad4x4-b.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-hikeypad4x4-b.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+<details>
+<summary><strong>The Code!</strong></summary>
+
+**Keypad 4x4 Driver**
+
+```text
+##### Keypad 4x4 Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+Alias(key=_k, prevkey=_p, newkey=_n)
+
+# Set row 2 3 4 5
+# Read col 6 10 9 8
+
+
+fn SelCol(c)
+    DWrite(6,0)
+    DWrite(10,0)
+    DWrite(9,0)
+    DWrite(8,0)
+    if c = 0
+        DWrite(8,1)
+    end
+    if c = 1
+        DWrite(9,1)
+    end
+    if c = 2
+        DWrite(10,1)
+    end
+    if c = 3
+        DWrite(6,1)
+    end
+fend
+    
+Dim b0[] =[0,'*','7','4','1','0','8','5','2','#','9','6','3','D','C','B','A']
+fn Scan()
+    key = 0
+
+    for _c in Range(4)
+        SelCol(_c)    
+
+        for _r in Range(4)
+            if DRead(2+_r,2)
+            #PrintLn("col ", _c, " row  0")
+            key = key | (1<<((_c*4)+_r))
+            end
+        next
+
+    next
+
+    if prevkey != key
+        prevkey=key
+        newkey=1
+    else
+        newkey=0
+    end
+
+fend
+
+fn IsKeyChange()
+    return newkey
+fend
+
+fn RdKey()
+_r = 0
+    newkey = 0
+    for _i in Range(16)
+        if key & (1<<_i)
+            _r = _i+1
+        end
+    next
+
+    return b0[_r]
+fend
+
+SStart("Scan", 100, 0)
+
+#########################
+```
+
+</details>
+
+[See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+
+</TabItem>
+
+<TabItem value="samples">
+
+### Python
+
+```python
+from DUELink.DUELinkController import DUELinkController
+import time
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+```
+
+### JavaScript
+
+```javascript
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+```
+
+### Script
+
+```text
+while 1 
+
+if IsKeyChange()
+
+    PrintLn(chr(RdKey()))
+end
+
+wait(10)
+wend
+
+```
+
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink Keypad 4x4"
+    partnumber="GDL-HIKEYPAD4X4-B"
+    price="$0.00"
+/>

@@ -1,0 +1,130 @@
+---
+sidebar_position: 77
+title: TempHmd
+description: TempHmd - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# TempHmd
+
+<ImageSection 
+  product="setemphmd-b"
+  tagline="Temperature & Humidity Sensor"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+Measure temperature with +-0.5 degree of accuracy at 0.1 celsius resolution. The humidity sensor is +=2RH% accurate with a resolution of 0.1%RH.
+
+<table><td width='50%'>
+**Key features**
+
+• DHT22 Digital Sensor<br/>
+• Temperature and Humidity<br/>
+• 27x33mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-setemphmd-b.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-setemphmd-b.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+<details>
+<summary><strong>The Code!</strong></summary>
+
+**TempHmd Driver**
+
+```text
+##### TempHumid Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn SenPin()
+    return 18
+fend
+
+fn SenType()
+    return 4
+fend
+
+#########################
+```
+
+</details>
+
+[See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+
+</TabItem>
+
+<TabItem value="samples">
+
+### Python
+
+```python
+from DUELink.DUELinkController import DUELinkController
+import time
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+```
+
+### JavaScript
+
+```javascript
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+```
+
+### Script
+
+```text
+while 1
+    PrintLn(Temp(SenPin(), SenType()),"c - ",Humid(SenPin(), SenType()),"%")
+    Wait(500)
+wend
+```
+
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink TempHmd"
+    partnumber="GDL-SETEMPHMD-B"
+    price="$0.00"
+/>

@@ -1,0 +1,118 @@
+---
+sidebar_position: 88
+title: MP3 Rev A
+description: MP3 Rev A - High-quality DUELink module
+pagination_prev: null
+pagination_next: null
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# MP3 Rev A
+
+<ImageSection 
+  product="somp3-a"
+  tagline="MP3 Micro SD Player"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+Play MP3 audio/music from files found on the attached Micro SD card. The audio quality is reasonable and single mono channel. There is no system load as the module only receives and processes simple commands.
+
+<table><td width='50%'>
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-somp3-a.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-somp3-a.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
+
+# Example code for MP3 Rev A
+# Initialize the module
+module = dl.sound.mp3()
+
+# Basic operations
+module.initialize()
+module.read()
+```
+
+</TabItem>
+
+<TabItem value="samples">
+
+**Samples assumes Drivers are installed.**
+
+### Script
+
+**Script Sample**
+
+```basic
+if (Rst()) # reset module
+    SetVol(30) # set volume to max
+    if (PlayFile(1, 1)) # play file 001.mp3 in folder 01        
+        PrintLn("File is playing.")
+    end
+else
+    PrintLn("Reset failed.")
+end
+
+while (IsBusy()) # Busy mean playing
+   wait(1)
+wend
+
+PrintLn("Play ended.")
+
+```
+
+[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink MP3 A"
+    partnumber="GDL-SOMP3-A"
+    price="$19.99"
+/>

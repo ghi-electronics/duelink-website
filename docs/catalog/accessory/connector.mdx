@@ -1,0 +1,65 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Connectors
+
+<ImageSection
+    product = 'connectors'
+    tagline = 'DUELink JST Connectors'
+></ImageSection>
+
+---
+
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+
+]}>
+
+<TabItem value="overview">
+
+These standard connecters are here to help you in building [your own DUELink modules](../third-party).
+
+:::note
+These blue connectors will get discolored in a reflow oven. They are made for hand soldering. Contact us if you need a volume blue connectors that are suitable for reflow.
+:::
+
+<table><td width='50%'>
+**Key features**
+
+• 4pin 1mm JST connector<br/>
+• Blue and White<br/>
+• Surface Mount JST Connectors<br/>
+
+</td><td width='50%'>
+**Resources**
+
+🔩[3D Uplink STEP file](pathname:///3d/gdl-axjstuplink-a.step)<br/>
+🔩[3D Downlink STEP file](pathname:///3d/gdl-axjstdownlink-a.step)<br/>
+</td></table>
+
+</TabItem>
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink Downlink Connector (5pcs)"
+    partnumber = "GDL-AXJSTDOWNLINK-A"
+    price = "$00.00"
+    product2 = "DUELink Uplink Connector (5pcs)"
+    partnumber2 = "GDL-AXJSTUPLINK-A"
+    price2 = "$00.00"
+></OrderSection>
+

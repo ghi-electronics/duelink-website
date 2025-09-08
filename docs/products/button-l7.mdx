@@ -1,0 +1,210 @@
+---
+sidebar_position: 46
+title: Button L7
+description: Button L7 - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# Button L7
+
+<ImageSection 
+  product="hibuttonl7-b"
+  tagline="7x 10x10mm Tactile Buttons"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+This module includes 7x 10x10mm tactile buttons.
+
+<table><td width='50%'>
+**Key features**
+
+• 7x 10x10mm buttons<br/>
+• 52x67mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-hibuttonl7-b.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-hibuttonl7-b.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+<details>
+<summary><strong>The Code!</strong></summary>
+
+**Button L7 Driver**
+
+```text
+##### Button L7 Driver #####
+
+fn DVer()
+  return 1.0
+fend
+
+fn Init() 
+    # All LEDs off
+    DWrite(9, 0) # Led up
+    DWrite(8, 0) # Led down
+    DWrite(17, 0) # Led left
+    DWrite(12, 0) # Led right
+    DWrite(13, 0) # Led back
+    DWrite(14, 0) # Led forward
+
+    # initialize buttons
+    BtnEn(BtnPin('U'), 0) # Btn Up
+    BtnEn(BtnPin('D'), 0) # Btn Down
+    BtnEn(BtnPin('L'), 0) # Btn Left
+    BtnEn(BtnPin('R'), 0) # Btn Right
+    BtnEn(BtnPin('B'), 0) # Btn Back
+    BtnEn(BtnPin('F'), 0) # Btn Forward
+    BtnEn(BtnPin('E'), 0) # Btn Enter
+fend
+
+fn BtnPin(a)
+    if a = 'U'
+        return 1
+    end
+    if a = 'D'
+        return 2
+    end
+    if a = 'L'
+        return 3
+    end
+    if a = 'R'
+        return 4
+    end
+    if a = 'B'
+        return 5
+    end
+    if a = 'F'
+        return 6
+    end
+    if a = 'E'
+        return 7
+    end
+    while 1
+        PrintLn("ERROR!!")
+        Wait(200)
+    wend
+fend
+
+fn SetLed(a, v)
+    if a = 'U'
+        DWrite(9,v)
+        return
+    end
+    if a = 'D'
+        DWrite(8,v)
+        return
+    end
+    if a = 'L'
+        DWrite(17,v)
+        return
+    end
+    if a = 'R'
+        DWrite(12,v)
+        return
+    end
+    if a = 'B'
+        DWrite(13,v)
+        return
+    end
+    if a = 'F'
+        DWrite(14,v)
+        return
+    end
+    while 1
+        PrintLn("ERROR!!")
+        Wait(200)
+    wend
+
+fend
+
+Init()
+
+####################
+```
+
+</details>
+
+[See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+
+</TabItem>
+
+<TabItem value="samples">
+
+### Python
+
+```python
+from DUELink.DUELinkController import DUELinkController
+import time
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+```
+
+### JavaScript
+
+```javascript
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+```
+
+### Script
+
+```text
+_i=0
+
+while 1    
+    if BtnRead(BtnPin('U'))
+        SetLED('U', _i)
+    end
+    
+    _i= ! _i
+
+    Wait(200)
+wend
+
+```
+
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink Button L7"
+    partnumber="GDL-HIBUTTONL7-B"
+    price="$0.00"
+/>

@@ -1,0 +1,57 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# LinkBit
+
+<ImageSection
+    product = 'linkbit'
+    tagline = 'BBC micro:bit Compatible DUELink Extender'
+></ImageSection>
+
+---
+  
+<Tabs className="unique-tabs" groupid = "catalog" queryString="show" defaultValue="overview"
+  values={[
+    {label: 'Overview', value: 'overview'},
+  ]}>
+
+<TabItem value="overview">
+
+Bring a standard DUELink [Downlink](../../interface/downlink) to your BBC [micro:bit](../../hw/microbit).
+
+<table><td width='50%'>
+**Key features**
+
+• micro:bit female header<br/>
+• Downlink connector<br/>
+• 57.5x28.5mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+
+📄[Schematics](pathname:///sch/gdl-adlinkbit-a.pdf)<br/>
+🔩[3D STEP file](pathname:///3d/gdl-adlinkbit-a.step)<br/>
+
+</td></table>
+</TabItem>
+</Tabs>
+
+---
+
+<OrderSection
+    product = "DUELink LinkBit"
+    partnumber = "GDL-ADLINKBIT-A"
+    price = "$00.00"
+></OrderSection>
+

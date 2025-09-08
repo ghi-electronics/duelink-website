@@ -1,0 +1,136 @@
+---
+sidebar_position: 95
+title: DuePi Rev B
+description: DuePi Rev B - High-quality DUELink module
+pagination_prev: null
+pagination_next: null
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# DuePi Rev B
+
+<ImageSection 
+  product="adduepi-b"
+  tagline="High-quality DUELink module"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+Raspberry Pi HAT adapter for Pi compatibility
+
+<table><td width='50%'>
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-adduepi-b.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-adduepi-b.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
+
+# Example code for DuePi Rev B
+# Initialize the module
+module = dl.adapter.duepi()
+
+# Basic operations
+module.initialize()
+module.read()
+```
+
+</TabItem>
+
+<TabItem value="samples">
+
+**Samples assumes Drivers are installed.**
+
+### Script
+
+**Script Sample**
+
+```basic
+#This script sample is only shared to test the module, do not load when connected to a Raspberry Pi.  
+
+StatLed(100,100,10)
+Buzzer(200,100)
+
+_x = 50
+_d = 10
+_w = GetW()
+
+
+while 1
+    Clear(0)
+    Circle(1,_x,GetH()/2,10)
+    
+    TextS("DUELink",1,25,5,2,2)
+    Show()
+    
+    _x=_x+_d
+
+    if (_x > _w || _x <0)
+        _d = _d * -1 
+        Buzzer(256,10)
+    end
+    
+    if BtnA()
+        Buzzer(1000,100)
+    end
+    
+    if BtnB()
+        Buzzer(500,100)
+    end
+
+wend
+```
+
+[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink DuePi B"
+    partnumber="GDL-ADDUEPI-B"
+    price="$19.99"
+/>

@@ -1,0 +1,121 @@
+---
+sidebar_position: 70
+title: DOF9 Rev C
+description: DOF9 Rev C - High-quality DUELink module
+pagination_prev: null
+pagination_next: null
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# DOF9 Rev C
+
+<ImageSection 
+  product="sedof9-c"
+  tagline="9DoF MEMS Sensor"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+This 9DoF (Degrees of Freedom) MEMS (Micro Electro Mechanical System) sensor includes 3axis accelerometer, 3axis gyro, & 3axis magnetometer. The combination of these inputs can be used to get exact tilt and orientation.
+
+<table><td width='50%'>
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-sedof9-c.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-sedof9-c.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
+
+# Example code for DOF9 Rev C
+# Initialize the module
+module = dl.sensor.dof9()
+
+# Basic operations
+module.initialize()
+module.read()
+```
+
+</TabItem>
+
+<TabItem value="samples">
+
+**Samples assumes Drivers are installed.**
+
+### Script
+
+**Script Sample**
+
+```basic
+while (1)  
+    RAccel()
+    PrintLn("accel XYZ: ",_x," ",_y," ",_z)
+    
+    RCompass()
+    PrintLn("Compass XYZ: ", _x, " ", _y, " ", _z)
+    
+    RGyro()
+    PrintLn("Gyro XYZT: ",_x," ",_y," ",_z," ",_t)
+    
+    # This can take a while sometimes. Is this correct?
+    #while (dread(14, 1) = 1) # Wait for m_ready ready
+    #    Wait(1)
+    #wend
+    
+    Wait(100)    
+wend
+
+```
+
+[See full example on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink DOF9 C"
+    partnumber="GDL-SEDOF9-C"
+    price="$19.99"
+/>

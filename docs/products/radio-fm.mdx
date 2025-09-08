@@ -1,0 +1,117 @@
+---
+sidebar_position: 89
+title: Radio FM
+description: Radio FM - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# Radio FM
+
+<ImageSection 
+  product="soradiofm-a"
+  tagline="FM Radio Receiver"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+Use simple commands to set the channel and audio level on this FM Radio Receiver. The module includes a standard 3.5mm stereo audio plug, for connecting headphones or amplified speakers.
+
+<table><td width='50%'>
+**Key features**
+
+• FM Radio Receiver<br/>
+• Sets channel and audio level<br/>
+• 3.5mm stereo audio connector<br/>
+• 47x27mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-soradiofm-a.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-soradiofm-a.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+<details>
+<summary><strong>The Code!</strong></summary>
+
+**Radio FM Driver**
+
+```text
+##### Driver Code Starts Here ###
+
+##### User Code Starts Here #####
+```
+
+</details>
+
+[See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+
+</TabItem>
+
+<TabItem value="samples">
+
+### Python
+
+```python
+from DUELink.DUELinkController import DUELinkController
+import time
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+```
+
+### JavaScript
+
+```javascript
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+```
+
+### Script
+
+```text
+# Append this code at the bottom of the script, right after the driver.
+# You MUST keep the driver code!!
+```
+
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink Radio FM"
+    partnumber="GDL-SORADIOFM-A"
+    price="$0.00"
+/>

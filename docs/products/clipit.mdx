@@ -1,0 +1,234 @@
+---
+sidebar_position: 2
+title: ClipIt
+description: ClipIt - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# ClipIt
+
+<ImageSection 
+  product="mcclipit-b"
+  tagline="Alligator clip friendly STEM-microcomputer"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+Educators can now elevate their STEM-mission with Clipit. Start immediately with light sensor and touch pads to read inputs. Then use any of the supported Languages to process those inputs and then control the output on the 5x5 LED matrix and buzzer.
+
+<table><td width='50%'>
+**Key features**
+
+• Clip Friendly Holes<br/>
+• Capacitive Touchpads<br/>
+• USB-C connector<br/>
+• 5x5 LED Matrix<br/>
+• Buzzer<br/>
+• Light Sensor<br/>
+• 120x60mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-mcclipit-b.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-mcclipit-b.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+| Function | Description |
+|----------|-------------|
+| `TouchA()` | Returns 1 if A pad is touched. |
+| `TouchB()` | Returns 1 if B pad is touched. |
+| `TouchUp()` | Returns 1 if Up pad is touched. |
+| `TouchDown()` | Returns 1 if Down pad is touched. |
+| `TouchLeft()` | Returns 1 if Left pad is touched. |
+| `TouchRight()` | Returns 1 if Right pad is touched. |
+| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |
+| `Light()` | Returns voltage level from light sensor. |
+| `DVer()` | This driver version. |
+<details>
+<summary><strong>The Code!</strong></summary>
+
+**ClipIt Driver**
+
+```text
+##### Clipit Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn Init()
+    #Initialize LED Matrix
+    Dim a1[] = {0, 8,9,6,5,4,  19,22,11,21,23} # first number sets common-anode, second 5 for data, third 5 for scan
+    GfxCfg(4, a1, 5, 5, 1)# type 4: 5x5 type, 1: buffered x1
+fend
+
+fn TouchA()
+    if(Touch(10, 10, 1, 1000)>100)
+        return 1
+    else 
+        return 0
+fend
+
+fn TouchB()
+    if(Touch(24, 10, 1, 1000)>100)
+        return 1
+    else 
+        return 0
+fend
+
+fn TouchUp()
+    if(Touch(13, 10, 1, 1000)>100)
+        return 1
+    else 
+        return 0
+fend
+
+fn TouchDown()
+    if(Touch(18, 10, 1, 1000)>100)
+        return 1
+    else 
+        return 0
+fend
+
+fn TouchLeft()
+    if(Touch(14, 10, 1, 1000)>100)
+        return 1
+    else 
+        return 0
+fend
+
+fn TouchRight()
+    if(Touch(12, 10, 1, 1000)>100)
+        return 1
+    else 
+        return 0
+fend
+
+fn Light()
+    return Trunc(VRead(17)/(ReadVCC() )*100)
+fend
+
+fn Buzzer(f,d)
+    Beep(7, f, d)
+fend
+
+Init()
+
+#########################
+```
+
+</details>
+
+[See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+
+</TabItem>
+
+<TabItem value="samples">
+
+### Python
+
+```python
+from DUELink.DUELinkController import DUELinkController
+import time
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+```
+
+### JavaScript
+
+```javascript
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+```
+
+### Script
+
+```text
+while 1
+    TextT("DUELink", 1, _x, 0)
+    Show()
+    _x= _x-1
+    if _x < -40
+        _x = 6
+    end
+    wait(100)
+    
+    if TouchUp()
+      Buzzer(7, 1000, 500)
+    end
+    
+    if TouchDown()
+      Buzzer(7, 200, 500)
+    end
+    
+    if TouchRight()
+      Buzzer(7, 400, 500)
+    end
+    
+    if TouchLeft()
+      Buzzer(7, 600, 500)
+    end
+    
+    if TouchA()
+      Clear(0)
+      TextT("A", 1, 0, 0)
+      Show()
+      Wait(1000)
+    end
+    
+    if TouchB()
+      Clear(0)
+      TextT("B", 1, 0, 0)
+      Show()
+      Wait(1000)
+    end
+
+    Buzzer(Light()*50+500,30)#Light sensor value changes freq of buzzer
+
+    Clear(0) # need to clear for next character
+wend
+```
+
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink ClipIt"
+    partnumber="GDL-MCCLIPIT-B"
+    price="$0.00"
+/>

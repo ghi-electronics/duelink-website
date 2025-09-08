@@ -1,0 +1,85 @@
+---
+sidebar_position: 8
+title: Ghizzy Jr Rev A
+description: Ghizzy Jr Rev A - High-quality DUELink module
+pagination_prev: null
+pagination_next: null
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# Ghizzy Jr Rev A
+
+<ImageSection 
+  product="spghizzyjr-a"
+  tagline="Tiny Robot-shaped Microcomputer"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    }
+]}>
+
+<TabItem value="overview">
+
+Is this the smallest, cutest, and smartest key chain in the world? You decide, but this is a mini robot-shaped pocket-sized microcomputer that plugs right into a USB socket!
+
+<table><td width='50%'>
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-spghizzyjr-a.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-spghizzyjr-a.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](../../engine/drivers) page for further details.
+
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
+
+# Example code for Ghizzy Jr Rev A
+# Initialize the module
+module = dl.special.ghizzy()
+
+# Basic operations
+module.initialize()
+module.read()
+```
+
+</TabItem>
+
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink Ghizzy Jr A"
+    partnumber="GDL-SPGHIZZYJR-A"
+    price="$19.99"
+/>

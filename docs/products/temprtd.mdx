@@ -1,0 +1,218 @@
+---
+sidebar_position: 78
+title: TempRTD
+description: TempRTD - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# TempRTD
+
+<ImageSection 
+  product="setemprtd-a"
+  tagline="TempRTD Sensor"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+This sensor uses the included RTD (Resistance Temperature Detector) to measure temperatures.
+
+<table><td width='50%'>
+**Key features**
+
+• RTD Temperature Sensor<br/>
+• 42x27 overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-setemprtd-a.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-setemprtd-a.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+<details>
+<summary><strong>The Code!</strong></summary>
+
+**TempRTD Driver**
+
+```text
+##### Distance Driver #####
+## Preliminary driver. Needs work!
+
+fn DVer()
+    return 0.1
+fend
+
+Alias(cs=4,rdy=3)
+
+fn MaxRead(a, b1)
+    a = a & (~0x00)
+    DWrite(cs,0) 
+    SpiWr(a)
+    SpiWrs(0,b1)
+    DWrite(cs,1)
+fend
+
+fn MaxWrite(a,d)
+    a = a | 0x80  
+    DWrite(cs,0)
+    SpiWr(a)
+    SpiWr(d)
+    DWrite(cs,1)
+fend
+
+fn EnBias(v)
+    Dim b1[1]  
+    MaxRead(0x00, b1)
+    
+    if (v = 1)
+        b1[0] = b1[0] | 0x80
+    else
+        b1[0] = b1[0] & (~0x80)
+    end
+    
+    MaxWrite(0x00, b1[0])  
+fend
+
+fn Auto(e)
+    Dim b1[1] 
+    MaxRead(0x00, b1)
+    
+    if e =1
+        b1[0] = b1[0] | 0x40
+    else
+        b1[0] = b1[0] & (~0x40)
+    end
+    
+    MaxWrite(0x00, b1[0])
+fend
+
+fn setWire(n)
+    Dim b1[1]
+    
+    MaxRead(0x00, b1)
+    
+    if n =3
+        b1[0] = b1[0] | 0x10
+    else
+        b1[0] = b1[0] & (~0x10)
+    end
+    
+    MaxWrite(0x00, b1[0])
+fend
+
+fn SShort()
+    Dim b1[1]
+    MaxRead(0x00, b1)
+    MaxWrite(0x00, b1[0] | 0x20)
+fend
+
+fn readTemp()
+    EnBias(1)
+    Wait(10)
+    SShort()
+    
+    while (DRead(rdy,0) = 1)
+        Wait(10)
+    wend
+    
+    Dim b1[2]  
+    MaxRead(0x01, b1) 
+    d = b1[0] << 8
+    d = d | b1[1]
+    d = d >> 1 
+    r = d * 430 / 32768
+    t = (r / 100 - 1) / 0.003851   
+    EnBias(0)
+    
+    return t  
+fend
+
+fn Init()
+    SpiCfg(1,1000)
+    SetWire(3)
+    EnBias(0)
+    Auto(0)
+fend
+
+Init()
+
+#########################
+```
+
+</details>
+
+[See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+
+</TabItem>
+
+<TabItem value="samples">
+
+### Python
+
+```python
+from DUELink.DUELinkController import DUELinkController
+import time
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+```
+
+### JavaScript
+
+```javascript
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+```
+
+### Script
+
+```text
+
+while 1
+    PrintLn("Temp: ", readTemp())
+    Wait(1000)
+wend
+
+```
+
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink TempRTD"
+    partnumber="GDL-SETEMPRTD-A"
+    price="$0.00"
+/>

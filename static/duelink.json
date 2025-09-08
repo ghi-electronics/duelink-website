@@ -24,7 +24,8 @@
         "Light Sensor",
         "2x User Buttons",
         "52x42mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 5. |\n| `GetH()` | Get display height: 5. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "ClipIt",
@@ -41,7 +42,8 @@
         "Buzzer",
         "Light Sensor",
         "120x60mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `TouchA()` | Returns 1 if A pad is touched. |\n| `TouchB()` | Returns 1 if B pad is touched. |\n| `TouchUp()` | Returns 1 if Up pad is touched. |\n| `TouchDown()` | Returns 1 if Down pad is touched. |\n| `TouchLeft()` | Returns 1 if Left pad is touched. |\n| `TouchRight()` | Returns 1 if Right pad is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage level from light sensor. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "DueDuino",
@@ -55,7 +57,8 @@
         "USB-C connector",
         "PowerJack",
         "69x56mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "DueSTEM",
@@ -75,7 +78,8 @@
         "RGB LED",
         "Tunes Buzzer",
         "107x57mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnPin(a)` | Returns button's pin number, based on `a` alias ('U' = Up, 'D' = Down, 'L' = Left, 'R' = Right) |\n| `GetX()` | Returns the X axis of the Accelerometer. |\n| `GetY()` | Returns the Y axis of the Accelerometer. |\n| `GetZ()` | Returns the Z axis of the Accelerometer. |\n| `SetBulb(c)` | Sets Lightbulb `c` color with 24bit RGB color (RRGGBB). |\n| `Tunes(f,d)` | Plays Tunes buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage level from Light sensor. |\n| `ReadTemp()` | Returns voltage level from Temperature sensor. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "PixoBit",
@@ -92,7 +96,8 @@
         "micro:bit inspired edge connector",
         "USB-C connector",
         "52x42mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnUpA()` | Returns 1 if button A was released. |\n| `BtnDownA()` | Returns 1 if button A was pressed. |\n| `BtnUpB()` | Returns 1 if button B was released. |\n| `BtnDownB()` | Returns 1 if button B was pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Stamp",
@@ -107,7 +112,8 @@
         "USB-C connector",
         "Surface mountable",
         "24x18mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Stick",
@@ -135,7 +141,8 @@
         "Downlink DUELink Connector",
         "PCB USB-A",
         "20x47mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `Eye(l,r)` | Sets the `l` left and `r` right \"Eyes\" with 24bit RGB color (RRGGBB). |\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Ghizzy",
@@ -151,7 +158,8 @@
         "CR2032 button battery powered",
         "PCB USB-A",
         "27x61mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `Eye(l,r)` | Sets the `l` left and `r` right \"Eyes\" with 24bit RGB color (RRGGBB). |\n| `Ear(l,r)` | Activate the `l` left and `r` \"ears\" LEDs (1 on, 0 off). |\n| `Mouth(o)` | Activate the `m` \"mouth\" LED (1 on, 0 off). |\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Holiday Tree",
@@ -164,7 +172,8 @@
         "26 Smart LEDs",
         "Buzzer",
         "140x110mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `PlayLED(enable)` | `PlayLED(1)` will make the LED constantly blink, default. Use `PlayLED(0)` to disable playback and manually control the LEDs. |\n| `SetLED(i, c, l)` | Sets a specific LED, `i` index (index start from 1), to a `c` color (hex value), `l` brightness (0 off, max 31). |\n| `SetAll(color)` | Sets all LEDs to a specific color, use 0 to turn off. |\n| `ShowLed()` | Flush Leds, and show. |\n| `RndLed()` | Show random color on random leds. |\n| `Buzzer(f,d)` | Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "ePaper M29",
@@ -178,7 +187,8 @@
         "296x128 resolution",
         "Red/White/Black Color",
         "102x37mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `Width()` | Display width. |\n| `Height()` | Display Height. |\n| `DrawOnBW()` | Next drawing functions will go on B&W. |\n| `DrawOnRed()` | Next drawing functions will go on Red. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "ePaper M42",
@@ -193,7 +203,8 @@
         "200x150 actual res",
         "Red/White/Black color",
         "107x87mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `Width()` | Display width. |\n| `Height()` | Display Height. |\n| `DrawOnBW()` | Next drawing functions will go on B&W. |\n| `DrawOnRed()` | Next drawing functions will go on Red. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "HDMI",
@@ -205,7 +216,8 @@
       "keyFeatures": [
         "HDMI interface",
         "57x77mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start. |\n| `DLClear()` | Clear the commands. |\n| `DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments. |\n| `DLSwap()` | Execute the graphics commands and swap working buffers. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "LCD 16x2",
@@ -217,7 +229,8 @@
       "keyFeatures": [
         "16 Characters by 2 rows",
         "97x37mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "LCD 20x4",
@@ -229,7 +242,8 @@
       "keyFeatures": [
         "20 Characters by 4 Rows",
         "112x62mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "OLED 096",
@@ -242,7 +256,8 @@
         "0.96\" display",
         "128x64",
         "40x27mm overall dimension"
-      ]
+      ],
+      "driverTable": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Portal CP70",

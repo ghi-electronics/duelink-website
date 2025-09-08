@@ -1,0 +1,394 @@
+---
+sidebar_position: 35
+title: CAN
+description: CAN - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# CAN
+
+<ImageSection 
+  product="cmcan-b"
+  tagline="High-quality DUELink module"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+CAN bus interface module for automotive and industrial networks
+
+<table><td width='50%'>
+**Key features**
+
+• Support CAN V2.0B<br/>
+• Standard and extended ArbID<br/>
+• Remote frames<br/>
+• Terminal Block Connector<br/>
+• 42x42mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-cmcan-b.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-cmcan-b.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+<details>
+<summary><strong>The Code!</strong></summary>
+
+**CAN Driver**
+
+```text
+##### CAN Driver #####
+
+fn RdReg(r)
+    DWrite(15,0)
+ 
+    SpiWr(3)
+    SpiWr(r)
+    r=SpiWr(0)
+ 
+    DWrite(15,1)
+    return r
+fend
+ 
+fn RdRegs(r, b1, o,l)
+    DWrite(15,0)
+ 
+    SpiWr(3)
+    SpiWr(r)
+ 
+    for i = o to (l + o)
+        b1[i]=SpiWr(0)
+    next
+ 
+    DWrite(15,1)
+fend
+ 
+fn ModReg(r,m, d)
+    DWrite(15,0)
+ 
+    SpiWr(5) 
+    SpiWr(r)
+    SpiWr(m)
+    SpiWr(d)
+ 
+    DWrite(15,1)
+fend
+ 
+fn SetMode(m)
+    ModReg(0x0f,0xE0,m)
+    ModReg(0x0f,0x08,0x08)
+ 
+    while 1
+        if RdReg(0x0E)= m
+            #PrintLn("match ", m)
+            return
+        end
+        #PrintLn("Wait ", m)
+        Wait(1000)
+ 
+    wend
+ 
+fend
+ 
+fn SetReg(r,v)
+    DWrite(15,0)
+    SpiWr(0x02)
+    SpiWr(r)
+    SpiWr(v)
+    DWrite(15,1)
+fend
+ 
+fn SetRegs(r, b2, n)
+    DWrite(15,0)
+ 
+    SpiWr(0x02)
+    SpiWr(r)
+ 
+    for i in range(0,n)
+        SpiWr(b2[i])
+    next
+ 
+    DWrite(15,1)
+fend
+ 
+fn SetBitrate(b)
+    SetMode(0x80)
+    
+    if b = 125000
+        SetReg(0x2A,0x1)
+        SetReg(0x29,0xb1)
+        SetReg(0x28,0x85)
+    end
+    
+    if b = 250000
+        SetReg(0x2A,0)
+        SetReg(0x29,0xb1)
+        SetReg(0x28,0x85)
+    end
+    
+    if b = 500000
+        SetReg(0x2A,0)
+        SetReg(0x29,0x90)
+        SetReg(0x28,0x82)
+    end
+    
+    if b = 1000000
+        SetReg(0x2A,0)
+        SetReg(0x29,0x80)
+        SetReg(0x28,0x50)
+    end
+    
+fend
+ 
+fn getStat()
+    DWrite(15,0)
+    SpiWr(0xA0)
+    r=SpiWr(0)
+    DWrite(15,1)
+ 
+    return r
+fend
+
+fn TxFree() # txbuf 0 only
+    r=RdReg(0x30) # TXBnCTRL TX 
+    
+    return !(r & 0x8) # bit 3 1: busy 0: free
+fend
+
+fn TxReq(i,l, b1)
+    #i: id
+    #l: Len
+    #b1: data
+    
+    if TxFree() =0
+        return 0
+    end 
+    
+    if l > 8
+        return -1 #error
+    end
+    
+    dim b2[5+l] # max 13
+    
+    c = i & 0x0FFFF 
+    
+    b2[3] = (c & 0xFF) 
+    b2[2] =  (c >> 8) 
+    c = (i >> 16)
+    b2[1] =  (c & 0x03) 
+    b2[1] = b2[1] + ((c & 0x1C) << 3) 
+    b2[1] = b2[1] | 0x08 
+    b2[0] =  (c >> 5) 
+   
+    b2[4] = l #DLC
+ 
+ 
+    #copy data
+    MemCpy(b2,5,b1,0, l)
+
+    # load data to register
+    SetRegs(0x31,b2,5+l)
+ 
+
+    # send command to RTS - Due Errate, send Send request will send message twice, we use RTS
+    DWrite(15,0)
+    SpiWr(0x81) 
+    DWrite(15,1)
+ 
+    r=RdReg(0x30)
+    
+    if ((r & (0x40 | 0x20 | 0x10 )) != 0)
+        return -2 # error
+    end
+    
+    if ((r & (0x08 )) != 0)
+        return -3 # busy
+    end
+    
+    return 1 # success
+    
+fend
+ 
+fn RxRd(b1) # must be 9 element
+    r = getStat()
+    
+    if (r & (1<<0) = 0)
+        return -1 # no message available
+    end
+    
+    if (Len(b1) != 9)
+        return -2 # Len must be 9 : DLC + 8 data
+    end
+ 
+    dim b7[13]
+    
+    RdRegs(0x61, b7, 0, 5) 
+ 
+ 
+    
+    d = (b7[0]<<3) + (b7[1]>>5)
+ 
+    if ( (b7[1] & 0x8) =  0x8 ) 
+        d = (d<<2) + (b7[0]<<b7[1] & 0x03)
+        d = (d<<8) + b7[0]<<b7[2]
+        d = (d<<8) + b7[0]<<b7[3]
+        d |= 0x80000000
+    end
+ 
+ 
+    l = b7[4] & 0x0F # length
+ 
+    if (l = 0)
+        return d
+    end    
+ 
+ 
+    c = RdReg(0x60) 
+ 
+    if (c & 0x08)
+        d = d | 0x40000000 # RTR
+    end
+ 
+    
+    RdRegs(0x66, b7, 5, l) 
+    
+    
+    b1[0] = l
+    MemCpy(b1,1,b7,5,l)
+
+    ModReg(0x2C, 0x1, 0) 
+    
+    return d
+fend
+ 
+fn RxFull() 
+    v = RdReg(0x2C) 
+    
+    return (v & 0x1) # bit 1 is Rx0Buff: 1 full: 0 no full
+fend
+
+
+fn Init() 
+    SpiCfg(0, 8000)
+    DWrite(15,1)
+ 
+    DWrite(15,0)
+    SpiWr(0xC0)
+    DWrite(15,1)
+ 
+    Wait(10)
+ 
+    #PrintLn("Set bitrate ")
+    SetBitrate(500000)  # set baudrate must be before set mode normal
+ 
+    # Enable RX full interrupt flag - need for RxFull() to check
+    ModReg(0x2B,1,1) 
+    
+    #PrintLn("Set normal")
+    SetMode(0)
+
+fend 
+
+Init() 
+
+####################
+```
+
+</details>
+
+[See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+
+</TabItem>
+
+<TabItem value="samples">
+
+### Python
+
+```python
+from DUELink.DUELinkController import DUELinkController
+import time
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+```
+
+### JavaScript
+
+```javascript
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+```
+
+### Script
+
+```text
+# This sample is, when received a message, DUELink will write back a message
+_c = 0
+
+Dim b1[9] = [0,0,0,0,0,0,0,0,0]
+while (1 )
+    _i = RxRd(b1)
+    
+    if _i >=0 # id >= 0 valid, -1: invalid = no message
+        
+        PrintLn("id: ", hex(_i))
+        PrintLn("length: ", b1[0])
+
+        for _i = 1 to 9
+            PrintLn("data ", b1[_i])
+        next 
+
+        Dim b3[8]=[0x11,0x22,0x33,0x44,0x55,0x66,0x77,0x88]
+        
+        PrintLn("sent: ", TxReq(_c,len(b3),b3)) 
+
+        _c = _c + 1
+        
+    end
+
+    Wait(100)
+wend
+```
+
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink CAN"
+    partnumber="GDL-CMCAN-B"
+    price="$0.00"
+/>

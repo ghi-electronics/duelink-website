@@ -1,0 +1,205 @@
+---
+sidebar_position: 50
+title: Fingerprint B
+description: Fingerprint B - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# Fingerprint B
+
+<ImageSection 
+  product="hifingerprint-b"
+  tagline="Biometric Fingerprint Detector"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+Read and match prerecorded fingerprints with this intelligent HMI sensor.
+
+<table><td width='50%'>
+**Key features**
+
+• High-quality DUELink module<br/>
+• Easy integration<br/>
+• Professional grade components<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-hifingerprint-b.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-hifingerprint-b.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+```python
+# Python driver installation
+import duelink
+dl = duelink.DueLink()
+
+# Example code for Fingerprint B
+# Initialize the module
+module = dl.hmi.fingerprint()
+
+# Basic operations
+module.initialize()
+module.read()
+```
+
+</TabItem>
+
+<TabItem value="samples">
+
+### Python
+
+```python
+from DUELink.DUELinkController import DUELinkController
+import time
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+```
+
+### JavaScript
+
+```javascript
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+```
+
+### Script
+
+```basic
+PrintLn("Initialize.....")
+while Init() != 0
+    Wait(1000)
+wend
+
+s= GetSavedCnt() # check if no finger saved in database
+
+PrintLn("Fingerprint found: ", s)
+
+if s > 0  # if found then delete it for new setup, just test
+    DelModel(1)
+    s= GetSavedCnt() # make sure after deleted it is empty
+end
+
+while s = 0 # setup new finger
+    Wait (1000)
+    PrintLn("No saved fingerprint found, need to add")
+    
+    if (DRead(4,1) = 0) # pin 4 is low: detected user finger on surface
+        SetLed(1,1,0) # Setting: Blink Red
+        
+        PrintLn("Taking image of your fingerprint.....")
+        while TakeImg() != 0 # 0 FINGERPRINT_OK 
+            PrintLn("Bad image! Try again") 
+            Wait(1000)
+        wend
+
+        while ConvertImg(1) != 0
+            Wait(1000)
+        wend
+        
+        PrintLn("Remove your finger")
+        while (DRead(4,1) = 0) # Wait till user remove their finger
+            Wait (1)
+        wend
+        
+        Wait (100)
+        PrintLn("Place your same fingerprint again, we need to take image twice")
+        while (DRead(4,1) = 1) # Wait till user place their finger again
+            Wait (1)
+        wend
+        
+        while TakeImg() != 0 # 0 FINGERPRINT_OK 
+            PrintLn("Bad image! Try again") 
+            Wait(1000)
+        wend
+        
+        while ConvertImg(2) != 0
+            Wait(1000)
+        wend
+        
+        if CreateModel() = 0 # create model
+            if (StoreModel(1) = 0) # store to location 1
+
+                s= GetSavedCnt() # check database again
+                
+                if (s > 0) 
+                    PrintLn("Your finger is saved")
+                    SetLed(2,0,0) # Set led Blue
+                end
+            end
+        end
+    end
+wend
+
+_f = 0
+while (_f = 0)    
+    if (DRead(4,1) = 0) # pin 4 is low: detected user finger on surface
+        SetLed(3,0,0) # Turn led to purple
+        PrintLn("Detect finger. Taking image of your finger.....")
+        while TakeImg() != 0 # 0 FINGERPRINT_OK 
+            PrintLn("Bad image! Try again") 
+            Wait(1000)
+        wend
+        
+        while ConvertImg(1) != 0
+            Wait(1000)
+        wend
+        
+        if FastSearch() = 0
+            PrintLn("Your finger found in our database") 
+            SetLed(2,0,0) # Turn led to Blue
+            _f = 1# 
+        end
+    end
+    
+    Wait(100)
+    
+wend
+
+PrintLn("If you see here mean all good***") 
+
+```
+
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink Fingerprint B"
+    partnumber="GDL-HIFINGERPRINT-B"
+    price="$19.99"
+/>

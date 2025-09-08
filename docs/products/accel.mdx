@@ -1,0 +1,175 @@
+---
+sidebar_position: 64
+title: Accel
+description: Accel - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# Accel
+
+<ImageSection 
+  product="seaccel-a"
+  tagline="3-Axis Accelerometer"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+This 3-axis accelerometer can be used to detect motion, tilt, and acceleration just to name a few.
+
+<table><td width='50%'>
+**Key features**
+
+• Detect motion, tilt and acceleration<br/>
+• 22x20mm overall dimension<br/>
+
+</td><td width='50%'>
+**Resources**
+ 
+📄[Schematics](/sch/gdl-seaccel-a.pdf)<br/>
+🔩[3D STEP file](/3d/gdl-seaccel-a.step)<br/>
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+<details>
+<summary><strong>The Code!</strong></summary>
+
+**Accel Driver**
+
+```text
+##### Accel Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+Dim b1[1]
+
+fn Init()
+    I2cCfg(400)    
+    I2cWr(0x4c, [0x20, 2], 0) # 0x4c: I2c address, [0x20,1] MC3216_Outcfg
+    I2cWr(0x4c, [0x07, 1], 0) # 0x4c: I2c address, [0x07,1] MC3216_Mode
+fend
+
+fn Convert(c)
+    if (c > 127)
+        c = c - 256
+    end
+    
+    c = c * 1024 / 64
+    
+    if (c > 1024)
+        c = 1024
+    end
+    
+    if (c < -1024)
+        c = -1024
+    end
+    
+    return c
+fend
+
+fn GetX()
+    I2cWr(0x4C, [0x0D], b1) # 0x0D MC3216_XOut
+    return Convert(b1[0])
+fend
+
+fn GetY()
+    I2cWr(0x4C, [0x0F], b1) # 0x0F MC3216_YOut
+    return Convert(b1[0])
+fend
+
+fn GetZ()
+    I2cWr(0x4C, [0x11], b1) # 0x11 MC3216_ZOut
+    return Convert(b1[0])
+fend
+
+Init()
+
+#########################
+```
+
+</details>
+
+[See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+
+</TabItem>
+
+<TabItem value="samples">
+
+### Python
+
+```python
+from DUELink.DUELinkController import DUELinkController
+import time
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+
+while 1:
+    wait(1000)
+    
+    println("x = ", GetX())
+    println("y = ", GetY())
+    println("z = ", GetZ())
+
+wend
+```
+
+### JavaScript
+
+```javascript
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+```
+
+### Script
+
+```text
+while 1
+    PrintLn("x = ", GetX())
+    PrintLn("y = ", GetY())
+    PrintLn("z = ", GetZ())
+    Wait(1000)
+wend
+```
+
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink Accel"
+    partnumber="GDL-SEACCEL-A"
+    price="$0.00"
+/>

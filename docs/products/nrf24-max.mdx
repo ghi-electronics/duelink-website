@@ -1,0 +1,114 @@
+---
+sidebar_position: 61
+title: NRF24 Max
+description: NRF24 Max - High-quality DUELink module
+hide_table_of_contents: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ImageSection from '@site/src/components/ImageSection';
+import OrderSection from '@site/src/components/OrderSection';
+
+# NRF24 Max
+
+<ImageSection 
+  product="wnrf24max-c"
+  tagline="Wireless NRF24 Transceiver with Amplified Antenna"
+/>
+
+---
+
+<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+  values={[
+    {
+        label: "Overview",
+        value: "overview"
+    },
+    {
+        label: "Drivers",
+        value: "drivers"
+    },
+    {
+        label: "Samples",
+        value: "samples"
+    }
+]}>
+
+<TabItem value="overview">
+
+Send and receive data wirelessly using SMA 2.4Ghz. The PA+LNA gives this module a coverage of up to a 1000 meters!
+
+<table><td width='50%'>
+**Key features**
+
+• 2.4Ghz SMA signal<br/>
+• 125 channels<br/>
+• Amplified signal with external antenna<br/>
+• 32x48mm overall dimension<br/>
+
+</td><td width='50%'>
+
+</td></table>
+
+</TabItem>
+
+<TabItem value="drivers">
+
+See [Drivers](/docs/engine/drivers) page for further details.
+
+<details>
+<summary><strong>The Code!</strong></summary>
+
+**NRF24 Max Driver**
+
+```text
+##### Driver Code Starts Here ###
+
+##### User Code Starts Here #####
+```
+
+</details>
+
+[See full driver on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/drivers)
+
+</TabItem>
+
+<TabItem value="samples">
+
+### Python
+
+```python
+from DUELink.DUELinkController import DUELinkController
+import time
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+```
+
+### JavaScript
+
+```javascript
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+```
+
+### Script
+
+```text
+# Append this code at the bottom of the script, right after the driver.
+# You MUST keep the driver code!!
+```
+
+[See full examples on GitHub](https://github.com/ghi-electronics/duelink-website/tree/main/static/code/samples)
+
+</TabItem>
+
+</Tabs>
+
+---
+
+<OrderSection
+    product="DUELink NRF24 Max"
+    partnumber="GDL-WNRF24MAX-C"
+    price="$0.00"
+/>
