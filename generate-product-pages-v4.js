@@ -337,8 +337,8 @@ ${sampleTabItems.join('\n')}
         // Check if driver indicates no driver is needed
         const noDriverNeeded = driverContent.includes('No need for a driver!');
         
-        // Use driverTable from product JSON if available, otherwise no table
-        const driverTable = product.driverTable || '';
+        // Use driverApi from product JSON if available, otherwise no table
+        const driverTable = product.driverApi || '';
         
         // Extract just the product name without revision
         const productBaseName = product.name.replace(/\s+[A-Z]$/i, '');
