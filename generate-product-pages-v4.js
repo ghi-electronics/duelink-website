@@ -423,7 +423,7 @@ https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sam
             sampleContent = `
 <TabItem value="samples">
 
-Samples assume the drivers are installed, see the <span style={{color: 'var(--ifm-link-color)', cursor: 'pointer', textDecoration: 'underline'}} onClick={() => { const tab = Array.from(document.querySelectorAll('.tabs__item')).find(el => el.textContent === 'Drivers'); if (tab) tab.click(); }}>Drivers Tab</span>.
+Samples assume the drivers are installed, see the <span style={{color: 'var(--ifm-link-color)', cursor: 'pointer', textDecoration: 'underline'}} onClick={() => { Array.from(document.querySelectorAll('.tabs__item')).find(el => el.textContent === 'Drivers')?.click(); }}>Drivers Tab</span>.
 
 <Tabs groupid="language" queryString="lang" defaultValue="${sampleTabs[0].value}"
   values={${JSON.stringify(sampleTabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>
@@ -517,7 +517,7 @@ ${imagePrefix !== null ? `<ImageSection
 
 ---
 
-<Tabs className="unique-tabs" groupid="catalog" queryString="show" defaultValue="overview"
+<Tabs className="unique-tabs" groupid="catalog" defaultValue="overview"
   values={${JSON.stringify(tabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>
 
 <TabItem value="overview">
