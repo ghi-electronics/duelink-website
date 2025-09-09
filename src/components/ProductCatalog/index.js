@@ -291,7 +291,7 @@ const ProductCatalog = () => {
           {debouncedSearchTerm && (
             <span className={styles.searchingText}>Searching for "{debouncedSearchTerm}"... </span>
           )}
-          <span className={styles.countText}>Showing {filteredProducts.length} of {products.length} products</span>
+          <span className={styles.countText}>Showing {filteredProducts.length} from {products.length} products</span>
         </div>
       )}
 
@@ -319,6 +319,15 @@ const ProductCatalog = () => {
           ))}
         </div>
       )}
+      
+      <div className={styles.bottomNavigation}>
+        <a href="#" className={styles.bottomNavBtn}>
+          Distributors
+        </a>
+        <a href="/docs/catalog/intro" className={styles.bottomNavBtn}>
+          Catalog Home
+        </a>
+      </div>
     </div>
   );
 };
