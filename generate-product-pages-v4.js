@@ -411,7 +411,7 @@ https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sam
                 sampleTabs.push({label: 'Arduino', value: 'arduino'});
                 sampleTabItems.push(`<TabItem value="arduino">
 
-\`\`\`cpp reference title="Arduino Sample"
+\`\`\`ino reference title="Arduino Sample"
 https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sample/${baseName}.ino
 \`\`\`
 
