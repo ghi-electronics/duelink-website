@@ -18,7 +18,7 @@
       { "id": 1, "name": "v332 (Alpha)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/microblocks/duelink_microblocks_v332.bin" },
       { "id": 2, "name": "v333 (Alpha)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/microblocks/duelink_microblocks_v333.bin" },
       { "id": 3, "name": "v334 (Alpha)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/microblocks/duelink_microblocks_v334.bin" },
-      { "id": 4, "name": "v345 (Alpha)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/microblocks/duelink_microblocks_v345.bin" }
+      { "id": 4, "name": "v347 (Alpha)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/microblocks/duelink_microblocks_v347.bin" }
     ],
     "boards": [
 	  { "name": "microblocks.fun", "id": "D" }     
