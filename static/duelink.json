@@ -457,7 +457,8 @@
             "PID": "0x080002",
             "Img": "sdcard-front.png",
             "Code": "storage/sdcard.txt",
-            "Category": "Storage"
+            "Category": "Storage",
+            "Notes": "Insert SD card with FAT32 before Click 'Do it all'"
         },
         {
             "Name": "MicroSD Rev A",
@@ -465,7 +466,8 @@
             "PID": "0x080003",
             "Img": "microsd-front.png",
             "Code": "storage/microsd.txt",
-            "Category": "Storage"
+            "Category": "Storage",
+            "Notes": "Insert uSD card with FAT32 before Click 'Do it all'"
         },
         {
             "Name": "GNSS WA Rev A",
