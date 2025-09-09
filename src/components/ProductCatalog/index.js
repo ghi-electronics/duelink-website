@@ -57,10 +57,39 @@ const ProductCatalog = () => {
       });
   }, []);
 
-  // Memoize categories to avoid recalculation
+  // Memoize categories to avoid recalculation - match sidebar order
   const categories = useMemo(() => {
+    const categoryOrder = [
+      'Microcomputer',
+      'Special',
+      'Display',
+      'Actuator',
+      'Communication',
+      'HMI',
+      'Storage',
+      'Wireless',
+      'Sensor',
+      'LED',
+      'Sound',
+      'Vision',
+      'Adapter'
+    ];
+    
     const cats = new Set(products.map(p => p.category || 'Other'));
-    return Array.from(cats).sort();
+    const catArray = Array.from(cats);
+    
+    // Sort by predefined order, then alphabetically for any not in the list
+    return catArray.sort((a, b) => {
+      const indexA = categoryOrder.indexOf(a);
+      const indexB = categoryOrder.indexOf(b);
+      
+      if (indexA !== -1 && indexB !== -1) {
+        return indexA - indexB;
+      }
+      if (indexA !== -1) return -1;
+      if (indexB !== -1) return 1;
+      return a.localeCompare(b);
+    });
   }, [products]);
 
   // Memoize filtered and sorted products

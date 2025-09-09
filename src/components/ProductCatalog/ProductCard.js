@@ -105,6 +105,14 @@ const ProductCard = memo(({ product, index }) => {
           ))}
         </div>
 
+        {product.tagline && (
+          <p className={styles.productTagline}>{product.tagline}</p>
+        )}
+
+        <div className={styles.productPrice}>
+          ${product.price?.toFixed(2) || '0.00'}
+        </div>
+
         <a 
           href={productUrl} 
           className={styles.productNameBtn}
