@@ -169,10 +169,10 @@ function getAvailableSamples(product) {
         samples.micropython = mpyPath;
     }
     
-    // Check for Arduino sample (.cpp files)
-    const cppPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.cpp`);
-    if (fs.existsSync(cppPath)) {
-        samples.arduino = cppPath;
+    // Check for Arduino sample (.ino files)
+    const inoPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.ino`);
+    if (fs.existsSync(inoPath)) {
+        samples.arduino = inoPath;
     }
     
     return samples;
@@ -404,7 +404,7 @@ https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sam
             }
         }
         
-        // Check for Arduino files (.cpp only)
+        // Check for Arduino files (.ino only)
         if (availableSamples.arduino) {
             const arduinoCode = loadSampleContent(availableSamples.arduino);
             if (arduinoCode !== null) {  // Check for null explicitly since empty file returns ""
@@ -412,7 +412,7 @@ https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sam
                 sampleTabItems.push(`<TabItem value="arduino">
 
 \`\`\`cpp reference title="Arduino Sample"
-https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sample/${baseName}.cpp
+https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sample/${baseName}.ino
 \`\`\`
 
 </TabItem>`);
