@@ -300,7 +300,7 @@
       "category": "Display",
       "price": 0,
       "tagline": "0.96\" - 128x64 OLED BW Display",
-      "description": "This small 0.96\" display is very sharp due to its OLED construction. It is B&W color, but with 128x64 pixels, it has enough resolution to show plenty of data and graphics.",
+      "description": "This small 0.96\" display is very sharp due to its OLED construction. It is B&W color, but with 128x64 pixels, it has enough resolution to show plenty of data and [graphics](/docs/engine/graphics).",
       "keyFeatures": [
         "0.96\" display",
         "128x64",
@@ -315,8 +315,8 @@
       "PID": "0x010009",
       "category": "Display",
       "price": 0,
-      "tagline": "7\"",
-      "description": "Portal CP70 7\" 800x400 capacitive touch display with a graphics co-processor BT817Q. Drawing using this module will be done via the graphics coprocessor and not the internal graphics engine.",
+      "tagline": "7\" 800x400 Color Touch Display with Graphics Co-Processor",
+      "description": "Portal CP70 7\" 800x400 capacitive touch display with a graphics co-processor [BT817Q](https://brtchip.com/product/bt817q/). Drawing using this module will be done via the graphics coprocessor and not the internal graphics engine.",
       "keyFeatures": [
         "Full Color 800x400 Pixels",
         "Graphics co-processor",
@@ -332,8 +332,8 @@
       "PID": "0x010007",
       "category": "Display",
       "price": 0,
-      "tagline": "2.3\"",
-      "description": "2.3\" 320x240 color TFT display with capacitive touch screen, supporting Graphics in buffered and in direct modes.",
+      "tagline": "2.3\" 320x240 Color Touch Display",
+      "description": "2.3\" 320x240 color TFT display with capacitive touch screen, supporting [Graphics](/docs/engine/graphics) in buffered and in direct modes.",
       "keyFeatures": [
         "Full Color 320x240 Pixels",
         "Capacitive Multi-Touch",
@@ -348,8 +348,8 @@
       "PID": "0x010006",
       "category": "Display",
       "price": 0,
-      "tagline": "1.8\"",
-      "description": "1.8\" - 160x128 Color TFT LCD (no touch) display, supporting Graphics.",
+      "tagline": "1.8\" - 160x128 Color Display",
+      "description": "1.8\" - 160x128 Color TFT LCD (no touch) display, supporting [Graphics](/docs/engine/graphics).",
       "keyFeatures": [
         "1.8\" display",
         "160x128 pixels",
@@ -364,8 +364,9 @@
       "PID": "0x010005",
       "category": "Display",
       "price": 0,
-      "tagline": "1.28\"",
-      "description": "1.28\" - 240x240 Color TFT LCD round (no touch) display, supporting Graphics.",
+      "tagline": "1.28\" - 240x240 Color Round Display",
+      "description": "1.28\" - 240x240 Color TFT LCD round (no touch) display, supporting [Graphics](/docs/engine/graphics).",
+      "link": "https://www.duelink.com/docs/catalog/display/tft-r128",
       "keyFeatures": [
         "1.28\" Round Display",
         "240x240",

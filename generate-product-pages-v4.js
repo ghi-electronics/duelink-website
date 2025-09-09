@@ -512,7 +512,7 @@ import ProductFooter from '@site/src/components/ProductFooter';
 
 ${imagePrefix !== null ? `<ImageSection 
   product="${imagePrefix}"
-  tagline="${(product.tagline || 'High-quality DUELink module').replace(/"/g, '')}"
+  tagline="${(product.tagline || 'High-quality DUELink module').replace(/"/g, '&quot;')}"
 />` : ''}
 
 ---
