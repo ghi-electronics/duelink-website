@@ -611,7 +611,7 @@
       "category": "Communication",
       "price": 0,
       "tagline": "DMX512 Lighting Control",
-      "description": "DMX512 lighting control interface for stage and architectural lighting",
+      "description": "Control hundreds of DMX stage motors and lights using this controller.\n\n![DMX Light](pathname:///img/dmx-light.jpg)\n\nNot only that, this module can also read DMX controllers. You can now have a commercial grade controller in your project.\n\n![DMX Controller](pathname:///img/dmx-controller.jpg)",
       "keyFeatures": [
         "Light Control Module",
         "On-board Female XLR Connector",
@@ -649,8 +649,8 @@
       "PID": "0x030005",
       "category": "Communication",
       "price": 0,
-      "tagline": "RS485 Serial Communication",
-      "description": "RS485 serial communication for long-distance data transfer",
+      "tagline": "RS485 Serial Interface",
+      "description": "Connect and control any industrial-grade low-cost electrically-isolated RS485 Sensors and Actuators with ease. Here is an example analog input.\n\n![RS485 Analog Input](pathname:///img/rs485-ain.jpg)",
       "keyFeatures": [
         "RS485 Transceiver",
         "Serial Communication",
@@ -664,8 +664,8 @@
       "PID": "0x030006",
       "category": "Communication",
       "price": 0,
-      "tagline": "USB to Serial Converter",
-      "description": "USB to serial converter for legacy device connectivity",
+      "tagline": "USB Virtual Serial Port",
+      "description": "A virtual serial connection (COM port) is presented by this module. An application can send serial data to a computer over a USB connection.",
       "keyFeatures": [
         "USB Serial",
         "Virtual Serial Port",

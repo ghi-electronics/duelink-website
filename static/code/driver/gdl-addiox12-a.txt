@@ -1,6 +1,5 @@
 ##### Dio X12 #####
 
-# No need for a driver!
-# Use standard library DWrite() or PWrite() to activate any of the connections
+# Dio X12 module uses the Standard Library API directly. No other drivers are needed.
 
 ####################
