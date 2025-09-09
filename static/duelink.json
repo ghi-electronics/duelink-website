@@ -458,7 +458,7 @@
             "Img": "sdcard-front.png",
             "Code": "storage/sdcard.txt",
             "Category": "Storage",
-            "Notes": "Insert SD card with FAT32 before Click 'Do it all'"
+            "Notes": "Insert SD card with FAT32 before Click 'Do it all'. Be carefull SD and uSD modules."
         },
         {
             "Name": "MicroSD Rev A",
@@ -467,7 +467,7 @@
             "Img": "microsd-front.png",
             "Code": "storage/microsd.txt",
             "Category": "Storage",
-            "Notes": "Insert uSD card with FAT32 before Click 'Do it all'"
+            "Notes": "Insert SD card with FAT32 before Click 'Do it all'. Be carefull SD and uSD modules."
         },
         {
             "Name": "GNSS WA Rev A",
