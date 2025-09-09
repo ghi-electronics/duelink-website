@@ -1,6 +1,5 @@
-##### Led RGB3 Test #####
+##### Accel Test #####
 
-dim b1[50]
 fn Test() 
     println("Starting test...")
     Wait(1)
@@ -15,16 +14,12 @@ fn Test()
         
         cmd("clear(0)")
         
-        sprintf(b1, "Texts(\"x=%d\",1,0,0,2,2)", x)        
-        cmd(b1)
-        
-        sprintf(b1, "Texts(\"y=%d\",1,0,20,2,2)", y)        
-        cmd(b1)
-        
-        sprintf(b1, "Texts(\"z=%d\",1,0,40,2,2)", z)        
-        cmd(b1)
+        cmd(fmt("Texts(\"x=", x, "\",1,0,0,2,2)"))
+        cmd(fmt("Texts(\"y=", y, "\",1,0,20,2,2)"))
+        cmd(fmt("Texts(\"z=", z, "\",1,0,40,2,2)"))
         
         cmd("show()")
+        
         Wait(1000)       
     wend
 fend   
