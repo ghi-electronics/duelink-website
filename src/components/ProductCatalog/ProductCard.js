@@ -5,14 +5,13 @@ import LazyImage from './LazyImage';
 import styles from './styles.module.css';
 
 const ProductCard = memo(({ product, index }) => {
-  const [selectedImage, setSelectedImage] = useState('front');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   
-  const imageTypes = ['front', 'back', 'pencil', 'front45', 'back45'];
+  const totalImages = 5; // Total number of images (1-5)
   
   // Generate clean part number for image paths
   const cleanPN = product.partNumber
@@ -30,20 +29,15 @@ const ProductCard = memo(({ product, index }) => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
   
-  useEffect(() => {
-    setSelectedImage(imageTypes[currentImageIndex]);
-  }, [currentImageIndex]);
 
-  const generateSlug = (name) => {
-    return name
-      .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-')
-      .trim('-');
+  const generateSlug = (partNumber) => {
+    // Remove GDL- prefix and convert to lowercase
+    return partNumber
+      .replace(/^GDL-/, '')
+      .toLowerCase();
   };
 
-  const productSlug = generateSlug(product.name);
+  const productSlug = generateSlug(product.partNumber);
   const productUrl = `/docs/products/${productSlug}`;
   
   const handleTouchStart = (e) => {
@@ -60,7 +54,7 @@ const ProductCard = memo(({ product, index }) => {
     const diff = touchStartX.current - touchEndX.current;
     
     if (Math.abs(diff) > swipeThreshold) {
-      if (diff > 0 && currentImageIndex < imageTypes.length - 1) {
+      if (diff > 0 && currentImageIndex < totalImages - 1) {
         // Swipe left - next image
         setCurrentImageIndex(prev => prev + 1);
       } else if (diff < 0 && currentImageIndex > 0) {
@@ -74,12 +68,12 @@ const ProductCard = memo(({ product, index }) => {
     if (currentImageIndex > 0) {
       setCurrentImageIndex(prev => prev - 1);
     } else {
-      setCurrentImageIndex(imageTypes.length - 1);
+      setCurrentImageIndex(totalImages - 1);
     }
   };
 
   const handleNextImage = () => {
-    if (currentImageIndex < imageTypes.length - 1) {
+    if (currentImageIndex < totalImages - 1) {
       setCurrentImageIndex(prev => prev + 1);
     } else {
       setCurrentImageIndex(0);
@@ -101,7 +95,7 @@ const ProductCard = memo(({ product, index }) => {
           <Zoom zoomMargin={isMobile ? 20 : 40}>
             <LazyImage 
               src={`/img/catalog/${cleanPN}-${currentImageIndex + 1}.png`} 
-              alt={`${product.name} ${selectedImage}`}
+              alt={`${product.name} view ${currentImageIndex + 1}`}
               className={styles.mainImage}
             />
           </Zoom>
@@ -109,13 +103,12 @@ const ProductCard = memo(({ product, index }) => {
         
         {isMobile ? (
           <div className={styles.mobileImageIndicators}>
-            {imageTypes.map((_, idx) => (
+            {[...Array(totalImages)].map((_, idx) => (
               <button
                 key={idx}
                 className={`${styles.imageIndicator} ${currentImageIndex === idx ? styles.activeIndicator : ''}`}
                 onClick={() => {
                   setCurrentImageIndex(idx);
-                  setSelectedImage(imageTypes[idx]);
                 }}
                 aria-label={`Go to image ${idx + 1}`}
               />
@@ -123,7 +116,7 @@ const ProductCard = memo(({ product, index }) => {
           </div>
         ) : (
           <>
-            {isHovered && imageTypes.length > 1 && (
+            {isHovered && totalImages > 1 && (
               <>
                 <button 
                   className={styles.imageNavPrev}
@@ -140,19 +133,18 @@ const ProductCard = memo(({ product, index }) => {
                   ›
                 </button>
                 <div className={styles.imageThumbs}>
-                  {imageTypes.map((imageType, idx) => (
+                  {[...Array(totalImages)].map((_, idx) => (
                     <button 
-                      key={imageType}
-                      className={`${styles.thumbButton} ${selectedImage === imageType ? styles.activeThumb : ''}`}
+                      key={idx}
+                      className={`${styles.thumbButton} ${currentImageIndex === idx ? styles.activeThumb : ''}`}
                       onClick={() => {
-                        setSelectedImage(imageType);
                         setCurrentImageIndex(idx);
                       }}
-                      aria-label={`${imageType} view`}
+                      aria-label={`View ${idx + 1}`}
                     >
                       <LazyImage 
                         src={`/img/catalog/${cleanPN}-${idx + 1}.png`} 
-                        alt={imageType}
+                        alt={`View ${idx + 1}`}
                       />
                     </button>
                   ))}

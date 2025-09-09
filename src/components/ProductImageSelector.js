@@ -6,18 +6,18 @@ const ProductImageSelector = ({ images, partNumber, productName }) => {
   // Support both legacy (images object) and new (partNumber) props
   const imageList = images 
     ? [
-        { key: 'front', src: images.front, alt: 'Front view' },
-        { key: 'back', src: images.back, alt: 'Back view' },
-        { key: 'pencil', src: images.pencil, alt: 'Pencil view' },
-        { key: 'front45', src: images.front45, alt: 'Front 45° view' },
-        { key: 'back45', src: images.back45, alt: 'Back 45° view' }
+        { key: 1, src: images.front, alt: 'View 1' },
+        { key: 2, src: images.back, alt: 'View 2' },
+        { key: 3, src: images.pencil, alt: 'View 3' },
+        { key: 4, src: images.front45, alt: 'View 4' },
+        { key: 5, src: images.back45, alt: 'View 5' }
       ].filter(img => img.src && img.src.trim())
     : [
-        { key: 'front', src: `${partNumber}-1.png`, alt: 'Front view' },
-        { key: 'back', src: `${partNumber}-2.png`, alt: 'Back view' },
-        { key: 'pencil', src: `${partNumber}-3.png`, alt: 'Pencil view' },
-        { key: 'front45', src: `${partNumber}-4.png`, alt: 'Front 45° view' },
-        { key: 'back45', src: `${partNumber}-5.png`, alt: 'Back 45° view' }
+        { key: 1, src: `${partNumber}-1.png`, alt: 'View 1' },
+        { key: 2, src: `${partNumber}-2.png`, alt: 'View 2' },
+        { key: 3, src: `${partNumber}-3.png`, alt: 'View 3' },
+        { key: 4, src: `${partNumber}-4.png`, alt: 'View 4' },
+        { key: 5, src: `${partNumber}-5.png`, alt: 'View 5' }
       ];
 
   const [selectedImage, setSelectedImage] = useState(imageList[0]?.src);
@@ -25,7 +25,7 @@ const ProductImageSelector = ({ images, partNumber, productName }) => {
   // Ensure component re-renders properly in MDX
   useEffect(() => {
     setSelectedImage(imageList[0]?.src);
-  }, [images?.front, partNumber]);
+  }, [images, partNumber]);
 
   const handleImageClick = (src) => {
     setSelectedImage(src);

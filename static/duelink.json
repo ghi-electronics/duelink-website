@@ -1696,10 +1696,11 @@
       "category": "Accessories",
       "price": 0,
       "tagline": "DUELink JST Connectors",
-      "description": "These are the standard 4pin 1mm JST connectors that are used on all DUELink modules. You can build your own!",
+      "description": "These standard connecters are here to help you in building [your own DUELink modules](/docs/catalog/third-party).",
+      "Notes": ":::note\nThese blue connectors will get discolored in a reflow oven. They are made for hand soldering. Contact us if you need a volume blue connectors that are suitable for reflow.\n:::",
       "keyFeatures": [
-        "Uplink Blue JST connector",
-        "Downlink White JST connector",
+        "4pin 1mm JST connector",
+        "Blue and White",
         "Surface Mount JST Connectors"
       ]
     },
@@ -1709,14 +1710,14 @@
       "category": "Accessories",
       "price": 0,
       "tagline": "Holey Boards for Mounting DUELink Modules",
-      "description": "These blank circuits with standard 5mm-pitch holes. Use to mount DUELink modules or build your own circuits.",
+      "description": "Holey Boards are blank circuits with standard 5mm-pitched holes for mounting DUELink Module. See [Mounting Hardware](./mount-hw) for options.\n\nThere are three size:\n* Holey Smally Board: 18x12 holes\n* Holey Board: 36x18 holes\n* Holey Moley Board: 46x36 holes",
       "keyFeatures": [
-        "5mm-pitch holes standard",
+        "5mm-pitch holes",
         "Front grid markings",
-        "Back clean printing area",
-        "Holey Smally: 92x62mm (18x12 holes)",
-        "Holey Board: 182x92mm (36x18 holes)",
-        "Holey Moley: 182x232mm (46x36 holes)"
+        "Back clean printing",
+        "Holey Smally: 92x62",
+        "Holey: 182x92mm",
+        "Holey Moley Board: 182x232mm"
       ]
     },
     {
@@ -1725,15 +1726,10 @@
       "category": "Accessories",
       "price": 0,
       "tagline": "Mounting Hardware",
-      "description": "Standoffs, Screws, Nuts, and Footpads are available to help in mounting all DUELink modules. While you can use these options with 3D printed and laser cut enclosures, the ideal use with any of the Holey Boards!",
+      "description": "Standoffs, Screws, Nuts, and Footpads are available to help in mounting all DUELink modules.\n\nWhile you can use these options with 3D printed and laser cut enclosures, the ideal use with any of the [Holey Boards](./holey-board)!\n\nThe available options are:\n* 10x - Male to Female Nylon standoffs\n* 10x - Female to Female Nylon standoffs\n* 10x - M3 Nylon Screws\n* 10x - M3 Nylon Nuts\n* 4x - M3 Metal Footpads",
       "keyFeatures": [
         "Universal M3 Size",
-        "Perfect for Holey Boards",
-        "10x Male to Female Nylon standoffs",
-        "10x Female to Female Nylon standoffs",
-        "10x M3 Nylon Screws",
-        "10x M3 Nylon Nuts",
-        "4x M3 Metal Footpads"
+        "Perfect for [Holey Boards](holey-board)"
       ],
       "variations": [
         {

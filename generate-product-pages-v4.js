@@ -63,6 +63,36 @@ function has3DModel(partNumber) {
     return fs.existsSync(modelPath);
 }
 
+// Get all 3D models for a product (primary and numbered)
+function get3DModels(partNumber) {
+    const partPrefix = extractPartPrefix(partNumber);
+    const models = [];
+    
+    // Check for primary model
+    const primaryPath = path.join(modelsDir, `gdl-${partPrefix}.step`);
+    if (fs.existsSync(primaryPath)) {
+        models.push({
+            path: `/3d/gdl-${partPrefix}.step`,
+            label: '3D STEP file'
+        });
+    }
+    
+    // Check for numbered models (up to 10)
+    for (let i = 1; i <= 10; i++) {
+        const numberedPath = path.join(modelsDir, `gdl-${partPrefix}-${i}.step`);
+        if (fs.existsSync(numberedPath)) {
+            models.push({
+                path: `/3d/gdl-${partPrefix}-${i}.step`,
+                label: `3D STEP file ${i + 1}`
+            });
+        } else {
+            break; // Stop checking once we don't find a file
+        }
+    }
+    
+    return models;
+}
+
 
 // Map category names to folder names
 function getCategoryFolder(category) {
@@ -108,6 +138,30 @@ function getAvailableSamples(product) {
     const scriptPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.txt`);
     if (fs.existsSync(scriptPath)) {
         samples.script = scriptPath;
+    }
+    
+    // Check for C# sample
+    const csPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.cs`);
+    if (fs.existsSync(csPath)) {
+        samples.csharp = csPath;
+    }
+    
+    // Check for MicroPython sample
+    const mpyPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.mpy`);
+    if (fs.existsSync(mpyPath)) {
+        samples.micropython = mpyPath;
+    }
+    
+    // Check for C++ sample
+    const cppPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.cpp`);
+    if (fs.existsSync(cppPath)) {
+        samples.cpp = cppPath;
+    }
+    
+    // Check for Arduino sample (.ino files)
+    const inoPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.ino`);
+    if (fs.existsSync(inoPath)) {
+        samples.arduino = inoPath;
     }
     
     return samples;
@@ -162,19 +216,13 @@ try {
     process.exit(1);
 }
 
-// Function to convert product name to filename
-function generateFilename(name) {
-    // Extract product name and revision
-    const match = name.match(/^(.+?)\s+Rev\s+([A-Z])$/i);
-    if (match) {
-        const productName = match[1].toLowerCase().replace(/\s+/g, '-');
-        const revision = match[2].toLowerCase();
-        return `${productName}-rev-${revision}.mdx`;
-    }
-    // For LED and OLED products that used to have A/B/C suffix, generate filename without suffix
-    // This applies to products that previously had suffix but now don't
-    // Fallback for names without revision
-    return name.toLowerCase().replace(/\s+/g, '-') + '.mdx';
+// Function to convert part number to filename
+function generateFilename(name, partNumber) {
+    // Use part number for filename, removing GDL- prefix
+    const cleanPartNumber = partNumber
+        .replace(/^GDL-/, '')
+        .toLowerCase();
+    return `${cleanPartNumber}.mdx`;
 }
 
 // Function to extract part number prefix
@@ -228,8 +276,20 @@ function generateMDX(product, index) {
     if (hasSchematic(product.partNumber)) {
         resourceLinks.push(`📄<a href="/sch/gdl-${partPrefix}.pdf">Schematics</a>`);
     }
-    if (has3DModel(product.partNumber)) {
-        resourceLinks.push(`🔩<a href="/3d/gdl-${partPrefix}.step">3D STEP file</a>`);
+    
+    // Add 3D models with custom labels if provided
+    const models3D = get3DModels(product.partNumber);
+    if (product.partNumber === 'GDL-AXCONNECTORS-A' && models3D.length >= 2) {
+        // Special case for connectors with custom labels
+        resourceLinks.push(`🔩<a href="${models3D[0].path}">3D Uplink STEP file</a>`);
+        if (models3D[1]) {
+            resourceLinks.push(`🔩<a href="${models3D[1].path}">3D Downlink STEP file</a>`);
+        }
+    } else {
+        // Default case for all other products
+        models3D.forEach(model => {
+            resourceLinks.push(`🔩<a href="${model.path}">${model.label}</a>`);
+        });
     }
     
     // Create resources section only if there are resources
@@ -268,6 +328,7 @@ ${resourceLinks.join('<br/>\n')}<br/>`
         tabs.push({label: 'Samples', value: 'samples'});
         
         // Build sample tabs for each available language
+        // Order: Script, Python, MicroPython, JavaScript, .NET, Arduino
         let sampleTabs = [];
         let sampleTabItems = [];
         
@@ -299,6 +360,20 @@ https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sam
             }
         }
         
+        if (availableSamples.micropython) {
+            const mpyCode = loadSampleContent(availableSamples.micropython);
+            if (mpyCode !== null) {  // Check for null explicitly since empty file returns ""
+                sampleTabs.push({label: 'MicroPython', value: 'micropython'});
+                sampleTabItems.push(`<TabItem value="micropython">
+
+\`\`\`py reference title="MicroPython Sample"
+https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sample/${baseName}.mpy
+\`\`\`
+
+</TabItem>`);
+            }
+        }
+        
         if (availableSamples.javascript) {
             const jsCode = loadSampleContent(availableSamples.javascript);
             if (jsCode) {
@@ -307,6 +382,48 @@ https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sam
 
 \`\`\`js reference title="JavaScript Sample"
 https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sample/${baseName}.js
+\`\`\`
+
+</TabItem>`);
+            }
+        }
+        
+        if (availableSamples.csharp) {
+            const csCode = loadSampleContent(availableSamples.csharp);
+            if (csCode !== null) {  // Check for null explicitly since empty file returns ""
+                sampleTabs.push({label: '.NET', value: 'dotnet'});
+                sampleTabItems.push(`<TabItem value="dotnet">
+
+\`\`\`cs reference title=".NET Sample"
+https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sample/${baseName}.cs
+\`\`\`
+
+</TabItem>`);
+            }
+        }
+        
+        // Check for Arduino files - prefer .ino over .cpp
+        if (availableSamples.arduino) {
+            const arduinoCode = loadSampleContent(availableSamples.arduino);
+            if (arduinoCode !== null) {  // Check for null explicitly since empty file returns ""
+                sampleTabs.push({label: 'Arduino', value: 'arduino'});
+                sampleTabItems.push(`<TabItem value="arduino">
+
+\`\`\`cpp reference title="Arduino Sample"
+https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sample/${baseName}.ino
+\`\`\`
+
+</TabItem>`);
+            }
+        } else if (availableSamples.cpp) {
+            // Fall back to .cpp file if no .ino file exists
+            const cppCode = loadSampleContent(availableSamples.cpp);
+            if (cppCode !== null) {  // Check for null explicitly since empty file returns ""
+                sampleTabs.push({label: 'Arduino', value: 'arduino'});
+                sampleTabItems.push(`<TabItem value="arduino">
+
+\`\`\`cpp reference title="Arduino Sample"
+https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sample/${baseName}.cpp
 \`\`\`
 
 </TabItem>`);
@@ -449,7 +566,7 @@ let errors = [];
 
 productData.products.forEach((product, index) => {
     try {
-        const filename = generateFilename(product.name);
+        const filename = generateFilename(product.name, product.partNumber);
         const filepath = path.join(outputDir, filename);
         const content = generateMDX(product, index);
         
