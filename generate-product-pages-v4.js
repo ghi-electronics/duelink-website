@@ -423,7 +423,7 @@ https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sam
             sampleContent = `
 <TabItem value="samples">
 
-Samples assumes [Drivers](/docs/engine/drivers) are installed.
+Samples assume the drivers are installed, see the [Drivers Tab](?show=drivers).
 
 <Tabs groupid="language" queryString="lang" defaultValue="${sampleTabs[0].value}"
   values={${JSON.stringify(sampleTabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>
