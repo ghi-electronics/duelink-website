@@ -1416,10 +1416,10 @@
   right: 20px;
   width: 50px;
   height: 50px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: white;
+  border: 2px solid #e1e8ed;
   border-radius: 50%;
-  color: white;
+  color: #2c3e50;
   font-size: 30px;
   line-height: 1;
   cursor: pointer;
@@ -1428,10 +1428,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .lightboxClose:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: #f8f9fa;
   transform: scale(1.1);
 }
 
@@ -1442,10 +1443,10 @@
   transform: translateY(-50%);
   width: 60px;
   height: 60px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: white;
+  border: 2px solid #e1e8ed;
   border-radius: 50%;
-  color: white;
+  color: #2c3e50;
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 10001;
@@ -1453,6 +1454,7 @@
   align-items: center;
   justify-content: center;
   padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .lightboxPrev svg,
@@ -1471,7 +1473,7 @@
 
 .lightboxPrev:hover,
 .lightboxNext:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: #f8f9fa;
   transform: translateY(-50%) scale(1.1);
 }
 
@@ -1487,18 +1489,16 @@
 }
 
 .lightboxTitle {
-  color: white;
+  color: #2c3e50;
   font-size: 24px;
   font-weight: 600;
   margin: 0 0 8px 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .lightboxTagline {
-  color: rgba(255, 255, 255, 0.9);
+  color: #6c757d;
   font-size: 16px;
   margin: 0;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* Lightbox Thumbnails */
@@ -1611,6 +1611,19 @@
 [data-theme='dark'] .lightboxPrev:hover,
 [data-theme='dark'] .lightboxNext:hover {
   background: rgba(255, 255, 255, 0.1);
+}
+[data-theme='dark'] .lightboxClose,
+[data-theme='dark'] .lightboxPrev,
+[data-theme='dark'] .lightboxNext {
+  color: white;
+}
+[data-theme='dark'] .lightboxTitle {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+[data-theme='dark'] .lightboxTagline {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* ONLY remove max-width for catalog list page - keep it for all other pages */
