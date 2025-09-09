@@ -711,7 +711,8 @@
         "Light Up 100mm Red button",
         "3x RGB LEDs",
         "107x107mm overall dimension"
-      ]
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetRing(i,r,g,b)` | Sets LED at `i` index to `r`, `g`, `b` color (0 to 100). |\n| `SetCtr(v)` | Sets the large button LED to `v` value(1 on, 0 off). |\n| `BtnPin()` | Returns the button pin number. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "BTN RGB28x4",
@@ -725,7 +726,8 @@
         "4x 28mm buttons",
         "Backlit RGB LEDs",
         "92x92 overall dimension"
-      ]
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetClr(i,c,l)` | Sets a button at `i` index to `c` color with `l` luminance. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `BtnC()` | Returns 1 if button C is pressed. |\n| `BtnD()` | Returns 1 if button D is pressed. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Button L",
@@ -793,7 +795,8 @@
       "keyFeatures": [
         "10 switch selector",
         "32x22mm overall dimension"
-      ]
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Read(i)` | read `i` index value from switch returns 0=Off, 1=On. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Fingerprint",
@@ -858,7 +861,7 @@
     },
     {
       "name": "Rotary",
-      "partNumber": "GDL-HIKEYPAD4X4-C",
+      "partNumber": "GDL-HIROTARY-C",
       "PID": "0x04000D",
       "category": "HMI",
       "price": 0,
@@ -870,6 +873,20 @@
         "27x22mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetValue()` | Returns the current rotary reading. |\n| `DVer()` | This driver version. |"
+    },
+    {
+      "name": "Slider",
+      "partNumber": "GDL-HISLIDER-B",
+      "PID": "0x04000E",
+      "category": "HMI",
+      "price": 0,
+      "tagline": "Read the position of the slider",
+      "description": "Slider Module with Potentiometer",
+      "keyFeatures": [
+        "Slider Potentiometer",
+        "77x27mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Slider()` | Returns value from 0 to 100. |\n| `DVer()` | Returns driver version. |"
     },
     {
       "name": "Flash",
@@ -1052,13 +1069,20 @@
       "category": "Sensor",
       "price": 0,
       "tagline": "Clip-friendly IOs with Capacitive Sensing",
-      "description": "With these alligator-clip-friendly pads, users can easily connect(clip) anything that requires digital inputs/outputs. These pads also support analog and PWM (analog out) functionality.",
+      "description": "With these alligator-clip-friendly pads, users can easily connect(clip) anything that requires digital inputs/outputs. These pads also support analog and PWM (analog out) functionality.\n\nThe pads also support capacitive sensing to detect touch from a connected object.",
       "keyFeatures": [
         "8x Digital GPIO",
         "8x Analog inputs",
         "8x Digital outputs",
         "8x Capacitive touch",
         "37x34mm overall dimension"
+      ],
+      "variations": [
+        {
+          "name": "ClipSense Sensor",
+          "partNumber": "GDL-SECLIPSENSE-A",
+          "price": 0
+        }
       ]
     },
     {

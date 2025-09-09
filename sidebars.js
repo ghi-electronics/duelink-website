@@ -111,15 +111,19 @@ const sidebars = {
           type: "category",
           label: "Human Machine Interface",
           items: [
+            "products/hibtnar100-b",
             "products/hibtnrgb28x4-b",
             "products/hibuttonl-a",
             "products/hibuttonl7-b",
             "products/hibuttons-a",
             "products/hidial-a",
+            "products/hidipswitch-b",
             "products/hifingerprint-b",
             "products/hijoystickl-b",
             "products/hikeypad3x4-b",
-            "products/hikeypad4x4-b"
+            "products/hikeypad4x4-b",
+            "products/hirotary-c",
+            "products/hislider-b"
           ],
         },
         {

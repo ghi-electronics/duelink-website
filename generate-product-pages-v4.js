@@ -423,7 +423,7 @@ https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sam
             sampleContent = `
 <TabItem value="samples">
 
-Samples assume the drivers are installed, see the [Drivers Tab](?show=drivers).
+Samples assume the drivers are installed, see the <span style={{color: 'var(--ifm-link-color)', cursor: 'pointer', textDecoration: 'underline'}} onClick={() => { const tab = Array.from(document.querySelectorAll('.tabs__item')).find(el => el.textContent === 'Drivers'); if (tab) tab.click(); }}>Drivers Tab</span>.
 
 <Tabs groupid="language" queryString="lang" defaultValue="${sampleTabs[0].value}"
   values={${JSON.stringify(sampleTabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>
