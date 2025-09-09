@@ -169,16 +169,10 @@ function getAvailableSamples(product) {
         samples.micropython = mpyPath;
     }
     
-    // Check for C++ sample
+    // Check for Arduino sample (.cpp files)
     const cppPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.cpp`);
     if (fs.existsSync(cppPath)) {
-        samples.cpp = cppPath;
-    }
-    
-    // Check for Arduino sample (.ino files)
-    const inoPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.ino`);
-    if (fs.existsSync(inoPath)) {
-        samples.arduino = inoPath;
+        samples.arduino = cppPath;
     }
     
     return samples;
