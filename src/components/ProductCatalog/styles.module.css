@@ -425,6 +425,7 @@
   border-radius: var(--border-radius-sm);
   overflow: hidden;
   margin-bottom: var(--spacing-sm);
+  position: relative;
 }
 
 .mainThumbnailImage {
@@ -481,6 +482,56 @@
 
 .smallThumbnail:hover {
   transform: scale(1.1);
+}
+
+/* Main Image Navigation Arrows */
+.mainImageNavPrev,
+.mainImageNavNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  color: white;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mainImageNavPrev {
+  left: 8px;
+}
+
+.mainImageNavNext {
+  right: 8px;
+}
+
+.mainThumbnailContainer:hover .mainImageNavPrev,
+.mainThumbnailContainer:hover .mainImageNavNext {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mainImageNavPrev:hover,
+.mainImageNavNext:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.mainImageNavPrev:active,
+.mainImageNavNext:active {
+  transform: translateY(-50%) scale(0.95);
 }
 
 /* Mobile Image Indicators */
@@ -619,6 +670,12 @@
   
   .productTitle {
     margin-bottom: 4px;
+  }
+  
+  /* Hide main image navigation arrows on mobile */
+  .mainImageNavPrev,
+  .mainImageNavNext {
+    display: none;
   }
 }
 
@@ -1131,6 +1188,19 @@
 
 [data-theme='dark'] .imageNavPrev:hover,
 [data-theme='dark'] .imageNavNext:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme='dark'] .mainImageNavPrev,
+[data-theme='dark'] .mainImageNavNext {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+[data-theme='dark'] .mainImageNavPrev:hover,
+[data-theme='dark'] .mainImageNavNext:hover {
   background: rgba(255, 255, 255, 0.25);
   border-color: rgba(255, 255, 255, 0.3);
 }
