@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo, useCallback } from 'react';
+import React, { useEffect, useState, useMemo, useCallback, useRef } from 'react';
 import ProductCard from './ProductCard';
 import styles from './styles.module.css';
 
@@ -27,6 +27,7 @@ const ProductCatalog = () => {
   const [sortBy, setSortBy] = useState('name-asc');
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const searchInputRef = useRef(null);
   
   // Debounce search term for better performance
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
@@ -168,7 +169,15 @@ const ProductCatalog = () => {
   }, [isMobile]);
 
   const toggleMobileFilters = useCallback(() => {
-    setMobileFiltersOpen(prev => !prev);
+    setMobileFiltersOpen(prev => {
+      const newState = !prev;
+      if (newState && searchInputRef.current) {
+        setTimeout(() => {
+          searchInputRef.current?.focus();
+        }, 100);
+      }
+      return newState;
+    });
   }, []);
 
   const activeFiltersCount = (selectedCategory !== 'all' ? 1 : 0) + (searchTerm ? 1 : 0);
@@ -207,6 +216,10 @@ const ProductCatalog = () => {
                 setSearchTerm('');
                 setSelectedCategory('all');
                 setSortBy('name-asc');
+                // Focus search input after clearing
+                setTimeout(() => {
+                  searchInputRef.current?.focus();
+                }, 50);
                 // Scroll to show all products after clearing filters
                 setTimeout(() => {
                   const productsSection = document.querySelector('[class*="productGrid"]');
@@ -235,6 +248,7 @@ const ProductCatalog = () => {
       <div className={`${styles.filterBar} ${isMobile ? styles.mobileFilterBar : ''} ${isMobile && mobileFiltersOpen ? styles.mobileFilterBarOpen : ''}`}>
         <div className={`${styles.searchRow} ${isMobile ? styles.mobileSearchRow : ''}`}>
           <input
+            ref={searchInputRef}
             type="text"
             placeholder="Search products..."
             className={styles.searchInput}
@@ -297,6 +311,10 @@ const ProductCatalog = () => {
             onClick={() => {
               setSearchTerm('');
               setSelectedCategory('all');
+              // Focus search input on desktop after reset
+              setTimeout(() => {
+                searchInputRef.current?.focus();
+              }, 50);
             }}
           >
             Clear Filters

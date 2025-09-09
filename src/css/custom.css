@@ -4,6 +4,18 @@
  * work well for content-centric websites.
  */
 
+/* Import catalog override styles */
+@import './catalog-override.css';
+
+/* Dark mode support for react-medium-image-zoom */
+[data-theme='dark'] [data-rmiz-modal-overlay] {
+  background-color: rgba(0, 0, 0, 0.95) !important;
+}
+
+[data-theme='dark'] [data-rmiz-modal-img] {
+  background-color: transparent !important;
+}
+
 .container {
 
   width: 95%;

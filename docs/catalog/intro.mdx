@@ -6,6 +6,16 @@ hide_table_of_contents: true
 
 import ProductCatalog from '/src/components/ProductCatalog/index.js';
 
+<style>{`
+  .container {
+    max-width: none !important;
+    width: 100% !important;
+  }
+  [class*="docItemContainer"] {
+    max-width: none !important;
+  }
+`}</style>
+
 # Product Catalog
 
 <ProductCatalog />
