@@ -404,23 +404,10 @@ https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sam
             }
         }
         
-        // Check for Arduino files - prefer .ino over .cpp
+        // Check for Arduino files (.cpp only)
         if (availableSamples.arduino) {
             const arduinoCode = loadSampleContent(availableSamples.arduino);
             if (arduinoCode !== null) {  // Check for null explicitly since empty file returns ""
-                sampleTabs.push({label: 'Arduino', value: 'arduino'});
-                sampleTabItems.push(`<TabItem value="arduino">
-
-\`\`\`cpp reference title="Arduino Sample"
-https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sample/${baseName}.ino
-\`\`\`
-
-</TabItem>`);
-            }
-        } else if (availableSamples.cpp) {
-            // Fall back to .cpp file if no .ino file exists
-            const cppCode = loadSampleContent(availableSamples.cpp);
-            if (cppCode !== null) {  // Check for null explicitly since empty file returns ""
                 sampleTabs.push({label: 'Arduino', value: 'arduino'});
                 sampleTabItems.push(`<TabItem value="arduino">
 
