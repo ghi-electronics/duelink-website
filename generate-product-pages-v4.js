@@ -65,33 +65,38 @@ function has3DModel(partNumber) {
 
 // Get all 3D models for a product (with smart label detection)
 function get3DModels(partNumber) {
-    // Get the part number without GDL- prefix (e.g., "AXCONNECTORS-A" -> "axconnectors")
-    const basePartNumber = partNumber.replace(/^GDL-/i, '').replace(/-[A-Z]$/i, '').toLowerCase();
+    // Convert part number to lowercase for matching (GDL-AXCONNECTORS-A -> gdl-axconnectors-a)
+    const partNumberLower = partNumber.toLowerCase();
     const models = [];
     
-    // Get all STEP files that contain the base part number
+    // Get all STEP files that include the full part number
     const files = fs.readdirSync(modelsDir)
-        .filter(file => file.toLowerCase().includes(basePartNumber) && file.endsWith('.step'))
+        .filter(file => {
+            const fileLower = file.toLowerCase();
+            // Check if filename includes the part number (with .step extension)
+            return fileLower.includes(partNumberLower.replace('gdl-', 'gdl-')) && fileLower.endsWith('.step');
+        })
         .sort(); // Sort to maintain consistent order
     
     files.forEach(filename => {
         const filePath = `/3d/${filename}`;
         
-        // Try to extract a descriptive suffix (like -uplink, -downlink)
-        // Look for pattern after the base part number
-        const regex = new RegExp(`${basePartNumber}(?:-[a-z])?-?(.+)?\\.step$`, 'i');
-        const match = filename.toLowerCase().match(regex);
+        // Extract suffix after the part number
+        const fileWithoutExt = filename.replace('.step', '');
+        const partNumberPattern = partNumber.toLowerCase().replace('gdl-', 'gdl-');
+        const suffix = fileWithoutExt.toLowerCase().replace(partNumberPattern, '').replace(/^-/, '');
         
         let label = '3D STEP file';
-        if (match && match[1]) {
-            const suffix = match[1];
+        if (suffix) {
             // Check if it's just a number
             if (/^\d+$/.test(suffix)) {
                 // Plain number, use default numbering
                 label = `3D STEP file ${parseInt(suffix) + 1}`;
             } else {
-                // Descriptive suffix - capitalize first letter
-                const description = suffix.charAt(0).toUpperCase() + suffix.slice(1);
+                // Descriptive suffix - capitalize first letter of each word
+                const description = suffix.split('-').map(word => 
+                    word.charAt(0).toUpperCase() + word.slice(1)
+                ).join(' ');
                 label = `3D ${description} STEP file`;
             }
         }

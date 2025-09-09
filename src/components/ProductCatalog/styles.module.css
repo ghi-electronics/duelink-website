@@ -380,7 +380,7 @@
 
 .mainImage {
   max-width: 100%;
-  max-height: 100%;
+  max-height: 180px;
   object-fit: contain;
   user-select: none;
   -webkit-user-drag: none;
@@ -655,6 +655,10 @@
   .mainImageWrapper {
     height: 220px;
   }
+  
+  .mainImage {
+    max-height: 200px;
+  }
 }
 
 /* Small Desktop and Landscape Tablets */
@@ -740,6 +744,7 @@
   .thumbButton img {
     width: 100%;
     height: 100%;
+    max-height: 32px;
     object-fit: contain;
   }
   
@@ -804,6 +809,10 @@
   .mainImageWrapper {
     height: 240px;
   }
+  
+  .mainImage {
+    max-height: 220px;
+  }
 }
 
 /* Extra Large Desktop */
@@ -820,6 +829,10 @@
   
   .mainImageWrapper {
     height: 220px;
+  }
+  
+  .mainImage {
+    max-height: 200px;
   }
 }
 
@@ -845,6 +858,10 @@
   
   .mainImageWrapper {
     height: 160px;
+  }
+  
+  .mainImage {
+    max-height: 140px;
   }
 }
 

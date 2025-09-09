@@ -17,7 +17,7 @@ const ImageBlock = ({
       }}>
         <div style={{ width: "100%", maxWidth: "600px" }}>
           <Zoom>
-            <img alt="Main" width="100%" src={`/img/catalog/${product}-1.png`} />
+            <img alt="Main" style={{ width: "100%", maxHeight: "400px", objectFit: "contain" }} src={`/img/catalog/${product}-1.png`} />
           </Zoom>
         </div>
         
@@ -29,16 +29,16 @@ const ImageBlock = ({
           flexWrap: "wrap"
         }}>
           <Zoom>
-            <img alt="Back" width="120px" src={`/img/catalog/${product}-2.png`} />
+            <img alt="Back" style={{ width: "120px", maxHeight: "120px", objectFit: "contain" }} src={`/img/catalog/${product}-2.png`} />
           </Zoom>
           <Zoom>
-            <img alt="Size" width="120px" src={`/img/catalog/${product}-3.png`}/>
+            <img alt="Size" style={{ width: "120px", maxHeight: "120px", objectFit: "contain" }} src={`/img/catalog/${product}-3.png`}/>
           </Zoom>
           <Zoom>
-            <img alt="Front" width="120px" src={`/img/catalog/${product}-4.png`}/>
+            <img alt="Front" style={{ width: "120px", maxHeight: "120px", objectFit: "contain" }} src={`/img/catalog/${product}-4.png`}/>
           </Zoom>
           <Zoom>
-            <img alt="Back" width="120px" src={`/img/catalog/${product}-5.png`}/>
+            <img alt="Back" style={{ width: "120px", maxHeight: "120px", objectFit: "contain" }} src={`/img/catalog/${product}-5.png`}/>
           </Zoom>
         </div>
       </div>

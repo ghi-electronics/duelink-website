@@ -151,7 +151,7 @@
       "category": "Specialty",
       "price": 0,
       "tagline": "Tiny Robot-shaped Microcomputer",
-      "description": "Is this the smallest, cutest, and smartest key chain in the world? You decide, but this is a mini robot-shaped pocket-sized microcomputer that plugs right into a USB socket!\n\nIt has RGB eyes and a \"STAT\" mouth as a start, but then the [Downlink](/docs/interface/downlink) connector will allow Ghizzy Jr to control hundreds of modules!",
+      "description": "Is this the smallest, cutest, and smartest key chain in the world? You decide, but this is a mini robot-shaped pocket-sized microcomputer that plugs right into a USB socket!\n\nIt has RGB eyes and a \"STAT\" mouth as a start, but then the [Downlink](/docs/interface/downlink) connector will allow Ghizzy Jr to control hundreds of modules!\n\n![Firmware](pathname:///img/catalog/ghizzy-jr-logo.png)\n\nDid you know that Ghizzy Jr is the perfect giveaway for your company? This will not be a giveaway that collects dust in a drawer. Instead, this is an exciting programmable board with endless possibilities. It can even be programmed using the [Arduino IDE](/docs/hw/arduino).\n\nNote that this is not a standard USB connector, but a printed circuit. This should work on 99% of USB type A connectors with a rare failure.",
       "keyFeatures": [
         "2 RGB LEDs",
         "Downlink DUELink Connector",
@@ -1454,7 +1454,7 @@
       "partNumber": "GDL-VIBARCODEL1D2D-A",
       "PID": "0x0B0003",
       "category": "Vision",
-      "price": 19.99,
+      "price": 0,
       "tagline": "1D/2D Barcode Scanner",
       "description": "This camera can capture and decode different barcodes.<br/><br/>1D Formats: EAN-13, EAN-8, UPC-A, UPC-E ISSN, ISBN, CodaBar,Code 128, Code93, ITF-14, ITF-6, Interleaved 2 of 5, Industrial 2 of 5, Matrix 2 of 5, Code 39,Code 11, MSI-Plessey, GS1 Composite,GS1-Databar (RSS)<br/>2D Formats: QR Code, Data Matrix, PDF417<br/>Scanning angle: Roll: 360° Pitch: 65° Yaw: 65°",
       "keyFeatures": [
@@ -1687,6 +1687,33 @@
         "150mm DUELink Cable",
         "300mm DUELink Cable",
         "100mm DUELink Breakout Cable"
+      ],
+      "variations": [
+        {
+          "name": "DUELink Cable 50mm (5pcs)",
+          "partNumber": "GDL-AXCABLE050-A",
+          "price": 0
+        },
+        {
+          "name": "DUELink Cable 150mm (5pcs)",
+          "partNumber": "GDL-AXCABLE150-A",
+          "price": 0
+        },
+        {
+          "name": "DUELink Cable 300mm (5pcs)",
+          "partNumber": "GDL-AXCABLE300-A",
+          "price": 0
+        },
+        {
+          "name": "DUELink 100mm Breakout (5pcs)",
+          "partNumber": "GDL-AXCABLE100BR-A",
+          "price": 0
+        },
+        {
+          "name": "DUELink Cable Variety Pack (5pcs)",
+          "partNumber": "GDL-AXCABLEVAR-A",
+          "price": 0
+        }
       ]
     },
     {
@@ -1701,6 +1728,18 @@
         "4pin 1mm JST connector",
         "Blue and White",
         "Surface Mount JST Connectors"
+      ],
+      "variations": [
+        {
+          "name": "DUELink Downlink Connector (5pcs)",
+          "partNumber": "GDL-AXJSTDOWNLINK-A",
+          "price": 0
+        },
+        {
+          "name": "DUELink Uplink Connector (5pcs)",
+          "partNumber": "GDL-AXJSTUPLINK-A",
+          "price": 0
+        }
       ]
     },
     {
@@ -1717,6 +1756,23 @@
         "Holey Smally: 92x62",
         "Holey: 182x92mm",
         "Holey Moley Board: 182x232mm"
+      ],
+      "variations": [
+        {
+          "name": "DUELink Holey Smally Board",
+          "partNumber": "GDL-AXHOLEYSMALLY-A",
+          "price": 0
+        },
+        {
+          "name": "DUELink Holey Board",
+          "partNumber": "GDL-AXHOLEYBOARD-A",
+          "price": 0
+        },
+        {
+          "name": "DUELink Holey Moley Board",
+          "partNumber": "GDL-AXHOLEYMOLEY-A",
+          "price": 0
+        }
       ]
     },
     {
