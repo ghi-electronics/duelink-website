@@ -87,12 +87,6 @@ const ProductCatalog = () => {
       case 'name-desc':
         sorted.sort((a, b) => b.name.localeCompare(a.name));
         break;
-      case 'part-asc':
-        sorted.sort((a, b) => a.partNumber.localeCompare(b.partNumber));
-        break;
-      case 'part-desc':
-        sorted.sort((a, b) => b.partNumber.localeCompare(a.partNumber));
-        break;
       case 'category':
         sorted.sort((a, b) => (a.category || '').localeCompare(b.category || ''));
         break;
@@ -198,7 +192,9 @@ const ProductCatalog = () => {
             aria-expanded={mobileFiltersOpen}
             aria-label="Toggle filters"
           >
-            <span className={styles.filterIcon}>☰</span>
+            <svg className={styles.filterIcon} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+            </svg>
             <span>Filters</span>
             {activeFiltersCount > 0 && (
               <span className={styles.filterBadge}>{activeFiltersCount}</span>
@@ -228,7 +224,7 @@ const ProductCatalog = () => {
               }}
               aria-label="Clear all filters"
             >
-              Clear all
+              Clear Filters
             </button>
           )}
         </div>
@@ -255,8 +251,6 @@ const ProductCatalog = () => {
           >
             <option value="name-asc">Name (A-Z)</option>
             <option value="name-desc">Name (Z-A)</option>
-            <option value="part-asc">Part # (A-Z)</option>
-            <option value="part-desc">Part # (Z-A)</option>
             <option value="category">Category</option>
             <option value="price-asc">Price (Low to High)</option>
             <option value="price-desc">Price (High to Low)</option>
@@ -305,7 +299,7 @@ const ProductCatalog = () => {
               setSelectedCategory('all');
             }}
           >
-            Reset Filters
+            Clear Filters
           </button>
         </div>
       ) : (
@@ -319,15 +313,6 @@ const ProductCatalog = () => {
           ))}
         </div>
       )}
-      
-      <div className={styles.bottomNavigation}>
-        <a href="#" className={styles.bottomNavBtn}>
-          Distributors
-        </a>
-        <a href="/docs/catalog/intro" className={styles.bottomNavBtn}>
-          Catalog Home
-        </a>
-      </div>
     </div>
   );
 };

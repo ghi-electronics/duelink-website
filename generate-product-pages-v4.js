@@ -506,6 +506,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ImageSection from '@site/src/components/ImageSection';
 import OrderSection from '@site/src/components/OrderSection';
+import ProductFooter from '@site/src/components/ProductFooter';
 
 # ${product.name}
 
@@ -541,6 +542,8 @@ ${sampleContent}
 ---
 
 ${generateOrderSection(product)}${product.PID ? `\n\n**PID:** ${product.PID}` : ''}
+
+<ProductFooter />
 `;
 
     return mdxContent;

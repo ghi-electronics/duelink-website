@@ -98,6 +98,7 @@
   align-items: center;
   gap: var(--spacing-sm);
   padding: 6px 12px;
+  margin-left: var(--spacing-sm);
   background: #f8f9fa;
   border: 1px solid #e1e8ed;
   border-radius: var(--border-radius-sm);
@@ -115,7 +116,9 @@
 }
 
 .filterIcon {
-  font-size: 1.2rem;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
 }
 
 .filterBadge {
@@ -131,6 +134,7 @@
 
 .clearFiltersBtn {
   padding: 6px 12px;
+  margin-right: var(--spacing-sm);
   background: transparent;
   border: 1px solid #e74c3c;
   color: #e74c3c;
