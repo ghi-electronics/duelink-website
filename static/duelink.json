@@ -386,7 +386,7 @@
       "orderingInfo": "| Info | Value |\n|------|-------|\n| Part Number | GDL-DTFTT32-C |"
     },
     {
-      "name": "VFD B8",
+      "name": "VFD-B8",
       "partNumber": "GDL-DVFDB8-C",
       "PID": "0x01000A",
       "category": "Display",
@@ -1578,7 +1578,7 @@
       "category": "Adapter",
       "price": 0,
       "tagline": "Rechargeable Battery Power Hook",
-      "description": "The Power Hook works just like the USB Hook, but then it also includes a recharging circuit for 3.7V 10440 battery, which is required but not included.",
+      "description": "The Power Hook works just like the USB Hook, but then it also includes a recharging circuit for 3.7V 10440 battery, which is required but not included. Note that the required 10440 battery is the same size as standard AAA batteries, but they are NOT compatible. NEVER install a AAA battery on this module!",
       "keyFeatures": [
         "3.7v 10440 Battery Module",
         "77x27mm overall dimension"

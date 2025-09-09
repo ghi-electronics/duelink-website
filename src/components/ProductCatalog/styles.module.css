@@ -1098,6 +1098,27 @@
   }
 }
 
+/* 2K and Ultrawide Screens */
+@media (min-width: 2560px) {
+  .productGrid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+/* 4K Screens */
+@media (min-width: 3440px) {
+  .productGrid {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}
+
+/* 5K+ Screens */
+@media (min-width: 5120px) {
+  .productGrid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
 /* Landscape orientation adjustments for mobile */
 @media (max-width: 768px) and (orientation: landscape) {
   .mobileFilterHeader {
