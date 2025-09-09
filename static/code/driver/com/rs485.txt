@@ -1,6 +1,0 @@
-##### RS485 Driver #####
-
-# No need for a driver!
-# Use standard library Serial bus API.
-
-####################

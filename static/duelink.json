@@ -1486,13 +1486,14 @@
       "PID": "0x0A0002",
       "category": "Adapter",
       "price": 0,
-      "tagline": "12-Channel Digital I/O",
-      "description": "12-channel digital I/O expansion module",
+      "tagline": "12x Terminal Block Input-Output",
+      "description": "Access the first 12 pins of the DUELink system on screw terminal block. These pins are digital inputs/outputs and most of them include analog, PWM and other functionalities.",
       "keyFeatures": [
         "12x inputs & outputs",
         "Terminal Block Header",
         "27x18mm overall dimension"
-      ]
+      ],
+      "driverApi": ":::tip\nDio X12 module uses the [Standard Library API](/docs/engine/stdlib) directly. No other drivers are needed.\n:::"
     },
     {
       "name": "DueClick",
@@ -1500,8 +1501,8 @@
       "PID": "0x0A0005",
       "category": "Adapter",
       "price": 0,
-      "tagline": "MikroE Click Board Adapter",
-      "description": "MikroE Click board adapter for extended functionality",
+      "tagline": "MikroBus Click Compatible Breakout",
+      "description": "Take advantage of the thousands of available [MikroBus Click modules](https://www.mikroe.com/click).\n\nThe module can also be used as a basic female header IO connection module.",
       "keyFeatures": [
         "MikroBus headers",
         "42x27mm overall dimension"
@@ -1514,7 +1515,7 @@
       "category": "Adapter",
       "price": 0,
       "tagline": "Raspberry Pi HAT Adapter",
-      "description": "Raspberry Pi HAT adapter for Pi compatibility",
+      "description": "DuePi is the perfect adapter for all RPI (Raspberry Pi) models, including RPI Zero. The outer mounting holes are standard mounting holes for RPI. The bottom half of the board is a 5mm-pitched holes for mounting DUELink modules. This bottom side is breakable to make the board smaller to make it the right size for RPI Zero.\n\n**DuePi with Raspberry Pi Zero**\n\n![DuePi with Raspberry Pi Zero](/img/duepi-zero.png)\n\nThe board includes several onboard peripherals, including buttons, buzzer, and a graphical display. The display is controlled using the DUELink native Graphics support. Simple commands are used to control the display instead of using Linux.\n\nThe onboard 800mA regulator is used to feed power to the Downlink connector, keeping any loads away from the RPI's 3.3V source.\n\nThe USB connector is conveniently there to help with loading/updating the DUELink processor's firmware/drivers. It should not be used when DuePi is used with a Raspberry Pi.\n\n:::note\nWith the USB connector and the onboard power regulator, this adapter can be used as a Microcomputer with full function\n:::",
       "keyFeatures": [
         "Attaches to Raspberry Pi or Pi Zero Header",
         "0.96\" OLED Display",
@@ -1523,7 +1524,9 @@
         "Breakaway \"Holey\" Section",
         "Terminal Block for Additional Connectivity",
         "65x56.5mm overall dimension"
-      ]
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `DVer()` | This driver version. |",
+      "orderingInfo": "| Info | Value |\n|------|-------|\n| Part Number | GDL-ADDUEPI-B |\n| PID | 0x0A0004 |"
     },
     {
       "name": "DuePico",
@@ -1548,7 +1551,7 @@
       "category": "Adapter",
       "price": 0,
       "tagline": "Signals Breakout and Cable Extender",
-      "description": "This module can be used as a DUELink cable extender. It also exposes all DUELink cable signals on a female header. This is useful to wire a Supported Hardware that does not have a JST connector.\n\nThe DRP and CTN signals are a mix of UART, I2C and USB Interfaces.\n\nHere is a UART example:\n![Arduino Breakout UART](https://www.duelink.com/img/arduino-breakout-uart.png)\n\nHere is an I2C example:\n![Arduino Breakout I2C](https://www.duelink.com/img/arduino-breakout-i2c.png)",
+      "description": "This module can be used as a DUELink cable extender. It also exposes all DUELink cable signals on a female header. This is useful to wire a [Supported Hardware](/docs/hw/intro) that does not have a JST connector.\n\nThe DRP and CTN signals are a mix of [UART](/docs/interface/uart), [I2C](/docs/interface/i2c) and [USB](/docs/interface/usb) [Interfaces](/docs/interface/intro).\n\nHere is a UART example:\n![Arduino Breakout UART](pathname:///img/arduino-breakout-uart.png)\n\nHere is an I2C example:\n![Arduino Breakout I2C](pathname:///img/arduino-breakout-i2c.png)",
       "keyFeatures": [
         "Access to DUELink Pins",
         "Female Header",
