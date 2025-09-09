@@ -24,7 +24,7 @@ const ProductCatalog = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [sortBy, setSortBy] = useState('name-asc');
+  const [sortBy, setSortBy] = useState('category');
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const searchInputRef = useRef(null);
@@ -118,7 +118,40 @@ const ProductCatalog = () => {
         sorted.sort((a, b) => b.name.localeCompare(a.name));
         break;
       case 'category':
-        sorted.sort((a, b) => (a.category || '').localeCompare(b.category || ''));
+        // Define the same category order as used in the sidebar
+        const categoryOrder = [
+          'Microcomputer',
+          'Special',
+          'Display',
+          'Actuator',
+          'Communication',
+          'HMI',
+          'Storage',
+          'Wireless',
+          'Sensor',
+          'LED',
+          'Sound',
+          'Vision',
+          'Adapter'
+        ];
+        
+        sorted.sort((a, b) => {
+          const catA = a.category || 'Other';
+          const catB = b.category || 'Other';
+          const indexA = categoryOrder.indexOf(catA);
+          const indexB = categoryOrder.indexOf(catB);
+          
+          // Both in predefined order
+          if (indexA !== -1 && indexB !== -1) {
+            return indexA - indexB;
+          }
+          // Only A in predefined order - A comes first
+          if (indexA !== -1) return -1;
+          // Only B in predefined order - B comes first
+          if (indexB !== -1) return 1;
+          // Neither in predefined order - sort alphabetically
+          return catA.localeCompare(catB);
+        });
         break;
       case 'price-asc':
         sorted.sort((a, b) => a.price - b.price);
@@ -244,7 +277,7 @@ const ProductCatalog = () => {
               onClick={() => {
                 setSearchTerm('');
                 setSelectedCategory('all');
-                setSortBy('name-asc');
+                setSortBy('category');
                 // Focus search input after clearing
                 setTimeout(() => {
                   searchInputRef.current?.focus();
@@ -325,10 +358,31 @@ const ProductCatalog = () => {
 
       {(!isMobile || !mobileFiltersOpen) && (
         <div className={styles.resultsCount}>
-          {debouncedSearchTerm && (
-            <span className={styles.searchingText}>Searching for "{debouncedSearchTerm}"... </span>
-          )}
           <span className={styles.countText}>Showing {filteredProducts.length} from {products.length} products</span>
+          {selectedCategory !== 'all' && (
+            <span className={styles.activeFilter}>
+              <span className={styles.filterLabel}>Category: {selectedCategory}</span>
+              <button 
+                className={styles.clearFilterBtn}
+                onClick={() => setSelectedCategory('all')}
+                aria-label="Clear category filter"
+              >
+                ×
+              </button>
+            </span>
+          )}
+          {debouncedSearchTerm && (
+            <span className={styles.activeFilter}>
+              <span className={styles.filterLabel}>Search: "{debouncedSearchTerm}"</span>
+              <button 
+                className={styles.clearFilterBtn}
+                onClick={() => setSearchTerm('')}
+                aria-label="Clear search"
+              >
+                ×
+              </button>
+            </span>
+          )}
         </div>
       )}
 
@@ -356,6 +410,7 @@ const ProductCatalog = () => {
               key={product.partNumber || index} 
               product={product} 
               index={index}
+              onCategoryClick={handleCategoryChange}
             />
           ))}
         </div>

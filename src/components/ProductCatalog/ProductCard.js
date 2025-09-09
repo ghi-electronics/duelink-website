@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import LazyImage from './LazyImage';
 import styles from './styles.module.css';
 
-const ProductCard = memo(({ product, index }) => {
+const ProductCard = memo(({ product, index, onCategoryClick }) => {
   const [showLightbox, setShowLightbox] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [mainImageIndex, setMainImageIndex] = useState(0);
@@ -109,8 +109,25 @@ const ProductCard = memo(({ product, index }) => {
           <p className={styles.productTagline}>{product.tagline}</p>
         )}
 
-        <div className={styles.productPrice}>
-          ${product.price?.toFixed(2) || '0.00'}
+        <div className={styles.productPriceRow}>
+          {product.category && (
+            <button 
+              className={styles.categoryChip}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (onCategoryClick) {
+                  onCategoryClick(product.category);
+                }
+              }}
+              aria-label={`Filter by ${product.category} category`}
+            >
+              {product.category}
+            </button>
+          )}
+          <div className={styles.productPrice}>
+            ${product.price?.toFixed(2) || '0.00'}
+          </div>
         </div>
 
         <a 
