@@ -11,21 +11,21 @@ fn SetLed(i, c)
   b = (c&0xff)/255
   
   if i = 0
-      PWrite(1,b)
-      PWrite(2,r)
-      PWrite(3,g)
+      aWrite(1,b)
+      aWrite(2,r)
+      aWrite(3,g)
   end
   
   if i = 1
-      PWrite(4,b)
-      PWrite(5,r)
-      PWrite(6,g)
+      aWrite(4,b)
+      aWrite(5,r)
+      aWrite(6,g)
   end
   
   if i = 2
-      PWrite(7,b)
-      PWrite(8,r)
-      PWrite(11,g)
+      aWrite(7,b)
+      aWrite(8,r)
+      aWrite(11,g)
   end
   
 fend
