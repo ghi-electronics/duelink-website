@@ -127,6 +127,7 @@ const sidebars = {
           label: "Storage",
           items: [
             "products/stflash-a",
+            "products/stmicrosd-a",
             "products/stsdcard-b",
           ],
         },
@@ -147,6 +148,7 @@ const sidebars = {
           label: "Sensors",
           items: [
             "products/seaccel-a",
+            "products/seairquality-a",
             "products/sebarometer-b",
             "products/seclipsense-a",
             "products/securrent-a",

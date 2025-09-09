@@ -891,7 +891,7 @@
       "category": "Storage",
       "price": 0,
       "tagline": "SD Card Module",
-      "description": "Access files on SD cards. Full file system facilities are provided, see File System.",
+      "description": "Access files on SD cards. Full file system facilities are provided, see [File System](/docs/engine/filesystem).\n\n:::tip\n[USB Host](/docs/catalog/com/usb-host) can be used to access files on USB memory devices.\n:::",
       "keyFeatures": [
         "SD card slot",
         "FAT file system",
@@ -905,7 +905,7 @@
       "category": "Storage",
       "price": 0,
       "tagline": "MicroSD Card Module",
-      "description": "Access files on micro SD cards. Full file system facilities are provided, see File System.",
+      "description": "Access files on micro SD cards. Full file system facilities are provided, see [File System](/docs/engine/filesystem).\n\n:::tip\n[USB Host](/docs/catalog/com/usb-host) can be used to access files on USB memory devices.\n:::",
       "keyFeatures": [
         "Micro SD card slot",
         "FAT file system",
