@@ -1310,7 +1310,7 @@
       "PID": "0x050008",
       "category": "LED",
       "price": 0,
-      "tagline": "0.40\"",
+      "tagline": "0.40\" 4-Digit 7-Segment Display",
       "description": "These 0.40\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.",
       "keyFeatures": [
         "4 Digit 7 segment LEDs",
@@ -1348,7 +1348,7 @@
       "PID": "0x05000A",
       "category": "LED",
       "price": 0,
-      "tagline": "0.56\"",
+      "tagline": "0.56\" 4-Digit 7-Segment Display",
       "description": "These 0.56\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.",
       "keyFeatures": [
         "4 Digit 7 segment LEDs",
@@ -1364,7 +1364,7 @@
       "PID": "0x05000C",
       "category": "LED",
       "price": 0,
-      "tagline": "0.80\"",
+      "tagline": "0.80\" 5-Digit 14-Segment Display",
       "description": "14-segment displays ar good to display alpha-numerical info. This 0.80 is a decent size to be visible from a few feet.",
       "keyFeatures": [
         "4 Digit 7 segment LEDs",
@@ -1681,13 +1681,12 @@
       "category": "Accessories",
       "price": 0,
       "tagline": "DUELink Cables",
-      "description": "We have a variety of DUELink cable lengths available to help projects of different needs.",
+      "description": "A variety of DUELink cable lengths are available to help projects of different needs.\n\nCable sets are available in:  \n• 5x 50mm  \n• 5x 150mm  \n• 5x 300mm  \n• 5x 100mm JST to pin header breakout  \n• Variety Pack: 1x 300mm, 2x 150mm, 2x 50mm",
       "keyFeatures": [
-        "5x 50mm cables",
-        "5x 150mm cables",
-        "5x 300mm cables",
-        "5x 100mm JST to pin header breakout",
-        "Variety Pack (1x 300mm, 2x 150mm, 2x 50mm)"
+        "50mm DUELink Cable",
+        "150mm DUELink Cable",
+        "300mm DUELink Cable",
+        "100mm DUELink Breakout Cable"
       ]
     },
     {

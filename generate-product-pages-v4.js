@@ -63,32 +63,44 @@ function has3DModel(partNumber) {
     return fs.existsSync(modelPath);
 }
 
-// Get all 3D models for a product (primary and numbered)
+// Get all 3D models for a product (with smart label detection)
 function get3DModels(partNumber) {
-    const partPrefix = extractPartPrefix(partNumber);
+    // Get the part number without GDL- prefix (e.g., "AXCONNECTORS-A" -> "axconnectors")
+    const basePartNumber = partNumber.replace(/^GDL-/i, '').replace(/-[A-Z]$/i, '').toLowerCase();
     const models = [];
     
-    // Check for primary model
-    const primaryPath = path.join(modelsDir, `gdl-${partPrefix}.step`);
-    if (fs.existsSync(primaryPath)) {
-        models.push({
-            path: `/3d/gdl-${partPrefix}.step`,
-            label: '3D STEP file'
-        });
-    }
+    // Get all STEP files that contain the base part number
+    const files = fs.readdirSync(modelsDir)
+        .filter(file => file.toLowerCase().includes(basePartNumber) && file.endsWith('.step'))
+        .sort(); // Sort to maintain consistent order
     
-    // Check for numbered models (up to 10)
-    for (let i = 1; i <= 10; i++) {
-        const numberedPath = path.join(modelsDir, `gdl-${partPrefix}-${i}.step`);
-        if (fs.existsSync(numberedPath)) {
-            models.push({
-                path: `/3d/gdl-${partPrefix}-${i}.step`,
-                label: `3D STEP file ${i + 1}`
-            });
-        } else {
-            break; // Stop checking once we don't find a file
+    files.forEach(filename => {
+        const filePath = `/3d/${filename}`;
+        
+        // Try to extract a descriptive suffix (like -uplink, -downlink)
+        // Look for pattern after the base part number
+        const regex = new RegExp(`${basePartNumber}(?:-[a-z])?-?(.+)?\\.step$`, 'i');
+        const match = filename.toLowerCase().match(regex);
+        
+        let label = '3D STEP file';
+        if (match && match[1]) {
+            const suffix = match[1];
+            // Check if it's just a number
+            if (/^\d+$/.test(suffix)) {
+                // Plain number, use default numbering
+                label = `3D STEP file ${parseInt(suffix) + 1}`;
+            } else {
+                // Descriptive suffix - capitalize first letter
+                const description = suffix.charAt(0).toUpperCase() + suffix.slice(1);
+                label = `3D ${description} STEP file`;
+            }
         }
-    }
+        
+        models.push({
+            path: filePath,
+            label: label
+        });
+    });
     
     return models;
 }
@@ -277,20 +289,11 @@ function generateMDX(product, index) {
         resourceLinks.push(`📄<a href="/sch/gdl-${partPrefix}.pdf">Schematics</a>`);
     }
     
-    // Add 3D models with custom labels if provided
+    // Add 3D models with automatically detected labels
     const models3D = get3DModels(product.partNumber);
-    if (product.partNumber === 'GDL-AXCONNECTORS-A' && models3D.length >= 2) {
-        // Special case for connectors with custom labels
-        resourceLinks.push(`🔩<a href="${models3D[0].path}">3D Uplink STEP file</a>`);
-        if (models3D[1]) {
-            resourceLinks.push(`🔩<a href="${models3D[1].path}">3D Downlink STEP file</a>`);
-        }
-    } else {
-        // Default case for all other products
-        models3D.forEach(model => {
-            resourceLinks.push(`🔩<a href="${model.path}">${model.label}</a>`);
-        });
-    }
+    models3D.forEach(model => {
+        resourceLinks.push(`🔩<a href="${model.path}">${model.label}</a>`);
+    });
     
     // Create resources section only if there are resources
     const resourcesSection = resourceLinks.length > 0 
@@ -551,9 +554,7 @@ ${sampleContent}
 
 ---
 
-${generateOrderSection(product)}
-
-**PID:** ${product.PID}
+${generateOrderSection(product)}${product.PID ? `\n\n**PID:** ${product.PID}` : ''}
 `;
 
     return mdxContent;
