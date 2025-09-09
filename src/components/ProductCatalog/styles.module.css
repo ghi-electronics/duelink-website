@@ -661,10 +661,10 @@
 }
 
 .productPrice {
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 400;
   color: #2c3e50;
-  text-align: left;
+  text-align: right;
   margin: var(--spacing-xs) 0 var(--spacing-sm) 0;
 }
 
@@ -1337,14 +1337,19 @@
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   color: white;
-  font-size: 35px;
-  line-height: 1;
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 10001;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
+}
+
+.lightboxPrev svg,
+.lightboxNext svg {
+  width: 24px;
+  height: 24px;
 }
 
 .lightboxPrev {

@@ -124,8 +124,16 @@ const ProductCard = memo(({ product, index }) => {
       {showLightbox && ReactDOM.createPortal(
         <div className={styles.lightbox} onClick={closeLightbox}>
           <button className={styles.lightboxClose} onClick={closeLightbox}>×</button>
-          <button className={styles.lightboxPrev} onClick={goToPrevious}>‹</button>
-          <button className={styles.lightboxNext} onClick={goToNext}>›</button>
+          <button className={styles.lightboxPrev} onClick={goToPrevious}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <button className={styles.lightboxNext} onClick={goToNext}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
           
           <div className={styles.lightboxHeader}>
             <h2 className={styles.lightboxTitle}>{product.name}</h2>
