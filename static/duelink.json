@@ -1179,6 +1179,19 @@
         "Air and liquid pressure",
         "Measure pressure",
         "17x26mm overall dimension"
+      ],
+      "driverApi": ":::tip\nNo Driver! Use the [Standard Library API](/docs/engine/stdlib) VRead(2) directly.\n:::",
+      "variations": [
+        {
+          "name": "Pressure Sensor 100 bar",
+          "partNumber": "GDL-SEPRESSURE100-B",
+          "price": 0
+        },
+        {
+          "name": "Pressure Sensor 500 bar",
+          "partNumber": "GDL-SEPRESSURE500-B",
+          "price": 0
+        }
       ]
     },
     {
@@ -1197,7 +1210,7 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetTime(y,n,d,h,m,s)` | Sets date/time to `y` year, `n` month, `d` day, `h` hour, `m` minute, and `s` second. |\n| `GetTime()` | Returns current time in \\_y, \\_n, \\_d, \\_h, \\_m, \\_s variables. |\n| `DVer()` | This driver version. |"
     },
     {
-      "name": "TempHmd",
+      "name": "Temperature & Humidity",
       "partNumber": "GDL-SETEMPHMD-B",
       "PID": "0x060010",
       "category": "Sensor",
@@ -1209,7 +1222,7 @@
         "Temperature and Humidity",
         "27x33mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SenPin()` | Returns the sensor's pin number. |\n| `SenType()` | Returns the sensor's type. |\n| `DVer()` | This driver version. |"
+      "driverApi": ":::tip\nUse the Standard Library API directly to read temp and humidity.\n:::\n\n| Function | Description |\n|----------|-------------|\n| `Temp()` | Returns temperature in celsius. |\n| `Humid()` | Returns relative humidity percentage. |\n| `SenPin()` | Returns the sensor's pin number. |\n| `SenType()` | Returns the sensor's type. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "TempRTD",
@@ -1222,7 +1235,8 @@
       "keyFeatures": [
         "RTD Temperature Sensor",
         "42x27 overall dimension"
-      ]
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `ReadTemp()` | Reads the current temperature in celsius. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "LED MT1208",
@@ -1412,14 +1426,14 @@
       "category": "Sound",
       "price": 0,
       "tagline": "MP3 Micro SD Player",
-      "description": "Play MP3 audio/music from files found on the attached Micro SD card. The audio quality is reasonable and single mono channel. There is no system load as the module only receives and processes simple commands, like start playing, or stop. The files on the Micro SD card are saved in standard FAT16/FAT32 file system and can handle SD cards up to 32GB. Note that you will not have access to the files directly. Only the MP3 decoder can read the files. You will need to move the Micro SD card to a PC to load it with MP3 files.\n\nMicro SD card is required and is not included.",
+      "description": "Play MP3 audio/music from files found on the attached Micro SD card. The audio quality is reasonable and single mono channel. There is no system load as the module only receives and processes simple commands, like `start` playing, or `stop`. The files on the Micro SD card are saved in standard FAT16/FAT32 file system and can handle SD cards up to 32GB. Note that you will not have access to the files directly. Only the MP3 decoder can read the files. You will need to move the Micro SD card to a PC to load it with MP3 files.\n\nMicro SD card is required and is not included.",
       "keyFeatures": [
         "MP3 decoder",
         "Auto playback",
         "Micro SD card reader",
         "37x22mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SendCmd(c, a)` | Send `c` command & `a` argument to mp3 module. |\n| `WResponse(t, c, a)` | `t` timeout, `c` code, `a` argument. Wait for response. |\n| `Stop()` | Stop playing. |\n| `SetVol(v)` | Sets `v` volume. (Min 0, max 30) |\n| `IsBusy()` | Returns 1 if busy. |\n| `Loop(r)` | Sets `r` repeat. |\n| `Rst()` | Reset mp3 module. |\n| `PlayFile(f, d)` | Play file. `f` Files and `d` directories must be named in numerics. |\n| `DVer()` | This driver version. |"
+      "driverApi": "<table><thead><tr><th style=\"width: 35%\">Function</th><th style=\"width: 65%\">Description</th></tr></thead><tbody><tr><td>`SendCmd(c, a)`</td><td>Send `c` command & `a` argument to mp3 module.</td></tr><tr><td>`WResponse(t, c, a)`</td><td>`t` timeout, `c` code, `a` argument. Wait for response.</td></tr><tr><td>`Stop()`</td><td>Stop playing.</td></tr><tr><td>`SetVol(v)`</td><td>Sets `v` volume. (Min 0, max 30)</td></tr><tr><td>`IsBusy()`</td><td>Returns 1 if busy.</td></tr><tr><td>`Loop(r)`</td><td>Sets `r` repeat.</td></tr><tr><td>`Rst()`</td><td>Reset mp3 module.</td></tr><tr><td>`PlayFile(f, d)`</td><td>Play file. `f` Files and `d` directories must be named in numerics.</td></tr><tr><td>`DVer()`</td><td>This driver version.</td></tr></tbody></table>"
     },
     {
       "name": "Radio FM",
