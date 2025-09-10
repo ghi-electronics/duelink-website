@@ -356,15 +356,6 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(m)` | Initialize the display. Automatically called on power up `m`mode to (1-direct, 0-buffered (default)). |\n| `GetW()` | Get display width: 80 in buffered, 240 in direct. |\n| `GetH()` | Get display height: 80 in buffered, 240 in direct. |\n| `IsColor()` | Returns 1. |\n| `TouchX()` | Returns touch x. |\n| `TouchY()` | Returns touch y. |\n| `DVer()` | This driver version. |"
     },
     {
-      "name": "TFT T32",
-      "partNumber": "GDL-DTFTT32-C",
-      "PID": "0x010008",
-      "category": "Display",
-      "price": 0,
-      "tagline": "3.2\"",
-      "description": "3.2-inch TFT touchscreen display for interactive applications"
-    },
-    {
       "name": "VFD-B8",
       "partNumber": "GDL-DVFDB8-C",
       "PID": "0x01000A",
@@ -590,7 +581,9 @@
         "Light Control Module",
         "On-board Female XLR Connector",
         "42x32mm overall dimension"
-      ]
+      ],
+      "driverApi": ":::tip\nDMX module uses the [Standard Library](../../engine/stdlib) DMX bus. No other drivers are needed.\n:::"
+
     },
     {
       "name": "Ethernet",
@@ -607,15 +600,6 @@
         "On-board LAN Connector",
         "37x27mm overall dimension"
       ]
-    },
-    {
-      "name": "MIDI",
-      "partNumber": "GDL-CMMIDI-A",
-      "PID": "0x030004",
-      "category": "Communication",
-      "price": 0,
-      "tagline": "MIDI Interface",
-      "description": "MIDI interface for musical instrument connectivity"
     },
     {
       "name": "RS485",
@@ -662,15 +646,6 @@
         "USB-A Host Connector",
         "32x27mm overall dimension"
       ]
-    },
-    {
-      "name": "USB Client",
-      "partNumber": "GDL-CMUSBCLIENT-A",
-      "PID": "0x030008",
-      "category": "Communication",
-      "price": 0,
-      "tagline": "USB Client Interface",
-      "description": "USB client interface for device-mode connectivity"
     },
     {
       "name": "Button AR100",
