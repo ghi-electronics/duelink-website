@@ -252,6 +252,7 @@ const sidebars = {
       items: [
         "hw/raspberry-pi",
         "hw/arduino",
+        "hw/espressif",
         "hw/microbit",
         "hw/pc-laptop",
         "hw/phone-tablet",
