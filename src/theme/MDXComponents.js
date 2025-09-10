@@ -2,6 +2,7 @@ import React from 'react';
 // Importing the original mapper + our components according to the Docusaurus doc
 import MDXComponents from '@theme-original/MDXComponents';
 import Button from '@site/src/components/Button';
+import ProductCatalog from '@site/src/components/ProductCatalog';
 
 function MyComponent() {
     const [bool, setBool] = useState(false);
@@ -20,6 +21,7 @@ export default {
   // Reusing the default mapping
   ...MDXComponents,
   Button,
+  ProductCatalog,
 };
 
 

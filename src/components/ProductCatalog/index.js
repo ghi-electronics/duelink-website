@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo, useCallback } from 'react';
+import React, { useEffect, useState, useMemo, useCallback, useRef } from 'react';
 import ProductCard from './ProductCard';
 import styles from './styles.module.css';
 
@@ -24,9 +24,10 @@ const ProductCatalog = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [sortBy, setSortBy] = useState('name-asc');
+  const [sortBy, setSortBy] = useState('category');
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const searchInputRef = useRef(null);
   
   // Debounce search term for better performance
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
@@ -47,7 +48,7 @@ const ProductCatalog = () => {
     fetch('/duelink.json')
       .then(response => response.json())
       .then(data => {
-        setProducts(data.boards || []);
+        setProducts(data.products || []);
         setLoading(false);
       })
       .catch(error => {
@@ -56,10 +57,40 @@ const ProductCatalog = () => {
       });
   }, []);
 
-  // Memoize categories to avoid recalculation
+  // Memoize categories to avoid recalculation - match sidebar order
   const categories = useMemo(() => {
-    const cats = new Set(products.map(p => p.Category || 'Other'));
-    return Array.from(cats).sort();
+    const categoryOrder = [
+      'Microcomputer',
+      'Education',
+      'Specialty',
+      'Display',
+      'Actuator',
+      'Communication',
+      'HMI',
+      'Storage',
+      'Wireless',
+      'Sensor',
+      'LED',
+      'Sound',
+      'Vision',
+      'Adapter'
+    ];
+    
+    const cats = new Set(products.map(p => p.category || 'Other'));
+    const catArray = Array.from(cats);
+    
+    // Sort by predefined order, then alphabetically for any not in the list
+    return catArray.sort((a, b) => {
+      const indexA = categoryOrder.indexOf(a);
+      const indexB = categoryOrder.indexOf(b);
+      
+      if (indexA !== -1 && indexB !== -1) {
+        return indexA - indexB;
+      }
+      if (indexA !== -1) return -1;
+      if (indexB !== -1) return 1;
+      return a.localeCompare(b);
+    });
   }, [products]);
 
   // Memoize filtered and sorted products
@@ -67,12 +98,13 @@ const ProductCatalog = () => {
     const filtered = products.filter(product => {
       const matchesSearch = 
         debouncedSearchTerm === '' || 
-        product.Name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
-        product.PartNumber.toLowerCase().includes(debouncedSearchTerm.toLowerCase());
+        product.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+        product.partNumber.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+        (product.description && product.description.toLowerCase().includes(debouncedSearchTerm.toLowerCase()));
       
       const matchesCategory = 
         selectedCategory === 'all' || 
-        (product.Category && product.Category.toLowerCase() === selectedCategory.toLowerCase());
+        (product.category && product.category.toLowerCase() === selectedCategory.toLowerCase());
       
       return matchesSearch && matchesCategory;
     });
@@ -81,19 +113,53 @@ const ProductCatalog = () => {
     const sorted = [...filtered];
     switch(sortBy) {
       case 'name-asc':
-        sorted.sort((a, b) => a.Name.localeCompare(b.Name));
+        sorted.sort((a, b) => a.name.localeCompare(b.name));
         break;
       case 'name-desc':
-        sorted.sort((a, b) => b.Name.localeCompare(a.Name));
-        break;
-      case 'part-asc':
-        sorted.sort((a, b) => a.PartNumber.localeCompare(b.PartNumber));
-        break;
-      case 'part-desc':
-        sorted.sort((a, b) => b.PartNumber.localeCompare(a.PartNumber));
+        sorted.sort((a, b) => b.name.localeCompare(a.name));
         break;
       case 'category':
-        sorted.sort((a, b) => (a.Category || '').localeCompare(b.Category || ''));
+        // Define the same category order as used in the sidebar
+        const categoryOrder = [
+          'Microcomputer',
+          'Education',
+          'Specialty',
+          'Display',
+          'Actuator',
+          'Communication',
+          'HMI',
+          'Storage',
+          'Wireless',
+          'Sensor',
+          'LED',
+          'Sound',
+          'Vision',
+          'Adapter'
+        ];
+        
+        sorted.sort((a, b) => {
+          const catA = a.category || 'Other';
+          const catB = b.category || 'Other';
+          const indexA = categoryOrder.indexOf(catA);
+          const indexB = categoryOrder.indexOf(catB);
+          
+          // Both in predefined order
+          if (indexA !== -1 && indexB !== -1) {
+            return indexA - indexB;
+          }
+          // Only A in predefined order - A comes first
+          if (indexA !== -1) return -1;
+          // Only B in predefined order - B comes first
+          if (indexB !== -1) return 1;
+          // Neither in predefined order - sort alphabetically
+          return catA.localeCompare(catB);
+        });
+        break;
+      case 'price-asc':
+        sorted.sort((a, b) => a.price - b.price);
+        break;
+      case 'price-desc':
+        sorted.sort((a, b) => b.price - a.price);
         break;
       default:
         break;
@@ -167,7 +233,15 @@ const ProductCatalog = () => {
   }, [isMobile]);
 
   const toggleMobileFilters = useCallback(() => {
-    setMobileFiltersOpen(prev => !prev);
+    setMobileFiltersOpen(prev => {
+      const newState = !prev;
+      if (newState && searchInputRef.current) {
+        setTimeout(() => {
+          searchInputRef.current?.focus();
+        }, 100);
+      }
+      return newState;
+    });
   }, []);
 
   const activeFiltersCount = (selectedCategory !== 'all' ? 1 : 0) + (searchTerm ? 1 : 0);
@@ -191,7 +265,9 @@ const ProductCatalog = () => {
             aria-expanded={mobileFiltersOpen}
             aria-label="Toggle filters"
           >
-            <span className={styles.filterIcon}>☰</span>
+            <svg className={styles.filterIcon} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+            </svg>
             <span>Filters</span>
             {activeFiltersCount > 0 && (
               <span className={styles.filterBadge}>{activeFiltersCount}</span>
@@ -203,7 +279,11 @@ const ProductCatalog = () => {
               onClick={() => {
                 setSearchTerm('');
                 setSelectedCategory('all');
-                setSortBy('name-asc');
+                setSortBy('category');
+                // Focus search input after clearing
+                setTimeout(() => {
+                  searchInputRef.current?.focus();
+                }, 50);
                 // Scroll to show all products after clearing filters
                 setTimeout(() => {
                   const productsSection = document.querySelector('[class*="productGrid"]');
@@ -221,7 +301,7 @@ const ProductCatalog = () => {
               }}
               aria-label="Clear all filters"
             >
-              Clear all
+              Clear Filters
             </button>
           )}
         </div>
@@ -232,6 +312,7 @@ const ProductCatalog = () => {
       <div className={`${styles.filterBar} ${isMobile ? styles.mobileFilterBar : ''} ${isMobile && mobileFiltersOpen ? styles.mobileFilterBarOpen : ''}`}>
         <div className={`${styles.searchRow} ${isMobile ? styles.mobileSearchRow : ''}`}>
           <input
+            ref={searchInputRef}
             type="text"
             placeholder="Search products..."
             className={styles.searchInput}
@@ -248,9 +329,9 @@ const ProductCatalog = () => {
           >
             <option value="name-asc">Name (A-Z)</option>
             <option value="name-desc">Name (Z-A)</option>
-            <option value="part-asc">Part # (A-Z)</option>
-            <option value="part-desc">Part # (Z-A)</option>
             <option value="category">Category</option>
+            <option value="price-asc">Price (Low to High)</option>
+            <option value="price-desc">Price (High to Low)</option>
           </select>
         </div>
         <div className={`${styles.categoryFilters} ${isMobile ? styles.mobileCategoryFilters : ''}`}>
@@ -262,7 +343,7 @@ const ProductCatalog = () => {
             All Products ({products.length})
           </button>
           {categories.map(category => {
-            const count = products.filter(p => p.Category === category).length;
+            const count = products.filter(p => p.category === category).length;
             return (
               <button 
                 key={category}
@@ -279,10 +360,31 @@ const ProductCatalog = () => {
 
       {(!isMobile || !mobileFiltersOpen) && (
         <div className={styles.resultsCount}>
-          {debouncedSearchTerm && (
-            <span className={styles.searchingText}>Searching for "{debouncedSearchTerm}"... </span>
+          <span className={styles.countText}>Showing {filteredProducts.length} from {products.length} products</span>
+          {selectedCategory !== 'all' && (
+            <span className={styles.activeFilter}>
+              <span className={styles.filterLabel}>Category: {selectedCategory}</span>
+              <button 
+                className={styles.clearFilterBtn}
+                onClick={() => setSelectedCategory('all')}
+                aria-label="Clear category filter"
+              >
+                ×
+              </button>
+            </span>
           )}
-          <span className={styles.countText}>Showing {filteredProducts.length} of {products.length} products</span>
+          {debouncedSearchTerm && (
+            <span className={styles.activeFilter}>
+              <span className={styles.filterLabel}>Search: "{debouncedSearchTerm}"</span>
+              <button 
+                className={styles.clearFilterBtn}
+                onClick={() => setSearchTerm('')}
+                aria-label="Clear search"
+              >
+                ×
+              </button>
+            </span>
+          )}
         </div>
       )}
 
@@ -294,18 +396,23 @@ const ProductCatalog = () => {
             onClick={() => {
               setSearchTerm('');
               setSelectedCategory('all');
+              // Focus search input on desktop after reset
+              setTimeout(() => {
+                searchInputRef.current?.focus();
+              }, 50);
             }}
           >
-            Reset Filters
+            Clear Filters
           </button>
         </div>
       ) : (
         <div className={`${styles.productGrid} ${isMobile ? styles.mobileProductGrid : ''}`}>
           {filteredProducts.map((product, index) => (
             <ProductCard 
-              key={product.PID || index} 
+              key={product.partNumber || index} 
               product={product} 
               index={index}
+              onCategoryClick={handleCategoryChange}
             />
           ))}
         </div>

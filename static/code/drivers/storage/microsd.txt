@@ -1,6 +1,0 @@
-##### Micro SD Driver #####
-
-# No need for a driver!
-# Use standard File System feature directly
-
-####################
