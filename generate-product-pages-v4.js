@@ -265,12 +265,10 @@ ${resourceLinks.join('<br/>\n')}<br/>`
     
     // Check for driver first
     const driverPath = getDriverPath(product);
-    let hasDriver = false;
     let driverContent = null;
     
     if (driverPath) {
         driverContent = loadDriverContent(driverPath);
-        hasDriver = !!driverContent;
     }
     
     // Build tabs array dynamically
@@ -278,8 +276,8 @@ ${resourceLinks.join('<br/>\n')}<br/>`
         {label: 'Overview', value: 'overview'}
     ];
     
-    // Only add Drivers tab if driver exists
-    if (hasDriver) {
+    // Only add Drivers tab if driver file exists
+    if (driverPath) {
         tabs.push({label: 'Drivers', value: 'drivers'});
     }
     
@@ -398,46 +396,18 @@ ${sampleTabItems.join('\n')}
         }
     }
     
-    // Generate driver tab content if driver exists
+    // Generate driver tab content if driver file exists
     let driverTabContent = '';
     
-    if (hasDriver) {
-        // Check if driver indicates no driver is needed
-        const noDriverNeeded = driverContent.includes('No need for a driver!');
-        
+    if (driverPath) {
         // Use driverApi from product JSON if available, otherwise no table
         const driverTable = product.driverApi || '';
         
         // Extract just the product name without revision
         const productBaseName = product.name.replace(/\s+[A-Z]$/i, '');
         
-        if (noDriverNeeded) {
-            // Extract the instruction line after "No need for a driver!" if it exists
-            const lines = driverContent.split('\n');
-            const noDriverIndex = lines.findIndex(line => line.includes('No need for a driver!'));
-            let tipMessage = 'No need for a driver! ';
-            
-            // Look for the next non-empty line after "No need for a driver!"
-            if (noDriverIndex !== -1 && noDriverIndex + 1 < lines.length) {
-                const nextLine = lines[noDriverIndex + 1].replace(/^#\s*/, '').trim();
-                if (nextLine && !nextLine.startsWith('#')) {
-                    tipMessage += nextLine;
-                }
-            }
-            
-            driverTabContent = `
-<TabItem value="drivers">
-
-See [Drivers](/docs/engine/drivers) page for further details.
-
-:::tip
-${tipMessage}
-:::
-
-</TabItem>`;
-        } else {
-            // Use reference attribute for GitHub CodeBlock plugin
-            driverTabContent = `
+        // Use reference attribute for GitHub CodeBlock plugin
+        driverTabContent = `
 <TabItem value="drivers">
 
 See [Drivers](/docs/engine/drivers) page for further details.
@@ -452,7 +422,6 @@ https://github.com/ghi-electronics/duelink-website/blob/products/static/code/dri
 </details>
 
 </TabItem>`;
-        }
     }
     
     const mdxContent = `---
