@@ -24,7 +24,17 @@ import {
   Alert,
   Snackbar,
   Chip,
-  Typography
+  Typography,
+  IconButton,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Switch,
+  FormControlLabel
 } from '@mui/material';
 import {
   Edit as EditIcon,
@@ -32,7 +42,7 @@ import {
   Add as AddIcon,
   ContentCopy as CopyIcon
 } from '@mui/icons-material';
-import { getProducts, addProduct, updateProduct, deleteProduct, Product, exportProductsToJSON } from '@/lib/productService';
+import { getProducts, addProduct, updateProduct, deleteProduct, Product, ProductVariation, exportProductsToJSON } from '@/lib/productService';
 
 // Dynamic import to avoid SSR issues
 const MDEditor = dynamic(
@@ -53,6 +63,7 @@ interface SimpleProduct {
   partNumber: string;
   category: string;
   price: number;
+  variations?: ProductVariation[];
 }
 
 const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fileHandle = null }) => {
@@ -62,12 +73,14 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const [editMode, setEditMode] = useState(false);
+  const [hasVariations, setHasVariations] = useState(false);
   const [currentProduct, setCurrentProduct] = useState<SimpleProduct>({
     name: '',
     description: '',
     partNumber: '',
     category: '',
-    price: 0
+    price: 0,
+    variations: undefined
   });
   const [snackbar, setSnackbar] = useState({ 
     open: false, 
@@ -90,7 +103,8 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
         description: p.description,
         partNumber: p.partNumber,
         category: p.category,
-        price: p.price
+        price: p.price,
+        variations: p.variations
       }));
       setProducts(simpleProducts);
     } catch (error) {
@@ -134,12 +148,14 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
 
   const handleOpen = () => {
     setEditMode(false);
+    setHasVariations(false);
     setCurrentProduct({
       name: '',
       description: '',
       partNumber: '',
       category: '',
-      price: 0
+      price: 0,
+      variations: undefined
     });
     setOpen(true);
   };
@@ -147,6 +163,7 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
   const handleEdit = (product: SimpleProduct) => {
     setEditMode(true);
     setCurrentProduct(product);
+    setHasVariations(!!product.variations && product.variations.length > 0);
     setOpen(true);
   };
 
@@ -156,9 +173,11 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
       ...product,
       id: undefined,
       name: `${product.name} (Copy)`,
-      partNumber: `${product.partNumber}-COPY`
+      partNumber: `${product.partNumber}-COPY`,
+      variations: product.variations ? [...product.variations] : undefined
     };
     setCurrentProduct(newProduct);
+    setHasVariations(!!newProduct.variations && newProduct.variations.length > 0);
     setOpen(true);
   };
 
@@ -166,12 +185,47 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
     setOpen(false);
   };
 
+  const handleVariationToggle = (checked: boolean) => {
+    setHasVariations(checked);
+    if (checked && (!currentProduct.variations || currentProduct.variations.length === 0)) {
+      setCurrentProduct({
+        ...currentProduct,
+        variations: [{ name: '', partCode: '', price: 0 }]
+      });
+    } else if (!checked) {
+      setCurrentProduct({
+        ...currentProduct,
+        variations: undefined
+      });
+    }
+  };
+
+  const handleAddVariation = () => {
+    const newVariations = [...(currentProduct.variations || []), { name: '', partCode: '', price: 0 }];
+    setCurrentProduct({ ...currentProduct, variations: newVariations });
+  };
+
+  const handleRemoveVariation = (index: number) => {
+    const newVariations = currentProduct.variations?.filter((_, i) => i !== index);
+    setCurrentProduct({ ...currentProduct, variations: newVariations });
+    if (!newVariations || newVariations.length === 0) {
+      setHasVariations(false);
+    }
+  };
+
+  const handleVariationChange = (index: number, field: keyof ProductVariation, value: string | number) => {
+    if (!currentProduct.variations) return;
+    const newVariations = [...currentProduct.variations];
+    newVariations[index] = { ...newVariations[index], [field]: value };
+    setCurrentProduct({ ...currentProduct, variations: newVariations });
+  };
+
   const handleSave = async () => {
     try {
       // Convert back to full product format for saving
       const fullProduct: Product = {
         ...currentProduct,
-        variations: {},
+        variations: currentProduct.variations,
         images: {
           front: '',
           pencil: '',
@@ -306,6 +360,18 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
       renderCell: (params) => (
         <Chip label={params.value} size="small" />
       )
+    },
+    { 
+      field: 'variations',
+      headerName: 'Variations',
+      width: 120,
+      renderCell: (params) => {
+        const variations = params.value as ProductVariation[] | undefined;
+        if (!variations || variations.length === 0) {
+          return <Typography variant="body2" color="text.secondary">-</Typography>;
+        }
+        return <Chip label={`${variations.length} variants`} size="small" color="primary" />;
+      }
     },
     { 
       field: 'price', 
@@ -462,6 +528,99 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
                 min: 0
               }}
             />
+            
+            <Box sx={{ mt: 2, mb: 2 }}>
+              <FormControlLabel
+                control={
+                  <Switch
+                    checked={hasVariations}
+                    onChange={(e) => handleVariationToggle(e.target.checked)}
+                  />
+                }
+                label="Product has variations"
+              />
+            </Box>
+
+            {hasVariations && (
+              <Box sx={{ mt: 2, mb: 2 }}>
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
+                  <Typography variant="subtitle2">Variations</Typography>
+                  <Button
+                    size="small"
+                    startIcon={<AddIcon />}
+                    onClick={handleAddVariation}
+                  >
+                    Add Variation
+                  </Button>
+                </Box>
+                <TableContainer component={Paper} variant="outlined">
+                  <Table size="small">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Name</TableCell>
+                        <TableCell>Part Code</TableCell>
+                        <TableCell>Price Diff</TableCell>
+                        <TableCell>Full Part Number</TableCell>
+                        <TableCell width={50}>Action</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {currentProduct.variations?.map((variation, index) => (
+                        <TableRow key={index}>
+                          <TableCell>
+                            <TextField
+                              size="small"
+                              value={variation.name}
+                              onChange={(e) => handleVariationChange(index, 'name', e.target.value)}
+                              placeholder="e.g., Red"
+                              fullWidth
+                            />
+                          </TableCell>
+                          <TableCell>
+                            <TextField
+                              size="small"
+                              value={variation.partCode}
+                              onChange={(e) => handleVariationChange(index, 'partCode', e.target.value)}
+                              placeholder="e.g., R"
+                              fullWidth
+                            />
+                          </TableCell>
+                          <TableCell>
+                            <TextField
+                              size="small"
+                              type="number"
+                              value={variation.price}
+                              onChange={(e) => handleVariationChange(index, 'price', parseFloat(e.target.value) || 0)}
+                              InputProps={{
+                                startAdornment: '$',
+                              }}
+                              inputProps={{
+                                step: 0.01
+                              }}
+                              fullWidth
+                            />
+                          </TableCell>
+                          <TableCell>
+                            <Typography variant="body2" sx={{ fontFamily: 'monospace' }}>
+                              {currentProduct.partNumber}{variation.partCode ? `:${variation.partCode}` : ''}
+                            </Typography>
+                          </TableCell>
+                          <TableCell>
+                            <IconButton
+                              size="small"
+                              onClick={() => handleRemoveVariation(index)}
+                              color="error"
+                            >
+                              <DeleteIcon fontSize="small" />
+                            </IconButton>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Box>
+            )}
             
             <Box sx={{ mt: 2 }}>
               <Typography variant="subtitle2" gutterBottom>

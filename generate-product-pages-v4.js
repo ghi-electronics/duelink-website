@@ -254,7 +254,7 @@ function generateOrderSection(product) {
             const propNum = idx === 0 ? '' : (idx + 1).toString();
             return `
     product${propNum}="DUELink ${variation.name}"
-    partnumber${propNum}="${variation.partNumber}"
+    partnumber${propNum}="${product.partNumber}:${variation.partCode}"
     price${propNum}="$${variation.price?.toFixed(2) || '00.00'}"`;
         }).join('');
         
@@ -527,8 +527,7 @@ ${details.overview || product.description || 'This is a high-quality DUELink mod
 <table><td width='50%'>
 **Key features**
 
-${(product.keyFeatures || []).map(f => `• ${f}<br/>`).join('\n')}
-
+${(product.keyFeatures || []).map(f => `• ${f}<br/>`).join('\n')}${product.PID ? `\n\n**PID:** ${product.PID}` : ''}
 </td><td width='50%'>
 ${resourcesSection}
 </td></table>
@@ -541,7 +540,7 @@ ${sampleContent}
 
 ---
 
-${generateOrderSection(product)}${product.PID ? `\n\n**PID:** ${product.PID}` : ''}
+${generateOrderSection(product)}
 
 <ProductFooter />
 `;

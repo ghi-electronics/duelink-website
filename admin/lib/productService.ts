@@ -1,3 +1,9 @@
+export interface ProductVariation {
+  name: string;
+  partCode: string;
+  price: number;
+}
+
 export interface Product {
   id?: string;
   name: string;
@@ -5,7 +11,7 @@ export interface Product {
   partNumber: string;
   category: string;
   price: number;
-  variations: { [key: string]: { [key: string]: string } };
+  variations?: ProductVariation[];
   images: {
     front: string;
     pencil: string;
@@ -56,11 +62,14 @@ const initializeProducts = async (): Promise<void> => {
     if (response.ok) {
       const data = await response.json();
       if (data.products) {
-        // Use new schema directly with IDs added
-        productsData = data.products.map((product: Product) => ({
-          ...product,
-          id: product.partNumber || `product-${Date.now()}-${Math.random()}`
-        }));
+        // Remove orderingInfo from products
+        productsData = data.products.map((product: any) => {
+          const { orderingInfo, ...cleanProduct } = product;
+          return {
+            ...cleanProduct,
+            id: cleanProduct.partNumber
+          };
+        });
         initialized = true;
         return;
       }
@@ -89,7 +98,7 @@ export const addProduct = async (product: Product): Promise<Product> => {
     const products = await getProducts();
     const newProduct = {
       ...product,
-      id: `${product.partNumber}-${Date.now()}`
+      id: product.partNumber
     };
     products.push(newProduct);
     await saveProducts(products);
@@ -132,11 +141,14 @@ export const deleteProduct = async (id: string): Promise<string> => {
 // Import products from JSON
 export const importProducts = async (productsData: DuelinkJSON): Promise<boolean> => {
   try {
-    // Add IDs to imported products
-    const productsWithIds = productsData.products.map((product, index) => ({
-      ...product,
-      id: `${product.partNumber}-${index}`
-    }));
+    // Remove orderingInfo if it exists
+    const productsWithIds = productsData.products.map((product: any) => {
+      const { orderingInfo, ...cleanProduct } = product;
+      return {
+        ...cleanProduct,
+        id: cleanProduct.partNumber
+      };
+    });
     await saveProducts(productsWithIds);
     console.log('Import completed successfully');
     return true;
