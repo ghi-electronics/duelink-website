@@ -303,7 +303,7 @@ ${resourceLinks.join('<br/>\n')}<br/>`
         : '';
     
     // Add PID section if it exists
-    const pidSection = product.PID ? `\n**PID:** ${product.PID}` : '';
+    const pidSection = product.PID ? `\n\n**PID:** ${product.PID}` : '';
     
     // Check for driver first
     const driverPath = getDriverPath(product);
