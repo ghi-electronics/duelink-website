@@ -5,47 +5,6 @@ const path = require('path');
 const dataPath = path.join(__dirname, 'static', 'duelink.json');
 const outputDir = path.join(__dirname, 'docs', 'products');
 
-// Product-specific descriptions and features
-const productDetails = {
-    'GDL-ACMOTOMAX-B': {
-        overview: 'This heavy-duty single motor controller has some serious driving power with up to 27V and 43A!',
-        features: [
-            '43A H-Bridge',
-            '6 to 27V',
-            'Screw terminal connections',
-            '52x50mm overall dimension'
-        ]
-    },
-    'GDL-ACMOTOTWIN-B': {
-        overview: 'Dual motor controller with independent control of two DC motors.',
-        features: [
-            'Dual H-Bridge',
-            '6 to 27V',
-            'Independent motor control',
-            'Compact design'
-        ]
-    },
-    'GDL-ACRELAYP4-C': {
-        overview: '4-channel power relay module for high-current switching applications.',
-        features: [
-            '4 relay channels',
-            'High current switching',
-            'LED status indicators',
-            'Screw terminal connections'
-        ]
-    },
-    'GDL-ACSERVOP8-B': {
-        overview: '8-channel servo controller for precise servo motor control.',
-        features: [
-            '8 servo channels',
-            'PWM control',
-            'Standard servo compatibility',
-            'Daisy-chain capable'
-        ]
-    }
-    // Add more products as needed
-};
-
 // Paths for resource files
 const schematicsDir = path.join(__dirname, 'static', 'sch');
 const modelsDir = path.join(__dirname, 'static', '3d');
@@ -274,7 +233,6 @@ ${tableRows}`;
 function generateMDX(product, index) {
     const partPrefix = extractPartPrefix(product.partNumber);
     const partNumberClean = product.partNumber.replace(/^GDL-/, '');
-    const details = productDetails[product.partNumber] || {};
     
     // Generate base name for file references using partNumber
     const baseName = product.partNumber.toLowerCase();
@@ -525,7 +483,7 @@ ${imagePrefix !== null ? `<ImageSection
 
 <TabItem value="overview">
 
-${details.overview || product.description || 'This is a high-quality DUELink module designed for easy integration into your projects.'}${product.Notes ? '\n\n' + product.Notes : ''}
+${product.description}
 
 <table><td width='50%'>
 **Key features**

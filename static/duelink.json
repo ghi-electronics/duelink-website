@@ -1737,8 +1737,7 @@
       "category": "Accessories",
       "price": 0,
       "tagline": "DUELink JST Connectors",
-      "description": "These standard connecters are here to help you in building [your own DUELink modules](/docs/catalog/third-party).",
-      "Notes": ":::note\nThese blue connectors will get discolored in a reflow oven. They are made for hand soldering. Contact us if you need a volume blue connectors that are suitable for reflow.\n:::",
+      "description": "These standard connecters are here to help you in building [your own DUELink modules](/docs/catalog/third-party).\n\n:::note\nThese blue connectors will get discolored in a reflow oven. They are made for hand soldering. Contact us if you need a volume blue connectors that are suitable for reflow.\n:::",
       "keyFeatures": [
         "4pin 1mm JST connector",
         "Blue and White",
