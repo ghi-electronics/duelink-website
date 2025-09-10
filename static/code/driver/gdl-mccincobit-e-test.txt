@@ -104,6 +104,48 @@ fn Test()
                 wait(10)
             wend
         end
+        
+        if IsTouch(0)
+            clear(0)
+            show()
+     
+            cmd("clear(0)")
+            cmd("Texts(\"Touch pin 0\",1,0,0,2,2)")
+            cmd("Texts(\"detected\",1,0,20,2,2)")
+            cmd("show()")
+            
+            println("Touch pin 0 detected")
+            Buzzer(1000, 100)
+            
+        end
+        
+        if IsTouch(1)
+            clear(0)
+            show()
+     
+            cmd("clear(0)")
+            cmd("Texts(\"Touch pin 1\",1,0,0,2,2)")
+            cmd("Texts(\"detected\",1,0,20,2,2)")
+            cmd("show()")
+            
+            println("Touch pin 1 detected")
+            Buzzer(1000, 100)
+            
+        end
+        
+        if IsTouch(2)
+            clear(0)
+            show()
+     
+            cmd("clear(0)")
+            cmd("Texts(\"Touch pin 2\",1,0,0,2,2)")
+            cmd("Texts(\"detected\",1,0,20,2,2)")
+            cmd("show()")
+            
+            println("Touch pin 2 detected")
+            Buzzer(1000, 100)
+            
+        end
              
         wait(10)
      
