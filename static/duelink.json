@@ -50,7 +50,7 @@
     {
       "name": "DueDuino",
       "partNumber": "GDL-MCDUEDUINO-A",
-      "PID": "0x000012",
+      "PID": "0x0D0001",
       "category": "Microcomputer",
       "price": 0,
       "tagline": "Arduino form factor inspired DUELink mainboard",
@@ -108,7 +108,7 @@
     {
       "name": "Stamp",
       "partNumber": "GDL-MCSTAMP-A",
-      "PID": "0x000013",
+      "PID": "0x0D0002",
       "category": "Microcomputer",
       "price": 0,
       "tagline": "Seeed Xaio Form Factor DUELink Microcomputer",
@@ -125,7 +125,7 @@
     {
       "name": "Stick",
       "partNumber": "GDL-MCSTICK-A",
-      "PID": "0x000014",
+      "PID": "0x0D0003",
       "category": "Microcomputer",
       "price": 0,
       "tagline": "DIP24 Form Factor SMT DUELink SoM",
