@@ -45,17 +45,11 @@ const sidebars = {
           items: [
             "products/mcdueduino-a",
             "products/mcstamp-a",
-            "products/mcstick-a"
-          ],
-        },
-        {
-          type: "category",
-          label: "Education",
-          items: [
-            "products/edcincobit-e",
-            "products/edclipit-b",
-            "products/edduestem-b",
-            "products/edpixobit-d"
+            "products/mcstick-a",
+            "products/mccincobit-e",
+            "products/mcclipit-b",
+            "products/mcduestem-b",
+            "products/mcpixobit-d"
           ],
         },
         {
