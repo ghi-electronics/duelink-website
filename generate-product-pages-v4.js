@@ -220,7 +220,7 @@ function generateOrderSection(product) {
         tableRows = `| DUELink ${product.name.replace(' Rev ', ' ')} | ${product.partNumber} | $${product.price?.toFixed(2) || '00.00'} |`;
     }
     
-    return `<p style={{backgroundColor: "lightcyan", color: "black", padding: "0px 0px 0px 30px"}}>
+    return `<p style={{"backgroundColor": "lightcyan", "color": "black", "padding": "0px 0px 0px 30px"}}>
     <h2>Ordering Info</h2>
 </p>
 
@@ -383,7 +383,7 @@ https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sam
             sampleContent = `
 <TabItem value="samples">
 
-Samples assume the drivers are installed, see the <a href="?show=drivers" onClick={(e) => { e.preventDefault(); const scrollPos = window.scrollY; window.history.pushState(null, '', '?show=drivers'); Array.from(document.querySelectorAll('.tabs__item')).find(el => el.textContent === 'Drivers')?.click(); setTimeout(() => window.scrollTo(0, scrollPos), 0); }} style={{cursor: 'pointer'}}>Drivers Tab</a>.
+Samples assume the drivers are installed, see the <a href="?show=drivers" onClick={(e) => { e.preventDefault(); const scrollPos = window.scrollY; window.history.pushState(null, '', '?show=drivers'); Array.from(document.querySelectorAll('.tabs__item')).find(el => el.textContent === 'Drivers')?.click(); setTimeout(() => window.scrollTo(0, scrollPos), 0); }} style={{"cursor": "pointer"}}>Drivers Tab</a>.
 
 <Tabs groupid="language" queryString="lang" defaultValue="${sampleTabs[0].value}"
   values={${JSON.stringify(sampleTabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>

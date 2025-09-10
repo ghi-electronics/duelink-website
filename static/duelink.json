@@ -975,7 +975,7 @@
         "2.4Ghz SMA signal",
         "125 channels",
         "PCB antenna",
-        "[Max Version Available](/docs/products/nrf24-max)"
+        "[Max Version Available](./wnrf24max-c)"
       ]
     },
     {
@@ -1430,7 +1430,7 @@
         "Micro SD card reader",
         "37x22mm Overall Dimension"
       ],
-      "driverApi": "<table><thead><tr><th style=\"width: 35%\">Function</th><th style=\"width: 65%\">Description</th></tr></thead><tbody><tr><td>`SendCmd(c, a)`</td><td>Send `c` command & `a` argument to mp3 module.</td></tr><tr><td>`WResponse(t, c, a)`</td><td>`t` timeout, `c` code, `a` argument. Wait for response.</td></tr><tr><td>`Stop()`</td><td>Stop playing.</td></tr><tr><td>`SetVol(v)`</td><td>Sets `v` volume. (Min 0, max 30)</td></tr><tr><td>`IsBusy()`</td><td>Returns 1 if busy.</td></tr><tr><td>`Loop(r)`</td><td>Sets `r` repeat.</td></tr><tr><td>`Rst()`</td><td>Reset mp3 module.</td></tr><tr><td>`PlayFile(f, d)`</td><td>Play file. `f` Files and `d` directories must be named in numerics.</td></tr><tr><td>`DVer()`</td><td>This driver version.</td></tr></tbody></table>"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SendCmd(c, a)` | Send `c` command & `a` argument to mp3 module. |\n| `WResponse(t, c, a)` | `t` timeout, `c` code, `a` argument. Wait for response. |\n| `Stop()` | Stop playing. |\n| `SetVol(v)` | Sets `v` volume. (Min 0, max 30) |\n| `IsBusy()` | Returns 1 if busy. |\n| `Loop(r)` | Sets `r` repeat. |\n| `Rst()` | Reset mp3 module. |\n| `PlayFile(f, d)` | Play file. `f` Files and `d` directories must be named in numerics. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Radio FM",
@@ -1762,7 +1762,7 @@
       "category": "Accessories",
       "price": 0,
       "tagline": "Holey Boards for Mounting DUELink Modules",
-      "description": "Holey Boards are blank circuits with standard 5mm-pitched holes for mounting DUELink Module. See [Mounting Hardware](./mount-hw) for options.\n\nThere are three size:\n* Holey Smally Board: 18x12 holes\n* Holey Board: 36x18 holes\n* Holey Moley Board: 46x36 holes",
+      "description": "Holey Boards are blank circuits with standard 5mm-pitched holes for mounting DUELink Module. See [Mounting Hardware](./axmounting-a) for options.\n\nThere are three size:\n* Holey Smally Board: 18x12 holes\n* Holey Board: 36x18 holes\n* Holey Moley Board: 46x36 holes",
       "keyFeatures": [
         "5mm-pitch holes",
         "Front grid markings",
@@ -1795,10 +1795,10 @@
       "category": "Accessories",
       "price": 0,
       "tagline": "Mounting Hardware",
-      "description": "Standoffs, Screws, Nuts, and Footpads are available to help in mounting all DUELink modules.\n\nWhile you can use these options with 3D printed and laser cut enclosures, the ideal use with any of the [Holey Boards](./holey-board)!\n\nThe available options are:\n* 10x - Male to Female Nylon standoffs\n* 10x - Female to Female Nylon standoffs\n* 10x - M3 Nylon Screws\n* 10x - M3 Nylon Nuts\n* 4x - M3 Metal Footpads",
+      "description": "Standoffs, Screws, Nuts, and Footpads are available to help in mounting all DUELink modules.\n\nWhile you can use these options with 3D printed and laser cut enclosures, the ideal use with any of the [Holey Boards](./axholeyboards-a)!\n\nThe available options are:\n* 10x - Male to Female Nylon standoffs\n* 10x - Female to Female Nylon standoffs\n* 10x - M3 Nylon Screws\n* 10x - M3 Nylon Nuts\n* 4x - M3 Metal Footpads",
       "keyFeatures": [
         "Universal M3 Size",
-        "Perfect for [Holey Boards](holey-board)"
+        "Perfect for [Holey Boards](./axholeyboards-a)"
       ],
       "variations": [
         {
