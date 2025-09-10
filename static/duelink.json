@@ -1283,7 +1283,7 @@
       "partNumber": "GDL-LLEDS284-B",
       "PID": "0x050006",
       "category": "LED",
-      "price": 0,
+      "price": 123,
       "tagline": "0.28\" 4-Digit 7-Segment Display",
       "description": "These 0.28\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.\n\n![Count and Time](/img/led-7seg-time-count.png)",
       "keyFeatures": [
@@ -1307,12 +1307,12 @@
         {
           "name": "Counter Green",
           "partCode": "CG",
-          "price": 0
+          "price": "123"
         },
         {
           "name": "Timer Green",
           "partCode": "TG",
-          "price": 0
+          "price": 12.34
         }
       ]
     },

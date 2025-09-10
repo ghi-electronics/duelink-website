@@ -253,36 +253,21 @@ function generateOrderSection(product) {
     if (product.variations && product.variations.length > 0) {
         // Generate rows for each variation
         tableRows = product.variations.map(variation => {
-            return `    <tr>
-        <td>DUELink ${variation.name}</td>
-        <td>${product.partNumber}:${variation.partCode}</td>
-        <td>$${variation.price?.toFixed(2) || '00.00'}</td>
-    </tr>`;
+            const variationPrice = typeof variation.price === 'string' ? parseFloat(variation.price) : variation.price;
+            return `| DUELink ${variation.name} | ${product.partNumber}:${variation.partCode} | $${(variationPrice || 0).toFixed(2)} |`;
         }).join('\n');
     } else {
         // No variations, single row
-        tableRows = `    <tr>
-        <td>DUELink ${product.name.replace(' Rev ', ' ')}</td>
-        <td>${product.partNumber}</td>
-        <td>$${product.price?.toFixed(2) || '00.00'}</td>
-    </tr>`;
+        tableRows = `| DUELink ${product.name.replace(' Rev ', ' ')} | ${product.partNumber} | $${product.price?.toFixed(2) || '00.00'} |`;
     }
     
     return `<p style={{backgroundColor: "lightcyan", color: "black", padding: "0px 0px 0px 30px"}}>
     <h2>Ordering Info</h2>
 </p>
-<table>
-    <thead>
-        <tr>
-            <th>Product</th>
-            <th>Part Number</th>
-            <th>Price</th>
-        </tr>
-    </thead>
-    <tbody>
-${tableRows}
-    </tbody>
-</table>`;
+
+| Product | Part Number | Price |
+|---------|-------------|-------|
+${tableRows}`;
 }
 
 // Generate MDX content for each product
