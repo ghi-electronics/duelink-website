@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
+    "generate-products": "node generate-product-pages-v4.js",
+    "prestart": "npm run generate-products",
     "start": "docusaurus start",
     "start:proxy": "concurrently \"npm run proxy\" \"npm run start\"",
     "proxy": "node proxy-server.js",
+    "prebuild": "npm run generate-products",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -30,6 +33,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-intersection-observer": "^9.16.0",
+    "react-markdown": "^10.1.0",
     "react-medium-image-zoom": "^5.2.13",
     "react-window": "^2.1.0"
   },

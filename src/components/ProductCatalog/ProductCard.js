@@ -1,156 +1,212 @@
-import React, { useState, memo, useRef, useEffect } from 'react';
-import Zoom from 'react-medium-image-zoom';
-import 'react-medium-image-zoom/dist/styles.css';
+import React, { memo, useState } from 'react';
+import ReactDOM from 'react-dom';
 import LazyImage from './LazyImage';
 import styles from './styles.module.css';
 
-const ProductCard = memo(({ product, index }) => {
-  const [selectedImage, setSelectedImage] = useState('front');
+const ProductCard = memo(({ product, index, onCategoryClick }) => {
+  const [showLightbox, setShowLightbox] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
+  const [mainImageIndex, setMainImageIndex] = useState(0);
   
-  const imageTypes = ['front', 'back', 'front-45', 'back-45', 'pencil'];
-  
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-  
-  useEffect(() => {
-    setSelectedImage(imageTypes[currentImageIndex]);
-  }, [currentImageIndex]);
+  // Generate clean part number for image paths
+  const cleanPN = product.partNumber
+    .replace(/GDL-/g, '')
+    .replace(/\[\s*\]/g, '')
+    .replace(/[^a-zA-Z0-9-]/g, '')
+    .toLowerCase();
 
-  const getImageName = (imgPath) => {
-    return imgPath.replace('.png', '').replace('-front', '');
+  const generateSlug = (partNumber) => {
+    // Remove GDL- prefix and convert to lowercase
+    return partNumber
+      .replace(/^GDL-/, '')
+      .toLowerCase();
   };
 
-  const getProductUrl = (product) => {
-    return product.slug || null;
+  const productSlug = generateSlug(product.partNumber);
+  const productUrl = `/docs/products/${productSlug}`;
+  
+  // Array of all image URLs
+  const imageUrls = [
+    `/img/catalog/${cleanPN}-1.png`,
+    `/img/catalog/${cleanPN}-2.png`,
+    `/img/catalog/${cleanPN}-3.png`,
+    `/img/catalog/${cleanPN}-4.png`,
+    `/img/catalog/${cleanPN}-5.png`
+  ];
+
+  const openLightbox = (index) => {
+    setCurrentImageIndex(index);
+    setShowLightbox(true);
   };
 
-  const imageName = getImageName(product.Img);
-  const productUrl = getProductUrl(product);
-  
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX;
+  const handleThumbnailClick = (e, index) => {
+    e.stopPropagation();
+    setMainImageIndex(index);
   };
-  
-  const handleTouchEnd = (e) => {
-    touchEndX.current = e.changedTouches[0].clientX;
-    handleSwipe();
+
+  const handleMainPrevious = (e) => {
+    e.stopPropagation();
+    setMainImageIndex((prev) => (prev - 1 + imageUrls.length) % imageUrls.length);
   };
-  
-  const handleSwipe = () => {
-    const swipeThreshold = 50;
-    const diff = touchStartX.current - touchEndX.current;
-    
-    if (Math.abs(diff) > swipeThreshold) {
-      if (diff > 0 && currentImageIndex < imageTypes.length - 1) {
-        // Swipe left - next image
-        setCurrentImageIndex(prev => prev + 1);
-      } else if (diff < 0 && currentImageIndex > 0) {
-        // Swipe right - previous image
-        setCurrentImageIndex(prev => prev - 1);
-      }
+
+  const handleMainNext = (e) => {
+    e.stopPropagation();
+    setMainImageIndex((prev) => (prev + 1) % imageUrls.length);
+  };
+
+  const closeLightbox = () => {
+    setShowLightbox(false);
+  };
+
+  const goToPrevious = (e) => {
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev - 1 + imageUrls.length) % imageUrls.length);
+  };
+
+  const goToNext = (e) => {
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev + 1) % imageUrls.length);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowLeft') goToPrevious(e);
+    if (e.key === 'ArrowRight') goToNext(e);
+    if (e.key === 'Escape') closeLightbox();
+  };
+
+  React.useEffect(() => {
+    if (showLightbox) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
     }
-  };
+    
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [showLightbox, currentImageIndex]);
 
   return (
-    <div className={styles.productCard}>
-      <div className={styles.imageContainer}>
-        <div 
-          className={styles.mainImageWrapper}
-          onTouchStart={isMobile ? handleTouchStart : undefined}
-          onTouchEnd={isMobile ? handleTouchEnd : undefined}
-        >
-          <Zoom zoomMargin={isMobile ? 20 : 40}>
-            <LazyImage 
-              src={`/img/catalog/${imageName}-${selectedImage}.png`} 
-              alt={`${product.Name} ${selectedImage}`}
-              className={styles.mainImage}
-            />
-          </Zoom>
+    <>
+      <div className={styles.productCard}>
+        <div className={styles.mainThumbnailContainer} onClick={() => openLightbox(mainImageIndex)}>
+          <LazyImage 
+            src={imageUrls[mainImageIndex]} 
+            alt={product.name}
+            className={styles.mainThumbnailImage}
+          />
+          <button className={styles.mainImageNavPrev} onClick={handleMainPrevious} aria-label="Previous image">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <button className={styles.mainImageNavNext} onClick={handleMainNext} aria-label="Next image">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
         </div>
-        
-        {isMobile ? (
-          <div className={styles.mobileImageIndicators}>
-            {imageTypes.map((_, idx) => (
+
+        <div className={styles.additionalThumbnails}>
+          {imageUrls.map((url, idx) => (
+            <div 
+              key={idx} 
+              onClick={(e) => handleThumbnailClick(e, idx)}
+              className={`${styles.thumbnailWrapper} ${idx === mainImageIndex ? styles.activeThumbnailWrapper : ''}`}
+            >
+              <LazyImage 
+                src={url} 
+                alt={`${product.name} view ${idx + 1}`}
+                className={styles.smallThumbnail}
+              />
+            </div>
+          ))}
+        </div>
+
+        {product.tagline && (
+          <p className={styles.productTagline}>{product.tagline}</p>
+        )}
+
+        <div className={styles.productPriceRow}>
+          {product.category && (
+            <button 
+              className={styles.categoryChip}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (onCategoryClick) {
+                  onCategoryClick(product.category);
+                }
+              }}
+              aria-label={`Filter by ${product.category} category`}
+            >
+              {product.category}
+            </button>
+          )}
+          <div className={styles.productPrice}>
+            ${product.price?.toFixed(2) || '0.00'}
+          </div>
+        </div>
+
+        <a 
+          href={productUrl} 
+          className={styles.productNameBtn}
+        >
+          {product.name}
+        </a>
+      </div>
+
+      {showLightbox && ReactDOM.createPortal(
+        <div className={styles.lightbox} onClick={closeLightbox}>
+          <button className={styles.lightboxClose} onClick={closeLightbox}>×</button>
+          <button className={styles.lightboxPrev} onClick={goToPrevious}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <button className={styles.lightboxNext} onClick={goToNext}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+          
+          <div className={styles.lightboxHeader}>
+            <h2 className={styles.lightboxTitle}>{product.name}</h2>
+            {product.tagline && <p className={styles.lightboxTagline}>{product.tagline}</p>}
+          </div>
+          
+          <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
+            <img 
+              src={imageUrls[currentImageIndex]} 
+              alt={`${product.name} view ${currentImageIndex + 1}`}
+              className={styles.lightboxImage}
+            />
+          </div>
+          
+          <div className={styles.lightboxThumbnails}>
+            {imageUrls.map((url, idx) => (
               <button
                 key={idx}
-                className={`${styles.imageIndicator} ${currentImageIndex === idx ? styles.activeIndicator : ''}`}
-                onClick={() => {
+                className={`${styles.lightboxThumbnail} ${idx === currentImageIndex ? styles.activeThumbnail : ''}`}
+                onClick={(e) => {
+                  e.stopPropagation();
                   setCurrentImageIndex(idx);
-                  setSelectedImage(imageTypes[idx]);
                 }}
-                aria-label={`Go to image ${idx + 1}`}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className={styles.imageThumbs}>
-            {imageTypes.map(imageType => (
-              <button 
-                key={imageType}
-                className={`${styles.thumbButton} ${selectedImage === imageType ? styles.activeThumb : ''}`}
-                onClick={() => setSelectedImage(imageType)}
-                aria-label={`${imageType} view`}
               >
-                <LazyImage 
-                  src={`/img/catalog/${imageName}-${imageType}.png`} 
-                  alt={imageType}
+                <img 
+                  src={url} 
+                  alt={`Thumbnail ${idx + 1}`}
+                  className={styles.lightboxThumbnailImage}
                 />
               </button>
             ))}
           </div>
-        )}
-      </div>
-      
-      <div className={styles.productDetails}>
-        {productUrl ? (
-          <a href={productUrl} className={styles.productLink}>
-            <h3 className={styles.productTitle}>{product.Name}</h3>
-          </a>
-        ) : (
-          <h3 className={styles.productTitle}>{product.Name}</h3>
-        )}
-        
-        <div className={styles.productMeta}>
-          {!isMobile && (
-            <>
-              <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>Part Number</span>
-                <span className={styles.metaValue}>{product.PartNumber}</span>
-              </div>
-              <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>Product ID</span>
-                <span className={styles.metaValue}>{product.PID}</span>
-              </div>
-            </>
-          )}
-          {product.Category && (
-            <div className={styles.metaItem}>
-              <span className={styles.metaLabel}>Category</span>
-              <span className={styles.metaValue}>{product.Category}</span>
-            </div>
-          )}
-        </div>
-
-        {productUrl && (
-          <a 
-            href={productUrl} 
-            className={`${styles.viewDetailsBtn} ${isMobile ? styles.mobileViewDetailsBtn : ''}`}
-          >
-            View Details →
-          </a>
-        )}
-      </div>
-    </div>
+        </div>,
+        document.body
+      )}
+    </>
   );
 });
 
