@@ -14,7 +14,8 @@ fend
 
 fn BtnLdr()
     if BtnDown(BtnPin())
-    return 1
+        return 1
+    end
 fend
 
 Init()
