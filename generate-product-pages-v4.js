@@ -301,7 +301,7 @@ ${resourceLinks.join('<br/>\n')}<br/>`
                 sampleTabItems.push(`<TabItem value="script">
 
 \`\`\`py reference title="Script Sample"
-https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sample/${baseName}.txt
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/${baseName}.txt
 \`\`\`
 
 </TabItem>`);
@@ -315,7 +315,7 @@ https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sam
                 sampleTabItems.push(`<TabItem value="python">
 
 \`\`\`py reference title="Python Sample"
-https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sample/${baseName}.py
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/${baseName}.py
 \`\`\`
 
 </TabItem>`);
@@ -329,7 +329,7 @@ https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sam
                 sampleTabItems.push(`<TabItem value="micropython">
 
 \`\`\`py reference title="MicroPython Sample"
-https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sample/${baseName}.mpy
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/${baseName}.mpy
 \`\`\`
 
 </TabItem>`);
@@ -343,7 +343,7 @@ https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sam
                 sampleTabItems.push(`<TabItem value="javascript">
 
 \`\`\`js reference title="JavaScript Sample"
-https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sample/${baseName}.js
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/${baseName}.js
 \`\`\`
 
 </TabItem>`);
@@ -357,7 +357,7 @@ https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sam
                 sampleTabItems.push(`<TabItem value="dotnet">
 
 \`\`\`cs reference title=".NET Sample"
-https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sample/${baseName}.cs
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/${baseName}.cs
 \`\`\`
 
 </TabItem>`);
@@ -372,7 +372,7 @@ https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sam
                 sampleTabItems.push(`<TabItem value="arduino">
 
 \`\`\`ino reference title="Arduino Sample"
-https://github.com/ghi-electronics/duelink-website/blob/products/static/code/sample/${baseName}.ino
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/${baseName}.ino
 \`\`\`
 
 </TabItem>`);
@@ -416,7 +416,7 @@ ${driverTable ? driverTable + '\n' : ''}<details>
 <summary><strong>The Code!</strong></summary>
 
 \`\`\`py reference title="${productBaseName} Driver"
-https://github.com/ghi-electronics/duelink-website/blob/products/static/code/driver/${baseName}.txt
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/driver/${baseName}.txt
 \`\`\`
 
 </details>
