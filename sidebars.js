@@ -52,10 +52,10 @@ const sidebars = {
           type: "category",
           label: "Education",
           items: [
-            "products/mccincobit-e",
-            "products/mcclipit-b",
-            "products/mcduestem-b",
-            "products/mcpixobit-d"
+            "products/edcincobit-e",
+            "products/edclipit-b",
+            "products/edduestem-b",
+            "products/edpixobit-d"
           ],
         },
         {

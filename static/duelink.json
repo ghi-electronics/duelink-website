@@ -11,7 +11,7 @@
   "products": [
     {
       "name": "CincoBit",
-      "partNumber": "GDL-MCCINCOBIT-E",
+      "partNumber": "GDL-EDCINCOBIT-E",
       "PID": "0x000001",
       "category": "Education",
       "price": 0,
@@ -30,7 +30,7 @@
     },
     {
       "name": "ClipIt",
-      "partNumber": "GDL-MCCLIPIT-B",
+      "partNumber": "GDL-EDCLIPIT-B",
       "PID": "0x000011",
       "category": "Education",
       "price": 0,
@@ -66,7 +66,7 @@
     },
     {
       "name": "DueSTEM",
-      "partNumber": "GDL-MCDUESTEM-B",
+      "partNumber": "GDL-EDDUESTEM-B",
       "PID": "0x000010",
       "category": "Education",
       "price": 0,
@@ -88,7 +88,7 @@
     },
     {
       "name": "PixoBit",
-      "partNumber": "GDL-MCPIXOBIT-D",
+      "partNumber": "GDL-EDPIXOBIT-D",
       "PID": "0x000002",
       "category": "Education",
       "price": 0,
@@ -648,7 +648,7 @@
       ]
     },
     {
-      "name": "Button AR100",
+      "name": "BTN AR100",
       "partNumber": "GDL-HIBTNAR100-B",
       "PID": "0x040001",
       "category": "HMI",
