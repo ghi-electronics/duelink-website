@@ -77,14 +77,14 @@ fn Test()
             show()
      
             cmd("clear(0)")
-            cmd("Texts(\"x=Button B\",1,0,0,2,2)")
-            cmd("Texts(\"x=pressed\",1,0,20,2,2)")
+            cmd("Texts(\"Button B\",1,0,0,2,2)")
+            cmd("Texts(\"pressed\",1,0,20,2,2)")
             cmd("show()")
             
             println("Button B pressed")
             
             while dread(23, 2) = 1
-                PlayBeep(1000, 100)
+                Buzzer(1000, 100)
                 wait(10)
             wend
         end
@@ -94,13 +94,13 @@ fn Test()
             show()
      
             cmd("clear(0)")
-            cmd("Texts(\"x=Button A\",1,0,0,2,2)")
-            cmd("Texts(\"x=pressed\",1,0,20,2,2)")
+            cmd("Texts(\"Button A\",1,0,0,2,2)")
+            cmd("Texts(\"pressed\",1,0,20,2,2)")
             cmd("show()")
             
             println("Button A pressed")
             while dread(20, 2) = 1
-                PlayBeep(1000, 100)
+                Buzzer(1000, 100)
                 wait(10)
             wend
         end
