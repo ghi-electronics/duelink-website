@@ -61,6 +61,7 @@ const ProductCatalog = () => {
   const categories = useMemo(() => {
     const categoryOrder = [
       'Microcomputer',
+      'Education',
       'Specialty',
       'Display',
       'Actuator',
@@ -121,6 +122,7 @@ const ProductCatalog = () => {
         // Define the same category order as used in the sidebar
         const categoryOrder = [
           'Microcomputer',
+          'Education',
           'Specialty',
           'Display',
           'Actuator',

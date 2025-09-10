@@ -43,13 +43,19 @@ const sidebars = {
           type: "category",
           label: "Microcomputers",
           items: [
-            "products/mccincobit-e",
-            "products/mcclipit-b", 
             "products/mcdueduino-a",
-            "products/mcduestem-b",
-            "products/mcpixobit-d",
             "products/mcstamp-a",
             "products/mcstick-a"
+          ],
+        },
+        {
+          type: "category",
+          label: "Education",
+          items: [
+            "products/mccincobit-e",
+            "products/mcclipit-b",
+            "products/mcduestem-b",
+            "products/mcpixobit-d"
           ],
         },
         {
