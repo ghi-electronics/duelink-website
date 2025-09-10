@@ -1,5 +1,0 @@
-while 1
-    if Detect()
-        PrintLn("ALARM!!")
-    Wait(200)
-wend

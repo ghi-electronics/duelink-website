@@ -1,3 +1,0 @@
-##### Driver Code Starts Here ###
-
-##### User Code Starts Here #####
