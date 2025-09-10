@@ -246,28 +246,43 @@ function extractPartPrefix(partNumber) {
     return partNumber.toLowerCase();
 }
 
-// Generate OrderSection based on whether product has variations
+// Generate Order table based on whether product has variations
 function generateOrderSection(product) {
+    let tableRows = '';
+    
     if (product.variations && product.variations.length > 0) {
-        // Generate props for each variation
-        const orderProps = product.variations.map((variation, idx) => {
-            const propNum = idx === 0 ? '' : (idx + 1).toString();
-            return `
-    product${propNum}="DUELink ${variation.name}"
-    partnumber${propNum}="${product.partNumber}:${variation.partCode}"
-    price${propNum}="$${variation.price?.toFixed(2) || '00.00'}"`;
-        }).join('');
-        
-        return `<OrderSection${orderProps}
-/>`;
+        // Generate rows for each variation
+        tableRows = product.variations.map(variation => {
+            return `    <tr>
+        <td>DUELink ${variation.name}</td>
+        <td>${product.partNumber}:${variation.partCode}</td>
+        <td>$${variation.price?.toFixed(2) || '00.00'}</td>
+    </tr>`;
+        }).join('\n');
     } else {
-        // No variations, use standard format
-        return `<OrderSection
-    product="DUELink ${product.name.replace(' Rev ', ' ')}"
-    partnumber="${product.partNumber}"
-    price="$${product.price?.toFixed(2) || '00.00'}"
-/>`;
+        // No variations, single row
+        tableRows = `    <tr>
+        <td>DUELink ${product.name.replace(' Rev ', ' ')}</td>
+        <td>${product.partNumber}</td>
+        <td>$${product.price?.toFixed(2) || '00.00'}</td>
+    </tr>`;
     }
+    
+    return `<p style={{backgroundColor: "lightcyan", color: "black", padding: "0px 0px 0px 30px"}}>
+    <h2>Ordering Info</h2>
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Part Number</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+${tableRows}
+    </tbody>
+</table>`;
 }
 
 // Generate MDX content for each product
@@ -284,6 +299,7 @@ function generateMDX(product, index) {
     
     // Build resources section dynamically
     let resourceLinks = [];
+    
     if (hasSchematic(product.partNumber)) {
         resourceLinks.push(`📄<a href="/sch/gdl-${partPrefix}.pdf">Schematics</a>`);
     }
@@ -300,6 +316,9 @@ function generateMDX(product, index) {
  
 ${resourceLinks.join('<br/>\n')}<br/>`
         : '';
+    
+    // Add PID section if it exists
+    const pidSection = product.PID ? `\n**PID:** ${product.PID}` : '';
     
     // Check for driver first
     const driverPath = getDriverPath(product);
@@ -505,7 +524,6 @@ pagination_prev: null
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ImageSection from '@site/src/components/ImageSection';
-import OrderSection from '@site/src/components/OrderSection';
 import ProductFooter from '@site/src/components/ProductFooter';
 
 # ${product.name}
@@ -527,9 +545,9 @@ ${details.overview || product.description || 'This is a high-quality DUELink mod
 <table><td width='50%'>
 **Key features**
 
-${(product.keyFeatures || []).map(f => `• ${f}<br/>`).join('\n')}${product.PID ? `\n\n**PID:** ${product.PID}` : ''}
+${(product.keyFeatures || []).map(f => `• ${f}<br/>`).join('\n')}
 </td><td width='50%'>
-${resourcesSection}
+${resourcesSection}${pidSection}
 </td></table>
 
 </TabItem>
