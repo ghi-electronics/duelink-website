@@ -50,7 +50,7 @@
     {
       "name": "DueDuino",
       "partNumber": "GDL-MCDUEDUINO-A",
-      "PID": "0x000012",
+      "PID": "0x0D0001",
       "category": "Microcomputer",
       "price": 0,
       "tagline": "Arduino form factor inspired DUELink mainboard",
@@ -108,13 +108,13 @@
     {
       "name": "Stamp",
       "partNumber": "GDL-MCSTAMP-A",
-      "PID": "0x000013",
+      "PID": "0x0D0002",
       "category": "Microcomputer",
       "price": 0,
-      "tagline": "Seeed Xaio Form Factor DUELink Microcomputer",
-      "description": "This fingertip-sized tiny board is as capable as any other DUELink module. Plug it in a breadboard using male headers, or solder it directly using the edge pads. It includes an upgraded regulator allowing for connecting many DUELink modules on the [Downlink](/docs/interface/downlink) connector.\n\nThis is a great choice to help you in making your own DUELink modules. Don't want USB? Then consider using [Stick](/docs/catalog/microcomputer/stick).",
+      "tagline": "Seeed Xiao Form Factor DUELink Microcomputer",
+      "description": "This fingertip-sized tiny board is as capable as any other DUELink module. Plug it in a breadboard using male headers, or solder it directly using the edge pads. It has a Seeed Xiao compatible footprint as well. It includes an upgraded regulator allowing for connecting many DUELink modules on the [Downlink](/docs/interface/downlink) connector.\n\nThis is a great choice to help you in making your own DUELink modules. Don't want USB? Then consider using [Stick](/docs/catalog/microcomputer/stick).",
       "keyFeatures": [
-        "Seeed Xaio form factor",
+        "Seeed Xiao form factor",
         "Downlink DUELink connector",
         "USB-C connector",
         "Surface mountable",
@@ -125,7 +125,7 @@
     {
       "name": "Stick",
       "partNumber": "GDL-MCSTICK-A",
-      "PID": "0x000014",
+      "PID": "0x0D0003",
       "category": "Microcomputer",
       "price": 0,
       "tagline": "DIP24 Form Factor SMT DUELink SoM",

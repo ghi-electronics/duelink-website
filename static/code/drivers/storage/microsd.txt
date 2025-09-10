@@ -1,6 +1,0 @@
-##### Micro SD Driver #####
-
-# Uses built-in File System feature
-# Access MicroSD card directly through standard filesystem API
-
-####################
