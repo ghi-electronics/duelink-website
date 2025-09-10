@@ -582,7 +582,7 @@
         "On-board Female XLR Connector",
         "42x32mm overall dimension"
       ],
-      "driverApi": ":::tip\nDMX module uses the [Standard Library](../../engine/stdlib) DMX bus. No other drivers are needed.\n:::"
+      "driverApi": ":::tip\nDMX module uses the [Standard Library](../engine/stdlib) DMX bus. No other drivers are needed.\n:::"
 
     },
     {
