@@ -183,7 +183,8 @@ duelink.FileSystem.Mount(1, 17, 8000, 4);
 int h = duelink.FileSystem.Open("/test.txt", 0x02 | 0x08 );
 
 // write 4 bytes to handle h
-int wrote = duelink.FileSystem.Write(h, [1,2,3,4]);
+byte data[4] = {1,2,3,4};
+int wrote = duelink.FileSystem.Write(h, data,4);
 
 // close handle
 duelink.FileSystem.Close(h);
