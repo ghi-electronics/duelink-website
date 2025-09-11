@@ -361,7 +361,7 @@ Show()
 
 SPI supports both, direct and buffered modes.
 
-This example uses a 320x240 display, like [TFT CP23](../catalog/display/tft-cp23) in buffered mode with x3 multiplier.
+This example uses a 320x240 display, like [TFT CP23](../products/dtftcp23-b) in buffered mode with x3 multiplier.
 
 ```py
 _s = 5
@@ -488,7 +488,7 @@ fend
 
 I2C supports buffered mode only, with x1 multiplier.
 
-In this case, we are using SSD1306. This display is found on [PixoBit](../catalog/microcomputer/pixobit) microcomputer and [OLED 096](../catalog/display/oled-096) display.
+In this case, we are using SSD1306. This display is found on [PixoBit](../products/mcpixobit-d) microcomputer and [OLED 096](../products/doled096-a) display.
 
 ```py
 Dim b1[2]
@@ -715,9 +715,9 @@ wend
 
 ## LED Matrix Scanner
 
-This is a perfect match for [CincoBit](../catalog/microcomputer/cincobit) with its 5x5 LED matrix. This type supports buffered mode, with 1x multiplier only.
+This is a perfect match for [CincoBit](../products/mccincobit-e) with its 5x5 LED matrix. This type supports buffered mode, with 1x multiplier only.
 
-![CincoBit](pathname:///img/catalog/cincobit-front.png)
+![CincoBit](pathname:///img/catalog/mccincobit-e-1.png)
 
 ```py
 Dim a1[11] = {0,11,19,18,21,22,7,5,0,8,6} # first number sets common-anode, second 5 for data, third 5 for scan
@@ -757,7 +757,7 @@ Show()
 
 ## LED Matrix List
 
-In this mode, the graphics engine scans and updates the LEDs one at a time. This mode works great with [LED MT1208](../catalog/led/led-mt1208). 
+In this mode, the graphics engine scans and updates the LEDs one at a time. This mode works great with [LED MT1208](../products/lledmt1208-a). 
 In this mode, an array containing a list of each LED pins. This is only supported in buffered mode, with x1 multiplier.
 
 

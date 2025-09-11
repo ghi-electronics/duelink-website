@@ -1175,7 +1175,7 @@ Function | Description
 
 The pins used for UART are 1-RX and 2-TX. The DBG pin is an output indicating the sample point, used by us internally.
 
-Serial is handled by software with special internal features. There is also basic hardware UART option available when UART Uplink is not needed, for example on boards with only USB Uplink, such as [DueDuino](../catalog/microcomputer/dueduino). To activate the hardware UART, use a negative `baud` in `SerCfg()`, for example `SerCfg(-115200,100)`. Pins used for hardware UART are 21-TX and 22-RX. We do not support using both hardware and software UARTs simultaneously.
+Serial is handled by software with special internal features. There is also basic hardware UART option available when UART Uplink is not needed, for example on boards with only USB Uplink, such as [DueDuino](../products/mcdueduino-a). To activate the hardware UART, use a negative `baud` in `SerCfg()`, for example `SerCfg(-115200,100)`. Pins used for hardware UART are 21-TX and 22-RX. We do not support using both hardware and software UARTs simultaneously.
 
 <details>
   <summary>Samples</summary>
@@ -2349,7 +2349,7 @@ duelink.Otp.Read(12);
 
 ## Coprocessor
 
-A few modules, such as [USB Host](../catalog/com/usb-host) include a coprocessor. See [Coprocessor](./coprocessor) for more details.
+A few modules, such as [USB Host](../products/cmusbhost-b) include a coprocessor. See [Coprocessor](./coprocessor) for more details.
 
 ---
 
@@ -2365,7 +2365,7 @@ RtcR([timedate]) | Read the current time and date into array. If 0 is used inste
 The array used for all RTC functions is 6 bytes, organized as: `[Second,minute,hour,day,mon,year]`. Values must be proper for their field. For example, there is no 70 seconds in time. Also, year is starting from the year 2000. For year 2025, just use 25. Hours are military 24 hours.
 
 :::tip
-Power loss will cause the internal RTC to lose its value. This is where [RTC Module](../catalog/sensor/rtc) comes in handy.
+Power loss will cause the internal RTC to lose its value. This is where [RTC Module](../products/sertc-b) comes in handy.
 :::
 
 <details>
