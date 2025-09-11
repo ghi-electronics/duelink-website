@@ -635,6 +635,7 @@
       "name": "USB Host",
       "partNumber": "GDL-CMUSBHOST-B",
       "PID": "0x030007",
+      "CoprocFwVer": "003",
       "category": "Communication",
       "price": 0,
       "tagline": "USB Host Controller",
@@ -644,8 +645,7 @@
         "MSC class",
         "FAT16/FAT32 with LFN support",
         "USB-A Host Connector",
-        "32x27mm overall dimension",
-        "Support co-proc"
+        "32x27mm overall dimension"
       ]
     },
     {
