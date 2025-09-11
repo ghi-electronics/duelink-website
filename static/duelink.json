@@ -1213,7 +1213,7 @@
     },
     {
       "name": "LED MT1208",
-      "partNumber": "GDL-LLEDMT1208R-A",
+      "partNumber": "GDL-LLEDMT1208-A",
       "PID": "0x050003",
       "category": "LED",
       "price": 0,

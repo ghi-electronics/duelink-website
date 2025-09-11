@@ -172,7 +172,7 @@ const sidebars = {
           type: "category",
           label: "LEDs",
           items: [
-            "products/lledmt1208r-a",
+            "products/lledmt1208-a",
             "products/lledr16r-b",
             "products/lledrgb3-a",
             "products/lleds284-b",

@@ -10,9 +10,9 @@ The Downlink connector found on every single DUELink module is used to connect t
 
 ## Signal Integrity
 
-There will be no signal degradation along the wires as data is repeated on every Downlink connector. In cases where power is dropping after several modules, a [Power Inject](../catalog/adapter/power-inject) module can be used.
+There will be no signal degradation along the wires as data is repeated on every Downlink connector. In cases where power is dropping after several modules, a [Power Inject](../products/adpowerinject-a) module can be used.
 
-![Power Inject](pathname:///img/catalog/power-inject-front.png)
+![Power Inject](pathname:///img/catalog/adpowerinject-a-1.png)
 
 This is not necessary in most cases since modules modules are very low power. However, large displays and motor drivers may require a decent amount of power.
 
@@ -32,7 +32,7 @@ Mode | Description
 
 On power up, the Downlink connection is Null. To initiate the [Daisylink](../engine/daisylink) and enumerate all connected modules, a command must be seen by the first module. This is true even if there is a single module. This very first command is only seen by the first device and discarded by others. We recommend using an empty command (just a carriage return) to initiate the module enumeration and addressing. Upon enumeration, Downlink is switched from Null to Daisylink mode automatically.
 
-The user has the option to switch to `Host` or `UART Gateway` modes at anytime. However, once switched to these modes, the user must only switch between these modes and never switch to any other modes. `Host` mode is an options for [Daisylink](../engine/daisylink). `UART Gateway` is used in rare cases, like with [Wireless Hook](../catalog/adapter/wireless-hook), where the `UART gateway` mode allows the system to bridge and pipe the data from the UART interface (Bluetooth in this case) to the Downlink connector.
+The user has the option to switch to `Host` or `UART Gateway` modes at anytime. However, once switched to these modes, the user must only switch between these modes and never switch to any other modes. `Host` mode is an options for [Daisylink](../engine/daisylink). `UART Gateway` is used in rare cases, like with [Wireless Hook](../products/adwirelesshook-a), where the `UART gateway` mode allows the system to bridge and pipe the data from the UART interface (Bluetooth in this case) to the Downlink connector.
 
 ---
 
