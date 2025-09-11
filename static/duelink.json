@@ -93,7 +93,7 @@
       "category": "Microcomputer",
       "price": 0,
       "tagline": "micro:bit Form Factor with 128x64 OLED 0.96\" Display",
-      "description": "PixoBit upgrades [CincoBit](/docs/catalog/microcomputer/cincobit) with a graphical display. You can now show sensor data or build video games!",
+      "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. You can now show sensor data or build video games!",
       "keyFeatures": [
         "128x64 OLED 0.96\" display",
         "Light Sensor",
@@ -112,7 +112,7 @@
       "category": "Microcomputer",
       "price": 0,
       "tagline": "Seeed Xiao Form Factor DUELink Microcomputer",
-      "description": "This fingertip-sized tiny board is as capable as any other DUELink module. Plug it in a breadboard using male headers, or solder it directly using the edge pads. It has a Seeed Xiao compatible footprint as well. It includes an upgraded regulator allowing for connecting many DUELink modules on the [Downlink](/docs/interface/downlink) connector.\n\nThis is a great choice to help you in making your own DUELink modules. Don't want USB? Then consider using [Stick](/docs/catalog/microcomputer/stick).",
+      "description": "This fingertip-sized tiny board is as capable as any other DUELink module. Plug it in a breadboard using male headers, or solder it directly using the edge pads. It has a Seeed Xiao compatible footprint as well. It includes an upgraded regulator allowing for connecting many DUELink modules on the [Downlink](/docs/interface/downlink) connector.\n\nThis is a great choice to help you in making your own DUELink modules. Don't want USB? Then consider using [Stick](/docs/products/mcstick-a).",
       "keyFeatures": [
         "Seeed Xiao form factor",
         "Downlink DUELink connector",
@@ -635,6 +635,7 @@
       "name": "USB Host",
       "partNumber": "GDL-CMUSBHOST-B",
       "PID": "0x030007",
+      "CoprocFwVer": "003",
       "category": "Communication",
       "price": 0,
       "tagline": "USB Host Controller",
@@ -857,7 +858,7 @@
       "category": "Storage",
       "price": 0,
       "tagline": "SD Card Module",
-      "description": "Access files on SD cards. Full file system facilities are provided, see [File System](/docs/engine/filesystem).\n\n:::tip\n[USB Host](/docs/catalog/com/usb-host) can be used to access files on USB memory devices.\n:::",
+      "description": "Access files on SD cards. Full file system facilities are provided, see [File System](/docs/engine/filesystem).\n\n:::tip\n[USB Host](/docs/products/cmusbhost-b) can be used to access files on USB memory devices.\n:::",
       "keyFeatures": [
         "SD card slot",
         "FAT file system",
@@ -871,7 +872,7 @@
       "category": "Storage",
       "price": 0,
       "tagline": "MicroSD Card Module",
-      "description": "Access files on micro SD cards. Full file system facilities are provided, see [File System](/docs/engine/filesystem).\n\n:::tip\n[USB Host](/docs/catalog/com/usb-host) can be used to access files on USB memory devices.\n:::",
+      "description": "Access files on micro SD cards. Full file system facilities are provided, see [File System](/docs/engine/filesystem).\n\n:::tip\n[USB Host](/docs/products/cmusbhost-b) can be used to access files on USB memory devices.\n:::",
       "keyFeatures": [
         "Micro SD card slot",
         "FAT file system",
@@ -885,7 +886,7 @@
       "category": "Wireless",
       "price": 0,
       "tagline": "GNSS Positioning Module with Antenna",
-      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module has a built-in antenna. Consider [this GNSS](/docs/catalog/wireless/gnss) module if you want to add your own antenna.",
+      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module has a built-in antenna. Consider [this GNSS](/docs/products/wgnss-b) module if you want to add your own antenna.",
       "keyFeatures": [
         "GNSS positioning",
         "GPS, Galileo, GLONASS",
@@ -900,7 +901,7 @@
       "category": "Wireless",
       "price": 0,
       "tagline": "GNSS Positioning Module with uFL Connector",
-      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module with uFL connector for external antenna. The required antenna is not included, giving the user the choice to select the right antenna. Consider [this GNSS](/docs/catalog/wireless/gnss-wa) with built-in antenna.",
+      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module with uFL connector for external antenna. The required antenna is not included, giving the user the choice to select the right antenna. Consider [this GNSS](/docs/products/wgnsswa-a) with built-in antenna.",
       "keyFeatures": [
         "GNSS positioning",
         "GPS, Galileo, GLONASS",
@@ -1212,7 +1213,7 @@
     },
     {
       "name": "LED MT1208",
-      "partNumber": "GDL-LLEDMT1208R-A",
+      "partNumber": "GDL-LLEDMT1208-A",
       "PID": "0x050003",
       "category": "LED",
       "price": 0,

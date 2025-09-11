@@ -11,7 +11,7 @@ MicroBlocks is a fantastic options for users who enjoy block-coding. There are t
 
 In theory, you can use any board (any host) that is supported by MicroBlocks. But we will focus on using [micro:bit](../hw/microbit). 
 
-To connect DUELink modules, you need a adapter that adds a JST connector to micro:bit. See [micro:bit](../hw/microbit) for options, including [LinkBit](../catalog/adapter/linkbit). 
+To connect DUELink modules, you need a adapter that adds a JST connector to micro:bit. See [micro:bit](../hw/microbit) for options, including [LinkBit](../products/adlinkbit-a). 
 
 Create a MicroBlocks project on [https://microblocks.fun/run/](https://microblocks.fun/run/), or download the local version for [MicroBlocks' Downloads](https://microblocks.fun/download) page.
 
@@ -25,13 +25,21 @@ Run any simple block samples to make sure that micro:bit is configured properly.
 
 This option turns a DUELink module into a host that runs [Standalone](../language/standalone). This gives any DUELink module a native block-coding option. 
 
-While MicroBlocks can be loaded on the entire catalog of DUELink modules, it shines best on one of the Microcomputers, such as [DueSTEM](../catalog/microcomputer/duestem) and [Clipit](../catalog/microcomputer/clipit).
+While MicroBlocks can be loaded on the entire catalog of DUELink modules, it shines best on one of the Microcomputers, such as [DueSTEM](../products/mcduestem-b) and [Clipit](../products/mcclipit-b).
 
-![DueSTEM](pathname:///img/catalog/duestem-front.png)
 
-![Clipit](pathname:///img/catalog/clipit-front.png)
+<table>
+<td width='50%'>
+    ![DueSTEM](pathname:///img/catalog/mcduestem-b-1.png)
+</td>
+<td width='50%'>
+    ![Clipit](pathname:///img/catalog/mcclipit-b-1.png)
+</td>
+</table>
 
-It also works great on [CincoBit](../catalog/microcomputer/cincobit) and [PixoBit](../catalog/microcomputer/pixobit) as micro:bit-style options.
+
+
+It also works great on [CincoBit](../products/mccincobit-e) and [PixoBit](../products/mcpixobit-d) as micro:bit-style options.
 
 ![CincoBit & PixoBit](pathname:///img/cincobit-pixobit.png)
 
@@ -54,9 +62,9 @@ Once the firmware is loaded, power cycle the board. You are now ready for MicroB
 
 The MicroBlocks firmware for DUELink supports most blocks. You will be able to read/write digital pins, read analog inputs, and write PWM pins.
 
-Pins numbers are mapped to match the DUELink official mapping; however, the pins are mapped to match micro:bit edge connector on [CincoBit](../catalog/microcomputer/cincobit) and [PixoBit](../catalog/microcomputer/pixobit).
+Pins numbers are mapped to match the DUELink official mapping; however, the pins are mapped to match micro:bit edge connector on [CincoBit](../products/mccincobit-e) and [PixoBit](../products/mcpixobit-d).
 
-Capacitive touch is also supported on modules like [Clipit](../catalog/microcomputer/clipit) and on the large three pads on [CincoBit](../catalog/microcomputer/cincobit) and [PixoBit](../catalog/microcomputer/pixobit). Reading the level of "capacitive-ness" is done by charging a pin and then measuring the discharge time.
+Capacitive touch is also supported on modules like [Clipit](../products/mcclipit-b) and on the large three pads on [CincoBit](../products/mccincobit-e) and [PixoBit](../products/mcpixobit-d). Reading the level of "capacitive-ness" is done by charging a pin and then measuring the discharge time.
 
 ![MicroBlocks Cap Touch](pathname:///img/microblocks-captouch.png)
 
@@ -70,9 +78,9 @@ Code samples like the one above that don't require an external library can be dr
 
 It is very important to note that once a DUELink board is loaded with MicroBlocks firmware then it becomes 100% reliant on what blocks/libraries/services are offered by MicroBlocks. In other words, you lose the [Standard Library](../engine/stdlib).
 
-For example, while you can load MicroBlocks on [SD Card](../catalog/storage/sd-card) module, you do not have SD card drivers nor file system libraries!
+For example, while you can load MicroBlocks on [SD Card](../products/stsdcard-b) module, you do not have SD card drivers nor file system libraries!
 
-This is not a problem in a standard DUELink setup as you will usually have the recommended [CincoBit](../catalog/microcomputer/cincobit) or [PixoBit](../catalog/microcomputer/pixobit) loaded with MicroBlocks but then you have other modules [daisylinked](../engine/daisylink) on its downlink connector. Those other modules will still be running the standard DUElink firmware. In this case the SD Card module will have the necessary standard libraries, which are commanded by the MicroBlocks firmware.
+This is not a problem in a standard DUELink setup as you will usually have the recommended [CincoBit](../products/mccincobit-e) or [PixoBit](../products/mcpixobit-d) loaded with MicroBlocks but then you have other modules [daisylinked](../engine/daisylink) on its downlink connector. Those other modules will still be running the standard DUElink firmware. In this case the SD Card module will have the necessary standard libraries, which are commanded by the MicroBlocks firmware.
 
 ![Cincobit and SD Card](pathname:///img/cincobit-sdcard.png)
 
@@ -80,7 +88,7 @@ This is not a problem in a standard DUELink setup as you will usually have the r
 
 ## Smiley! 
 
-Assuming you using a [CincoBit](../catalog/microcomputer/cincobit), and you have it loaded with MicroBlocks firmware, we will show a smiley face on the LEDs.
+Assuming you using a [CincoBit](../products/mccincobit-e), and you have it loaded with MicroBlocks firmware, we will show a smiley face on the LEDs.
 
 Use the online interface at [https://microblocks.fun/run/](https://microblocks.fun/run/) or download the MicroBlocks software locally from their [download](https://microblocks.fun/download) page.
 
@@ -115,7 +123,7 @@ MicroBlocks maps pins to match DUELink standard pin mapping on all modules, but 
 
 ## Daisylinking
 
-A user can easily [Daisylink](../engine/daisylink) several modules. In this example, the MicroBlocks special firmware is loaded on [PixoBit](../catalog/microcomputer/pixobit). The MicroBlocks website/app can now be used to program a PixoBit, which is then commanding the other modules in the link.
+A user can easily [Daisylink](../engine/daisylink) several modules. In this example, the MicroBlocks special firmware is loaded on [PixoBit](../products/mcpixobit-d). The MicroBlocks website/app can now be used to program a PixoBit, which is then commanding the other modules in the link.
 
 ![PixoBit Daisylinked](pathname:///img/pixobit-daisylinked.png)
 
