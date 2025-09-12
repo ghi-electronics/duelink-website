@@ -1348,14 +1348,14 @@
     },
     {
       "name": "LED SS805",
-      "partNumber": "GDL-LledS805-C",
+      "partNumber": "GDL-LledSS805-C",
       "PID": "0x05000C",
       "category": "LED",
       "price": 0,
-      "tagline": "0.80\" 5-Digit 14-Segment Display",
-      "description": "14-segment displays ar good to display alpha-numerical info. This 0.80 is a decent size to be visible from a few feet.",
+      "tagline": "0.80\" 5-Digit 16-Segment Display",
+      "description": "16-segment displays ar good to display alpha-numerical info. This 0.80 is a decent size to be visible from a few feet.",
       "keyFeatures": [
-        "4 Digit 7 segment LEDs",
+        "5-Digit 16-segment LEDs",
         "Available in Red or Green",
         "Counter or Timer formatted",
         "117x32mm overall dimension"
