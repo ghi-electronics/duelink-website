@@ -92,7 +92,8 @@ const sidebars = {
             "products/acservop8-b",
             "products/acservox1-a",
             "products/acstepdrivep1-a",
-            "products/acstepdrivep3-b"
+            "products/acstepdrivep3-b",
+            "products/acsteppulse-a"
           ],
         },
         {
@@ -178,7 +179,7 @@ const sidebars = {
             "products/lleds284-b",
             "products/lleds404-a",
             "products/lled564xx-a",
-            "products/lleds805-c",
+            "products/lledss805-c",
             "products/lsmartled-a"
           ],
         },
