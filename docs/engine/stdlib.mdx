@@ -1810,6 +1810,7 @@ Function | Description
 `DLI2cWr(address, [arrayWrite], [arrayRead])` | `address`: I2C slave address (7 bits) - `arrayWrite`: array to send, `arrayRead`: array to read. This only works with `DLMode(4)`.
 `Cmd("command")` | Sends a script command Downlink, only available in `DLMode(2)` mode, `Host` mode. You can only to read a float from a function or a variable: `_W = Cmd("GetW()")` or `_W = Cmd("_W")`. Setting a remote value is done using `cmd(fmt("_x=",_x))`. 
 `CmdTmot(t)` | Sets `t` timeout for `Cmd()` in milliseconds, default 1000ms. 
+`GwCfg({pin,connect_level})` | Set the pin used in gateway connect mode with connect level
 
 More info are found on the [Downlink](../interface/downlink) interface and [Daisylink](./daisylink) pages.
 
