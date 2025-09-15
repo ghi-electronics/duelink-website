@@ -173,14 +173,14 @@ const sidebars = {
           type: "category",
           label: "LEDs",
           items: [
-            "products/lledmt1208-a",
-            "products/lledr16r-b",
-            "products/lledrgb3-a",
-            "products/lleds284-b",
-            "products/lleds404-a",
-            "products/lled564xx-a",
-            "products/lledss805-c",
-            "products/lsmartled-a"
+            "products/ldledmt1208-a",
+            "products/ldledr16r-b",
+            "products/ldledrgb3-a",
+            "products/ldleds284-b",
+            "products/ldleds404-a",
+            "products/ldled564xx-a",
+            "products/ldledss805-c",
+            "products/ldsmartled-a"
           ],
         },
         {
