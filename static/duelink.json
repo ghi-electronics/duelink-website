@@ -931,7 +931,7 @@
       "category": "Wireless",
       "price": 0,
       "tagline": "Wireless NRF24 Transceiver with Amplified Antenna",
-      "description": "Send and receive data wirelessly using SMA 2.4Ghz. The PA+LNA gives this module a coverage of up to a 1000 meters!",
+      "description": "Send and receive data wirelessly using SMA 2.4Ghz. The PA+LNA gives this module a coverage of up to a 1000 meters!. Min version [available](./wlnrf24min-c).",
       "keyFeatures": [
         "2.4Ghz SMA signal",
         "125 channels",
@@ -946,12 +946,12 @@
       "category": "Wireless",
       "price": 0,
       "tagline": "Wireless NRF24 Transceiver",
-      "description": "Send and receive data wirelessly using SMA 2.4Ghz. This module uses a simple PCB antenna. Consider NRF24 Max for a coverage of up to a 1000 meters!",
+      "description": "Send and receive data wirelessly using SMA 2.4Ghz. This module uses a simple PCB antenna. Consider [NRF24 Max](./wlnrf24max-c) for a higher coverage.!",
       "keyFeatures": [
         "2.4Ghz SMA signal",
         "125 channels",
         "PCB antenna",
-        "[Max Version Available](./wnrf24max-c)"
+        "[Max Version Available](./wlnrf24max-c)"
       ]
     },
     {
