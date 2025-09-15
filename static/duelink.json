@@ -190,7 +190,7 @@
     },
     {
       "name": "ePaper M29",
-      "partNumber": "GDL-DEPAPERM29-A",
+      "partNumber": "GDL-DSEPAPERM29-A",
       "PID": "0x01000B",
       "category": "Display",
       "price": 0,
@@ -206,7 +206,7 @@
     },
     {
       "name": "ePaper M42",
-      "partNumber": "GDL-DEPAPERM42-A",
+      "partNumber": "GDL-DSEPAPERM42-A",
       "PID": "0x01000C",
       "category": "Display",
       "price": 0,
@@ -223,7 +223,7 @@
     },
     {
       "name": "HDMI",
-      "partNumber": "GDL-DHDMI-B",
+      "partNumber": "GDL-DSHDMI-B",
       "PID": "0x010001",
       "category": "Display",
       "price": 0,
@@ -252,7 +252,7 @@
     },
     {
       "name": "LCD 16x2",
-      "partNumber": "GDL-DLCD16X2-C",
+      "partNumber": "GDL-DSLCD16X2-C",
       "PID": "0x010002",
       "category": "Display",
       "price": 0,
@@ -266,7 +266,7 @@
     },
     {
       "name": "LCD 20x4",
-      "partNumber": "GDL-DLC20X4-B",
+      "partNumber": "GDL-DSLCD20X4-B",
       "PID": "0x010003",
       "category": "Display",
       "price": 0,
@@ -280,7 +280,7 @@
     },
     {
       "name": "OLED 096",
-      "partNumber": "GDL-DOLED096-A",
+      "partNumber": "GDL-DSOLED096-A",
       "PID": "0x010004",
       "category": "Display",
       "price": 0,
@@ -295,7 +295,7 @@
     },
     {
       "name": "Portal CP70",
-      "partNumber": "GDL-DPORTALCP70-B",
+      "partNumber": "GDL-DSPORTALCP70-B",
       "PID": "0x010009",
       "category": "Display",
       "price": 0,
@@ -311,7 +311,7 @@
     },
     {
       "name": "TFT CP23",
-      "partNumber": "GDL-DTFTCP23-B",
+      "partNumber": "GDL-DSTFTCP23-B",
       "PID": "0x010007",
       "category": "Display",
       "price": 0,
@@ -326,7 +326,7 @@
     },
     {
       "name": "TFT N18",
-      "partNumber": "GDL-DTFTN18-B",
+      "partNumber": "GDL-DSTFTN18-B",
       "PID": "0x010006",
       "category": "Display",
       "price": 0,
@@ -341,7 +341,7 @@
     },
     {
       "name": "TFT R128",
-      "partNumber": "GDL-DTFTR128-B",
+      "partNumber": "GDL-DSTFTR128-B",
       "PID": "0x010005",
       "category": "Display",
       "price": 0,
@@ -357,7 +357,7 @@
     },
     {
       "name": "VFD-B8",
-      "partNumber": "GDL-DVFDB8-C",
+      "partNumber": "GDL-DSVFDB8-C",
       "PID": "0x01000A",
       "category": "Display",
       "price": 0,

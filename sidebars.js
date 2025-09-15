@@ -65,17 +65,17 @@ const sidebars = {
           type: "category",
           label: "Displays",
           items: [
-            "products/depaperm29-a",
-            "products/depaperm42-a",
-            "products/dhdmi-b",
-            "products/dlcd16x2-c",
-            "products/dlc20x4-b",
-            "products/doled096-a",
-            "products/dportalcp70-b",
-            "products/dtftcp23-b",
-            "products/dtftn18-b",
-            "products/dtftr128-b",
-            "products/dvfdb8-c"
+            "products/dsepaperm29-a",
+            "products/dsepaperm42-a",
+            "products/dshdmi-b",
+            "products/dslcd16x2-c",
+            "products/dslcd20x4-b",
+            "products/dsoled096-a",
+            "products/dsportalcp70-b",
+            "products/dstftcp23-b",
+            "products/dstftn18-b",
+            "products/dstftr128-b",
+            "products/dsvfdb8-c"
           ],
         },
         {
