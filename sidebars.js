@@ -140,12 +140,12 @@ const sidebars = {
           type: "category",
           label: "Wireless",
           items: [
-            "products/wgnsswa-a",
-            "products/wgnss-b",
-            "products/winfrared-a",
-            "products/wnrf24max-c",
-            "products/wnrf24min-c",
-            "products/wrfid-b"
+            "products/wlgnsswa-a",
+            "products/wlgnss-b",
+            "products/wlinfrared-a",
+            "products/wlnrf24max-c",
+            "products/wlnrf24min-c",
+            "products/wlrfid-b"
           ],
         },
         {

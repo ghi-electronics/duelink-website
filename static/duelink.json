@@ -881,7 +881,7 @@
     },
     {
       "name": "GNSS WA",
-      "partNumber": "GDL-WGNSSWA-A",
+      "partNumber": "GDL-WLGNSSWA-A",
       "PID": "0x090001",
       "category": "Wireless",
       "price": 0,
@@ -896,7 +896,7 @@
     },
     {
       "name": "GNSS",
-      "partNumber": "GDL-WGNSS-B",
+      "partNumber": "GDL-WLGNSS-B",
       "PID": "0x090002",
       "category": "Wireless",
       "price": 0,
@@ -911,7 +911,7 @@
     },
     {
       "name": "Infrared",
-      "partNumber": "GDL-WINFRARED-A",
+      "partNumber": "GDL-WLINFRARED-A",
       "PID": "0x090006",
       "category": "Wireless",
       "price": 0,
@@ -926,7 +926,7 @@
     },
     {
       "name": "NRF24 Max",
-      "partNumber": "GDL-WNRF24MAX-C",
+      "partNumber": "GDL-WLNRF24MAX-C",
       "PID": "0x090003",
       "category": "Wireless",
       "price": 0,
@@ -941,7 +941,7 @@
     },
     {
       "name": "NRF24 Min",
-      "partNumber": "GDL-WNRF24MIN-C",
+      "partNumber": "GDL-WLNRF24MIN-C",
       "PID": "0x090004",
       "category": "Wireless",
       "price": 0,
@@ -956,7 +956,7 @@
     },
     {
       "name": "RFID",
-      "partNumber": "GDL-WRFID-B",
+      "partNumber": "GDL-WLRFID-B",
       "PID": "0x090005",
       "category": "Wireless",
       "price": 0,
