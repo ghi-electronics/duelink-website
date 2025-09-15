@@ -190,7 +190,7 @@
     },
     {
       "name": "ePaper M29",
-      "partNumber": "GDL-DEPAPERM29-A",
+      "partNumber": "GDL-DSEPAPERM29-A",
       "PID": "0x01000B",
       "category": "Display",
       "price": 0,
@@ -206,7 +206,7 @@
     },
     {
       "name": "ePaper M42",
-      "partNumber": "GDL-DEPAPERM42-A",
+      "partNumber": "GDL-DSEPAPERM42-A",
       "PID": "0x01000C",
       "category": "Display",
       "price": 0,
@@ -223,7 +223,7 @@
     },
     {
       "name": "HDMI",
-      "partNumber": "GDL-DHDMI-B",
+      "partNumber": "GDL-DSHDMI-B",
       "PID": "0x010001",
       "category": "Display",
       "price": 0,
@@ -252,7 +252,7 @@
     },
     {
       "name": "LCD 16x2",
-      "partNumber": "GDL-DLCD16X2-C",
+      "partNumber": "GDL-DSLCD16X2-C",
       "PID": "0x010002",
       "category": "Display",
       "price": 0,
@@ -266,7 +266,7 @@
     },
     {
       "name": "LCD 20x4",
-      "partNumber": "GDL-DLC20X4-B",
+      "partNumber": "GDL-DSLCD20X4-B",
       "PID": "0x010003",
       "category": "Display",
       "price": 0,
@@ -280,7 +280,7 @@
     },
     {
       "name": "OLED 096",
-      "partNumber": "GDL-DOLED096-A",
+      "partNumber": "GDL-DSOLED096-A",
       "PID": "0x010004",
       "category": "Display",
       "price": 0,
@@ -295,7 +295,7 @@
     },
     {
       "name": "Portal CP70",
-      "partNumber": "GDL-DPORTALCP70-B",
+      "partNumber": "GDL-DSPORTALCP70-B",
       "PID": "0x010009",
       "category": "Display",
       "price": 0,
@@ -311,7 +311,7 @@
     },
     {
       "name": "TFT CP23",
-      "partNumber": "GDL-DTFTCP23-B",
+      "partNumber": "GDL-DSTFTCP23-B",
       "PID": "0x010007",
       "category": "Display",
       "price": 0,
@@ -326,7 +326,7 @@
     },
     {
       "name": "TFT N18",
-      "partNumber": "GDL-DTFTN18-B",
+      "partNumber": "GDL-DSTFTN18-B",
       "PID": "0x010006",
       "category": "Display",
       "price": 0,
@@ -341,7 +341,7 @@
     },
     {
       "name": "TFT R128",
-      "partNumber": "GDL-DTFTR128-B",
+      "partNumber": "GDL-DSTFTR128-B",
       "PID": "0x010005",
       "category": "Display",
       "price": 0,
@@ -357,7 +357,7 @@
     },
     {
       "name": "VFD-B8",
-      "partNumber": "GDL-DVFDB8-C",
+      "partNumber": "GDL-DSVFDB8-C",
       "PID": "0x01000A",
       "category": "Display",
       "price": 0,
@@ -881,12 +881,12 @@
     },
     {
       "name": "GNSS WA",
-      "partNumber": "GDL-WGNSSWA-A",
+      "partNumber": "GDL-WLGNSSWA-A",
       "PID": "0x090001",
       "category": "Wireless",
       "price": 0,
       "tagline": "GNSS Positioning Module with Antenna",
-      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module has a built-in antenna. Consider [this GNSS](/docs/products/wgnss-b) module if you want to add your own antenna.",
+      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module has a built-in antenna. Consider [this GNSS](/docs/products/wlgnss-b) module if you want to add your own antenna.",
       "keyFeatures": [
         "GNSS positioning",
         "GPS, Galileo, GLONASS",
@@ -896,12 +896,12 @@
     },
     {
       "name": "GNSS",
-      "partNumber": "GDL-WGNSS-B",
+      "partNumber": "GDL-WLGNSS-B",
       "PID": "0x090002",
       "category": "Wireless",
       "price": 0,
       "tagline": "GNSS Positioning Module with uFL Connector",
-      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module with uFL connector for external antenna. The required antenna is not included, giving the user the choice to select the right antenna. Consider [this GNSS](/docs/products/wgnsswa-a) with built-in antenna.",
+      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module with uFL connector for external antenna. The required antenna is not included, giving the user the choice to select the right antenna. Consider [this GNSS](/docs/products/wlgnsswa-a) with built-in antenna.",
       "keyFeatures": [
         "GNSS positioning",
         "GPS, Galileo, GLONASS",
@@ -911,7 +911,7 @@
     },
     {
       "name": "Infrared",
-      "partNumber": "GDL-WINFRARED-A",
+      "partNumber": "GDL-WLINFRARED-A",
       "PID": "0x090006",
       "category": "Wireless",
       "price": 0,
@@ -926,12 +926,12 @@
     },
     {
       "name": "NRF24 Max",
-      "partNumber": "GDL-WNRF24MAX-C",
+      "partNumber": "GDL-WLNRF24MAX-C",
       "PID": "0x090003",
       "category": "Wireless",
       "price": 0,
       "tagline": "Wireless NRF24 Transceiver with Amplified Antenna",
-      "description": "Send and receive data wirelessly using SMA 2.4Ghz. The PA+LNA gives this module a coverage of up to a 1000 meters!",
+      "description": "Send and receive data wirelessly using SMA 2.4Ghz. The PA+LNA gives this module a coverage of up to a 1000 meters!. Min version [available](./wlnrf24min-c).",
       "keyFeatures": [
         "2.4Ghz SMA signal",
         "125 channels",
@@ -941,22 +941,22 @@
     },
     {
       "name": "NRF24 Min",
-      "partNumber": "GDL-WNRF24MIN-C",
+      "partNumber": "GDL-WLNRF24MIN-C",
       "PID": "0x090004",
       "category": "Wireless",
       "price": 0,
       "tagline": "Wireless NRF24 Transceiver",
-      "description": "Send and receive data wirelessly using SMA 2.4Ghz. This module uses a simple PCB antenna. Consider NRF24 Max for a coverage of up to a 1000 meters!",
+      "description": "Send and receive data wirelessly using SMA 2.4Ghz. This module uses a simple PCB antenna. Consider [NRF24 Max](./wlnrf24max-c) for a higher coverage.!",
       "keyFeatures": [
         "2.4Ghz SMA signal",
         "125 channels",
         "PCB antenna",
-        "[Max Version Available](./wnrf24max-c)"
+        "[Max Version Available](./wlnrf24max-c)"
       ]
     },
     {
       "name": "RFID",
-      "partNumber": "GDL-WRFID-B",
+      "partNumber": "GDL-WLRFID-B",
       "PID": "0x090005",
       "category": "Wireless",
       "price": 0,
@@ -1213,7 +1213,7 @@
     },
     {
       "name": "LED MT1208",
-      "partNumber": "GDL-LLEDMT1208-A",
+      "partNumber": "GDL-LDLEDMT1208-A",
       "PID": "0x050003",
       "category": "LED",
       "price": 0,
@@ -1228,7 +1228,7 @@
     },
     {
       "name": "LED R16",
-      "partNumber": "GDL-LLEDR16R-B",
+      "partNumber": "GDL-LDLEDR16R-B",
       "PID": "0x050004",
       "category": "LED",
       "price": 0,
@@ -1242,7 +1242,7 @@
     },
     {
       "name": "LED RGB3",
-      "partNumber": "GDL-LLEDRGB3-A",
+      "partNumber": "GDL-LDLEDRGB3-A",
       "PID": "0x050005",
       "category": "LED",
       "price": 0,
@@ -1256,7 +1256,7 @@
     },
     {
       "name": "LED S284",
-      "partNumber": "GDL-LLEDS284-B",
+      "partNumber": "GDL-LDLEDS284-B",
       "PID": "0x050006",
       "category": "LED",
       "price": 123,
@@ -1294,7 +1294,7 @@
     },
     {
       "name": "LED S404",
-      "partNumber": "GDL-LLEDS404-A",
+      "partNumber": "GDL-LDLEDS404-A",
       "PID": "0x050008",
       "category": "LED",
       "price": 0,
@@ -1332,7 +1332,7 @@
     },
     {
       "name": "LED S564",
-      "partNumber": "GDL-Lled564XX-A",
+      "partNumber": "GDL-LDled564XX-A",
       "PID": "0x05000A",
       "category": "LED",
       "price": 0,
@@ -1348,7 +1348,7 @@
     },
     {
       "name": "LED SS805",
-      "partNumber": "GDL-LledSS805-C",
+      "partNumber": "GDL-LDledSS805-C",
       "PID": "0x05000C",
       "category": "LED",
       "price": 0,
@@ -1364,7 +1364,7 @@
     },
     {
       "name": "Smart LED",
-      "partNumber": "GDL-LSMARTLED-A",
+      "partNumber": "GDL-LDSMARTLED-A",
       "PID": "0x05000D",
       "category": "LED",
       "price": 0,

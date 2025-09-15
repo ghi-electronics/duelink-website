@@ -361,7 +361,7 @@ Show()
 
 SPI supports both, direct and buffered modes.
 
-This example uses a 320x240 display, like [TFT CP23](../products/dtftcp23-b) in buffered mode with x3 multiplier.
+This example uses a 320x240 display, like [TFT CP23](../products/dstftcp23-b) in buffered mode with x3 multiplier.
 
 ```py
 _s = 5
@@ -488,7 +488,7 @@ fend
 
 I2C supports buffered mode only, with x1 multiplier.
 
-In this case, we are using SSD1306. This display is found on [PixoBit](../products/mcpixobit-d) microcomputer and [OLED 096](../products/doled096-a) display.
+In this case, we are using SSD1306. This display is found on [PixoBit](../products/mcpixobit-d) microcomputer and [OLED 096](../products/dsoled096-a) display.
 
 ```py
 Dim b1[2]
@@ -708,7 +708,7 @@ wend
 ```
 
 :::note
-2Pin addressable LEDs can be used through SPI bus but they are not supported by the graphics engine. See [SmartLED](../products/lsmartled-a) for examples.
+2Pin addressable LEDs can be used through SPI bus but they are not supported by the graphics engine. See [SmartLED](../products/ldsmartled-a) for examples.
 :::
 
 ---
@@ -736,7 +736,7 @@ while 1
 wend
 ```
 
-The scanner also works great for other LED modules, such as [LED S404](../products/lleds404-a) and others. The data are used to set the individual segments and the scanner pins sweep through the individual digits.
+The scanner also works great for other LED modules, such as [LED S404](../products/ldleds404-a) and others. The data are used to set the individual segments and the scanner pins sweep through the individual digits.
 
 The LED driver helps in setting the right pixels to show the wanted digits.
 
@@ -757,7 +757,7 @@ Show()
 
 ## LED Matrix List
 
-In this mode, the graphics engine scans and updates the LEDs one at a time. This mode works great with [LED MT1208](../products/lledmt1208-a). 
+In this mode, the graphics engine scans and updates the LEDs one at a time. This mode works great with [LED MT1208](../products/ldledmt1208-a). 
 In this mode, an array containing a list of each LED pins. This is only supported in buffered mode, with x1 multiplier.
 
 
@@ -811,7 +811,7 @@ wend
 
 ## ePaper
 
-These displays retain the graphics even after losing power. They are great for badges, labels and other zero-power usage. A good example is [ePaper M29](../products/depaperm29-a).
+These displays retain the graphics even after losing power. They are great for badges, labels and other zero-power usage. A good example is [ePaper M29](../products/dsepaperm29-a).
 
 Note that ePaper displays need several seconds to update, which completely blocks the system and the module become unresponsive during the update.
 
@@ -819,8 +819,8 @@ Note that ePaper displays need several seconds to update, which completely block
 Once updated, ePaper retains the content without the need for power!
 :::
 
-![ePaper M29](pathname:///img/catalog/depaperm29-a-1.png)
+![ePaper M29](pathname:///img/catalog/dsepaperm29-a-1.png)
 
 ```py reference title="ePaper M29 Driver"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/driver/gdl-depaperm29-a.txt
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/driver/gdl-dsepaperm29-a.txt
 ```

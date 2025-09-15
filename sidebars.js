@@ -65,17 +65,17 @@ const sidebars = {
           type: "category",
           label: "Displays",
           items: [
-            "products/depaperm29-a",
-            "products/depaperm42-a",
-            "products/dhdmi-b",
-            "products/dlcd16x2-c",
-            "products/dlc20x4-b",
-            "products/doled096-a",
-            "products/dportalcp70-b",
-            "products/dtftcp23-b",
-            "products/dtftn18-b",
-            "products/dtftr128-b",
-            "products/dvfdb8-c"
+            "products/dsepaperm29-a",
+            "products/dsepaperm42-a",
+            "products/dshdmi-b",
+            "products/dslcd16x2-c",
+            "products/dslcd20x4-b",
+            "products/dsoled096-a",
+            "products/dsportalcp70-b",
+            "products/dstftcp23-b",
+            "products/dstftn18-b",
+            "products/dstftr128-b",
+            "products/dsvfdb8-c"
           ],
         },
         {
@@ -140,12 +140,12 @@ const sidebars = {
           type: "category",
           label: "Wireless",
           items: [
-            "products/wgnsswa-a",
-            "products/wgnss-b",
-            "products/winfrared-a",
-            "products/wnrf24max-c",
-            "products/wnrf24min-c",
-            "products/wrfid-b"
+            "products/wlgnsswa-a",
+            "products/wlgnss-b",
+            "products/wlinfrared-a",
+            "products/wlnrf24max-c",
+            "products/wlnrf24min-c",
+            "products/wlrfid-b"
           ],
         },
         {
@@ -173,14 +173,14 @@ const sidebars = {
           type: "category",
           label: "LEDs",
           items: [
-            "products/lledmt1208-a",
-            "products/lledr16r-b",
-            "products/lledrgb3-a",
-            "products/lleds284-b",
-            "products/lleds404-a",
-            "products/lled564xx-a",
-            "products/lledss805-c",
-            "products/lsmartled-a"
+            "products/ldledmt1208-a",
+            "products/ldledr16r-b",
+            "products/ldledrgb3-a",
+            "products/ldleds284-b",
+            "products/ldleds404-a",
+            "products/ldled564xx-a",
+            "products/ldledss805-c",
+            "products/ldsmartled-a"
           ],
         },
         {

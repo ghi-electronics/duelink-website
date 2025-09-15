@@ -1,0 +1,30 @@
+i = 0
+while 1
+    
+    if (i = 0) # all leds are white
+        SetLed(0, 0xFFFFFF)
+        SetLed(1, 0xFFFFFF)
+        SetLed(2, 0xFFFFFF)
+    end
+    
+    if (i = 1) # all leds are red
+        SetLed(0, 0xff0000)
+        SetLed(1, 0xff0000)
+        SetLed(2, 0xff0000)
+    end
+    
+    if (i = 2) # all leds are green
+        SetLed(0, 0x00ff00)
+        SetLed(1, 0x00ff00)
+        SetLed(2, 0x00ff00)
+    end
+    
+    if (i = 3) # all leds are blue
+        SetLed(0, 0x0000ff)
+        SetLed(1, 0x0000ff)
+        SetLed(2, 0x0000ff)
+    end
+    
+    i = (i + 1) % 4
+    Wait(500)
+wend
