@@ -886,7 +886,7 @@
       "category": "Wireless",
       "price": 0,
       "tagline": "GNSS Positioning Module with Antenna",
-      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module has a built-in antenna. Consider [this GNSS](/docs/products/wgnss-b) module if you want to add your own antenna.",
+      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module has a built-in antenna. Consider [this GNSS](/docs/products/wlgnss-b) module if you want to add your own antenna.",
       "keyFeatures": [
         "GNSS positioning",
         "GPS, Galileo, GLONASS",
@@ -901,7 +901,7 @@
       "category": "Wireless",
       "price": 0,
       "tagline": "GNSS Positioning Module with uFL Connector",
-      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module with uFL connector for external antenna. The required antenna is not included, giving the user the choice to select the right antenna. Consider [this GNSS](/docs/products/wgnsswa-a) with built-in antenna.",
+      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module with uFL connector for external antenna. The required antenna is not included, giving the user the choice to select the right antenna. Consider [this GNSS](/docs/products/wlgnsswa-a) with built-in antenna.",
       "keyFeatures": [
         "GNSS positioning",
         "GPS, Galileo, GLONASS",
