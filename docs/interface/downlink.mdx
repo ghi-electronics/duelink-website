@@ -27,13 +27,21 @@ Mode | Description
 0 | Null
 1 | Daisylink
 2 | Host
-3 | UART Gateway
-4 | I2C non-DUELink
-5 | Inactive
+3 | Passthrough
+4 | Inactive
+5 | I2C
 
-On power up, the Downlink connection is Null. To initiate the [Daisylink](../engine/daisylink) and enumerate all connected modules, a command must be seen by the first module. This is true even if there is a single module. This very first command is only seen by the first device and discarded by others. We recommend using an empty command (just a carriage return) to initiate the module enumeration and addressing. Upon enumeration, Downlink is switched from Null to Daisylink mode automatically.
+On power up, the Downlink connection is `Null`. To initiate the [Daisylink](../engine/daisylink) and enumerate all connected modules, a command must be seen by the first module. This is true even if there is a single module. This very first command is only seen by the first device and discarded by others. We recommend using an empty command (just a carriage return) to initiate the module enumeration and addressing. Upon enumeration, Downlink is switched from `Null` to `Daisylink` mode automatically.
 
-The user has the option to switch to `Host` or `UART Gateway` modes at anytime. However, once switched to these modes, the user must only switch between these modes and Inactive mode (5), and never switch to any other modes. `Host` mode is an options for [Daisylink](../engine/daisylink). `UART Gateway` is used in rare cases, like with [Wireless Hook](../products/adwirelesshook-a), where the `UART gateway` mode allows the system to bridge and pipe the data from the UART interface (Bluetooth in this case) to the Downlink connector.
+The user has the option to switch to `Host`, `Gateway`, or `Inactive` modes at anytime. However, once switched to these modes, the user must only switch between these modes only. 
+
+`Host` mode is an options for [Daisylink](../engine/daisylink). 
+
+`Passthrough` is used in rare cases, like with [Wireless Hook](../products/adwirelesshook-a), where the upstream and downstream UARTs are virtually connected in a `passthrough`, allowing the system to bridge and pipe the data between upstream and downstream. There is a special pin that, when configured using `PassCfg()`, will be used to automatically switch downstream mode to `Inactive`. The system will no go back to `Passthough` mode on its own. It is up to the use to switch to `Host` or `Passthrough`.
+
+`Inactive` disables all communication with downstream.
+
+`I2C` non-DUElink mode is used to connect other devices, as detailed in teh next section.
 
 ---
 

@@ -1806,11 +1806,10 @@ Script only functionality.
 
 Function | Description
 --- | ---
-`DLMode(mode)` | Sets Downlink `mode` (0:Null, 1: Interface, 2: Host, 3: UART).
+`DLMode(mode, {cfg})` | Sets Downlink `mode`, see [Downlink](../interface/downlink) interface page.
 `DLI2cWr(address, [arrayWrite], [arrayRead])` | `address`: I2C slave address (7 bits) - `arrayWrite`: array to send, `arrayRead`: array to read. This only works with `DLMode(4)`.
 `Cmd("command")` | Sends a script command Downlink, only available in `DLMode(2)` mode, `Host` mode. You can only to read a float from a function or a variable: `_W = Cmd("GetW()")` or `_W = Cmd("_W")`. Setting a remote value is done using `cmd(fmt("_x=",_x))`. 
 `CmdTmot(t)` | Sets `t` timeout for `Cmd()` in milliseconds, default 1000ms. 
-`GwCfg({pin,connect_level})` | Set the pin used in gateway connect mode with connect level
 
 More info are found on the [Downlink](../interface/downlink) interface and [Daisylink](./daisylink) pages.
 
@@ -1842,35 +1841,35 @@ DLI2CWr(0x44,B1,[])
 <TabItem value="py">
 Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
 ```py
-duelink.Engine.ExecuteCommand("DLMode(4)")
+duelink.Engine.ExecuteCommand("DLMode(4,{0})")
 duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []")
 ```
 </TabItem>
 <TabItem value="js">
 Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
 ```js
-await duelink.Engine.ExecuteCommand("DLMode(4)");
+await duelink.Engine.ExecuteCommand("DLMode(4,{0})");
 await duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []");
 ```
 </TabItem>
 <TabItem value="arduino">
 Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
 ```cpp
-duelink.Engine.ExecuteCommand("DLMode(4)");
+duelink.Engine.ExecuteCommand("DLMode(4,{0})");
 duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []");
 ```
 </TabItem>
 <TabItem value="micropy">
 Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
 ```py
-duelink.Engine.ExecuteCommand("DLMode(4)")
+duelink.Engine.ExecuteCommand("DLMode(4,{0})")
 duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []")
 ```
 </TabItem>
 <TabItem value="dotnet">
 Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
 ```cs
-duelink.Engine.ExecuteCommand("DLMode(4)");
+duelink.Engine.ExecuteCommand("DLMode(4,{0})");
 duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []");
 ```
 </TabItem>
