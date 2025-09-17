@@ -44,7 +44,7 @@ const sidebars = {
           label: "Microcomputers",
           items: [
             "products/mcdueduino-a",
-            "products/mcstamp-a",
+            "products/mcstamp-b",
             "products/mcstick-a",
             "products/mccincobit-e",
             "products/mcclipit-b",
@@ -217,7 +217,7 @@ const sidebars = {
             "products/adpwrswitch-a",
             "products/adsticker-c",
             "products/adusbhook-a",
-            "products/adusbwedge-a",
+            "products/adusbwedge-b",
             "products/adwirelesshook-a"
           ],
         },

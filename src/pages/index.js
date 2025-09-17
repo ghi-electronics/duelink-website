@@ -23,7 +23,7 @@ function HomepageHeader() {
        <Heading as="h2" >
         Smart Electronic Building Blocks
         </Heading>
-        <p> DUELink revolutionizes electronics innovating with a vast ecosystem of sensor, actuator, and display modules.
+        <p> DUELink revolutionizes electronics innovation with a vast ecosystem of sensor, actuator, and display modules.
         <br/> 
         Each module is a mini-computer, powered by a smart daisylink that seamlessly integrates with your favorite hardware platform and coding language.
         </p>

@@ -107,7 +107,7 @@
     },
     {
       "name": "Stamp",
-      "partNumber": "GDL-MCSTAMP-A",
+      "partNumber": "GDL-MCSTAMP-B",
       "PID": "0x000013",
       "category": "Microcomputer",
       "price": 0,
@@ -1640,7 +1640,7 @@
     },
     {
       "name": "USB Wedge",
-      "partNumber": "GDL-ADUSBWEDGE-A",
+      "partNumber": "GDL-ADUSBWEDGE-B",
       "category": "Adapter",
       "price": 0,
       "tagline": "PCB USB DUELink Interface",
