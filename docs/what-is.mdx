@@ -1,11 +1,14 @@
 ---
 hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 # What is DUELink?
 
-
-![Product Catalog](pathname:///img/duelink-modules.png)
+<div style={{ textAlign: 'center'}}>
+![DUELink Logo](pathname:///img/duelinklogo.png)
+</div>
 
 DUELink revolutionizes electronics innovation with a vast [ecosystem](./catalog/intro) of smart electronic building blocks, empowering [Engineers](./engineers) to prototype faster, [Makers](./makers) to create smarter, and STEM [Educators](./educators) to inspire circuit-coders.
 
@@ -17,33 +20,60 @@ The [daisylink](./engine/daisylink) on DUELink works with other [I2C](./interfac
 
 Whether you're designing, tinkering, or teaching, DUELink makes innovation modular, intuitive, and endlessly scalable.
 
-![Daisylink](pathname:///img/daisylink.png)
+---
 
-So, can we say **DUELink is Everything?!**
+<div style={{ textAlign: 'center'}}>
+## Product Catalog
+</div>
+
+![Product Catalog](pathname:///img/duelink-modules.png)
 
 <details>
-  <summary>**Every Host:** Arduino, RPI, FEZ, PC, Phone…</summary>
+  <summary>DUELink product catalog includes sensors, actuators, and displays that can harmonically work together!</summary>
 
-**What do you mean by every host?**
+We are just getting started and there is already a [catalog](./catalog/intro) with 100s of modules available. We dream of a day where there is a DUELink module for every single technology and need. We are not doing it alone! [Third-party modules](./catalog/third-party) are encouraged. We have open [Specifications](./specs) to help you make your own. 
 
-You can continue to use your favorite board and then “link” it to one, or a hundred, DUELink modules. 
-We have covered many [supported hardware](./hw/intro) options but you can even go [beyond](./hw/beyond).
+If you do not want to deal with tiny chip soldering, we have a very tiny module for you, called [Stick](./products/mcstick-a). Another one is [Stamp](./products//mcstamp-b.mdx), which is the size of, you guessed it, a stamp!
+
+
 </details>
 
+<div style={{ textAlign: 'center'}}><Button
+  style={{ color:'white' }}
+  label="Product Catalog"
+  link="./catalog/intro"
+/></div>
+
+---
+
+<div style={{ textAlign: 'center'}}>
+## Supported Hardware
+</div>
+
+![Supported Hardware](pathname:///img/supported-hardware-jst.png)
+
 <details>
-  <summary>**Every Interface:** USB, SPI, I2C, and UART…</summary>
+  <summary>Modules work with many Supported Hardware devices, such as ESP32/Arduino/Raspberry-Pi, and even works right from a PC!</summary>
 
-**Does it really work with every interface?**
+We want you to continue to use your favorite board and then “link” it to one, or a hundred, of DUELink modules. We have covered many [supported hardware](./hw/intro) options but you can even go [beyond](./hw/beyond).
 
-Yes…almost! Every single DUELink module supports [multiple interfaces](./interface/intro), including [USB](./interface/usb), 
-[Serial UART](./interface/uart), and [I2C](./interface/i2c). That is how these modules connect to your favorite hardware. But then, 
-each module has a [Downlink](./interface/downlink) connection allowing you to [Daisylink](./engine/daisylink) hundreds of modules .
 </details>
 
-<details>
-  <summary>**Every Language:** Python, C#, JavaScript…</summary>
+<div style={{ textAlign: 'center'}}><Button
+  style={{ color:'white' }}
+  label="Supported Hardware"
+  link="./hw/intro"
+/></div>
 
-**You couldn't really support every coding language! Could you?**
+---
+
+<div style={{ textAlign: 'center'}}>
+## Coding Languages
+</div>
+![Coding languages](pathname:///img/languages.png)
+
+<details>
+  <summary>Users can select one of the coding languages, but they can also run programs standalone!</summary>
 
 We support the top [languages](./language/intro) including [Python](./language/python) and 
  [JavaScript](./language/javascript) allowing control over a [PC](./hw/pc-laptop)/ 
@@ -52,52 +82,163 @@ a [phone](./hw/phone-tablet) or [Raspberry Pi](./hw/raspberry-pi) / [Arduino](./
 [MicroBlocks](./language/microblocks), and the internal [Scripting Language](./engine/scripting).
 
 If [Excel](./language/excel) can control a sensor, then anything can!
+
 </details>
 
+<div style={{ textAlign: 'center'}}><Button
+  style={{ color:'white', margin: "10px" }}
+  label="Coding Languages"
+  link="./language/intro"
+/>
+<Button
+  style={{ color:'white', margin: "10px" }}
+  label="Standalone"
+  link="./language/standalone"
+/>
+</div>
+
+---
+
+<div style={{ textAlign: 'center'}}>
+## DaisyLink over USB/I2C/UART
+</div>
+
+![Daisylink](pathname:///img/daisylink.png)
+
 <details>
-  <summary>**Every User:** Commercial quality and maker friendly, that works for educators.</summary>
+  <summary>Connect modules over USB/I2C/UART. Connect one or daisylink them all!</summary>
 
-**How can this work for an engineer, but also work for a student?!**
+Yes…almost! Every single DUELink module supports [multiple interfaces](./interface/intro), including [USB](./interface/usb), 
+[Serial UART](./interface/uart), and [I2C](./interface/i2c). That is how these modules connect to your favorite hardware. But then, 
+each module has a [Downlink](./interface/downlink) connection allowing you to [Daisylink](./engine/daisylink) hundreds of modules .
 
-DUELink is designed by commercial engineers who are involved with STEM education. We know what [engineers](./engineers) need 
-but also work with [educators](./educators). We do not stop there, we are also [makers](./makers) during our free time.
+
 </details>
 
-<details>
-  <summary>**Every Setup:** Standalone, a link master, or slave to a host.</summary>
+<div style={{ textAlign: 'center'}}><Button
+  style={{ color:'white', margin: "10px" }}
+  label="Interfaces"
+  link="./interface/intro"
+/>
+<Button
+  style={{ color:'white', margin: "10px" }}
+  label="Daisylink"
+  link="./engine/daisylink"
+/>
+</div>
 
-**How can it run standalone or run with my favorite board/setup?**
+---
+
+<div style={{ textAlign: 'center'}}>
+## Internal Scripting Engine
+</div>
+
+<div style={{ textAlign: 'center'}}>
+```py
+x=100
+PrintLn(x)
+PrintLn("Hello World")
+```
+</div>
+
+<details>
+  <summary>Each module has an internal engine with a scripting language.</summary>
+
+
+The DUELink [engine](./engine/intro) is very powerful for its size! It lives on every single module and includes a [Scripting Language](./engine/scripting)
+with an extensive [Standard Library](./engine/stdlib) and support for [Graphics](./engine/graphics), [File System](./engine/filesystem), and far beyond!
 
 Each module has a mini computer allowing it to run [standalone](./language/standalone) using its [Scripting Engine](./engine/scripting). This engine can also be commanded using your favorite [hardware](./hw/intro), such as [Raspberry Pi](./hw/raspberry-pi) or 
 [Micro:bit](./hw/microbit) or even control the modules from a [PC](./hw/pc-laptop). 
 
 Still not satisfied? Load the module with [MicroBlocks](./language/microblocks) and use an easy block coding interface, or use 
 [Arduino](./hw/arduino) and take advantage of massive community resources.
+
 </details>
 
+<div style={{ textAlign: 'center'}}><Button
+  style={{ color:'white' }}
+  label="Internal Engine"
+  link="./engine/intro"
+/></div>
+
+---
+
+<div style={{ textAlign: 'center'}}>
+## Specifications
+</div>
+
+![specs](pathname:///img/duelink-hole-specs.png)
+
+
 <details>
-  <summary>**Every Option:** Hundreds of module-options for every need.</summary>
+  <summary>Open specs to help you integrate, or make your own modules!</summary>
 
-**Where do you get “hundreds of options”?**
+A universal rule is the [specification](./specs) of 5mm-pitched-holes. This allows for universal mounting, like with the available [Holey boards](./products/axholeyboards-a).
 
-We are just getting started and there is a [catalog](./catalog/intro) with 100s of modules available. We dream of a day where there is a DUELink module for every single technology and need. We are not doing it alone! [Third-party modules](./catalog/third-party) are encouraged. We have open [Specifications](./specs) to help you make your own. 
+We even give you some [mounting hardware](./products/axmounting-a) options! This rule helps when designing 3D packages or when building laser-cut enclosures.
 
-If you do not want to deal with tiny chip soldering, we have a very tiny module for you, called [Stick](./products/mcstick-a). Another one is [Stamp](./products//mcstamp-b.mdx), which is the size of, you guessed it, a stamp!
+
+<div style={{ textAlign: 'center'}}><Button
+  style={{ color:'white' }}
+  label="Specifications"
+  link="./specs"
+/></div>
+
 </details>
 
+---
+
+<div style={{ textAlign: 'center'}}>
+## Engineers | Makers | Educators
+</div>
+
+<table>
+<td width='50%'>
+    ![Holey Board](pathname:///img/catalog/axholeyboards-a-4.png)
+</td>
+<td width='50%'>
+    ![AI Tic-Tac-Toe](pathname:///img/tic-tac-toe.png)
+</td>
+</table>
+
 <details>
-  <summary>**Every Budget:** Designed with low-cost as a requirement.</summary>
+  <summary>Commercial quality and maker friendly, that works for educators.</summary>
 
-**Any budget? I am not seeing a $1 module!**
+DUELink is designed by commercial engineers who are involved with STEM education. We know what [engineers](./engineers) need 
+but also work with [educators](./educators). We do not stop there, we are also [makers](./makers) during our free time.
 
-Yes, modules that are designed, manufactured, and supported in Michigan, USA are not at “Alibaba-level” pricing. The good news is that the modules are priced 
-right if you factor in the time needed to get the job done effectively. But hold on, you can also have a hybrid option where basic needs can be met by the “$1 button” but then utilize DUELink's advanced modules for other tasks. Of course, we would love it if you can support us with all your needs as this will help in covering the research and development of future modules that you might really need one day.
+
 </details>
 
-<details>
-  <summary>**Every Ecosystem:** Adafruit STEMMA, SparkFun Qwiic…</summary>
+<div style={{ textAlign: 'center'}}><Button
+  style={{ color:'white', margin: "10px" }}
+  label="Engineers"
+  link="./engineers"
+/>
+<Button
+  style={{ color:'white', margin: "10px" }}
+  label="Makers"
+  link="./makers"
+/>
+<Button
+  style={{ color:'white', margin: "10px" }}
+  label="Educators"
+  link="./educators"
+/>
+</div>
 
-**How does DUELink work with any Ecosystem?**
+---
+
+<div style={{ textAlign: 'center'}}>
+## DULElink with STEMMA and Qwiic
+</div>
+
+![DUELink STEM I2C qwiic stemmaQT](pathname:///img/qwiic-stemma-i2c.png)
+
+
+<details>
+  <summary>Works with non-DUELink modules, such as Adafruit STEMMA and SparkFun Qwiic.</summary>
 
 If you are using an ecosystem that uses a JST connector, like Adafruit STEMMA QT or Sparkfun Qwiic, than you are half way there! These ecosystems use  I2C bus to connect to their modules. Since one of the supported interfaces is [I2C](./interface/i2c), DUELink and these ecosystems 
 can play together nicely as explained on the [I2C](./interface/i2c) page. Similarly, systems like Seeed Studio Grove will work but you will need an adapter cable due to the different connector size.
@@ -106,22 +247,25 @@ If you are using something very different from JST/I2C connections then that wor
 need a standard [Connector](./products/axconnectors-a) to start [wiring](./products/axcables-a) modules. We even have a [Breakout](./products/adbreakout-a) for easier wiring. You have the option to use one of the [Interfaces](./interface/intro), including [USB](./interface/usb), [I2C](./interface/i2c), and [Serial UART](./interface/uart)
 </details>
 
-<details>
-  <summary>**Everywhere Mounting:** 5mm-pitch holes (like Gadgeteer did).</summary>
+<div style={{ textAlign: 'center'}}><Button
+  style={{ color:'white', margin: "10px" }}
+  label="Downlink I2C Mode"
+  link="./interface/downlink"
+/>
+<Button
+  style={{ color:'white', margin: "10px" }}
+  label="Modules over I2C"
+  link="./interface/i2c"
+/>
+</div>
+---
 
-**Can modules be mounted?**
+![Print](pathname:///img/getting-started.png)
 
-A universal rule is the [specification](./specs) of 5mm-pitched-holes. This allows for universal mounting, like with the available [Holey boards](./products/axholeyboards-a).
+Start in seconds with any of the modules using the online hosted demo. Then start coding in minutes using your favorite languages.
 
-We even give you some [mounting hardware](./products/axmounting-a) options! This rule helps when designing 3D packages or when building laser-cut enclosures.
-</details>
-
-<details>
-  <summary>**Everywhere Engine:** World's tiniest engine that includes scripting, graphics, file system, and much more.</summary>
-
-**How can a simple engine go everywhere?**
-
-The DUELink [engine](./engine/intro) is very powerful for its size! It lives on every single module and includes a [Scripting Language](./engine/scripting)
-with an extensive [Standard Library](./engine/stdlib) and support for [Graphics](./engine/graphics), [File System](./engine/filesystem), and far beyond!
-</details>
-
+<div style={{ textAlign: 'center'}}><Button
+  style={{ color:'white' }}
+  label="Getting Started"
+  link="./start"
+/></div>

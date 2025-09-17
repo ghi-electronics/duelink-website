@@ -22,7 +22,6 @@ const sidebars = {
   // But you can create a sidebar manually
 
   tutorialSidebar: [
-    "intro",
     {
       type: "category",
       label: "What is DUELink?",
@@ -178,7 +177,7 @@ const sidebars = {
             "products/ldledrgb3-a",
             "products/ldleds284-b",
             "products/ldleds404-a",
-            "products/ldled564xx-a",
+            "products/ldled564-a",
             "products/ldledss805-c",
             "products/ldsmartled-a"
           ],

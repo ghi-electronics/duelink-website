@@ -33,6 +33,12 @@ function HomepageHeader() {
             to="/docs/what-is">
             What is DUELink?
           </Link>
+           &nbsp; &nbsp;&nbsp;
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/catalog/intro">
+            Product Catalog
+          </Link>
         </div>
       </div>
     </header>
@@ -50,15 +56,7 @@ export default function Home() {
         <HomepageFeatures />
       </main>
   
-       <div className={styles.buttons}>
-          <Link
-            className="button button--primary button--lg"
-            
-            to="/docs/intro">
-            It is all about the docs!
-          </Link>
-        </div>
-        <p> </p>
+       
     </Layout>
   );
 }
