@@ -27,7 +27,7 @@ const config = {
   organizationName,
   projectName, 
 
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
 /*
