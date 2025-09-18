@@ -173,7 +173,7 @@ const sidebars = {
           label: "LEDs",
           items: [
             "products/ldledmt1208-a",
-            "products/ldledr16r-b",
+            "products/ldledr16-b",
             "products/ldledrgb3-a",
             "products/ldleds284-b",
             "products/ldleds404-a",

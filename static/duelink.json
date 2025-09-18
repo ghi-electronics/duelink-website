@@ -1043,11 +1043,17 @@
       "tagline": "Current Sensor",
       "description": "Connect the terminal block inline of AC or DC power to measure its current. The sensor has an internal resistance of 1.2 milli-ohm. It is capable of measuring up to 12.5A.",
       "keyFeatures": [
-        "12.5A current sensor",
-        "25A current option",
+        "Current sensor",
         "27x22mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Current()` | Reads the current flow level in Amps. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Current()` | Reads the current flow level in Amps. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "12.5A",
+          "partCode": "125",
+          "price": 0
+        }
+      ]
     },
     {
       "name": "Distance",
@@ -1249,7 +1255,7 @@
     },
     {
       "name": "LED R16",
-      "partNumber": "GDL-LDLEDR16R-B",
+      "partNumber": "GDL-LDLEDR16-B",
       "PID": "0x050004",
       "category": "LED",
       "price": 0,
