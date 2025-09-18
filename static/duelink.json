@@ -1646,7 +1646,7 @@
       "partNumber": "GDL-ADUSBHOOK-A",
       "category": "Adapter",
       "price": 0,
-      "tagline": "USB Connection for DUELink Modules",
+      "tagline": "USB Interface Connection for DUELink Modules",
       "description": "USB Hook is handy to add USB Interface to any DUELink module. It includes an 800mA power source and a power LED.",
       "keyFeatures": [
         "USB-C connector",
@@ -1739,12 +1739,12 @@
       ],
       "variations": [
         {
-          "name": "Downlink (10pcs)",
+          "name": "Downlink 10pcs",
           "partCode": "DL",
           "price": 0
         },
         {
-          "name": "Uplink (10pcs)",
+          "name": "Uplink 10pcs",
           "partCode": "UL",
           "price": 0
         }
@@ -1768,17 +1768,17 @@
       "variations": [
         {
           "name": "Smally",
-          "partCode": "SMALLY",
+          "partCode": "S",
           "price": 0
         },
         {
           "name": "Standard",
-          "partCode": "BOARD",
+          "partCode": "M",
           "price": 0
         },
         {
           "name": "Moley",
-          "partCode": "MOLEY",
+          "partCode": "L",
           "price": 0
         }
       ]
@@ -1801,23 +1801,23 @@
           "price": 0
         },
         {
-          "name": "Standoffs F-F (10pcs)",
+          "name": "Standoffs F-F 10pcs",
           "partCode": "FF",
           "price": 0
         },
         {
-          "name": "Screws (10pcs)",
-          "partCode": "SCREWS",
+          "name": "Screws 10pcs",
+          "partCode": "SC",
           "price": 0
         },
         {
-          "name": "Nuts (10pcs)",
-          "partCode": "NUTS",
+          "name": "Nuts 10pcs",
+          "partCode": "NT",
           "price": 0
         },
         {
-          "name": "Footpads (4pcs)",
-          "partCode": "FOOTPADS",
+          "name": "Footpads 4pcs",
+          "partCode": "FP",
           "price": 0
         }
       ]

@@ -12,7 +12,7 @@ This is an interesting option because it allows DUELink to be used in 2 very dif
 
 ## Daisylinking
 
-Any board running Arduino software can utilize DUELink modules. An example can be [Arduino Uno R4 WiFi](https://store-usa.arduino.cc/products/uno-r4-wifi), which already include a JST connector.
+Any board running Arduino software can utilize DUELink modules. An example can be [Arduino Uno R4 WiFi](https://store-usa.arduino.cc/products/uno-r4-wifi), which already includes a JST connector.
 
 ![Arduino UNO R4 Wifi](pathname:///img/arduino-uno-r4-wifi.png)
 
@@ -30,7 +30,7 @@ When using I2C, pull-up resistors are required. If your board doesn't have them,
 
 To use daisylinked DUELink modules, you need to install the provided `duelink.zip` Arduino library, found under the [Downloads](../downloads.mdx) page.
 
-Under `Sketch` on the top menu of the Arduino IDE select `Include Library`, and click on `Add .ZIP Library`. Navigate to the downloaded file and click `Open`
+Under `Sketch` on the top menu of the Arduino IDE select `Include Library`, and click on `Add .ZIP Library`. Navigate to the downloaded file and click `Open`.
 
 ![Add DUElink Zip file](pathname:///img/arduino-ide-addzip.png)
 
@@ -104,7 +104,7 @@ Any DUELink module can be run Arduino software, replacing the default DUELink fi
 
 ![DueDuino](pathname:///img/dueduino.png)
 
-The chip used on al DUELink modules is STM32C071, which is fully supported by the Arduino IDE through the ST extension. However, we have made a board support package specifically for you. But wait, we did not just leave ti at that! We have a board support package for you.
+The chip used on al DUELink modules is STM32C071, which is fully supported by the Arduino IDE through the ST extension. However, we have made a board support package specifically for you. But wait, we did not just leave it at that! We have a board support package for you.
 
 Start the Arduino IDE, under `File` navigate to `Preferences` click `Additional boards manager URLs:` icon, in the new window copy and add both URLs below. Click `Ok`. 
 
@@ -139,7 +139,7 @@ void loop() {
 }
 ```
 
-To load the arduino program, put the board in loader mode (DFU) by holding LDR or "A" button down while resetting the board.
+To load the Arduino program, put the board in loader mode (DFU) by holding LDR or "A" button down while resetting the board.
 
 ![LDR or A Button](pathname:///img/ldr-a-buttons.png)
 
