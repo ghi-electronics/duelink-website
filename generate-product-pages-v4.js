@@ -213,7 +213,7 @@ function generateOrderSection(product) {
         // Generate rows for each variation
         tableRows = product.variations.map(variation => {
             const variationPrice = typeof variation.price === 'string' ? parseFloat(variation.price) : variation.price;
-            return `| DUELink ${product.name} ${variation.name} | ${product.partNumber}-${variation.partCode} | $${(variationPrice || 0).toFixed(2)} |`;
+            return `| DUELink ${product.name} (${variation.name}) | ${product.partNumber}-**${variation.partCode}** | $${(variationPrice || 0).toFixed(2)} |`;
         }).join('\n');
     } else {
         // No variations, single row
