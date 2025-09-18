@@ -427,7 +427,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/driver/$
     const mdxContent = `---
 sidebar_position: ${index + 1}
 title: ${product.name}
-description: ${product.name} - High-quality DUELink module
+description: ${product.name} - DUELink module
 hide_table_of_contents: true
 pagination_next: null
 pagination_prev: null
@@ -442,7 +442,7 @@ import ProductFooter from '@site/src/components/ProductFooter';
 
 ${imagePrefix !== null ? `<ImageSection 
   product="${imagePrefix}"
-  tagline="${(product.tagline || 'High-quality DUELink module').replace(/"/g, '&quot;')}"
+  tagline="${(product.tagline || 'DUELink module').replace(/"/g, '&quot;')}"
 />` : ''}
 
 ---
