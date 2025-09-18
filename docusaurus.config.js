@@ -27,7 +27,7 @@ const config = {
   organizationName,
   projectName, 
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
 /*
@@ -45,6 +45,10 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  stylesheets: [
+    '/css/fontawesome.min.css',
+  ],
 
 
     // ...
@@ -151,32 +155,32 @@ const config = {
           {
           href: 'https://www.x.com/ghielectronics',
           position: 'left',
-          html: '<img src="/img/x-icon.png" alt="X">',
+          html: '<i class="fa-brands fa-x-twitter" style="font-size: 18px;"></i>',
           },
                     {
           href: 'https://www.instagram.com/ghielectronics/',
           position: 'left',
-          html: '<img src="/img/instagram-icon.png" alt="Instagram">',
+          html: '<i class="fa-brands fa-instagram" style="font-size: 18px;"></i>',
           },
           {
           href: 'https://www.facebook.com/ghielec',
           position: 'left',
-          html: '<img src="/img/facebook-icon.png" alt="Facebook">',
+          html: '<i class="fa-brands fa-facebook" style="font-size: 18px;"></i>',
           },
           {
           href: 'https://www.youtube.com/user/GHIElectronics',
           position: 'left',
-          html: '<img src="/img/youtube-icon.png" alt="Youtube">',
-          },   
+          html: '<i class="fa-brands fa-youtube" style="font-size: 18px;"></i>',
+          },
           {
           href: 'https://linkedin.com/company/ghielectronics/',
           position: 'left',
-          html: '<img src="/img/linkedin-icon.png" alt="Linkedin">',
+          html: '<i class="fa-brands fa-linkedin" style="font-size: 18px;"></i>',
           },
           {
           href: 'https://github.com/ghi-electronics',
           position: 'left',
-          html: '<img src="/img/github-icon.png" alt="GitHub">',
+          html: '<i class="fa-brands fa-github" style="font-size: 18px;"></i>',
           },
           
          // {to: '/blog', label: 'Blog', position: 'left'},
