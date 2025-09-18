@@ -1110,7 +1110,14 @@
         "Heating control circuit",
         "27x42mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Heater(s)` | Sets the heater `s` state (1 on, 0 off). |\n| `Read()` | Reads the current voltage level in Volts. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Heater(s)` | Sets the heater `s` state (1 on, 0 off). |\n| `Read()` | Reads the current voltage level in Volts. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "MQ7 CO",
+          "partCode": "MQ7",
+          "price": 0
+        }
+      ]
     },
     {
       "name": "Light",
@@ -1204,12 +1211,19 @@
       "category": "Sensor",
       "price": 0,
       "tagline": "TempRTD Sensor",
-      "description": "This sensor uses the included RTD (Resistance Temperature Detector) to measure temperatures.",
+      "description": "This sensor uses the included RTD (Resistance Temperature Detector) to measure temperatures. It includes RTD PT100 probe",
       "keyFeatures": [
         "RTD Temperature Sensor",
         "42x27 overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `ReadTemp()` | Reads the current temperature in celsius. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `ReadTemp()` | Reads the current temperature in celsius. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "PT100",
+          "partCode": "100",
+          "price": 0.0
+        }
+      ]
     },
     {
       "name": "LED MT1208",
@@ -1224,7 +1238,14 @@
         "96 Total LEDs",
         "42x32mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "Red",
+          "partCode": "R",
+          "price": 0.0
+        }
+      ]
     },
     {
       "name": "LED R16",
@@ -1238,7 +1259,14 @@
         "16 LED Ring",
         "32x32mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLed(l, v)` | Sets Led at `l` (1 to 16) to a `v` value (1 on, 0 off). |\n| `LedOff()` | Resets all leds to off. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLed(l, v)` | Sets Led at `l` (1 to 16) to a `v` value (1 on, 0 off). |\n| `LedOff()` | Resets all leds to off. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "Red",
+          "partCode": "R",
+          "price": 0.0
+        }
+      ]
     },
     {
       "name": "LED RGB3",
@@ -1271,24 +1299,9 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `Digit(n)` | Draw `n` number to LEDs. |\n| `Seg7(i, s)` | Draw a single `s` digit (0 to 9) on `i` digit. |\n| `Dot(i, v)` | Draw a dot at `i` index with `v` value (0 off 1 on) on count-type LED. |\n| `Colon(n)` | Show colon on time-type LED. |\n| `DVer()` | This driver version. |",
       "variations": [
         {
-          "name": "Counter Red",
-          "partCode": "CR",
-          "price": 0
-        },
-        {
-          "name": "Timer Red",
-          "partCode": "TR",
-          "price": 0
-        },
-        {
-          "name": "Counter Green",
-          "partCode": "CG",
-          "price": "123"
-        },
-        {
           "name": "Timer Green",
           "partCode": "TG",
-          "price": 12.34
+          "price": 0
         }
       ]
     },
@@ -1309,30 +1322,15 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `Digit(n)` | Draw `n` number to LEDs. |\n| `Seg7(i, s)` | Draw a single `s` digit (0 to 9) on `i` digit. |\n| `Dot(i, v)` | Draw a dot at `i` index with `v` value (0 off 1 on) on count-type LED. |\n| `Colon(n)` | Show colon on time-type LED. |\n| `DVer()` | This driver version. |",
       "variations": [
         {
-          "name": "Counter Red",
-          "partCode": "CR",
-          "price": 0
-        },
-        {
           "name": "Timer Red",
           "partCode": "TR",
-          "price": 0
-        },
-        {
-          "name": "Counter Green",
-          "partCode": "CG",
-          "price": 0
-        },
-        {
-          "name": "Timer Green",
-          "partCode": "TG",
           "price": 0
         }
       ]
     },
     {
       "name": "LED S564",
-      "partNumber": "GDL-LDled564-A",
+      "partNumber": "GDL-LDLED564-A",
       "PID": "0x05000A",
       "category": "LED",
       "price": 0,
@@ -1344,11 +1342,18 @@
         "Counter or Timer formatted",
         "67x22mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `Digit(n)` | Draw `n` number to LEDs. |\n| `Seg7(i, s)` | Draw a single `s` digit (0 to 9) on `i` digit. |\n| `Dot(i, v)` | Draw a dot at `i` index with `v` value (0 off 1 on) on count-type LED. |\n| `Colon(n)` | Show colon on time-type LED. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `Digit(n)` | Draw `n` number to LEDs. |\n| `Seg7(i, s)` | Draw a single `s` digit (0 to 9) on `i` digit. |\n| `Dot(i, v)` | Draw a dot at `i` index with `v` value (0 off 1 on) on count-type LED. |\n| `Colon(n)` | Show colon on time-type LED. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "Counter Red",
+          "partCode": "CR",
+          "price": 0
+        }
+      ]
     },
     {
       "name": "LED SS805",
-      "partNumber": "GDL-LDledSS805-C",
+      "partNumber": "GDL-LDLEDSS805-C",
       "PID": "0x05000C",
       "category": "LED",
       "price": 0,
@@ -1360,7 +1365,14 @@
         "Counter or Timer formatted",
         "117x32mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `Seg16(i, s)` | Draw a single `s` character (0 to 9) on `i` digit (from the right). |\n| `Digit(n)` | Draw 'n' number to LEDs. |\n| `PrntChr(i, c)` | Print an ascii `c` character (A to Z and 0 to 9) at `i` index (from the left). |\n| `PrntStr(b1)` | Print a string of ascii characters. |\n| `Dot(i, v)` | Draw dot at `i` index with `v` value (0 off, 1 on). |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `Seg16(i, s)` | Draw a single `s` character (0 to 9) on `i` digit (from the right). |\n| `Digit(n)` | Draw 'n' number to LEDs. |\n| `PrntChr(i, c)` | Print an ascii `c` character (A to Z and 0 to 9) at `i` index (from the left). |\n| `PrntStr(b1)` | Print a string of ascii characters. |\n| `Dot(i, v)` | Draw dot at `i` index with `v` value (0 off, 1 on). |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "Red",
+          "partCode": "R",
+          "price": 0.0
+        }
+      ]
     },
     {
       "name": "Smart LED",

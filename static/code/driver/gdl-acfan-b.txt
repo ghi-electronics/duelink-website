@@ -14,10 +14,10 @@ fn Fan(s)
     
     if s<0
         s=s*-1
-        PWrite(3,s/100)
+        AWrite(3,s/100)
         DWrite(4,0)
     else
-        PWrite(4,s/100)
+        AWrite(4,s/100)
         DWrite(3,0)
     end
 fend

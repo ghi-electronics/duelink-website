@@ -128,9 +128,9 @@ fn SetBulb(c) #c = Hex Value
     g =((c>>8)&0xff)/255
     b = (c&0xff)/255
  
-    PWrite(2,b)
-    PWrite(11,r)
-    PWrite(4,g)
+    AWrite(2,b)
+    AWrite(11,r)
+    AWrite(4,g)
 fend
 
 fn Light()
