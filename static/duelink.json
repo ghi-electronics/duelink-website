@@ -1756,7 +1756,7 @@
       "category": "Accessories",
       "price": 0,
       "tagline": "Holey Boards for Mounting DUELink Modules",
-      "description": "Holey Boards are blank circuits with standard 5mm-pitched holes for mounting DUELink Module. See [Mounting Hardware](./axmounting-a) for options.\n\nThere are three size:\n* Holey Smally Board: 18x12 holes\n* Holey Board: 36x18 holes\n* Holey Moley Board: 46x36 holes",
+      "description": "Holey Boards are blank circuits with standard 5mm-pitched holes for mounting DUELink Module. See [Mounting Hardware](./axmnt) for options.\n\nThere are three size:\n* Holey Smally Board: 18x12 holes\n* Holey Board: 36x18 holes\n* Holey Moley Board: 46x36 holes",
       "keyFeatures": [
         "5mm-pitch holes",
         "Front grid markings",
@@ -1789,10 +1789,10 @@
       "category": "Accessories",
       "price": 0,
       "tagline": "Mounting Hardware",
-      "description": "Standoffs, Screws, Nuts, and Footpads are available to help in mounting all DUELink modules.\n\nWhile you can use these options with 3D printed and laser cut enclosures, the ideal use with any of the [Holey Boards](./axholeyboards-a)!\n\nThe available options are:\n* 10x - Male to Female Nylon standoffs\n* 10x - Female to Female Nylon standoffs\n* 10x - M3 Nylon Screws\n* 10x - M3 Nylon Nuts\n* 4x - M3 Metal Footpads",
+      "description": "Standoffs, Screws, Nuts, and Footpads are available to help in mounting all DUELink modules.\n\nWhile you can use these options with 3D printed and laser cut enclosures, the ideal use with any of the [Holey Boards](./axholey)!\n\nThe available options are:\n* 10x - Male to Female Nylon standoffs\n* 10x - Female to Female Nylon standoffs\n* 10x - M3 Nylon Screws\n* 10x - M3 Nylon Nuts\n* 4x - M3 Metal Footpads",
       "keyFeatures": [
         "Universal M3 Size",
-        "Perfect for [Holey Boards](./axholeyboards-a)"
+        "Perfect for [Holey Boards](./axholey)"
       ],
       "variations": [
         {
