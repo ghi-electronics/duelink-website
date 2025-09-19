@@ -1,0 +1,8 @@
+_x = 0
+StatLed(100, 100, 0) # blink STAT LED forever
+
+while (1)
+    Eye(_x&1,_x&2) # eye
+    _x = _x + 1
+    Wait(100)
+wend
