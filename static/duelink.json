@@ -1646,7 +1646,7 @@
       "partNumber": "GDL-ADUSBHOOK-A",
       "category": "Adapter",
       "price": 0,
-      "tagline": "USB Connection for DUELink Modules",
+      "tagline": "USB Interface Connection for DUELink Modules",
       "description": "USB Hook is handy to add USB Interface to any DUELink module. It includes an 800mA power source and a power LED.",
       "keyFeatures": [
         "USB-C connector",
@@ -1685,8 +1685,8 @@
       ]
     },
     {
-      "name": "Cables",
-      "partNumber": "GDL-AXCABLES-A",
+      "name": "Cable",
+      "partNumber": "GDL-AXCBL",
       "category": "Accessories",
       "price": 0,
       "tagline": "DUELink Cables",
@@ -1699,17 +1699,17 @@
       ],
       "variations": [
         {
-          "name": "50mm (5pcs)",
+          "name": "50mm 5pcs",
           "partCode": "050",
           "price": 0
         },
         {
-          "name": "150mm (5pcs)",
+          "name": "150mm 5pcs",
           "partCode": "150",
           "price": 0
         },
         {
-          "name": "300mm (5pcs)",
+          "name": "300mm 5pcs",
           "partCode": "300",
           "price": 0
         },
@@ -1726,8 +1726,8 @@
       ]
     },
     {
-      "name": "Connectors",
-      "partNumber": "GDL-AXCONNECTORS-A",
+      "name": "Connector",
+      "partNumber": "GDL-AXCNCTR",
       "category": "Accessories",
       "price": 0,
       "tagline": "DUELink JST Connectors",
@@ -1739,85 +1739,85 @@
       ],
       "variations": [
         {
-          "name": "Downlink (10pcs)",
+          "name": "Downlink 10pcs",
           "partCode": "DL",
           "price": 0
         },
         {
-          "name": "Uplink (10pcs)",
+          "name": "Uplink 10pcs",
           "partCode": "UL",
           "price": 0
         }
       ]
     },
     {
-      "name": "Holey Boards",
-      "partNumber": "GDL-AXHOLEYBOARDS-A",
+      "name": "Holey Board",
+      "partNumber": "GDL-AXHOLEY",
       "category": "Accessories",
       "price": 0,
       "tagline": "Holey Boards for Mounting DUELink Modules",
-      "description": "Holey Boards are blank circuits with standard 5mm-pitched holes for mounting DUELink Module. See [Mounting Hardware](./axmounting-a) for options.\n\nThere are three size:\n* Holey Smally Board: 18x12 holes\n* Holey Board: 36x18 holes\n* Holey Moley Board: 46x36 holes",
+      "description": "Holey Boards are blank circuits with standard 5mm-pitched holes for mounting DUELink Module. See [Mounting Hardware](./axmnt) for options.\n\nThere are three size:\n* Holey Smally Board: 18x12 holes\n* Holey Board: 36x18 holes\n* Holey Moley Board: 46x36 holes",
       "keyFeatures": [
         "5mm-pitch holes",
         "Front grid markings",
         "Back clean printing",
         "Holey Smally: 92x62",
         "Holey: 182x92mm",
-        "Holey Moley Board: 182x232mm"
+        "Holey Moley: 182x232mm"
       ],
       "variations": [
         {
           "name": "Smally",
-          "partCode": "SMALLY",
+          "partCode": "S",
           "price": 0
         },
         {
           "name": "Standard",
-          "partCode": "BOARD",
+          "partCode": "M",
           "price": 0
         },
         {
           "name": "Moley",
-          "partCode": "MOLEY",
+          "partCode": "L",
           "price": 0
         }
       ]
     },
     {
-      "name": "Mounting Hardware",
-      "partNumber": "GDL-AXMOUNTING-A",
+      "name": "Mounting HW",
+      "partNumber": "GDL-AXMNT",
       "category": "Accessories",
       "price": 0,
       "tagline": "Mounting Hardware",
-      "description": "Standoffs, Screws, Nuts, and Footpads are available to help in mounting all DUELink modules.\n\nWhile you can use these options with 3D printed and laser cut enclosures, the ideal use with any of the [Holey Boards](./axholeyboards-a)!\n\nThe available options are:\n* 10x - Male to Female Nylon standoffs\n* 10x - Female to Female Nylon standoffs\n* 10x - M3 Nylon Screws\n* 10x - M3 Nylon Nuts\n* 4x - M3 Metal Footpads",
+      "description": "Standoffs, Screws, Nuts, and Footpads are available to help in mounting all DUELink modules.\n\nWhile you can use these options with 3D printed and laser cut enclosures, the ideal use with any of the [Holey Boards](./axholey)!\n\nThe available options are:\n* 10x - Male to Female Nylon standoffs\n* 10x - Female to Female Nylon standoffs\n* 10x - M3 Nylon Screws\n* 10x - M3 Nylon Nuts\n* 4x - M3 Metal Footpads",
       "keyFeatures": [
         "Universal M3 Size",
-        "Perfect for [Holey Boards](./axholeyboards-a)"
+        "Perfect for [Holey Boards](./axholey)"
       ],
       "variations": [
         {
-          "name": "Standoffs M-F (10pcs)",
+          "name": "Standoffs M-F 10pcs",
           "partCode": "MF",
           "price": 0
         },
         {
-          "name": "Standoffs F-F (10pcs)",
+          "name": "Standoffs F-F 10pcs",
           "partCode": "FF",
           "price": 0
         },
         {
-          "name": "Screws (10pcs)",
-          "partCode": "SCREWS",
+          "name": "Screws 10pcs",
+          "partCode": "SC",
           "price": 0
         },
         {
-          "name": "Nuts (10pcs)",
-          "partCode": "NUTS",
+          "name": "Nuts 10pcs",
+          "partCode": "NT",
           "price": 0
         },
         {
-          "name": "Footpads (4pcs)",
-          "partCode": "FOOTPADS",
+          "name": "Footpads 4pcs",
+          "partCode": "FP",
           "price": 0
         }
       ]

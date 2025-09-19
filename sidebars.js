@@ -224,10 +224,10 @@ const sidebars = {
           type: "category",
           label: "Accessories",
           items: [
-            "products/axcables-a",
-            "products/axconnectors-a",
-            "products/axholeyboards-a",
-            "products/axmounting-a"
+            "products/axcbl",
+            "products/axcnctr",
+            "products/axholey",
+            "products/axmnt"
           ],
         },
         "catalog/third-party",
