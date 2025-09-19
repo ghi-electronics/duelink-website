@@ -15,13 +15,13 @@ The graphics libraries do not include any device initialization. An application 
 
 Before any drawing operations, the system needs to know what device it will access and what pixel mapping it needs to process internally.
 
-`GfxCfg (type, {cfg}, width, height, mode)` Is needed to set the device `type` with `width` and `height`. The `{cfg}` depends on the device type.
+`GfxCfg (type, {cfg}, width, height, mode)` is needed to set the device `type` with `width` and `height`. The `{cfg}` depends on the device type.
 
 When `mode` is 0 then graphics is sent directly to display. No need for internal buffering and no need for `Show()`. This uses a lot less memory.
 
 When `mode` is more than 0 then the engine uses buffering for graphics, where the value is the pixel multiplier. For example, setting `mode` to 3 will cause the graphics engine to multiply each pixel 3 times horizontally and vertically, 9 pixels in total. A 320x240 display runs at 106x80 pixels.
 
-When selecting to use graphics with `mode` set to more than 0 (use graphics buffering), make sure the overall memory need is under 10KBytes. 320x240 with 3x multiplier is 106x80, needing 8,480 Bytes.
+When selecting to use graphics with `mode` set to more than 0 (use graphics buffering), make sure the overall memory need is under 10KBytes. 320x240 with 3x multiplier is 106x80, needing 8,480 bytes.
 
 Supported device types:
 
@@ -156,11 +156,11 @@ All color arguments take 24BPP format RRGGBB, similar to what is used on the web
 In direct mode, drawing goes directly on the display, where `Show()` doesn't do anything.
 :::
 
-In buffered graphics mode, the system store pixels as 8BPP 3R3G2B (256 colors). The 8BPP is scaled from 24BPP RRGGBB. Color pallette is not supported. The exception to this is Neopixel, which is always buffered and full 24BPP color.
+In buffered graphics mode, the system stores pixels as 8BPP 3R3G2B (256 colors). The 8BPP is scaled from 24BPP RRGGBB. Color pallette is not supported. The exception to this is Neopixel, which is always buffered and full 24BPP color.
 
 Red and Green are 3 bits, giving you 8 levels each (7 levels plus off). Blue is 2 bits, giving you 4 levels (3 levels plus off). 256/7= 36 => Red and Green change every 36 steps. 256/3=85 => Blue color changes every 85 steps.
 
-You can do 255 colors in 8BPP but here are 16 common color examples:
+You can do 255 colors in 8BPP, but here are 16 common color examples:
 
 <table >
   <tr>
@@ -275,7 +275,7 @@ Clear(0)
 Img(a1,50,35,8,8,0)
 Show()
 ```
-This example below creates the same sprite using colors set to different elements of the sprite , note the use of `Alias()` to make the code more readable, and change the colors of sections easier.  
+This example below creates the same sprite using colors set to different elements of the sprite. Note the use of `Alias()` to make the code more readable.
 
 ![Color Image Array](pathname:///img/image-array-color.png)
 
@@ -359,7 +359,7 @@ Show()
 
 ## SPI Display
 
-SPI supports both, direct and buffered modes.
+SPI supports both direct and buffered modes.
 
 This example uses a 320x240 display, like [TFT CP23](../products/dstftcp23-b) in buffered mode with x3 multiplier.
 
@@ -417,7 +417,7 @@ fn LcdCmd(c, b1)
 fend
 ```
 
-In direct mode, you will likely not clear the entire screen is this will cause flicker. Only erase specific regions. Enjoy the full resolution and full color from any [Supported HArdware](../hw/intro)!
+In direct mode, you will likely not clear the entire screen as this will cause flicker. Only erase specific regions. Enjoy the full resolution and full color from any [Supported Hardware](../hw/intro)!
 
 ```py
 _s = 5
@@ -549,7 +549,7 @@ Pixels are usually connected inside a panel in a zigzag pattern. This zigzag can
 
 ![NeoPixel Horizontal and Vertical Zigzag](pathname:///img/neopixel-horizontal-vertical.png)
 
-With the vertical scanning, we only support a single panel but this panel can be of any size. A good example here is the 32x8 pixel panels. Note that while we support only a single panel, you can set the width to double the panel to get 64x8 pixels.
+With the vertical scanning, we only support a single panel, but this panel can be of any size. A good example here is the 32x8 pixel panels. Note that while we support only a single panel, you can set the width to double the panel to get 64x8 pixels.
 
 ![64x9 Matrix](pathname:///img/64x8-matrix.png)
 
@@ -577,7 +577,7 @@ while 1
 wend
 
 ```
-Things a quite different when using horizontal scanning as the system supports panels in different configurations. When connecting panels horizontally the panels need to be ordered like the image below.
+Things are quite different when using horizontal scanning as the system supports panels in different configurations. When connecting panels horizontally the panels need to be in order like the image below.
 
 ![Horizontal signal path](pathname:///img/neopixel-horizontal-signal.png)
 
@@ -656,7 +656,7 @@ wend
 
 ```
 
-It is possible to make your own panels using LED strips. For example, 5 strips of 50 LED each can be used to make a 50x5 LED panel. The strips needs to be connected in a zigzag pattern. This makes it easier to run the connections anyway.
+It is possible to make your own panels using LED strips. For example, 5 strips of 50 LEDs each can be used to make a 50x5 LED panel. The strips need to be connected in a zigzag pattern. This makes it easier to run the connections any way.
 
 This is a partial image to demonstrate the connections.
 
@@ -708,7 +708,7 @@ wend
 ```
 
 :::note
-2Pin addressable LEDs can be used through SPI bus but they are not supported by the graphics engine. See [SmartLED](../products/ldsmartled-a) for examples.
+2Pin addressable LEDs can be used through SPI bus, but they are not supported by the graphics engine. See [SmartLED](../products/ldsmartled-a) for examples.
 :::
 
 ---
@@ -757,8 +757,9 @@ Show()
 
 ## LED Matrix List
 
-In this mode, the graphics engine scans and updates the LEDs one at a time. This mode works great with [LED MT1208](../products/ldledmt1208-a). 
-In this mode, an array containing a list of each LED pins. This is only supported in buffered mode, with x1 multiplier.
+In this mode, the graphics engine scans and updates the LEDs one at a time. This mode works great with [LED MT1208](../products/ldledmt1208-a).
+
+In this mode, an array contains a list of all LED pins. This is only supported in buffered mode, with x1 multiplier.
 
 
 ```py

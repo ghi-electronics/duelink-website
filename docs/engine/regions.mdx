@@ -5,14 +5,14 @@ The memory area that holds scripts can be split into regions. This allows users 
 
 The interpreter treats all regions as one. Having regions is helpful for managing what parts of code can be erased,  modified, and viewed.
 
-This feature is used by default on all modules, where region 0 loaded by us at production, containing that module's specific [drivers](./drivers). This way, you can now record (load) your own code without erasing/modifying the drivers.
+This feature is used by default on all modules, where region 0 is loaded by us at production, containing that module's specific [drivers](./drivers). This way, you can now record (load) your own code without erasing/modifying the drivers.
  
-For example, displays drivers include `GetW` function to return the display width.
+For example, display drivers include `GetW` function to return the display width.
 
 ---
 ## Regions Panel
 
-The `Regions` Panel in the [Console](../console.mdx) contains all the information and tasks you'll need to control and use regions. When you connect a new module region `0 - Driver` contains the driver loaded at the factory. This is shown by the memory used in that region. There may also be test code loaded into region `1 - User`. 
+The `Regions` Panel in the [Console](../console.mdx) contains all the information and tasks you'll need to control and use regions. When you connect a new module, region `0 - Driver` contains the driver loaded at the factory. This is shown by the memory used in that region. There may also be test code loaded into region `1 - User`. 
 
 Buttons along the panel control the action. `Add Region`, `List All`, and `Erase All`. You can select a specific region by clicking on the region. 
 
@@ -26,8 +26,8 @@ Buttons along the panel control the action. `Add Region`, `List All`, and `Erase
 
 ![Add Region](pathname:///img/console-add-region.png)
 
-This creates a new region labelled `1 - User` this region is separate from the `0 - driver` region.
-The editor window displays the code inside our selected region. In a newly created `User` region, the editor window will be empty and ready for your program. If code already exists in the `User` region it can be modified and saved in that same region. 
+This creates a new region labeled `1 - User`. This region is separate from the `0 - driver` region.
+The editor window displays the code inside our selected region. In a newly created `User` region, the editor window will be empty and ready for your program. If code already exists in the `User` region, it can be modified and saved in that same region. 
 
 ![User Region](pathname:///img/console-user-region.png)
 
@@ -35,7 +35,7 @@ Once we add a region, the memory size of the region `0 - Driver` will be locked 
 
 ![Region Memory](pathname:///img/regions-memory.png)
 
-We can now create our program in this region separate from the `Driver`. Type your program and hit the `record` button this will place your code in the `1 - User` region only. 
+We can now create our program in this region separate from the `Driver`. Type your program and hit the `record` button. This will place your code in the `1 - User` region only. 
  
 
 ![Record Region](pathname:///img/console-record-region.png)
@@ -44,7 +44,7 @@ After recording, the `Regions` panel will update the memory used and available.
 
 ![User Memory](pathname:///img/user-memory.png)
 
-If we need to modify the driver we can load the driver in the editor window by clicking on `0 - Driver` in the `Regions` panel.
+If we need to modify the driver, we can load the driver in the editor window by clicking on `0 - Driver` in the `Regions` panel.
 
 ![Select Driver Region](pathname:///img/select-driver-region.png)
 
@@ -73,7 +73,7 @@ Using the `List` button on the top menu lists the only the code currently in the
 
 ## Erase All
 
-When clicking the `Erase All` button this erases both `0 - Driver` and `1 - User` regions together. T
+When clicking the `Erase All` button, this erases both `0 - Driver` and `1 - User` regions together.
 
 ![Erase All](pathname:///img/erase-all.png)
 

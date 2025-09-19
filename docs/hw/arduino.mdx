@@ -28,11 +28,16 @@ When using I2C, pull-up resistors are required. If your board doesn't have them,
 
 ![Arduino Breakout I2C](pathname:///img/arduino-breakout-i2c.png)
 
-To use daisylinked DUELink modules, you need to install the provided `duelink.zip` Arduino library, found under the [Downloads](../downloads.mdx) page.
+To use daisylinked DUELink modules, you need to install the DUELink Arduino library.
 
-Under `Sketch` on the top menu of the Arduino IDE select `Include Library`, and click on `Add .ZIP Library`. Navigate to the downloaded file and click `Open`.
+Under `Tools` on the top menu of the Arduino IDE select `Manage Libraries`.
 
-![Add DUElink Zip file](pathname:///img/arduino-ide-addzip.png)
+![Navigate to Manage Libraries](pathname:///img/arduino-ide-add-library.png)
+
+Type `DUELink` in the search window and then click `Install`
+
+![Install DUELink Library](pathname:///img/arduino-ide-install-duelink.png)
+
 
 Now let's connect any 2 DUELink modules to the [Downlink](../interface/downlink) port. This example code will blink both STAT LEDs on both modules. Note how the STAT LED of the first module blinks only 10 times while the second module blinks forever.
 

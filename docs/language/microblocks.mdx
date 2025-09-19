@@ -3,7 +3,7 @@
 
 ![MicroBlocks](pathname:///img/microblocks.png)
 
-MicroBlocks is a fantastic options for users who enjoy block-coding. There are two supported ways to benefit from MicroBlocks, by using a [micro:bit](../hw/microbit) or running [standalone](./standalone) with MicroBlocks firmware!
+MicroBlocks is a fantastic option for users who enjoy block-coding. There are two supported ways to benefit from MicroBlocks: by using a [micro:bit](../hw/microbit) or running [standalone](./standalone) with MicroBlocks firmware!
 
 ---
 
@@ -43,7 +43,7 @@ It also works great on [CincoBit](../products/mccincobit-e) and [PixoBit](../pro
 
 ![CincoBit & PixoBit](pathname:///img/cincobit-pixobit.png)
 
-To use the MicroBlocks Engine, replace the default DUELink firmware with the MicroBlocks firmware. All options are already built in the [Console](../console). In short, put the board in loader mode by pressing A or LDR button, or by placing the jumper, and then reset the board while doing so. If there is no reset button on your board then simply power cycle the board.
+To use the MicroBlocks Engine, replace the default DUELink firmware with the MicroBlocks firmware. All options are already built in the [Console](../console). In short, put the board in loader mode by pressing A or LDR button, or by placing the jumper, and then reset the board while doing so. If there is no reset button on your board, then simply power cycle the board.
 
 ![LDR, A, pads](pathname:///img/ldr-a-pads.png)
 
@@ -52,7 +52,7 @@ Visit [https://console.duelink.com/](https://console.duelink.com/) and click `Fi
 
 ![DUELink Console Firmware Menu](pathname:///img/due-firmware.png)
 
-You can now connect to `DFU in FS Mode` device then select the `MicroBlocks` from the available options. If you do not see `DFU in FS Mode` then the board is not in loader mode. Go to the [loader](../loader) page and make sure the board is in the loader mode.
+You can now connect to `DFU in FS Mode` device then, select the `MicroBlocks` from the available options. If you do not see `DFU in FS Mode` then the board is not in loader mode. Go to the [loader](../loader) page and make sure the board is in the loader mode.
 
 Once the firmware is loaded, power cycle the board. You are now ready for MicroBlocks.
 
@@ -76,11 +76,11 @@ Code samples like the one above that don't require an external library can be dr
 
 ## Available Services
 
-It is very important to note that once a DUELink board is loaded with MicroBlocks firmware then it becomes 100% reliant on what blocks/libraries/services are offered by MicroBlocks. In other words, you lose the [Standard Library](../engine/stdlib).
+It is very important to note that once a DUELink board is loaded with MicroBlocks firmware, then it becomes 100% reliant on what blocks/libraries/services are offered by MicroBlocks. In other words, you lose the DUELink [Standard Library](../engine/stdlib).
 
 For example, while you can load MicroBlocks on [SD Card](../products/stsdcard-b) module, you do not have SD card drivers nor file system libraries!
 
-This is not a problem in a standard DUELink setup as you will usually have the recommended [CincoBit](../products/mccincobit-e) or [PixoBit](../products/mcpixobit-d) loaded with MicroBlocks but then you have other modules [daisylinked](../engine/daisylink) on its downlink connector. Those other modules will still be running the standard DUElink firmware. In this case the SD Card module will have the necessary standard libraries, which are commanded by the MicroBlocks firmware.
+This is not a problem in a standard DUELink setup as you will usually have the recommended [CincoBit](../products/mccincobit-e) or [PixoBit](../products/mcpixobit-d) loaded with MicroBlocks, but then you have other modules [daisylinked](../engine/daisylink) on its downlink connector. Those other modules will still be running the standard DUElink firmware. In this case the SD Card module will have the necessary standard libraries, which are commanded by the MicroBlocks firmware.
 
 ![Cincobit and SD Card](pathname:///img/cincobit-sdcard.png)
 
@@ -106,7 +106,7 @@ Now we're ready for some block-coding!. Click on the `Add Library` button and Op
 
 ![Connect](pathname:///img/microblocks-library.png)
 
-Click on the block itself it will activate the LEDs on CincoBit. Any changes we make are instantly transferred to the device.
+Click on the block itself and it will activate the LEDs on CincoBit. Any changes we make are instantly transferred to the device.
 
 ![Smile and Frown](pathname:///img/microblocks-instant.gif)
 
@@ -145,7 +145,7 @@ In the example below, we'll use MicroBlocks to control an OLED 0.96 Display, a B
 
 ![New DUELink Blocks](pathname:///img/cincobit-daisylinked.png)
 
-Click on the image below to download the code, drag the downloaded `.ubp` file into the MicroBlocks IDE. This also brings in all the necessary libraries in the project. 
+Click on the image below to download the code and then drag the downloaded `.ubp` file into the MicroBlocks IDE. This also brings in all the necessary libraries in the project. 
 
 <a download href="/code/samples/microblocks/microblock_microbit_example_chain.ubp">![Daisylinked MicroBlocks Project](pathname:///img/microblocks-daisylinked.png)</a>
 

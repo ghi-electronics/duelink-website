@@ -23,11 +23,11 @@ To test the inter-working of the engine manually, we will use a terminal softwar
 
 ![Tera Term](pathname:///img/teraterm-logo.png)
 
-The first you do is hit `enter`. This is required by the module on power up so it can detect the correct [Interface](../interface/intro). This will result with `>` prompt. It is possible that a module is running an internal script with an infinite loop and it does not respond to commands. In this case, pressing the `escape` key will terminate the running internal script.
+The first thing you do is hit `enter`. This is required by the module on power up so it can detect the correct [Interface](../interface/intro). This will result with `>` prompt. It is possible that a module is running an internal script with an infinite loop and it does not respond to commands. In this case, pressing the `escape` key will terminate the running internal script.
 
 To be safe, just hit `escape` then `enter`! You will for sure see `>` prompt coming back. The device is now ready to accept commands in `Immediate Mode`. 
 
-By default, the device will not echo back what you enter. You can either enable echo from the device using `Echo(1)` command or by using local eco feature in the terminal software. 
+By default, the device will not echo back what you enter. You can either enable echo from the device using `Echo(1)` command or by using local echo feature in the terminal software. 
 
 :::note
 Immediate Mode is the default mode on power up.
@@ -75,7 +75,7 @@ Add another command to the list then try to `run` again.
 
 ![Tera Term Add Item and Run](pathname:///img/teraterm-additem-run.png)
 
-use `new` to erase the program. Verify the program is removed using `list`.
+Use `new` to erase the program. Verify the program is removed using `list`.
 
 ![Tera Term New](pathname:///img/teraterm-erase.png)
 
@@ -105,7 +105,7 @@ Recording programs are either used to run the module [Standalone](../language/st
 
 There is no `Hybrid Mode` exactly, but you can combine both `Immediate Mode` and `Record Mode` to extend the system with additional commands. Say we want to extend the system with a `Hello()` function. We can `record` this extension that can be executed `immediately`.
 
-Enter recoding mode then start a `new` program. Then Enter this program:
+Enter recoding mode then start a `new` program. Then enter this program:
 
 ```py
 fn Hello(b1)
@@ -160,4 +160,4 @@ Wait(500)
 wend
 ```
 
-Now we can inject `SetA1("DUELink")`. Of course, you can just do `a1[]="Try it"` but we used a function to show the possibilities.
+Now we can inject `SetA1("DUELink")`. Of course, you can just do `a1[]="Try it"`, but we used a function to show the possibilities.

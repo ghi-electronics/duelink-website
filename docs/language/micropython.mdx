@@ -13,15 +13,15 @@ MicroPython with DUELink is also fully supported on [Raspberry Pi](../hw/raspber
 
 ![DuePico](pathname:///img/duepico-rgbled.png)
 
-We'll use [Thonny](https://thonny.org/) IDE to program the RaspberryPi Pico in MicroPython. We wil use the Pico to access DUELink modules attached to the [DuePico's](../products/adduepico-b) Downlink connector.
+We'll use [Thonny](https://thonny.org/) IDE to program the RaspberryPi Pico in MicroPython. We will use the Pico to access DUELink modules attached to the [DuePico's](../products/adduepico-b) Downlink connector.
 
 ---
 
 ## Setup
 
-First Make sure your board is set-up for MicroPython. Follow the steps found found at [MicroPython.org](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html) to load the firmware for your specific hardware.
+First make sure your board is set up for MicroPython. Follow the steps found at [MicroPython.org](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html) to load the firmware for your specific hardware.
 
-Connect to the board by going to `Tools/Options` and select the proper `Interpreter`. In this case we'll be selecting `MicroPython(Raspberry Pi Pico)`
+Connect to the board by going to `Tools/Options` and select the proper `Interpreter`. In this case we'll be selecting `MicroPython(Raspberry Pi Pico)`.
 
 ![Thonny Connect](pathname:///img/thonny-connect.png)
 
@@ -44,11 +44,11 @@ while True:
 
 ## Libraries
 
-Users have two options for loading the DUELink MicroPython library into Thonny. They can either Download the [duelink-stdlib-mp](https://pypi.org/project/duelink-stdlib-mp/#files) file found at `pypi.org` to their computer, and `Install from local file` found under `Tools/Manage packages`. 
+Users have two options for loading the DUELink MicroPython library into Thonny. They can either download the [duelink-stdlib-mp](https://pypi.org/project/duelink-stdlib-mp/#files) file found at `pypi.org` to their computer, and `Install from local file` found under `Tools/Manage packages`. 
 
 ![DUELink library from local file](pathname:///img/download-mp-library.png)
 
-Alternately users can type `duelink-stdlib-mp` into the search window and `Install from PyPi` directly. 
+Alternatively, users can type `duelink-stdlib-mp` into the search window and `Install from PyPi` directly. 
 
 ![DUELink library from PyPi](pathname:///img/install-mp-library.png)
 
@@ -71,7 +71,7 @@ due = duelink.DUELinkController(uart)
 due.system.statled(50,50,0)
 ```
 
-You can also use boards that already have a JST connector, like [Adafruit QT Py RP2040](https://www.adafruit.com/product/4900) or [Sparkfun Pro Micro RP2350](https://www.sparkfun.com/sparkfun-pro-micro-rp2350.html). However note that these boards use the [I2C Interface](../interface/i2c).
+You can also use boards that already have a JST connector, like [Adafruit QT Py RP2040](https://www.adafruit.com/product/4900) or [Sparkfun Pro Micro RP2350](https://www.sparkfun.com/sparkfun-pro-micro-rp2350.html). However, note that these boards use the [I2C Interface](../interface/i2c).
 
 ![Other boards](pathname:///img/rp2040-rp2350.png)
 
@@ -108,7 +108,7 @@ In the example below, we'll use the DuePico connected to an OLED 0.96 Display, B
 Make sure these modules are loaded with [Drivers](../engine/drivers).
 :::
 
-Note how the DuePico itself is a module which is `Device 1`.
+Note how the DuePico itself is a module, which is `Device 1`.
 
 ![DuePico Daisylinked](pathname:///img/duepico-daisylinked.png)
 
@@ -161,5 +161,5 @@ while True:
 ```
 
 :::tip
-With DUELink we can control multiple modules of the same type, as an example we can show information on both displays, access all buttons, and both buzzers on the Daisylink.
+With DUELink we can control multiple modules of the same type. For example, we can show information on both displays.
 :::
