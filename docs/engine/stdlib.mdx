@@ -25,7 +25,7 @@ Some functions only work on pins with specific features.
 - PWM capable pins: P1, P2, P3, P4, P5, P6, P7, P8, P11
 
 :::tip
-PWM pins share timers. Changing the frequency on one will effect the other. Changing duty-cycle is okay however!
+PWM pins share timers. Changing the frequency on one will affect the other. Changing duty-cycle is okay however!
 
 - P1, P2
 - P3
@@ -44,7 +44,7 @@ Print to output.
 | `Print("text" or variable)`   | Print the value of its argument.                   |
 | `PrintLn("text" or variable)` | Print the value of its argument with line breaks.  |
 
-`Print()` accepts multiple argument, separated by commas, `Print("Value is: ", _v)`
+`Print()` accepts multiple arguments, separated by commas, `Print("Value is: ", _v)`.
 
 :::tip
 Print is invoked automatically when a function returns a value that is not consumed. Running `DRead(1, 1)` in immediate mode will show 0 or 1.
@@ -335,7 +335,7 @@ Function | Description
 `VRead(pin)` | Read calibrated voltage level on `pin`.
 `AWrite(pin, power)` | Sets the power level on `pin` using PWM. Power level is 0 to 1, 0.33 is 33% for example.
 
-`VRead()` and `ARead()` only works with analog capable pins, see [Special Pins](#special-pins).
+`VRead()` and `ARead()` only work with analog capable pins, see [Special Pins](#special-pins).
 
 `AWrite()` only works on PWM pins, see [Special Pins](#special-pins).
 
@@ -634,7 +634,7 @@ state = duelink.Button.Read(1);
 
 ### Frequency
 
-Sets a frequency (PWM) parameters to a pin. Only works on pins that support PWM.
+Sets a frequency and duty-cycle parameters to a pin, using the internal PWM hardware. Only works on pins that support PWM.
 
 :::tip
 This changes the timer frequency, see Special Pins.
@@ -794,7 +794,7 @@ while(true)
 
 ### PulseIn
 
-Reads a pulse on a pin and return time in microseconds.
+Reads a pulse on a pin and returns time in microseconds.
 
 Function | Description
 --- | ---
@@ -1053,7 +1053,7 @@ Function | Description
 --- | ---
 `SpiCfg(mode, frequency)` | Configure SPI with `mode`: 0 to 3 and `frequency` in KHz, ranging 200KHz to 20MHz. If LSB is needed, set `mode` bit 7 to 1 `mode=mode\|0x80 `.
 `SpiWr(byte)` | Write a `byte` then return the received byte.
-`SpiWrs([data_w], [data_r])` | Write an byte array of `data_w` , also return an byte array of `data_r`.
+`SpiWrs([data_w], [data_r])` | Write an byte array of `data_w`, also returns an byte array of `data_r`.
 
 :::tip
 The system defaults to `SpiCfg(0,8000)`, means SPI mode 0, 8MHz, and first bit is MSB.
@@ -1167,7 +1167,7 @@ Function | Description
 --- | ---
 `SerCfg(baud, rxsize)` | Start serial port with `baud` and allocate a receive buffer of `rxsize`.
 `SerRd()` | Read a single byte from the receive buffer. Returns zero if it finds no data.
-`SerRds([data], timeout)` | Block the system till all data elements are filled. Terminate and return if no data received in `timeout` milliseconds. Returns how many bytes it read successfully.
+`SerRds([data], timeout)` | Block the system until all data elements are filled. Terminate and return if no data received in `timeout` milliseconds. Returns how many bytes it read successfully.
 `SerWr(byte)` | Write a single `byte` to the serial port.
 `SerWrs([data])` | Write an array of `data`.
 `SerB2R()` | Returns how many bytes are available in the receive buffer.
@@ -1273,7 +1273,7 @@ Function | Description
 `DmxR(channel)` | Returns the value of a specific channel.
 
 :::tip
-This feature only support DMX frames with `Start Code` zero.
+This feature only supports DMX frames with `Start Code` zero.
 :::
 
 <details>
@@ -1446,7 +1446,7 @@ duelink.Infrared.Write(0x55);
 
 ### Temperature
 
-Read temperature from a specific sensor
+Read temperature from a specific sensor.
 
 Function | Description
 --- | ---
@@ -1652,13 +1652,13 @@ var _v = duelink.System.Info(1);
 
 ## Graphics
 
-DUELink firmware include a flexible graphics facilities, detailed on the [Graphics Engine](./graphics) page.
+DUELink firmware includes a flexible graphics facilities, detailed on the [Graphics Engine](./graphics) page.
 
 ---
 
 ## File System
 
-DUELink firmware include a complete file system facilities, detailed on the [File System](./filesystem) page.
+DUELink firmware includes a complete file system facilities, detailed on the [File System](./filesystem) page.
 
 ---
 
@@ -1669,7 +1669,7 @@ See [Scheduler](./scheduler) for details.
 Function | Description
 --- | ---
 `SStart("func", timeout, count)` | Schedule `func` to run at every `timeout` (in milliseconds) for `count` times, or -1 to run forever.
-`SStat("func")` | `func`: Returns how many times the schedule will still need to run for, 0 is complete and -1 ids forever.
+`SStat("func")` | `func`: Returns how many times the schedule will still need to run for, 0 is complete and -1 is forever.
 `SAbort("func")` | `func`: Abort `func` scheduler.
 
 <details>
@@ -1811,7 +1811,7 @@ Function | Description
 `Cmd("command")` | Sends a script command Downlink, only available in `DLMode(2)` mode, `Host` mode. You can only to read a float from a function or a variable: `_W = Cmd("GetW()")` or `_W = Cmd("_W")`. Setting a remote value is done using `cmd(fmt("_x=",_x))`. 
 `CmdTmot(t)` | Sets `t` timeout for `Cmd()` in milliseconds, default 1000ms. 
 
-More info are found on the [Downlink](../interface/downlink) interface and [Daisylink](./daisylink) pages.
+More info is found on the [Downlink](../interface/downlink) interface and [Daisylink](./daisylink) pages.
 
 :::tip
 Use `Info()` to read the current `DLMode()` state.
@@ -2025,12 +2025,16 @@ Use .NET native facilities.
 
 Function | Description
 --- | ---
-`SprintF([buffer], format)` | Works like `sprintf()` in the C-language.
 `Fmt(...)` | Returns formatted string for internal functions, takes arguments just like `Print()`.
 `Hex(num)` | Returns the number in hex.
 `Chr(num)` | Returns the ascii char of a number.
 `Scale(value, fromLow, fromHigh, toLow, toHigh)` | Returns a scaled number from `value`.
 `Memcpy([dst], offset_dst, [src], offset_src, count)` | Used to copy a block of memory from one location to another. `[dst]` and `[src]` must be same array type.
+`SprintF([buffer], format)` | A wrapper for teh internal `sprintf()` in the C-language.
+
+:::caution
+The scripting engine automatically handles array sizes and realocate small arrays to exapnd as ncessary. This is not the case with `sprintf()`. The user must provide `sprintf()` with an arrays that is large enough to conain the entire string, including a null termination.
+:::
 
 <details>
   <summary>Samples</summary>
@@ -2288,7 +2292,7 @@ Write and read from a special memory type that can be written only once and can 
 Function | Description
 --- | ---
 `OtpR(addr)` | Read a single byte from `addr`.
-`OtpW(addr, [data])` | **\*STOP** Irreversible Action! Write `data` bytes to `addr`, where `addr` must be and data size must be multiple of 8. Returns 1 on success, 0 if failed because an 8 byte block was previously written to.
+`OtpW(addr, [data])` | **\*STOP** Irreversible Action! Write `data` bytes to `addr`, where both `addr` and data size must be multiple of 8. Returns 1 on success, 0 if failed because an 8 byte block was previously written to.
 
 :::tip
 Use byte arrays. If float array is used then only the first byte of each element is written.
@@ -2349,7 +2353,7 @@ duelink.Otp.Read(12);
 
 ## Coprocessor
 
-A few modules, such as [USB Host](../products/cmusbhost-b) include a coprocessor. See [Coprocessor](./coprocessor) for more details.
+A few modules, such as [USB Host](../products/cmusbhost-b) includes a coprocessor. See [Coprocessor](./coprocessor) for more details.
 
 ---
 
@@ -2360,7 +2364,7 @@ Access clock and date in the internal Real Time Clock (RTC).
 Function | Description
 --- | ---
 RtcW([timedate]) | Sets (write) the desired time and date from `timedate` array in the RTC.
-RtcR([timedate]) | Read the current time and date into array. If 0 is used instead of array then the rtc value is printed as `HH:MM:SS - DD MMM YYYY`.
+RtcR([timedate]) | Read the current time and date into array. If 0 is used instead of array, then the rtc value is printed as `HH:MM:SS - DD MMM YYYY`.
 
 The array used for all RTC functions is 6 bytes, organized as: `[Second,minute,hour,day,mon,year]`. Values must be proper for their field. For example, there is no 70 seconds in time. Also, year is starting from the year 2000. For year 2025, just use 25. Hours are military 24 hours.
 
@@ -2460,7 +2464,7 @@ duelink.Rtc.Read(b2);
 
 ## Streams
 
-Streams allows a [Supported Hardware](../hw/intro.mdx) to "stream" data out of or in to a device. See [Stream](./stream.mdx) page.
+Streams allows a [Supported Hardware](../hw/intro.mdx) to "stream" data out of or into a device. See [Stream](./stream.mdx) page.
 
 ---
 

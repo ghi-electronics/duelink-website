@@ -6,7 +6,7 @@ I2C is the most common interface when selecting a microcontroller-level [Hardwar
 
 ## Microcomputers
 
-Many Microcomputers today include JST connectors that uses I2C bus. Some companies have standards around the same JST connector, such as Sparkfun QWIIC and Adafruit STEMMA products.
+Many microcomputers today include JST connectors that use I2C bus. Some companies have standards around the same JST connector, such as Sparkfun QWIIC and Adafruit STEMMA products.
 
 A good example is Arduino UNO R4 WiFi. [Arduino](../hw/arduino) is one the [Supported Hardware](../hw/intro) options, providing all the necessary libraries.
 
@@ -16,7 +16,7 @@ Another example is Sparkfun Redboard.
 
 ![Sparkfun Redboard with DUELink](pathname:///img/redboard-duelink-display.png)
 
-Note that typical use of non-DUELink I2C on JST connector is done by connecting all modules on the same I2C signals. This is defiantly not the case with DUELink. DUELink only uses I2C on the first module. Then that modules connects to other modules using the [Downlink](../interface/downlink) interface. This typology does not consume I2C addresses and allows for [Daisylinking](../engine/daisylink) hundreds of modules!
+Note that typical use of non-DUELink I2C on JST connector is done by connecting all modules on the same I2C signals. This is definitely not the case with DUELink. DUELink only uses I2C on the first module. Then that module connects to other modules using the [Downlink](../interface/downlink) interface. This typology does not consume I2C addresses and allows for [Daisylinking](../engine/daisylink) hundreds of modules!
 
 ---
 
@@ -26,7 +26,7 @@ A DUELink module is always an I2C slave listening to an I2C bus master on addres
 
 The host (I2C master) can send data as individual bytes or multiple bytes. The module will look at individual bytes and disregard how they're packed in frames. In other words, start, restart, and stop conditions are ignored by the data stream.
 
-The module (slave) will return 0xFF when the host request data but the device does not have any data to return.
+The module (slave) will return 0xFF when the host requests data with no available data to return.
 
 When the device is too busy to accept data, it will use clock stretching feature. Clock stretching support is a standard I2C feature and is required from the host.
 

@@ -38,21 +38,22 @@ Unless otherwise stated, all functions return 0 or positive for error code (erro
 | `FsWrite(handle, [data])` | Write from `data` array. Returns how many bytes were write, negative error code otherwise.                                |
 | `FsRead(handle, [data])`  | Read into `data` array. Returns how many bytes were read, negative error code otherwise.                                  |
 | `FsSync(handle)`          | Sync file with any buffered data.                                                                                         |
-| `FsSeek(handle, offset)`  | change the location in the `handle` file on where to read or write.                                                       |
+| `FsSeek(handle, offset)`  | Change the location in the `handle` file on where to read or write.                                                       |
 | `FsTell(handle)`          | Returns the current location being access in `handle` file.                                                               |
 | `FsDel("path")`           | Delete file or directory at `path`.                                                                                       |
 | `FsFind("path")`          | Find if existing name is available. Returns the item type if found, return 0x10 for directory, 0x20 for file for example. |
 | `fsfsz("path")`           | Returns `path` file size, negative number on failure.                                                                     |
 
-File Open Modes
+File Open Modes:
+
 | ID | mode
 | --- | ---
 | 0x01 | Read only
 | 0x02 | Write only
 | 0x00 | Open existing. Require existing file, or return -1
 | 0x04 | Create new. Require NOT existing file, or return -1
-| 0x08 | Create always. Force create new. If file is already exit, it will be deleted for new file
-| 0x30 | Open append. If not exist, create one
+| 0x08 | Create always. Force create new. If file is already exiting, it will be deleted for new file
+| 0x30 | Open append. If not existing, create one
 
 :::tip
 Combine multiple modes, like use `FsOpen("/test.txt", 0x02|0x0x30)` to open a file for write and append if existing.
@@ -76,7 +77,7 @@ _w = 0x02 # Write only
 _x = 0x00 # Open existing. Require existing file, or return -1
 _n = 0x04 # Create new. Require NOT existing file, or return -1
 _c = 0x08 # Create always. Force create new. If file is already exit, it will be deleted for new file.
-_a = 0x30 # Open append. If not exist, create one.
+_a = 0x30 # Open append. If not existing, create one.
 
 Dim b1[] = "Hello World"
 
