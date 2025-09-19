@@ -57,7 +57,7 @@ const sidebars = {
           items: [
             "products/spghizzyjr-a",
             "products/spghizzy-b",
-            "products/spholidaytree-b"
+            "products/sptree-b"
           ],
         },
         {
