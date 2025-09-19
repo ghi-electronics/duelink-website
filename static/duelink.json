@@ -1685,8 +1685,8 @@
       ]
     },
     {
-      "name": "Cables",
-      "partNumber": "GDL-AXCABLES-A",
+      "name": "Cable",
+      "partNumber": "GDL-AXCBL",
       "category": "Accessories",
       "price": 0,
       "tagline": "DUELink Cables",
@@ -1699,17 +1699,17 @@
       ],
       "variations": [
         {
-          "name": "50mm (5pcs)",
+          "name": "50mm 5pcs",
           "partCode": "050",
           "price": 0
         },
         {
-          "name": "150mm (5pcs)",
+          "name": "150mm 5pcs",
           "partCode": "150",
           "price": 0
         },
         {
-          "name": "300mm (5pcs)",
+          "name": "300mm 5pcs",
           "partCode": "300",
           "price": 0
         },
@@ -1726,8 +1726,8 @@
       ]
     },
     {
-      "name": "Connectors",
-      "partNumber": "GDL-AXCONNECTORS-A",
+      "name": "Connector",
+      "partNumber": "GDL-AXCNCTR",
       "category": "Accessories",
       "price": 0,
       "tagline": "DUELink JST Connectors",
@@ -1751,8 +1751,8 @@
       ]
     },
     {
-      "name": "Holey Boards",
-      "partNumber": "GDL-AXHOLEYBOARDS-A",
+      "name": "Holey Board",
+      "partNumber": "GDL-AXHOLEY",
       "category": "Accessories",
       "price": 0,
       "tagline": "Holey Boards for Mounting DUELink Modules",
@@ -1763,7 +1763,7 @@
         "Back clean printing",
         "Holey Smally: 92x62",
         "Holey: 182x92mm",
-        "Holey Moley Board: 182x232mm"
+        "Holey Moley: 182x232mm"
       ],
       "variations": [
         {
@@ -1784,8 +1784,8 @@
       ]
     },
     {
-      "name": "Mounting Hardware",
-      "partNumber": "GDL-AXMOUNTING-A",
+      "name": "Mounting HW",
+      "partNumber": "GDL-AXMNT",
       "category": "Accessories",
       "price": 0,
       "tagline": "Mounting Hardware",
@@ -1796,7 +1796,7 @@
       ],
       "variations": [
         {
-          "name": "Standoffs M-F (10pcs)",
+          "name": "Standoffs M-F 10pcs",
           "partCode": "MF",
           "price": 0
         },
