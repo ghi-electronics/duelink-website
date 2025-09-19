@@ -1,0 +1,36 @@
+# This is how to do it using the internal scheduler
+## comment out to do it manually
+PlayLED(1) # Run automatically
+while 1
+    # tip: ending the program will terminate the scheduler
+    if DRead(20,2)
+        Buzzer(700,100)
+        wait(500)
+    end
+wend
+
+# This is how to control the LEDs manually
+_x = 0
+PlayLED(0) # Manual control
+SetAll(0) # All off
+
+while 1
+    _r = Rnd(50)
+    _g = Rnd(50)
+    _b = Rnd(50)
+    _l = Rnd(31)
+
+    SetLED(_x, _r<<16|_g<<8|_b, _l)
+
+    _x=_x+1
+
+    if _x > 26
+        SetAll(0)
+        _x=1
+        if DRead(20,2)
+            Buzzer(700,100)
+        end
+    end
+
+    ShowLed()
+wend
