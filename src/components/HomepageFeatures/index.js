@@ -17,7 +17,7 @@ const FeatureList = [
     Svg: require('@site/static/img/universal.svg').default,
     description: (
       <>
-        Works with desktops, laptops, phones, Raspberry Pi, and more!
+        Works with computers, phones, Raspberry Pi, Arduino and more!
       </>
     ),
   },
@@ -26,7 +26,7 @@ const FeatureList = [
     Svg: require('@site/static/img/extensible.svg').default,
     description: (
       <>
-        Supports Python, JavaScript & .NET, with block-coding options like MicroBlocks and more!
+        Supports Python, JavaScript & .NET, with block-coding options like MicroBlocks.
       </>
     ),
   },

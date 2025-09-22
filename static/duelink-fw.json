@@ -9,7 +9,7 @@
       
     ],
     "boards": [
-	  { "name": "DUELink", "id": "D" }     
+	  { "name": "DUELink", "id": "D",  "rtm-fw": "v048"}
     ]
   },
   "MicroBlock": {
@@ -21,7 +21,7 @@
       { "id": 4, "name": "v348 (Alpha)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/microblocks/duelink-microblocks-v348.bin" }
     ],
     "boards": [
-	  { "name": "microblocks.fun", "id": "D" }     
+	  { "name": "microblocks.fun", "id": "D",  "rtm-fw": null }     
     ]
   }
 }

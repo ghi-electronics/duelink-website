@@ -5,7 +5,7 @@ import TabItem from "@theme/TabItem";
 
 DUELink [Scripting](scripting) language is built to be ASCII human-friendly. This works great; however, there are instances where speed or raw binary data is required, like when writing or reading a buffer.
 
-A direct benefit of streams is in giving a language, such as [Python](../language/python) an easy way to transfer buffers to and from the module.
+A direct benefit of streams is in giving a language, such as [Python](../language/python), an easy way to transfer buffers to and from the module.
 
 ---
 
@@ -104,4 +104,4 @@ Stream can't be used directly by typing in ASCII commands, like when using the [
 
 Understanding and utilizing Stream mechanism is only needed by advanced users. See the source code of one of the provided libraries for reference.
 
-A Stream command initiates the request. Once this command is received and accepted by the device, the `&` symbol will be returned indicating readiness. The host can then send the entire binary data, exactly to the required byte count, or float count. Keep in mind that a float is 4 bytes.
+A Stream command initiates the request. Once this command is received and accepted by the device, the `&` symbol will be returned indicating readiness. The host can then send the entire binary data exactly to the required byte count or float count. Keep in mind that a float is 4 bytes.
