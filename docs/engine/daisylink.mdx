@@ -84,7 +84,7 @@ This host can also be anywhere else in the link, including the first device. Thi
 
 ![First Module Host](pathname:///img/daisylink-first-host.png)
 
-As documented on the [Downlink](../interface/downlink) interface page, `DLMode(2)` command is used to switch the module to host mode. This will automatically reset and re-enumerate thats host's clients.
+As documented on the [Downlink](../interface/downlink) interface page, `DLMode(2,0)` command is used to switch the module to host mode. This will automatically reset and re-enumerate thats host's clients.
 
 This is what addresses look like without a DUELink host. There is, however, an external non-DUELink host.
 
@@ -97,7 +97,7 @@ You can only load code on the first device. To handle this example, connect devi
 :::
 
 ```py
-DLMode(2) # Switch Downlink to host mode
+DLMode(2,0) # Switch Downlink to host mode
 Wait(100) # This delay is more than enough for 50x modules.
 Cmd("Sel(2)") # Select second device
 Cmd("StatLed(200,200,50)") # Blink the LED 50 times on the selected device
@@ -124,6 +124,6 @@ This example assumes the connection was established and only shows the connectio
 
 ```py
 # Assuming a wireless connection was established
-DLMode(3) # Switch Downlink to UART gateway mode
+DLMode(3,0) # Switch Downlink to UART gateway mode
 # Now any data coming from UART will go Downlink and and data coming from Downlink will go up UART.
 ```
