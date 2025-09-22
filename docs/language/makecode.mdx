@@ -34,10 +34,13 @@ Create a MakeCode project like you always did on [makecode.microbit.org](https:/
 This example blinks the status LED 50 times on any Downlink module.
 
 ```js
-function SendCommand(str: string) {
-  pins.i2cWriteBuffer(0x1a, Buffer.fromUTF8(str), false);
+function ExecuteCommand (str: string) {
+  pins.i2cWriteBuffer(0x52, Buffer.fromUTF8(str), false);
+  let buf = pins.createBuffer(1)
+  buf[0] = 10
+  pins.i2cWriteBuffer(0x52, buf)
 }
-SendCommand("statled(200,200,50)");
+ExecuteCommand("statled(200,200,50)");
 ```
 
 In blocks, the code above looks like this:
