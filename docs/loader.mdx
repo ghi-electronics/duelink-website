@@ -1,9 +1,9 @@
 # Loader
 
 
-The STM32C071 chip utilized on all DUELink modules include an ST loader that we use for firmware updates using the `USB DFU` standard. 
+The STM32C071 chip utilized on all DUELink modules includes an ST loader that we use for firmware updates using the `USB DFU` standard. 
 
-The loaded "firmware" can be the official DUELink or MicroBlocks firmware options. However, it can also be a custom firmware built using [C++](./language/cpp) language page for example. The [Arduino](./hw/arduino) IDE can also be used to build custom firmware as well.
+The loaded "firmware" can be the official DUELink or MicroBlocks firmware option. However, it can also be a custom firmware built using [C++](./language/cpp) language page, for example. The [Arduino](./hw/arduino) IDE can also be used to build custom firmware as well.
 
 ---
 
@@ -13,7 +13,7 @@ Users have two options for firmware updates. We recommend using the [Console](./
 
 ![DUELink Console Firmware Menu](pathname:///img/console-firmware.png)
 
-Advance users can also use the [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) tool.
+Advanced users can also use the [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) tool.
 
 ![Select USB](pathname:///img/stm-select-usb.png)
 
@@ -23,9 +23,9 @@ Either way, the first step is in placing the board in loader mode (Entering the 
 
 ## Entering the Loader
 
-The standard DUELink software includes `Reset(1)` that wipes out the chip completely and; therefore, forcing it in the loader mode. Since this is a critical command `Reset(1)` MUST BE called twice. You can send this command over any interface. An easy way would be to use the [Console](./console) immediate window.
+The standard DUELink software includes `Reset(1)` that wipes out the chip completely and, therefore, forcing it in the loader mode. Since this is a critical command, `Reset(1)` MUST BE called twice. You can send this command over any interface. An easy way would be to use the [Console](./console) immediate window.
 
-The other option is done using hardware. Locate the `LDR` button on your module. On some board, the `LDR` button is labeled with `A`.
+The other option is done using hardware. Locate the `LDR` button on your module. On some boards, the `LDR` button is labeled with `A`.
 
 ![Setting Boot mode mode](pathname:///img/ldr-a-buttons.png)
 
@@ -51,7 +51,7 @@ From [https://console.duelink.com/](https://console.duelink.com/), click `Firmwa
 
 ![DUELink Console Firmware Menu](pathname:///img/due-firmware.png)
 
-Follow the instructions to update the firmware. Which is basically done by selecting the desired firmware file.
+Follow the instructions to update the firmware, which is basically done by selecting the desired firmware file.
 
 ---
 
@@ -59,13 +59,13 @@ Follow the instructions to update the firmware. Which is basically done by selec
 
 The [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) tool is good advanced option.
 
-First, download the desired firmware file from the [Downloads](downloads) page. Connect the module and enter the loader mode, as explained before.
+First, download the desired firmware file from the [Downloads](./downloads) page. Connect the module and enter the loader mode, as explained before.
 
 STM32CubeProgrammer will now detect a USB DFU device, select `USB` from the drop down and click `Connect`.
 
 ![Select USB](pathname:///img/stm-select-usb.png)
 
-Click on the side tab then select the file you downloaded from the [Download](downloads) page, then click `Start Programming`
+Click on the side tab then select the file you downloaded from the [Download](./downloads) page and then click `Start Programming`.
 
 ![Select file](pathname:///img/stm-selectfile-program.png)
 

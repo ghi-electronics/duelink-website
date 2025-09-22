@@ -9,7 +9,7 @@
       
     ],
     "boards": [
-	  { "name": "DUELink", "id": "D",  "rtm-fw": "v048"}
+	  { "name": "Official", "id": "D",  "rtm-fw": "v048"}
     ]
   },
   "MicroBlock": {

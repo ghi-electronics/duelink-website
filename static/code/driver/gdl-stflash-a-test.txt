@@ -6,7 +6,7 @@ fn Test()
     
     println("Starting test...")
     Wait(1)
-    dlmode(2)
+    dlmode(2,0)
     Wait(10)
     cmd("sel(1)")
     

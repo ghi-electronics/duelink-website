@@ -7,7 +7,7 @@ DUELink unifies many aspects allowing modules to come in any shape and form and 
 
 ## Connections
 
-![JST Connectors](pathname:///img/jst-specs.png)
+![Uplink & Downlink](pathname:///img/uplink-downlink.png)
 
 Connections between modules and to microcomputers is accomplished using standard 4pin 1mm pitch JST connectors. These low-cost and common connectors are very small that you can throw on anything without compromising space. They are available in SMT for fast machine placement and in TH in case you need to hand solder them.
 
@@ -28,7 +28,8 @@ CTN : [I2C](interface/i2c) SCL (Clock), [UART](interface/uart) TX (Transmit), an
 
 Each module includes both Uplink (white) and [Downlink](interface/downlink) (blue) connectors.
 
-![Uplink & Downlink](pathname:///img/uplink-downlink.png)
+![JST Connectors](pathname:///img/jst-specs.png)
+
 
 The Uplink connector is used to connect the module to a microcomputer, such as Raspberry PI or Arduino, or a PC. It automatically works with [I2C](interface/i2c), [UART](interface/uart), and [USB](interface/usb).
 
@@ -51,7 +52,7 @@ Both use I2C, which is one of options available on any DUELink Uplink connection
 
 ![Uplink](pathname:///img/uplink.png)
 
-Always connect the non-DUELink modules first in line with the microcomputer then add as many DUELink modules as the wires can handle!!
+Always connect the non-DUELink modules first in line with the microcomputer and then add as many DUELink modules as the wires can handle!!
 
 ![Qwiic Stemma DUELink Chain](pathname:///img/qwiic-stemma-duelink.png)
 
@@ -75,7 +76,7 @@ Tip: When looking at the front of the module, we recommend placing the U connect
 
 ![Status LED](pathname:///img/statled-blink.gif)
 
-Each DUELink module must include a STAT (Status) LED. This is used by the system automatically, and also accessible using the `StatLed()` command. On boards that have parts on both sides, STAT LED must be on the front face of the module.
+Each DUELink module must include a STAT (Status) LED. This is used by the system automatically and also accessible using the `StatLed()` command. On boards that have parts on both sides, STAT LED must be on the front face of the module.
 
 On power up, the STAT LED turns on automatically. It stays on until the device is ready. A ready device means it has selected an [Interface](./interface/intro.mdx) and it has an address. At this point, the STAT LED becomes an activity-LED.
 
@@ -87,7 +88,7 @@ The status LED is also available to the user through the [`StatLed()`](./engine/
 
 ![size comparison](pathname:///img/duelink-modules.png)
 
-DUELink modules can be of any size and form; however, they must include mounting holes that are placed on a 5mm grid. On boards with right angle corners, holes must be placed 3.5mm from the edges of the circuit.Holes are 3mm diameter with 6.6mm circle around it with copper keep out.
+DUELink modules can be of any size and form; however, they must include mounting holes that are placed on a 5mm grid. On boards with right angle corners, holes must be placed 3.5mm from the edges of the circuit. Holes are 3mm diameter with 6.6mm circle around it with copper keep out.
 
 ![Hole Specs](pathname:///img/duelink-hole-specs.png)
 
@@ -95,7 +96,7 @@ This allows for the use of M3 screws and hardware without worrying about creatin
 
 ![m3 screw](pathname:///img/m3-screw.png)
 
-The 5mm grid placement of holes aids in 3D-print and laser-cut enclosures design. It also allowed us to make [Holey Boards](./products/axholey)!
+The 5mm grid placement of holes aids in 3D-print and laser-cut enclosure designs. It also allowed us to make [Holey Boards](./products/axholey)!
 
 ![Holeyboard with Modules](pathname:///img/holeyboard-modules.png)
 
@@ -117,7 +118,7 @@ The DUELink [Sticker](./products/adsticker-c) is a mini development board that u
 
 ## Color
 
-We recommend to always use green PCB for all standard modules. Use Red PCB for modules that do not bare an address. These Red modules can be something that bridges connections like [USB Hook](./products/adusbhook-a), or a power module like [Power Inject](./products/adpowerinject-a.mdx). Microcomputer category of modules are recommended to be Black.
+We recommend to always use green PCB for all standard modules. Use Red PCB for modules that do not have an address. These Red modules can be something that bridges connections, like [USB Hook](./products/adusbhook-a), or a power module like [Power Inject](./products/adpowerinject-a.mdx). Microcomputer category of modules are recommended to be Black.
 
 Specialty boards are "special"! They can be of any shape and any color. The [Holiday Tree](./products/sptree-b) is Green for example.
 
@@ -125,4 +126,4 @@ Specialty boards are "special"! They can be of any shape and any color. The [Hol
 
 ## Custom Modules
 
-We encourage everyone to help in growing the ecosystem by making modules, to be sold commercially or for fun! Visit the [Third Party Module](./catalog/third-party) page to see how we can help you.
+We encourage everyone to help in growing the ecosystem by making modules to be sold commercially or for fun! Visit the [Third Party Module](./catalog/third-party) page to see how we can help you.
