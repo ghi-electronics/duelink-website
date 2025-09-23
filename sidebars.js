@@ -217,7 +217,7 @@ const sidebars = {
             "products/adsticker-c",
             "products/adusbhook-a",
             "products/adusbwedge-b",
-            "products/adwirelesshook-a"
+            "products/adwhook-b"
           ],
         },
         {
@@ -254,9 +254,10 @@ const sidebars = {
         "hw/arduino",
         "hw/espressif",
         "hw/microbit",
+        "hw/arcade",
+        "hw/beagleboard",
         "hw/pc-laptop",
         "hw/phone-tablet",
-        "hw/beagleboard",
         "hw/beyond",
       ],
     },

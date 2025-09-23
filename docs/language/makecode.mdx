@@ -3,35 +3,31 @@
 
 ![MakeCode](pathname:///img/makecode.png)
 
-For users who enjoy block-coding, MakeCode allows [micro:bit](../hw/microbit) users to utilize hundreds of DUELink modules. While MakeCode supports many boards, we will focus on [micro:bit](../hw/microbit).
+For users who enjoy block-coding, Microsoft MakeCode allows users to easily build programs without the need to write code! This is mostly used on [micro:bit](../hw/microbit), which is supported by DUELink.
+
+![LinkBit](pathname:///img/microbit-linkbit.png)
+
+
+Microsoft MakeCode **Arcade** is variant of MakeCode that has an Arcade game engine. [BrainPad Arcade](../hw/arcade) includes [Downlink](../interface/downlink) connector for a qn easy game-development with physical-computing. 
+
+image
+
 
 ---
 
 ## Connections
 
-To connect micro:bit to one of the many DUElink modules, you can use the [LinkBit](../products/adlinkbit-a) module. It extends the micro:bit edge connector and adds a [Downlink](../interface/downlink) connector.
-
-![LinkBit](pathname:///img/microbit-linkbit.png)
-
-Alternatively, you can also use any of the boards that include an on-board JST connector, like the [Sparkfun Qwiic micro:bit Breakout](https://www.sparkfun.com/sparkfun-qwiic-micro-bit-breakout.html)
-
-![micro:bit breakout](pathname:///img/microbit-breakout.png)
-
-This board includes two JST sockets. One of them becomes a [Downlink](../interface/downlink) bringing you hundreds of DUELink module options that connect in a [Daisylink](../engine/daisylink). 
-
-![Sparkfun](pathname:///img/microbit-sparkfun-duelink.png)
-
-Most of these boards don't have the required pull-up resistors on the I2C bus. This might not be a problem in most cases, but we have a [PullUp](../products/adpullup-a) module to solve this if there's an issue. When using our [LinkBit](../products/adlinkbit-a) adapter a PullUp module isn't needed.
+See [micro:bit](../hw/microbit) pages for connection options. However, [BrainPad Arcade](../hw/arcade) just plug in!
 
 ---
 
 ## Blinky
 
-Create a MakeCode project like you always did on [makecode.microbit.org](https://makecode.microbit.org/).
+Create a project on [makecode.microbit.org](https://makecode.microbit.org/) or [arcade.makecode.com/](https://arcade.makecode.com/), depending on which hardware you have.
 
 ![micro:bit MakeCode](pathname:///img/microbit-makecode.png)
 
-This example blinks the status LED 50 times on any Downlink module.
+This example blinks the status LED 50 times on any Downlink module. The command sent is `statled(200,200,50)`, as documented on the [Standard Library](../engine/stdlib) page.
 
 ```js
 function ExecuteCommand (str: string) {
@@ -61,8 +57,4 @@ A DUELink extension is planned for the future. Consider the other supported alte
 
 ![MicroBlocks](pathname:///img/microblocks.png)
 
-Another great block-coding option is [MicroBlocks](./microblocks). It is fully supported, allowing micro:bit to connect to DUELink modules.
-
-![Arduino logo](pathname:///img/arduino-logo.png)
-
-[Arduino](../hw/arduino) is another great option if your board supports it.
+[miro:bit](../hw/microbit) users can conceder [MicroBlocks](./microblocks) as another great block-coding option. It is fully supported by DUELink.
