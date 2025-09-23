@@ -37,7 +37,7 @@ The user has the option to switch to `Host`, `Gateway`, or `Inactive` modes at a
 
 `Host` mode is an options for [Daisylink](../engine/daisylink). 
 
-`Passthrough` is used in rare cases, like with [Wireless Hook](../products/adwhook-a), where the upstream and downstream UARTs are virtually connected in a `passthrough`, allowing the system to bridge and pipe the data between upstream and downstream. For config, there is a special `pin` that will automatically switch downstream mode to `Inactive` if the pin is at `level`. The system will not go back to `Passthough` mode on its own. It is up to the user to switch to `Host` or back to `Passthrough`. For example, `DLMode(3, {6,1})` will set the downlink mode to `Passthrough` and monitor pin 6. If pin 6 becomes high, the system will automatically switch to `Inactive`. The user may check the current mode using `Info(3)` to determine the current state.
+`Passthrough` is used in rare cases, like with [Wireless Hook](../products/adwhook-b), where the upstream and downstream UARTs are virtually connected in a `passthrough`, allowing the system to bridge and pipe the data between upstream and downstream. For config, there is a special `pin` that will automatically switch downstream mode to `Inactive` if the pin is at `level`. The system will not go back to `Passthough` mode on its own. It is up to the user to switch to `Host` or back to `Passthrough`. For example, `DLMode(3, {6,1})` will set the downlink mode to `Passthrough` and monitor pin 6. If pin 6 becomes high, the system will automatically switch to `Inactive`. The user may check the current mode using `Info(3)` to determine the current state.
 
 `Inactive` disables all communication with downstream.
 
