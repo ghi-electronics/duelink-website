@@ -1673,7 +1673,7 @@
     },
     {
       "name": "Wireless Hook",
-      "partNumber": "GDL-ADWIRELESSHOOK-A",
+      "partNumber": "GDL-ADWIRELESSHOOK-B",
       "category": "Adapter",
       "price": 0,
       "tagline": "Connects DUELink Modules Wirelessly",
@@ -1681,7 +1681,7 @@
       "keyFeatures": [
         "BlueTooth or Wi-Fi Connectivity",
         "Program DUELink Modules Wirelessly",
-        "32x42mm overall dimension"
+        "37x42mm overall dimension"
       ]
     },
     {
