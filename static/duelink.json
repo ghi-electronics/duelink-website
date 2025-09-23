@@ -1673,7 +1673,7 @@
     },
     {
       "name": "Wireless Hook",
-      "partNumber": "GDL-ADWIRELESSHOOK-B",
+      "partNumber": "GDL-ADWHOOK-B",
       "category": "Adapter",
       "price": 0,
       "tagline": "Connects DUELink Modules Wirelessly",
