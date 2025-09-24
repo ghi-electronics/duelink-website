@@ -24,9 +24,38 @@ Note that typical use of non-DUELink I2C on JST connector is done by connecting 
 
 A DUELink module is always an I2C slave listening to an I2C bus master on address is 0x52 (7bit), which is fixed and can't be changed. 
 
-The host (I2C master) can send data as individual bytes or multiple bytes. The module will look at individual bytes and disregard how they're packed in frames. In other words, start, restart, and stop conditions are ignored by the data stream.
+The host (I2C master) can send data as individual bytes or multiple bytes. The module will look at individual bytes and disregard how they're packed in I2C frames. In other words, start, restart, and stop conditions are ignored by the data stream.
 
-The module (slave) will return 0xFF when the host requests data with no available data to return.
+The module (I2C slave) will return 0xFF when the host requests data with no available data to return. This is works well in most cases as 0xFF is not used in commands and responses as they are all readable ASCII. However, in cases when the slave needs to send 0xFF as an actual data, it will instead send 0xFE followed by 1. And similarly, to send 0xFE it will instead send 0xFE followed by 2.
+
+This code explains how to process received I2C data.
+
+```c
+escape = false;
+error = false;
+ProcRxI2C(b)
+{
+    if(escape)
+    {
+        if(b == 1)
+            InsetFifo(0xff);
+        else if(b == 2)
+            InsertFifo(0xfe);
+        else
+            error = true;
+        escape = false;
+    }else
+    {
+        if(b == 0xfe)
+            escape = true;
+        else if(b == 0xff)
+            return;
+        else
+            InsertFifo(b);
+    }
+}
+```
+
 
 When the device is too busy to accept data, it will use clock stretching feature. Clock stretching support is a standard I2C feature and is required from the host.
 
