@@ -5,8 +5,7 @@ fn Test()
     Wait(1)
     dlmode(2,0)
     Wait(10)
-    cmd("sel(1)")
-    cmd("clear(0)")
+    cmd("sel(1)")    
 
     r = 0
     s = 0
