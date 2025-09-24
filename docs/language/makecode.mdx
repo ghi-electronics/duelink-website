@@ -8,56 +8,58 @@ For users who enjoy block-coding, Microsoft MakeCode allows users to easily buil
 ![LinkBit](pathname:///img/microbit-linkbit.png)
 
 
-Microsoft MakeCode **Arcade** is variant of MakeCode that has an Arcade game engine. [BrainPad Arcade](../hw/arcade) includes [Downlink](../interface/downlink) connector for a qn easy game-development with physical-computing. 
+Microsoft MakeCode **Arcade** is variant of MakeCode that has an Arcade game engine. [BrainPad Arcade](../hw/arcade) includes [Downlink](../interface/downlink) connector adding physical-computing to game-development. 
 
-image
-
+![Arcade Daisylinked](pathname:///img/arcade-link.png)
 
 ---
 
 ## Connections
 
-See [micro:bit](../hw/microbit) pages for connection options. However, [BrainPad Arcade](../hw/arcade) just plug in!
+[BrainPad Arcade](../hw/arcade) with it's `Downlink` connector just plugs in! See [micro:bit](../hw/microbit) pages for connection options.
+
+![Arcade](pathname:///img/arcade-back.png)
 
 ---
-
+ 
 ## Blinky
 
-Create a project on [makecode.microbit.org](https://makecode.microbit.org/) or [arcade.makecode.com/](https://arcade.makecode.com/), depending on which hardware you have.
+Create a project on [makecode.microbit.org](https://makecode.microbit.org/) or [arcade.makecode.com](https://arcade.makecode.com/), depending on which hardware you have.
 
-(image)
+![Create Project](pathname:///img/makecode-project.png)
 
-Click on "Extensions".
+Click on `Extensions`.
 
-(image)
+![Add Extension](pathname:///img/makecode-extension.png)
 
-Cope/paste this link https://github.com/ghi-electronics/duelink_makecode into the top bar and click enter. Then select the DUELink extension.
+Copy/paste this link into the top bar and click enter. Then select the DUELink extension.
+```py
+https://github.com/ghi-electronics/duelink_makecode
+```
 
-(image)
+![Search Extension](pathname:///img/makecode-search.png)
 
 You now have DUELink added to the project.
 
-(image)
+![Add Extension](pathname:///img/makecode-duelink.png)
 
 You can now use `Set Stat LED` block to control the status LED on the first connected DUELink module.
 
-(image)
+![Blink StatLED Block](pathname:///img/makecode-statled-block.png)
 
-If you have more than one module then use `Select device` block to select the desired module. We can for example blink the LED slow on the first device but blink fast on the second device.
+If you have more than one module then use `Select device` block to select the desired module. We can for example blink the LED slow on the first device, but blink fast on the second device.
 
-(image)
+![Select Device Block](pathname:///img/makecode-select-device.png)
 
-The `Execute Command` is powerful block. It gives you access to any internal commands, no mater if they come from [standard library](../engine/stdlib) or are from [drivers](../engine/drivers). An example can be in using it to control the status LED, like we just did before, but this time using the function directly `statled(100,100,10)`.
 
-(image)
+
+The `Execute Command` block is a powerful block. It gives you access to any internal commands, no matter if they come from [standard library](../engine/stdlib) or are from [drivers](../engine/drivers). A good example is using it to control the status LED, like we just did before, but this time using the `statled(100,100,10)` function directly.
+
+![Execute Command Block](pathname:///img/makecode-execute.png)
 
 :::tip
 All blocks use `Execute Command` internally. They are provided for your convenience.
 :::
-
-(delete this image)
-
-![MakeCode Send Commands](pathname:///img/makecode-blocks.png)
 
 ---
 
@@ -65,4 +67,4 @@ All blocks use `Execute Command` internally. They are provided for your convenie
 
 ![MicroBlocks](pathname:///img/microblocks.png)
 
-[miro:bit](../hw/microbit) users can conceder [MicroBlocks](./microblocks) as another great block-coding option. It is fully supported by DUELink.
+[micro:bit](../hw/microbit) users should also consider [MicroBlocks](./microblocks) as another great block-coding option. It is fully supported by DUELink.
