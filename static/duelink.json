@@ -135,7 +135,8 @@
         "DIP24 form factor",
         "Surface mountable SoM",
         "30.48x12.7mm overall dimension"
-      ]
+      ],
+      "Notes": "Connect Ghizzy Jr leg to USB port directly"
     },
     {
       "name": "Ghizzy Jr",
@@ -151,7 +152,8 @@
         "PCB USB-A",
         "20x47mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Eye(l,r)` | Sets the `l` left and `r` right \"Eyes\" with 24bit RGB color (RRGGBB). |\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Eye(l,r)` | Sets the `l` left and `r` right \"Eyes\" with 24bit RGB color (RRGGBB). |\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `DVer()` | This driver version. |",
+      "Notes": "Connect Ghizzy Jr leg to USB port directly"
     },
     {
       "name": "Ghizzy",
