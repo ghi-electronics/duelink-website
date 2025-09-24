@@ -25,31 +25,39 @@ See [micro:bit](../hw/microbit) pages for connection options. However, [BrainPad
 
 Create a project on [makecode.microbit.org](https://makecode.microbit.org/) or [arcade.makecode.com/](https://arcade.makecode.com/), depending on which hardware you have.
 
-![micro:bit MakeCode](pathname:///img/microbit-makecode.png)
+(image)
 
-This example blinks the status LED 50 times on any Downlink module. The command sent is `statled(200,200,50)`, as documented on the [Standard Library](../engine/stdlib) page.
+Click on "Extensions".
 
-```js
-function ExecuteCommand (str: string) {
-  pins.i2cWriteBuffer(0x52, Buffer.fromUTF8(str), false);
-  let buf = pins.createBuffer(1)
-  buf[0] = 10
-  pins.i2cWriteBuffer(0x52, buf)
-}
-ExecuteCommand("statled(200,200,50)");
-```
+(image)
 
-In blocks, the code above looks like this:
+Cope/paste this link https://github.com/ghi-electronics/duelink_makecode into the top bar and click enter. Then select the DUELink extension.
+
+(image)
+
+You now have DUELink added to the project.
+
+(image)
+
+You can now use `Set Stat LED` block to control the status LED on the first connected DUELink module.
+
+(image)
+
+If you have more than one module then use `Select device` block to select the desired module. We can for example blink the LED slow on the first device but blink fast on the second device.
+
+(image)
+
+The `Execute Command` is powerful block. It gives you access to any internal commands, no mater if they come from [standard library](../engine/stdlib) or are from [drivers](../engine/drivers). An example can be in using it to control the status LED, like we just did before, but this time using the function directly `statled(100,100,10)`.
+
+(image)
+
+:::tip
+All blocks use `Execute Command` internally. They are provided for your convenience.
+:::
+
+(delete this image)
 
 ![MakeCode Send Commands](pathname:///img/makecode-blocks.png)
-
-The LED will blink 50 times then stops!
-
----
-
-## Extension
-
-A DUELink extension is planned for the future. Consider the other supported alternatives below.
 
 ---
 
