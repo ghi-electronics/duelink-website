@@ -23,6 +23,8 @@ fn Test()
                 println("Released")
                 Eye(0, 0)
             end
+            
+            cmd("show()")
             s = r
         end
         
