@@ -196,10 +196,11 @@
       "PID": "0x0C0004",
       "category": "Specialty",
       "price": 0,
-      "tagline": "Battery Operated Wearable LED Matrix",
-      "description": "LED Matrix watch with battery",
+      "tagline": "Battery Operated LED Matrix",
+      "description": "Scroll text on the LED matrix or use the sides to show \"time\"! Crono includes two buttons and a CR2032 battery holder.\n\n Add a a wrist band or a lanyard to turn this into a \"wearable\" module.",
       "keyFeatures": [     
         "5x5 LED Matrix",
+        "2x user buttons",
         "CR2032 Battery compatible",
         "Slotted ends for wristband or mounting",
         "31x37mm overall dimension"
