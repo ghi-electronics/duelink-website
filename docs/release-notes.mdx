@@ -8,9 +8,9 @@
 
 - Rename DL Ser functions.
 - Reduced user region from 28KB to 24KB.
-- Fixed Graphics add one extra one pixel when draw line, fill (rect).
-- Implement i2c no data 255 protocal.
-- Fixed DUELink switch to UART instead of I2C when connect to Microbit.
+- Fixed Graphics to add one extra one pixel when draw line, fill (rect).
+- Implement I2C no data 255 protocol.
+- Fixed DUELink switch to UART instead of I2C when connect to micro:bit.
 - Known Issues:
   - None.
 
@@ -262,15 +262,6 @@
 
 ## MicroBlocks Firmware
 
-### v349 (2025-08-18)
-
-- Correct USB name.
-- Known Issues:
-  - Large programs cause system lockup.
-
-
-
-
 ### v349 (2025-09-23)
 
 - Fixes capitalization of the DUELink USB name.
@@ -282,7 +273,7 @@
 - Use DUE standard pins 22 and 21 for serial on DUE boards without edge connectors. Supports serial on DueDuino and Stamp.
 - Fix: Make DUE Downlink port work.
 - Add isDUELink primitive for potential use in the future.
--  Make "light level" block work on all DUE educational boards: CincoBit, PixoBit, ClipIt, and DueSTEM.
+- Make "light level" block work on all DUELink educational boards: CincoBit, PixoBit, ClipIt, and DueSTEM.
 - Known Issues:
   - Large programs cause system lockup.
 

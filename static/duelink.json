@@ -191,6 +191,23 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayLED(enable)` | `PlayLED(1)` will make the LED constantly blink, default. Use `PlayLED(0)` to disable playback and manually control the LEDs. |\n| `SetLED(i, c, l)` | Sets a specific LED, `i` index (index start from 1), to a `c` color (hex value), `l` brightness (0 off, max 31). |\n| `SetAll(color)` | Sets all LEDs to a specific color, use 0 to turn off. |\n| `ShowLed()` | Flush Leds, and show. |\n| `RndLed()` | Show random color on random leds. |\n| `Buzzer(f,d)` | Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function. |\n| `DVer()` | This driver version. |"
     },
     {
+      "name": "Chrono",
+      "partNumber": "GDL-SPCHRONO-A",
+      "PID": "0x0C0004",
+      "category": "Specialty",
+      "price": 0,
+      "tagline": "Battery Operated LED Matrix",
+      "description": "Scroll text on the LED matrix or use the sides to show \"time\"! Crono includes two buttons and a CR2032 battery holder.\n\n Add a a wrist band or a lanyard to turn this into a \"wearable\" module.",
+      "keyFeatures": [     
+        "5x5 LED Matrix",
+        "2x user buttons",
+        "CR2032 Battery compatible",
+        "Slotted ends for wristband or mounting",
+        "31x37mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLED(i,s)` | Set specific LED to on or off |\n| `DVer()` | This driver version. |"
+    },
+    {
       "name": "ePaper M29",
       "partNumber": "GDL-DSEPAPERM29-A",
       "PID": "0x01000B",
