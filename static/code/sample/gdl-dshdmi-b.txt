@@ -106,43 +106,43 @@ DLCmd(C_END,{})
 DLCmd(C_COLOR,{0,0,0}) #Outer Circle
 DLCmd(C_BEGIN,{POINTS})
 DLCmd(C_POINT_SIZE,{20<<4})
-DLCmd(C_VERTEX2F, {150<<4,3450})
+DLCmd(C_VERTEX2F, {140<<4,3450})
 DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
 DLCmd(C_COLOR,{0,255,0})
-DLCmd(C_VERTEX2F, {150<<4,3450})
+DLCmd(C_VERTEX2F, {140<<4,3450})
 DLCmd(C_END,{})
  
 #First BLUE CIRCLE
 DLCmd(C_COLOR,{0,0,0}) #Outer Circle
 DLCmd(C_BEGIN,{POINTS})
 DLCmd(C_POINT_SIZE,{20<<4})
-DLCmd(C_VERTEX2F, {250<<4,3450})
+DLCmd(C_VERTEX2F, {230<<4,3450})
 DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
 DLCmd(C_COLOR,{0,0,255})
-DLCmd(C_VERTEX2F, {250<<4,3450})
+DLCmd(C_VERTEX2F, {230<<4,3450})
 DLCmd(C_END,{})
  
-#Second RED CIRCLE
+#Second BLUE CIRCLE
 DLCmd(C_COLOR,{0,0,0}) #Outer Circle
 DLCmd(C_BEGIN,{POINTS})
 DLCmd(C_POINT_SIZE,{20<<4})
-DLCmd(C_VERTEX2F, {560<<4,3450})
+DLCmd(C_VERTEX2F, {580<<4,3450})
 DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
 DLCmd(C_COLOR,{0,0,255})
-DLCmd(C_VERTEX2F, {560<<4,3450})
+DLCmd(C_VERTEX2F, {580<<4,3450})
 DLCmd(C_END,{})
  
 #Second GREEN CIRCLE
 DLCmd(C_COLOR,{0,0,0}) #Outer Circle
 DLCmd(C_BEGIN,{POINTS})
 DLCmd(C_POINT_SIZE,{20<<4})
-DLCmd(C_VERTEX2F, {660<<4,3450})
+DLCmd(C_VERTEX2F, {670<<4,3450})
 DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
 DLCmd(C_COLOR,{0,255,0})
-DLCmd(C_VERTEX2F, {660<<4,3450})
+DLCmd(C_VERTEX2F, {670<<4,3450})
 DLCmd(C_END,{})
  
-#Second BLUE CIRCLE
+#Second RED CIRCLE
 DLCmd(C_COLOR,{0,0,0}) #Outer Circle
 DLCmd(C_BEGIN,{POINTS})
 DLCmd(C_POINT_SIZE,{20<<4})
@@ -173,7 +173,7 @@ DLCmd(C_END,{})
  
 DLCmd(C_DISPLAY,{})
 DLSwap()
-
+ 
 # Play sound beep
 Synth(0x05, 1) # play note index 5 (built-in)
 Wait(500)
