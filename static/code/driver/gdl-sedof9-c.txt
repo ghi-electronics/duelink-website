@@ -1,4 +1,4 @@
-## Priliminary driver. Needs improvements!
+##### DOF9 Driver #####
  
 fn DVer()
     return 0.1
@@ -22,7 +22,7 @@ fn Init()
  
     if _h=0 # switch to QMC5883L
         I2cWr(QMC5883L, [0x09, 0x1D], 0)
-        I2cWr(QMC5883L, [0x0A, 0x00], 0)
+        I2cWr(QMC5883L, [0x0A, 0x01], 0)
         I2cWr(QMC5883L, [0x0B, 0x01], 0)
     end
  
@@ -40,7 +40,7 @@ fend
  
  
 fn RAccel() 
-
+ 
     r = I2cWr(ADXL345, [0x32], 0) # write to register
     v = I2cWr(ADXL345, 0, b6) # read from register, b6 need 6 bytes
  
@@ -73,13 +73,17 @@ fn RCompass()
     else
  
  
-        I2cWr(QMC5883L, [0x06], b3)
+        I2cWr(QMC5883L, [0x06], 0)
  
+        I2cWr(QMC5883L, 0, b3)
+ 
+        dim b5[8]
  
         if (b3[0] & 1) # check ready first
  
-            I2cWr(QMC5883L, [0], b6) 
-            wait(100)
+            I2cWr(QMC5883L, [0], 0) 
+            I2cWr(QMC5883L, 0, b6) 
+ 
             _x = Convert(b6[1], b6[0])
             _y = Convert(b6[3], b6[2])
             _z = Convert(b6[5], b6[4])
@@ -132,4 +136,5 @@ fend
 Init()
  
 ##############################
+ 
  
