@@ -1044,13 +1044,6 @@
         "8x Digital outputs",
         "8x Capacitive touch",
         "37x34mm overall dimension"
-      ],
-      "variations": [
-        {
-          "name": "ClipSense",
-          "partCode": "CLIPSENSE",
-          "price": 0
-        }
       ]
     },
     {
