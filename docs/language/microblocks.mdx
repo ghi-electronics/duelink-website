@@ -20,7 +20,7 @@ There are two ways beginners and educators can use MicroBlocks with DUELink:
 While you can load MicroBlocks on any DUELink module, some are recommended on the [educators](../educators) page.
 
 
-### Installing the MicroBlocks Firmware
+### Installing the Firmware
 
 To work with MicroBlocks, one must first install the MicroBlocks firmware,
 a process that takes less than a minute.
@@ -93,7 +93,7 @@ Although this section has focused on installing MicroBlocks on educational DUELi
 
 Once the MicroBlocks firmware is installed, you're ready to start coding!
 
-### Connecting the board to MicroBlocks
+### Connecting the Board
 
 You can run MicroBlocks in a Chrome or Edge browser by visiting [microblocks.fun](https://microblocks.fun) and clicking the **Run** button in the top bar menu or by clicking [this link](https://microblocks.fun/run). You can also download a stand-alone app for Windows, MacOS, or Linux from the [Download page](https://microblocks.fun/download) on the website.
 
@@ -214,14 +214,11 @@ Nothing will work if a **D** is connected to a **D** or a **U** to a **U** anywh
 :::
 
 
-### MicroBlocks DUELink Libraries
+### MicroBlocks Libraries
 
-GHI maintains a set of MicroBlocks libraries to support its growing collection of DUELink modules.
-You'll use those of libraries to control your DUELink modules from MicroBlocks.
+We maintain a set of MicroBlocks libraries to support its growing collection of DUELink modules. You'll use those of libraries to control your DUELink modules from MicroBlocks.
 
-Download the MicroBlocks libraries from the **MicroBlocks Firmware/Lib** section on the
-[Downloads Page](../downloads). Be sure to
-select the "Libraries" tab and download the latest available version:
+Download the MicroBlocks libraries from the **MicroBlocks Firmware/Lib** section on the [Downloads Page](../downloads). Be sure to select the "Libraries" tab and download the latest available version:
 
 ![lib download](pathname:///img/mb-lib-download.png)
 
@@ -238,7 +235,7 @@ then select the **Computer** shortcut:
 
 Navigate to the folder of libraries you saved and add the libraries for the features you want to use. You will also need the DUELink library.
 
-### Example: Controlling RGB LEDs
+### Daisylink Example
 
 Connect an RGB3 module to the **D** port of your board. Power cycle the board and module by disconnecting and then reconnecting the USB cable.
 
@@ -264,14 +261,13 @@ This script will flash all of the LEDs on the RGB3 module in sequence when the A
 
 ---
 
-## MicroBlocks Every Module!
+## Use with Every Module!
 
-We recommend loading MicroBlocks on boards recommended for [educators](../educators). From there, all other boards can be daisylinked as shown earlier. However, it is still possible to load MicroBlocks on any DUELink module! For example, load MicroBlocks on the [LED RGB3](../products/ldledrgb3-a)  to control the LEDs directly from blocks.
+We recommend loading MicroBlocks on boards recommended for [educators](../educators). From there, all other modules can be daisylinked as shown earlier. However, it is still possible to load MicroBlocks on any DUELink module! For example, load MicroBlocks on the [LED RGB3](../products/ldledrgb3-a) to control the LEDs directly from blocks.
 
 Since [LED RGB3](../products/ldledrgb3-a) does not have a USB connector, it will need an adapter such as [USB Hook](../products/adusbhook-a).
 
 ![USB Hook for LED RGB3](pathname:///img/usbhook-rgb3.png)
-
 
 When MicroBlocks firmware is installed it replaces the DUELink standard firmware, so controlling the module's hardware must be done with MicroBlocks code. For modules with simple hardware such as LED's, buttons, and analog sensors, the MicroBlocks code is easy to write. However, more complex modules such as displays and SD card readers are best used as Daisylinked modules so one can take advantage of the hardware support built into the DUELink standard firmware. For example, MicroBlocks firmware can be loaded on [CincoBit](../products/mccincobit-e), which then connected the [SD Card](../products/stsdcard-b) module that is running the DUELink standard firmware.
 
