@@ -375,7 +375,7 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(m)` | Initialize the display. Automatically called on power up `m`mode to (1-direct, 0-buffered (default)). |\n| `GetW()` | Get display width: 80 in buffered, 240 in direct. |\n| `GetH()` | Get display height: 80 in buffered, 240 in direct. |\n| `IsColor()` | Returns 1. |\n| `TouchX()` | Returns touch x. |\n| `TouchY()` | Returns touch y. |\n| `DVer()` | This driver version. |"
     },
     {
-      "name": "VFD-B8",
+      "name": "VFD B8",
       "partNumber": "GDL-DSVFDB8-C",
       "PID": "0x01000A",
       "category": "Display",
