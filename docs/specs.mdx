@@ -9,7 +9,7 @@ DUELink unifies many aspects allowing modules to come in any shape and form and 
 
 ![Uplink & Downlink](pathname:///img/uplink-downlink.png)
 
-Connections between modules and to microcomputers is accomplished using standard 4pin 1mm pitch JST connectors. These low-cost and common connectors are very small that you can throw on anything without compromising space. They are available in SMT for fast machine placement and in TH in case you need to hand solder them.
+Connections between modules is accomplished using standard 4pin 1mm pitch JST connectors.
 
 ![Pinout](pathname:///img/pinout.png)
 
@@ -31,9 +31,13 @@ Each module includes both Uplink (white) and [Downlink](interface/downlink) (blu
 ![JST Connectors](pathname:///img/jst-specs.png)
 
 
-The Uplink connector is used to connect the module to a microcomputer, such as Raspberry PI or Arduino, or a PC. It automatically works with [I2C](interface/i2c), [UART](interface/uart), and [USB](interface/usb).
+The Uplink connector is used to connect the module to a [supported hardware](./hw/intro), such as Raspberry PI or Arduino, or a PC. It automatically works with [I2C](interface/i2c), [UART](interface/uart), and [USB](interface/usb).
 
 ![Other Micros](pathname:///img/other-micros.png)
+
+:::tip
+On UART, the pins are named from the module's perspective. The RX signal (pin 3) connects to TX on your board, and TX signal (pin 4) connects to RX on your board.
+:::
 
 When USB is mostly desired on specific boards, a USB C connector is used instead of the JST Uplink connector. This is the case with [DueDuino](./products/mcdueduino-a) for example.
 
