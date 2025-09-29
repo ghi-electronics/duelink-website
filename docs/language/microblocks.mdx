@@ -266,9 +266,14 @@ This script will flash all of the LEDs on the RGB3 module in sequence when the A
 
 ## MicroBlocks Every Module!
 
-We recommend loading MicroBlocks on boards recommended for [educators](../educators). Then, all other boards can be daisylinked as shown earlier. However, it is still possible to load MicroBlocks on any DUELink module! For example, load MicroBlocks on the `LED RGB3` to control the LEDs directly from blocks.
+We recommend loading MicroBlocks on boards recommended for [educators](../educators). From there, all other boards can be daisylinked as shown earlier. However, it is still possible to load MicroBlocks on any DUELink module! For example, load MicroBlocks on the [LED RGB3](../products/ldledrgb3-a)  to control the LEDs directly from blocks.
 
-One must keep in mind that some modules have special needs/drivers/services that are furnished by the DUELink firmware. For example, while you can load MicroBlocks on [SD Card](../products/stsdcard-b) module, you do not have file system support from MicroBlocks! The right use would be to load MicroBlocks on `CincoBit` for example and then daisylink the `SD Card` module.
+Since [LED RGB3](../products/ldledrgb3-a) does not have a USB connector, it will need an adapter such as [USB Hook](../products/adusbhook-a).
+
+![USB Hook for LED RGB3](pathname:///img/usbhook-rgb3.png)
+
+
+When MicroBlocks firmware is installed it replaces the DUELink standard firmware, so controlling the module's hardware must be done with MicroBlocks code. For modules with simple hardware such as LED's, buttons, and analog sensors, the MicroBlocks code is easy to write. However, more complex modules such as displays and SD card readers are best used as Daisylinked modules so one can take advantage of the hardware support built into the DUELink standard firmware. For example, MicroBlocks firmware can be loaded on [CincoBit](../products/mccincobit-e), which then connected the [SD Card](../products/stsdcard-b) module that is running the DUELink standard firmware.
 
 ![Cincobit and SD Card](pathname:///img/cincobit-sdcard.png)
 
