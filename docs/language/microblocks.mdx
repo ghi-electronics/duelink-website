@@ -11,7 +11,7 @@ and nearly 200 extension libraries. In fact, some hardware designers prefer Micr
 
 There are two ways beginners and educators can use MicroBlocks with DUELink:
 1. Run **MicroBlocks on DUELink** modules/boards.
-2. Use **MicroBlocks to Daisylink** modules.
+2. Use modules to start **Daisylinking with MicroBlocks**.
 
 ---
 
@@ -170,56 +170,105 @@ This program will switch from a "smile" to a "frown" based the pressed button.
 
 ---
 
-## MicroBlocks to Daisylink
+## Daisylinking with MicroBlocks
 
-A user can easily [Daisylink](../engine/daisylink) several modules. In this case, MicroBlocks is running on the first module/board in the daisylink. All other modules are running the standard DUELink firmware and ready to accept commands from the first module.
+MicroBlocks can control one or more external DUELink modules connected via [Daisylink](../engine/daisylink). When you do this, only the first module in the chain runs the MicroBlocks firmware. All other modules in the chain run the standard DUELink firmware and respond to commands from MicroBlocks.
 
 ![PixoBit Daisylinked](pathname:///img/pixobit-daisylinked.png)
 
-:::tip
-[Daisylinked](../engine/daisylink) modules do not need to be loaded with the MicroBlocks firmware. Only `PixoBit` (first module) is loaded with MicroBlocks firmware in the previous example.
-:::     
 
-When Daisylinking DUELink modules users need to download the DUELink libraries for MicroBlocks from the [Downloads](../downloads.mdx) page.
+### Daisylink Connections
 
-Once downloaded, add it to the MicroBlocks' IDE by clicking `Add Library` from the side menu. Select `Computer` from the options and navigate to the appropriate file. 
+If you are running MicroBlocks on a DUELink educational board (or other DUELink module),
+connect the Downlink (**D**) connector on that board to the Uplink (**U**) connector
+of the DUELink module:
 
-![Add DUELink Library](pathname:///img/microblocks-add-duelink.png)
+![Cincobit downlink port](pathname:///img/cincobit-downlink.png)
 
-This will add all the necessary blocks to control [Daisylinked](../engine/daisylink) modules.
 
-![New DUELink Blocks](pathname:///img/microblocks-duelink-library.png)
+![RGB3 uplink port](pathname:///img/rgb3-uplink.png)
 
-In the example below, we'll use MicroBlocks to control an OLED 0.96 Display, a Button, and a Buzzer module Daisylinked together.
+If you are running MicroBlocks on a non-DUELink board,
+connect the Daisylink module chain to your board's I2C pins.
+If you have a micro:bit, you can use a
+[LinkBit](../products/adlinkbit-a)
+to connect to the I2C pins:
 
-![New DUELink Blocks](pathname:///img/cincobit-daisylinked.png)
+![Linkbit](pathname:///img/microbit-linkbit.png)
 
-Click on the image below to download the code and then drag the downloaded `.ubp` file into the MicroBlocks IDE. This also brings in all the necessary libraries in the project. 
 
-<a download href="/code/samples/microblocks/microblock_microbit_example_chain.ubp">![Daisylinked MicroBlocks Project](pathname:///img/microblocks-daisylinked.png)</a>
+When using multiple DUELink modules, modules are daisy-chained together by connecting
+the Downlink (**D**) connector of one module to the Uplink (**U**) connector of the next
+(see [Daisylink](../engine/daisylink)):
 
-:::tip
-When saving projects to share with others, use the file save feature in MicroBlocks. Saving `picture of script` as .png option won't work when using externally loaded libraries like DUELink. 
+:::note
+Once all connections have been made, power cycle the entire chain to reset
+all modules before attempting to use any module.
 :::
 
+![Uplink/Downlink Connections](pathname:///img/uplink-downlink.png)
+
+:::tip
+Always connect a Downlink (**D**) connector to an Uplink (**U**) connector.
+Nothing will work if a **D** is connected to a **D** or a **U** to a **U** anywhere in the chain.
+:::
+
+
+### MicroBlocks DUELink Libraries
+
+GHI maintains a set of MicroBlocks libraries to support its growing collection of DUELink modules.
+You'll use those of libraries to control your DUELink modules from MicroBlocks.
+
+Download the MicroBlocks libraries from the **MicroBlocks Firmware/Lib** section on the
+[Downloads Page](../downloads). Be sure to
+select the "Libraries" tab and download the latest available version:
+
+![lib download](pathname:///img/mb-lib-download.png)
+
+Unzip the downloaded file and place the folder of libraries in a convenient location.
+
+
+In the MicroBlocks editor, click the **Add Library** button:
+
+![add-library](pathname:///img/add-library.png)
+
+then select the **Computer** shortcut:
+
+![computer-shortcut](pathname:///img/computer-shortcut.png)
+
+Navigate to the folder of libraries you saved and add the libraries for the features you want to use. You will also need the DUELink library.
+
+### Example: Controlling RGB LEDs
+
+Connect an RGB3 module to the **D** port of your board. Power cycle the board and module by disconnecting and then reconnecting the USB cable.
+
+Open the MicroBlocks editor, connect to your board, then load the **DUELink** and **DUELink.Digital** libraries:
+
+![duelink-and-digital-libraries](pathname:///img/duelink-and-digital-libraries.png)
+
+Click the **DUELink connected?** block in the DUELink library palette to verify that your DUELink module is connected and detected by MicroBlocks:
+
+![connected-test](pathname:///img/connected-test.png)
+
+The LEDs on the RGB3 module are controlled by pins 1, 2, 3, 4, 5, 6, 7, 8, and 11.
+
+Use the **Write pin** block from the DUELink.Digital library to turn on LED 1 (a blue one):
+
+![turn-on-blue-led](pathname:///img/turn-on-blue-led.png)
+
+This script will flash all of the LEDs on the RGB3 module in sequence when the A button is pressed:
+
+![blink-rgb-leds](pathname:///img/blink-rgb-leds.png)
+
+![animated GIF of flashing LEDs](pathname:///img/flash-leds.gif)
+
 ---
-## MicroBlocks on micro:bit
 
-You can in theory use any board that runs MicroBlocks to daisylink DUELink modules. [micro:bit](../hw/microbit) is a fully supported option. To connect DUELink modules to micro:bit, you need an adapter that adds a JST connector. See [micro:bit](../hw/microbit) for options.
+## MicroBlocks Every Module!
 
-![LinkBit](pathname:///img/microbit-linkbit.png)
+We recommend loading MicroBlocks on boards recommended for [educators](../educators). Then, all other boards can be daisylinked as shown earlier. However, it is still possible to load MicroBlocks on any DUELink module! For example, load MicroBlocks on the `LED RGB3` to control the LEDs directly from blocks.
 
-From this point, you can folow the instrucitons on "MicroBlocks to Daislylink" section above.
-
----
-
-## Available Services
-
-It is important to note that once a DUELink board is loaded with MicroBlocks firmware, then it becomes 100% reliant on what blocks/libraries/services are offered by MicroBlocks. In other words, you lose the DUELink [Standard Library](../engine/stdlib).
-
-For example, while you can load MicroBlocks on [SD Card](../products/stsdcard-b) module, you do not have SD card drivers nor file system libraries!
-
-This is not a problem in a standard DUELink setup as you will probably have one of the recommended boards loaded with MicroBlocks, but then you have other modules [daisylinked](../engine/daisylink) on its [downlink](../interface/downlink) connector. Those other linked modules will still be running the standard DUElink firmware. In this case the SD Card module will have the necessary standard libraries, which are commanded by the MicroBlocks firmware.
+One must keep in mind that some modules have special needs/drivers/services that are furnished by the DUELink firmware. For example, while you can load MicroBlocks on [SD Card](../products/stsdcard-b) module, you do not have file system support from MicroBlocks! The right use would be to load MicroBlocks on `CincoBit` for example and then daisylink the `SD Card` module.
 
 ![Cincobit and SD Card](pathname:///img/cincobit-sdcard.png)
 
