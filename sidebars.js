@@ -163,7 +163,7 @@ const sidebars = {
             "products/segas-b",
             "products/selight-a",
             "products/semotion-b",
-            "products/sepressure100-b",
+            "products/seprsr-b",
             "products/sertc-b",
             "products/setemphmd-b",
             "products/setemprtd-a"

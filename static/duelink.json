@@ -1167,7 +1167,7 @@
     },
     {
       "name": "Pressure",
-      "partNumber": "GDL-SEPRESSURE100-B",
+      "partNumber": "GDL-SEPRSR-B",
       "PID": "0x06000D",
       "category": "Sensor",
       "price": 0,
