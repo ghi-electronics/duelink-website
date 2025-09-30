@@ -136,7 +136,7 @@
         "Surface mountable SoM",
         "30.48x12.7mm overall dimension"
       ],
-      "Notes": "Connect Ghizzy Jr leg to USB port directly"
+      "Notes": "Connect Ghizzy Jr leg to USB port directly."
     },
     {
       "name": "Ghizzy Jr",
@@ -162,7 +162,7 @@
       "category": "Specialty",
       "price": 0,
       "tagline": "Robot-shaped Microcomputer",
-      "description": "Advanced gaming and graphics module with enhanced capabilities",
+      "description": "Tiny robot-shaped circuits with LEDs, buzzer, buttons, and CR2032 battery holder.",
       "keyFeatures": [
         "2 RGB LEDs",
         "Buzzer",
@@ -172,7 +172,8 @@
         "PCB USB-A",
         "27x61mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Eye(l,r)` | Sets the `l` left and `r` right \"Eyes\" with 24bit RGB color (RRGGBB). |\n| `Ear(l,r)` | Activate the `l` left and `r` \"ears\" LEDs (1 on, 0 off). |\n| `Mouth(o)` | Activate the `m` \"mouth\" LED (1 on, 0 off). |\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Eye(l,r)` | Sets the `l` left and `r` right \"Eyes\" with 24bit RGB color (RRGGBB). |\n| `Ear(l,r)` | Activate the `l` left and `r` \"ears\" LEDs (1 on, 0 off). |\n| `Mouth(o)` | Activate the `m` \"mouth\" LED (1 on, 0 off). |\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `DVer()` | This driver version. |",
+      "video": "D4073veneWI"
     },
     {
       "name": "Holiday Tree",
@@ -188,7 +189,8 @@
         "Buzzer",
         "140x110mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayLED(enable)` | `PlayLED(1)` will make the LED constantly blink, default. Use `PlayLED(0)` to disable playback and manually control the LEDs. |\n| `SetLED(i, c, l)` | Sets a specific LED, `i` index (index start from 1), to a `c` color (hex value), `l` brightness (0 off, max 31). |\n| `SetAll(color)` | Sets all LEDs to a specific color, use 0 to turn off. |\n| `ShowLed()` | Flush Leds, and show. |\n| `RndLed()` | Show random color on random leds. |\n| `Buzzer(f,d)` | Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayLED(enable)` | `PlayLED(1)` will make the LED constantly blink, default. Use `PlayLED(0)` to disable playback and manually control the LEDs. |\n| `SetLED(i, c, l)` | Sets a specific LED, `i` index (index start from 1), to a `c` color (hex value), `l` brightness (0 off, max 31). |\n| `SetAll(color)` | Sets all LEDs to a specific color, use 0 to turn off. |\n| `ShowLed()` | Flush Leds, and show. |\n| `RndLed()` | Show random color on random leds. |\n| `Buzzer(f,d)` | Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function. |\n| `DVer()` | This driver version. |",
+      "video": "2INa95NzI_o"
     },
     {
       "name": "Chrono",
