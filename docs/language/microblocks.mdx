@@ -51,11 +51,15 @@ Prepare your board to accept firmware by holding down the **A** button (CincoBit
 
 Open [console.duelink.com](https://console.duelink.com/) in a Chrome or Edge browser:
 
+<div style={{textAlign: 'center'}}>
 ![dueconsole](pathname:///img/duelink-console.png)
+</div>
 
 Click on the **Firmware** tab:
 
+<div style={{textAlign: 'center'}}>
 ![firmware](pathname:///img/console-firmware.png)
+</div>
 
 In the dialog that appears, click the **Connect** button:
 
@@ -63,7 +67,9 @@ In the dialog that appears, click the **Connect** button:
 
 If your board is connected and ready to accept firmware, you will see an entry marked **DFU in FS Mode**:
 
+<div style={{textAlign: 'center'}}>
 ![console](pathname:///img/console-connect-2.png)
+</div>
 
 If you see an entry marked **DUELink**, repeat the board preparation process described above. Remember to keep the **A** or **LDR** button held down while you press and release the **Reset** button.
 
@@ -79,9 +85,10 @@ The version menu will default to the most recent version, which is what you want
 
 You'll see progress as the board is erased and then the firmware is written:
 
+<div style={{textAlign: 'center'}}>
 ![progress-erasing](pathname:///img/progress-erasing.png)
 ![progress-writing](pathname:///img/progress-writing.png)
-
+</div>
 
 Congratulations! You've installed MicroBlocks!
 
@@ -111,7 +118,9 @@ Select **Connect (USB)** from the menu:
 
 Select the DUELink board in the dialog that appears, then click the **Connect** button:
 
+<div style={{textAlign: 'center'}}>
 ![microblocks-connect](pathname:///img/microblocks-connect-3.png)
+</div>
 
 If you do not see your DUELink board, make sure it is connected with a good USB cable, then click its reset button.
 
@@ -182,11 +191,15 @@ MicroBlocks can control one or more external DUELink modules connected via [Dais
 If you are running MicroBlocks on a DUELink educational board (or other DUELink module),
 connect the Downlink (**D**) connector on that board:
 
+<div style={{textAlign: 'center'}}>
 ![Cincobit downlink port](pathname:///img/cincobit-downlink.png)
+</div>
 
 to the Uplink (**U**) connector of the DUELink module:
 
+<div style={{textAlign: 'center'}}>
 ![RGB3 uplink port](pathname:///img/rgb3-uplink.png)
+</div>
 
 If you are running MicroBlocks on a non-DUELink board,
 connect the Daisylink module chain to your board's I2C pins.
@@ -255,7 +268,9 @@ This script will flash all of the LEDs on the RGB3 module in sequence when the A
 
 ![blink-rgb-leds](pathname:///img/blink-rgb-leds.png)
 
-![animated GIF of flashing LEDs](pathname:///img/flash-leds.gif)
+<div style={{textAlign: 'center'}}>
+![animated GIF of flashing LEDs](pathname:///img/microblocks-daisylinked.gif)
+</div>
 
 ---
 
