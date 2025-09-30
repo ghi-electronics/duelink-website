@@ -244,15 +244,19 @@ function generateMDX(product, index) {
     let resourceLinks = [];
     
     if (hasSchematic(product.partNumber)) {
-        resourceLinks.push(`📄<a href="/sch/gdl-${partPrefix}.pdf">Schematics</a>`);
+        resourceLinks.push(`📄 <a href="/sch/gdl-${partPrefix}.pdf">Schematics</a>`);
     }
     
     // Add 3D models with automatically detected labels
     const models3D = get3DModels(product.partNumber);
     models3D.forEach(model => {
-        resourceLinks.push(`🔩<a href="${model.path}">${model.label}</a>`);
+        resourceLinks.push(`🔩 <a href="${model.path}">${model.label}</a>`);
     });
     
+    if (product.video) {
+        resourceLinks.push(`▶ <a href="https://www.youtube.com/watch?v=${product.video}" target="_blank" >YouTube Video</a>`);
+    }
+
     // Create resources section only if there are resources
     const resourcesSection = resourceLinks.length > 0 
         ? `**Resources**
