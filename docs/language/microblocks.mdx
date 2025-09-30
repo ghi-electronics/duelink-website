@@ -57,8 +57,8 @@ Click on the **Firmware** tab:
 
 ![firmware](pathname:///img/console-firmware.png)
 
-
 In the dialog that appears, click the **Connect** button:
+
 ![console](pathname:///img/console-connect-1.png)
 
 If your board is connected and ready to accept firmware, you will see an entry marked **DFU in FS Mode**:
@@ -180,11 +180,11 @@ MicroBlocks can control one or more external DUELink modules connected via [Dais
 ### Daisylink Connections
 
 If you are running MicroBlocks on a DUELink educational board (or other DUELink module),
-connect the Downlink (**D**) connector on that board to the Uplink (**U**) connector
-of the DUELink module:
+connect the Downlink (**D**) connector on that board:
 
 ![Cincobit downlink port](pathname:///img/cincobit-downlink.png)
 
+to the Uplink (**U**) connector of the DUELink module:
 
 ![RGB3 uplink port](pathname:///img/rgb3-uplink.png)
 
@@ -196,17 +196,16 @@ to connect to the I2C pins:
 
 ![Linkbit](pathname:///img/microbit-linkbit.png)
 
-
 When using multiple DUELink modules, modules are daisy-chained together by connecting
 the Downlink (**D**) connector of one module to the Uplink (**U**) connector of the next
 (see [Daisylink](../engine/daisylink)):
 
-:::note
+:::tip
 Once all connections have been made, power cycle the entire chain to reset
 all modules before attempting to use any module.
 :::
 
-![Uplink/Downlink Connections](pathname:///img/uplink-downlink.png)
+![Uplink/Downlink Connections](pathname:///img/mb-uplink-downlink.png)
 
 :::tip
 Always connect a Downlink (**D**) connector to an Uplink (**U**) connector.
@@ -223,7 +222,6 @@ Download the MicroBlocks libraries from the **MicroBlocks Firmware/Lib** section
 ![lib download](pathname:///img/mb-lib-download.png)
 
 Unzip the downloaded file and place the folder of libraries in a convenient location.
-
 
 In the MicroBlocks editor, click the **Add Library** button:
 
