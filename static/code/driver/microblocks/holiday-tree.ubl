@@ -1,0 +1,53 @@
+module 'Holiday Tree'
+author GHIElectronics
+version 0 5 
+depends Tone 
+description 'DUELink Holiday Tree Library
+
+'
+variables _numled led_array brightness color 
+
+  spec ' ' 'Play beep' 'Play beep'
+  spec ' ' 'Show led' 'Show led'
+  spec ' ' 'Set led index' 'Set led index _ red _ green _ blue _ brightness _ %' 'auto auto auto auto auto' 1 255 255 255 50
+  spec ' ' 'Initialize Holiday Tree' 'Initialize Holiday Tree'
+
+to 'Initialize Holiday Tree' {
+  'attach buzzer to pin' 1
+  '[sensors:spiSetup]' 1000000
+  local 'i' 0
+  led_array = (newList 112)
+  comment 'Set first 4 bytes to 0x00'
+  for i ('[data:range]' 1 4) {
+    atPut i led_array 0
+  }
+  comment 'Set 26*4 bytes to 0'
+  for i ('[data:range]' 5 108) {
+    atPut i led_array 0
+  }
+  comment 'Set last 4 bytes to 255'
+  for i ('[data:range]' 109 112) {
+    atPut i led_array 255
+  }
+  for i ('[data:range]' 1 26) {
+    'Set led index' i 0 0 0 0
+  }
+}
+
+to 'Play beep' {
+  'play frequency' 1000 100
+}
+
+to 'Set led index' index red green blue percent {
+  local 'i' ((index * 4) + 0)
+  local 'brightness' ('[data:convertType]' ((percent * 31) / 100) 'number')
+  atPut (i + 1) led_array ((224 | brightness) & 255)
+  atPut (i + 2) led_array (blue & 255)
+  atPut (i + 3) led_array (green & 255)
+  atPut (i + 4) led_array (red & 255)
+}
+
+to 'Show led' {
+  '[sensors:spiExchange]' ('[data:asByteArray]' led_array)
+}
+
