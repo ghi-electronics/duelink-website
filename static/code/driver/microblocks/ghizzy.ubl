@@ -15,9 +15,9 @@ variables _due_ghizzy_init
   spec 'r' 'due_ghizzy_button' 'Button pressed'
 
 to due_ghizzy_beep {
-  if (due_ghizzy_init == 0) {
+  if (_due_ghizzy_init == 0) {
     'attach buzzer to pin' 3
-    due_ghizzy_init = 1
+    _due_ghizzy_init = 1
   }
   'play frequency' 1000 100
 }
