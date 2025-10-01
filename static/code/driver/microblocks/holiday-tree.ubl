@@ -5,7 +5,7 @@ depends Tone
 description 'DUELink Holiday Tree Library
 
 '
-variables _numled led_array brightness color 
+variables led_array 
 
   spec ' ' 'due_tree_beep' 'Play beep'
   spec ' ' 'due_tree_show' 'Show led'
