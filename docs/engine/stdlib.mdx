@@ -1582,6 +1582,69 @@ duelink.Humidity.Read(5, 4);
 
 ---
 
+### USB
+
+The [USB](../interface/usb) interface presents itself as three devices: Serial Port, Keyboard, and Mouse! The main use is typically through the Serial port to access the module's engine.
+
+The Keybpard and Mouse interfaces allow the user to send keystrokes and mouse movements to the connected PC/Phone.
+
+Function | Description
+--- | ---
+`Hid(type, [data])` | Send virtual Keyboard or Mouse activity to the connected Mouse/Keyboard.
+
+See [USB](../interface/usb) interfsce for details.
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Send Keyboard 3 key presses GHI every 5 seconds!
+while (1)
+    hid(1,[0,0,0x0A,0x0B,0x0C,0,0,0])#8 bytes: 0,0,G,H,I,0,0,0
+    wait(5000)# Every 5 seconds!
+wend
+```
+</TabItem>
+<TabItem value="py">
+```py
+Script only functionality.
+```
+</TabItem>
+<TabItem value="js">
+```js
+Script only functionality.
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+Script only functionality.
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+Script only functionality.
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+Script only functionality.
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
 ## System Info
 
 Read info about the system.
