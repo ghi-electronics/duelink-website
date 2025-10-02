@@ -1,53 +1,27 @@
 module 'Ghizzy Jr'
 author GHIElectronics
 version 0 5 
-depends 
 description 'DUELink Ghizzy Jr Library
 
 '
-  spec ' ' 'due_ghizzy_jr_set_left_eye' 'Set left eye red _ green _ blue _' 'bool bool bool' true true true
-  spec ' ' 'due_ghizzy_jr_set_right_eye' 'Set right eye red _ green _ blue _' 'bool bool bool' true true true
 
+  spec ' ' 'due_ghizzy_jr_set_left_eye' 'Set left eye red _ green _ blue _' 'num num num' 128 128 128
+  spec ' ' 'due_ghizzy_jr_set_right_eye' 'Set right eye red _ green _ blue _' 'num num num' 128 128 128
   spec 'r' 'due_ghizzy_jr_button' 'Button pressed'
-
 
 to due_ghizzy_jr_button {
   return ('[data:convertType]' (digitalReadOp 20 'down') 'boolean')
 }
 
 to due_ghizzy_jr_set_left_eye red green blue {
-  if (blue == (booleanConstant true)) {
-    digitalWriteOp 7 true
-  } else {
-    digitalWriteOp 7 false
-  }
-  if (red == (booleanConstant true)) {
-    digitalWriteOp 8 true
-  } else {
-    digitalWriteOp 8 false
-  }
-  if (green == (booleanConstant true)) {
-    digitalWriteOp 9 true
-  } else {
-    digitalWriteOp 9 false
-  }
+  analogWriteOp 8 ('[misc:rescale]' red 0 255 0 1023)
+  analogWriteOp 9 ('[misc:rescale]' green 0 255 0 1023)
+  analogWriteOp 7 ('[misc:rescale]' blue 0 255 0 1023)
 }
 
 to due_ghizzy_jr_set_right_eye red green blue {
-  if (blue == (booleanConstant true)) {
-    digitalWriteOp 4 true
-  } else {
-    digitalWriteOp 4 false
-  }
-  if (red == (booleanConstant true)) {
-    digitalWriteOp 5 true
-  } else {
-    digitalWriteOp 5 false
-  }
-  if (green == (booleanConstant true)) {
-    digitalWriteOp 6 true
-  } else {
-    digitalWriteOp 6 false
-  }
+  analogWriteOp 5 ('[misc:rescale]' red 0 255 0 1023)
+  analogWriteOp 6 ('[misc:rescale]' green 0 255 0 1023)
+  analogWriteOp 4 ('[misc:rescale]' blue 0 255 0 1023)
 }
 
