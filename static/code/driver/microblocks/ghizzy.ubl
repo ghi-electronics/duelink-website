@@ -1,0 +1,89 @@
+module Ghizzy
+author GHIElectronics
+version 0 5 
+depends Tone 
+description 'DUELink Ghizzy Library
+
+'
+variables _due_ghizzy_init 
+
+  spec ' ' 'due_ghizzy_set_left_eye' 'Set left eye red _ green _ blue _' 'bool bool bool' true true true
+  spec ' ' 'due_ghizzy_set_right_eye' 'Set right eye red _ green _ blue _' 'bool bool bool' true true true
+  spec ' ' 'due_ghizzy_set_ear' 'Set ear left _ right _' 'bool bool' true true
+  spec ' ' 'due_ghizzy_set_mouth' 'Set mouth on _' 'bool' true
+  spec ' ' 'due_ghizzy_beep' 'Play beep'
+  spec 'r' 'due_ghizzy_button' 'Button pressed'
+
+to due_ghizzy_beep {
+  if (_due_ghizzy_init == 0) {
+    'attach buzzer to pin' 3
+    _due_ghizzy_init = 1
+  }
+  'play frequency' 1000 100
+}
+
+to due_ghizzy_button {
+  return ('[data:convertType]' (digitalReadOp 20 'down') 'boolean')
+}
+
+to due_ghizzy_set_ear left right {
+  if (left == (booleanConstant true)) {
+    digitalWriteOp 12 true
+  } else {
+    digitalWriteOp 12 false
+  }
+  if (right == (booleanConstant true)) {
+    digitalWriteOp 13 true
+  } else {
+    digitalWriteOp 13 false
+  }
+}
+
+to due_ghizzy_set_left_eye red green blue {
+  if (blue == (booleanConstant true)) {
+    digitalWriteOp 7 true
+  } else {
+    digitalWriteOp 7 false
+  }
+  if (red == (booleanConstant true)) {
+    digitalWriteOp 8 true
+  } else {
+    digitalWriteOp 8 false
+  }
+  if (green == (booleanConstant true)) {
+    digitalWriteOp 9 true
+  } else {
+    digitalWriteOp 9 false
+  }
+}
+
+to due_ghizzy_set_mouth on {
+  if (on == (booleanConstant true)) {
+    digitalWriteOp 14 true
+    digitalWriteOp 15 true
+    digitalWriteOp 16 true
+  } else {
+    digitalWriteOp 14 false
+    digitalWriteOp 15 false
+    digitalWriteOp 16 false
+  }
+}
+
+to due_ghizzy_set_right_eye red green blue {
+  if (blue == (booleanConstant true)) {
+    digitalWriteOp 4 true
+  } else {
+    digitalWriteOp 4 false
+  }
+  if (red == (booleanConstant true)) {
+    digitalWriteOp 5 true
+  } else {
+    digitalWriteOp 5 false
+  }
+  if (green == (booleanConstant true)) {
+    digitalWriteOp 6 true
+  } else {
+    digitalWriteOp 6 false
+  }
+}
+
