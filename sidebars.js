@@ -178,7 +178,7 @@ const sidebars = {
             "products/ldledrgb3-a",
             "products/ldleds284-b",
             "products/ldleds404-a",
-            "products/ldled564-a",
+            "products/ldleds564-a",
             "products/ldledss805-c",
             "products/ldsmartled-a"
           ],

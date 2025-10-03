@@ -173,6 +173,10 @@ Function | Description
 
 The status LED is automatically controlled by the engine by default, as explained on the [Specs](../specs.mdx) page. Calling `StatLed()` will take control over the LED. It is possible to release LED back to the engine by calling `StatLed(0,0,0)`.
 
+:::tip
+Any write operation (`AWrite()`, `DWrite()`, or `Freq()`) to the STAT LED (Pin 0) will terminate any current operations to set it to the desired state.
+:::
+
 <details>
   <summary>Samples</summary>
 <Tabs groupid="language" queryString="show"
