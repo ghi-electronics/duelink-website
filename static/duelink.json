@@ -1350,7 +1350,7 @@
     },
     {
       "name": "LED S564",
-      "partNumber": "GDL-LDLED564-A",
+      "partNumber": "GDL-LDLEDS564-A",
       "PID": "0x05000A",
       "category": "LED",
       "price": 0,
