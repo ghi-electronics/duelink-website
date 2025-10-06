@@ -282,7 +282,7 @@ Once all connections have been made, power cycle the entire chain to reset
 all modules before attempting to use any module.
 :::
 
-### MicroBlocks Libraries
+### MicroBlocks DUELink Libraries
 
 GHI maintains a set of MicroBlocks libraries to support its growing collection of DUELink modules. You'll use those libraries to control your DUELink modules from MicroBlocks.
 
@@ -311,6 +311,8 @@ Navigate to the folder of libraries you saved and add the DUELink library and th
 <div style={{textAlign: 'center'}}>
 ![mb-duelink-libraries](pathname:///img/mb-duelink-libraries.png)
 </div>
+
+You can also add a library by dragging the library file (ending in .ubl) onto the MicroBlocks editor.
 
 :::note
 You always need the DUELink library.
@@ -360,19 +362,27 @@ When MicroBlocks firmware is installed, it replaces the DUELink standard firmwar
 
 ![Cincobit and SD Card](pathname:///img/cincobit-sdcard.png)
 
----
+### Additional MicroBlocks Libraries
 
-## Device Specific Drivers
+When connected to one of the [educational](../educators) boards, MicroBlocks adds the relevant libraries automatically. For example, when a new project is created while connected to a CincoBit board, MicroBlocks adds the LED Display library.
 
-Most device, especially [educational](../educators) boards, simply work without the need for adding any libraries. In some cases, MicroBlocks automatically adds libraries to support buzzer for example. Beyond that, standard library drivers used earlier are provided to help in daisylinking modules in a chain.
+As mentioned [earlier](#microblocks-duelink-libraries), GHI provides a set of MicroBlocks libraries for working with daisylinked modules.
 
-We go even further and also provide some device-specific libraries/drivers. Simply download the desired driver and include in your MicroBlocks project, just was done earlier with the standard libraries.
+GHI also provides MicroBlocks libraries for a few specialty boards for use when the MicroBlocks firmware is installed on those boards.
+
+For example, you might install the MicroBlocks firmware on the Holiday Tree, then write a MicroBlocks script to animate the RGB LEDs on the tree.
+Once the tree is programmed, it will run stand-alone. It just needs a power source such as a cell phone power bank.
+The Holiday Tree library simplifies this task by providing blocks to set the colors of individual LEDs and update the entire string of LEDs via SPI.
+
+Download the desired library and add it to your MicroBlocks project by using the **Add Library** button or by dropping the library file onto the MicroBlocks editor.
 
 Product | Library | Provided Blocks
 --- | --- | ---
 [Holiday Tree](../products/sptree-b) | <a download href="/code/driver/microblocks/holiday-tree.ubl">holiday-tree.ubl</a> | Control the RGB smart lights and buzzer.
-[Ghizzy](../products/spghizzy-b) | <a download href="/code/driver/microblocks/ghizzy.ubl">ghizzy.ubl</a> | Control RGB Eyes, mouth and ears LEDs and buzzer.
+[Ghizzy](../products/spghizzy-b) | <a download href="/code/driver/microblocks/ghizzy.ubl">ghizzy.ubl</a> | Control RGB Eyes, mouth, and ears LEDs and buzzer.
 [Ghizzy Jr](../products/spghizzyjr-a) | <a download href="/code/driver/microblocks/ghizzy-jr.ubl">ghizzy-jr.ubl</a> | Control RGB eyes.
+
+This list of additional MicroBlocks libraries will probably grow over time as new specialty boards are added.
 
 ---
 
