@@ -13,15 +13,15 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-         <p>
+
         <img src="/img/duelink-intro.png" alt="DUELink" />
-        <br/>
+  
    
-        </p>
+
 
 
        <Heading as="h2" >
-        Smart Electronic Building Blocks
+        Daisylink Hundreds of Modules
         </Heading>
         <p> DUELink revolutionizes electronics innovation with a vast ecosystem of sensor, actuator, and display modules.
         <br/> 
@@ -31,7 +31,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/what-is">
-            What is DUELink?
+            What's DUELink?
           </Link>
            &nbsp; &nbsp;&nbsp;
           <Link
