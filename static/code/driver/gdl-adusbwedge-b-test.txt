@@ -1,0 +1,4 @@
+##### USB WEDGE #####
+
+# No firmware and driver needed on this device
+ 
