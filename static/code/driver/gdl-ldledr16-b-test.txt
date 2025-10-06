@@ -1,0 +1,22 @@
+##### Led LEDR16 Test #####
+
+fn Test() 
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    while 1        
+        for i = 0 to 16
+            dwrite(i, 1)
+            wait(100)
+            dwrite(i, 0)  
+            wait(100)         
+        next        
+    wend
+fend   
+ 
+
+
+
+
