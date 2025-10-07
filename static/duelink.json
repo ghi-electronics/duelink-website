@@ -917,6 +917,20 @@
       ]
     },
     {
+      "name": "Wireless ESP32",
+      "partNumber": "GDL-WLESP32-A",
+      "PID": "0x090007",
+      "category": "Wireless",
+      "price": 19.95,
+      "tagline": "Connects DUELink Modules Wirelessly",
+      "description": "This module adds wireless connectivity, allowing for wireless control of DUELink modules. It can be used in 2 ways: Use it as a [Wireless Interface](/docs/interface/wireless) Host, controling a [daisylink](/docs/engine/daisylink) of modules. You will be able to program and command modules over a wireless connection! The other option is to use this module within a daisylink, to provide a wireless access to the host and other connected modules.",
+      "keyFeatures": [
+        "Bluetooth or WiFi Connectivity",
+        "Program DUELink Modules Wirelessly",
+        "27x37mm overall dimension"
+      ]
+    },
+    {
       "name": "GNSS WA",
       "partNumber": "GDL-WLGNSSWA-A",
       "PID": "0x090001",

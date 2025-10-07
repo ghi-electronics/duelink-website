@@ -147,6 +147,7 @@ const sidebars = {
           type: "category",
           label: "Wireless",
           items: [
+            "products/wlesp32-a",
             "products/wlgnsswa-a",
             "products/wlgnss-b",
             "products/wlinfrared-a",
@@ -224,8 +225,7 @@ const sidebars = {
             "products/adpwrswitch-a",
             "products/adsticker-c",
             "products/adusbhook-a",
-            "products/adusbwedge-b",
-            "products/adwhook-b"
+            "products/adusbwedge-b"
           ],
         },
         {
