@@ -60,8 +60,8 @@ const ProductCatalog = () => {
   // Memoize categories to avoid recalculation - match sidebar order
   const categories = useMemo(() => {
     const categoryOrder = [
+      'Kit',
       'Microcomputer',
-      'Education',
       'Specialty',
       'Display',
       'Actuator',
@@ -73,7 +73,9 @@ const ProductCatalog = () => {
       'LED',
       'Sound',
       'Vision',
-      'Adapter'
+      'Adapter',
+      'Accessory'
+
     ];
     
     const cats = new Set(products.map(p => p.category || 'Other'));

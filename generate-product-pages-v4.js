@@ -85,7 +85,9 @@ function getCategoryFolder(category) {
         'Sound': 'sound',
         'Vision': 'vision',
         'Special': 'special',
-        'Microcomputer': 'microcomputer'
+        'Kit': 'kit',
+        'Microcomputer': 'microcomputer',
+        'Accessory': 'accessory'
     };
     return categoryMap[category] || category.toLowerCase();
 }

@@ -40,6 +40,13 @@ const sidebars = {
       items: [
         {
           type: "category",
+          label: "Kits",
+          items: [
+            "products/ktessen-a"
+          ],
+        },
+        {
+          type: "category",
           label: "Microcomputers",
           items: [
             "products/mcdueduino-a",
