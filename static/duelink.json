@@ -14,7 +14,7 @@
       "partNumber": "GDL-MCCINCOBIT-E",
       "PID": "0x000001",
       "category": "Microcomputer",
-      "price": 0,
+      "price": 5.99,
       "tagline": "Ultra low-cost, micro:bit inspired, educational board",
       "description": "[Educators](/docs/educators) and [Makers](/docs/makers) will find great value in this ultra low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.",
       "keyFeatures": [
@@ -33,7 +33,7 @@
       "partNumber": "GDL-MCCLIPIT-B",
       "PID": "0x000011",
       "category": "Microcomputer",
-      "price": 0,
+      "price": 9.95,
       "tagline": "Alligator clip friendly STEM-microcomputer",
       "description": "[Educators](/docs/educators) can now elevate their STEM-mission with Clipit. Start immediately with light sensor and touch pads to read inputs. Then use any of the supported [Languages](/docs/language/intro) to process those inputs and then control the output on the 5x5 LED matrix and buzzer.\n\nGo beyond and add alligator clips for reading touch from objects, or control other circuits.\n\nOf course, this is a DUELink board and [Downlink](/docs/interface/downlink) is ready for [Daisylinking](/docs/engine/daisylink) all of your modules.",
       "keyFeatures": [
@@ -52,7 +52,7 @@
       "partNumber": "GDL-MCDUEDUINO-A",
       "PID": "0x000012",
       "category": "Microcomputer",
-      "price": 0,
+      "price": 9.95,
       "tagline": "Arduino form factor inspired DUELink mainboard",
       "description": "Use the official DUELink engine firmware or use the [Arduino](/docs/hw/arduino) software IDE to program DueDuino.\n\nOf course, this is a DUELink board and [Downlink](/docs/interface/downlink) connector is ready for [Daisylinking](/docs/engine/daisylink) all of your modules.",
       "keyFeatures": [
@@ -69,7 +69,7 @@
       "partNumber": "GDL-MCDUESTEM-B",
       "PID": "0x000010",
       "category": "Microcomputer",
-      "price": 0,
+      "price": 19.95,
       "tagline": "Complete All-in-One STEM Solution",
       "description": "`Input -> Process -> Output` is how DueSTEM brings everything [educators](/docs/educators) need to demonstrate physical computing. There are 4 inputs and 4 outputs. The graphical display can be used to show sensor levels or for building games!\n\nExtend the board with sensors and actuators on the female pin-header and the [Downlink](/docs/interface/downlink) connector.",
       "keyFeatures": [
@@ -91,7 +91,7 @@
       "partNumber": "GDL-MCPIXOBIT-D",
       "PID": "0x000002",
       "category": "Microcomputer",
-      "price": 0,
+      "price": 14.95,
       "tagline": "micro:bit Form Factor with 128x64 OLED 0.96\" Display",
       "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. You can now show sensor data or build video games!",
       "keyFeatures": [
@@ -110,7 +110,7 @@
       "partNumber": "GDL-MCSTAMP-B",
       "PID": "0x000013",
       "category": "Microcomputer",
-      "price": 0,
+      "price": 5.95,
       "tagline": "Seeed Xiao Form Factor DUELink Microcomputer",
       "description": "This fingertip-sized tiny board is as capable as any other DUELink module. Plug it in a breadboard using male headers, or solder it directly using the edge pads. It has a Seeed Xiao compatible footprint as well. It includes an upgraded regulator allowing for connecting many DUELink modules on the [Downlink](/docs/interface/downlink) connector.\n\nThis is a great choice to help you in making your own DUELink modules. Don't want USB? Then consider using [Stick](/docs/products/mcstick-a).",
       "keyFeatures": [
@@ -127,7 +127,7 @@
       "partNumber": "GDL-MCSTICK-A",
       "PID": "0x000014",
       "category": "Microcomputer",
-      "price": 0,
+      "price": 4.95,
       "tagline": "DIP24 Form Factor SMT DUELink SoM",
       "description": "Start making your own DUELink modules using this Surface-Mountable DUELink SoM that is also DIP24 form-factor.\n\nBoth U and D connectors are included. The USB connections are also exposed if you want to add a USB connector, such as Stamp (for tiny board with USB).",
       "keyFeatures": [
@@ -160,7 +160,7 @@
       "partNumber": "GDL-SPGHIZZY-B",
       "PID": "0x0C0001",
       "category": "Specialty",
-      "price": 0,
+      "price": 9.95,
       "tagline": "Robot-shaped Microcomputer",
       "description": "Tiny robot-shaped circuits with LEDs, buzzer, buttons, and CR2032 battery holder.\n\n:::note\n\n The \"legs\" are a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n",
       "keyFeatures": [
@@ -180,7 +180,7 @@
       "partNumber": "GDL-SPTREE-B",
       "PID": "0x0C0003",
       "category": "Specialty",
-      "price": 0,
+      "price": 24.95,
       "tagline": "Smart Holiday Tree with 26 LEDs",
       "description": "This is arguably the smartest holiday tree in the world! Control the LEDs in Standalone mode or connect to a host and control the tree from one of the many supported languages and devices. The 2 boards (A and B) slide into each other, turning this into a 3D-ish module!",
       "keyFeatures": [
@@ -197,7 +197,7 @@
       "partNumber": "GDL-SPCHRONO-A",
       "PID": "0x0C0004",
       "category": "Specialty",
-      "price": 0,
+      "price": 6.95,
       "tagline": "Battery Operated LED Matrix",
       "description": "Scroll text on the LED matrix or use the sides to show \"time\"! Chrono includes two buttons and a CR2032 battery holder.\n\n Add a a wrist band or a lanyard to turn this into a \"wearable\" module.",
       "keyFeatures": [     
@@ -214,7 +214,7 @@
       "partNumber": "GDL-DSEPAPERM29-A",
       "PID": "0x01000B",
       "category": "Display",
-      "price": 0,
+      "price": 49.95,
       "tagline": "2.9\" e-Ink Display",
       "description": "e-Ink (ePaper) displays only need power to update the screen. But then power can be disconnected and the display will retain the graphics with zero power requirements.",
       "keyFeatures": [
@@ -230,7 +230,7 @@
       "partNumber": "GDL-DSEPAPERM42-A",
       "PID": "0x01000C",
       "category": "Display",
-      "price": 0,
+      "price": 79.95,
       "tagline": "4.2\" e-Ink Display",
       "description": "e-Ink (ePaper) displays only need power to update the screen. But then power can be disconnected and the display will retain the graphics with zero power requirements.\n\nThis display works via the graphics internal services with 2x pixel multiplier, giving the user 200x150 pixels.",
       "keyFeatures": [
@@ -247,7 +247,7 @@
       "partNumber": "GDL-DSHDMI-B",
       "PID": "0x010001",
       "category": "Display",
-      "price": 0,
+      "price": 69.95,
       "tagline": "HDMI Graphics Module",
       "description": "Add HDMI graphics to any [Supported Hardware](/docs/hw/intro). The board has its own graphics processor and memory. Your system will only need to issue simple commands to show graphics on a 90\" TV screen!\n\nThe module uses [BT817Q](https://brtchip.com/product/bt817q/). Drawing with this module will be done via the graphics coprocessor and not the internal graphics engine.",
       "keyFeatures": [
@@ -276,7 +276,7 @@
       "partNumber": "GDL-DSLCD16X2-C",
       "PID": "0x010002",
       "category": "Display",
-      "price": 0,
+      "price": 19.95,
       "tagline": "16x2 Character Display",
       "description": "Print up to 16 characters over 2 rows on this character display.",
       "keyFeatures": [
@@ -290,7 +290,7 @@
       "partNumber": "GDL-DSLCD20X4-B",
       "PID": "0x010003",
       "category": "Display",
-      "price": 0,
+      "price": 39.95,
       "tagline": "20x4 Character Display",
       "description": "Print up to 20 characters over 4 rows on this character display.",
       "keyFeatures": [
@@ -304,7 +304,7 @@
       "partNumber": "GDL-DSOLED096-A",
       "PID": "0x010004",
       "category": "Display",
-      "price": 0,
+      "price": 12.95,
       "tagline": "0.96\" - 128x64 OLED BW Display",
       "description": "This small 0.96\" display is very sharp due to its OLED construction. It is B&W color, but with 128x64 pixels, it has enough resolution to show plenty of data and [graphics](/docs/engine/graphics).",
       "keyFeatures": [
@@ -319,7 +319,7 @@
       "partNumber": "GDL-DSPORTALCP70-B",
       "PID": "0x010009",
       "category": "Display",
-      "price": 0,
+      "price": 129.95,
       "tagline": "7\" 800x400 Color Touch Display with Graphics Co-Processor",
       "description": "Portal CP70 7\" 800x400 capacitive touch display with a graphics co-processor [BT817Q](https://brtchip.com/product/bt817q/). Drawing using this module will be done via the graphics coprocessor and not the internal graphics engine.",
       "keyFeatures": [
@@ -335,7 +335,7 @@
       "partNumber": "GDL-DSTFTCP23-B",
       "PID": "0x010007",
       "category": "Display",
-      "price": 0,
+      "price": 39.95,
       "tagline": "2.3\" 320x240 Color Touch Display",
       "description": "2.3\" 320x240 color TFT display with capacitive touch screen, supporting [Graphics](/docs/engine/graphics) in buffered and in direct modes.",
       "keyFeatures": [
@@ -350,7 +350,7 @@
       "partNumber": "GDL-DSTFTN18-B",
       "PID": "0x010006",
       "category": "Display",
-      "price": 0,
+      "price": 14.95,
       "tagline": "1.8\" - 160x128 Color Display",
       "description": "1.8\" - 160x128 Color TFT LCD (no touch) display, supporting [Graphics](/docs/engine/graphics).",
       "keyFeatures": [
@@ -365,7 +365,7 @@
       "partNumber": "GDL-DSTFTR128-B",
       "PID": "0x010005",
       "category": "Display",
-      "price": 0,
+      "price": 19.95,
       "tagline": "1.28\" - 240x240 Color Round Display",
       "description": "1.28\" - 240x240 Color TFT LCD round (no touch) display, supporting [Graphics](/docs/engine/graphics).",
       "link": "https://www.duelink.com/docs/catalog/display/tft-r128",
@@ -381,7 +381,7 @@
       "partNumber": "GDL-DSVFDB8-C",
       "PID": "0x01000A",
       "category": "Display",
-      "price": 0,
+      "price": 52.95,
       "tagline": "Vacuum Fluorescent Character Display",
       "description": "Vacuum fluorescent displays are visually pleasing. This 8x character display looks great at any time, but it will look especially amazing in the dark!",
       "keyFeatures": [
@@ -395,7 +395,7 @@
       "partNumber": "GDL-ACFAN-B",
       "PID": "0x020001",
       "category": "Actuator",
-      "price": 0,
+      "price": 9.95,
       "tagline": "Fan Motor Module",
       "description": "This smart DUELink fan has speed and direction control.",
       "keyFeatures": [
@@ -410,7 +410,7 @@
       "partNumber": "GDL-ACLOAD-A",
       "PID": "0x020002",
       "category": "Actuator",
-      "price": 0,
+      "price": 14.95,
       "tagline": "Load Actuator with 8x Connections",
       "description": "The Load module is designed to control up to 8 actuators. No soldering is necessary as all connections are found on a screw terminal block.",
       "keyFeatures": [
@@ -424,7 +424,7 @@
       "partNumber": "GDL-ACMOTOMAX-B",
       "PID": "0x020003",
       "category": "Actuator",
-      "price": 0,
+      "price": 19.95,
       "tagline": "Heavy Duty 43A Motor Controller",
       "description": "This heavy-duty single motor controller has some serious driving power with up to 27V and 43A!",
       "keyFeatures": [
@@ -440,7 +440,7 @@
       "partNumber": "GDL-ACMOTOTWIN-B",
       "PID": "0x020004",
       "category": "Actuator",
-      "price": 0,
+      "price": 12.95,
       "tagline": "Dual Motor Controller",
       "description": "This dual motor controller is capable of driving 2 motors at 1A each, with up to 18V from two screw terminal block.",
       "keyFeatures": [
@@ -457,7 +457,7 @@
       "partNumber": "GDL-ACRELAYP16-A",
       "PID": "0x020006",
       "category": "Actuator",
-      "price": 0,
+      "price": 49.95,
       "tagline": "16x Isolated Relay Controller",
       "description": "When it comes to power isolation, this module comes in perfectly handy. The relays are optically-isolated from the rest of the circuit. The 16x relays are capable of up to 10A @ 250V each. The relays are powered from a 12V barrel-jack power source.",
       "keyFeatures": [
@@ -473,7 +473,7 @@
       "partNumber": "GDL-ACRELAYP4-C",
       "PID": "0x020005",
       "category": "Actuator",
-      "price": 0,
+      "price": 14.95,
       "tagline": "4x 10A Relay Controller",
       "description": "Control high current loads using these 4x mechanical relays. Each relay is capable of driving up to 1A at 250V. The relays are powered from a 5V barrel-jack power source.",
       "keyFeatures": [
@@ -489,7 +489,7 @@
       "partNumber": "GDL-ACRELAYX1-A",
       "PID": "0x020007",
       "category": "Actuator",
-      "price": 0,
+      "price": 9.95,
       "tagline": "Single Relay Controller",
       "description": "This single mechanical relay controller is self-powered, right from the DUELink bus. It is capable of 10A @ 250V.",
       "keyFeatures": [
@@ -505,7 +505,7 @@
       "partNumber": "GDL-ACSERVOP8-B",
       "PID": "0x020008",
       "category": "Actuator",
-      "price": 0,
+      "price": 9.95,
       "tagline": "8x Servo Motor Controller",
       "description": "Control up to 8x servo motors. Daisylink multiple Servo-P8 for controlling hundreds of servo motors!",
       "keyFeatures": [
@@ -520,7 +520,7 @@
       "partNumber": "GDL-ACSERVOX1-A",
       "PID": "0x020009",
       "category": "Actuator",
-      "price": 0,
+      "price": 13.95,
       "tagline": "Self-Power Single Servo Motor",
       "description": "This DUELink 9G micro servo has everything in a single package. The motor uses power right from the DUELink bus, where it is being controlled as well.",
       "keyFeatures": [
@@ -535,7 +535,7 @@
       "partNumber": "GDL-ACSTEPPULSE-A",
       "PID": "0x02000C",
       "category": "Actuator",
-      "price": 0,
+      "price": 9.95,
       "tagline": "Stepper Motor Signal Generator",
       "description": "This module will generate the signal (pulses) necessary to drive stepper motor controllers. There is a wide range of available controllers, including nicely isolated ones.",
       "keyFeatures": [
@@ -578,7 +578,7 @@
       "partNumber": "GDL-CMCAN-B",
       "PID": "0x030001",
       "category": "Communication",
-      "price": 0,
+      "price": 14.95,
       "tagline": "CAN Bus Interface",
       "description": "CAN bus interface module for automotive and industrial networks",
       "keyFeatures": [
@@ -595,7 +595,7 @@
       "partNumber": "GDL-CMDMX-B",
       "PID": "0x030002",
       "category": "Communication",
-      "price": 0,
+      "price": 14.95,
       "tagline": "DMX512 Lighting Control",
       "description": "Control hundreds of DMX stage motors and lights using this controller.\n\n![DMX Light](pathname:///img/dmx-light.jpg)\n\nNot only that, this module can also read DMX controllers. You can now have a commercial grade controller in your project.\n\n![DMX Controller](pathname:///img/dmx-controller.jpg)",
       "keyFeatures": [
@@ -611,7 +611,7 @@
       "partNumber": "GDL-CMETHERNET-C",
       "PID": "0x030003",
       "category": "Communication",
-      "price": 0,
+      "price": 24.95,
       "tagline": "Ethernet Network Module",
       "description": "Ethernet connectivity module for network communications",
       "keyFeatures": [
@@ -627,7 +627,7 @@
       "partNumber": "GDL-CMRS485-A",
       "PID": "0x030005",
       "category": "Communication",
-      "price": 0,
+      "price": 14.95,
       "tagline": "RS485 Serial Interface",
       "description": "Connect and control any industrial-grade low-cost electrically-isolated RS485 Sensors and Actuators with ease. Here is an example analog input.\n\n![RS485 Analog Input](pathname:///img/rs485-ain.jpg)",
       "keyFeatures": [
@@ -642,7 +642,7 @@
       "partNumber": "GDL-CMSERIALUSB-A",
       "PID": "0x030006",
       "category": "Communication",
-      "price": 0,
+      "price": 19.95,
       "tagline": "USB Virtual Serial Port",
       "description": "A virtual serial connection (COM port) is presented by this module. An application can send serial data to a computer over a USB connection.",
       "keyFeatures": [
@@ -658,7 +658,7 @@
       "PID": "0x030007",
       "CoprocFwVer": "003",
       "category": "Communication",
-      "price": 0,
+      "price": 16.95,
       "tagline": "USB Host Controller",
       "description": "USB host controller for connecting USB peripherals",
       "keyFeatures": [
@@ -674,7 +674,7 @@
       "partNumber": "GDL-HIBTNAR100-B",
       "PID": "0x040001",
       "category": "HMI",
-      "price": 0,
+      "price": 19.95,
       "tagline": "Extra Large 100mm Backlit Button",
       "description": "This large 100mm Red arcade button has an internal light and can take serious punches! We also added 3x RGB LEDs around it for some exciting light shows!",
       "keyFeatures": [
@@ -689,7 +689,7 @@
       "partNumber": "GDL-HIBTNRGB28X4-B",
       "PID": "0x040002",
       "category": "HMI",
-      "price": 0,
+      "price": 16.95,
       "tagline": "4x RGB Backlit Buttons",
       "description": "These four 28mm buttons are transparent white on the outside but are backlit with RGB LEDs. There are 7 possible color combinations, plus off!",
       "keyFeatures": [
@@ -704,7 +704,7 @@
       "partNumber": "GDL-HIBUTTONL-A",
       "PID": "0x040003",
       "category": "HMI",
-      "price": 0,
+      "price": 4.45,
       "tagline": "Large 10x10mm Tactile Button",
       "description": "Add a 10x10mm button to any project!",
       "keyFeatures": [
@@ -718,7 +718,7 @@
       "partNumber": "GDL-HIBUTTONL7-B",
       "PID": "0x040004",
       "category": "HMI",
-      "price": 0,
+      "price": 9.95,
       "tagline": "7x 10x10mm Tactile Buttons",
       "description": "This module includes 7x 10x10mm tactile buttons.",
       "keyFeatures": [
@@ -731,7 +731,7 @@
       "partNumber": "GDL-HIBUTTONS-A",
       "PID": "0x040005",
       "category": "HMI",
-      "price": 0,
+      "price": 4.45,
       "tagline": "Small 5x5mm Tactile Button",
       "description": "This module offers a small \"squishy\" 5x5mm tactile button.",
       "keyFeatures": [
@@ -745,7 +745,7 @@
       "partNumber": "GDL-HIDIAL-A",
       "PID": "0x040007",
       "category": "HMI",
-      "price": 0,
+      "price": 9.95,
       "tagline": "Dial Module",
       "description": "Use this module to read the position of the dial (potentiometer).",
       "keyFeatures": [
@@ -759,7 +759,7 @@
       "partNumber": "GDL-HIDIPSWITCH-B",
       "PID": "0x040008",
       "category": "HMI",
-      "price": 0,
+      "price": 9.95,
       "tagline": "10x Config DIP Switches",
       "description": "Use these 10x DIP switches as you wish, usually for config, in your project.",
       "keyFeatures": [
@@ -773,7 +773,7 @@
       "partNumber": "GDL-HIFINGERPRINT-B",
       "PID": "0x040009",
       "category": "HMI",
-      "price": 0,
+      "price": 49.95,
       "tagline": "Biometric Fingerprint Detector",
       "description": "Read and match prerecorded fingerprints with this intelligent HMI sensor.",
       "keyFeatures": [
@@ -804,7 +804,7 @@
       "partNumber": "GDL-HIKEYPAD3X4-B",
       "PID": "0x04000B",
       "category": "HMI",
-      "price": 0,
+      "price": 12.95,
       "tagline": "3x4 Numerical Keypad",
       "description": "3x4 numerical keypad with 12x \"squishy\" push buttons.",
       "keyFeatures": [
@@ -819,7 +819,7 @@
       "partNumber": "GDL-HIKEYPAD4X4-B",
       "PID": "0x04000C",
       "category": "HMI",
-      "price": 0,
+      "price": 14.95,
       "tagline": "4x4 Button Keypad",
       "description": "4x4 keypad with 16x \"squishy\" push buttons.",
       "keyFeatures": [
@@ -834,7 +834,7 @@
       "partNumber": "GDL-HIROTARY-C",
       "PID": "0x04000D",
       "category": "HMI",
-      "price": 0,
+      "price": 12.95,
       "tagline": "Rotary Encoder",
       "description": "Rotary encoder with push button for menu navigation",
       "keyFeatures": [
@@ -849,7 +849,7 @@
       "partNumber": "GDL-HISLIDER-B",
       "PID": "0x04000E",
       "category": "HMI",
-      "price": 0,
+      "price": 16.95,
       "tagline": "Read the position of the slider",
       "description": "Slider Module with Potentiometer",
       "keyFeatures": [
@@ -863,7 +863,7 @@
       "partNumber": "GDL-STFLASH-A",
       "PID": "0x080001",
       "category": "Storage",
-      "price": 0,
+      "price": 7.95,
       "tagline": "Flash Memory Storage",
       "description": "Add 16MB of flash storage to any project. Create your own file management system or use the provided sector read/write methods.",
       "keyFeatures": [
@@ -877,7 +877,7 @@
       "partNumber": "GDL-STSDCARD-B",
       "PID": "0x080002",
       "category": "Storage",
-      "price": 0,
+      "price": 9.95,
       "tagline": "SD Card Module",
       "description": "Access files on SD cards. Full file system facilities are provided, see [File System](/docs/engine/filesystem).\n\n:::tip\n[USB Host](/docs/products/cmusbhost-b) can be used to access files on USB memory devices.\n:::",
       "keyFeatures": [
@@ -891,7 +891,7 @@
       "partNumber": "GDL-STMICROSD-A",
       "PID": "0x080003",
       "category": "Storage",
-      "price": 0,
+      "price": 7.95,
       "tagline": "MicroSD Card Module",
       "description": "Access files on micro SD cards. Full file system facilities are provided, see [File System](/docs/engine/filesystem).\n\n:::tip\n[USB Host](/docs/products/cmusbhost-b) can be used to access files on USB memory devices.\n:::",
       "keyFeatures": [
@@ -935,7 +935,7 @@
       "partNumber": "GDL-WLINFRARED-A",
       "PID": "0x090006",
       "category": "Wireless",
-      "price": 0,
+      "price": 9.95,
       "tagline": "Infrared Transmitter & Receiver",
       "description": "Use light, infrared to be exact, to send and receive data. The data is transferred over a 38Khz frequency to filter out any other surrounding infrared light.",
       "keyFeatures": [
@@ -950,7 +950,7 @@
       "partNumber": "GDL-WLNRF24MAX-C",
       "PID": "0x090003",
       "category": "Wireless",
-      "price": 0,
+      "price": 14.95,
       "tagline": "Wireless NRF24 Transceiver with Amplified Antenna",
       "description": "Send and receive data wirelessly using SMA 2.4Ghz. The PA+LNA gives this module a coverage of up to a 1000 meters!. Min version [available](./wlnrf24min-c).",
       "keyFeatures": [
@@ -965,7 +965,7 @@
       "partNumber": "GDL-WLNRF24MIN-C",
       "PID": "0x090004",
       "category": "Wireless",
-      "price": 0,
+      "price": 9.95,
       "tagline": "Wireless NRF24 Transceiver",
       "description": "Send and receive data wirelessly using SMA 2.4Ghz. This module uses a simple PCB antenna. Consider [NRF24 Max](./wlnrf24max-c) for a higher coverage.!",
       "keyFeatures": [
@@ -980,7 +980,7 @@
       "partNumber": "GDL-WLRFID-B",
       "PID": "0x090005",
       "category": "Wireless",
-      "price": 0,
+      "price": 14.95,
       "tagline": "RFID Tag and Card Reader",
       "description": "Read RFID (Radio-Frequency IDentification) unique IDs from tags and access cards. The module includes tags, but any other standard tags should work.",
       "keyFeatures": [
@@ -995,7 +995,7 @@
       "partNumber": "GDL-SEACCEL-A",
       "PID": "0x060001",
       "category": "Sensor",
-      "price": 0,
+      "price": 7.95,
       "tagline": "3-Axis Accelerometer",
       "description": "This 3-axis accelerometer can be used to detect motion, tilt, and acceleration just to name a few.",
       "keyFeatures": [
@@ -1009,7 +1009,7 @@
       "partNumber": "GDL-SEAIRQUALITY-A",
       "PID": "0x060002",
       "category": "Sensor",
-      "price": 0,
+      "price": 19.95,
       "tagline": "Air Quality Sensor",
       "description": "This multi-gas digital sensor is used to detect surrounding air quality.",
       "keyFeatures": [
@@ -1023,7 +1023,7 @@
       "partNumber": "GDL-SEBAROMETER-B",
       "PID": "0x060003",
       "category": "Sensor",
-      "price": 0,
+      "price": 16.95,
       "tagline": "Barometric Pressure Sensor",
       "description": "This barometric pressure sensor also includes temperature and humidity measurements.",
       "keyFeatures": [
@@ -1037,7 +1037,7 @@
       "partNumber": "GDL-SECLIPSENSE-A",
       "PID": "0x060004",
       "category": "Sensor",
-      "price": 0,
+      "price": 8.95,
       "tagline": "Clip-friendly IOs with Capacitive Sensing",
       "description": "With these alligator-clip-friendly pads, users can easily connect(clip) anything that requires digital inputs/outputs. These pads also support analog and PWM (analog out) functionality.\n\nThe pads also support capacitive sensing to detect touch from a connected object.",
       "keyFeatures": [
@@ -1065,7 +1065,7 @@
         {
           "name": "12.5A",
           "partCode": "125",
-          "price": 0
+          "price": 9.95
         }
       ]
     },
@@ -1074,7 +1074,7 @@
       "partNumber": "GDL-SEDISTANCE-B",
       "PID": "0x060008",
       "category": "Sensor",
-      "price": 0,
+      "price": 9.95,
       "tagline": "Ultrasonic Distance Sensor",
       "description": "This sensor sends an ultrasonic chirp, then it measures the time it takes for the sound to bounce back. The time it takes maps to the distance between the sensor and the object it's facing.",
       "keyFeatures": [
@@ -1090,7 +1090,7 @@
       "partNumber": "GDL-SEDOF9-C",
       "PID": "0x060007",
       "category": "Sensor",
-      "price": 0,
+      "price": 19.95,
       "tagline": "9DoF MEMS Sensor",
       "description": "This 9DoF (Degrees of Freedom) MEMS (Micro Electro Mechanical System) sensor includes 3axis accelerometer, 3axis gyro, & 3axis magnetometer. The combination of these inputs can be used to get exact tilt and orientation.",
       "keyFeatures": [
@@ -1106,7 +1106,7 @@
       "partNumber": "GDL-SEEKG-A",
       "PID": "0x060009",
       "category": "Sensor",
-      "price": 0,
+      "price": 19.95,
       "tagline": "Heart EKG Sensor",
       "description": "Use this module to experiment with heart EKG signals. This is NOT a medical device but an educational sensor for experimentation. The kit includes probes and sticker pads.",
       "keyFeatures": [
@@ -1135,7 +1135,7 @@
         {
           "name": "MQ7 CO",
           "partCode": "MQ7",
-          "price": 0
+          "price": 14.95
         }
       ]
     },
@@ -1144,7 +1144,7 @@
       "partNumber": "GDL-SELIGHT-A",
       "PID": "0x06000B",
       "category": "Sensor",
-      "price": 0,
+      "price": 6.95,
       "tagline": "Ambient Light Sensor",
       "description": "A good sensor for detecting daytime or when lights are turned on. This is not an accurate light level sensor, but provides overall ambient light levels.",
       "keyFeatures": [
@@ -1158,7 +1158,7 @@
       "partNumber": "GDL-SEMOTION-B",
       "PID": "0x06000C",
       "category": "Sensor",
-      "price": 0,
+      "price": 19.95,
       "tagline": "PIR Motion Sensor",
       "description": "PIR (Passive Infrared) motion sensors use light in its view to detect motion.",
       "keyFeatures": [
@@ -1185,7 +1185,7 @@
         {
           "name": "100 bar",
           "partCode": "100",
-          "price": 0
+          "price": 19.95
         },
         {
           "name": "500 bar",
@@ -1199,7 +1199,7 @@
       "partNumber": "GDL-SERTC-B",
       "PID": "0x06000F",
       "category": "Sensor",
-      "price": 0,
+      "price": 12.95,
       "tagline": "Realtime Clock",
       "description": "This module is a RTC (Real Time Clock) \"time sensor\" with a backup battery to keep time running even when the system is powered off.",
       "keyFeatures": [
@@ -1214,7 +1214,7 @@
       "partNumber": "GDL-SETEMPHMD-B",
       "PID": "0x060010",
       "category": "Sensor",
-      "price": 0,
+      "price": 9.95,
       "tagline": "Temperature & Humidity Sensor",
       "description": "Measure temperature with +-0.5 degree of accuracy at 0.1 celsius resolution. The humidity sensor is +=2RH% accurate with a resolution of 0.1%RH.",
       "keyFeatures": [
@@ -1250,7 +1250,7 @@
       "partNumber": "GDL-LDLEDMT1208-A",
       "PID": "0x050003",
       "category": "LED",
-      "price": 0,
+      "price": 9.95,
       "tagline": "12x8 LED Matrix",
       "description": "Use these 96 dazzling LEDs to show text, create flashy games, or run whatever effect you desire. You will be surprised with how much you can do with a 12x8 LED matrix!",
       "keyFeatures": [
@@ -1272,7 +1272,7 @@
       "partNumber": "GDL-LDLEDR16-B",
       "PID": "0x050004",
       "category": "LED",
-      "price": 0,
+      "price": 6.95,
       "tagline": "16x LED Ring",
       "description": "A ring with 16 LEDs.",
       "keyFeatures": [
@@ -1293,7 +1293,7 @@
       "partNumber": "GDL-LDLEDRGB3-A",
       "PID": "0x050005",
       "category": "LED",
-      "price": 0,
+      "price": 6.95,
       "tagline": "3x RGB LED",
       "description": "A visual LED with 3x RGB LEDs. These lights can be set to any of 7 colors or can be turned off.",
       "keyFeatures": [
@@ -1307,7 +1307,7 @@
       "partNumber": "GDL-LDLEDS284-B",
       "PID": "0x050006",
       "category": "LED",
-      "price": 123,
+      "price": 13.95,
       "tagline": "0.28\" 4-Digit 7-Segment Display",
       "description": "These 0.28\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.\n\n![Count and Time](/img/led-7seg-time-count.png)",
       "keyFeatures": [
@@ -1330,7 +1330,7 @@
       "partNumber": "GDL-LDLEDS404-A",
       "PID": "0x050008",
       "category": "LED",
-      "price": 0,
+      "price": 16.95,
       "tagline": "0.40\" 4-Digit 7-Segment Display",
       "description": "These 0.40\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.\n\n![Count and Time](/img/led-7seg-time-count.png)",
       "keyFeatures": [
@@ -1353,7 +1353,7 @@
       "partNumber": "GDL-LDLEDS564-A",
       "PID": "0x05000A",
       "category": "LED",
-      "price": 0,
+      "price": 19.95,
       "tagline": "0.56\" 4-Digit 7-Segment Display",
       "description": "These 0.56\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.\n\n![Count and Time](/img/led-7seg-time-count.png)",
       "keyFeatures": [
@@ -1376,7 +1376,7 @@
       "partNumber": "GDL-LDLEDSS805-C",
       "PID": "0x05000C",
       "category": "LED",
-      "price": 0,
+      "price": 19.95,
       "tagline": "0.80\" 5-Digit 16-Segment Display",
       "description": "16-segment displays ar good to display alpha-numerical info. This 0.80 is a decent size to be visible from a few feet.",
       "keyFeatures": [
@@ -1399,7 +1399,7 @@
       "partNumber": "GDL-LDSMARTLED-A",
       "PID": "0x05000D",
       "category": "LED",
-      "price": 0,
+      "price": 6.95,
       "tagline": "Smart LED Controller",
       "description": "The DUELink standard library includes support for WS2811 smart LEDs. When using matrices, the support is even included with the graphics function.",
       "keyFeatures": [
@@ -1415,7 +1415,7 @@
       "partNumber": "GDL-SOBUZZER-B",
       "PID": "0x070001",
       "category": "Sound",
-      "price": 0,
+      "price": 6.95,
       "tagline": "Peizo Buzzer Sound Generator",
       "description": "Use this peizo buzzer to generate tones and simple melodies. Sound an alarm, play a melody when a task is finished or even generate noises!",
       "keyFeatures": [
@@ -1429,7 +1429,7 @@
       "partNumber": "GDL-SOMP3-A",
       "PID": "0x070003",
       "category": "Sound",
-      "price": 0,
+      "price": 12.95,
       "tagline": "MP3 Micro SD Player",
       "description": "Play MP3 audio/music from files found on the attached Micro SD card. The audio quality is reasonable and single mono channel. There is no system load as the module only receives and processes simple commands, like `start` playing, or `stop`. The files on the Micro SD card are saved in standard FAT16/FAT32 file system and can handle SD cards up to 32GB. Note that you will not have access to the files directly. Only the MP3 decoder can read the files. You will need to move the Micro SD card to a PC to load it with MP3 files.\n\nMicro SD card is required and is not included.",
       "keyFeatures": [
@@ -1445,7 +1445,7 @@
       "partNumber": "GDL-SORADIOFM-A",
       "PID": "0x070004",
       "category": "Sound",
-      "price": 0,
+      "price": 16.95,
       "tagline": "FM Radio Receiver",
       "description": "Use simple commands to set the channel and audio level on this FM Radio Receiver. The module includes a standard 3.5mm stereo audio plug, for connecting headphones or amplified speakers.",
       "keyFeatures": [
@@ -1460,7 +1460,7 @@
       "partNumber": "GDL-SOSPECTRUM-A",
       "PID": "0x070005",
       "category": "Sound",
-      "price": 0,
+      "price": 16.95,
       "tagline": "Spectrum Analyzer",
       "description": "This module breaks down the incoming audio into 63Hz, 160Hz, 400Hz, 1Khz, 2.5Khz, 6.25Khz, 16Khz. It then measures the audio level at these frequencies.",
       "keyFeatures": [
@@ -1475,7 +1475,7 @@
       "partNumber": "GDL-VIBARCODEL1D2D-A",
       "PID": "0x0B0003",
       "category": "Vision",
-      "price": 0,
+      "price": 39.95,
       "tagline": "1D/2D Barcode Scanner",
       "description": "This camera can capture and decode different barcodes.<br/><br/>1D Formats: EAN-13, EAN-8, UPC-A, UPC-E ISSN, ISBN, CodaBar,Code 128, Code93, ITF-14, ITF-6, Interleaved 2 of 5, Industrial 2 of 5, Matrix 2 of 5, Code 39,Code 11, MSI-Plessey, GS1 Composite,GS1-Databar (RSS)<br/>2D Formats: QR Code, Data Matrix, PDF417<br/>Scanning angle: Roll: 360° Pitch: 65° Yaw: 65°",
       "keyFeatures": [
@@ -1490,7 +1490,7 @@
       "partNumber": "GDL-VITHERMAL-A",
       "PID": "0x0B0002",
       "category": "Vision",
-      "price": 0,
+      "price": 69.95,
       "tagline": "Thermal Imaging Camera",
       "description": "Capture 8x8 thermal images. Capable of measuring 0° to 80° celsius.",
       "keyFeatures": [
@@ -1506,7 +1506,7 @@
       "partNumber": "GDL-ADDIOX12-A",
       "PID": "0x0A0002",
       "category": "Adapter",
-      "price": 0,
+      "price": 9.95,
       "tagline": "12x Terminal Block Input-Output",
       "description": "Access the first 12 pins of the DUELink system on screw terminal block. These pins are digital inputs/outputs and most of them include analog, PWM and other functionalities.",
       "keyFeatures": [
@@ -1521,7 +1521,7 @@
       "partNumber": "GDL-ADDUECLICK-A",
       "PID": "0x0A0005",
       "category": "Adapter",
-      "price": 0,
+      "price": 9.95,
       "tagline": "MikroBus Click Compatible Breakout",
       "description": "Take advantage of the thousands of available [MikroBus Click modules](https://www.mikroe.com/click).\n\nThe module can also be used as a basic female header IO connection module.",
       "keyFeatures": [
@@ -1534,7 +1534,7 @@
       "partNumber": "GDL-ADDUEPI-B",
       "PID": "0x0A0004",
       "category": "Adapter",
-      "price": 0,
+      "price": 14.95,
       "tagline": "Raspberry Pi HAT Adapter",
       "description": "DuePi is the perfect adapter for all RPI (Raspberry Pi) models, including RPI Zero. The outer mounting holes are standard mounting holes for RPI. The bottom half of the board is a 5mm-pitched holes for mounting DUELink modules. This bottom side is breakable to make the board smaller to make it the right size for RPI Zero.\n\n**DuePi with Raspberry Pi Zero**\n\n![DuePi with Raspberry Pi Zero](/img/duepi-zero.png)\n\nThe board includes several onboard peripherals, including buttons, buzzer, and a graphical display. The display is controlled using the DUELink native Graphics support. Simple commands are used to control the display instead of using Linux.\n\nThe onboard 800mA regulator is used to feed power to the Downlink connector, keeping any loads away from the RPI's 3.3V source.\n\nThe USB connector is conveniently there to help with loading/updating the DUELink processor's firmware/drivers. It should not be used when DuePi is used with a Raspberry Pi.\n\n:::note\nWith the USB connector and the onboard power regulator, this adapter can be used as a Microcomputer with full function\n:::",
       "keyFeatures": [
@@ -1553,7 +1553,7 @@
       "partNumber": "GDL-ADDUEPICO-B",
       "PID": "0x0A0003",
       "category": "Adapter",
-      "price": 0,
+      "price": 14.95,
       "tagline": "Raspberry Pi Pico Adapter",
       "description": "DuePico is the perfect adapter for RPI (Raspberry Pi) Pico. It gracefully takes the RPI Pico on its back side and offers all RPI Pico connections on female headers, allowing to connect it as you wish.\n\n![DuePico with Raspberry Pi Pico](/img/duepico-pico.png)\n\nOn the front side, the board includes several peripherals, including buttons, buzzer, and a graphical display. The display is controlled using the DUELink native [Graphics](/docs/engine/graphics) support. Simple commands are used to control the display instead of replying on RPI Pico.\n\nThe onboard 800mA regulator is used to feed power to the Downlink connector, keeping any loads away from the RPI Pico's 3.3V source.\n\nThe USB connector is conveniently there to help with loading/updating the DUELink processor's firmware/drivers. It should not be used when DuePico is used with a RPI Pico.\n\n:::note\nWith the USB connector and the onboard power regulator, this adapter can be used as a Microcomputer with full functionality without the need of any RPI!\n:::",
       "keyFeatures": [
@@ -1569,7 +1569,7 @@
       "name": "Breakout",
       "partNumber": "GDL-ADBREAKOUT-A",
       "category": "Adapter",
-      "price": 0,
+      "price": 2.95,
       "tagline": "Signals Breakout and Cable Extender",
       "description": "This module can be used as a DUELink cable extender. It also exposes all DUELink cable signals on a female header. This is useful to wire a [Supported Hardware](/docs/hw/intro) that does not have a JST connector.\n\nThe DRP and CTN signals are a mix of [UART](/docs/interface/uart), [I2C](/docs/interface/i2c) and [USB](/docs/interface/usb) [Interfaces](/docs/interface/intro).\n\nHere is a UART example:\n![Arduino Breakout UART](pathname:///img/arduino-breakout-uart.png)\n\nHere is an I2C example:\n![Arduino Breakout I2C](pathname:///img/arduino-breakout-i2c.png)",
       "keyFeatures": [
@@ -1582,7 +1582,7 @@
       "name": "LinkBit",
       "partNumber": "GDL-ADLINKBIT-A",
       "category": "Adapter",
-      "price": 0,
+      "price": 4.95,
       "tagline": "BBC micro:bit Compatible DUELink Extender",
       "description": "Bring a standard DUELink Downlink to your BBC micro:bit.",
       "keyFeatures": [
@@ -1595,7 +1595,7 @@
       "name": "Power Hook",
       "partNumber": "GDL-ADPOWERHOOK-A",
       "category": "Adapter",
-      "price": 0,
+      "price": 12.95,
       "tagline": "Rechargeable Battery Power Hook",
       "description": "The Power Hook works just like the USB Hook, but then it also includes a recharging circuit for 3.7V 10440 battery, which is required but not included. Note that the required 10440 battery is the same size as standard AAA batteries, but they are NOT compatible. NEVER install a AAA battery on this module!",
       "keyFeatures": [
@@ -1607,7 +1607,7 @@
       "name": "Power Inject",
       "partNumber": "GDL-ADPOWERINJECT-A",
       "category": "Adapter",
-      "price": 0,
+      "price": 6.95,
       "tagline": "Power Inject",
       "description": "When necessary, this module injects power in a long chain of DUELink modules. This also helps power any modules that have extra power needs than available on the main power source.",
       "keyFeatures": [
@@ -1621,7 +1621,7 @@
       "name": "PullUp",
       "partNumber": "GDL-ADPULLUP-A",
       "category": "Adapter",
-      "price": 0,
+      "price": 2.95,
       "tagline": "Inline 2.2k Pull-Up Module",
       "description": "If the I2C was chosen and the system does not have the proper I2C pull up resistors, then these PullUp modules come in very handy.",
       "keyFeatures": [
@@ -1633,7 +1633,7 @@
       "name": "Power Switch",
       "partNumber": "GDL-ADPWRSWITCH-A",
       "category": "Adapter",
-      "price": 0,
+      "price": 3.95,
       "tagline": "Downlink Power Switch Control",
       "description": "The power switch will disconnect power going to its downlink connector.",
       "keyFeatures": [
@@ -1646,7 +1646,7 @@
       "name": "Sticker",
       "partNumber": "GDL-ADSTICKER-C",
       "category": "Adapter",
-      "price": 0,
+      "price": 8.95,
       "tagline": "Development Board for Stick Modules",
       "description": "This is the ideal combo for Stick Microcomputer. It exposes all pins, some on male and some on female headers. The male headers add power and ground in a standard servo pinout.",
       "keyFeatures": [
@@ -1659,7 +1659,7 @@
       "name": "USB Hook",
       "partNumber": "GDL-ADUSBHOOK-A",
       "category": "Adapter",
-      "price": 0,
+      "price": 3.95,
       "tagline": "USB Interface Connection for DUELink Modules",
       "description": "USB Hook is handy to add USB Interface to any DUELink module. It includes an 800mA power source and a power LED.",
       "keyFeatures": [
@@ -1674,7 +1674,7 @@
       "name": "USB Wedge",
       "partNumber": "GDL-ADUSBWEDGE-B",
       "category": "Adapter",
-      "price": 0,
+      "price": 2.95,
       "tagline": "PCB USB DUELink Interface",
       "description": "A PCB (Printed Circuit Board) USB wedge for connecting DUELink modules to the USB Interface. It includes a power LED and 800mA power regulator.",
       "keyFeatures": [
@@ -1689,7 +1689,7 @@
       "name": "Wireless Hook",
       "partNumber": "GDL-ADWHOOK-B",
       "category": "Adapter",
-      "price": 0,
+      "price": 29.95,
       "tagline": "Connects DUELink Modules Wirelessly",
       "description": "This module works just like the USB Hook, but then it also adds wireless connectivity, allowing for wireless control of DUELink modules.",
       "keyFeatures": [
@@ -1715,27 +1715,27 @@
         {
           "name": "50mm 5pcs",
           "partCode": "050",
-          "price": 0
+          "price": 3.95
         },
         {
           "name": "150mm 5pcs",
           "partCode": "150",
-          "price": 0
+          "price": 4.45
         },
         {
           "name": "300mm 5pcs",
           "partCode": "300",
-          "price": 0
+          "price": 4.95
         },
         {
           "name": "100mm Breakout",
           "partCode": "100BR",
-          "price": 0
+          "price": 4.95
         },
         {
           "name": "Cable Variety Pack",
           "partCode": "VAR",
-          "price": 0
+          "price": 4.95
         }
       ]
     },
@@ -1755,12 +1755,12 @@
         {
           "name": "Downlink 10pcs",
           "partCode": "DL",
-          "price": 0
+          "price": 1.95
         },
         {
           "name": "Uplink 10pcs",
           "partCode": "UL",
-          "price": 0
+          "price": 1.95
         }
       ]
     },
@@ -1783,17 +1783,17 @@
         {
           "name": "Smally",
           "partCode": "S",
-          "price": 0
+          "price": 1.95
         },
         {
           "name": "Standard",
           "partCode": "M",
-          "price": 0
+          "price": 4.95
         },
         {
           "name": "Moley",
           "partCode": "L",
-          "price": 0
+          "price": 8.95
         }
       ]
     },
@@ -1812,27 +1812,27 @@
         {
           "name": "Standoffs M-F 10pcs",
           "partCode": "MF",
-          "price": 0
+          "price": 1.95
         },
         {
           "name": "Standoffs F-F 10pcs",
           "partCode": "FF",
-          "price": 0
+          "price": 1.95
         },
         {
           "name": "Screws 10pcs",
           "partCode": "SC",
-          "price": 0
+          "price": 1.95
         },
         {
           "name": "Nuts 10pcs",
           "partCode": "NT",
-          "price": 0
+          "price": 1.95
         },
         {
           "name": "Footpads 4pcs",
           "partCode": "FP",
-          "price": 0
+          "price": 2.95
         }
       ]
     }
