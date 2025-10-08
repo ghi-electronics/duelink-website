@@ -66,6 +66,7 @@ const sidebars = {
             "products/spghizzy-b",
             "products/sptree-b",
             "products/spchrono-a",
+            "products/sppiano-a"
           ],
         },
         {

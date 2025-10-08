@@ -226,6 +226,27 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLED(i,s)` | Set specific LED to on or off |\n| `DVer()` | This driver version. |"
     },
     {
+      "name": "Piano",
+      "partNumber": "GDL-SPPIANO-A",
+      "PID": "0x0C0005",
+      "category": "Specialty",
+      "price": 0.00,
+      "tagline": "Capacitive Touch Piano Module",
+      "description": "Play notes using capacitive touch pads or connect alligator clips to turn ordinary objects into a piano keys. Mounting holes to connect additional modules.",
+      "keyFeatures": [     
+        "Piano key layout",
+        "Multiple octave selection",
+        "5 User LEDs",
+        "Alligator clip holes",
+        "Holey section",
+        "On-board buzzer",
+        "USB Type C",
+        "111.5x75.5mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLED(i,s)` | Set specific LED to on or off |\n| `DVer()` | This driver version. |"
+    },
+
+    {
       "name": "ePaper M29",
       "partNumber": "GDL-DSEPAPERM29-A",
       "PID": "0x01000B",
