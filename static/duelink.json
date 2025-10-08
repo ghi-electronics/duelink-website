@@ -14,11 +14,27 @@
       "partNumber": "GDL-KTESSEN-A",
       "category": "Kit",
       "price": 74.95,
-      "tagline": "Essentials Kit with most Common Modules",
+      "tagline": "Essentials Kit With Most Common Modules!",
       "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Ghizzy](/docs/products/spghizzy-c)\n* [USB Hook](/docs/products/adusbhook-a)\n* [LED R16](/docs/products/ldledr16-b)\n* [Rotary](/docs/products/hirotary-c)\n* [Distance](/docs/products/sedistance-b)\n* [ServoX1](/docs/products/acservox1-a)\n* [Light Sensor](/docs/products/selight-a)\n* [Accel](/docs/products/seaccel-a)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt)\n* [Cables](/docs/products/axcbl)",
       "keyFeatures": [
         "Most Common Modules",
         "USB Hook",
+        "Holey Board",
+        "Mounting Hardware",
+        "Cables",
+        "Storage Box Included"
+      ]
+    },
+    {
+      "name": "Gimme More Kit",
+      "partNumber": "GDL-KTGIMME-A",
+      "category": "Kit",
+      "price": 74.95,
+      "tagline": "Never Enough! Gimme More Modules",
+      "description": "Use this kit alone or add it to the Essential Module Kit! Either way, you have an amazing set of moudle options.Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [One](/docs/products/spghizzy-c)\n* [Two](/docs/products/adusbhook-a)\n* [Three](/docs/products/ldledr16-b)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt)\n* [Cables](/docs/products/axcbl)",
+      "keyFeatures": [
+        "Common Modules",
+        "USB Wedge",
         "Holey Board",
         "Mounting Hardware",
         "Cables",
@@ -245,7 +261,44 @@
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLED(i,s)` | Set specific LED to on or off |\n| `DVer()` | This driver version. |"
     },
-
+    {
+      "name": "Snowy",
+      "partNumber": "GDL-SPSNOWY-A",
+      "PID": "0x0C0006",
+      "category": "Specialty",
+      "price": 0.00,
+      "tagline": "LED Snowflake",
+      "description": "Available with surface mount LEDs in Red, Green, or Blue, or with no LEDs as a soldier-yourself-project.",
+      "keyFeatures": [
+        "Snowflake shaped PCB",
+        "12 surface mounted LEDs optional",
+        "Unpopulated option to add your LEDs",
+        "44x49mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| ",
+      "variations": [
+        {
+          "name": "RED",
+          "partCode": "R",
+          "price": 0.00
+        },
+        {
+          "name": "GREEN",
+          "partCode": "G",
+          "price": 0.00
+        },
+        {
+          "name": "BLUE",
+          "partCode": "B",
+          "price": 0.00
+        },
+        {
+          "name": "No LEDs",
+          "partCode": "NP",
+          "price": 0.00
+        }
+      ]
+    },
     {
       "name": "ePaper M29",
       "partNumber": "GDL-DSEPAPERM29-A",
@@ -1472,6 +1525,20 @@
       "keyFeatures": [
         "Frequency Range 200Hz to 10Khz",
         "22x20mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayBeep(f, d)` | Play beep, (f: frequency, d: duration in ms). |\n| `PlaySound(f, d, c)` | Play sound, (f: frequency, d: duration in ms, c: duty cycle). |\n| `PlayMelody(a1)` | Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration). |\n| `StopMelody()` | Stop melody. |\n| `DVer()` | This driver version. |"
+    },
+    {
+      "name": "Jack",
+      "partNumber": "GDL-SOJACK-A",
+      "PID": "0x070006",
+      "category": "Sound",
+      "price": 6.95,
+      "tagline": "Play sounds and tones on 3.5mm Audio Jack",
+      "description": "Connect amplified speakers to the 3.5mm to generate all kind of tones. The modules has filters to smooth out output and also has control over left and right channels with individual PMW and timers. This not an MP3 player but it can sound an alarm, play a melody, and generate basic sounds!",
+      "keyFeatures": [
+        "Frequency Range 200Hz to 10Khz",
+        "27x22mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayBeep(f, d)` | Play beep, (f: frequency, d: duration in ms). |\n| `PlaySound(f, d, c)` | Play sound, (f: frequency, d: duration in ms, c: duty cycle). |\n| `PlayMelody(a1)` | Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration). |\n| `StopMelody()` | Stop melody. |\n| `DVer()` | This driver version. |"
     },

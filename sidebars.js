@@ -42,7 +42,8 @@ const sidebars = {
           type: "category",
           label: "Kits",
           items: [
-            "products/ktessen-a"
+            "products/ktessen-a",
+            "products/ktgimme-a"
           ],
         },
         {
@@ -65,6 +66,7 @@ const sidebars = {
             "products/spghizzyjr-a",
             "products/spghizzy-c",
             "products/sptree-b",
+            "products/spsnowy-a",
             "products/spchrono-a",
             "products/sppiano-a"
           ],
@@ -197,6 +199,7 @@ const sidebars = {
           label: "Sound",
           items: [
             "products/sobuzzer-b",
+            "products/sojack-a",
             "products/somp3-a",
             "products/soradiofm-a",
             "products/sospectrum-a"
