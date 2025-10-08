@@ -64,7 +64,7 @@ const sidebars = {
           label: "Specialty",
           items: [
             "products/spghizzyjr-a",
-            "products/spghizzy-c",
+            "products/spghizzy-d",
             "products/sptree-b",
             "products/spsnowy-a",
             "products/spchrono-a",
@@ -115,7 +115,6 @@ const sidebars = {
             "products/cmethernet-c",
             "products/cmrs485-a",
             "products/cmserialusb-a",
-            "products/cmusbhost-b",
           ],
         },
         {
@@ -144,6 +143,7 @@ const sidebars = {
             "products/stflash-a",
             "products/stmicrosd-a",
             "products/stsdcard-b",
+              "products/stusbhost-b",
           ],
         },
         {
@@ -177,7 +177,8 @@ const sidebars = {
             "products/seprsr-b",
             "products/sertc-b",
             "products/setemphmd-b",
-            "products/setemprtd-a"
+            "products/setemprtd-a",
+            "products/setempan-a"
           ],
         },
         {

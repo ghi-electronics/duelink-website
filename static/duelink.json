@@ -15,7 +15,7 @@
       "category": "Kit",
       "price": 74.95,
       "tagline": "Essentials Kit With Most Common Modules!",
-      "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Ghizzy](/docs/products/spghizzy-c) (includes buzzer, 2x RGB LEDs, and several Blue and Red LEDs.)\n* [USB Hook](/docs/products/adusbhook-a)\n* [LED R16](/docs/products/ldledr16-b)\n* [Rotary](/docs/products/hirotary-c)\n* [Distance](/docs/products/sedistance-b)\n* [ServoX1](/docs/products/acservox1-a)\n* [Light Sensor](/docs/products/selight-a)\n* [Accel](/docs/products/seaccel-a)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt)\n* [Cables](/docs/products/axcbl)",
+      "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Ghizzy](/docs/products/spghizzy-c) (includes buzzer, 2x RGB LEDs, and several Blue and Red LEDs.)\n* [USB Hook](/docs/products/adusbhook-a)\n* [LED R16](/docs/products/ldledr16-b)\n* [Rotary](/docs/products/hirotary-c)\n* [Distance](/docs/products/sedistance-b)\n* [ServoX1](/docs/products/acservox1-a)\n* [Temp Sensor](/docs/products/setempan-a)\n* [Accel](/docs/products/seaccel-a)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt)\n* [Cables](/docs/products/axcbl)",
       "keyFeatures": [
         "Most Common Modules",
         "USB Hook",
@@ -189,15 +189,15 @@
     },
     {
       "name": "Ghizzy",
-      "partNumber": "GDL-SPGHIZZY-C",
+      "partNumber": "GDL-SPGHIZZY-D",
       "PID": "0x0C0001",
       "category": "Specialty",
       "price": 9.95,
       "tagline": "Robot-shaped Microcomputer",
       "description": "Tiny robot-shaped circuits with LEDs, buzzer, and buttons.\n\n:::note\n\n The \"legs\" are a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n",
       "keyFeatures": [
-        "2 RGB LEDs",
-        "2 ear & 3 mouth LEDs",
+        "2x RGB LEDs",
+        "2x ear & 3x mouth LEDs",
         "Buzzer",
         "Uplink & Downlink DUELink Connectors",
         "2x user buttons",
@@ -230,12 +230,13 @@
       "PID": "0x0C0004",
       "category": "Specialty",
       "price": 6.95,
-      "tagline": "Battery Operated LED Matrix",
+      "tagline": "LED Matrix with optional Battery",
       "description": "Scroll text on the LED matrix or use the sides to show \"time\"! Chrono includes two buttons and a CR2032 battery holder.\n\n Add a a wrist band or a lanyard to turn this into a \"wearable\" module.",
       "keyFeatures": [     
         "5x5 LED Matrix",
         "2x user buttons",
-        "CR2032 Battery compatible",
+        "3V CR2032 Battery compatible",
+        "3.7V Lithium Battery Compatible",
         "Slotted ends for wristband or mounting",
         "31x37mm overall dimension"
       ],
@@ -595,7 +596,7 @@
       "partNumber": "GDL-ACSERVOP8-B",
       "PID": "0x020008",
       "category": "Actuator",
-      "price": 9.95,
+      "price": 14.95,
       "tagline": "8x Servo Motor Controller",
       "description": "Control up to 8x servo motors. Daisylink multiple Servo-P8 for controlling hundreds of servo motors!",
       "keyFeatures": [
@@ -739,23 +740,6 @@
         "USB Serial",
         "Virtual Serial Port",
         "USB-C connector",
-        "32x27mm overall dimension"
-      ]
-    },
-    {
-      "name": "USB Host",
-      "partNumber": "GDL-CMUSBHOST-B",
-      "PID": "0x030007",
-      "CoprocFwVer": "003",
-      "category": "Communication",
-      "price": 16.95,
-      "tagline": "USB Host Controller",
-      "description": "USB host controller for connecting USB peripherals",
-      "keyFeatures": [
-        "USB Host interface",
-        "MSC class",
-        "FAT16/FAT32 with LFN support",
-        "USB-A Host Connector",
         "32x27mm overall dimension"
       ]
     },
@@ -969,7 +953,7 @@
       "category": "Storage",
       "price": 9.95,
       "tagline": "SD Card Module",
-      "description": "Access files on SD cards. Full file system facilities are provided, see [File System](/docs/engine/filesystem).\n\n:::tip\n[USB Host](/docs/products/cmusbhost-b) can be used to access files on USB memory devices.\n:::",
+      "description": "Access files on SD cards. Full file system facilities are provided, see [File System](/docs/engine/filesystem).",
       "keyFeatures": [
         "SD card slot",
         "FAT file system",
@@ -983,11 +967,28 @@
       "category": "Storage",
       "price": 7.95,
       "tagline": "MicroSD Card Module",
-      "description": "Access files on micro SD cards. Full file system facilities are provided, see [File System](/docs/engine/filesystem).\n\n:::tip\n[USB Host](/docs/products/cmusbhost-b) can be used to access files on USB memory devices.\n:::",
+      "description": "Access files on micro SD cards. Full file system facilities are provided, see [File System](/docs/engine/filesystem).",
       "keyFeatures": [
         "Micro SD card slot",
         "FAT file system",
         "32x17mm overall dimension"
+      ]
+    },
+    {
+      "name": "USB Host",
+      "partNumber": "GDL-STUSBHOST-B",
+      "PID": "0x080004",
+      "CoprocFwVer": "003",
+      "category": "Storage",
+      "price": 16.95,
+      "tagline": "USB Host Controller",
+      "description": "USB host controller for connecting USB peripherals",
+      "keyFeatures": [
+        "USB Host interface",
+        "MSC Class",
+        "FAT16/FAT32 with LFN support",
+        "USB-A Host Connector",
+        "32x27mm overall dimension"
       ]
     },
     {
@@ -1262,7 +1263,7 @@
       "partNumber": "GDL-SEMOTION-B",
       "PID": "0x06000C",
       "category": "Sensor",
-      "price": 19.95,
+      "price": 11.95,
       "tagline": "PIR Motion Sensor",
       "description": "PIR (Passive Infrared) motion sensors use light in its view to detect motion.",
       "keyFeatures": [
@@ -1348,6 +1349,19 @@
           "price": 0.0
         }
       ]
+    },
+    {
+      "name": "Temperature Analog",
+      "partNumber": "GDL-SETEMPAN-A",
+      "PID": "0x060012",
+      "category": "Sensor",
+      "price": 6.95,
+      "tagline": "Analog Temperature Sensor",
+      "description": "Measure ambient temperature with ease!",
+      "keyFeatures": [
+        "17x19mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Temp()` | Returns temperature in celsius. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "LED MT1208",
