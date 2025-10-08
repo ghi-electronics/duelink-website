@@ -1821,29 +1821,35 @@
       "category": "Accessory",
       "price": 0,
       "tagline": "Holey Boards for Mounting DUELink Modules",
-      "description": "Holey Boards are blank circuits with standard 5mm-pitched holes for mounting DUELink Module. See [Mounting Hardware](./axmnt) for options.\n\nThere are three size:\n* Holey Smally Board: 18x12 holes\n* Holey Board: 36x18 holes\n* Holey Moley Board: 46x36 holes",
+      "description": "Holey Boards are blank circuits with standard 5mm-pitched holes for mounting DUELink Module. See [Mounting Hardware](./axmnt) for options.\n\nThere are four size:\n* Holey Stick: 4x12 holes\n* Holey Smally Board: 18x12 holes\n* Holey Board: 36x18 holes\n* Holey Moley Board: 46x36 holes",
       "keyFeatures": [
         "5mm-pitch holes",
         "Front grid markings",
         "Back clean printing",
-        "Holey Smally: 92x62",
+        "Holey Stick: 22x62mm",
+        "Holey Smally: 92x62mm",
         "Holey: 182x92mm",
         "Holey Moley: 182x232mm"
       ],
       "variations": [
         {
-          "name": "Smally",
+          "name": "Stick",
           "partCode": "S",
           "price": 1.95
         },
         {
-          "name": "Standard",
+          "name": "Smally",
           "partCode": "M",
+          "price": 2.95
+        },
+        {
+          "name": "Standard",
+          "partCode": "L",
           "price": 4.95
         },
         {
           "name": "Moley",
-          "partCode": "L",
+          "partCode": "XL",
           "price": 8.95
         }
       ]
