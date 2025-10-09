@@ -58,7 +58,8 @@
         "2x User Buttons",
         "52x42mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 5. |\n| `GetH()` | Get display height: 5. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |\n\n:::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 5. |\n| `GetH()` | Get display height: 5. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |\n\n:::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::",
+      "Notes": "Check Menu->Help for connection before testing"  
     },
     {
       "name": "ClipIt",
@@ -77,7 +78,8 @@
         "Light Sensor",
         "120x60mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `TouchA()` | Returns 1 if A pad is touched. |\n| `TouchB()` | Returns 1 if B pad is touched. |\n| `TouchUp()` | Returns 1 if Up pad is touched. |\n| `TouchDown()` | Returns 1 if Down pad is touched. |\n| `TouchLeft()` | Returns 1 if Left pad is touched. |\n| `TouchRight()` | Returns 1 if Right pad is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage level from light sensor. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `TouchA()` | Returns 1 if A pad is touched. |\n| `TouchB()` | Returns 1 if B pad is touched. |\n| `TouchUp()` | Returns 1 if Up pad is touched. |\n| `TouchDown()` | Returns 1 if Down pad is touched. |\n| `TouchLeft()` | Returns 1 if Left pad is touched. |\n| `TouchRight()` | Returns 1 if Right pad is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage level from light sensor. |\n| `DVer()` | This driver version. |",
+      "Notes": "Check Menu->Help for connection before testing"  
     },
     {
       "name": "DueDuino",
@@ -116,7 +118,8 @@
         "Tunes Buzzer",
         "107x57mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnPin(a)` | Returns button's pin number, based on `a` alias ('U' = Up, 'D' = Down, 'L' = Left, 'R' = Right) |\n| `GetX()` | Returns the X axis of the Accelerometer. |\n| `GetY()` | Returns the Y axis of the Accelerometer. |\n| `GetZ()` | Returns the Z axis of the Accelerometer. |\n| `SetBulb(c)` | Sets Lightbulb `c` color with 24bit RGB color (RRGGBB). |\n| `Tunes(f,d)` | Plays Tunes buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage level from Light sensor. |\n| `ReadTemp()` | Returns voltage level from Temperature sensor. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnPin(a)` | Returns button's pin number, based on `a` alias ('U' = Up, 'D' = Down, 'L' = Left, 'R' = Right) |\n| `GetX()` | Returns the X axis of the Accelerometer. |\n| `GetY()` | Returns the Y axis of the Accelerometer. |\n| `GetZ()` | Returns the Z axis of the Accelerometer. |\n| `SetBulb(c)` | Sets Lightbulb `c` color with 24bit RGB color (RRGGBB). |\n| `Tunes(f,d)` | Plays Tunes buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage level from Light sensor. |\n| `ReadTemp()` | Returns voltage level from Temperature sensor. |\n| `DVer()` | This driver version. |",
+      "Notes": "Check Menu->Help for connection before testing"  
     },
     {
       "name": "PixoBit",
@@ -167,8 +170,7 @@
         "DIP24 form factor",
         "Surface mountable SoM",
         "30.48x12.7mm overall dimension"
-      ],
-      "Notes": "Connect Ghizzy Jr leg to USB port directly."
+      ]      
     },
     {
       "name": "Ghizzy Jr",
@@ -205,7 +207,8 @@
         "27x61mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Eye(l,r)` | Sets the `l` left and `r` right \"Eyes\" with 24bit RGB color (RRGGBB). |\n| `Ear(l,r)` | Activate the `l` left and `r` \"ears\" LEDs (1 on, 0 off). |\n| `Mouth(o)` | Activate the `m` \"mouth\" LED (1 on, 0 off). |\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `DVer()` | This driver version. |",
-      "video": "D4073veneWI"
+      "video": "D4073veneWI",
+      "Notes": "Connect Ghizzy leg to USB port directly"
     },
     {
       "name": "Holiday Tree",
