@@ -1549,9 +1549,10 @@
       "category": "Sound",
       "price": 6.95,
       "tagline": "Play Sounds and Tones on 3.5mm Audio Jack",
-      "description": "Connect amplified speakers to the 3.5mm to generate all kind of tones. The modules has filters to smooth out output and also has control over left and right channels with individual PMW and timers. This not an MP3 player but it can sound an alarm, play a melody, and generate basic sounds!",
+      "description": "Connect amplified speakers to the 3.5mm jack to generate all kind of tones. The modules has filters to smooth out output and also has control over left and right channels with individual PMW and timers. This not an MP3 player but it can sound an alarm, play a melody, and generate basic sounds!",
       "keyFeatures": [
         "Frequency Range 200Hz to 10Khz",
+        "3.5mm audio jack",
         "27x22mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayBeep(f, d)` | Play beep, (f: frequency, d: duration in ms). |\n| `PlaySound(f, d, c)` | Play sound, (f: frequency, d: duration in ms, c: duty cycle). |\n| `PlayMelody(a1)` | Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration). |\n| `StopMelody()` | Stop melody. |\n| `DVer()` | This driver version. |"
