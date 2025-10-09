@@ -163,6 +163,20 @@ fn Test()
             wait(10)
         end
         
+        if (dread(20, 2) = 1)
+            clear(1)
+
+     
+            cmd("clear(0)")
+            cmd("Texts(\"Button LDR\",1,0,0,2,2)")
+            cmd("Texts(\"pressed\",1,0,20,2,2)")
+            cmd("show()")
+            
+            println("Button LDR pressed")
+            Buzzer(1000, 100)
+            wait(10)
+        end
+        
         show()
              
         wait(10)
