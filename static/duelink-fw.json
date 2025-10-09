@@ -9,7 +9,7 @@
       
     ],
     "boards": [
-	  { "name": "Official", "id": "D",  "rtm-fw": "v051"}
+	  { "name": "Official", "id": "D",  "rtm-fw": "v053"}
     ]
   },
   "MicroBlock": {
