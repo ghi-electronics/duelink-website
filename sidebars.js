@@ -221,6 +221,7 @@ const sidebars = {
             "products/adbreakout-a",
             "products/addiox12-a",
             "products/addueclick-a",
+            "products/adclick-a",
             "products/adduepi-b",
             "products/adduepico-b",
             "products/adlinkbit-a",
