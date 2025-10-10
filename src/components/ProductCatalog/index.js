@@ -123,6 +123,7 @@ const ProductCatalog = () => {
       case 'category':
         // Define the same category order as used in the sidebar
         const categoryOrder = [
+          'Kit',
           'Microcomputer',
           'Education',
           'Specialty',

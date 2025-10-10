@@ -29,7 +29,7 @@
       "name": "Gimme More Kit",
       "partNumber": "GDL-KTGIMME-A",
       "category": "Kit",
-      "price": 74.95,
+      "price": 99.95,
       "tagline": "Never Enough! Gimme More Modules!",
       "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options.Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Chrono](/docs/products/spchrono-a) - Includes 5x5 LED matrix and 2x buttons\n* [TFT N18](/docs/products/dstftn18-b) - 1.8\" Color Display\n* [USB Wedge](/docs/products/adusbwedge-b)\n* [Light Sensor](/docs/products/selight-a)\n* [Motion Sensor](/docs/products/semotion-b)\n* [Large Button](/docs/products/hibuttonl-a)\n* [Buzzer](/docs/products/sobuzzer-b)\n* [Servo P8](/docs/products/acservop8-b) - Connect up to 8x servo motors\n* [USB Host](/docs/products/stusbhost-b)\n* [Keypad 4x4](/docs/products/hikeypad4x4-b)\n* [Holey Boards](/docs/products/axholey) - Includes both: Holey Smally and Holey Stick\n* [Mounting Hardware](/docs/products/axmnt) - 10x Screws, 4x Metal \"feet\", 10x M-M 10mm standoff, 10x M-F 10mm standoff\n* [Cables](/docs/products/axcbl)",
       "keyFeatures": [
@@ -250,7 +250,7 @@
       "partNumber": "GDL-SPPIANO-A",
       "PID": "0x0C0005",
       "category": "Specialty",
-      "price": 0.00,
+      "price": 6.95,
       "tagline": "Capacitive Touch Piano Module",
       "description": "Play notes using capacitive touch pads or connect alligator clips to turn ordinary objects into a piano keys. Mounting holes to connect additional modules.",
       "keyFeatures": [     
@@ -270,7 +270,7 @@
       "partNumber": "GDL-SPSNOWY-A",
       "PID": "0x0C0006",
       "category": "Specialty",
-      "price": 0.00,
+      "price": 4.95,
       "tagline": "LED Snowflake",
       "description": "Available with surface mount LEDs in Red, Green, or Blue, or with no LEDs as a soldier-yourself-project.",
       "keyFeatures": [
@@ -284,22 +284,22 @@
         {
           "name": "RED",
           "partCode": "R",
-          "price": 0.00
+          "price": 5.95
         },
         {
           "name": "GREEN",
           "partCode": "G",
-          "price": 0.00
+          "price": 5.95
         },
         {
           "name": "BLUE",
           "partCode": "B",
-          "price": 0.00
+          "price": 5.95
         },
         {
           "name": "No LEDs",
           "partCode": "NP",
-          "price": 0.00
+          "price": 4.95
         }
       ]
     },
