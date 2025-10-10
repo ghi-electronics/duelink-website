@@ -227,6 +227,72 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayLED(enable)` | `PlayLED(1)` will make the LED constantly blink, default. Use `PlayLED(0)` to disable playback and manually control the LEDs. |\n| `SetLED(i, c, l)` | Sets a specific LED, `i` index (index start from 1), to a `c` color (hex value), `l` brightness (0 off, max 31). |\n| `SetAll(color)` | Sets all LEDs to a specific color, use 0 to turn off. |\n| `ShowLed()` | Flush Leds, and show. |\n| `RndLed()` | Show random color on random leds. |\n| `Buzzer(f,d)` | Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function. |\n| `DVer()` | This driver version. |",
       "video": "2INa95NzI_o"
     },
+        {
+      "name": "Snowy",
+      "partNumber": "GDL-SPSNOWY-A",
+      "PID": "0x0C0006",
+      "category": "Specialty",
+      "price": 4.95,
+      "tagline": "LED Snowflake",
+      "description": "This LED snowflake is available with or without LEDs. This gives the user the option to soldier their own LEDs. We also offer w/LED option for plug-n-play no soldering required.",
+      "keyFeatures": [
+        "Snowflake shaped PCB",
+        "12x surface mounted LEDs optional",
+        "Unpopulated option to add your LEDs",
+        "44x49mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| ",
+      "variations": [
+        {
+          "name": "RED",
+          "partCode": "R",
+          "price": 5.95
+        },
+        {
+          "name": "GREEN",
+          "partCode": "G",
+          "price": 5.95
+        },
+        {
+          "name": "BLUE",
+          "partCode": "B",
+          "price": 5.95
+        },
+        {
+          "name": "No LEDs",
+          "partCode": "NP",
+          "price": 4.95
+        }
+      ]
+    },
+    {
+      "name": "Cubicle",
+      "partNumber": "GDL-SPCUBICLE-A",
+      "PID": "0x0C0007",
+      "category": "Specialty",
+      "price": 0.00,
+      "tagline": "8x8 Stackable LED Panel",
+      "description": "This LED panel is available with or without LEDs. This gives the user the option to soldier their own LEDs. We also offer w/LED option for plug-n-play no soldering required. Connect in a stack or mount flat to create unique LED projects.",
+      "keyFeatures": [     
+        "Stack or mount flat",
+        "64x surface mounted LEDs optional",
+        "Unpopulated option to add your LEDs",
+        "148x144mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n|",
+      "variations": [
+        {
+          "name": "RED",
+          "partCode": "R",
+          "price": 0.00
+        },
+        {
+          "name": "No LEDs",
+          "partCode": "NP",
+          "price": 0.00
+        }
+      ]
+    },
     {
       "name": "Chrono",
       "partNumber": "GDL-SPCHRONO-A",
@@ -265,44 +331,7 @@
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLED(i,s)` | Set specific LED to on or off |\n| `DVer()` | This driver version. |"
     },
-    {
-      "name": "Snowy",
-      "partNumber": "GDL-SPSNOWY-A",
-      "PID": "0x0C0006",
-      "category": "Specialty",
-      "price": 4.95,
-      "tagline": "LED Snowflake",
-      "description": "Available with surface mount LEDs in Red, Green, or Blue, or with no LEDs as a soldier-yourself-project.",
-      "keyFeatures": [
-        "Snowflake shaped PCB",
-        "12 surface mounted LEDs optional",
-        "Unpopulated option to add your LEDs",
-        "44x49mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| ",
-      "variations": [
-        {
-          "name": "RED",
-          "partCode": "R",
-          "price": 5.95
-        },
-        {
-          "name": "GREEN",
-          "partCode": "G",
-          "price": 5.95
-        },
-        {
-          "name": "BLUE",
-          "partCode": "B",
-          "price": 5.95
-        },
-        {
-          "name": "No LEDs",
-          "partCode": "NP",
-          "price": 4.95
-        }
-      ]
-    },
+
     {
       "name": "ePaper M29",
       "partNumber": "GDL-DSEPAPERM29-A",
