@@ -124,19 +124,19 @@ const ProductCatalog = () => {
         const categoryOrder = [
           'Kit',
           'Microcomputer',
-          'Education',
           'Specialty',
+          'Adapter',
           'Display',
+          'Sensor',
           'Actuator',
           'Communication',
           'HMI',
           'Storage',
           'Wireless',
-          'Sensor',
           'LED',
           'Sound',
           'Vision',
-          'Adapter'
+          'Accessory'
         ];
         
         sorted.sort((a, b) => {
