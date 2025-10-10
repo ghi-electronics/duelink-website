@@ -1850,16 +1850,15 @@
       ]
     },
     {
-      "name": "Click Adapter",
-      "partNumber": "GDL-ADCLICK-A",
+      "name": "MBLink",
+      "partNumber": "GDL-ADMBLINK-A",
       "category": "Adapter",
       "price": 4.95,
-      "tagline": "Turn any a Click Host into a DUELink Host",
+      "tagline": "Turn any a MikroBUS Host into a DUELink Host",
       "description": "Add [Downlink](/docs/interface/downlink) connector to any SBC that has a [mikro BUS](https://www.mikroe.com/mikrobus) socket. You get two options, UART or I2C.",
       "keyFeatures": [
-        "BlueTooth or Wi-Fi Connectivity",
-        "Program DUELink Modules Wirelessly",
-        "37x42mm overall dimension"
+        "Two options: I2C & UART",
+        "25x28mm overall dimension"
       ]
     },
     {
