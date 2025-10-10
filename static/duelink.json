@@ -1681,12 +1681,12 @@
       "driverApi": ":::tip\nDio X12 module uses the [Standard Library API](/docs/engine/stdlib) directly. No other drivers are needed.\n:::"
     },
     {
-      "name": "DueClick",
-      "partNumber": "GDL-ADDUECLICK-A",
+      "name": "DueMBUS",
+      "partNumber": "GDL-ADDUEMBUS-A",
       "PID": "0x0A0005",
       "category": "Adapter",
       "price": 9.95,
-      "tagline": "MikroBus Click Compatible Breakout",
+      "tagline": "MikroBus Click Compatible Host",
       "description": "Take advantage of the thousands of available [MikroBus Click modules](https://www.mikroe.com/click).\n\nThe module can also be used as a basic female header IO connection module.",
       "keyFeatures": [
         "MikroBus headers",
