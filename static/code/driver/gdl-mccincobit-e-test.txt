@@ -6,10 +6,14 @@ fn Test()
     dlmode(2,0)
     Wait(10)
     cmd("sel(1)")
-    
+    c = 0
     while 1
         _l = Light()
      
+        if c % 10 = 0
+            println("light: ", _l, "%")
+        end
+        
         if _l < 10
             for _x = 0 to 5
                 Pixel(0,_x, 0)
@@ -30,7 +34,7 @@ fn Test()
             next
         end
      
-        if _l > 20 && _l <= 30
+        if _l > 20 && _l <= 40
             for _x = 0 to 5
                 Pixel(0,_x, 0)
                 Pixel(0,_x, 1)
@@ -40,7 +44,7 @@ fn Test()
             next
         end
      
-        if _l > 30 && _l <= 40
+        if _l > 40 && _l <= 60
             for _x = 0 to 5
                 Pixel(0,_x, 0)
                 Pixel(0,_x, 1)
@@ -50,7 +54,7 @@ fn Test()
             next
         end
      
-        if _l > 40 && _l <= 50
+        if _l > 60 && _l <= 80
             for _x = 0 to 5
                 Pixel(0,_x, 0)
                 Pixel(1,_x, 1)
@@ -60,7 +64,7 @@ fn Test()
             next
         end
      
-        if _l > 50 
+        if _l > 80 
             for _x = 0 to 5
                 Pixel(1,_x, 0)
                 Pixel(1,_x, 1)
@@ -148,6 +152,8 @@ fn Test()
         end
              
         wait(10)
+        
+        c = c + 1
      
      
     wend
