@@ -63,19 +63,18 @@ const ProductCatalog = () => {
       'Kit',
       'Microcomputer',
       'Specialty',
+      'Adapter',
       'Display',
+      'Sensor',
       'Actuator',
       'Communication',
       'HMI',
       'Storage',
       'Wireless',
-      'Sensor',
       'LED',
       'Sound',
       'Vision',
-      'Adapter',
       'Accessory'
-
     ];
     
     const cats = new Set(products.map(p => p.category || 'Other'));

@@ -74,6 +74,26 @@ const sidebars = {
         },
         {
           type: "category",
+          label: "Adapters",
+          items: [
+            "products/adbreakout-a",
+            "products/addiox12-a",
+            "products/addueclick-a",
+            "products/adclick-a",
+            "products/adduepi-b",
+            "products/adduepico-b",
+            "products/adlinkbit-a",
+            "products/adpowerhook-a",
+            "products/adpowerinject-a",
+            "products/adpullup-a",
+            "products/adpwrswitch-a",
+            "products/adsticker-c",
+            "products/adusbhook-a",
+            "products/adusbwedge-b"
+          ],
+        },
+        {
+          type: "category",
           label: "Displays",
           items: [
             "products/dsepaperm29-a",
@@ -87,6 +107,28 @@ const sidebars = {
             "products/dstftn18-b",
             "products/dstftr128-b",
             "products/dsvfdb8-c"
+          ],
+        },
+        {
+          type: "category",
+          label: "Sensors",
+          items: [
+            "products/seaccel-a",
+            "products/seairquality-a",
+            "products/sebarometer-b",
+            "products/seclipsense-a",
+            "products/securrent-a",
+            "products/sedistance-b",
+            "products/sedof9-c",
+            "products/seekg-a",
+            "products/segas-b",
+            "products/selight-a",
+            "products/semotion-b",
+            "products/seprsr-b",
+            "products/sertc-b",
+            "products/setemphmd-b",
+            "products/setemprtd-a",
+            "products/setempan-a"
           ],
         },
         {
@@ -162,28 +204,6 @@ const sidebars = {
         },
         {
           type: "category",
-          label: "Sensors",
-          items: [
-            "products/seaccel-a",
-            "products/seairquality-a",
-            "products/sebarometer-b",
-            "products/seclipsense-a",
-            "products/securrent-a",
-            "products/sedistance-b",
-            "products/sedof9-c",
-            "products/seekg-a",
-            "products/segas-b",
-            "products/selight-a",
-            "products/semotion-b",
-            "products/seprsr-b",
-            "products/sertc-b",
-            "products/setemphmd-b",
-            "products/setemprtd-a",
-            "products/setempan-a"
-          ],
-        },
-        {
-          type: "category",
           label: "LEDs",
           items: [
             "products/ldledmt1208-a",
@@ -213,26 +233,6 @@ const sidebars = {
           items: [
             "products/vibarcodel1d2d-a",
             "products/vithermal-a"
-          ],
-        },
-        {
-          type: "category",
-          label: "Adapters",
-          items: [
-            "products/adbreakout-a",
-            "products/addiox12-a",
-            "products/addueclick-a",
-            "products/adclick-a",
-            "products/adduepi-b",
-            "products/adduepico-b",
-            "products/adlinkbit-a",
-            "products/adpowerhook-a",
-            "products/adpowerinject-a",
-            "products/adpullup-a",
-            "products/adpwrswitch-a",
-            "products/adsticker-c",
-            "products/adusbhook-a",
-            "products/adusbwedge-b"
           ],
         },
         {
