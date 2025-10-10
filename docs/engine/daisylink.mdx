@@ -111,19 +111,10 @@ A device in "host" mode is still listening to commands coming from Uplink, but i
 
 ---
 
-## Gateway
+## Wireless
 
-In some cases, a specialized interface can be used to pipe data into Daisylink. For example, [Wireless Hook](../products/adwhook-b) opens up a gateway between Bluetooth and the connected modules. Just like in host, the module itself has its own address; however, the module runs in a special mode where it is a host to the connected modules.
+It is possible to use a wireless connection to daisylink!
 
+![Wireless ESP32 Host](pathname:///img/daisylink-wireless-host.png)
 
-![Wireless Hook Host](pathname:///img/daisylink-wireless-host.png)
-
-
-This example assumes the connection was established and only shows the connection part. The [Wireless Hook](../products/adwhook-b) page has the full drivers to establish the connection.
-
-
-```py
-# Assuming a wireless connection was established
-DLMode(3,0) # Switch Downlink to UART gateway mode
-# Now any data coming from UART will go Downlink and and data coming from Downlink will go up UART.
-```
+See [Wireless](../interface/wireless) interface page for more info.

@@ -10,6 +10,38 @@
   },
   "products": [
     {
+      "name": "Essentials Kit",
+      "partNumber": "GDL-KTESSEN-A",
+      "category": "Kit",
+      "price": 74.95,
+      "tagline": "Essentials Kit With Most Common Modules!",
+      "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Ghizzy](/docs/products/spghizzy-d) (includes buzzer, 2x RGB LEDs, and several Blue and Red LEDs.)\n* [USB Hook](/docs/products/adusbhook-a)\n* [LED R16](/docs/products/ldledr16-b)\n* [Rotary](/docs/products/hirotary-c)\n* [Distance](/docs/products/sedistance-b)\n* [ServoX1](/docs/products/acservox1-a)\n* [Temp Sensor](/docs/products/setempan-a)\n* [Accel](/docs/products/seaccel-a)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt)\n* [Cables](/docs/products/axcbl)",
+      "keyFeatures": [
+        "Most Common Modules",
+        "USB Hook",
+        "Holey Board",
+        "Mounting Hardware",
+        "Cables",
+        "Storage Box Included"
+      ]
+    },
+    {
+      "name": "Gimme More Kit",
+      "partNumber": "GDL-KTGIMME-A",
+      "category": "Kit",
+      "price": 99.95,
+      "tagline": "Never Enough! Gimme More Modules!",
+      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options.Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Chrono](/docs/products/spchrono-a) - Includes 5x5 LED matrix and 2x buttons\n* [TFT N18](/docs/products/dstftn18-b) - 1.8\" Color Display\n* [USB Wedge](/docs/products/adusbwedge-b)\n* [Light Sensor](/docs/products/selight-a)\n* [Motion Sensor](/docs/products/semotion-b)\n* [Large Button](/docs/products/hibuttonl-a)\n* [Buzzer](/docs/products/sobuzzer-b)\n* [Servo P8](/docs/products/acservop8-b) - Connect up to 8x servo motors\n* [USB Host](/docs/products/stusbhost-b)\n* [Keypad 4x4](/docs/products/hikeypad4x4-b)\n* [Holey Boards](/docs/products/axholey) - Includes both: Holey Smally and Holey Stick\n* [Mounting Hardware](/docs/products/axmnt) - 10x Screws, 4x Metal \"feet\", 10x M-M 10mm standoff, 10x M-F 10mm standoff\n* [Cables](/docs/products/axcbl)",
+      "keyFeatures": [
+        "Common Modules",
+        "USB Wedge",
+        "Holey Board",
+        "Mounting Hardware",
+        "Cables",
+        "Storage Box Included"
+      ]
+    },
+    {
       "name": "CincoBit",
       "partNumber": "GDL-MCCINCOBIT-E",
       "PID": "0x000001",
@@ -26,7 +58,8 @@
         "2x User Buttons",
         "52x42mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 5. |\n| `GetH()` | Get display height: 5. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |\n\n:::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 5. |\n| `GetH()` | Get display height: 5. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |\n\n:::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::",
+      "Notes": "Check Menu->Help for connection before testing"  
     },
     {
       "name": "ClipIt",
@@ -45,7 +78,8 @@
         "Light Sensor",
         "120x60mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `TouchA()` | Returns 1 if A pad is touched. |\n| `TouchB()` | Returns 1 if B pad is touched. |\n| `TouchUp()` | Returns 1 if Up pad is touched. |\n| `TouchDown()` | Returns 1 if Down pad is touched. |\n| `TouchLeft()` | Returns 1 if Left pad is touched. |\n| `TouchRight()` | Returns 1 if Right pad is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage level from light sensor. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `TouchA()` | Returns 1 if A pad is touched. |\n| `TouchB()` | Returns 1 if B pad is touched. |\n| `TouchUp()` | Returns 1 if Up pad is touched. |\n| `TouchDown()` | Returns 1 if Down pad is touched. |\n| `TouchLeft()` | Returns 1 if Left pad is touched. |\n| `TouchRight()` | Returns 1 if Right pad is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage level from light sensor. |\n| `DVer()` | This driver version. |",
+      "Notes": "Check Menu->Help for connection before testing"  
     },
     {
       "name": "DueDuino",
@@ -84,7 +118,8 @@
         "Tunes Buzzer",
         "107x57mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnPin(a)` | Returns button's pin number, based on `a` alias ('U' = Up, 'D' = Down, 'L' = Left, 'R' = Right) |\n| `GetX()` | Returns the X axis of the Accelerometer. |\n| `GetY()` | Returns the Y axis of the Accelerometer. |\n| `GetZ()` | Returns the Z axis of the Accelerometer. |\n| `SetBulb(c)` | Sets Lightbulb `c` color with 24bit RGB color (RRGGBB). |\n| `Tunes(f,d)` | Plays Tunes buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage level from Light sensor. |\n| `ReadTemp()` | Returns voltage level from Temperature sensor. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnPin(a)` | Returns button's pin number, based on `a` alias ('U' = Up, 'D' = Down, 'L' = Left, 'R' = Right) |\n| `GetX()` | Returns the X axis of the Accelerometer. |\n| `GetY()` | Returns the Y axis of the Accelerometer. |\n| `GetZ()` | Returns the Z axis of the Accelerometer. |\n| `SetBulb(c)` | Sets Lightbulb `c` color with 24bit RGB color (RRGGBB). |\n| `Tunes(f,d)` | Plays Tunes buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage level from Light sensor. |\n| `ReadTemp()` | Returns voltage level from Temperature sensor. |\n| `DVer()` | This driver version. |",
+      "Notes": "Check Menu->Help for connection before testing"  
     },
     {
       "name": "PixoBit",
@@ -135,8 +170,7 @@
         "DIP24 form factor",
         "Surface mountable SoM",
         "30.48x12.7mm overall dimension"
-      ],
-      "Notes": "Connect Ghizzy Jr leg to USB port directly."
+      ]      
     },
     {
       "name": "Ghizzy Jr",
@@ -145,9 +179,9 @@
       "category": "Specialty",
       "price": 2.99,
       "tagline": "Tiny Robot-shaped Microcomputer",
-      "description": "Thinking about an exciting give-away for your next event customized with your logo?  This is Ghizzy Jr, quite possibly the smallest, cutest, and smartest keychain in the world! This mini robot-shaped pocket-sized microcomputer plugs right into a USB socket and is a programmable board with endless possibilities, thanks to its [Downlink](/docs/interface/downlink) connector. Start by controlling the full-color eyes and then start [daiylinking](/docs/engine/daisylink) any of the DUELink modules!\n\n Ghizzy can be commanded from one of the many supported [Coding Languages](/docs/language/intro), and it can run stand alone using [MicroBlocks](/docs/language/microblocks).\n\n![custom logo](pathname:///img/ghizzy-jr-logo.png)\n\nGhizzy Jr is only available as a special order,  **customized with your artwork**. There is a minimum order of 500 pieces and 4-weeks lead-time. Please [Contact us](https://www.ghielectronics.com/contact/) for more information.\n\n:::note\n\n The \"legs\" are a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n",
+      "description": "Thinking about an exciting give-away for your next event customized with your logo?  This is Ghizzy Jr, quite possibly the smallest, cutest, and smartest keychain in the world! This mini robot-shaped pocket-sized microcomputer plugs right into a USB socket and is a programmable board with endless possibilities, thanks to its [Downlink](/docs/interface/downlink) connector. Start by controlling the full-color eyes and then start [daiylinking](/docs/engine/daisylink) any of the DUELink modules!\n\n Ghizzy can be commanded from one of the many supported [Coding Languages](/docs/language/intro), and it can run stand alone using [MicroBlocks](/docs/language/microblocks).\nGhizzy Jr is only available as a special order,  **customized with your artwork**. \n\n![custom logo](pathname:///img/ghizzy-jr-logo.png)\n\nThe listed price is for an order of 500 pieces, with higher price for 250 pieces. Account for a 4-weeks lead-time. Please [Contact us](https://www.ghielectronics.com/contact/) for more information.\n\n:::note\n\n The \"legs\" are a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n",
       "keyFeatures": [
-        "2 RGB LEDs",
+        "2x RGB LEDs",
         "Downlink DUELink Connector",
         "PCB USB-A",
         "20x47mm overall dimension"
@@ -157,23 +191,24 @@
     },
     {
       "name": "Ghizzy",
-      "partNumber": "GDL-SPGHIZZY-B",
+      "partNumber": "GDL-SPGHIZZY-D",
       "PID": "0x0C0001",
       "category": "Specialty",
       "price": 9.95,
       "tagline": "Robot-shaped Microcomputer",
-      "description": "Tiny robot-shaped circuits with LEDs, buzzer, buttons, and CR2032 battery holder.\n\n:::note\n\n The \"legs\" are a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n",
+      "description": "Tiny robot-shaped circuits with LEDs, buzzer, and buttons.\n\n:::note\n\n The \"legs\" are a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n",
       "keyFeatures": [
-        "2 RGB LEDs",
+        "2x RGB LEDs",
+        "2x ear & 3x mouth LEDs",
         "Buzzer",
         "Uplink & Downlink DUELink Connectors",
-        "2x User Buttons",
-        "CR2032 button battery powered",
+        "2x user buttons",
         "PCB USB-A",
         "27x61mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Eye(l,r)` | Sets the `l` left and `r` right \"Eyes\" with 24bit RGB color (RRGGBB). |\n| `Ear(l,r)` | Activate the `l` left and `r` \"ears\" LEDs (1 on, 0 off). |\n| `Mouth(o)` | Activate the `m` \"mouth\" LED (1 on, 0 off). |\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `DVer()` | This driver version. |",
-      "video": "D4073veneWI"
+      "video": "D4073veneWI",
+      "Notes": "Connect Ghizzy leg to USB port directly"
     },
     {
       "name": "Holiday Tree",
@@ -192,23 +227,111 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayLED(enable)` | `PlayLED(1)` will make the LED constantly blink, default. Use `PlayLED(0)` to disable playback and manually control the LEDs. |\n| `SetLED(i, c, l)` | Sets a specific LED, `i` index (index start from 1), to a `c` color (hex value), `l` brightness (0 off, max 31). |\n| `SetAll(color)` | Sets all LEDs to a specific color, use 0 to turn off. |\n| `ShowLed()` | Flush Leds, and show. |\n| `RndLed()` | Show random color on random leds. |\n| `Buzzer(f,d)` | Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function. |\n| `DVer()` | This driver version. |",
       "video": "2INa95NzI_o"
     },
+        {
+      "name": "Snowy",
+      "partNumber": "GDL-SPSNOWY-A",
+      "PID": "0x0C0006",
+      "category": "Specialty",
+      "price": 4.95,
+      "tagline": "LED Snowflake",
+      "description": "This LED snowflake is available with or without LEDs. This gives the user the option to soldier their own LEDs. We also offer w/LED option for plug-n-play no soldering required.",
+      "keyFeatures": [
+        "Snowflake shaped PCB",
+        "12x surface mounted LEDs optional",
+        "Unpopulated option to add your LEDs",
+        "44x49mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| ",
+      "variations": [
+        {
+          "name": "RED",
+          "partCode": "R",
+          "price": 5.95
+        },
+        {
+          "name": "GREEN",
+          "partCode": "G",
+          "price": 5.95
+        },
+        {
+          "name": "BLUE",
+          "partCode": "B",
+          "price": 5.95
+        },
+        {
+          "name": "No LEDs",
+          "partCode": "NP",
+          "price": 4.95
+        }
+      ]
+    },
+    {
+      "name": "Cubicle",
+      "partNumber": "GDL-SPCUBICLE-A",
+      "PID": "0x0C0007",
+      "category": "Specialty",
+      "price": 0.00,
+      "tagline": "8x8 Stackable LED Panel",
+      "description": "This LED panel is available with or without LEDs. This gives the user the option to soldier their own LEDs. We also offer w/LED option for plug-n-play no soldering required. Connect in a stack or mount flat to create unique LED projects.",
+      "keyFeatures": [     
+        "Stack or mount flat",
+        "64x surface mounted LEDs optional",
+        "Unpopulated option to add your LEDs",
+        "148x144mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n|",
+      "variations": [
+        {
+          "name": "RED",
+          "partCode": "R",
+          "price": 0.00
+        },
+        {
+          "name": "No LEDs",
+          "partCode": "NP",
+          "price": 0.00
+        }
+      ]
+    },
     {
       "name": "Chrono",
       "partNumber": "GDL-SPCHRONO-A",
       "PID": "0x0C0004",
       "category": "Specialty",
       "price": 6.95,
-      "tagline": "Battery Operated LED Matrix",
+      "tagline": "LED Matrix with optional Battery",
       "description": "Scroll text on the LED matrix or use the sides to show \"time\"! Chrono includes two buttons and a CR2032 battery holder.\n\n Add a a wrist band or a lanyard to turn this into a \"wearable\" module.",
       "keyFeatures": [     
         "5x5 LED Matrix",
         "2x user buttons",
-        "CR2032 Battery compatible",
+        "3V CR2032 Battery compatible",
+        "3.7V Lithium Battery Compatible",
         "Slotted ends for wristband or mounting",
         "31x37mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLED(i,s)` | Set specific LED to on or off |\n| `DVer()` | This driver version. |"
     },
+    {
+      "name": "Piano",
+      "partNumber": "GDL-SPPIANO-A",
+      "PID": "0x0C0005",
+      "category": "Specialty",
+      "price": 6.95,
+      "tagline": "Capacitive Touch Piano Module",
+      "description": "Play notes using capacitive touch pads or connect alligator clips to turn ordinary objects into a piano keys. Mounting holes to connect additional modules.",
+      "keyFeatures": [     
+        "Piano key layout",
+        "Multiple octave selection",
+        "5 User LEDs",
+        "Alligator clip holes",
+        "Holey section",
+        "On-board buzzer",
+        "USB Type C",
+        "111.5x75.5mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLED(i,s)` | Set specific LED to on or off |\n| `DVer()` | This driver version. |"
+    },
+
     {
       "name": "ePaper M29",
       "partNumber": "GDL-DSEPAPERM29-A",
@@ -505,7 +628,7 @@
       "partNumber": "GDL-ACSERVOP8-B",
       "PID": "0x020008",
       "category": "Actuator",
-      "price": 9.95,
+      "price": 14.95,
       "tagline": "8x Servo Motor Controller",
       "description": "Control up to 8x servo motors. Daisylink multiple Servo-P8 for controlling hundreds of servo motors!",
       "keyFeatures": [
@@ -649,23 +772,6 @@
         "USB Serial",
         "Virtual Serial Port",
         "USB-C connector",
-        "32x27mm overall dimension"
-      ]
-    },
-    {
-      "name": "USB Host",
-      "partNumber": "GDL-CMUSBHOST-B",
-      "PID": "0x030007",
-      "CoprocFwVer": "003",
-      "category": "Communication",
-      "price": 16.95,
-      "tagline": "USB Host Controller",
-      "description": "USB host controller for connecting USB peripherals",
-      "keyFeatures": [
-        "USB Host interface",
-        "MSC class",
-        "FAT16/FAT32 with LFN support",
-        "USB-A Host Connector",
         "32x27mm overall dimension"
       ]
     },
@@ -879,7 +985,7 @@
       "category": "Storage",
       "price": 9.95,
       "tagline": "SD Card Module",
-      "description": "Access files on SD cards. Full file system facilities are provided, see [File System](/docs/engine/filesystem).\n\n:::tip\n[USB Host](/docs/products/cmusbhost-b) can be used to access files on USB memory devices.\n:::",
+      "description": "Access files on SD cards. Full file system facilities are provided, see [File System](/docs/engine/filesystem).",
       "keyFeatures": [
         "SD card slot",
         "FAT file system",
@@ -893,11 +999,42 @@
       "category": "Storage",
       "price": 7.95,
       "tagline": "MicroSD Card Module",
-      "description": "Access files on micro SD cards. Full file system facilities are provided, see [File System](/docs/engine/filesystem).\n\n:::tip\n[USB Host](/docs/products/cmusbhost-b) can be used to access files on USB memory devices.\n:::",
+      "description": "Access files on micro SD cards. Full file system facilities are provided, see [File System](/docs/engine/filesystem).",
       "keyFeatures": [
         "Micro SD card slot",
         "FAT file system",
         "32x17mm overall dimension"
+      ]
+    },
+    {
+      "name": "USB Host",
+      "partNumber": "GDL-STUSBHOST-B",
+      "PID": "0x080004",
+      "CoprocFwVer": "003",
+      "category": "Storage",
+      "price": 16.95,
+      "tagline": "USB Host Controller",
+      "description": "USB host controller for connecting USB peripherals",
+      "keyFeatures": [
+        "USB Host interface",
+        "MSC Class",
+        "FAT16/FAT32 with LFN support",
+        "USB-A Host Connector",
+        "32x27mm overall dimension"
+      ]
+    },
+    {
+      "name": "Wireless ESP32",
+      "partNumber": "GDL-WLESP32-A",
+      "PID": "0x090007",
+      "category": "Wireless",
+      "price": 19.95,
+      "tagline": "Connects DUELink Modules Wirelessly",
+      "description": "This module adds wireless connectivity, allowing for wireless control of DUELink modules. It can be used in 2 ways: Use it as a [Wireless Interface](/docs/interface/wireless) Host, controling a [daisylink](/docs/engine/daisylink) of modules. You will be able to program and command modules over a wireless connection! The other option is to use this module within a daisylink, to provide a wireless access to the host and other connected modules.",
+      "keyFeatures": [
+        "Bluetooth or WiFi Connectivity",
+        "Program DUELink Modules Wirelessly",
+        "27x37mm overall dimension"
       ]
     },
     {
@@ -1158,7 +1295,7 @@
       "partNumber": "GDL-SEMOTION-B",
       "PID": "0x06000C",
       "category": "Sensor",
-      "price": 19.95,
+      "price": 11.95,
       "tagline": "PIR Motion Sensor",
       "description": "PIR (Passive Infrared) motion sensors use light in its view to detect motion.",
       "keyFeatures": [
@@ -1244,6 +1381,19 @@
           "price": 0.0
         }
       ]
+    },
+    {
+      "name": "Temperature Analog",
+      "partNumber": "GDL-SETEMPAN-A",
+      "PID": "0x060012",
+      "category": "Sensor",
+      "price": 6.95,
+      "tagline": "Analog Temperature Sensor",
+      "description": "Measure ambient temperature with ease!",
+      "keyFeatures": [
+        "17x19mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Temp()` | Returns temperature in celsius. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "LED MT1208",
@@ -1425,6 +1575,20 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayBeep(f, d)` | Play beep, (f: frequency, d: duration in ms). |\n| `PlaySound(f, d, c)` | Play sound, (f: frequency, d: duration in ms, c: duty cycle). |\n| `PlayMelody(a1)` | Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration). |\n| `StopMelody()` | Stop melody. |\n| `DVer()` | This driver version. |"
     },
     {
+      "name": "Jack",
+      "partNumber": "GDL-SOJACK-A",
+      "PID": "0x070006",
+      "category": "Sound",
+      "price": 6.95,
+      "tagline": "Play Sounds and Tones on 3.5mm Audio Jack",
+      "description": "Connect amplified speakers to the 3.5mm to generate all kind of tones. The modules has filters to smooth out output and also has control over left and right channels with individual PMW and timers. This not an MP3 player but it can sound an alarm, play a melody, and generate basic sounds!",
+      "keyFeatures": [
+        "Frequency Range 200Hz to 10Khz",
+        "27x22mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayBeep(f, d)` | Play beep, (f: frequency, d: duration in ms). |\n| `PlaySound(f, d, c)` | Play sound, (f: frequency, d: duration in ms, c: duty cycle). |\n| `PlayMelody(a1)` | Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration). |\n| `StopMelody()` | Stop melody. |\n| `DVer()` | This driver version. |"
+    },
+    {
       "name": "MP3",
       "partNumber": "GDL-SOMP3-A",
       "PID": "0x070003",
@@ -1517,12 +1681,12 @@
       "driverApi": ":::tip\nDio X12 module uses the [Standard Library API](/docs/engine/stdlib) directly. No other drivers are needed.\n:::"
     },
     {
-      "name": "DueClick",
-      "partNumber": "GDL-ADDUECLICK-A",
+      "name": "DueMBUS",
+      "partNumber": "GDL-ADDUEMBUS-A",
       "PID": "0x0A0005",
       "category": "Adapter",
       "price": 9.95,
-      "tagline": "MikroBus Click Compatible Breakout",
+      "tagline": "MikroBus Click Compatible Host",
       "description": "Take advantage of the thousands of available [MikroBus Click modules](https://www.mikroe.com/click).\n\nThe module can also be used as a basic female header IO connection module.",
       "keyFeatures": [
         "MikroBus headers",
@@ -1686,22 +1850,21 @@
       ]
     },
     {
-      "name": "Wireless Hook",
-      "partNumber": "GDL-ADWHOOK-B",
+      "name": "MBLink",
+      "partNumber": "GDL-ADMBLINK-A",
       "category": "Adapter",
-      "price": 29.95,
-      "tagline": "Connects DUELink Modules Wirelessly",
-      "description": "This module works just like the USB Hook, but then it also adds wireless connectivity, allowing for wireless control of DUELink modules.",
+      "price": 4.95,
+      "tagline": "Turn any a MikroBUS Host into a DUELink Host",
+      "description": "Add [Downlink](/docs/interface/downlink) connector to any SBC that has a [mikro BUS](https://www.mikroe.com/mikrobus) socket. You get two options, UART or I2C.",
       "keyFeatures": [
-        "BlueTooth or Wi-Fi Connectivity",
-        "Program DUELink Modules Wirelessly",
-        "37x42mm overall dimension"
+        "Two options: I2C & UART",
+        "25x28mm overall dimension"
       ]
     },
     {
       "name": "Cable",
       "partNumber": "GDL-AXCBL",
-      "category": "Accessories",
+      "category": "Accessory",
       "price": 0,
       "tagline": "DUELink Cables",
       "description": "A variety of DUELink cable lengths are available to help projects of different needs.\n\nCable sets are available in:  \n• 5x 50mm  \n• 5x 150mm  \n• 5x 300mm  \n• 5x 100mm JST to pin header breakout  \n• Variety Pack: 1x 300mm, 2x 150mm, 2x 50mm",
@@ -1742,7 +1905,7 @@
     {
       "name": "Connector",
       "partNumber": "GDL-AXCNCTR",
-      "category": "Accessories",
+      "category": "Accessory",
       "price": 0,
       "tagline": "DUELink JST Connectors",
       "description": "These standard connecters are here to help you in building [your own DUELink modules](/docs/catalog/third-party). This is a pack of 10 connectors.\n\n:::note\nThese blue connectors will get discolored in a reflow oven. They are made for hand soldering. Contact us if you need a volume blue connectors that are suitable for reflow.\n:::",
@@ -1767,32 +1930,38 @@
     {
       "name": "Holey Board",
       "partNumber": "GDL-AXHOLEY",
-      "category": "Accessories",
+      "category": "Accessory",
       "price": 0,
       "tagline": "Holey Boards for Mounting DUELink Modules",
-      "description": "Holey Boards are blank circuits with standard 5mm-pitched holes for mounting DUELink Module. See [Mounting Hardware](./axmnt) for options.\n\nThere are three size:\n* Holey Smally Board: 18x12 holes\n* Holey Board: 36x18 holes\n* Holey Moley Board: 46x36 holes",
+      "description": "Holey Boards are blank circuits with standard 5mm-pitched holes for mounting DUELink Module. See [Mounting Hardware](./axmnt) for options.\n\nThere are four size:\n* Holey Stick: 4x12 holes\n* Holey Smally Board: 18x12 holes\n* Holey Board: 36x18 holes\n* Holey Moley Board: 46x36 holes",
       "keyFeatures": [
         "5mm-pitch holes",
         "Front grid markings",
         "Back clean printing",
-        "Holey Smally: 92x62",
+        "Holey Stick: 22x62mm",
+        "Holey Smally: 92x62mm",
         "Holey: 182x92mm",
         "Holey Moley: 182x232mm"
       ],
       "variations": [
         {
-          "name": "Smally",
+          "name": "Stick",
           "partCode": "S",
           "price": 1.95
         },
         {
-          "name": "Standard",
+          "name": "Smally",
           "partCode": "M",
+          "price": 2.95
+        },
+        {
+          "name": "Standard",
+          "partCode": "L",
           "price": 4.95
         },
         {
           "name": "Moley",
-          "partCode": "L",
+          "partCode": "XL",
           "price": 8.95
         }
       ]
@@ -1800,7 +1969,7 @@
     {
       "name": "Mounting HW",
       "partNumber": "GDL-AXMNT",
-      "category": "Accessories",
+      "category": "Accessory",
       "price": 0,
       "tagline": "Mounting Hardware",
       "description": "Standoffs, Screws, Nuts, and Footpads are available to help in mounting all DUELink modules.\n\nWhile you can use these options with 3D printed and laser cut enclosures, the ideal use with any of the [Holey Boards](./axholey)!\n\nThe available options are:\n* 10x - Male to Female Nylon standoffs\n* 10x - Female to Female Nylon standoffs\n* 10x - M3 Nylon Screws\n* 10x - M3 Nylon Nuts\n* 4x - M3 Metal Footpads",

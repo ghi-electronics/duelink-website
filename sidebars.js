@@ -40,6 +40,14 @@ const sidebars = {
       items: [
         {
           type: "category",
+          label: "Kits",
+          items: [
+            "products/ktessen-a",
+            "products/ktgimme-a"
+          ],
+        },
+        {
+          type: "category",
           label: "Microcomputers",
           items: [
             "products/mcdueduino-a",
@@ -56,9 +64,32 @@ const sidebars = {
           label: "Specialty",
           items: [
             "products/spghizzyjr-a",
-            "products/spghizzy-b",
+            "products/spghizzy-d",
             "products/sptree-b",
+            "products/spsnowy-a",
+            "products/spcubicle-a",
             "products/spchrono-a",
+            "products/sppiano-a"
+          ],
+        },
+        {
+          type: "category",
+          label: "Adapters",
+          items: [
+            "products/adbreakout-a",
+            "products/addiox12-a",
+            "products/adduembus-a",
+            "products/admblink-a",
+            "products/adduepi-b",
+            "products/adduepico-b",
+            "products/adlinkbit-a",
+            "products/adpowerhook-a",
+            "products/adpowerinject-a",
+            "products/adpullup-a",
+            "products/adpwrswitch-a",
+            "products/adsticker-c",
+            "products/adusbhook-a",
+            "products/adusbwedge-b"
           ],
         },
         {
@@ -76,6 +107,28 @@ const sidebars = {
             "products/dstftn18-b",
             "products/dstftr128-b",
             "products/dsvfdb8-c"
+          ],
+        },
+        {
+          type: "category",
+          label: "Sensors",
+          items: [
+            "products/seaccel-a",
+            "products/seairquality-a",
+            "products/sebarometer-b",
+            "products/seclipsense-a",
+            "products/securrent-a",
+            "products/sedistance-b",
+            "products/sedof9-c",
+            "products/seekg-a",
+            "products/segas-b",
+            "products/selight-a",
+            "products/semotion-b",
+            "products/seprsr-b",
+            "products/sertc-b",
+            "products/setemphmd-b",
+            "products/setemprtd-a",
+            "products/setempan-a"
           ],
         },
         {
@@ -105,7 +158,6 @@ const sidebars = {
             "products/cmethernet-c",
             "products/cmrs485-a",
             "products/cmserialusb-a",
-            "products/cmusbhost-b",
           ],
         },
         {
@@ -134,39 +186,20 @@ const sidebars = {
             "products/stflash-a",
             "products/stmicrosd-a",
             "products/stsdcard-b",
+              "products/stusbhost-b",
           ],
         },
         {
           type: "category",
           label: "Wireless",
           items: [
+            "products/wlesp32-a",
             "products/wlgnsswa-a",
             "products/wlgnss-b",
             "products/wlinfrared-a",
             "products/wlnrf24max-c",
             "products/wlnrf24min-c",
             "products/wlrfid-b"
-          ],
-        },
-        {
-          type: "category",
-          label: "Sensors",
-          items: [
-            "products/seaccel-a",
-            "products/seairquality-a",
-            "products/sebarometer-b",
-            "products/seclipsense-a",
-            "products/securrent-a",
-            "products/sedistance-b",
-            "products/sedof9-c",
-            "products/seekg-a",
-            "products/segas-b",
-            "products/selight-a",
-            "products/semotion-b",
-            "products/seprsr-b",
-            "products/sertc-b",
-            "products/setemphmd-b",
-            "products/setemprtd-a"
           ],
         },
         {
@@ -188,6 +221,7 @@ const sidebars = {
           label: "Sound",
           items: [
             "products/sobuzzer-b",
+            "products/sojack-a",
             "products/somp3-a",
             "products/soradiofm-a",
             "products/sospectrum-a"
@@ -199,26 +233,6 @@ const sidebars = {
           items: [
             "products/vibarcodel1d2d-a",
             "products/vithermal-a"
-          ],
-        },
-        {
-          type: "category",
-          label: "Adapters",
-          items: [
-            "products/adbreakout-a",
-            "products/addiox12-a",
-            "products/addueclick-a",
-            "products/adduepi-b",
-            "products/adduepico-b",
-            "products/adlinkbit-a",
-            "products/adpowerhook-a",
-            "products/adpowerinject-a",
-            "products/adpullup-a",
-            "products/adpwrswitch-a",
-            "products/adsticker-c",
-            "products/adusbhook-a",
-            "products/adusbwedge-b",
-            "products/adwhook-b"
           ],
         },
         {

@@ -60,20 +60,21 @@ const ProductCatalog = () => {
   // Memoize categories to avoid recalculation - match sidebar order
   const categories = useMemo(() => {
     const categoryOrder = [
+      'Kit',
       'Microcomputer',
-      'Education',
       'Specialty',
+      'Adapter',
       'Display',
+      'Sensor',
       'Actuator',
       'Communication',
       'HMI',
       'Storage',
       'Wireless',
-      'Sensor',
       'LED',
       'Sound',
       'Vision',
-      'Adapter'
+      'Accessory'
     ];
     
     const cats = new Set(products.map(p => p.category || 'Other'));
@@ -121,20 +122,21 @@ const ProductCatalog = () => {
       case 'category':
         // Define the same category order as used in the sidebar
         const categoryOrder = [
+          'Kit',
           'Microcomputer',
-          'Education',
           'Specialty',
+          'Adapter',
           'Display',
+          'Sensor',
           'Actuator',
           'Communication',
           'HMI',
           'Storage',
           'Wireless',
-          'Sensor',
           'LED',
           'Sound',
           'Vision',
-          'Adapter'
+          'Accessory'
         ];
         
         sorted.sort((a, b) => {
