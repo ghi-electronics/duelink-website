@@ -1,21 +1,21 @@
 # Wireless
 
 
-![Wireless ESP32 with hook Connection](pathname:///img/wlesp32-usbhook-connection.png)
+Cut the wire and use DUELink modules wirelessly! This **wireless interface** is accomplished by turning [Wireless ESP32](../products/wlesp32-a) module into a host gateway. 
 
-Cut the wire and use DUELink modules wirelessly! This **wireless interface** is accomplished by turning [Wireless ESP32](../products/wlesp32-a) module into a host with a gateway interface. 
+![Wireless daisylink](pathname:///img/wireless-daisylink.png)
 
-(image)
 
 ## Non-interface
 
 This page is about using the wireless connection as the interface. It is how a Bluetooth/WiFi connection can be used to control modules wirelessly.
 
-(image)
+![Wireless daisylink address](pathname:///img/wireless-daisylink-addr-host.png)
 
 The other option is for [Wireless ESP32](../products/wlesp32-a) to be one of the modules. In this setup, this wireless connection is available to the other modules to the host. A host can be an Arduino or a micro:bit for example.
 
-(image)
+![Wireless daisylink](pathname:///img/wireless-daisylink-addr-nohost.png)
+
 
 See [Wireless ESP32](../products/wlesp32-a) product page to learn how to use wireless in a non-interface matter.
 
@@ -41,11 +41,12 @@ This code assumes the module is loaded with [drivers](../engine/drivers).
 
 When using WiFi, the [Wireless ESP32](../products/wlesp32-a) module starts a TCP Server. The easiest way to try this server is using a terminal software, such as TeraTerm.
 
-First, we need to load the configuration. For this, we need to connect [Wireless ESP32](../products/wlesp32-a) to USB. You can use one of the many adapters.
+First, we need to load the configuration. For this, we need to connect [Wireless ESP32](../products/wlesp32-a) to USB. You can use one of the many adapters, including [USB Hook](../products/adusbhook-a).
 
-(image)
+![wlesp32 with usbhook](pathname:///img/wlesp32-usbhook.png)
 
-Then use the console to load this config. You will overwrite th default Bluetooth config.
+
+Then use the console to load this config. You will overwrite the default Bluetooth config.
 
 :::tip
 This code assumes the module is loaded with [drivers](../engine/drivers).
@@ -60,13 +61,9 @@ TCPHook()
 
 You can now continue to use USB as a power source, or use something like [Power Hook](../products/adpowerhook-a). Note how the Wireless module is now a host to its [daisylink](../engine/daisylink).
 
-(image)
+![Wireless daisylink address](pathname:///img/daisylink-wireless-host.png)
 
 Open TeraTerm and select `TCP/IP` then enter `DUELink` for the `Host` name. Select `Other` from the `Service` options. Set `TCP Port#` to `22`.
 
-(image)
-
 Once the connections is established, you can type in commands to control modules. `Echo()` does not work properly as TeraTerm (and most terminals) will only send data when you hit enter. You can enable `local echo` to see what you type! Go ahead and enter `list` and hot enter to see the code listing. 
-
-(image)
 
