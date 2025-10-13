@@ -11,13 +11,13 @@ fn Test()
     _c = 0
     while 1 
         # Test Kit's screen
-        cmd("Clear(0)")
-        cmd("TextS(\"Downlink counter:\",1,0,0,1,2)")
-        cmd(fmt("TextS(\"", _c,"\",1,0,20,1,2)"))
-         _c =  _c+1
-        cmd("Show()") 
+        #cmd("Clear(0)")
+        #cmd("TextS(\"Downlink counter:\",1,0,0,1,2)")
+        #cmd(fmt("TextS(\"", _c,"\",1,0,20,1,2)"))
+        # _c =  _c+1
+        #cmd("Show()") 
 
-         # DUT screen
+        # DUT screen
         Clear(1)
         TextS("DUELink", 0, 25, 5, 2, 2)
         TextS(Fmt(_x), 0, 50, 25, 2, 2)
