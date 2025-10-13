@@ -1,4 +1,4 @@
-##### Oled096 Test #####
+##### FAN Test #####
 
 fn Test()
     println("Starting test...")
