@@ -13,9 +13,9 @@
       "name": "Essentials Kit",
       "partNumber": "GDL-KTESSEN-A",
       "category": "Kit",
-      "price": 74.95,
+      "price": 59.95,
       "tagline": "Essentials Kit With Most Common Modules!",
-      "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Ghizzy](/docs/products/spghizzy-d) (includes buzzer, 2x RGB LEDs, and several Blue and Red LEDs.)\n* [USB Hook](/docs/products/adusbhook-a)\n* [LED R16](/docs/products/ldledr16-b)\n* [Rotary](/docs/products/hirotary-c)\n* [Distance](/docs/products/sedistance-b)\n* [ServoX1](/docs/products/acservox1-a)\n* [Temp Sensor](/docs/products/setempan-a)\n* [Accel](/docs/products/seaccel-a)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt)\n* [Cables](/docs/products/axcbl)",
+      "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [USB Hook](/docs/products/adusbhook-a)\n* [TFT N18](/docs/products/dstftn18-b) - 1.8\" Color Display\n* [LED R16](/docs/products/ldledr16-b)\n* [Rotary](/docs/products/hirotary-c)\n* [Distance](/docs/products/sedistance-b)\n* [ServoX1](/docs/products/acservox1-a)\n* [Buzzer](/docs/products/sobuzzer-b)\n* [Light](/docs/products/selight-a)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt) - 10x Screws, 4x Metal \"feet\", 10x M-M 10mm standoff, 10x M-F 10mm\n* [Cables](/docs/products/axcbl)",
       "keyFeatures": [
         "Most Common Modules",
         "USB Hook",
@@ -29,9 +29,9 @@
       "name": "Gimme More Kit",
       "partNumber": "GDL-KTGIMME-A",
       "category": "Kit",
-      "price": 99.95,
+      "price": 59.95,
       "tagline": "Never Enough! Gimme More Modules!",
-      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options.Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Chrono](/docs/products/spchrono-a) - Includes 5x5 LED matrix and 2x buttons\n* [TFT N18](/docs/products/dstftn18-b) - 1.8\" Color Display\n* [USB Wedge](/docs/products/adusbwedge-b)\n* [Light Sensor](/docs/products/selight-a)\n* [Motion Sensor](/docs/products/semotion-b)\n* [Large Button](/docs/products/hibuttonl-a)\n* [Buzzer](/docs/products/sobuzzer-b)\n* [Servo P8](/docs/products/acservop8-b) - Connect up to 8x servo motors\n* [USB Host](/docs/products/stusbhost-b)\n* [Keypad 4x4](/docs/products/hikeypad4x4-b)\n* [Holey Boards](/docs/products/axholey) - Includes both: Holey Smally and Holey Stick\n* [Mounting Hardware](/docs/products/axmnt) - 10x Screws, 4x Metal \"feet\", 10x M-M 10mm standoff, 10x M-F 10mm standoff\n* [Cables](/docs/products/axcbl)",
+      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options.Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [USB Wedge](/docs/products/adusbwedge-b)\n* [Keypad 4x4](/docs/products/hikeypad4x4-b)\n* [LED MT1208](/docs/products/ldledmt1208-a)\n* [Accel](/docs/products/seaccel-a)\n* [Motion](/docs/products/semotion-b)\n* [TempAn](/docs/products/setempan-a)\n* [Jack](/docs/products/sojack-a)\n* [Fan](/docs/products/acfan-b)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt) - 10x Screws, 4x Metal \"feet\", 10x M-M 10mm standoff, 10x M-F 10mm standoff\n* [Cables](/docs/products/axcbl)",
       "keyFeatures": [
         "Common Modules",
         "USB Wedge",
@@ -59,7 +59,7 @@
         "52x42mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 5. |\n| `GetH()` | Get display height: 5. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |\n\n:::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::",
-      "Notes": "Check Menu->Help for connection before testing"  
+      "MfgNotes": "Check Menu->Help for connection before testing"  
     },
     {
       "name": "ClipIt",
@@ -79,7 +79,7 @@
         "120x60mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `TouchA()` | Returns 1 if A pad is touched. |\n| `TouchB()` | Returns 1 if B pad is touched. |\n| `TouchUp()` | Returns 1 if Up pad is touched. |\n| `TouchDown()` | Returns 1 if Down pad is touched. |\n| `TouchLeft()` | Returns 1 if Left pad is touched. |\n| `TouchRight()` | Returns 1 if Right pad is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage level from light sensor. |\n| `DVer()` | This driver version. |",
-      "Notes": "Check Menu->Help for connection before testing"  
+      "MfgNotes": "Check Menu->Help for connection before testing"  
     },
     {
       "name": "DueDuino",
@@ -119,7 +119,7 @@
         "107x57mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnPin(a)` | Returns button's pin number, based on `a` alias ('U' = Up, 'D' = Down, 'L' = Left, 'R' = Right) |\n| `GetX()` | Returns the X axis of the Accelerometer. |\n| `GetY()` | Returns the Y axis of the Accelerometer. |\n| `GetZ()` | Returns the Z axis of the Accelerometer. |\n| `SetBulb(c)` | Sets Lightbulb `c` color with 24bit RGB color (RRGGBB). |\n| `Tunes(f,d)` | Plays Tunes buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage level from Light sensor. |\n| `ReadTemp()` | Returns voltage level from Temperature sensor. |\n| `DVer()` | This driver version. |",
-      "Notes": "Check Menu->Help for connection before testing"  
+      "MfgNotes": "Check Menu->Help for connection before testing"  
     },
     {
       "name": "PixoBit",
@@ -187,7 +187,7 @@
         "20x47mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Eye(l,r)` | Sets the `l` left and `r` right \"Eyes\" with 24bit RGB color (RRGGBB). |\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `DVer()` | This driver version. |",
-      "Notes": "Connect Ghizzy Jr leg to USB port directly"
+      "MfgNotes": "Connect Ghizzy Jr leg to USB port directly"
     },
     {
       "name": "Ghizzy",
@@ -208,7 +208,7 @@
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Eye(l,r)` | Sets the `l` left and `r` right \"Eyes\" with 24bit RGB color (RRGGBB). |\n| `Ear(l,r)` | Activate the `l` left and `r` \"ears\" LEDs (1 on, 0 off). |\n| `Mouth(o)` | Activate the `m` \"mouth\" LED (1 on, 0 off). |\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `DVer()` | This driver version. |",
       "video": "D4073veneWI",
-      "Notes": "Connect Ghizzy leg to USB port directly"
+      "MfgNotes": "Connect Ghizzy leg to USB port directly"
     },
     {
       "name": "Holiday Tree",
