@@ -2102,6 +2102,7 @@ Function | Description
 `Memcpy([dst], offset_dst, [src], offset_src, count)` | Used to copy a block of memory from one location to another. `[dst]` and `[src]` must be same array type.
 `Parse("str", start, count)` |  Returns a number that is parsed from `str` string or byte array or chracters. Parsing starts at `start` and for `count` bytes. 
 `SprintF([buffer], format)` | A wrapper for teh internal `sprintf()` in the C-language.
+`Base64("str")` | Returns a byte array from a Base64 string. This is useful for creating large arrays. 
 
 :::caution
 The scripting engine automatically handles array sizes and realocate small arrays to exapnd as ncessary. This is not the case with `sprintf()`. The user must provide `sprintf()` with an arrays that is large enough to conain the entire string, including a null termination.
@@ -2548,6 +2549,7 @@ Function | Description
 `Len([array])` | Returns the length of `array`.
 `ReadVCC()` | Returns current system voltage.
 `Exit()` | Terminate and exit the script.
+`esp32gw(reset, io0, io2)` | Reset the module into a USB gateway for ESP32 firmware update. Only reset or power cyrcle will release the module from this mode.
 
 <details>
   <summary>Samples</summary>
