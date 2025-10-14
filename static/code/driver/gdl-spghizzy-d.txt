@@ -13,8 +13,8 @@ fend
 fn LEye(r,g,b)    
     if dread(10,1) = 1 # revB or earlier
         DWrite(4,(b >> 0) & 0xFF)
-        DWrite(5,(r >> 16) & 0xFF)
-        DWrite(6,(g >> 8) & 0xFF)
+        DWrite(5,(r >> 0) & 0xFF)
+        DWrite(6,(g >> 0) & 0xFF)
     else
        awrite(5, Scale(b, 0,255, 0, 1))
        awrite(6, Scale(r, 0,255, 0, 1))
@@ -25,8 +25,8 @@ fend
 fn REye(r,g,b)    
     if dread(10,1) = 1 # revB or earlier
         DWrite(7,(b >> 0) & 0xFF)
-        DWrite(8,(r >> 16) & 0xFF)
-        DWrite(9,(g >> 8) & 0xFF)
+        DWrite(8,(r >> 0) & 0xFF)
+        DWrite(9,(g >> 0) & 0xFF)
     else
        awrite(11, Scale(b, 0,255, 0, 1))
        awrite(4, Scale(r, 0,255, 0, 1))
