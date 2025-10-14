@@ -31,7 +31,7 @@
       "category": "Kit",
       "price": 59.95,
       "tagline": "Never Enough! Gimme More Modules!",
-      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options.Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [USB Wedge](/docs/products/adusbwedge-b)\n* [Keypad 4x4](/docs/products/hikeypad4x4-b)\n* [LED MT1208](/docs/products/ldledmt1208-a)\n* [Accel](/docs/products/seaccel-a)\n* [Motion](/docs/products/semotion-b)\n* [TempAn](/docs/products/setempan-a)\n* [Jack](/docs/products/sojack-a)\n* [Fan](/docs/products/acfan-b)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt) - 10x Screws, 4x Metal \"feet\", 10x M-M 10mm standoff, 10x M-F 10mm standoff\n* [Cables](/docs/products/axcbl)",
+      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [USB Wedge](/docs/products/adusbwedge-b)\n* [Keypad 4x4](/docs/products/hikeypad4x4-b)\n* [LED MT1208](/docs/products/ldledmt1208-a)\n* [Accel](/docs/products/seaccel-a)\n* [Motion](/docs/products/semotion-b)\n* [TempAn](/docs/products/setempan-a)\n* [Jack](/docs/products/sojack-a)\n* [Fan](/docs/products/acfan-b)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt) - 10x Screws, 4x Metal \"feet\", 10x M-M 10mm standoff, 10x M-F 10mm standoff\n* [Cables](/docs/products/axcbl)",
       "keyFeatures": [
         "Common Modules",
         "USB Wedge",
@@ -1028,6 +1028,7 @@
       "partNumber": "GDL-WLESP32-A",
       "PID": "0x090007",
       "category": "Wireless",
+      "Esp32fwVer": "001",
       "price": 19.95,
       "tagline": "Connects DUELink Modules Wirelessly",
       "description": "This module adds wireless connectivity, allowing for wireless control of DUELink modules. It can be used in 2 ways: Use it as a [Wireless Interface](/docs/interface/wireless) Host, controling a [daisylink](/docs/engine/daisylink) of modules. You will be able to program and command modules over a wireless connection! The other option is to use this module within a daisylink, to provide a wireless access to the host and other connected modules.",
@@ -1581,7 +1582,7 @@
       "category": "Sound",
       "price": 6.95,
       "tagline": "Play Sounds and Tones on 3.5mm Audio Jack",
-      "description": "Connect amplified speakers to the 3.5mm to generate all kind of tones. The modules has filters to smooth out output and also has control over left and right channels with individual PMW and timers. This not an MP3 player but it can sound an alarm, play a melody, and generate basic sounds!",
+      "description": "Connect amplified speakers to the 3.5mm to generate all kind of tones. The modules has filters to smooth out output and also has control over left and right channels with individual PMW and timers. This is not an MP3 player, but it can sound an alarm, play a melody, and generate cool sounds!",
       "keyFeatures": [
         "Frequency Range 200Hz to 10Khz",
         "27x22mm overall dimension"
