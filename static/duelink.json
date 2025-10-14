@@ -284,12 +284,12 @@
         {
           "name": "RED",
           "partCode": "R",
-          "price": 0.00
+          "price": 14.95
         },
         {
           "name": "No LEDs",
           "partCode": "NP",
-          "price": 0.00
+          "price": 11.95
         }
       ]
     },
