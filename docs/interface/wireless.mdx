@@ -3,12 +3,14 @@
 
 Cut the wire and use DUELink modules wirelessly! This **wireless interface** is accomplished by turning [Wireless ESP32](../products/wlesp32-a) module into a host gateway. 
 
-![Wireless daisylink](pathname:///img/wireless-daisylink.png)
+![Wireless daisylink](pathname:///img/catalog/wlesp32-a-1.png)
 
 
 ## Non-interface
 
 This page is about using the wireless connection as the interface. It is how a Bluetooth/WiFi connection can be used to control modules wirelessly.
+
+
 
 ![Wireless daisylink address](pathname:///img/wireless-daisylink-addr-host.png)
 
@@ -23,8 +25,7 @@ See [Wireless ESP32](../products/wlesp32-a) product page to learn how to use wir
 
 When using Bluetooth, The established connection creates a (SPP - Serial Port Profile) virtual serial connection. This is very similar to the virtual connection established when using the [USB interface](./usb). You can now, for example, use Python on a PC to access a [daisylink](../engine/daisylink) of modules. To power the modules you can use [Power Hook](../products/adpowerhook-a) or USB adapter, like [USB Host](../products/adusbhook-a), then use USB as a power source.
 
-(1 or 2 images showing one with USB virtual com and one with bluetooth virtual com)
-
+![Wireless power options](pathname:///img/wlesp32-power-options.png)
 
 The module is configured by default for bluetooth connections. No need to configure it. This is the code needed if it was modified.
 
@@ -61,7 +62,7 @@ TCPHook()
 
 You can now continue to use USB as a power source, or use something like [Power Hook](../products/adpowerhook-a). Note how the Wireless module is now a host to its [daisylink](../engine/daisylink).
 
-![Wireless daisylink address](pathname:///img/daisylink-wireless-host.png)
+![Wireless daisylink](pathname:///img/wireless-daisylink.png)
 
 Open TeraTerm and select `TCP/IP` then enter `DUELink` for the `Host` name. Select `Other` from the `Service` options. Set `TCP Port#` to `22`.
 
