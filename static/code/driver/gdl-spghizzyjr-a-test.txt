@@ -18,11 +18,13 @@ fn Test()
             if (r = 1) 
                 cmd("Texts(\"Btn pressed!\",1,0,0,1,2)")                                 
                 println("Pressed")
-                Eye(0xFFFFFF, 0xFFFFFF)
+                LEye(255,255,255)
+                REye(255,255,255)
             else
                 cmd("Texts(\"Btn released!\",1,0,0,1,2)") 
                 println("Released")
-                Eye(0, 0)
+                LEye(0,0,0)
+                REye(0,0,0)
             end
             
             cmd("show()")
