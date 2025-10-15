@@ -1714,6 +1714,21 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `DVer()` | This driver version. |"
     },
     {
+      "name": "RPILink",
+      "partNumber": "GDL-ADRPILINK-A",
+      "category": "Adapter",
+      "price": 5.95,
+      "tagline": "Raspberry Pi Basic Adapter",
+      "description": "RPILink is a simple low-cost adapter for all RPI (Raspberry Pi) models, including RPI Zero. The outer mounting holes are standard mounting holes for RPI. The bottom half of the board is a 5mm-pitched holes for mounting DUELink modules. This bottom side is breakable to make the board smaller to make it the right size for RPI Zero.",
+      "keyFeatures": [
+        "Attaches to Raspberry Pi or Pi Zero Header",
+        "UART and I2C Downlink connectors",
+        "Breakaway \"Holey\" Section",
+        "RPI pin out holes",
+        "65x37mm overall dimension"
+      ]
+    },
+    {
       "name": "DuePico",
       "partNumber": "GDL-ADDUEPICO-B",
       "PID": "0x0A0003",
