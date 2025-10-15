@@ -1751,7 +1751,21 @@
       "tagline": "BBC micro:bit Compatible DUELink Extender",
       "description": "Bring a standard DUELink Downlink to your BBC micro:bit.",
       "keyFeatures": [
-        "micro:bit female header",
+        "micro:bit female socekt",
+        "Downlink connector",
+        "57.5x28.5mm overall dimension"
+      ]
+    },
+    {
+      "name": "RaveBit",
+      "partNumber": "GDL-ADRAVEBIT-A",
+      "category": "Adapter",
+      "price": 14.95,
+      "tagline": "BBC micro:bit Compatible Color Display Extender",
+      "description": "Impower your BBC micro:bit with a 160x128 1.8\" color display. Use Microsoft MakeCode to utilize the display. For example, use the DUELink connector to read a temperature sensor and show a graph on the display. The display works entirely in MakeCode independently from DUELink. It is an excellent upgrade over the 5x5 LED materix.\n\n :::note\n\nmicro:bit mounts behind RaveBit giving the board some thickness. This thickness will prevent the board from plugging into some accessories. Select an accessory that has \"no back\". Using alligator clips to connect things works just fine.\n\n:::",
+      "keyFeatures": [
+        "micro:bit female socket",
+        "Color display",
         "Downlink connector",
         "57.5x28.5mm overall dimension"
       ]

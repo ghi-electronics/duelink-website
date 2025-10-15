@@ -83,6 +83,7 @@ const sidebars = {
             "products/adduepi-b",
             "products/adduepico-b",
             "products/adlinkbit-a",
+            "products/adravebit-a",
             "products/adpowerhook-a",
             "products/adpowerinject-a",
             "products/adpullup-a",
