@@ -1865,8 +1865,8 @@
       ]
     },
     {
-      "name": "MBLink",
-      "partNumber": "GDL-ADMBLINK-A",
+      "name": "MBUSLink",
+      "partNumber": "GDL-ADMBUSLINK-A",
       "category": "Adapter",
       "price": 4.95,
       "tagline": "Turn any a MikroBUS Host into a DUELink Host",
