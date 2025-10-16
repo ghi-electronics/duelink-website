@@ -1682,6 +1682,20 @@
       "driverApi": ":::tip\nDio X12 module uses the [Standard Library API](/docs/engine/stdlib) directly. No other drivers are needed.\n:::"
     },
     {
+      "name": "DueShield",
+      "partNumber": "GDL-ADDUESHIELD-A",
+      "category": "Adapter",
+      "price": 0.00,
+      "tagline": "Arduino Display Shield",
+      "description": "Basic Arduino Display Shield with UART and I2C Downlink connectors",
+      "keyFeatures": [
+        "1.8 Color Display",
+        "UART and I2C Downlink connectors",
+        "2x User Buttons",
+        "69.5x56mm overall dimension"
+      ]
+    },
+    {
       "name": "DueMBUS",
       "partNumber": "GDL-ADDUEMBUS-A",
       "PID": "0x0A0005",
