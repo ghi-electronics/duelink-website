@@ -1,8 +1,7 @@
 ##### Thermal readme #####
 
-1. Make sure status LED is blinking first.
-2. The test kit screen show value of thermal.
-3. Normally the value will be ~25.
-4. Move finger closer to sensor, value will go up.
-5. Move finger away from sensor, value will go down to normal value.
-
+1.Make sure the status LED is blinking.
+2.The test kit screen should display the thermal values.
+3.Normally, the value will be around 25°C.
+4.Move your finger closer to the sensor — the value should increase. It should exceed 50°C if the sensor is fully covered.
+5.Move your finger away from the sensor — the value should decrease and return to normal.
