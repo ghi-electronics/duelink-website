@@ -78,6 +78,7 @@ const sidebars = {
           items: [
             "products/adbreakout-a",
             "products/addiox12-a",
+            "products/addueshield-a",
             "products/adduembus-a",
             "products/admbuslink-a",
             "products/adduepi-b",
