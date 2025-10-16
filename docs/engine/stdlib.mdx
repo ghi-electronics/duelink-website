@@ -96,8 +96,13 @@ Not needed. Use .NET native facilities.
 Function | Description
 --- | ---
 `Wait(duration)` | Wait for `duration` milliseconds.
+`WaitUs(duration)` | Wait for `duration` microseconds. See tip below!
 `TickMs()` | Read system ticks in milliseconds.
 `TickUs()` | Read system ticks in microseconds.
+
+:::tip
+Calling `WaitUs()` has a minimum of 160us, which is what the function needs to run itself. Also, calling functions, `DWrite()` takes ~300us and executing instructions, like `while`, takes ~100uS. Keep these in mind to generate relatively accurate delays when generating signals.
+:::
 
 <details>
   <summary>Samples</summary>
