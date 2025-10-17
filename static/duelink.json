@@ -399,7 +399,8 @@
         },
         "chipInfo": "https://brtchip.com/product/bt817q/"
       },
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start. |\n| `DLClear()` | Clear the commands. |\n| `DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments. |\n| `DLSwap()` | Execute the graphics commands and swap working buffers. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start. |\n| `DLClear()` | Clear the commands. |\n| `DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments. |\n| `DLSwap()` | Execute the graphics commands and swap working buffers. |\n| `DVer()` | This driver version. |",
+      "MfgNotes": "Need monitor and speaker for testing" 
     },
     {
       "name": "LCD 16x2",
