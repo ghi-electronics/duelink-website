@@ -309,7 +309,7 @@
         "Slotted ends for wristband or mounting",
         "31x37mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLED(i,s)` | Set specific LED to on or off |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 5. |\n| `GetH()` | Get display height: 5. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `DVer()` | This driver version. |\n\n:::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::"
     },
     {
       "name": "Piano",
