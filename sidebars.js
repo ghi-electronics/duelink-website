@@ -92,6 +92,7 @@ const sidebars = {
             "products/adpwrswitch-a",
             "products/adsticker-c",
             "products/adusbhook-a",
+            "products/adusbstick-a",
             "products/adusbwedge-b"
           ],
         },
