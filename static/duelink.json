@@ -1690,7 +1690,7 @@
       "description": "Basic Arduino Shield with I2C Downlink connector. The holes are on a 5mm pitch, allowing for an easy mounting of other DUELink modules.",
       "keyFeatures": [
         "I2C Downlink connectors",
-        "69.5x56mm overall dimension"
+        "69.5x54mm overall dimension"
       ]
     },
     {
@@ -1866,7 +1866,7 @@
       "partNumber": "GDL-ADUSBHOOK-A",
       "category": "Adapter",
       "price": 3.95,
-      "tagline": "USB Interface Connection for DUELink Modules",
+      "tagline": "USB-C Connection for DUELink Modules",
       "description": "USB Hook is handy to add USB Interface to any DUELink module. It includes an 800mA power source and a power LED.",
       "keyFeatures": [
         "USB-C connector",
@@ -1877,10 +1877,25 @@
       ]
     },
     {
+      "name": "USB Stick",
+      "partNumber": "GDL-ADUSBSTICK-A",
+      "category": "Adapter",
+      "price": 3.95,
+      "tagline": "USB-A Connection for DUELink Modules",
+      "description": "USB Stick adds USB Type A Interface to any DUELink module. It includes an 800mA power source and a power LED.",
+      "keyFeatures": [
+        "USB-A connector",
+        "800mA power source",
+        "Power LED",
+        "DUELink USB Type A interface",
+        "17.5x22mm overall dimension"
+      ]
+    },
+    {
       "name": "USB Wedge",
       "partNumber": "GDL-ADUSBWEDGE-B",
       "category": "Adapter",
-      "price": 2.95,
+      "price": 0.95,
       "tagline": "PCB USB DUELink Interface",
       "description": "A PCB (Printed Circuit Board) USB wedge for connecting DUELink modules to the USB Interface. It includes a power LED and 800mA power regulator.",
       "keyFeatures": [
