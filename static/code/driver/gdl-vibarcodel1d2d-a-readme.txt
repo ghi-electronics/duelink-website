@@ -6,4 +6,3 @@
 4. If the scanner successfully detects a valid code, the white lights will quickly turn blue and then return to white.
 5. Make sure the test kit screen displays the code correctly.
 
-####################
