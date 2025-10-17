@@ -239,7 +239,7 @@ fn Init()
     #End switch baudrate from 57600 to 9600 if default is 57600
  
     #SerCfg(57600, 1024)
-    Wait(1000)
+    Wait(100)
  
     # reset command
     r = TransRecPkg([0x3D],1)
