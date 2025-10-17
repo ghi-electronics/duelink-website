@@ -1,4 +1,5 @@
 ##### Fingerprint Driver #####
+ ##### Fingerprint Driver #####
  
 fn DVer()
     return 1.0
@@ -204,42 +205,59 @@ fn SetLed(c,b,k)
         TransRecPkg([0x35,0x3,1,c,0],1)
     else
         TransRecPkg([0x35,0x2,100,c,k],1)
-    end
+    end 
  
 fend
  
 fn Init()  
- 
-    #Start switch baudrate from 57600 to 9600 if default is 57600
     SerCfg(9600, 1024)
  
     b = 0
     data[24] = 0
     data[25] = 0
- 
-    r = TransRecPkg([0xf],1) # read current baurate
- 
- 
-    if r!=0 
-        PrintLn("Switch to 9600: ", ", r = ", r)
-        #switch to default 57600
-        SerCfg(57600, 1024)
- 
-        # Send cmd for 9600
-        TransRecPkg([0x0E, 0x4, 1],0) # #0x0E FINGERPRINT_WRITE_REG,  0x4:FINGERPRINT_BAUD_REG_ADDR 1: 9600
- 
-        #Wait 1 second for new baudrate applied            
-        Wait(1000)
- 
-        # From now fingerprint is 9600, even after reset so next time b = 1, no need to switch back 57600 again
-        SerCfg(9600, 1024)
-        Wait(100)
- 
-    end
-    #End switch baudrate from 57600 to 9600 if default is 57600
- 
-    #SerCfg(57600, 1024)
+    
+    #Auto detect default baudrate
+    dim b7[] = [1, 2, 4, 6, 12] # * 9600
+    i = 0 
+    r = -1
+    
+    #TransRecPkg([0x0E, 0x4, 6],0)
+    #println("test change to defaut 57600")
+    #return
+    
+    while r != 0
+        r = TransRecPkg([0xf],1) # read current baurate
+        
+        if r != 0
+            PrintLn("No response, change baudrate: ", (b7[i] * 9600))    
+            i = i + 1
+            
+            if (i > 4)
+                i = 0
+            end 
+            
+            SerCfg(9600 *  b7[i], 1024)
+            TransRecPkg([0x0E, 0x4, b7[i]],0)
+            
+            Wait(1000)
+        else
+            PrintLn("Detected default baudrate: ", (b7[i] * 9600))    
+            if i != 1 # force to 9600 (1 = 9600)
+                TransRecPkg([0x0E, 0x4, 1],0)
+                SerCfg(9600 *  1, 1024)
+                Wait(1000)
+                PrintLn("Changed to 9600 ")    
+            end
+            
+        end
+    wend
+
     Wait(100)
+    
+    # This is for testing back to default 57600
+    # TransRecPkg([0x0E, 0x4, 6],0)
+    # println("test change to defaut 57600")
+    # return
  
     # reset command
     r = TransRecPkg([0x3D],1)
