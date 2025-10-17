@@ -76,6 +76,18 @@ Tip: When looking at the front of the module, we recommend placing the U connect
 
 ---
 
+## Voltage Levels
+
+All DUELink modules run using 3.3V. This section is only when mixing DUELink with non-DUELink circuits, when building your own custom electronics.
+
+All [Interfaces](./interface/intro) on DUELink modules are 5V tolerant. This allows all modules to work with 5V system, like the classic [Arduino](./hw/arduino) UNO for example.
+
+While DUELink modules are okay with 5V, some non-DUELink circuits may not work with 3.3V levels. The reason is that some of those 5V circuits expect a high-level of 3.5V (5V x 0.7) which is higher than 3.3V. Other circuits, like some Arduino boards need a high level of 3V (5V x 0.6) and this will work fine with 3.3V levels.
+
+An example of circuits that may not work are smart LEDs, which expect 3.5V (VDD x 0.7). The solution in this case is to use 5V buffers, or to power the LEDs using 3.3V to 4V. The LED datasheet does not list a minimum voltage source, but we have tested the ones we have with a 3.3V power source and they worked fine!
+
+---
+
 ## Status LED
 
 ![Status LED](pathname:///img/statled-blink.gif)

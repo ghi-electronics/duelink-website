@@ -15,10 +15,10 @@
       "category": "Kit",
       "price": 59.95,
       "tagline": "Essentials Kit With Most Common Modules!",
-      "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [USB Hook](/docs/products/adusbhook-a)\n* [TFT N18](/docs/products/dstftn18-b) - 1.8\" Color Display\n* [LED R16](/docs/products/ldledr16-b)\n* [Rotary](/docs/products/hirotary-c)\n* [Distance](/docs/products/sedistance-b)\n* [ServoX1](/docs/products/acservox1-a)\n* [Buzzer](/docs/products/sobuzzer-b)\n* [Light](/docs/products/selight-a)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
+      "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [USB Hook + Cable](/docs/products/adusbhook-a)\n* [TFT N18](/docs/products/dstftn18-b) - 1.8\" Color Display\n* [LED R16](/docs/products/ldledr16-b)\n* [Rotary](/docs/products/hirotary-c)\n* [Distance](/docs/products/sedistance-b)\n* [ServoX1](/docs/products/acservox1-a)\n* [Buzzer](/docs/products/sobuzzer-b)\n* [Light](/docs/products/selight-a)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
       "keyFeatures": [
         "Most Common Modules",
-        "USB Hook",
+        "USB Hook + Cable",
         "Holey Board",
         "Mounting Hardware",
         "Cables",
@@ -31,10 +31,10 @@
       "category": "Kit",
       "price": 59.95,
       "tagline": "Never Enough! Gimme More Modules!",
-      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [USB Wedge](/docs/products/adusbwedge-b)\n* [Keypad 4x4](/docs/products/hikeypad4x4-b)\n* [LED MT1208](/docs/products/ldledmt1208-a)\n* [Accel](/docs/products/seaccel-a)\n* [Motion](/docs/products/semotion-b)\n* [TempAn](/docs/products/setempan-a)\n* [Jack](/docs/products/sojack-a)\n* [Fan](/docs/products/acfan-b)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
+      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [USB Stick](/docs/products/adusbstick-a)\n* [Keypad 4x4](/docs/products/hikeypad4x4-b)\n* [LED MT1208](/docs/products/ldledmt1208-a)\n* [Accel](/docs/products/seaccel-a)\n* [Motion](/docs/products/semotion-b)\n* [TempAn](/docs/products/setempan-a)\n* [Jack](/docs/products/sojack-a)\n* [Fan](/docs/products/acfan-b)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
       "keyFeatures": [
         "Common Modules",
-        "USB Wedge",
+        "USB Stick",
         "Holey Board",
         "Mounting Hardware",
         "Cables",
@@ -298,7 +298,7 @@
       "partNumber": "GDL-SPCHRONO-A",
       "PID": "0x0C0004",
       "category": "Specialty",
-      "price": 6.95,
+      "price": 8.95,
       "tagline": "LED Matrix with optional Battery",
       "description": "Scroll text on the LED matrix or use the sides to show \"time\"! Chrono includes two buttons and a CR2032 battery holder.\n\n Add a a wrist band or a lanyard to turn this into a \"wearable\" module.",
       "keyFeatures": [     
@@ -309,7 +309,14 @@
         "Slotted ends for wristband or mounting",
         "31x37mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLED(i,s)` | Set specific LED to on or off |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 5. |\n| `GetH()` | Get display height: 5. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `DVer()` | This driver version. |\n\n:::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::",
+      "variations": [
+        {
+          "name": "Blue",
+          "partCode": "B",
+          "price": 8.95
+        }
+      ]
     },
     {
       "name": "Piano",
@@ -1685,26 +1692,12 @@
       "name": "DueShield",
       "partNumber": "GDL-ADDUESHIELD-A",
       "category": "Adapter",
-      "price": 6.95,
-      "tagline": "Arduino Display Shield",
-      "description": "Basic Arduino Display Shield with UART and I2C Downlink connectors",
+      "price": 4.95,
+      "tagline": "Arduino Shield with mounting holes.",
+      "description": "Basic Arduino Shield with I2C Downlink connector. The holes are on a 5mm pitch, allowing for an easy mounting of other DUELink modules.",
       "keyFeatures": [
-        "1.8 Color Display",
-        "UART and I2C Downlink connectors",
-        "2x User Buttons",
-        "69.5x56mm overall dimension"
-      ],
-       "variations": [
-        {
-          "name": "w/ Display",
-          "partCode": "DS",
-          "price": 17.95
-        },
-        {
-          "name": "No Display",
-          "partCode": "N",
-          "price": 6.95
-        }
+        "I2C Downlink connectors",
+        "69.5x54mm overall dimension"
       ]
     },
     {
@@ -1880,7 +1873,7 @@
       "partNumber": "GDL-ADUSBHOOK-A",
       "category": "Adapter",
       "price": 3.95,
-      "tagline": "USB Interface Connection for DUELink Modules",
+      "tagline": "USB-C Connection for DUELink Modules",
       "description": "USB Hook is handy to add USB Interface to any DUELink module. It includes an 800mA power source and a power LED.",
       "keyFeatures": [
         "USB-C connector",
@@ -1891,10 +1884,25 @@
       ]
     },
     {
+      "name": "USB Stick",
+      "partNumber": "GDL-ADUSBSTICK-A",
+      "category": "Adapter",
+      "price": 3.95,
+      "tagline": "USB-A Connection for DUELink Modules",
+      "description": "USB Stick adds USB Type A Interface to any DUELink module. It includes an 800mA power source and a power LED.",
+      "keyFeatures": [
+        "USB-A connector",
+        "800mA power source",
+        "Power LED",
+        "DUELink USB Type A interface",
+        "17.5x22mm overall dimension"
+      ]
+    },
+    {
       "name": "USB Wedge",
       "partNumber": "GDL-ADUSBWEDGE-B",
       "category": "Adapter",
-      "price": 2.95,
+      "price": 0.95,
       "tagline": "PCB USB DUELink Interface",
       "description": "A PCB (Printed Circuit Board) USB wedge for connecting DUELink modules to the USB Interface. It includes a power LED and 800mA power regulator.",
       "keyFeatures": [

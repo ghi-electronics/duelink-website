@@ -1,0 +1,38 @@
+dim b0[12]=[4,4,4,4,4, 2, 0,0,0,0,0, 2]#x
+dim b1[12]=[0,1,2,3,4, 4, 4,3,2,1,0, 0]#y
+while 1
+    TextT("DUELINK", 1, _x, 0)
+    Show()
+    _x= _x-1
+
+    if _x < -40
+        _x = 6
+    end
+    
+    if BtnA()
+        for l in range(50)
+            for x in range(5)
+                for y in range(5)
+                Pixel(Rnd(1),x,y)
+                
+                next
+            next
+            Show()
+                wait(5)
+        next
+    end
+    
+    if BtnB()
+        for c in range (10)
+            for i in range (12)
+                Clear(0)
+                Pixel(1,b0[i],b1[i])
+                Show()
+                wait(30)
+            next
+        next
+    end
+    
+    Wait(100)
+    Clear(0) # need to clear for next character
+wend

@@ -6,8 +6,6 @@ fend
 
 fn Init()
     I2cCfg(400)
-    # set address to 0x68
-    DWrite(12,0) 
     Dim b1[2]
 fend
 
