@@ -1685,26 +1685,12 @@
       "name": "DueShield",
       "partNumber": "GDL-ADDUESHIELD-A",
       "category": "Adapter",
-      "price": 6.95,
-      "tagline": "Arduino Display Shield",
-      "description": "Basic Arduino Display Shield with UART and I2C Downlink connectors",
+      "price": 4.95,
+      "tagline": "Arduino Shield with mounting holes.",
+      "description": "Basic Arduino Shield with I2C Downlink connector. The holes are on a 5mm pitch, allowing for an easy mounting of other DUELink modules.",
       "keyFeatures": [
-        "1.8 Color Display",
-        "UART and I2C Downlink connectors",
-        "2x User Buttons",
+        "I2C Downlink connectors",
         "69.5x56mm overall dimension"
-      ],
-       "variations": [
-        {
-          "name": "w/ Display",
-          "partCode": "DS",
-          "price": 17.95
-        },
-        {
-          "name": "No Display",
-          "partCode": "N",
-          "price": 6.95
-        }
       ]
     },
     {
