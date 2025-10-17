@@ -37,6 +37,8 @@ fn Test()
                 cmd("TextS(\"Finger detected!\", 1, 0, 20, 1,2)")
                 cmd("TextS(\"Passed\", 1, 0, 40, 1,2)")
                 cmd("Show()") 
+                
+                break
             end
         end
 
