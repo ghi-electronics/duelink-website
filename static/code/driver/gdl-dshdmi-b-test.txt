@@ -11,7 +11,7 @@ fn Test()
     cmd("Show()") 
 
     c = 0
-    t = 10
+    t = 3
     
     DLClear()
     DLCmd(C_CLEAR_COLOR,{0,0,0})
