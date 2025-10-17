@@ -226,7 +226,7 @@ fn Init()
         r = TransRecPkg([0xf],1) # read current baurate
  
         if r != 0
-            PrintLn("No response, change baudrate: ", (b7[i] * 9600))    
+            #PrintLn("No response, change baudrate: ", (b7[i] * 9600))    
             i = i + 1
  
             if (i > 4)
@@ -237,12 +237,12 @@ fn Init()
  
             Wait(100)
         else
-            PrintLn("Detected default baudrate: ", (b7[i] * 9600))    
+            #PrintLn("Detected default baudrate: ", (b7[i] * 9600))    
             if i != 1 # force to 9600 (1 = 9600)
                 TransRecPkg([0x0E, 0x4, 1],0)
                 SerCfg(9600 *  1, 1024)
                 Wait(1000)
-                PrintLn("Changed to 9600 ")    
+                #PrintLn("Changed to 9600 ")    
             end
  
         end
@@ -283,7 +283,7 @@ fn Init()
  
  
     # sync OK - ready
-    PrintLn("Ready")
+    #PrintLn("Ready")
     return 0 # 0 FINGERPRINT_OK 
 fend
  
