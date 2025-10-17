@@ -19,11 +19,11 @@ fn Test()
                 c = SerRd()
                 b1[i] = c 
             next
-            println("Detect code:")
+            println("Detected code:")
             println(b1)
             
             cmd("Clear(0)")
-            cmd("TextS(\"Detect code:\", 1, 0, 0, 1,2)")
+            cmd("TextS(\"Detected code:\", 1, 0, 0, 1,2)")
             
             for i = 0 to x # last character is carriage return or new line
                 if (b1[i] > 13) 
