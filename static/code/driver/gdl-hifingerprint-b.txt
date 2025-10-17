@@ -221,10 +221,6 @@ fn Init()
     i = 0 
     r = -1
     
-    #TransRecPkg([0x0E, 0x4, 6],0)
-    #println("test change to defaut 57600")
-    #return
-    
     while r != 0
         r = TransRecPkg([0xf],1) # read current baurate
         
