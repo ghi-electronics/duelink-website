@@ -30,8 +30,7 @@ fn Test()
             d = d * -1
         end
         show()
- 
-            println(x)
+
         wait(1)
     wend
 fend  
