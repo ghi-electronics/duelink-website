@@ -238,7 +238,7 @@ fn Init()
             Wait(100)
         else
             #PrintLn("Detected default baudrate: ", (b7[i] * 9600))    
-            if i != 1 # force to 9600 (1 = 9600)
+            if i != 0 # force to 9600 (1 = 9600)
                 TransRecPkg([0x0E, 0x4, 1],0)
                 SerCfg(9600 *  1, 1024)
                 Wait(1000)
