@@ -1,5 +1,4 @@
 ##### Fingerprint Driver #####
- ##### Fingerprint Driver #####
  
 fn DVer()
     return 1.0
@@ -215,27 +214,28 @@ fn Init()
     b = 0
     data[24] = 0
     data[25] = 0
-    
+ 
     #Auto detect default baudrate
     dim b7[] = [1, 2, 4, 6, 12] # * 9600
     i = 0 
     r = -1
-    
+ 
+ 
+ 
     while r != 0
         r = TransRecPkg([0xf],1) # read current baurate
-        
+ 
         if r != 0
             PrintLn("No response, change baudrate: ", (b7[i] * 9600))    
             i = i + 1
-            
+ 
             if (i > 4)
                 i = 0
             end 
-            
+ 
             SerCfg(9600 *  b7[i], 1024)
-            TransRecPkg([0x0E, 0x4, b7[i]],0)
-            
-            Wait(1000)
+ 
+            Wait(100)
         else
             PrintLn("Detected default baudrate: ", (b7[i] * 9600))    
             if i != 1 # force to 9600 (1 = 9600)
@@ -244,17 +244,18 @@ fn Init()
                 Wait(1000)
                 PrintLn("Changed to 9600 ")    
             end
-            
+ 
         end
     wend
-
+ 
     Wait(100)
-    
+ 
+  
     # This is for testing back to default 57600
     # TransRecPkg([0x0E, 0x4, 6],0)
     # println("test change to defaut 57600")
     # return
- 
+    
     # reset command
     r = TransRecPkg([0x3D],1)
  
@@ -285,7 +286,6 @@ fn Init()
     PrintLn("Ready")
     return 0 # 0 FINGERPRINT_OK 
 fend
-
+ 
 Init()
-
 ####################
