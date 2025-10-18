@@ -1554,17 +1554,19 @@
     },
     {
       "name": "Smart LED",
-      "partNumber": "GDL-LDSMARTLED-A",
+      "partNumber": "GDL-LDSMARTLED-B",
       "PID": "0x05000D",
       "category": "LED",
-      "price": 6.95,
+      "price": 9.95,
       "tagline": "Smart LED Controller",
-      "description": "The DUELink standard library includes support for WS2811 smart LEDs. When using matrices, the support is even included with the graphics function.",
+      "description": "This module supports both 1-pin WS281x smart LEDs and 2-pin smart LEDs (clock and data). Byond standa LED control, DUELink standard library includes support for [graphics](/docs/engine/graphics) on WS281x matrices.\n\nFor control signals coming out of module are 3.3V logic levels by default. Optionlly, you can supply 5V on the **Vsig** connection to convert teh control signals to 5V.",
       "keyFeatures": [
         "WS2811 LED Controller",
+        "2-pin  Smart LED Controller",
+        "5V Control Signal Option",
         "Support for DAT/CLK type",
         "Terminal Block Connection",
-        "37x22mm overall dimension"
+        "32x22mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `WS2811()` | Returns the pin number used for DAT pin to be used with `WS2811` Smart LED [Graphics](/docs/engine/graphics). |\n| `IntAPA(c)` | Get the system ready for `APA102C`. |\n| `SetAPA(i, c, l)` | Sets the color at `i` index to `c` color (RRGGBB) and `l` luminance (0 to 31). |\n| `ShwAPA()` | Show/update the actual LEDs with preassigned colors. |\n| `IntLPD(c)` | Get the system ready for `LPD8806`. |\n| `SetLPD(i, c)` | Sets the color at `i` index to `c` color (RRGGBB) |\n| `ShwLPD()` | Show/update the actual LEDs with preassigned colors. |\n| `DVer()` | This driver version. |"
     },
