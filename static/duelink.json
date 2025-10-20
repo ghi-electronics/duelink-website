@@ -644,7 +644,8 @@
         "Eight 3-pin male headers",
         "Power terminal block",
         "37x27mm overall dimension"
-      ]
+      ],
+      "MfgNotes": "An external 5V power supply is required"  
     },
     {
       "name": "Servo X1",
