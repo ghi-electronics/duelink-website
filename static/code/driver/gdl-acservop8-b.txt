@@ -1,4 +1,4 @@
-##### Servo X1 Driver #####
+##### Servo P8 Driver #####
 
 # No need for a driver, use ServoSt() standard library with pins 1 to 8
 
