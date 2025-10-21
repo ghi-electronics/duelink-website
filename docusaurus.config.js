@@ -28,7 +28,7 @@ const config = {
   projectName, 
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  //onBrokenMarkdownLinks: 'warn',
 
 /*
   // Adds Docusaurus Faster. 
