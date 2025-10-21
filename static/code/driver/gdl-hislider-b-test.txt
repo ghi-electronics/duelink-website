@@ -1,4 +1,4 @@
-##### Dial Test ######
+##### Slide Driver ######
 
 fn Test()
     Wait(1)
@@ -13,17 +13,8 @@ fn Test()
     s = -1
     r = 0
     while (1)
-        o = VRead(3)/ReadVCC()*100
+        r = Slide()
         
-        r = trunc(o)
-        
-        if o < 0.5
-            r = 0
-        end
-        
-        if o > 99.5
-            r = 100
-        end
             
         if (s != r && s != r-1 && s != r+1)
             
@@ -33,6 +24,7 @@ fn Test()
             
             println("value:", r)
             s = r
+            
         end
         
         
