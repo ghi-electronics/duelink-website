@@ -46,7 +46,7 @@
       "partNumber": "GDL-MCCINCOBIT-E",
       "PID": "0x000001",
       "category": "Microcomputer",
-      "price": 5.99,
+      "price": 6.95,
       "tagline": "Ultra low-cost, micro:bit inspired, educational board",
       "description": "[Educators](/docs/educators) and [Makers](/docs/makers) will find great value in this ultra low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.",
       "keyFeatures": [
@@ -66,7 +66,7 @@
       "partNumber": "GDL-MCCLIPIT-B",
       "PID": "0x000011",
       "category": "Microcomputer",
-      "price": 14.95,
+      "price": 12.95,
       "tagline": "Alligator clip friendly STEM-microcomputer",
       "description": "[Educators](/docs/educators) can now elevate their STEM-mission with Clipit. Start immediately with light sensor and touch pads to read inputs. Then use any of the supported [Languages](/docs/language/intro) to process those inputs and then control the output on the 5x5 LED matrix and buzzer.\n\nGo beyond and add alligator clips for reading touch from objects, or control other circuits.\n\nOf course, this is a DUELink board and [Downlink](/docs/interface/downlink) is ready for [Daisylinking](/docs/engine/daisylink) all of your modules.",
       "keyFeatures": [
@@ -162,7 +162,7 @@
       "partNumber": "GDL-MCSTICK-A",
       "PID": "0x000014",
       "category": "Microcomputer",
-      "price": 4.95,
+      "price": 5.95,
       "tagline": "DIP24 Form Factor SMT DUELink SoM",
       "description": "Start making your own DUELink modules using this Surface-Mountable DUELink SoM that is also DIP24 form-factor.\n\nBoth U and D connectors are included. The USB connections are also exposed if you want to add a USB connector, such as Stamp (for tiny board with USB).",
       "keyFeatures": [
@@ -270,7 +270,7 @@
       "partNumber": "GDL-SPCUBICLE-A",
       "PID": "0x0C0007",
       "category": "Specialty",
-      "price": 0.00,
+      "price": 11.95,
       "tagline": "8x8 Stackable LED Panel",
       "description": "This LED panel is available with or without LEDs. This gives the user the option to soldier their own LEDs. We also offer w/LED option for plug-n-play no soldering required. Connect in a stack or mount flat to create unique LED projects.\n ![Cubicle Options](pathname:///img/catalog/spcubicle-a-options.png)",
       "keyFeatures": [     
@@ -298,7 +298,7 @@
       "partNumber": "GDL-SPCHRONO-A",
       "PID": "0x0C0004",
       "category": "Specialty",
-      "price": 8.95,
+      "price": 9.95,
       "tagline": "LED Matrix with optional Battery",
       "description": "Scroll text on the LED matrix or use the sides to show \"time\"! Chrono includes two buttons and a CR2032 battery holder.\n\n Add a a wrist band or a lanyard to turn this into a \"wearable\" module.",
       "keyFeatures": [     
@@ -323,7 +323,7 @@
       "partNumber": "GDL-SPPIANO-A",
       "PID": "0x0C0005",
       "category": "Specialty",
-      "price": 6.95,
+      "price": 9.95,
       "tagline": "Capacitive Touch Piano Module",
       "description": "Play notes using capacitive touch pads or connect alligator clips to turn ordinary objects into a piano keys. Mounting holes to connect additional modules.",
       "keyFeatures": [     
@@ -343,7 +343,7 @@
       "partNumber": "GDL-SPCTRLR-A",
       "PID": "0x0C0008",
       "category": "Specialty",
-      "price": 14.95,
+      "price": 9.95,
       "tagline": "A 7x Button Controller with 8x LED ring",
       "description": "Use the buttons to control other modules. The 8x LED ring can help with indications of the controller usage.",
       "keyFeatures": [     
@@ -1725,7 +1725,7 @@
       "name": "DueShield",
       "partNumber": "GDL-ADDUESHIELD-A",
       "category": "Adapter",
-      "price": 4.95,
+      "price": 5.95,
       "tagline": "Arduino Shield with mounting holes.",
       "description": "Basic Arduino Shield with I2C Downlink connector. The holes are on a 5mm pitch, allowing for an easy mounting of other DUELink modules.",
       "keyFeatures": [
@@ -1814,7 +1814,7 @@
       "name": "LinkBit",
       "partNumber": "GDL-ADLINKBIT-A",
       "category": "Adapter",
-      "price": 4.95,
+      "price": 5.95,
       "tagline": "BBC micro:bit Compatible DUELink Extender",
       "description": "Bring a standard DUELink Downlink to your BBC micro:bit.",
       "keyFeatures": [
@@ -1853,7 +1853,7 @@
       "name": "Power Inject",
       "partNumber": "GDL-ADPOWERINJECT-A",
       "category": "Adapter",
-      "price": 6.95,
+      "price": 9.95,
       "tagline": "Power Inject",
       "description": "When necessary, this module injects power in a long chain of DUELink modules. This also helps power any modules that have extra power needs than available on the main power source.",
       "keyFeatures": [
