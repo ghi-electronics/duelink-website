@@ -1,0 +1,11 @@
+##### Slide Driver ######
+
+fn DVer()
+    return 1.0
+fend
+
+fn Slide()
+    return Trunc(VRead(3)/ReadVCC()*100)
+fend
+
+#########################

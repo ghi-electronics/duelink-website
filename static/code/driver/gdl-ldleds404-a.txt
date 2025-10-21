@@ -20,6 +20,7 @@ fn Seg7(i, s)
         return
     end
      
+    s = trunc(s)
     i = 3 - i
     if s = 0
         Pixel(1,0,i)
@@ -129,10 +130,10 @@ fn Colon(v)
 fend
 
 fn Digit(n)
-    Seg7(0,n%10)
-    Seg7(1,(n/10)%10)
-    Seg7(2,(n/100)%10)
-    Seg7(3,(n/1000)%10)
+    Seg7(0,trunc(n%10))
+    Seg7(1,trunc(n/10)%10)
+    Seg7(2,trunc(n/100)%10)
+    Seg7(3,trunc(n/1000)%10)
 fend
  
 Init()
