@@ -338,7 +338,21 @@
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLED(i,s)` | Set specific LED to on or off |\n| `DVer()` | This driver version. |"
     },
-
+  {
+      "name": "Controller",
+      "partNumber": "GDL-SPCTRLR-A",
+      "PID": "0x0C0008",
+      "category": "Specialty",
+      "price": 14.95,
+      "tagline": "A 7x Button Controller with 8X LED ring",
+      "description": "Use the buttons to control other modules. The 8x LED ring can help with indications of the controller usage.",
+      "keyFeatures": [     
+        "7X buttons",
+        "8x LEDs",
+        "USB Type C",
+        "71x37mm overall dimension"
+      ]
+    },
     {
       "name": "ePaper M29",
       "partNumber": "GDL-DSEPAPERM29-A",
@@ -835,10 +849,25 @@
       "category": "HMI",
       "price": 9.95,
       "tagline": "7x 10x10mm Tactile Buttons",
-      "description": "This module includes 7x 10x10mm tactile buttons.",
+      "description": "This module includes 7x 10x10mm tactile buttons. All buttons, except middle, has a controllable LED.",
       "keyFeatures": [
         "7x 10x10mm buttons",
+        "6x LEDs",
         "52x67mm overall dimension"
+      ]
+    },
+    {
+      "name": "Button S7",
+      "partNumber": "GDL-HIBUTTONS7-A",
+      "PID": "0x04000E",
+      "category": "HMI",
+      "price": 7.95,
+      "tagline": "7x 5x5 Tactile Buttons",
+      "description": "This module includes 7x 5x5mm tactile buttons. All buttons, except middle, has a controllable LED.",
+      "keyFeatures": [
+        "7x 5x5mm buttons",
+        "6x LEDs",
+        "32x42mm overall dimension"
       ]
     },
     {
