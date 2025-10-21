@@ -1,0 +1,41 @@
+##### LED S404 Test #####
+
+fn Test()
+    Wait(1)
+    dlmode(2,0) 
+    Wait(10)
+    cmd("sel(1)")
+    cmd("Clear(0)")
+    cmd("TextS(\"Starting test...\", 1, 0, 0, 1,2)")
+    cmd("Show()") 
+    println("Starting test...")
+    
+    _x=0
+    _c = 0
+    while 1 
+       
+        Digit(_x)
+        #if Colon then no dot 
+        Colon(_c % 2)
+        
+        #if dot then no colum
+        Dot(0,_c %2)
+        Dot(1,_c %2)
+        Dot(2,_c %2)
+        Dot(3,_c %2)
+
+    
+        Show()
+
+        _x=_x + 1111
+        
+        if _x > 9999
+            _x = 0
+        end
+        
+        _c = _c +1
+        
+
+        wait(500)
+    wend
+fend 
