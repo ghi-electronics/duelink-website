@@ -66,7 +66,7 @@
       "partNumber": "GDL-MCCLIPIT-B",
       "PID": "0x000011",
       "category": "Microcomputer",
-      "price": 9.95,
+      "price": 14.95,
       "tagline": "Alligator clip friendly STEM-microcomputer",
       "description": "[Educators](/docs/educators) can now elevate their STEM-mission with Clipit. Start immediately with light sensor and touch pads to read inputs. Then use any of the supported [Languages](/docs/language/intro) to process those inputs and then control the output on the 5x5 LED matrix and buzzer.\n\nGo beyond and add alligator clips for reading touch from objects, or control other circuits.\n\nOf course, this is a DUELink board and [Downlink](/docs/interface/downlink) is ready for [Daisylinking](/docs/engine/daisylink) all of your modules.",
       "keyFeatures": [
@@ -338,7 +338,21 @@
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLED(i,s)` | Set specific LED to on or off |\n| `DVer()` | This driver version. |"
     },
-
+  {
+      "name": "Controller",
+      "partNumber": "GDL-SPCTRLR-A",
+      "PID": "0x0C0008",
+      "category": "Specialty",
+      "price": 14.95,
+      "tagline": "A 7x Button Controller with 8X LED ring",
+      "description": "Use the buttons to control other modules. The 8x LED ring can help with indications of the controller usage.",
+      "keyFeatures": [     
+        "7X buttons",
+        "8x LEDs",
+        "USB Type C",
+        "71x37mm overall dimension"
+      ]
+    },
     {
       "name": "ePaper M29",
       "partNumber": "GDL-DSEPAPERM29-A",
@@ -399,7 +413,8 @@
         },
         "chipInfo": "https://brtchip.com/product/bt817q/"
       },
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start. |\n| `DLClear()` | Clear the commands. |\n| `DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments. |\n| `DLSwap()` | Execute the graphics commands and swap working buffers. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start. |\n| `DLClear()` | Clear the commands. |\n| `DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments. |\n| `DLSwap()` | Execute the graphics commands and swap working buffers. |\n| `DVer()` | This driver version. |",
+      "MfgNotes": "Need monitor and speaker for testing" 
     },
     {
       "name": "LCD 16x2",
@@ -643,7 +658,8 @@
         "Eight 3-pin male headers",
         "Power terminal block",
         "37x27mm overall dimension"
-      ]
+      ],
+      "MfgNotes": "An external 5V power supply is required"  
     },
     {
       "name": "Servo X1",
@@ -833,10 +849,25 @@
       "category": "HMI",
       "price": 9.95,
       "tagline": "7x 10x10mm Tactile Buttons",
-      "description": "This module includes 7x 10x10mm tactile buttons.",
+      "description": "This module includes 7x 10x10mm tactile buttons. All buttons, except middle, has a controllable LED.",
       "keyFeatures": [
         "7x 10x10mm buttons",
+        "6x LEDs",
         "52x67mm overall dimension"
+      ]
+    },
+    {
+      "name": "Button S7",
+      "partNumber": "GDL-HIBUTTONS7-A",
+      "PID": "0x04000E",
+      "category": "HMI",
+      "price": 7.95,
+      "tagline": "7x 5x5 Tactile Buttons",
+      "description": "This module includes 7x 5x5mm tactile buttons. All buttons, except middle, has a controllable LED.",
+      "keyFeatures": [
+        "7x 5x5mm buttons",
+        "6x LEDs",
+        "32x42mm overall dimension"
       ]
     },
     {
@@ -1554,17 +1585,19 @@
     },
     {
       "name": "Smart LED",
-      "partNumber": "GDL-LDSMARTLED-A",
+      "partNumber": "GDL-LDSMARTLED-B",
       "PID": "0x05000D",
       "category": "LED",
-      "price": 6.95,
+      "price": 9.95,
       "tagline": "Smart LED Controller",
-      "description": "The DUELink standard library includes support for WS2811 smart LEDs. When using matrices, the support is even included with the graphics function.",
+      "description": "This module supports both 1-pin WS281x smart LEDs and 2-pin smart LEDs (clock and data). Byond standa LED control, DUELink standard library includes support for [graphics](/docs/engine/graphics) on WS281x matrices.\n\nFor control signals coming out of module are 3.3V logic levels by default. Optionlly, you can supply 5V on the **Vsig** connection to convert teh control signals to 5V.",
       "keyFeatures": [
         "WS2811 LED Controller",
+        "2-pin  Smart LED Controller",
+        "5V Control Signal Option",
         "Support for DAT/CLK type",
         "Terminal Block Connection",
-        "37x22mm overall dimension"
+        "32x22mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `WS2811()` | Returns the pin number used for DAT pin to be used with `WS2811` Smart LED [Graphics](/docs/engine/graphics). |\n| `IntAPA(c)` | Get the system ready for `APA102C`. |\n| `SetAPA(i, c, l)` | Sets the color at `i` index to `c` color (RRGGBB) and `l` luminance (0 to 31). |\n| `ShwAPA()` | Show/update the actual LEDs with preassigned colors. |\n| `IntLPD(c)` | Get the system ready for `LPD8806`. |\n| `SetLPD(i, c)` | Sets the color at `i` index to `c` color (RRGGBB) |\n| `ShwLPD()` | Show/update the actual LEDs with preassigned colors. |\n| `DVer()` | This driver version. |"
     },
@@ -1872,7 +1905,7 @@
       "name": "USB Hook",
       "partNumber": "GDL-ADUSBHOOK-A",
       "category": "Adapter",
-      "price": 3.95,
+      "price": 2.95,
       "tagline": "USB-C Connection for DUELink Modules",
       "description": "USB Hook is handy to add USB Interface to any DUELink module. It includes an 800mA power source and a power LED.",
       "keyFeatures": [

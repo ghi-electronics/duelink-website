@@ -73,14 +73,13 @@ while True:
     time.sleep(1)
 ```
 
-See the [Python](../language/python) language page for more examples.
+[RPILink](../products/adrpilink-a) is a simpler, and lower cost, option. It includes two options for connecting to RPI, via [I2C](../interface/i2c) or [UART](../interface/uart) interfaces.
 
-Another option is to use use breakout boards that bring the RPI’s [I2C](../interface/i2c) bus to a standard JST socket, like the [Sparkfun Qwiic Shim for Raspberry Pi](https://www.sparkfun.com/sparkfun-qwiic-shim-for-raspberry-pi.html) or [Sparkfun Qwiic pHat](https://www.sparkfun.com/sparkfun-qwiic-phat-v2-0-for-raspberry-pi.html).
+![RPILink](pathname:///img/catalog/adrpilink-a-1.png)
+
+You can also use other third-party breakouts that adds JST connector, like the [Sparkfun Qwiic Shim for Raspberry Pi](https://www.sparkfun.com/sparkfun-qwiic-shim-for-raspberry-pi.html) or [Sparkfun Qwiic pHat](https://www.sparkfun.com/sparkfun-qwiic-phat-v2-0-for-raspberry-pi.html).
 
 ![Sparkfun Qwiic Shim or Qwiic pHat](pathname:///img/qwiic-shim-phat.png)
-
-
-Unlike DuePi, these accessories connect to the I2C bus. Here is the same code as before but we are now using the [I2C Interface](../interface/i2c).
 
 :::tip
 When using the Qwiic pHat, only use one JST connectors as [Downlink](../interface/downlink). You can still use the other sockets to connect other non-DUELink I2C things!

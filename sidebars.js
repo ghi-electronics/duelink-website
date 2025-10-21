@@ -69,7 +69,8 @@ const sidebars = {
             "products/spsnowy-a",
             "products/spcubicle-a",
             "products/spchrono-a",
-            "products/sppiano-a"
+            "products/sppiano-a",
+            "products/spctrlr-a"
           ],
         },
         {
@@ -172,6 +173,7 @@ const sidebars = {
             "products/hibtnrgb28x4-b",
             "products/hibuttonl-a",
             "products/hibuttonl7-b",
+            "products/hibuttons7-a",
             "products/hibuttons-a",
             "products/hidial-a",
             "products/hidipswitch-b",
@@ -217,7 +219,7 @@ const sidebars = {
             "products/ldleds404-a",
             "products/ldleds564-a",
             "products/ldledss805-c",
-            "products/ldsmartled-a"
+            "products/ldsmartled-b"
           ],
         },
         {
