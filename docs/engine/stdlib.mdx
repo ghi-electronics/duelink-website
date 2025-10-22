@@ -2306,9 +2306,10 @@ Function | Description
 Sleep Mode | Wake up pin | Description
 --- |  --- | ---
 0 | Pins 1 or 3 only | Complete system shutdown (including RTC). A change on `p` pin from low-to-high will wake up and **reset** the module.
-1 | Any interrupt-capable pin | System goes into hibernate, but with RTC running. The `p` argument is ignored. The system will wake up from `RtcA()` or from an interrupt on any pin used by `Button()` or `IStart()`. Waking up from this mode will **resume** execution.
+1 | Any interrupt-capable pin | System goes into hibernate, but with RTC running.
 
-If no interrupts are used in mode 1, the system can only wake up from `RtcA()` or system reset.
+
+When using mode 1, the `p` argument is ignored and the system will wake up from `RtcA()`, or from an interrupt on any pin used by `Button()` or `IStart()`. Waking up from this mode will **resume** execution. If no interrupts are used the system can only wake up from `RtcA()` or a system reset. Additionally, pin SDA on the upstream socket is monitored to allow for a system wake up using any I2C/UART activities. Note that the first byte will be recieved corrupted.
 
 :::tip
 A module will exit any low power mode after system reset or power cycle.
