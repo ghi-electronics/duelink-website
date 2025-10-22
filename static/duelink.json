@@ -720,6 +720,21 @@
       ]
     },
     {
+      "name": "Dio X12",
+      "partNumber": "GDL-ACDIOX12-A",
+      "PID": "0x02000D",
+      "category": "Actuator",
+      "price": 9.95,
+      "tagline": "12x Terminal Block Input-Output",
+      "description": "Access 12 pins of the DUELink system on screw terminal block, no need for soldering. These pins are digital inputs/outputs and most of them include analog, PWM and other functionalities.",
+      "keyFeatures": [
+        "12x inputs & outputs",
+        "Terminal Block Header",
+        "27x18mm overall dimension"
+      ],
+      "driverApi": ":::tip\nDio X12 module uses the [Standard Library API](/docs/engine/stdlib) directly. No other drivers are needed.\n:::"
+    },
+    {
       "name": "CAN",
       "partNumber": "GDL-CMCAN-B",
       "PID": "0x030001",
@@ -1700,21 +1715,6 @@
         "22x24mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `PixTemp(p)` | Read one of the `p` pixels' temp. There are 64 pixels (0 to 63). |\n| `DVer()` | This driver version. |"
-    },
-    {
-      "name": "Dio X12",
-      "partNumber": "GDL-ADDIOX12-A",
-      "PID": "0x0A0002",
-      "category": "Adapter",
-      "price": 9.95,
-      "tagline": "12x Terminal Block Input-Output",
-      "description": "Access the first 12 pins of the DUELink system on screw terminal block. These pins are digital inputs/outputs and most of them include analog, PWM and other functionalities.",
-      "keyFeatures": [
-        "12x inputs & outputs",
-        "Terminal Block Header",
-        "27x18mm overall dimension"
-      ],
-      "driverApi": ":::tip\nDio X12 module uses the [Standard Library API](/docs/engine/stdlib) directly. No other drivers are needed.\n:::"
     },
     {
       "name": "DueShield",

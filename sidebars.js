@@ -78,7 +78,6 @@ const sidebars = {
           label: "Adapters",
           items: [
             "products/adbreakout-a",
-            "products/addiox12-a",
             "products/addueshield-a",
             "products/adduembus-a",
             "products/admbuslink-a",
@@ -142,6 +141,7 @@ const sidebars = {
           items: [
             "products/acfan-b",
             "products/acload-a",
+            "products/acdiox12-a",
             "products/acmotomax-b",
             "products/acmototwin-b",
             "products/acrelayp16-a",
