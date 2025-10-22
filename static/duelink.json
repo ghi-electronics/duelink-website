@@ -13,7 +13,7 @@
       "name": "Essentials Kit",
       "partNumber": "GDL-KTESSEN-A",
       "category": "Kit",
-      "price": 59.95,
+      "price": 74.95,
       "tagline": "Essentials Kit With Most Common Modules!",
       "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [TFT N18](/docs/products/dstftn18-b) - 1.8\" Color Display\n* [LED R16](/docs/products/ldledr16-b)\n* [Rotary](/docs/products/hirotary-c)\n* [Distance](/docs/products/sedistance-b)\n* [ServoX1](/docs/products/acservox1-a)\n* [Buzzer](/docs/products/sobuzzer-b)\n* [Light](/docs/products/selight-a)\n* [USB Hook + Cable](/docs/products/adusbhook-a)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
       "keyFeatures": [
@@ -29,7 +29,7 @@
       "name": "Gimme More Kit",
       "partNumber": "GDL-KTGIMME-A",
       "category": "Kit",
-      "price": 59.95,
+      "price": 74.95,
       "tagline": "Never Enough! Gimme More Modules!",
       "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Wireless ESP32](/docs/products/wlesp32-a)\n* [Button S7](/docs/products/hibuttons7-a)\n* [LED MT1208](/docs/products/ldledmt1208-a)\n* [ServoX1](/docs/products/acservox1-a)\n* [Accel](/docs/products/seaccel-a)\n* [Jack](/docs/products/sojack-a)\n* [Holey Board](/docs/products/axholey)\n* [USB Stick](/docs/products/adusbstick-a)\n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
       "keyFeatures": [
@@ -46,7 +46,7 @@
       "partNumber": "GDL-MCCINCOBIT-E",
       "PID": "0x000001",
       "category": "Microcomputer",
-      "price": 6.95,
+      "price": 5.95,
       "tagline": "Ultra low-cost, micro:bit inspired, educational board",
       "description": "[Educators](/docs/educators) and [Makers](/docs/makers) will find great value in this ultra low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.",
       "keyFeatures": [
@@ -66,7 +66,7 @@
       "partNumber": "GDL-MCCLIPIT-B",
       "PID": "0x000011",
       "category": "Microcomputer",
-      "price": 12.95,
+      "price": 14.95,
       "tagline": "Alligator clip friendly STEM-microcomputer",
       "description": "[Educators](/docs/educators) can now elevate their STEM-mission with Clipit. Start immediately with light sensor and touch pads to read inputs. Then use any of the supported [Languages](/docs/language/intro) to process those inputs and then control the output on the 5x5 LED matrix and buzzer.\n\nGo beyond and add alligator clips for reading touch from objects, or control other circuits.\n\nOf course, this is a DUELink board and [Downlink](/docs/interface/downlink) is ready for [Daisylinking](/docs/engine/daisylink) all of your modules.",
       "keyFeatures": [
@@ -103,7 +103,7 @@
       "partNumber": "GDL-MCDUESTEM-B",
       "PID": "0x000010",
       "category": "Microcomputer",
-      "price": 19.95,
+      "price": 22.95,
       "tagline": "Complete All-in-One STEM Solution",
       "description": "`Input -> Process -> Output` is how DueSTEM brings everything [educators](/docs/educators) need to demonstrate physical computing. There are 4 inputs and 4 outputs. The graphical display can be used to show sensor levels or for building games!\n\nExtend the board with sensors and actuators on the female pin-header and the [Downlink](/docs/interface/downlink) connector.",
       "keyFeatures": [
@@ -126,7 +126,7 @@
       "partNumber": "GDL-MCPIXOBIT-D",
       "PID": "0x000002",
       "category": "Microcomputer",
-      "price": 14.95,
+      "price": 16.95,
       "tagline": "micro:bit Form Factor with 128x64 OLED 0.96\" Display",
       "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. You can now show sensor data or build video games!",
       "keyFeatures": [
@@ -145,7 +145,7 @@
       "partNumber": "GDL-MCSTAMP-B",
       "PID": "0x000013",
       "category": "Microcomputer",
-      "price": 5.95,
+      "price": 7.95,
       "tagline": "Seeed Xiao Form Factor DUELink Microcomputer",
       "description": "This fingertip-sized tiny board is as capable as any other DUELink module. Plug it in a breadboard using male headers, or solder it directly using the edge pads. It has a Seeed Xiao compatible footprint as well. It includes an upgraded regulator allowing for connecting many DUELink modules on the [Downlink](/docs/interface/downlink) connector.\n\nThis is a great choice to help you in making your own DUELink modules. Don't want USB? Then consider using [Stick](/docs/products/mcstick-a).",
       "keyFeatures": [
@@ -162,7 +162,7 @@
       "partNumber": "GDL-MCSTICK-A",
       "PID": "0x000014",
       "category": "Microcomputer",
-      "price": 5.95,
+      "price": 6.95,
       "tagline": "DIP24 Form Factor SMT DUELink SoM",
       "description": "Start making your own DUELink modules using this Surface-Mountable DUELink SoM that is also DIP24 form-factor.\n\nBoth U and D connectors are included. The USB connections are also exposed if you want to add a USB connector, such as Stamp (for tiny board with USB).",
       "keyFeatures": [
@@ -232,7 +232,7 @@
       "partNumber": "GDL-SPSNOWY-A",
       "PID": "0x0C0006",
       "category": "Specialty",
-      "price": 4.95,
+      "price": 9.95,
       "tagline": "LED Snowflake",
       "description": "This LED snowflake is available with or without LEDs. This gives the user the option to soldier their own LEDs. We also offer w/LED option for plug-n-play no soldering required.\n ![Snowy Options](pathname:///img/catalog/spsnowy-a-options.png)",
       "keyFeatures": [
@@ -270,7 +270,7 @@
       "partNumber": "GDL-SPCUBICLE-A",
       "PID": "0x0C0007",
       "category": "Specialty",
-      "price": 11.95,
+      "price": 9.95,
       "tagline": "8x8 Stackable LED Panel",
       "description": "This LED panel is available with or without LEDs. This gives the user the option to soldier their own LEDs. We also offer w/LED option for plug-n-play no soldering required. Connect in a stack or mount flat to create unique LED projects.\n ![Cubicle Options](pathname:///img/catalog/spcubicle-a-options.png)",
       "keyFeatures": [     
@@ -289,7 +289,7 @@
         {
           "name": "No LEDs",
           "partCode": "NP",
-          "price": 11.95
+          "price": 9.95
         }
       ]
     },
@@ -314,7 +314,7 @@
         {
           "name": "Blue",
           "partCode": "B",
-          "price": 8.95
+          "price": 5.95
         }
       ]
     },
@@ -359,7 +359,7 @@
       "PID": "0x01000B",
       "category": "Display",
       "price": 49.95,
-      "tagline": "2.9\" e-Ink Display",
+      "tagline": "2.9\" - e-Ink Display",
       "description": "e-Ink (ePaper) displays only need power to update the screen. But then power can be disconnected and the display will retain the graphics with zero power requirements.",
       "keyFeatures": [
         "2.9\" e-Ink display",
@@ -375,7 +375,7 @@
       "PID": "0x01000C",
       "category": "Display",
       "price": 79.95,
-      "tagline": "4.2\" e-Ink Display",
+      "tagline": "4.2\" - e-Ink Display",
       "description": "e-Ink (ePaper) displays only need power to update the screen. But then power can be disconnected and the display will retain the graphics with zero power requirements.\n\nThis display works via the graphics internal services with 2x pixel multiplier, giving the user 200x150 pixels.",
       "keyFeatures": [
         "4.2\" e-Ink display",
@@ -435,7 +435,7 @@
       "partNumber": "GDL-DSLCD20X4-B",
       "PID": "0x010003",
       "category": "Display",
-      "price": 39.95,
+      "price": 24.95,
       "tagline": "20x4 Character Display",
       "description": "Print up to 20 characters over 4 rows on this character display.",
       "keyFeatures": [
@@ -449,7 +449,7 @@
       "partNumber": "GDL-DSOLED096-A",
       "PID": "0x010004",
       "category": "Display",
-      "price": 12.95,
+      "price": 14.95,
       "tagline": "0.96\" - 128x64 OLED BW Display",
       "description": "This small 0.96\" display is very sharp due to its OLED construction. It is B&W color, but with 128x64 pixels, it has enough resolution to show plenty of data and [graphics](/docs/engine/graphics).",
       "keyFeatures": [
@@ -464,31 +464,55 @@
       "partNumber": "GDL-DSPORTALCP70-B",
       "PID": "0x010009",
       "category": "Display",
-      "price": 129.95,
-      "tagline": "7\" 800x400 Color Touch Display with Graphics Co-Processor",
-      "description": "Portal CP70 7\" 800x400 capacitive touch display with a graphics co-processor [BT817Q](https://brtchip.com/product/bt817q/). Drawing using this module will be done via the graphics coprocessor and not the internal graphics engine.",
+      "price": 99.95,
+      "tagline": "7\" - 800x400 Color Touch Display with Graphics Co-Processor",
+      "description": "Portal CP70 7\" 800x400 display with optional capacitive touch. This module includes a graphics co-processor [BT817Q](https://brtchip.com/product/bt817q/). Drawing using this module will be done via the powerful graphics coprocessor and not the internal graphics engine.",
       "keyFeatures": [
         "Full Color 800x400 Pixels",
         "Graphics co-processor",
         "Capacitive Multi-Touch",
         "167x122mm"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start. |\n| `DLClear()` | Clear the commands. |\n| `DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments. |\n| `DLSwap()` | Execute the graphics commands and swap working buffers. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start. |\n| `DLClear()` | Clear the commands. |\n| `DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments. |\n| `DLSwap()` | Execute the graphics commands and swap working buffers. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "/w Capacitive Touch",
+          "partCode": "CP",
+          "price": 129.95
+        },
+        {
+          "name": "No Touch",
+          "partCode": "NA",
+          "price": 99.95
+        }
+      ]
     },
     {
       "name": "TFT CP23",
       "partNumber": "GDL-DSTFTCP23-B",
       "PID": "0x010007",
       "category": "Display",
-      "price": 39.95,
-      "tagline": "2.3\" 320x240 Color Touch Display",
-      "description": "2.3\" 320x240 color TFT display with capacitive touch screen, supporting [Graphics](/docs/engine/graphics) in buffered and in direct modes.",
+      "price": 29.95,
+      "tagline": "2.3\" - 320x240 Color Touch Display",
+      "description": "2.3\" 320x240 color TFT display with capacitive touch screen option, supporting [Graphics](/docs/engine/graphics) in buffered and in direct modes.",
       "keyFeatures": [
         "Full Color 320x240 Pixels",
         "Capacitive Multi-Touch",
         "67x47mm"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(m,o)` | Initialize display `m` mode (buffered = 0 , direct = 1). `o` orientation (landscape = 0, portrait = 1). Init(0, 0) automatically called on power-up. |\n| `GetW()` | Get display width: 106 in buffered, 320 in direct. |\n| `GetH()` | Get display height: 80 in buffered, 240 in direct. |\n| `IsColor()` | Returns 1. |\n| `TouchX()` | Returns touch x. |\n| `TouchY()` | Returns touch y. |\n| `SetDACtrl(s,r,c,b)` | Data access control `s` swapRowCol, `r` invertRow, `c` invertCol, `b` swapBGRSet data access control. |\n| `SetWindow(x,y,w,h)` | Sets draw window `x` display's x value, `y` display's y value., `w` display's width value, `h` display's height value. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(m,o)` | Initialize display `m` mode (buffered = 0 , direct = 1). `o` orientation (landscape = 0, portrait = 1). Init(0, 0) automatically called on power-up. |\n| `GetW()` | Get display width: 106 in buffered, 320 in direct. |\n| `GetH()` | Get display height: 80 in buffered, 240 in direct. |\n| `IsColor()` | Returns 1. |\n| `TouchX()` | Returns touch x. |\n| `TouchY()` | Returns touch y. |\n| `SetDACtrl(s,r,c,b)` | Data access control `s` swapRowCol, `r` invertRow, `c` invertCol, `b` swapBGRSet data access control. |\n| `SetWindow(x,y,w,h)` | Sets draw window `x` display's x value, `y` display's y value., `w` display's width value, `h` display's height value. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "/w Capacitive Touch",
+          "partCode": "CP",
+          "price": 39.95
+        },
+        {
+          "name": "No Touch",
+          "partCode": "NA",
+          "price": 29.95
+        }
+      ]
     },
     {
       "name": "TFT N18",
@@ -526,7 +550,7 @@
       "partNumber": "GDL-DSVFDB8-C",
       "PID": "0x01000A",
       "category": "Display",
-      "price": 52.95,
+      "price": 49.95,
       "tagline": "Vacuum Fluorescent Character Display",
       "description": "Vacuum fluorescent displays are visually pleasing. This 8x character display looks great at any time, but it will look especially amazing in the dark!",
       "keyFeatures": [
@@ -1449,7 +1473,7 @@
       "partNumber": "GDL-LDLEDMT1208-A",
       "PID": "0x050003",
       "category": "LED",
-      "price": 9.95,
+      "price": 14.95,
       "tagline": "12x8 LED Matrix",
       "description": "Use these 96 dazzling LEDs to show text, create flashy games, or run whatever effect you desire. You will be surprised with how much you can do with a 12x8 LED matrix!",
       "keyFeatures": [
@@ -1483,7 +1507,7 @@
         {
           "name": "Red",
           "partCode": "R",
-          "price": 0.0
+          "price": 6.95
         }
       ]
     },
@@ -1506,7 +1530,7 @@
       "partNumber": "GDL-LDLEDS284-B",
       "PID": "0x050006",
       "category": "LED",
-      "price": 13.95,
+      "price": 9.95,
       "tagline": "0.28\" 4-Digit 7-Segment Display",
       "description": "These 0.28\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.\n\n![Count and Time](/img/led-7seg-time-count.png)",
       "keyFeatures": [
@@ -1520,7 +1544,7 @@
         {
           "name": "Timer Green",
           "partCode": "TG",
-          "price": 0
+          "price": 9.95
         }
       ]
     },
@@ -1529,7 +1553,7 @@
       "partNumber": "GDL-LDLEDS404-A",
       "PID": "0x050008",
       "category": "LED",
-      "price": 16.95,
+      "price": 12.95,
       "tagline": "0.40\" 4-Digit 7-Segment Display",
       "description": "These 0.40\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.\n\n![Count and Time](/img/led-7seg-time-count.png)",
       "keyFeatures": [
@@ -1543,7 +1567,7 @@
         {
           "name": "Timer Red",
           "partCode": "TR",
-          "price": 0
+          "price": 12.95
         }
       ]
     },
@@ -1552,7 +1576,7 @@
       "partNumber": "GDL-LDLEDS564-A",
       "PID": "0x05000A",
       "category": "LED",
-      "price": 19.95,
+      "price": 15.95,
       "tagline": "0.56\" 4-Digit 7-Segment Display",
       "description": "These 0.56\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.\n\n![Count and Time](/img/led-7seg-time-count.png)",
       "keyFeatures": [
@@ -1566,7 +1590,7 @@
         {
           "name": "Counter Red",
           "partCode": "CR",
-          "price": 0
+          "price": 15.95
         }
       ]
     },
@@ -1589,7 +1613,7 @@
         {
           "name": "Red",
           "partCode": "R",
-          "price": 0.0
+          "price": 19.95
         }
       ]
     },
@@ -1616,7 +1640,7 @@
       "partNumber": "GDL-SOBUZZER-B",
       "PID": "0x070001",
       "category": "Sound",
-      "price": 9.95,
+      "price": 5.95,
       "tagline": "Peizo Buzzer Sound Generator",
       "description": "Use this peizo buzzer to generate tones and simple melodies. Sound an alarm, play a melody when a task is finished or even generate noises!",
       "keyFeatures": [
@@ -1959,7 +1983,7 @@
       "category": "Accessory",
       "price": 3.95,
       "tagline": "Packs of DUELink Cables",
-      "description": "A variety of DUELink cable lengths are available to help projects of different needs.\n\nCable sets are available in:  \n• 5x 50mm  \n• 5x 150mm  \n• 5x 300mm  \n• 5x 100mm JST to pin header breakout  \n• Variety Pack: 1x 300mm, 2x 150mm, 2x 50mm (5x cables).",
+      "description": "A variety of DUELink cable lengths are available to help projects of different needs.\n\n Cable sets are available in: \n* Variety Pack: 1x 300mm, 2x 150mm, 2x 50mm (5x cables). \n* 5x 50mm  \n* 5x 150mm  \n* 5x 300mm  \n* 5x 100mm JST to pin header breakout",
       "keyFeatures": [
         "50mm DUELink Cable",
         "150mm DUELink Cable",
@@ -1967,6 +1991,11 @@
         "100mm DUELink Breadboard Jumper"
       ],
       "variations": [
+        {
+          "name": "Cable Variety Pack",
+          "partCode": "PACK",
+          "price": 5.95
+        },
         {
           "name": "50mm 5pcs",
           "partCode": "050",
@@ -1980,16 +2009,11 @@
         {
           "name": "300mm 5pcs",
           "partCode": "300",
-          "price": 5.95
+          "price": 6.95
         },
         {
           "name": "Breadboard Jumper",
           "partCode": "JMPR",
-          "price": 5.95
-        },
-        {
-          "name": "Cable Variety Pack",
-          "partCode": "PACK",
           "price": 5.95
         }
       ]
@@ -2044,12 +2068,12 @@
         {
           "name": "Smally",
           "partCode": "M",
-          "price": 3.95
+          "price": 2.95
         },
         {
           "name": "Standard",
           "partCode": "L",
-          "price": 6.95
+          "price": 4.95
         },
         {
           "name": "Moley",
@@ -2098,7 +2122,7 @@
         {
           "name": "Footpads 4pcs",
           "partCode": "FP",
-          "price": 4.95
+          "price": 2.95
         }
       ]
     }
