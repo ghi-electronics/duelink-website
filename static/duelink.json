@@ -759,7 +759,7 @@
       "category": "Communication",
       "price": 24.95,
       "tagline": "Ethernet Network Module",
-      "description": "Ethernet connectivity module for network communications",
+      "description": "Ethernet connectivity module for network communications. This module does not have SSL/TLS support, and therefore does not allow for secure connections. It works great in local networks and controlled internet connections, but will not work with [AWS](../iot/aws), for example.",
       "keyFeatures": [
         "Complete TCP/IP stack",
         "TCP and UDP support",
