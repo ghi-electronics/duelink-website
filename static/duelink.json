@@ -435,7 +435,7 @@
       "partNumber": "GDL-DSLCD20X4-B",
       "PID": "0x010003",
       "category": "Display",
-      "price": 39.95,
+      "price": 24.95,
       "tagline": "20x4 Character Display",
       "description": "Print up to 20 characters over 4 rows on this character display.",
       "keyFeatures": [
@@ -449,7 +449,7 @@
       "partNumber": "GDL-DSOLED096-A",
       "PID": "0x010004",
       "category": "Display",
-      "price": 12.95,
+      "price": 14.95,
       "tagline": "0.96\" - 128x64 OLED BW Display",
       "description": "This small 0.96\" display is very sharp due to its OLED construction. It is B&W color, but with 128x64 pixels, it has enough resolution to show plenty of data and [graphics](/docs/engine/graphics).",
       "keyFeatures": [
@@ -480,15 +480,27 @@
       "partNumber": "GDL-DSTFTCP23-B",
       "PID": "0x010007",
       "category": "Display",
-      "price": 39.95,
+      "price": 29.95,
       "tagline": "2.3\" 320x240 Color Touch Display",
-      "description": "2.3\" 320x240 color TFT display with capacitive touch screen, supporting [Graphics](/docs/engine/graphics) in buffered and in direct modes.",
+      "description": "2.3\" 320x240 color TFT display with capacitive touch screen option, supporting [Graphics](/docs/engine/graphics) in buffered and in direct modes.",
       "keyFeatures": [
         "Full Color 320x240 Pixels",
         "Capacitive Multi-Touch",
         "67x47mm"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(m,o)` | Initialize display `m` mode (buffered = 0 , direct = 1). `o` orientation (landscape = 0, portrait = 1). Init(0, 0) automatically called on power-up. |\n| `GetW()` | Get display width: 106 in buffered, 320 in direct. |\n| `GetH()` | Get display height: 80 in buffered, 240 in direct. |\n| `IsColor()` | Returns 1. |\n| `TouchX()` | Returns touch x. |\n| `TouchY()` | Returns touch y. |\n| `SetDACtrl(s,r,c,b)` | Data access control `s` swapRowCol, `r` invertRow, `c` invertCol, `b` swapBGRSet data access control. |\n| `SetWindow(x,y,w,h)` | Sets draw window `x` display's x value, `y` display's y value., `w` display's width value, `h` display's height value. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(m,o)` | Initialize display `m` mode (buffered = 0 , direct = 1). `o` orientation (landscape = 0, portrait = 1). Init(0, 0) automatically called on power-up. |\n| `GetW()` | Get display width: 106 in buffered, 320 in direct. |\n| `GetH()` | Get display height: 80 in buffered, 240 in direct. |\n| `IsColor()` | Returns 1. |\n| `TouchX()` | Returns touch x. |\n| `TouchY()` | Returns touch y. |\n| `SetDACtrl(s,r,c,b)` | Data access control `s` swapRowCol, `r` invertRow, `c` invertCol, `b` swapBGRSet data access control. |\n| `SetWindow(x,y,w,h)` | Sets draw window `x` display's x value, `y` display's y value., `w` display's width value, `h` display's height value. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "Capacitive Touch",
+          "partCode": "CP",
+          "price": 39.95
+        },
+        {
+          "name": "No Touch",
+          "partCode": "NA",
+          "price": 29.95
+        }
+      ]
     },
     {
       "name": "TFT N18",
@@ -526,7 +538,7 @@
       "partNumber": "GDL-DSVFDB8-C",
       "PID": "0x01000A",
       "category": "Display",
-      "price": 52.95,
+      "price": 49.95,
       "tagline": "Vacuum Fluorescent Character Display",
       "description": "Vacuum fluorescent displays are visually pleasing. This 8x character display looks great at any time, but it will look especially amazing in the dark!",
       "keyFeatures": [
