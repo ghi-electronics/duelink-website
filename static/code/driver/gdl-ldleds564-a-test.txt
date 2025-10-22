@@ -10,32 +10,20 @@ fn Test()
     cmd("Show()") 
     println("Starting test...")
     
-    _x=0
+    _x=8888
     _c = 0
     while 1 
        
-        Digit(_x)
-        #if Colon then no dot 
-        Colon(_c % 2)
-        
-        #if dot then no colum
-        Dot(0,_c %2)
-        Dot(1,_c %2)
-        Dot(2,_c %2)
-        Dot(3,_c %2)
-
+        if (_c %2 = 0)
+            clear(1)
+        else
+            clear(0)
+        end                       
     
-        Show()
+        Show()       
 
-        _x=_x + 1111
+        wait(1000)
         
-        if _x > 9999
-            _x = 0
-        end
-        
-        _c = _c +1
-        
-
-        wait(500)
+        _c = _c + 1
     wend
 fend 
