@@ -968,7 +968,7 @@
     },
     {
       "name": "Joystick L",
-      "partNumber": "GDL-HIJOYSTICKL-B",
+      "partNumber": "GDL-HIJOYSTKL-C",
       "PID": "0x04000A",
       "category": "HMI",
       "price": 12.95,
