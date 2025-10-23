@@ -178,7 +178,7 @@ const sidebars = {
             "products/hidial-a",
             "products/hidipswitch-b",
             "products/hifingerprint-b",
-            "products/hijoystickl-b",
+            "products/hijoystkl-c",
             "products/hikeypad3x4-b",
             "products/hikeypad4x4-b",
             "products/hirotary-c",
