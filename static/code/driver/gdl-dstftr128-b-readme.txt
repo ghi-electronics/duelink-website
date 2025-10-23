@@ -5,5 +5,6 @@
 3. Make sure the text "This is green" is displayed in green 
 4. Make sure the text "This is blue" is displayed in blue 
 5. Make sure the text "This is white" is displayed in white 
+6. Make sure the circle is moving
 
 #########################

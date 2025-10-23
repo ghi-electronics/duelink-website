@@ -2305,14 +2305,22 @@ Function | Description
 
 Sleep Mode | Wake up pin | Description
 --- |  --- | ---
-0 | Pins 1 or 3 only | Complete system shutdown (including RTC). A change on `p` pin from low-to-high will wake up and **reset** the module.
-1 | Any interrupt-capable pin | System goes into hibernate, but with RTC running.
+0 | Pins 1 or 3 only | Complete system shutdown, including shutting down the internal including RTC. A change on `p` pin from low-to-high will **reset** (wake up) the module.
+1 | Any interrupt-capable pin | System goes into hibernate, but with internal RTC running.
 
 
-When using mode 1, the `p` argument is ignored and the system will wake up from `RtcA()`, or from an interrupt on any pin used by `Button()` or `IStart()`. Waking up from this mode will **resume** execution. If no interrupts are used the system can only wake up from `RtcA()` or a system reset. Additionally, pin SDA on the upstream socket is monitored to allow for a system wake up using any I2C/UART activities. Note that the first byte will be recieved corrupted.
+Important notes about using Mode 1: 
+1. The `p` argument is ignored and the system will wake up from an interrupt on any pin used by `Button()` or `IStart()`. 
+2. from `RtcA()`
+3. Waking up from this mode will **resume** execution, not **reset**. 
+4. If no interrupts are used the system can only wake up from `RtcA()` or a system reset. 
+5. Pin I2C SDA on [I2C](../interface/i2c) interface is monitored to allow for a system wake up using any I2C activities. Also, most modules also have this pin connected to UART RX, allowing the system to also wake up from UART.
+6. It is not possible to wake the system up using USB. You must use other options or wake the system us. However, USB will reactivate after the system wakes up.
+The system needs about 4mS to be fully operational and ready for new commands.
+7. The first byte after waking up may get corrupted. A good idea is to send a carriage-return to wake the system up, wait 4ms, then continue as normal.
 
 :::tip
-A module will exit any low power mode after system reset or power cycle.
+A module will exit any low power mode after system reset (using reset pin) or power cycle.
 ::: 
 
 <details>
@@ -2330,7 +2338,7 @@ A module will exit any low power mode after system reset or power cycle.
 <TabItem value="script">
 ```py
 # Go to sleep and reset when pin 3 changes from low to high.
-LowPwr(0, 2)
+LowPwr(0, 3)
 ```
 </TabItem>
 <TabItem value="py">

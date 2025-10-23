@@ -31,7 +31,7 @@
       "category": "Kit",
       "price": 74.95,
       "tagline": "Never Enough! Gimme More Modules!",
-      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Wireless ESP32](/docs/products/wlesp32-a)\n* [Button S7](/docs/products/hibuttons7-a)\n* [LED MT1208](/docs/products/ldledmt1208-a)\n* [ServoX1](/docs/products/acservox1-a)\n* [Accel](/docs/products/seaccel-a)\n* [Jack](/docs/products/sojack-a)\n* [Holey Board](/docs/products/axholey)\n* [USB Stick](/docs/products/adusbstick-a)\n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
+      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Wireless ESP32](/docs/products/wlesp32-a)\n* [Button S7](/docs/products/hibuttons7-a)\n* [LED MT1208](/docs/products/ldledmt1208-a)\n* [Fan](/docs/products/acfan-b)\n* [Accel](/docs/products/seaccel-a)\n* [Jack](/docs/products/sojack-a)\n* [Holey Board](/docs/products/axholey)\n* [USB Stick](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
       "keyFeatures": [
         "More Common Modules",
         "USB Stick",
@@ -719,7 +719,7 @@
       "partNumber": "GDL-ACSTEPDRIVEP1-A",
       "PID": "0x02000A",
       "category": "Actuator",
-      "price": 0,
+      "price": 14.95,
       "tagline": "Single Stepper Motor Driver",
       "description": "This module utilizes the very common stepper motor drivers commonly used in Arduino CNC Shield. They are available in multiple models. We include a driver capable of 30V @ 1A, but you can easily swap it with your favorite driver if desired.",
       "keyFeatures": [
@@ -734,7 +734,7 @@
       "partNumber": "GDL-ACSTEPDRIVEP3-B",
       "PID": "0x02000B",
       "category": "Actuator",
-      "price": 0,
+      "price": 24.95,
       "tagline": "3x Stepper Motor Driver",
       "description": "This module utilizes the very common stepper motor drivers commonly used in Arduino CNC Shield. They are available in multiple models. We include drivers capable of 30V @ 1A each, but you can easily swap them with your favorite driver if desired.",
       "keyFeatures": [
@@ -1120,7 +1120,7 @@
       "partNumber": "GDL-WLGNSSWA-A",
       "PID": "0x090001",
       "category": "Wireless",
-      "price": 0,
+      "price": 74.95,
       "tagline": "GNSS Positioning Module with Antenna",
       "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module has a built-in antenna. Consider [this GNSS](/docs/products/wlgnss-b) module if you want to add your own antenna.",
       "keyFeatures": [
@@ -1135,7 +1135,7 @@
       "partNumber": "GDL-WLGNSS-B",
       "PID": "0x090002",
       "category": "Wireless",
-      "price": 0,
+      "price": 49.95,
       "tagline": "GNSS Positioning Module with uFL Connector",
       "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module with uFL connector for external antenna. The required antenna is not included, giving the user the choice to select the right antenna. Consider [this GNSS](/docs/products/wlgnsswa-a) with built-in antenna.",
       "keyFeatures": [
@@ -1268,7 +1268,7 @@
       "partNumber": "GDL-SECURRENT-A",
       "PID": "0x060006",
       "category": "Sensor",
-      "price": 0,
+      "price": 9.95,
       "tagline": "Current Sensor",
       "description": "Connect the terminal block inline of AC or DC power to measure its current. The sensor has an internal resistance of 1.2 milli-ohm. It is capable of measuring up to 12.5A.",
       "keyFeatures": [
@@ -1439,7 +1439,7 @@
       "partNumber": "GDL-SETEMPRTD-A",
       "PID": "0x060011",
       "category": "Sensor",
-      "price": 0,
+      "price": 19.95,
       "tagline": "TempRTD Sensor",
       "description": "This sensor uses the included RTD (Resistance Temperature Detector) to measure temperatures. It includes RTD PT100 probe",
       "keyFeatures": [
@@ -2086,7 +2086,7 @@
       "name": "Mounting HW",
       "partNumber": "GDL-AXMNT",
       "category": "Accessory",
-      "price": 0,
+      "price": 1.95,
       "tagline": "Mounting Hardware",
       "description": "Standoffs, Screws, Nuts, and Footpads are available to help in mounting all DUELink modules.\n\nWhile you can use these options with 3D printed and laser cut enclosures, the ideal use is with any of the [Holey Boards](./axholey)!\n\nThe available options are:\n* Variety Pack (20x M-F standoffs, 20x screws, 20x nuts, plus 4x footpads)\n* 10x - Male to Female M3 Nylon standoffs\n* 10x - Female to Female M3 Nylon standoffs\n* 10x - M3 Nylon Screws\n* 10x - M3 Nylon Nuts\n* 4x - M3 Metal Footpads",
       "keyFeatures": [
