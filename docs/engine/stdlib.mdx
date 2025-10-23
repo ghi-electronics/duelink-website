@@ -2315,7 +2315,7 @@ Important notes about using Mode 1:
 3. Waking up from this mode will **resume** execution, not **reset**. 
 4. If no interrupts are used the system can only wake up from `RtcA()` or a system reset. 
 5. Pin I2C SDA on [I2C](../interface/i2c) interface is monitored to allow for a system wake up using any I2C activities. Also, most modules also have this pin connected to UART RX, allowing the system to also wake up from UART.
-6. It is not possible to wake the system up using USB. You must use other options or reset the system.
+6. It is not possible to wake the system up using USB. You must use other options or wake the system us. However, USB will reactivate after the system wakes up.
 The system needs about 4mS to be fully operational and ready for new commands.
 7. The first byte after waking up may get corrupted. A good idea is to send a carriage-return to wake the system up, wait 4ms, then continue as normal.
 
