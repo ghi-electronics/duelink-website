@@ -336,7 +336,13 @@
         "USB Type C",
         "111.5x75.5mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLED(i,s)` | Set specific LED to on or off |\n| `DVer()` | This driver version. |"
+    
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLED(i,s)` | Set specific LED to on or off |\n| `DVer()` | This driver version. |",
+    "variations": [
+        {
+
+        }
+      ]
     },
   {
       "name": "Controller",
