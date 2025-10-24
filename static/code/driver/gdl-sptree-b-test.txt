@@ -1,0 +1,55 @@
+##### Holiday Tree Test #####
+
+fn Test()
+    Wait(1)
+    dlmode(2,0) 
+    Wait(10)
+    cmd("sel(1)")
+    cmd("Clear(0)")
+    cmd("TextS(\"Starting test...\", 1, 0, 0, 1,2)")
+    cmd("Show()") 
+    println("Starting test...")
+    
+    _c = 0
+    while 1 
+       
+        if DRead(20,2)
+           
+            if _c%4 = 0
+                SetAll(0xFF0000)
+            end
+            if _c%4 = 1
+                SetAll(0x00FF00)
+            end
+            if _c%4 = 2
+                SetAll(0x0000FF)
+            end
+            if _c%4 = 3
+                SetAll(0xFFFFFF)
+            end
+            
+            _c = _c + 1
+            
+            Buzzer(700,100)
+            wait(100)
+            
+            println("Button pressed!")
+            
+            cmd("Clear(0)")
+            cmd("TextS(\"Button pressed!\", 1, 0, 0, 1,2)")
+            cmd("Show()") 
+            
+            while DRead(20,2)
+                wait(10)
+            wend
+            
+            
+        end
+        
+       
+        ShowLed()
+        wait(100)
+        
+        
+    wend
+fend 
