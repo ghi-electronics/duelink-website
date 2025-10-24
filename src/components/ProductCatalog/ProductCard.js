@@ -146,7 +146,7 @@ const ProductCard = memo(({ product, index, onCategoryClick }) => {
             </button>
           )}
           <div className={styles.productPrice}>
-            ${product.price?.toFixed(2) || '0.00'}
+            ${product.variations? product.variations[0].price.toFixed(2).concat('✢') : product.price?.toFixed(2)}
           </div>
         </div>
 
