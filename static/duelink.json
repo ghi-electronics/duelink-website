@@ -232,7 +232,6 @@
       "partNumber": "GDL-SPSNOWY-A",
       "PID": "0x0C0006",
       "category": "Specialty",
-      "price": 9.95,
       "tagline": "LED Snowflake",
       "description": "This LED snowflake is available with or without LEDs. This gives the user the option to soldier their own LEDs. We also offer w/LED option for plug-n-play no soldering required.\n ![Snowy Options](pathname:///img/catalog/spsnowy-a-options.png)",
       "keyFeatures": [
@@ -244,24 +243,14 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| ",
       "variations": [
         {
-          "name": "RED",
-          "partCode": "R",
-          "price": 5.95
-        },
-        {
-          "name": "GREEN",
-          "partCode": "G",
-          "price": 5.95
+          "name": "No LEDs",
+          "partCode": "NP",
+          "price": 4.95
         },
         {
           "name": "BLUE",
           "partCode": "B",
           "price": 5.95
-        },
-        {
-          "name": "No LEDs",
-          "partCode": "NP",
-          "price": 4.95
         }
       ]
     },
@@ -270,7 +259,6 @@
       "partNumber": "GDL-SPCUBICLE-A",
       "PID": "0x0C0007",
       "category": "Specialty",
-      "price": 9.95,
       "tagline": "8x8 Stackable LED Panel",
       "description": "This LED panel is available with or without LEDs. This gives the user the option to soldier their own LEDs. We also offer w/LED option for plug-n-play no soldering required. Connect in a stack or mount flat to create unique LED projects.\n ![Cubicle Options](pathname:///img/catalog/spcubicle-a-options.png)",
       "keyFeatures": [     
@@ -282,14 +270,14 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n|",
       "variations": [
         {
-          "name": "RED",
-          "partCode": "R",
-          "price": 14.95
-        },
-        {
           "name": "No LEDs",
           "partCode": "NP",
           "price": 9.95
+        },
+        {
+          "name": "RED",
+          "partCode": "R",
+          "price": 14.95
         }
       ]
     },
@@ -298,7 +286,6 @@
       "partNumber": "GDL-SPCHRONO-A",
       "PID": "0x0C0004",
       "category": "Specialty",
-      "price": 9.95,
       "tagline": "LED Matrix with optional Battery",
       "description": "Scroll text on the LED matrix or use the sides to show \"time\"! Chrono includes two buttons and a CR2032 battery holder.\n\n Add a a wrist band or a lanyard to turn this into a \"wearable\" module.",
       "keyFeatures": [     
@@ -336,6 +323,7 @@
         "USB Type C",
         "111.5x75.5mm overall dimension"
       ],
+    
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLED(i,s)` | Set specific LED to on or off |\n| `DVer()` | This driver version. |"
     },
   {
@@ -464,7 +452,6 @@
       "partNumber": "GDL-DSPORTALCP70-B",
       "PID": "0x010009",
       "category": "Display",
-      "price": 99.95,
       "tagline": "7\" - 800x400 Color Touch Display with Graphics Co-Processor",
       "description": "Portal CP70 7\" 800x400 display with optional capacitive touch. This module includes a graphics co-processor [BT817Q](https://brtchip.com/product/bt817q/). Drawing using this module will be done via the powerful graphics coprocessor and not the internal graphics engine.",
       "keyFeatures": [
@@ -476,15 +463,15 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start. |\n| `DLClear()` | Clear the commands. |\n| `DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments. |\n| `DLSwap()` | Execute the graphics commands and swap working buffers. |\n| `DVer()` | This driver version. |",
       "variations": [
         {
-          "name": "/w Capacitive Touch",
-          "partCode": "CP",
-          "price": 129.95
-        },
-        {
           "name": "No Touch",
           "partCode": "NA",
           "price": 99.95
-        }
+        },
+        {
+          "name": "/w Capacitive Touch",
+          "partCode": "CP",
+          "price": 129.95
+        }        
       ]
     },
     {
@@ -492,7 +479,6 @@
       "partNumber": "GDL-DSTFTCP23-B",
       "PID": "0x010007",
       "category": "Display",
-      "price": 29.95,
       "tagline": "2.3\" - 320x240 Color Touch Display",
       "description": "2.3\" 320x240 color TFT display with capacitive touch screen option, supporting [Graphics](/docs/engine/graphics) in buffered and in direct modes.",
       "keyFeatures": [
@@ -503,14 +489,14 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(m,o)` | Initialize display `m` mode (buffered = 0 , direct = 1). `o` orientation (landscape = 0, portrait = 1). Init(0, 0) automatically called on power-up. |\n| `GetW()` | Get display width: 106 in buffered, 320 in direct. |\n| `GetH()` | Get display height: 80 in buffered, 240 in direct. |\n| `IsColor()` | Returns 1. |\n| `TouchX()` | Returns touch x. |\n| `TouchY()` | Returns touch y. |\n| `SetDACtrl(s,r,c,b)` | Data access control `s` swapRowCol, `r` invertRow, `c` invertCol, `b` swapBGRSet data access control. |\n| `SetWindow(x,y,w,h)` | Sets draw window `x` display's x value, `y` display's y value., `w` display's width value, `h` display's height value. |\n| `DVer()` | This driver version. |",
       "variations": [
         {
-          "name": "/w Capacitive Touch",
-          "partCode": "CP",
-          "price": 39.95
-        },
-        {
           "name": "No Touch",
           "partCode": "NA",
           "price": 29.95
+        },
+        {
+          "name": "/w Capacitive Touch",
+          "partCode": "CP",
+          "price": 39.95
         }
       ]
     },
@@ -1268,7 +1254,6 @@
       "partNumber": "GDL-SECURRENT-A",
       "PID": "0x060006",
       "category": "Sensor",
-      "price": 9.95,
       "tagline": "Current Sensor",
       "description": "Connect the terminal block inline of AC or DC power to measure its current. The sensor has an internal resistance of 1.2 milli-ohm. It is capable of measuring up to 12.5A.",
       "keyFeatures": [
@@ -1336,7 +1321,6 @@
       "partNumber": "GDL-SEGAS-B",
       "PID": "0x06000A",
       "category": "Sensor",
-      "price": 14.95,
       "tagline": "Gas Sensor",
       "description": "This gas sensor ships with MQ-7 (carbon monoxide) installed. However, the module uses a socket allowing the sensor be be easily swapped with other gas sensors, like MQ-3 alcohol gas sensor.",
       "keyFeatures": [
@@ -1387,7 +1371,6 @@
       "partNumber": "GDL-SEPRSR-B",
       "PID": "0x06000D",
       "category": "Sensor",
-      "price": 19.95,
       "tagline": "Air and Liquid Pressure Sensor",
       "description": "Connect this sensor to your instrument using a tiny pipe to measure water/liquid pressure. Different ranges are available.",
       "keyFeatures": [
@@ -1439,7 +1422,6 @@
       "partNumber": "GDL-SETEMPRTD-A",
       "PID": "0x060011",
       "category": "Sensor",
-      "price": 19.95,
       "tagline": "TempRTD Sensor",
       "description": "This sensor uses the included RTD (Resistance Temperature Detector) to measure temperatures. It includes RTD PT100 probe",
       "keyFeatures": [
@@ -1451,7 +1433,7 @@
         {
           "name": "PT100",
           "partCode": "100",
-          "price": 0.0
+          "price": 19.95
         }
       ]
     },
@@ -1473,7 +1455,6 @@
       "partNumber": "GDL-LDLEDMT1208-A",
       "PID": "0x050003",
       "category": "LED",
-      "price": 14.95,
       "tagline": "12x8 LED Matrix",
       "description": "Use these 96 dazzling LEDs to show text, create flashy games, or run whatever effect you desire. You will be surprised with how much you can do with a 12x8 LED matrix!",
       "keyFeatures": [
@@ -1486,7 +1467,7 @@
         {
           "name": "Red",
           "partCode": "R",
-          "price": 0.0
+          "price": 14.95
         }
       ]
     },
@@ -1495,7 +1476,6 @@
       "partNumber": "GDL-LDLEDR16-B",
       "PID": "0x050004",
       "category": "LED",
-      "price": 6.95,
       "tagline": "16x LED Ring",
       "description": "A ring with 16 LEDs.",
       "keyFeatures": [
@@ -1516,7 +1496,6 @@
       "partNumber": "GDL-LDLEDRGB3-A",
       "PID": "0x050005",
       "category": "LED",
-      "price": 6.95,
       "tagline": "3x RGB LED",
       "description": "A visual LED with 3x RGB LEDs. These lights can be set to any of 7 colors or can be turned off.",
       "keyFeatures": [
@@ -1530,7 +1509,6 @@
       "partNumber": "GDL-LDLEDS284-B",
       "PID": "0x050006",
       "category": "LED",
-      "price": 9.95,
       "tagline": "0.28\" 4-Digit 7-Segment Display",
       "description": "These 0.28\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.\n\n![Count and Time](/img/led-7seg-time-count.png)",
       "keyFeatures": [
@@ -1553,7 +1531,6 @@
       "partNumber": "GDL-LDLEDS404-A",
       "PID": "0x050008",
       "category": "LED",
-      "price": 12.95,
       "tagline": "0.40\" 4-Digit 7-Segment Display",
       "description": "These 0.40\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.\n\n![Count and Time](/img/led-7seg-time-count.png)",
       "keyFeatures": [
@@ -1576,7 +1553,6 @@
       "partNumber": "GDL-LDLEDS564-A",
       "PID": "0x05000A",
       "category": "LED",
-      "price": 15.95,
       "tagline": "0.56\" 4-Digit 7-Segment Display",
       "description": "These 0.56\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.\n\n![Count and Time](/img/led-7seg-time-count.png)",
       "keyFeatures": [
@@ -1599,7 +1575,6 @@
       "partNumber": "GDL-LDLEDSS805-C",
       "PID": "0x05000C",
       "category": "LED",
-      "price": 19.95,
       "tagline": "0.80\" 5-Digit 16-Segment Display",
       "description": "16-segment displays ar good to display alpha-numerical info. This 0.80 is a decent size to be visible from a few feet.",
       "keyFeatures": [
@@ -1981,7 +1956,6 @@
       "name": "Cable",
       "partNumber": "GDL-AXCBL",
       "category": "Accessory",
-      "price": 3.95,
       "tagline": "Packs of DUELink Cables",
       "description": "A variety of DUELink cable lengths are available to help projects of different needs.\n\n Cable sets are available in: \n* Variety Pack: 1x 300mm, 2x 150mm, 2x 50mm (5x cables). \n* 5x 50mm  \n* 5x 150mm  \n* 5x 300mm  \n* 5x 100mm JST to pin header breakout",
       "keyFeatures": [
@@ -1991,11 +1965,6 @@
         "100mm DUELink Breadboard Jumper"
       ],
       "variations": [
-        {
-          "name": "Cable Variety Pack",
-          "partCode": "PACK",
-          "price": 5.95
-        },
         {
           "name": "50mm 5pcs",
           "partCode": "050",
@@ -2012,6 +1981,11 @@
           "price": 6.95
         },
         {
+          "name": "Cable Variety Pack",
+          "partCode": "PACK",
+          "price": 5.95
+        },
+        {
           "name": "Breadboard Jumper",
           "partCode": "JMPR",
           "price": 5.95
@@ -2022,7 +1996,6 @@
       "name": "Connector",
       "partNumber": "GDL-AXCNCTR",
       "category": "Accessory",
-      "price": 1.95,
       "tagline": "Pack os 10x DUELink JST Connectors",
       "description": "These standard connecters are here to help you in building [your own DUELink modules](/docs/catalog/third-party). This is a pack of 10 connectors.\n\n:::note\nThese blue connectors will get discolored in a reflow oven. They are made for hand soldering. Contact us if you need a volume blue connectors that are suitable for reflow.\n:::",
       "keyFeatures": [
@@ -2047,7 +2020,6 @@
       "name": "Holey Board",
       "partNumber": "GDL-AXHOLEY",
       "category": "Accessory",
-      "price": 1.95,
       "tagline": "Holey Boards for Mounting DUELink Modules",
       "description": "Holey Boards are blank circuits with standard 5mm-pitched holes for mounting DUELink Module. See [Mounting Hardware](./axmnt) for options.\n\nThere are four size:\n* Holey Stick: 4x12 holes\n* Holey Smally Board: 18x12 holes\n* Holey Board: 36x18 holes\n* Holey Moley Board: 46x36 holes",
       "keyFeatures": [
@@ -2086,7 +2058,6 @@
       "name": "Mounting HW",
       "partNumber": "GDL-AXMNT",
       "category": "Accessory",
-      "price": 1.95,
       "tagline": "Mounting Hardware",
       "description": "Standoffs, Screws, Nuts, and Footpads are available to help in mounting all DUELink modules.\n\nWhile you can use these options with 3D printed and laser cut enclosures, the ideal use is with any of the [Holey Boards](./axholey)!\n\nThe available options are:\n* Variety Pack (20x M-F standoffs, 20x screws, 20x nuts, plus 4x footpads)\n* 10x - Male to Female M3 Nylon standoffs\n* 10x - Female to Female M3 Nylon standoffs\n* 10x - M3 Nylon Screws\n* 10x - M3 Nylon Nuts\n* 4x - M3 Metal Footpads",
       "keyFeatures": [
@@ -2094,6 +2065,16 @@
         "Perfect for [Holey Boards](./axholey)"
       ],
       "variations": [
+        {
+          "name": "Screws 10pcs",
+          "partCode": "SC",
+          "price": 1.95
+        },
+        {
+          "name": "Nuts 10pcs",
+          "partCode": "NT",
+          "price": 1.95
+        },
         {
           "name": "Variety Pack",
           "partCode": "PACK",
@@ -2108,16 +2089,6 @@
           "name": "Standoffs F-F 10pcs",
           "partCode": "FF",
           "price": 3.95
-        },
-        {
-          "name": "Screws 10pcs",
-          "partCode": "SC",
-          "price": 1.95
-        },
-        {
-          "name": "Nuts 10pcs",
-          "partCode": "NT",
-          "price": 1.95
         },
         {
           "name": "Footpads 4pcs",

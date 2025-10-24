@@ -45,7 +45,7 @@ fn SetLed(i,c,l)
 fend
 
 fn SetAll(c)
-    for i=1 to _n
+    for i=1 to _n+1
         SetLED(i, c, 10)
     next
 fend
@@ -74,9 +74,7 @@ fn PlayLed(e)
 fend
 
 fn Buzzer(f,d)
-    Beep(25,f,d)
+    Beep(1,f,d)
 fend
 
 Init()
-
-#########################
