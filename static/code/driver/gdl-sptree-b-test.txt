@@ -9,7 +9,7 @@ fn Test()
     cmd("TextS(\"Starting test...\", 1, 0, 0, 1,2)")
     cmd("Show()") 
     println("Starting test...")
-    
+    SetAll(0xFFFFFF)
     _c = 0
     while 1 
        
