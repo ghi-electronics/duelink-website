@@ -15,17 +15,20 @@ fn Test()
        
         if DRead(20,2)
            
-            if _c%4 = 0
+            if _c%5 = 0
                 SetAll(0xFF0000)
             end
-            if _c%4 = 1
+            if _c%5 = 1
                 SetAll(0x00FF00)
             end
-            if _c%4 = 2
+            if _c%5 = 2
                 SetAll(0x0000FF)
             end
-            if _c%4 = 3
+            if _c%5 = 3
                 SetAll(0xFFFFFF)
+            end
+            if _c%5 = 4
+                SetAll(0x000000)
             end
             
             _c = _c + 1
