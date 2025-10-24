@@ -2,8 +2,8 @@
 
 1.Make sure the status LED is blinking.
 2. Ensure a short beep is played every time the button is pressed.
-3. The default color is white. Each time the LDR button is pressed, the color will cycle through Red, Green, Blue, White, Off, and then back to Red.
-4. Verify that all four basic colors are displayed correctly.
+3. The default color is off. Each time the LDR button is pressed, the color will cycle through Red, Green, Blue, White, Off
+4. Verify that all four basic colors: Red, Green, Blue, White are displayed correctly.
 5. Ensure the colors on each LED are clearly visible—no dimming or blinking.
 
 After completing every 10 tests:
