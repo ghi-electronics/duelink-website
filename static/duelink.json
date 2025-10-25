@@ -343,7 +343,7 @@
     },
     {
       "name": "ePaper M29",
-      "partNumber": "GDL-DSEPEPRM29-A",
+      "partNumber": "GDL-DSEPAPRM29-A",
       "PID": "0x01000B",
       "category": "Display",
       "price": 49.95,
@@ -702,7 +702,7 @@
     },
     {
       "name": "StepDrive P1",
-      "partNumber": "GDL-ACSTEPD1-A",
+      "partNumber": "GDL-ACSTEPDP1-A",
       "PID": "0x02000A",
       "category": "Actuator",
       "price": 14.95,
@@ -717,7 +717,7 @@
     },
     {
       "name": "StepDrive P3",
-      "partNumber": "GDL-ACSTEPD3-B",
+      "partNumber": "GDL-ACSTEPDP3-B",
       "PID": "0x02000B",
       "category": "Actuator",
       "price": 24.95,
@@ -840,7 +840,7 @@
     },
     {
       "name": "BTN RGB28x4",
-      "partNumber": "GDL-HIBTNRGB84-B",
+      "partNumber": "GDL-HIBRGB284-B",
       "PID": "0x040002",
       "category": "HMI",
       "price": 19.95,
@@ -1686,7 +1686,7 @@
     },
     {
       "name": "Barcode L1D2D",
-      "partNumber": "GDL-VIBCODE12D-A",
+      "partNumber": "GDL-VIBCODEL12-A",
       "PID": "0x0B0003",
       "category": "Vision",
       "price": 39.95,
