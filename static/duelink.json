@@ -31,7 +31,7 @@
       "category": "Kit",
       "price": 74.95,
       "tagline": "Never Enough! Gimme More Modules!",
-      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Wireless ESP32](/docs/products/wlesp32-a)\n* [Button S7](/docs/products/hibuttons7-a)\n* [LED MT1208](/docs/products/ldledmt1208-a)\n* [Fan](/docs/products/acfan-b)\n* [Accel](/docs/products/seaccel-a)\n* [Jack](/docs/products/sojack-a)\n* [Holey Board](/docs/products/axholey)\n* [USB Stick](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
+      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Wireless ESP32](/docs/products/wlesp32-a)\n* [Button S7](/docs/products/hibuttons7-a)\n* [LED MT1208](/docs/products/ldmt1208-a)\n* [Fan](/docs/products/acfan-b)\n* [Accel](/docs/products/seaccel-a)\n* [Jack](/docs/products/sojack-a)\n* [Holey Board](/docs/products/axholey)\n* [USB Stick](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
       "keyFeatures": [
         "More Common Modules",
         "USB Stick",
@@ -177,7 +177,6 @@
       "partNumber": "GDL-SPGHIZZYJR-A",
       "PID": "0x0C0002",
       "category": "Specialty",
-      "price": 2.99,
       "tagline": "Tiny Robot-shaped Microcomputer",
       "description": "Thinking about an exciting give-away for your next event customized with your logo?  This is Ghizzy Jr, quite possibly the smallest, cutest, and smartest keychain in the world! This mini robot-shaped pocket-sized microcomputer plugs right into a USB socket and is a programmable board with endless possibilities, thanks to its [Downlink](/docs/interface/downlink) connector. Start by controlling the full-color eyes and then start [daiylinking](/docs/engine/daisylink) any of the DUELink modules!\n\n Ghizzy can be commanded from one of the many supported [Coding Languages](/docs/language/intro), and it can run stand alone using [MicroBlocks](/docs/language/microblocks).\nGhizzy Jr is only available as a special order,  **customized with your artwork**. \n\n![custom logo](pathname:///img/ghizzy-jr-logo.png)\n\nThe listed price is for an order of 500 pieces, with higher price for 250 pieces. Account for a 4-weeks lead-time. Please [Contact us](https://www.ghielectronics.com/contact/) for more information.\n\n:::note\n\n The \"legs\" are a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n",
       "keyFeatures": [
@@ -187,7 +186,14 @@
         "20x47mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Eye(l,r)` | Sets the `l` left and `r` right \"Eyes\" with 24bit RGB color (RRGGBB). |\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `DVer()` | This driver version. |",
-      "MfgNotes": "Connect Ghizzy Jr leg to USB port directly"
+      "MfgNotes": "Connect Ghizzy Jr leg to USB port directly",
+      "variations": [
+        {
+          "name": "Custom Logo",
+          "partCode": "CUSTOM",
+          "price": 2.99
+        }
+      ]
     },
     {
       "name": "Ghizzy",
@@ -343,7 +349,7 @@
     },
     {
       "name": "ePaper M29",
-      "partNumber": "GDL-DSEPAPERM29-A",
+      "partNumber": "GDL-DSEPAPRM29-A",
       "PID": "0x01000B",
       "category": "Display",
       "price": 49.95,
@@ -359,7 +365,7 @@
     },
     {
       "name": "ePaper M42",
-      "partNumber": "GDL-DSEPAPERM42-A",
+      "partNumber": "GDL-DSEPAPRM42-A",
       "PID": "0x01000C",
       "category": "Display",
       "price": 79.95,
@@ -449,7 +455,7 @@
     },
     {
       "name": "Portal CP70",
-      "partNumber": "GDL-DSPORTALCP70-B",
+      "partNumber": "GDL-DSPRTLCP70-B",
       "PID": "0x010009",
       "category": "Display",
       "tagline": "7\" - 800x400 Color Touch Display with Graphics Co-Processor",
@@ -688,7 +694,7 @@
     },
     {
       "name": "StepPulse",
-      "partNumber": "GDL-ACSTEPPULSE-A",
+      "partNumber": "GDL-ACSTEPP-A",
       "PID": "0x02000C",
       "category": "Actuator",
       "price": 9.95,
@@ -702,7 +708,7 @@
     },
     {
       "name": "StepDrive P1",
-      "partNumber": "GDL-ACSTEPDRIVEP1-A",
+      "partNumber": "GDL-ACSTEPDP1-A",
       "PID": "0x02000A",
       "category": "Actuator",
       "price": 14.95,
@@ -717,7 +723,7 @@
     },
     {
       "name": "StepDrive P3",
-      "partNumber": "GDL-ACSTEPDRIVEP3-B",
+      "partNumber": "GDL-ACSTEPDP3-B",
       "PID": "0x02000B",
       "category": "Actuator",
       "price": 24.95,
@@ -810,7 +816,7 @@
     },
     {
       "name": "Serial USB",
-      "partNumber": "GDL-CMSERIALUSB-A",
+      "partNumber": "GDL-CMSERUSB-A",
       "PID": "0x030006",
       "category": "Communication",
       "price": 19.95,
@@ -840,7 +846,7 @@
     },
     {
       "name": "BTN RGB28x4",
-      "partNumber": "GDL-HIBTNRGB28X4-B",
+      "partNumber": "GDL-HIBRGB284-B",
       "PID": "0x040002",
       "category": "HMI",
       "price": 19.95,
@@ -925,7 +931,7 @@
     },
     {
       "name": "DipSwitch",
-      "partNumber": "GDL-HIDIPSWITCH-B",
+      "partNumber": "GDL-HIDIPSWCH-B",
       "PID": "0x040008",
       "category": "HMI",
       "price": 9.95,
@@ -939,7 +945,7 @@
     },
     {
       "name": "Fingerprint",
-      "partNumber": "GDL-HIFINGERPRINT-B",
+      "partNumber": "GDL-HIFNGRPRNT-B",
       "PID": "0x040009",
       "category": "HMI",
       "price": 49.95,
@@ -970,7 +976,7 @@
     },
     {
       "name": "Keypad 3x4",
-      "partNumber": "GDL-HIKEYPAD3X4-B",
+      "partNumber": "GDL-HIKEYP3X4-B",
       "PID": "0x04000B",
       "category": "HMI",
       "price": 12.95,
@@ -985,7 +991,7 @@
     },
     {
       "name": "Keypad 4x4",
-      "partNumber": "GDL-HIKEYPAD4X4-B",
+      "partNumber": "GDL-HIKEYP4X4-B",
       "PID": "0x04000C",
       "category": "HMI",
       "price": 14.95,
@@ -1207,7 +1213,7 @@
     },
     {
       "name": "AirQuality",
-      "partNumber": "GDL-SEAIRQUALITY-A",
+      "partNumber": "GDL-SEAIRQLTY-A",
       "PID": "0x060002",
       "category": "Sensor",
       "price": 19.95,
@@ -1221,7 +1227,7 @@
     },
     {
       "name": "Barometer",
-      "partNumber": "GDL-SEBAROMETER-B",
+      "partNumber": "GDL-SEBARO-B",
       "PID": "0x060003",
       "category": "Sensor",
       "price": 16.95,
@@ -1235,7 +1241,7 @@
     },
     {
       "name": "ClipSense",
-      "partNumber": "GDL-SECLIPSENSE-A",
+      "partNumber": "GDL-SECLIPSEN-A",
       "PID": "0x060004",
       "category": "Sensor",
       "price": 9.95,
@@ -1452,7 +1458,7 @@
     },
     {
       "name": "LED MT1208",
-      "partNumber": "GDL-LDLEDMT1208-A",
+      "partNumber": "GDL-LDMT1208-A",
       "PID": "0x050003",
       "category": "LED",
       "tagline": "12x8 LED Matrix",
@@ -1686,7 +1692,7 @@
     },
     {
       "name": "Barcode L1D2D",
-      "partNumber": "GDL-VIBARCODEL1D2D-A",
+      "partNumber": "GDL-VIBCODEL12-A",
       "PID": "0x0B0003",
       "category": "Vision",
       "price": 39.95,
@@ -1833,7 +1839,7 @@
     },
     {
       "name": "Power Hook",
-      "partNumber": "GDL-ADPOWERHOOK-A",
+      "partNumber": "GDL-ADPWRHOOK-A",
       "category": "Adapter",
       "price": 12.95,
       "tagline": "Rechargeable Battery Power Hook",
@@ -1845,7 +1851,7 @@
     },
     {
       "name": "Power Inject",
-      "partNumber": "GDL-ADPOWERINJECT-A",
+      "partNumber": "GDL-ADPWRINJ-A",
       "category": "Adapter",
       "price": 9.95,
       "tagline": "Power Inject",
@@ -1871,7 +1877,7 @@
     },
     {
       "name": "Power Switch",
-      "partNumber": "GDL-ADPWRSWITCH-A",
+      "partNumber": "GDL-ADPWRSWCH-A",
       "category": "Adapter",
       "price": 3.95,
       "tagline": "Downlink Power Switch Control",
