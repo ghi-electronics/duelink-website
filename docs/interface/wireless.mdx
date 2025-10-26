@@ -23,7 +23,7 @@ See [Wireless ESP32](../products/wlesp32-a) product page to learn how to use wir
 
 ## Bluetooth
 
-When using Bluetooth, The established connection creates a (SPP - Serial Port Profile) virtual serial connection. This is very similar to the virtual connection established when using the [USB interface](./usb). You can now, for example, use Python on a PC to access a [daisylink](../engine/daisylink) of modules. To power the modules you can use [Power Hook](../products/adpowerhook-a) or USB adapter, like [USB Host](../products/adusbhook-a), then use USB as a power source.
+When using Bluetooth, The established connection creates a (SPP - Serial Port Profile) virtual serial connection. This is very similar to the virtual connection established when using the [USB interface](./usb). You can now, for example, use Python on a PC to access a [daisylink](../engine/daisylink) of modules. To power the modules you can use [Power Hook](../products/adpwrhook-a) or USB adapter, like [USB Host](../products/adusbhook-a), then use USB as a power source.
 
 ![Wireless power options](pathname:///img/wlesp32-power-options.png)
 
@@ -60,7 +60,7 @@ PASS("123456789")
 TCPHook()
 ```
 
-You can now continue to use USB as a power source, or use something like [Power Hook](../products/adpowerhook-a). Note how the Wireless module is now a host to its [daisylink](../engine/daisylink).
+You can now continue to use USB as a power source, or use something like [Power Hook](../products/adpwrhook-a). Note how the Wireless module is now a host to its [daisylink](../engine/daisylink).
 
 ![Wireless daisylink](pathname:///img/wireless-daisylink.png)
 
