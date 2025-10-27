@@ -1,0 +1,291 @@
+##### Fingerprint Driver #####
+ 
+fn DVer()
+    return 1.0
+fend
+ 
+# Note: First initialize will check at 9600, if response is invalid then switch to 57600 and send a command to switch to 9600.
+# Once Fingerprint is setup 9600, it is default become 9600 even after reset.
+ 
+Alias(add=b0,data=b1)
+ 
+_s = 0xEF01
+_t = 0
+_l = 0
+_w = 4
+dim b0[4] = [0xFF,0xFF,0xFF,0xFF]
+dim b1[64]
+ 
+fn SerWrite(d,s) 
+    if s=16
+        SerWr((d>>8) & 0xFF)
+    end
+ 
+    SerWr((d>>0) & 0xFF)
+fend
+ 
+fn WritePkg()
+    Wait(100)
+    SerDisc()
+ 
+    SerWrite(_s,16)
+ 
+    SerWrite(add[0],8)
+    SerWrite(add[1],8)
+    SerWrite(add[2],8)
+    SerWrite(add[3],8)
+ 
+    SerWrite(_t,8)
+ 
+    l = _l + 2
+ 
+    SerWrite(l,16)
+ 
+    k = (l >> 8) + (l & 0xFF) + _t
+ 
+    for i=0 to _l
+        SerWrite(data[i],8)
+        k = k + data[i]
+    next
+ 
+    SerWrite(k,16) 
+fend
+ 
+fn ReadPkg()
+    b = 0
+    i = 0
+    t = 0
+    #PrintLn("Parse package") 
+    while SerB2R() < 8
+        Wait(8 * 2) # 9600 timing ~1ms x 8 x2 for sure
+        t = t + 1
+ 
+        if (t > 1000 / (8 * 2))
+            return 0xFF #FINGERPRINT_TIMEOUT
+        end
+    wend
+ 
+    t = 0 # reset timeout
+ 
+    while 1
+        if SerB2R() > 0
+            b = SerRd()
+            t = 0 # reset timeout when we have valid byte received
+ 
+            if (i = 0) # start code high bits
+                if b != (0xEF01 >> 8)
+                    continue
+                end
+ 
+                _s = b << 8
+            end
+ 
+            if (i = 1)  # start code low bits
+                _s = _s | b 
+ 
+                if (_s != 0xEF01)
+                    return 0xFE #FINGERPRINT_BADPACKET
+                end
+            end
+ 
+            if (i >1 && i <6) # address
+                add[i -2] = b
+            end
+ 
+            if i = 6
+                _t = b # type
+            end
+ 
+            if i = 7 # length high bits
+                _l = b << 8 
+            end
+ 
+            if i = 8 # length low bits
+                _l = _l | b 
+            end
+ 
+            if i >=9 # actual data from byte 9th
+                data[i-9] = b
+ 
+                if i - 8 = _l
+                    return 0 #FINGERPRINT_OK
+                end
+            end
+ 
+            i = i + 1
+ 
+            if (i + 9 > 64) # max package 64 
+                return 0xFE # FINGERPRINT_BADPACKET
+            end
+        else
+            Wait(1)
+            t = t + 1
+            if (t > 1000)
+                return 0xFF #FINGERPRINT_TIMEOUT
+            end
+        end
+ 
+        Wait(1)
+    wend
+ 
+    return 0xFE # FINGERPRINT_BADPACKET 
+fend 
+ 
+fn TransRecPkg(b2,p) #Transmit and Receive then Parse pakage to type, length, data, error code, p: 1: parse, 0: just send
+    #CreatePkg(0x1,len(b2),b2 ) # 0x1 is FINGERPRINT_COMMANDPACKET, it is always
+ 
+    _s = 0xEF01 # alway SCODE   
+    _t = 0x1
+    _l = len(b2)
+ 
+    MemCpy(data,0, b2,0,_l)
+ 
+ 
+    WritePkg()
+ 
+ 
+    if (p = 0)        
+        return 0
+    end
+ 
+    r = ReadPkg()
+ 
+    if r != 0
+        return 0x01 #FINGERPRINT_PACKETRECIEVEERR
+    end
+ 
+    if _t != 0x7 #FINGERPRINT_ACKPACKET
+        return 0x01 #FINGERPRINT_PACKETRECIEVEERR
+    end
+ 
+    return data[0]
+fend
+ 
+fn GetSavedCnt() # return how many fingers saved
+    r = TransRecPkg([0x1D],1) #0x1D FINGERPRINT_TEMPLATECOUNT
+    c = 0
+    if r = 0
+        c = (data[1] << 8) | (data[2] << 0)
+    end
+ 
+    return c
+fend
+ 
+fn TakeImg() # scan finger
+    return TransRecPkg([0x01],1) #0x01 FINGERPRINT_GETIMAGE
+fend
+ 
+fn ConvertImg(s) # s is slot
+    return TransRecPkg([0x02,s],1) #0x02 FINGERPRINT_IMAGE2TZ
+fend
+ 
+fn FastSearch()
+    return TransRecPkg([0x04,0x01, 0x00, 0x00, 0x00, 0xA3],1) #0x04 FINGERPRINT_HISPEEDSEARCH
+fend
+ 
+fn CreateModel() 
+    return TransRecPkg([0x05],1) #0x05 FINGERPRINT_REGMODEL
+fend
+ 
+fn StoreModel(l) # l location
+    return TransRecPkg([0x06, 0x01, (l >> 8), (l & 0xFF)],1) #0x06 FINGERPRINT_STORE
+fend
+ 
+fn DelModel(l) # l location
+    return TransRecPkg([0x0C, (l >> 8), (l & 0xFF), 0x00, 0x01],1) #0x0C FINGERPRINT_DELETE
+fend
+ 
+fn SetLed(c,b,k) 
+    # c color: 1: red, 2 blue, 3 purple
+    # b blink: 0: stay on. 1: blink
+    # k blink count: 10: blink 10 times. 0: infinitive. when b= 0 (always on) then blinkcount ignored.
+ 
+    if b = 0 # led is always on
+        TransRecPkg([0x35,0x3,1,c,0],1)
+    else
+        TransRecPkg([0x35,0x2,100,c,k],1)
+    end 
+ 
+fend
+ 
+fn Init()  
+    SerCfg(9600, 1024)
+ 
+    b = 0
+    data[24] = 0
+    data[25] = 0
+ 
+    #Auto detect default baudrate
+    dim b7[] = [1, 6, 4, 2, 12] # * 9600
+    i = 0 
+    r = -1
+ 
+ 
+ 
+    while r != 0
+        r = TransRecPkg([0xf],1) # read current baurate
+ 
+        if r != 0
+            #PrintLn("No response, change baudrate: ", (b7[i] * 9600))    
+            i = i + 1
+ 
+            if (i > 4)
+                i = 0
+            end 
+ 
+            SerCfg(9600 *  b7[i], 1024)
+ 
+            Wait(100)
+        else
+            #PrintLn("Detected default baudrate: ", (b7[i] * 9600))    
+            if i != 0 # force to 9600 (1 = 9600)
+                TransRecPkg([0x0E, 0x4, 1],0)
+                SerCfg(9600 *  1, 1024)
+                Wait(1000)
+                #PrintLn("Changed to 9600 ")    
+            end
+ 
+        end
+    wend
+ 
+    Wait(100)
+ 
+  
+    # This is for testing back to default 57600
+    # TransRecPkg([0x0E, 0x4, 6],0)
+    # println("test change to defaut 57600")
+    # return
+    
+    # reset command
+    r = TransRecPkg([0x3D],1)
+ 
+    if r != 0 # 0 FINGERPRINT_OK
+        PrintLn("Failed to communicate to fingerprint - no response")
+        return -1
+    end
+ 
+    # Wait for 0x55 sync
+    t =0 #TIMEOUT
+    while SerB2R() = 0
+        Wait(1)
+        t = t +1
+        if (t > 1000)
+            PrintLn("Failed to reset fingerprint - no response")
+            return -2
+        end
+    wend
+ 
+    b = SerRd()
+    if b != 0x55
+        PrintLn("Failed to sync fingerprint - no sync:", b)
+        return -3
+    end
+ 
+ 
+    # sync OK - ready
+    #PrintLn("Ready")
+    return 0 # 0 FINGERPRINT_OK 
+fend
+ 
+Init()
+####################

@@ -1,0 +1,12 @@
+_x = 12
+while 1
+    clear(0)
+    text("DUELink", 1, _x, 0)
+    show()
+
+    _x=_x-1 
+    if(_x < -42)
+        _x = 12
+    end
+    wait(30)
+wend

@@ -31,7 +31,7 @@
       "category": "Kit",
       "price": 74.95,
       "tagline": "Never Enough! Gimme More Modules!",
-      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Wireless ESP32](/docs/products/wlesp32-a)\n* [Button S7](/docs/products/hibuttons7-a)\n* [LED MT1208](/docs/products/ldledmt1208-a)\n* [Fan](/docs/products/acfan-b)\n* [Accel](/docs/products/seaccel-a)\n* [Jack](/docs/products/sojack-a)\n* [Holey Board](/docs/products/axholey)\n* [USB Stick](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
+      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Wireless ESP32](/docs/products/wlesp32-a)\n* [Button S7](/docs/products/hibuttons7-a)\n* [LED MT1208](/docs/products/ldmt1208-a)\n* [Fan](/docs/products/acfan-b)\n* [Accel](/docs/products/seaccel-a)\n* [Retro Sound](/docs/products/soretrosnd-a)\n* [Holey Board](/docs/products/axholey)\n* [USB Stick](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
       "keyFeatures": [
         "More Common Modules",
         "USB Stick",
@@ -177,7 +177,6 @@
       "partNumber": "GDL-SPGHIZZYJR-A",
       "PID": "0x0C0002",
       "category": "Specialty",
-      "price": 2.99,
       "tagline": "Tiny Robot-shaped Microcomputer",
       "description": "Thinking about an exciting give-away for your next event customized with your logo?  This is Ghizzy Jr, quite possibly the smallest, cutest, and smartest keychain in the world! This mini robot-shaped pocket-sized microcomputer plugs right into a USB socket and is a programmable board with endless possibilities, thanks to its [Downlink](/docs/interface/downlink) connector. Start by controlling the full-color eyes and then start [daiylinking](/docs/engine/daisylink) any of the DUELink modules!\n\n Ghizzy can be commanded from one of the many supported [Coding Languages](/docs/language/intro), and it can run stand alone using [MicroBlocks](/docs/language/microblocks).\nGhizzy Jr is only available as a special order,  **customized with your artwork**. \n\n![custom logo](pathname:///img/ghizzy-jr-logo.png)\n\nThe listed price is for an order of 500 pieces, with higher price for 250 pieces. Account for a 4-weeks lead-time. Please [Contact us](https://www.ghielectronics.com/contact/) for more information.\n\n:::note\n\n The \"legs\" are a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n",
       "keyFeatures": [
@@ -187,7 +186,14 @@
         "20x47mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Eye(l,r)` | Sets the `l` left and `r` right \"Eyes\" with 24bit RGB color (RRGGBB). |\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `DVer()` | This driver version. |",
-      "MfgNotes": "Connect Ghizzy Jr leg to USB port directly"
+      "MfgNotes": "Connect Ghizzy Jr leg to USB port directly",
+      "variations": [
+        {
+          "name": "Custom Logo",
+          "partCode": "CUSTOM",
+          "price": 2.99
+        }
+      ]
     },
     {
       "name": "Ghizzy",
@@ -343,7 +349,7 @@
     },
     {
       "name": "ePaper M29",
-      "partNumber": "GDL-DSEPEPRM29-A",
+      "partNumber": "GDL-DSEPAPRM29-A",
       "PID": "0x01000B",
       "category": "Display",
       "price": 49.95,
@@ -702,7 +708,7 @@
     },
     {
       "name": "StepDrive P1",
-      "partNumber": "GDL-ACSTEPD1-A",
+      "partNumber": "GDL-ACSTEPDP1-A",
       "PID": "0x02000A",
       "category": "Actuator",
       "price": 14.95,
@@ -717,7 +723,7 @@
     },
     {
       "name": "StepDrive P3",
-      "partNumber": "GDL-ACSTEPD3-B",
+      "partNumber": "GDL-ACSTEPDP3-B",
       "PID": "0x02000B",
       "category": "Actuator",
       "price": 24.95,
@@ -840,7 +846,7 @@
     },
     {
       "name": "BTN RGB28x4",
-      "partNumber": "GDL-HIBTNRGB84-B",
+      "partNumber": "GDL-HIBRGB284-B",
       "PID": "0x040002",
       "category": "HMI",
       "price": 19.95,
@@ -1101,34 +1107,17 @@
         "27x37mm overall dimension"
       ]
     },
-    {
-      "name": "GNSS WA",
-      "partNumber": "GDL-WLGNSSWA-A",
-      "PID": "0x090001",
+     {
+      "name": "GPS",
+      "partNumber": "GDL-WLGPS-A",
+      "PID": "0x090008",
       "category": "Wireless",
-      "price": 74.95,
-      "tagline": "GNSS Positioning Module with Antenna",
-      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module has a built-in antenna. Consider [this GNSS](/docs/products/wlgnss-b) module if you want to add your own antenna.",
+      "price": 19.95,
+      "tagline": "GPS Position, Altitude, Speed, and Time",
+      "description": "Compact GPS reciever designed for positioning and navigation applications in DUELink projects",
       "keyFeatures": [
-        "GNSS positioning",
-        "GPS, Galileo, GLONASS",
-        "Built-in antenna",
-        "37x27mm overall dimension"
-      ]
-    },
-    {
-      "name": "GNSS",
-      "partNumber": "GDL-WLGNSS-B",
-      "PID": "0x090002",
-      "category": "Wireless",
-      "price": 49.95,
-      "tagline": "GNSS Positioning Module with uFL Connector",
-      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module with uFL connector for external antenna. The required antenna is not included, giving the user the choice to select the right antenna. Consider [this GNSS](/docs/products/wlgnsswa-a) with built-in antenna.",
-      "keyFeatures": [
-        "GNSS positioning",
-        "GPS, Galileo, GLONASS",
-        "uFL antenna connector",
-        "37x27mm overall dimension"
+        "GPS positioninig",
+        "32x27mm overall dimension"
       ]
     },
     {
@@ -1625,15 +1614,16 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayBeep(f, d)` | Play beep, (f: frequency, d: duration in ms). |\n| `PlaySound(f, d, c)` | Play sound, (f: frequency, d: duration in ms, c: duty cycle). |\n| `PlayMelody(a1)` | Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration). |\n| `StopMelody()` | Stop melody. |\n| `DVer()` | This driver version. |"
     },
     {
-      "name": "Jack",
-      "partNumber": "GDL-SOJACK-A",
+      "name": "Retro Sound",
+      "partNumber": "GDL-SORETROSND-A",
       "PID": "0x070006",
       "category": "Sound",
       "price": 14.95,
-      "tagline": "Play Sounds and Tones on 3.5mm Audio Jack",
-      "description": "Connect amplified speakers to the 3.5mm to generate all kind of tones. The modules has filters to smooth out output and also has control over left and right channels with individual PMW and timers. This is not an MP3 player, but it can sound an alarm, play a melody, and generate cool sounds!",
+      "tagline": "Play Retro Sounds and Tones on a 3.5mm Audio Jack",
+      "description": "Connect amplified speakers to the 3.5mm jack for all kind of fun sounds and tones. The modules has filters to smooth out output and also has control over left and right channels with individual PMW and timers. This is not an MP3 player, but it can sound an alarm, play a melody, and generate cool sounds!",
       "keyFeatures": [
         "Frequency Range 200Hz to 10Khz",
+        "Standard 3.5mm audio connector",
         "27x22mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayBeep(f, d)` | Play beep, (f: frequency, d: duration in ms). |\n| `PlaySound(f, d, c)` | Play sound, (f: frequency, d: duration in ms, c: duty cycle). |\n| `PlayMelody(a1)` | Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration). |\n| `StopMelody()` | Stop melody. |\n| `DVer()` | This driver version. |"
@@ -1686,7 +1676,7 @@
     },
     {
       "name": "Barcode L1D2D",
-      "partNumber": "GDL-VIBCODE12D-A",
+      "partNumber": "GDL-VIBCODEL12-A",
       "PID": "0x0B0003",
       "category": "Vision",
       "price": 39.95,

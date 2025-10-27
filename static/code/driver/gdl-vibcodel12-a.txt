@@ -1,0 +1,45 @@
+##### Barcode L1D2D Driver #####
+
+fn DVer()
+    return 1.0
+fend
+ 
+fn Init()
+    SerCfg(9600, 1024)
+    SerWrs([0x7E, 0x00, 0x08, 0x01, 0x00, 0xD9, 0x50, 0xAB, 0xCD]) # setup default
+    Wait(1000) # wait 1 seconds for applying default setup
+ 
+    #SerWrs([0x7E, 0x00, 0x08, 0x01, 0x00, 0x0D, 0x00, 0xAB, 0xCD]) # Enable serial output
+    #Wait(100) # wait for apply setting
+ 
+    SerWrs([0x7E, 0x00, 0x08, 0x01, 0x00, 0x03, 0x01, 0xAB, 0xCD]) # Enable those setting
+    Wait(100) # wait 
+ 
+    SerWrs([0x7E, 0x00, 0x08, 0x01, 0x00, 0x00, 0xD5, 0xAB, 0xCD]) # put barcode to working mode
+    Wait(500) # wait
+ 
+    SerDisc() # clear buffer
+ 
+    SerWrs([0x7E, 0x00, 0x08, 0x01, 0x00, 0x0D, 0x00, 0xAB, 0xCD]) # Enable serial output
+    Wait(100) # wait for apply setting
+fend
+ 
+fn SetMode(m) #m: 1: Trigger mode, 2: Continuous mode
+    # trigger mode: User press a button, then send command (use Trigger()) to start scanning.
+    # continue mode: The bar code keep scanning and send out put data.
+    m = 0xD4 + m 
+ 
+    SerWrs([0x7E, 0x00, 0x08, 0x01, 0x00, 0x00, m, 0xAB, 0xCD]) # put barcode to working mode
+    Wait(100) # wait
+ 
+    SerDisc() # clear buffer 
+fend
+ 
+fn Trigger()
+    SerDisc() # clear all in buffer before
+    SerWrs([0x7E, 0x00, 0x08, 0x01, 0x00, 0x02, 0x01, 0xAB, 0xCD]) # Send trigger cmd
+fend
+ 
+Init()
+
+####################

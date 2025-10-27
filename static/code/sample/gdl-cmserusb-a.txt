@@ -1,0 +1,11 @@
+SerCfg(115200, 1024) # set baudrate 115200, 1024 byte buffer
+
+Dim b1[1]
+while 1
+    if SerB2R() > 0
+        SerRds(b1, 1000) # read data
+        b1[0] = b1[0] + 1 # increase read byte by 1
+        SerWrs(b1) # write back to sender
+    end
+    Wait(1)
+wend

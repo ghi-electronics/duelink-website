@@ -1,6 +1,0 @@
-##### SerialUSB Driver #####
-
-# No need for a driver!
-# Use standard library Serial bus API.
-
-####################

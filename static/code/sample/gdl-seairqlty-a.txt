@@ -1,0 +1,5 @@
+while (1) 
+    PrintLn("temp: ",AhtTemp(),"C - humidity: ",AhtHumid(),"%")
+    PrintLn("AQI: ",EnsAqi()," - TVOC: ",EnsTvoc()," - eCO2: ",EnsEco2())
+    Wait(2000)
+wend
