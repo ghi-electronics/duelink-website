@@ -15,7 +15,7 @@
       "category": "Kit",
       "price": 74.95,
       "tagline": "Essentials Kit With Most Common Modules!",
-      "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [TFT N18](/docs/products/dstftn18-b) - 1.8\" Color Display\n* [LED R16](/docs/products/ldledr16-b)\n* [Rotary](/docs/products/hirotary-c)\n* [Distance](/docs/products/sedistance-b)\n* [ServoX1](/docs/products/acservox1-a)\n* [Buzzer](/docs/products/sobuzzer-b)\n* [Light](/docs/products/selight-a)\n* [USB Hook + Cable](/docs/products/adusbhook-a)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
+      "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [TFT N18](/docs/products/dstftn18-b) - 1.8\" Color Display\n* [LED R16](/docs/products/ldledr16-b)\n* [Rotary](/docs/products/hirotary-c)\n* [Distance](/docs/products/sedistance-b)\n* [ServoX1](/docs/products/acservox1-a)\n* [Buzzer](/docs/products/sobuzzer-b)\n* [Light](/docs/products/selight-a)\n* [USB Hook](/docs/products/adusbhook-a)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)\n* USB C Cable",
       "keyFeatures": [
         "Most Common Modules",
         "USB Hook + Cable",
@@ -31,7 +31,7 @@
       "category": "Kit",
       "price": 74.95,
       "tagline": "Never Enough! Gimme More Modules!",
-      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Wireless ESP32](/docs/products/wlesp32-a)\n* [Button S7](/docs/products/hibuttons7-a)\n* [LED MT1208](/docs/products/ldmt1208-a)\n* [Fan](/docs/products/acfan-b)\n* [Accel](/docs/products/seaccel-a)\n* [Jack](/docs/products/sojack-a)\n* [Holey Board](/docs/products/axholey)\n* [USB Stick](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
+      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Wireless ESP32](/docs/products/wlesp32-a)\n* [Button S7](/docs/products/hibuttons7-a)\n* [LED MT1208](/docs/products/ldmt1208-a)\n* [Fan](/docs/products/acfan-b)\n* [Accel](/docs/products/seaccel-a)\n* [Retro Sound](/docs/products/soretrosnd-a)\n* [Holey Board](/docs/products/axholey)\n* [USB Stick](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
       "keyFeatures": [
         "More Common Modules",
         "USB Stick",
@@ -46,9 +46,9 @@
       "partNumber": "GDL-MCCINCOBIT-E",
       "PID": "0x000001",
       "category": "Microcomputer",
-      "price": 5.95,
+      "price": 9.95,
       "tagline": "Ultra low-cost, micro:bit inspired, educational board",
-      "description": "[Educators](/docs/educators) and [Makers](/docs/makers) will find great value in this ultra low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.",
+      "description": "[Educators](/docs/educators) and [Makers](/docs/makers) will find great value in this ultra low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.\n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::",
       "keyFeatures": [
         "5x5 LED Matrix",
         "micro:bit inspired edge connector",
@@ -86,7 +86,7 @@
       "partNumber": "GDL-MCDUEDUINO-A",
       "PID": "0x000012",
       "category": "Microcomputer",
-      "price": 9.95,
+      "price": 12.95,
       "tagline": "Arduino form factor inspired DUELink mainboard",
       "description": "Use the official DUELink engine firmware or use the [Arduino](/docs/hw/arduino) software IDE to program DueDuino.\n\nOf course, this is a DUELink board and [Downlink](/docs/interface/downlink) connector is ready for [Daisylinking](/docs/engine/daisylink) all of your modules.",
       "keyFeatures": [
@@ -128,7 +128,7 @@
       "category": "Microcomputer",
       "price": 16.95,
       "tagline": "micro:bit Form Factor with 128x64 OLED 0.96\" Display",
-      "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. You can now show sensor data or build video games!",
+      "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. You can now show sensor data right on teh display! \n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::",
       "keyFeatures": [
         "128x64 OLED 0.96\" display",
         "Light Sensor",
@@ -1107,34 +1107,17 @@
         "27x37mm overall dimension"
       ]
     },
-    {
-      "name": "GNSS WA",
-      "partNumber": "GDL-WLGNSSWA-A",
-      "PID": "0x090001",
+     {
+      "name": "GPS",
+      "partNumber": "GDL-WLGPS-A",
+      "PID": "0x090008",
       "category": "Wireless",
-      "price": 74.95,
-      "tagline": "GNSS Positioning Module with Antenna",
-      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module has a built-in antenna. Consider [this GNSS](/docs/products/wlgnss-b) module if you want to add your own antenna.",
+      "price": 19.95,
+      "tagline": "GPS Position, Altitude, Speed, and Time",
+      "description": "Compact GPS reciever designed for positioning and navigation applications in DUELink projects",
       "keyFeatures": [
-        "GNSS positioning",
-        "GPS, Galileo, GLONASS",
-        "Built-in antenna",
-        "37x27mm overall dimension"
-      ]
-    },
-    {
-      "name": "GNSS",
-      "partNumber": "GDL-WLGNSS-B",
-      "PID": "0x090002",
-      "category": "Wireless",
-      "price": 49.95,
-      "tagline": "GNSS Positioning Module with uFL Connector",
-      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module with uFL connector for external antenna. The required antenna is not included, giving the user the choice to select the right antenna. Consider [this GNSS](/docs/products/wlgnsswa-a) with built-in antenna.",
-      "keyFeatures": [
-        "GNSS positioning",
-        "GPS, Galileo, GLONASS",
-        "uFL antenna connector",
-        "37x27mm overall dimension"
+        "GPS positioninig",
+        "32x27mm overall dimension"
       ]
     },
     {
@@ -1631,15 +1614,16 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayBeep(f, d)` | Play beep, (f: frequency, d: duration in ms). |\n| `PlaySound(f, d, c)` | Play sound, (f: frequency, d: duration in ms, c: duty cycle). |\n| `PlayMelody(a1)` | Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration). |\n| `StopMelody()` | Stop melody. |\n| `DVer()` | This driver version. |"
     },
     {
-      "name": "Jack",
-      "partNumber": "GDL-SOJACK-A",
+      "name": "Retro Sound",
+      "partNumber": "GDL-SORETROSND-A",
       "PID": "0x070006",
       "category": "Sound",
       "price": 14.95,
-      "tagline": "Play Sounds and Tones on 3.5mm Audio Jack",
-      "description": "Connect amplified speakers to the 3.5mm to generate all kind of tones. The modules has filters to smooth out output and also has control over left and right channels with individual PMW and timers. This is not an MP3 player, but it can sound an alarm, play a melody, and generate cool sounds!",
+      "tagline": "Play Retro Sounds and Tones on a 3.5mm Audio Jack",
+      "description": "Connect amplified speakers to the 3.5mm jack for all kind of fun sounds and tones. The modules has filters to smooth out output and also has control over left and right channels with individual PMW and timers. This is not an MP3 player, but it can sound an alarm, play a melody, and generate cool sounds!",
       "keyFeatures": [
         "Frequency Range 200Hz to 10Khz",
+        "Standard 3.5mm audio connector",
         "27x22mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayBeep(f, d)` | Play beep, (f: frequency, d: duration in ms). |\n| `PlaySound(f, d, c)` | Play sound, (f: frequency, d: duration in ms, c: duty cycle). |\n| `PlayMelody(a1)` | Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration). |\n| `StopMelody()` | Stop melody. |\n| `DVer()` | This driver version. |"
@@ -1929,21 +1913,6 @@
         "Power LED",
         "DUELink USB Type A interface",
         "17.5x22mm overall dimension"
-      ]
-    },
-    {
-      "name": "USB Wedge",
-      "partNumber": "GDL-ADUSBWEDGE-B",
-      "category": "Adapter",
-      "price": 0.95,
-      "tagline": "PCB USB DUELink Interface",
-      "description": "A PCB (Printed Circuit Board) USB wedge for connecting DUELink modules to the USB Interface. It includes a power LED and 800mA power regulator.",
-      "keyFeatures": [
-        "USB PCB connector",
-        "Connects DUELink modules to USB-A",
-        "800mA power source",
-        "PWR LED",
-        "22x23.5mm overall dimension"
       ]
     },
     {
