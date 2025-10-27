@@ -1916,21 +1916,6 @@
       ]
     },
     {
-      "name": "USB Wedge",
-      "partNumber": "GDL-ADUSBWEDGE-B",
-      "category": "Adapter",
-      "price": 0.95,
-      "tagline": "PCB USB DUELink Interface",
-      "description": "A PCB (Printed Circuit Board) USB wedge for connecting DUELink modules to the USB Interface. It includes a power LED and 800mA power regulator.",
-      "keyFeatures": [
-        "USB PCB connector",
-        "Connects DUELink modules to USB-A",
-        "800mA power source",
-        "PWR LED",
-        "22x23.5mm overall dimension"
-      ]
-    },
-    {
       "name": "MBUSLink",
       "partNumber": "GDL-ADMBUSLINK-A",
       "category": "Adapter",
