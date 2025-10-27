@@ -1112,12 +1112,11 @@
       "partNumber": "GDL-WLGPS-A",
       "PID": "0x090008",
       "category": "Wireless",
-      "price": 0.00,
-      "tagline": "Connects DUELink Modules to GPS",
-      "description": "Compact, high-performance GPS System module designed for positioning and navigation applications in DUELink projects",
+      "price": 19.95,
+      "tagline": "GPS Position, Altitude, Speed, and Time",
+      "description": "Compact GPS reciever designed for positioning and navigation applications in DUELink projects",
       "keyFeatures": [
-        "GPS, Galileo, GLONASS",
-        "Low power consumption",
+        "GPS positioninig",
         "32x27mm overall dimension"
       ]
     },
@@ -1645,15 +1644,16 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayBeep(f, d)` | Play beep, (f: frequency, d: duration in ms). |\n| `PlaySound(f, d, c)` | Play sound, (f: frequency, d: duration in ms, c: duty cycle). |\n| `PlayMelody(a1)` | Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration). |\n| `StopMelody()` | Stop melody. |\n| `DVer()` | This driver version. |"
     },
     {
-      "name": "Jack",
-      "partNumber": "GDL-SOJACK-A",
+      "name": "Retro Sound",
+      "partNumber": "GDL-SORETROSND-A",
       "PID": "0x070006",
       "category": "Sound",
       "price": 14.95,
-      "tagline": "Play Sounds and Tones on 3.5mm Audio Jack",
-      "description": "Connect amplified speakers to the 3.5mm to generate all kind of tones. The modules has filters to smooth out output and also has control over left and right channels with individual PMW and timers. This is not an MP3 player, but it can sound an alarm, play a melody, and generate cool sounds!",
+      "tagline": "Play Retro Sounds and Tones on a 3.5mm Audio Jack",
+      "description": "Connect amplified speakers to the 3.5mm jack for all kind of fun sounds and tones. The modules has filters to smooth out output and also has control over left and right channels with individual PMW and timers. This is not an MP3 player, but it can sound an alarm, play a melody, and generate cool sounds!",
       "keyFeatures": [
         "Frequency Range 200Hz to 10Khz",
+        "Standard 3.5mm audio connector",
         "27x22mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayBeep(f, d)` | Play beep, (f: frequency, d: duration in ms). |\n| `PlaySound(f, d, c)` | Play sound, (f: frequency, d: duration in ms, c: duty cycle). |\n| `PlayMelody(a1)` | Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration). |\n| `StopMelody()` | Stop melody. |\n| `DVer()` | This driver version. |"
