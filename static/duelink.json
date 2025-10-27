@@ -1107,6 +1107,20 @@
         "27x37mm overall dimension"
       ]
     },
+     {
+      "name": "GPS",
+      "partNumber": "GDL-WLGPS-A",
+      "PID": "0x090008",
+      "category": "Wireless",
+      "price": 0.00,
+      "tagline": "Connects DUELink Modules to GPS",
+      "description": "Compact, high-performance GPS System module designed for positioning and navigation applications in DUELink projects",
+      "keyFeatures": [
+        "GPS, Galileo, GLONASS",
+        "Low power consumption",
+        "32x27mm overall dimension"
+      ]
+    },
     {
       "name": "GNSS WA",
       "partNumber": "GDL-WLGNSSWA-A",
