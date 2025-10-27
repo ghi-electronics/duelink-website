@@ -15,7 +15,7 @@
       "category": "Kit",
       "price": 74.95,
       "tagline": "Essentials Kit With Most Common Modules!",
-      "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [TFT N18](/docs/products/dstftn18-b) - 1.8\" Color Display\n* [LED R16](/docs/products/ldledr16-b)\n* [Rotary](/docs/products/hirotary-c)\n* [Distance](/docs/products/sedistance-b)\n* [ServoX1](/docs/products/acservox1-a)\n* [Buzzer](/docs/products/sobuzzer-b)\n* [Light](/docs/products/selight-a)\n* [USB Hook + Cable](/docs/products/adusbhook-a)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
+      "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [TFT N18](/docs/products/dstftn18-b) - 1.8\" Color Display\n* [LED R16](/docs/products/ldledr16-b)\n* [Rotary](/docs/products/hirotary-c)\n* [Distance](/docs/products/sedistance-b)\n* [ServoX1](/docs/products/acservox1-a)\n* [Buzzer](/docs/products/sobuzzer-b)\n* [Light](/docs/products/selight-a)\n* [USB Hook](/docs/products/adusbhook-a)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)\n* USB C Cable",
       "keyFeatures": [
         "Most Common Modules",
         "USB Hook + Cable",
@@ -46,9 +46,9 @@
       "partNumber": "GDL-MCCINCOBIT-E",
       "PID": "0x000001",
       "category": "Microcomputer",
-      "price": 5.95,
+      "price": 9.95,
       "tagline": "Ultra low-cost, micro:bit inspired, educational board",
-      "description": "[Educators](/docs/educators) and [Makers](/docs/makers) will find great value in this ultra low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.",
+      "description": "[Educators](/docs/educators) and [Makers](/docs/makers) will find great value in this ultra low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.\n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::",
       "keyFeatures": [
         "5x5 LED Matrix",
         "micro:bit inspired edge connector",
@@ -86,7 +86,7 @@
       "partNumber": "GDL-MCDUEDUINO-A",
       "PID": "0x000012",
       "category": "Microcomputer",
-      "price": 9.95,
+      "price": 12.95,
       "tagline": "Arduino form factor inspired DUELink mainboard",
       "description": "Use the official DUELink engine firmware or use the [Arduino](/docs/hw/arduino) software IDE to program DueDuino.\n\nOf course, this is a DUELink board and [Downlink](/docs/interface/downlink) connector is ready for [Daisylinking](/docs/engine/daisylink) all of your modules.",
       "keyFeatures": [
@@ -128,7 +128,7 @@
       "category": "Microcomputer",
       "price": 16.95,
       "tagline": "micro:bit Form Factor with 128x64 OLED 0.96\" Display",
-      "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. You can now show sensor data or build video games!",
+      "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. You can now show sensor data right on teh display! \n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::",
       "keyFeatures": [
         "128x64 OLED 0.96\" display",
         "Light Sensor",
