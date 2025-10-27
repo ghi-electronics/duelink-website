@@ -201,8 +201,6 @@ const sidebars = {
           items: [
             "products/wlesp32-a",
             "products/wlgps-a",
-            "products/wlgnsswa-a",
-            "products/wlgnss-b",
             "products/wlinfrared-a",
             "products/wlnrf24max-c",
             "products/wlnrf24min-c",
@@ -228,7 +226,7 @@ const sidebars = {
           label: "Sound",
           items: [
             "products/sobuzzer-b",
-            "products/sojack-a",
+            "products/soretrosnd-a",
             "products/somp3-a",
             "products/soradiofm-a",
             "products/sospectrum-a"

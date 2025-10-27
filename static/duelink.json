@@ -31,7 +31,7 @@
       "category": "Kit",
       "price": 74.95,
       "tagline": "Never Enough! Gimme More Modules!",
-      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Wireless ESP32](/docs/products/wlesp32-a)\n* [Button S7](/docs/products/hibuttons7-a)\n* [LED MT1208](/docs/products/ldmt1208-a)\n* [Fan](/docs/products/acfan-b)\n* [Accel](/docs/products/seaccel-a)\n* [Jack](/docs/products/sojack-a)\n* [Holey Board](/docs/products/axholey)\n* [USB Stick](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
+      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Wireless ESP32](/docs/products/wlesp32-a)\n* [Button S7](/docs/products/hibuttons7-a)\n* [LED MT1208](/docs/products/ldmt1208-a)\n* [Fan](/docs/products/acfan-b)\n* [Accel](/docs/products/seaccel-a)\n* [Retro Sound](/docs/products/soretrosnd-a)\n* [Holey Board](/docs/products/axholey)\n* [USB Stick](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
       "keyFeatures": [
         "More Common Modules",
         "USB Stick",
@@ -1118,36 +1118,6 @@
       "keyFeatures": [
         "GPS positioninig",
         "32x27mm overall dimension"
-      ]
-    },
-    {
-      "name": "GNSS WA",
-      "partNumber": "GDL-WLGNSSWA-A",
-      "PID": "0x090001",
-      "category": "Wireless",
-      "price": 74.95,
-      "tagline": "GNSS Positioning Module with Antenna",
-      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module has a built-in antenna. Consider [this GNSS](/docs/products/wlgnss-b) module if you want to add your own antenna.",
-      "keyFeatures": [
-        "GNSS positioning",
-        "GPS, Galileo, GLONASS",
-        "Built-in antenna",
-        "37x27mm overall dimension"
-      ]
-    },
-    {
-      "name": "GNSS",
-      "partNumber": "GDL-WLGNSS-B",
-      "PID": "0x090002",
-      "category": "Wireless",
-      "price": 49.95,
-      "tagline": "GNSS Positioning Module with uFL Connector",
-      "description": "This Global Navigation Satellite System (GPS, Galileo, GLONASS) module with uFL connector for external antenna. The required antenna is not included, giving the user the choice to select the right antenna. Consider [this GNSS](/docs/products/wlgnsswa-a) with built-in antenna.",
-      "keyFeatures": [
-        "GNSS positioning",
-        "GPS, Galileo, GLONASS",
-        "uFL antenna connector",
-        "37x27mm overall dimension"
       ]
     },
     {
