@@ -890,7 +890,7 @@
     {
       "name": "Button S7",
       "partNumber": "GDL-HIBUTTONS7-A",
-      "PID": "0x04000E",
+      "PID": "0x04000F",
       "category": "HMI",
       "price": 7.95,
       "tagline": "7x Tactile 5x5 Buttons",
