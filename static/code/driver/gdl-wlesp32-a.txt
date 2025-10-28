@@ -18,7 +18,6 @@ fn strlen(b2)
         end
     next
 fend
-
  
 # Sent AT command 
 fn AtCmd(b3) 
@@ -145,15 +144,15 @@ fn Esp2Dwlk(w)
                 break
             end
         next
-     
+ 
         dim b4[strlen(b2)-2 -i-1]
         ClearBuf(b4)
-     
+ 
         i = i + 1 # move to next byte
         for x = i to strlen(b2) - 2 # minus \r\n
             b4[x-i] = b2[x]
         next
-     
+ 
         DLSerWr(b4) # Write to downlink
  
         #println("ESP -> Downlink:", b4)
@@ -162,25 +161,25 @@ fn Esp2Dwlk(w)
         #println(b2)
         AtGetLn(b2, 10) # second \r\n
         #println(b2)
-     
+ 
         #example: \r\n+IPD,0,12:Hello World!\r\n  => two \r\n, Bluetooth has one at the end
-     
+ 
         for i = 0 to strlen(b2)
             if b2[i] = 0x3A #: after this is real data
                 break
             end
         next
-     
+ 
         dim b4[strlen(b2)-2 -i-1]
         ClearBuf(b4)
-     
+ 
         i = i + 1 # move to next byte
         for x = i to strlen(b2) - 2 # minus \r\n
             b4[x-i] = b2[x]
             #println(fmt(b4[x-i]))
         next
-     
-     
+ 
+ 
         DLSerWr(b4) # Write to downlink
         #println("ESP -> Downlink:", b4)
     end
@@ -190,20 +189,20 @@ fend
 fn Dwlnk2Esp(w)  
     if w = 0
         v = DlGetLn(b2,128) # read from downlink till see \r\n
-     
+ 
         dim b5[v]
         Memcpy(b5,0,b2,0,v)
-     
+ 
         #println("Downlink -> ESP:", b5, ", size: ", v)
-     
+ 
         dim b6[20]
         sprintf(b6, "AT+BTSPPSEND=0,%d", v)
-     
+ 
         l = strlen(b6) + 2 
         b6[l-1] = 10
         b6[l-2] = 13
-     
-     
+ 
+ 
         # write to ESP
         # l is actual len because sprintf add 0 to last byte
         dim b4[l]
@@ -212,7 +211,7 @@ fn Dwlnk2Esp(w)
         next
         # write to ESP
         SerWrs(b4)  
-     
+ 
         # Wait for '>'
         r = 0
         while (r = 0 )
@@ -224,10 +223,10 @@ fn Dwlnk2Esp(w)
                 end
             end
         wend
-     
+ 
         # write b5 to ESP
         SerWrs(b5)
-     
+ 
         # wait for OK
         WaitOK(b2,1000)
     else 
@@ -235,15 +234,15 @@ fn Dwlnk2Esp(w)
  
         dim b5[v]
         Memcpy(b5,0,b2,0,v)
-        
-     
+ 
+ 
         dim b6[20]
         sprintf(b6, "AT+CIPSEND=0,%d", v)
-     
+ 
         l = strlen(b6) + 2 
         b6[l-1] = 10
         b6[l-2] = 13
-    
+ 
         # write to ESP
         # l is actual len because sprintf add 0 to last byte
         dim b4[l]
@@ -252,8 +251,8 @@ fn Dwlnk2Esp(w)
         next
         # write to ESP
         SerWrs(b4)  
-        
-     
+ 
+ 
         # ESP send ....\r\nOK\r\n\r\n>
         # Wait for '>'
         r = 0
@@ -266,7 +265,7 @@ fn Dwlnk2Esp(w)
                 end
             end
         wend
-     
+ 
         # write b5 to ESP
         # println("Downlink -> ESP:", b5, ", size: ", v)
         SerWrs(b5)
@@ -287,9 +286,7 @@ fend
  
 # General Initialize
 fn Init()
-    dlmode(2, 0) #DOWNLINK HOST MODE 
  
-    wait(255)
  
     # Open HW UART1 UPLINK
     SerCfg(9600, 1024)  
@@ -360,13 +357,13 @@ fn InitBt(b0, t) # b0 is Bluetooth name, t: 0: only init, 1: start bridge,
  
     dim b6[] = "AT+BTNAME=\""
     dim b5[len(b0) + len(b6) + 1]
-    
+ 
     Memcpy(b5, 0, b6, 0, len(b6))
-    
+ 
     Memcpy(b5, len(b6), b0, 0, len(b0))
-    
+ 
     b5[len(b5)-1] = 34 # '"'
-    
+ 
     AtCmd(b5) #AT+BTNAME=b0
     WaitOK(b2,2000)
     #println(b2)
@@ -384,6 +381,10 @@ fn InitBt(b0, t) # b0 is Bluetooth name, t: 0: only init, 1: start bridge,
         return
     end
     
+    dlmode(2, 0) #DOWNLINK HOST MODE 
+ 
+    wait(10)
+ 
     println("Waiting for connection...")
     _b = 0 # backup state
     _s = 0 # current state
@@ -398,11 +399,11 @@ fn InitBt(b0, t) # b0 is Bluetooth name, t: 0: only init, 1: start bridge,
         if _b != _s
             _b = _s
             if _s = 1 # connected
-               
+ 
                 println("Connected")
                 AtGetLn(b2, 100)
             else
-                
+ 
                 println("Disconnected")
                 AtGetLn(b2, 100)
             end
@@ -435,13 +436,11 @@ fn InitWiFi(b0, b1, t) # b0:SSID, b1: password, t: 0: only init, 1: start bridge
     dim b5[9 + 1 + len(b0) + len(b1)]
     dim b6[] = "AT+CWJAP="
     memcpy(b5, 0, b6, 0, len(b6))
-    
+ 
     memcpy(b5, 9, b0, 0, len(b0))
-
     b5[9 + len(b0)] = ','
-
     memcpy(b5, 9 + len(b0) + 1 , b1, 0, len(b1))
-    
+ 
     AtCmd(b5)   
  
     c = 0
@@ -468,17 +467,21 @@ fn InitWiFi(b0, b1, t) # b0:SSID, b1: password, t: 0: only init, 1: start bridge
     if t = 0
         return
     end
-    
+ 
     b = 0 # backup state
     s = 0 # current state
-     
+ 
     i = 0 
     
+    dlmode(2, 0) #DOWNLINK HOST MODE 
+ 
+    wait(10)
+ 
     println("Waiting for connection...") 
     while 1
         # read the gateway status pin
         s = IsSockConn() 
-     
+ 
         if b != s
             b = s
             if s = 1 # connected
@@ -490,7 +493,7 @@ fn InitWiFi(b0, b1, t) # b0:SSID, b1: password, t: 0: only init, 1: start bridge
             end
             println("Status: ", b2)
         end
-     
+ 
         if s = 1 # connected
             # write to downlink
             # PullEsp() # only need for passive mode
@@ -499,17 +502,15 @@ fn InitWiFi(b0, b1, t) # b0:SSID, b1: password, t: 0: only init, 1: start bridge
                 #AT command start with \r\n+IPD,x,y:abcd\r\r\n. x = 0 (socket), y = len, abcd\r: real command: len = 5
                 Esp2Dwlk(1)
             end
-     
+ 
             # read from downlink and send to ESP
             if DLSer2R() > 0
                 wait(1) 
                 Dwlnk2Esp(1)
             end
         end
-     
+ 
     wend
-    
+ 
 fend
-
 Init()
-###########################
