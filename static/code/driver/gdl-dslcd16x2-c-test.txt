@@ -7,7 +7,7 @@ fn Test()
     Wait(10)
     cmd("sel(1)")
     
-    Pos(1,5)
+    Pos(0,5)
     CPrnt('P')
     CPrnt('A')
     CPrnt('S')
