@@ -1,27 +1,27 @@
 ##### Wireless ESP32 driver ###
 _w = 5 # wifi, bluetooth connection status
 _s = 4 # socket connection status
-dim b2[1024] # this buffer b2 is used everywhere, do not touch
+dim b0[1024] # this buffer b0 is used everywhere, do not touch
  
 AsIo(1)  # optional, in case user wants to talk to device during initialize ESP 
  
-fn ClearBuf(b2) 
-    for i = 0 to len(b2)
-        b2[i] = 0
+fn ClearBuf(b0) 
+    for i = 0 to len(b0)
+        b0[i] = 0
     next
 fend
  
-fn strlen(b2)
-    for i = 0 to len(b2)
-        if b2[i] = 0
+fn strlen(b0)
+    for i = 0 to len(b0)
+        if b0[i] = 0
             return i
         end
     next
 fend
  
 # Sent AT command 
-fn AtCmd(b3) 
-    SerWrs(b3)
+fn AtCmd(b1) 
+    SerWrs(b1)
     SerWr(13)
     SerWr(10) 
  
@@ -29,14 +29,14 @@ fn AtCmd(b3)
     # normally a respone will be sent after around 15ms
     wait(20)
  
-    r = AtGetLn(b2,100)
-    #println(b2)
+    r = AtGetLn(b0,100)
+    #println(b0)
     return r
 fend   
  
 # Check AT command response
-fn WaitOK(b2,t)    
-    ClearBuf(b2)
+fn WaitOK(b0,t)    
+    ClearBuf(b0)
  
     z = t
     i = 0
@@ -48,10 +48,10 @@ fn WaitOK(b2,t)
         else
             t = z
             d = SerRd()
-            b2[i]=d
+            b0[i]=d
             if d  = 10
                 if (i >= 3)    
-                    if b2[i-1] = 13 && b2[i-2] = 0x4B && b2[i-3] = 0x4F
+                    if b0[i-1] = 13 && b0[i-2] = 0x4B && b0[i-3] = 0x4F
                         return 1
                     end
                 end
@@ -64,12 +64,12 @@ fn WaitOK(b2,t)
 fend
  
 # Read line from AT response 
-fn AtGetLn(b2, t) # get line from AT 
+fn AtGetLn(b0, t) # get line from AT 
     # AtGetLn will read all line, includes \r\n
     z = t
     i = 0
  
-    ClearBuf(b2)
+    ClearBuf(b0)
  
     while t > 0
         if SerB2R() = 0
@@ -78,7 +78,7 @@ fn AtGetLn(b2, t) # get line from AT
         else
             t = z # reset t when valid data
             d = SerRd()
-            b2[i] = d
+            b0[i] = d
             i = i + 1
  
             if (d = 10) # new line
@@ -94,13 +94,13 @@ fn AtGetLn(b2, t) # get line from AT
 fend
  
 # Read line from Downlink response 
-fn DlGetLn(b2, t) # get line from AT 
+fn DlGetLn(b0, t) # get line from AT 
     # AtGetLn will read all line, includes \r\n
     z = t
     i = 0
  
-    ClearBuf(b2)
-    dim b0[1]
+    ClearBuf(b0)
+    dim b1[1]
  
     while t > 0
         if DLSer2R() = 0
@@ -108,17 +108,17 @@ fn DlGetLn(b2, t) # get line from AT
             t = t - 1
         else
             t = z # reset t when valid data
-            DLSerRd(b0,1)
-            b2[i] = b0[0]
+            DLSerRd(b1,1)
+            b0[i] = b1[0]
             i = i + 1
  
-            if (b0[0] = 10) # new line
+            if (b1[0] = 10) # new line
                 wait(2)
  
                 # downlnk can send \r\n> or \r\n\r\n>
                 while DLSer2R() > 0
-                    DLSerRd(b0,1)
-                    b2[i] = b0[0]
+                    DLSerRd(b1,1)
+                    b0[i] = b1[0]
  
                     i = i + 1
                     wait(2)
@@ -135,47 +135,47 @@ fend
 # Send data from ESP to Downlink 
 fn Esp2Dwlk(w)
     if w = 0 # parser for bluetooth
-        AtGetLn(b2, 128) # get line include \r\n, timeout 128ms since max 128 character * 1ms (9600)
+        AtGetLn(b0, 128) # get line include \r\n, timeout 128ms since max 128 character * 1ms (9600)
         # example: +BTDATA:1,abcd\r\n
         # Scan from end -2 (exclude \r\n) to start till see comma
         # only send data after comma
-        for i = 0 to strlen(b2)
-            if b2[i] = 0x2C # comma: 
+        for i = 0 to strlen(b0)
+            if b0[i] = 0x2C # comma: 
                 break
             end
         next
  
-        dim b4[strlen(b2)-2 -i-1]
+        dim b4[strlen(b0)-2 -i-1]
         ClearBuf(b4)
  
         i = i + 1 # move to next byte
-        for x = i to strlen(b2) - 2 # minus \r\n
-            b4[x-i] = b2[x]
+        for x = i to strlen(b0) - 2 # minus \r\n
+            b4[x-i] = b0[x]
         next
  
         DLSerWr(b4) # Write to downlink
  
         #println("ESP -> Downlink:", b4)
     else # parser for wifi
-        AtGetLn(b2, 10) # first \r\n
-        #println(b2)
-        AtGetLn(b2, 10) # second \r\n
-        #println(b2)
+        AtGetLn(b0, 10) # first \r\n
+        #println(b0)
+        AtGetLn(b0, 10) # second \r\n
+        #println(b0)
  
         #example: \r\n+IPD,0,12:Hello World!\r\n  => two \r\n, Bluetooth has one at the end
  
-        for i = 0 to strlen(b2)
-            if b2[i] = 0x3A #: after this is real data
+        for i = 0 to strlen(b0)
+            if b0[i] = 0x3A #: after this is real data
                 break
             end
         next
  
-        dim b4[strlen(b2)-2 -i-1]
+        dim b4[strlen(b0)-2 -i-1]
         ClearBuf(b4)
  
         i = i + 1 # move to next byte
-        for x = i to strlen(b2) - 2 # minus \r\n
-            b4[x-i] = b2[x]
+        for x = i to strlen(b0) - 2 # minus \r\n
+            b4[x-i] = b0[x]
             #println(fmt(b4[x-i]))
         next
  
@@ -188,10 +188,10 @@ fend
 # Send data from Downlink to ESP
 fn Dwlnk2Esp(w)  
     if w = 0
-        v = DlGetLn(b2,128) # read from downlink till see \r\n
+        v = DlGetLn(b0,128) # read from downlink till see \r\n
  
         dim b5[v]
-        Memcpy(b5,0,b2,0,v)
+        Memcpy(b5,0,b0,0,v)
  
         #println("Downlink -> ESP:", b5, ", size: ", v)
  
@@ -228,12 +228,12 @@ fn Dwlnk2Esp(w)
         SerWrs(b5)
  
         # wait for OK
-        WaitOK(b2,1000)
+        WaitOK(b0,1000)
     else 
-        v = DlGetLn(b2,128) # read from downlink till see \r\n
+        v = DlGetLn(b0,128) # read from downlink till see \r\n
  
         dim b5[v]
-        Memcpy(b5,0,b2,0,v)
+        Memcpy(b5,0,b0,0,v)
  
  
         dim b6[20]
@@ -269,7 +269,7 @@ fn Dwlnk2Esp(w)
         # write b5 to ESP
         # println("Downlink -> ESP:", b5, ", size: ", v)
         SerWrs(b5)
-        WaitOK(b2,1000)
+        WaitOK(b0,1000)
     end
  
 fend
@@ -311,9 +311,9 @@ fn Init()
  
  
     # \r\nready\r\n is always sent
-    AtGetLn(b2, 1000) # \r\n
-    AtGetLn(b2, 1000) #ready\r\n
-    #println(b2)
+    AtGetLn(b0, 1000) # \r\n
+    AtGetLn(b0, 1000) #ready\r\n
+    #println(b0)
  
     # ESP may show something like GOT IP.... because previous config. Clear them
     wait(1000)
@@ -324,7 +324,7 @@ fn Init()
     # Start initialize
     # Start AT cmd
     AtCmd("AT+BTINIT=1")    
-    WaitOK(b2,2000) 
+    WaitOK(b0,2000) 
  
     #Depen on WiFi or Bluetooth, user need initialize WiFi or Bluetooth
 fend
@@ -345,37 +345,37 @@ fn EnterLder() # Enter loader mode
     wend
 fend  
  
-fn InitBt(b0, t) # b0 is Bluetooth name, t: 0: only init, 1: start bridge,
+fn InitBt(b1, t) # b1 is Bluetooth name, t: 0: only init, 1: start bridge,
     # Start AT - Bluetooth cmd
     AtCmd("AT+BTSSP=0")
-    WaitOK(b2,2000)
-    #println(b2)
+    WaitOK(b0,2000)
+    #println(b0)
  
     AtCmd("AT+BTSPPINIT=2")
-    WaitOK(b2,2000)
-    #println(b2)
+    WaitOK(b0,2000)
+    #println(b0)
  
     dim b6[] = "AT+BTNAME=\""
-    dim b5[len(b0) + len(b6) + 1]
+    dim b5[len(b1) + len(b6) + 1]
  
     Memcpy(b5, 0, b6, 0, len(b6))
  
-    Memcpy(b5, len(b6), b0, 0, len(b0))
+    Memcpy(b5, len(b6), b1, 0, len(b1))
  
     b5[len(b5)-1] = 34 # '"'
  
-    AtCmd(b5) #AT+BTNAME=b0
-    WaitOK(b2,2000)
-    #println(b2)
+    AtCmd(b5) #AT+BTNAME=b1
+    WaitOK(b0,2000)
+    #println(b0)
  
     AtCmd("AT+BTSCANMODE=2")
-    WaitOK(b2,2000)  
-    #println(b2)
+    WaitOK(b0,2000)  
+    #println(b0)
  
  
     AtCmd("AT+BTSPPSTART") 
-    WaitOK(b2, 2000)
-    #println(b2)
+    WaitOK(b0, 2000)
+    #println(b0)
  
     if t = 0
         return
@@ -387,9 +387,7 @@ fn InitBt(b0, t) # b0 is Bluetooth name, t: 0: only init, 1: start bridge,
  
     println("Waiting for connection...")
     _b = 0 # backup state
-    _s = 0 # current state
- 
-    dim b3[50]
+    _s = 0 # current state 
     _i = 0 
  
     while 1
@@ -401,13 +399,13 @@ fn InitBt(b0, t) # b0 is Bluetooth name, t: 0: only init, 1: start bridge,
             if _s = 1 # connected
  
                 println("Connected")
-                AtGetLn(b2, 100)
+                AtGetLn(b0, 100)
             else
  
                 println("Disconnected")
-                AtGetLn(b2, 100)
+                AtGetLn(b0, 100)
             end
-            println("Status: ", b2) 
+            println("Status: ", b0) 
         end
  
         if _s = 1
@@ -427,19 +425,19 @@ fn InitBt(b0, t) # b0 is Bluetooth name, t: 0: only init, 1: start bridge,
     # end
 fend
  
-fn InitWiFi(b0, b1, t) # b0:SSID, b1: password, t: 0: only init, 1: start bridge,
+fn InitWiFi(b1, b2, t) # b1:SSID, b2: password, t: 0: only init, 1: start bridge,
     # Start AT - WiFi cmd
     if AtCmd("AT+CWMODE=1") != 0
-        WaitOK(b2,100)
+        WaitOK(b0,100)
     end
  
-    dim b5[9 + 1 + len(b0) + len(b1)]
+    dim b5[9 + 1 + len(b1) + len(b2)]
     dim b6[] = "AT+CWJAP="
     memcpy(b5, 0, b6, 0, len(b6))
  
-    memcpy(b5, 9, b0, 0, len(b0))
-    b5[9 + len(b0)] = ','
-    memcpy(b5, 9 + len(b0) + 1 , b1, 0, len(b1))
+    memcpy(b5, 9, b1, 0, len(b1))
+    b5[9 + len(b1)] = ','
+    memcpy(b5, 9 + len(b1) + 1 , b2, 0, len(b2))
  
     AtCmd(b5)   
  
@@ -450,19 +448,19 @@ fn InitWiFi(b0, b1, t) # b0:SSID, b1: password, t: 0: only init, 1: start bridge
         println("Wait for get IP: ", c)
     wend
  
-    WaitOK(b2,10000)
+    WaitOK(b0,10000)
  
     AtCmd("AT+CIFSR")   
-    WaitOK(b2,1000)
+    WaitOK(b0,1000)
  
     AtCmd("AT+CIPMUX=1") 
-    WaitOK(b2,1000)
+    WaitOK(b0,1000)
  
     AtCmd("AT+CIPSERVER=1,8080")
-    WaitOK(b2,1000)
+    WaitOK(b0,1000)
  
     AtCmd("AT+MDNS=1,\"duelink\",\"_tcp\",80")
-    WaitOK(b2,1000)
+    WaitOK(b0,1000)
  
     if t = 0
         return
@@ -486,12 +484,12 @@ fn InitWiFi(b0, b1, t) # b0:SSID, b1: password, t: 0: only init, 1: start bridge
             b = s
             if s = 1 # connected
                 # when device connected, device will send CONNECT\r\n=> clear them
-                AtGetLn(b2, 100)
+                AtGetLn(b0, 100)
             else
                 # when device disconnected, device will send DISCONNECT\r\n=> clear them
-                AtGetLn(b2, 100)
+                AtGetLn(b0, 100)
             end
-            println("Status: ", b2)
+            println("Status: ", b0)
         end
  
         if s = 1 # connected
