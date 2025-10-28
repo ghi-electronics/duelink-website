@@ -1,7 +1,7 @@
 ##### Wireless ESP32 driver ###
-_w = 5 # wifi, bluetooth connection status
+_w = 5 # wifi, Bluetooth connection status
 _s = 4 # socket connection status
-_m = 0 # _m: 0: BlueTooth, 1: WiFi
+_m = 0 # _m: 0: Bluetooth, 1: WiFi
 dim b0[1024] # this buffer b0 is used everywhere, do not touch
  
 AsIo(1)  # optional, in case user wants to talk to device during initialize ESP 
@@ -135,7 +135,7 @@ fend
  
 # Send data from ESP to Downlink 
 fn Esp2Dwlk()
-    if _m = 0 # parser for bluetooth
+    if _m = 0 # parser for Bluetooth
         ATReadLn(128) # get line include \r\n, timeout 128ms since max 128 character * 1ms (9600)
         # example: +BTDATA:1,abcd\r\n
         # Scan from end -2 (exclude \r\n) to start till see comma
