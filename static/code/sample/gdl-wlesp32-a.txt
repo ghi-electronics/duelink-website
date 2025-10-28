@@ -1,0 +1,15 @@
+
+_w = 0
+
+if _w = 0
+    StartBT("\"bt_name\"")
+    Bridge()
+else
+    # Example WiFi
+    StartWiFi("\"ssid\"", "\"your_pwd\"") 
+    StartTcp("\"duelink\"") # optional. Without this: need to know IP address to connect to
+    Bridge()
+end
+
+
+
