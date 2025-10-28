@@ -347,9 +347,6 @@ fend
  
 fn InitBt(b1, t) # b1 is Bluetooth name, t: 0: only init, 1: start bridge,
     # Start AT - Bluetooth cmd
-    AtCmd("AT+BTSSP=0")
-    WaitOK(b0,2000)
-    #println(b0)
  
     AtCmd("AT+BTSPPINIT=2")
     WaitOK(b0,2000)
