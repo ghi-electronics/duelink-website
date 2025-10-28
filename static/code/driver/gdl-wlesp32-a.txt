@@ -1,8 +1,8 @@
 ##### Wireless ESP32 driver ###
-_d = 5 # WiFi, Bluetooth connection pin status
-_s = 4 # Socket connection pin status
+_d = 5 # WiFi, Bluetooth connection pin status. Low: Connected, High: Disconnected
+_s = 4 # Socket connection pin status. Low: Connected, High: Disconnected
 _m = 0 # _m: 0: Bluetooth, 1: WiFi
-dim b0[1024] # this buffer b0 is used everywhere, do not touch
+dim b0[1024] # this buffer b0 is global used everywhere, do not touch
  
 AsIo(1)  # optional, in case user wants to talk to device during initialize ESP 
   
