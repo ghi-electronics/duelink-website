@@ -1,6 +1,6 @@
 ##### Wireless ESP32 driver ###
-_w = 5 # wifi, Bluetooth connection status
-_s = 4 # socket connection status
+_d = 5 # WiFi, Bluetooth connection pin status
+_s = 4 # Socket connection pin status
 _m = 0 # _m: 0: Bluetooth, 1: WiFi
 dim b0[1024] # this buffer b0 is used everywhere, do not touch
  
@@ -275,14 +275,14 @@ fn Dwlnk2Esp()
 fend
  
 # socket connection status 
-fn IsSockConn() 
-    return dread(_s, 1) = 0 
-fend 
+#fn IsSockConn() 
+#    return dread(_s, 1) = 0 
+#fend 
  
 # Device connection status: If Bluetooth then Bluetooth connection. If use WiFi then WiFi connection 
-fn IsDevConn()
-    return dread(_w, 1) = 0 
-fend 
+#fn IsDevConn()
+#    return dread(_d, 1) = 0 
+#fend 
  
 # General Initialize
 fn Init()
@@ -388,10 +388,18 @@ fn Bridge()
     while 1
         # read the gateway status pin
         if _m = 0
-            s = IsDevConn() 
+            if dread(_d, 1) = 0
+                s = 1
+            else
+                s = 0
+            end
         end    
         if _m = 1 
-            s = IsSockConn() 
+            if dread(_s, 1) = 0
+                s = 1
+            else 
+                s = 0
+            end
         end
  
         if b != s
@@ -443,7 +451,7 @@ fn StartWiFi(b1, b2) # b1:SSID, b2: password, t: 0: only init, 1: start bridge,
     AtCmd(b5)   
  
     c = 0
-    while (!IsDevConn())
+    while (dread(_d, 1) = 1)
         wait(1000)
         c = c + 1
         println("Wait for get IP: ", c)
