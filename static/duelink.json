@@ -1105,7 +1105,8 @@
         "Bluetooth or WiFi Connectivity",
         "Program DUELink Modules Wirelessly",
         "27x37mm overall dimension"
-      ]
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `ATCmd([cmd])` | Send AT command to ESP. |\n| `ATWaitRes(t)` | Parse responsed from AT Command with timeout t milliseconds. return 1:OK, 0:Error. |\n| `StartBT([name])` | Start Bluetooth. |\n| `StartWiFi([ssid], [password])` | Start WiFi. |\n| `IsDevConn()` | WiFi (or Bluetooth) connection status. Return 1 if WiFi (or Bluetooth) connected. |\n| `IsSockConn()` | Socket connection status. Return 1 if socket connected. |\n| `EnterLder()` | Enter ESP loader mode. |\n| `StartTcp[hostname]` | Start tcp with hostname. |\n| `Bridge()` | Enable bridge between downlink and ESP.|",
     },
      {
       "name": "GPS",

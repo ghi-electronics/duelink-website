@@ -1,6 +1,7 @@
 ##### Wireless ESP32 driver ###
 _w = 5 # wifi, bluetooth connection status
 _s = 4 # socket connection status
+_m = 0 # _m: 0: BlueTooth, 1: WiFi
 dim b0[1024] # this buffer b0 is used everywhere, do not touch
  
 AsIo(1)  # optional, in case user wants to talk to device during initialize ESP 
@@ -11,7 +12,7 @@ fn ClearBuf(b0)
     next
 fend
  
-fn strlen(b0)
+fn strlen(b0) # this is diffent len(),return actual character length
     for i = 0 to len(b0)
         if b0[i] = 0
             return i
@@ -29,13 +30,13 @@ fn AtCmd(b1)
     # normally a respone will be sent after around 15ms
     wait(20)
  
-    r = AtGetLn(b0,100)
+    r = ATReadLn(100)
     #println(b0)
     return r
 fend   
  
 # Check AT command response
-fn WaitOK(b0,t)    
+fn ATWaitRes(t)    
     ClearBuf(b0)
  
     z = t
@@ -64,8 +65,8 @@ fn WaitOK(b0,t)
 fend
  
 # Read line from AT response 
-fn AtGetLn(b0, t) # get line from AT 
-    # AtGetLn will read all line, includes \r\n
+fn ATReadLn(t) # get line from AT 
+    # ATReadLn will read all line, includes \r\n
     z = t
     i = 0
  
@@ -94,8 +95,8 @@ fn AtGetLn(b0, t) # get line from AT
 fend
  
 # Read line from Downlink response 
-fn DlGetLn(b0, t) # get line from AT 
-    # AtGetLn will read all line, includes \r\n
+fn DLReadLn( t) # get line from AT 
+    # ATReadLn will read all line, includes \r\n
     z = t
     i = 0
  
@@ -133,9 +134,9 @@ fn DlGetLn(b0, t) # get line from AT
 fend
  
 # Send data from ESP to Downlink 
-fn Esp2Dwlk(w)
-    if w = 0 # parser for bluetooth
-        AtGetLn(b0, 128) # get line include \r\n, timeout 128ms since max 128 character * 1ms (9600)
+fn Esp2Dwlk()
+    if _m = 0 # parser for bluetooth
+        ATReadLn(128) # get line include \r\n, timeout 128ms since max 128 character * 1ms (9600)
         # example: +BTDATA:1,abcd\r\n
         # Scan from end -2 (exclude \r\n) to start till see comma
         # only send data after comma
@@ -157,9 +158,9 @@ fn Esp2Dwlk(w)
  
         #println("ESP -> Downlink:", b4)
     else # parser for wifi
-        AtGetLn(b0, 10) # first \r\n
+        ATReadLn(10) # first \r\n
         #println(b0)
-        AtGetLn(b0, 10) # second \r\n
+        ATReadLn(10) # second \r\n
         #println(b0)
  
         #example: \r\n+IPD,0,12:Hello World!\r\n  => two \r\n, Bluetooth has one at the end
@@ -186,9 +187,9 @@ fn Esp2Dwlk(w)
 fend 
  
 # Send data from Downlink to ESP
-fn Dwlnk2Esp(w)  
-    if w = 0
-        v = DlGetLn(b0,128) # read from downlink till see \r\n
+fn Dwlnk2Esp()  
+    if _m = 0
+        v = DLReadLn(128) # read from downlink till see \r\n
  
         dim b5[v]
         Memcpy(b5,0,b0,0,v)
@@ -228,9 +229,9 @@ fn Dwlnk2Esp(w)
         SerWrs(b5)
  
         # wait for OK
-        WaitOK(b0,1000)
+        ATWaitRes(1000)
     else 
-        v = DlGetLn(b0,128) # read from downlink till see \r\n
+        v = DLReadLn(128) # read from downlink till see \r\n
  
         dim b5[v]
         Memcpy(b5,0,b0,0,v)
@@ -269,7 +270,7 @@ fn Dwlnk2Esp(w)
         # write b5 to ESP
         # println("Downlink -> ESP:", b5, ", size: ", v)
         SerWrs(b5)
-        WaitOK(b0,1000)
+        ATWaitRes(1000)
     end
  
 fend
@@ -280,7 +281,7 @@ fn IsSockConn()
 fend 
  
 # Device connection status: If Bluetooth then Bluetooth connection. If use WiFi then WiFi connection 
-fn IsConn()
+fn IsDevConn()
     return dread(_w, 1) = 0 
 fend 
  
@@ -311,8 +312,8 @@ fn Init()
  
  
     # \r\nready\r\n is always sent
-    AtGetLn(b0, 1000) # \r\n
-    AtGetLn(b0, 1000) #ready\r\n
+    ATReadLn(1000) # \r\n
+    ATReadLn(1000) #ready\r\n
     #println(b0)
  
     # ESP may show something like GOT IP.... because previous config. Clear them
@@ -324,7 +325,7 @@ fn Init()
     # Start initialize
     # Start AT cmd
     AtCmd("AT+BTINIT=1")    
-    WaitOK(b0,2000) 
+    ATWaitRes(2000) 
  
     #Depen on WiFi or Bluetooth, user need initialize WiFi or Bluetooth
 fend
@@ -345,11 +346,12 @@ fn EnterLder() # Enter loader mode
     wend
 fend  
  
-fn InitBt(b1, t) # b1 is Bluetooth name, t: 0: only init, 1: start bridge,
+fn StartBT(b1) # b1 is Bluetooth name, t: 0: only init, 1: start bridge,
+    _m = 0
     # Start AT - Bluetooth cmd
  
     AtCmd("AT+BTSPPINIT=2")
-    WaitOK(b0,2000)
+    ATWaitRes(2000)
     #println(b0)
  
     dim b6[] = "AT+BTNAME=\""
@@ -362,70 +364,75 @@ fn InitBt(b1, t) # b1 is Bluetooth name, t: 0: only init, 1: start bridge,
     b5[len(b5)-1] = 34 # '"'
  
     AtCmd(b5) #AT+BTNAME=b1
-    WaitOK(b0,2000)
+    ATWaitRes(2000)
     #println(b0)
  
     AtCmd("AT+BTSCANMODE=2")
-    WaitOK(b0,2000)  
+    ATWaitRes(2000)  
     #println(b0)
  
  
     AtCmd("AT+BTSPPSTART") 
-    WaitOK(b0, 2000)
+    ATWaitRes( 2000)
     #println(b0)
- 
-    if t = 0
-        return
-    end
-    
+fend
+
+fn Bridge()
     dlmode(2, 0) #DOWNLINK HOST MODE 
  
     wait(10)
  
     println("Waiting for connection...")
-    _b = 0 # backup state
-    _s = 0 # current state 
-    _i = 0 
+    
+    b = 0 # backup state
+    s = 0 # current state 
+    i = 0 
  
     while 1
         # read the gateway status pin
-        _s = IsConn() 
+        if _m = 0
+            s = IsDevConn() 
+        end    
+        if _m = 1 
+            s = IsSockConn() 
+        end
  
-        if _b != _s
-            _b = _s
-            if _s = 1 # connected
+        if b != s
+            b = s
+            if s = 1 # connected
  
                 println("Connected")
-                AtGetLn(b0, 100)
+                ATReadLn(100)
             else
  
                 println("Disconnected")
-                AtGetLn(b0, 100)
+                ATReadLn(100)
             end
             println("Status: ", b0) 
         end
  
-        if _s = 1
+        if s = 1
             # read from ESP, then write to downlink
             if (SerB2R() > 0) 
                 wait(1) 
-                Esp2Dwlk(0)
+                Esp2Dwlk()
             end
  
             # read from downlink, the write to ESP
             if DLSer2R() > 0
                 wait(1)
-                Dwlnk2Esp(0)
+                Dwlnk2Esp()
             end
         end
     wend
-    # end
 fend
+
  
-fn InitWiFi(b1, b2, t) # b1:SSID, b2: password, t: 0: only init, 1: start bridge,
+fn StartWiFi(b1, b2) # b1:SSID, b2: password, t: 0: only init, 1: start bridge,
+    _m = 1
     # Start AT - WiFi cmd
     if AtCmd("AT+CWMODE=1") != 0
-        WaitOK(b0,100)
+        ATWaitRes(100)
     end
  
     dim b5[9 + 1 + len(b1) + len(b2)]
@@ -439,73 +446,44 @@ fn InitWiFi(b1, b2, t) # b1:SSID, b2: password, t: 0: only init, 1: start bridge
     AtCmd(b5)   
  
     c = 0
-    while (!IsConn())
+    while (!IsDevConn())
         wait(1000)
         c = c + 1
         println("Wait for get IP: ", c)
     wend
  
-    WaitOK(b0,10000)
+    ATWaitRes(10000)
  
     AtCmd("AT+CIFSR")   
-    WaitOK(b0,1000)
+    ATWaitRes(1000)
  
     AtCmd("AT+CIPMUX=1") 
-    WaitOK(b0,1000)
- 
-    AtCmd("AT+CIPSERVER=1,8080")
-    WaitOK(b0,1000)
- 
-    AtCmd("AT+MDNS=1,\"duelink\",\"_tcp\",80")
-    WaitOK(b0,1000)
- 
-    if t = 0
-        return
-    end
- 
-    b = 0 # backup state
-    s = 0 # current state
- 
-    i = 0 
-    
-    dlmode(2, 0) #DOWNLINK HOST MODE 
- 
-    wait(10)
- 
-    println("Waiting for connection...") 
-    while 1
-        # read the gateway status pin
-        s = IsSockConn() 
- 
-        if b != s
-            b = s
-            if s = 1 # connected
-                # when device connected, device will send CONNECT\r\n=> clear them
-                AtGetLn(b0, 100)
-            else
-                # when device disconnected, device will send DISCONNECT\r\n=> clear them
-                AtGetLn(b0, 100)
-            end
-            println("Status: ", b0)
-        end
- 
-        if s = 1 # connected
-            # write to downlink
-            # PullEsp() # only need for passive mode
-            if (SerB2R() > 0) 
-                wait(1) 
-                #AT command start with \r\n+IPD,x,y:abcd\r\r\n. x = 0 (socket), y = len, abcd\r: real command: len = 5
-                Esp2Dwlk(1)
-            end
- 
-            # read from downlink and send to ESP
-            if DLSer2R() > 0
-                wait(1) 
-                Dwlnk2Esp(1)
-            end
-        end
- 
-    wend
- 
+    ATWaitRes(1000)
 fend
-Init()
+
+fn StartTcp(b1)
+
+    AtCmd("AT+CIPSERVER=1,8080")
+    ATWaitRes(1000)
+    
+    dim b4[] = "AT+MDNS=1,"
+    dim b5[] = ",\"_tcp\",80"
+    
+    dim b6[len(b4) + len(b1) + len(b5)]
+    
+    memcpy(b6,0,b4,0,len(b4))
+    memcpy(b6,len(b4),b1,0,len(b1))
+    
+    memcpy(b6,len(b4) +len(b1) ,b5,0,len(b5))
+    
+    
+    AtCmd(b6)
+    ATWaitRes(1000)
+fend
+ 
+Init() 
+
+StartWiFi("\"GHI-D\"", "\"ghi888WaiFai0&ItoNET3\"") 
+StartTcp("\"duelink\"")
+Bridge()
+
