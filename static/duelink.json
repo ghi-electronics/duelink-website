@@ -316,7 +316,7 @@
       "partNumber": "GDL-SPPIANO-A",
       "PID": "0x0C0005",
       "category": "Specialty",
-      "price": 9.95,
+      "price": 12.95,
       "tagline": "Capacitive Touch Piano Module",
       "description": "Play notes using capacitive touch pads or connect alligator clips to turn ordinary objects into a piano keys. Mounting holes to connect additional modules.",
       "keyFeatures": [     
@@ -415,28 +415,40 @@
       "partNumber": "GDL-DSLCD16X2-C",
       "PID": "0x010002",
       "category": "Display",
-      "price": 19.95,
       "tagline": "16x2 Character Display",
       "description": "Print up to 16 characters over 2 rows on this character display.",
       "keyFeatures": [
         "16 Characters by 2 rows",
         "97x37mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "Yellow",
+          "partCode": "Y",
+          "price": 19.95
+        }
+      ]
     },
     {
       "name": "LCD 20x4",
       "partNumber": "GDL-DSLCD20X4-B",
       "PID": "0x010003",
       "category": "Display",
-      "price": 24.95,
       "tagline": "20x4 Character Display",
       "description": "Print up to 20 characters over 4 rows on this character display.",
       "keyFeatures": [
         "20 Characters by 4 Rows",
         "112x62mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "Yellow",
+          "partCode": "Y",
+          "price": 24.95
+        }
+      ]
     },
     {
       "name": "OLED 096",
@@ -1105,7 +1117,8 @@
         "Bluetooth or WiFi Connectivity",
         "Program DUELink Modules Wirelessly",
         "27x37mm overall dimension"
-      ]
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `DVer()` | This driver version. |\n| `ATCmd([cmd])` | Send AT command `cmd` to ESP. |\n| `ATWaitRes(t)` | Parse AT command response with timeout `t` milliseconds. return 1:OK, 0:Error (or no response - timeout). |\n| `StartBT([name])` | Start Bluetooth with `name`. |\n| `StartWiFi([ssid], [password])` | Start WiFi with `ssid` and `password`. |\n| `EnterLder()` | Enter ESP loader mode. |\n| `StartTcp([hostname])` | Start tcp with `hostname`. |\n| `Bridge()` | Enable communication between downlink and ESP.|"
     },
      {
       "name": "GPS",
@@ -1802,7 +1815,7 @@
       "tagline": "BBC micro:bit Compatible DUELink Extender",
       "description": "Bring a standard DUELink Downlink to your BBC micro:bit.",
       "keyFeatures": [
-        "micro:bit female socekt",
+        "micro:bit female socket",
         "Downlink connector",
         "57.5x28.5mm overall dimension"
       ]

@@ -7,7 +7,7 @@ fn Test()
     Wait(10)
     
     AtCmd("AT+GMR") # Get version     
-    WaitOK(b0,100)
+    ATWaitRes(100)
      
     cmd("sel(1)")
     cmd("Clear(0)")
