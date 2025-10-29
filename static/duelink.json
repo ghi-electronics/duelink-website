@@ -987,34 +987,25 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `JoystickX()` | Returns X value from 0 to 100. |\n| `JoystickY()` | Returns Y value from 0 to 100. |\n| `BtnPin()` | Returns button's pin number. |\n| `DVer()` | Returns the driver version. |"
     },
     {
-      "name": "Keypad 3x4",
-      "partNumber": "GDL-HIKEYP3X4-B",
-      "PID": "0x04000B",
-      "category": "HMI",
-      "price": 12.95,
-      "tagline": "3x4 Numerical Keypad",
-      "description": "3x4 numerical keypad with 12x \"squishy\" push buttons.",
-      "keyFeatures": [
-        "3x4 numerical keypad",
-        "12 buttons",
-        "50x87mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `IsKeyChange()` | Returns true if a a change happened, press or unpress. |\n| `RdKey()` | Read the current key state, in ASCII. Zero for no press. |\n| `DVer()` | This driver version. |"
-    },
-    {
-      "name": "Keypad 4x4",
-      "partNumber": "GDL-HIKEYP4X4-B",
+      "name": "Keypad",
+      "partNumber": "GDL-HIKEYP-B",
       "PID": "0x04000C",
       "category": "HMI",
-      "price": 14.95,
-      "tagline": "4x4 Button Keypad",
-      "description": "4x4 keypad with 16x \"squishy\" push buttons.",
+      "tagline": "Button Keypad",
+      "description": "Keypad with 16x \"squishy\" push buttons.",
       "keyFeatures": [
         "4x4 numerical keypad",
         "16 buttons",
         "65x87mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `IsKeyChange()` | Returns true if a a change happened, press or unpress. |\n| `RdKey()` | Read the current key state, in ASCII. Zero for no press. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `IsKeyChange()` | Returns true if a a change happened, press or unpress. |\n| `RdKey()` | Read the current key state, in ASCII. Zero for no press. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "4x4",
+          "partCode": "44",
+          "price": 14.95
+        }
+      ]
     },
     {
       "name": "Rotary",
