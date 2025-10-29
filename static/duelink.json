@@ -415,28 +415,40 @@
       "partNumber": "GDL-DSLCD16X2-C",
       "PID": "0x010002",
       "category": "Display",
-      "price": 19.95,
       "tagline": "16x2 Character Display",
       "description": "Print up to 16 characters over 2 rows on this character display.",
       "keyFeatures": [
         "16 Characters by 2 rows",
         "97x37mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "Yellow",
+          "partCode": "Y",
+          "price": 19.95
+        }
+      ]
     },
     {
       "name": "LCD 20x4",
       "partNumber": "GDL-DSLCD20X4-B",
       "PID": "0x010003",
       "category": "Display",
-      "price": 24.95,
       "tagline": "20x4 Character Display",
       "description": "Print up to 20 characters over 4 rows on this character display.",
       "keyFeatures": [
         "20 Characters by 4 Rows",
         "112x62mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "Yellow",
+          "partCode": "Y",
+          "price": 24.95
+        }
+      ]
     },
     {
       "name": "OLED 096",
