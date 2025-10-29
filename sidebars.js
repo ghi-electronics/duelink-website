@@ -178,8 +178,7 @@ const sidebars = {
             "products/hidipswch-b",
             "products/hifngrprnt-b",
             "products/hijoystkl-c",
-            "products/hikeyp3x4-b",
-            "products/hikeyp4x4-b",
+            "products/hikeyp-b",
             "products/hirotary-c",
             "products/hislider-b"
           ],
