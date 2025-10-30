@@ -50,27 +50,27 @@ const sidebars = {
           type: "category",
           label: "Microcomputers",
           items: [
-            "products/mcdueduino-a",
-            "products/mcstamp-b",
-            "products/mcstick-a",
             "products/mccincobit-e",
             "products/mcclipit-b",
+            "products/mcdueduino-a",
             "products/mcduestem-b",
-            "products/mcpixobit-d"
+            "products/mcpixobit-d",
+            "products/mcstamp-b",
+            "products/mcstick-a"
           ],
         },
         {
           type: "category",
           label: "Specialty",
           items: [
-            "products/spghizzyjr-b",
-            "products/spghizzy-d",
-            "products/sptree-b",
-            "products/spsnowy-a",
-            "products/spcubicle-a",
             "products/spchrono-a",
+            "products/spctrlr-a",
+            "products/spcubicle-a",
+            "products/spghizzy-d",
+            "products/spghizzyjr-b",
+            "products/sptree-b",
             "products/sppiano-a",
-            "products/spctrlr-a"
+            "products/spsnowy-a"
           ],
         },
         {
@@ -78,18 +78,18 @@ const sidebars = {
           label: "Adapters",
           items: [
             "products/adbreakout-a",
-            "products/addueshield-a",
             "products/adduembus-a",
-            "products/admbuslink-a",
             "products/adduepi-b",
-            "products/adrpilink-a",
             "products/adduepico-b",
+            "products/addueshield-a",
             "products/adlinkbit-a",
-            "products/adravebit-a",
+            "products/admbuslink-a",
             "products/adpwrhook-a",
             "products/adpwrinj-a",
-            "products/adpullup-a",
             "products/adpwrswch-a",
+            "products/adpullup-a",
+            "products/adravebit-a",
+            "products/adrpilink-a",
             "products/adsticker-c",
             "products/adusbhook-a",
             "products/adusbstick-a"
@@ -130,17 +130,17 @@ const sidebars = {
             "products/seprsr-b",
             "products/sertc-b",
             "products/setemphmd-b",
-            "products/setemprtd-a",
-            "products/setempan-a"
+            "products/setempan-a",
+            "products/setemprtd-a"
           ],
         },
         {
           type: "category",
           label: "Actuators",
           items: [
+            "products/acdiox12-a",
             "products/acfan-b",
             "products/acload-a",
-            "products/acdiox12-a",
             "products/acmotomax-b",
             "products/acmototwin-b",
             "products/acrelayp16-a",
@@ -172,8 +172,8 @@ const sidebars = {
             "products/hibrgb284-b",
             "products/hibuttonl-a",
             "products/hibuttonl7-b",
-            "products/hibuttons7-a",
             "products/hibuttons-a",
+            "products/hibuttons7-a",
             "products/hidial-a",
             "products/hidipswch-b",
             "products/hifngrprnt-b",
@@ -190,19 +190,19 @@ const sidebars = {
             "products/stflash-a",
             "products/stmicrosd-a",
             "products/stsdcard-b",
-              "products/stusbhost-b",
+            "products/stusbhost-b"
           ],
         },
         {
           type: "category",
           label: "Wireless",
           items: [
-            "products/wlesp32-a",
             "products/wlgps-a",
             "products/wlinfrared-a",
             "products/wlnrf24max-c",
             "products/wlnrf24min-c",
-            "products/wlrfid-b"
+            "products/wlrfid-b",
+            "products/wlesp32-a"
           ],
         },
         {
@@ -224,9 +224,9 @@ const sidebars = {
           label: "Sound",
           items: [
             "products/sobuzzer-b",
-            "products/soretrosnd-a",
             "products/somp3-a",
             "products/soradiofm-a",
+            "products/soretrosnd-a",
             "products/sospectrum-a"
           ],
         },
