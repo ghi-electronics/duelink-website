@@ -5,6 +5,6 @@
 3. Make sure the text "This is green" is displayed in green 
 4. Make sure the text "This is blue" is displayed in blue 
 5. Make sure the text "This is white" is displayed in white
-6. When you touch the screen, the screen will be clear and it draw a red circle at the point of contact.
+6. When touched the screen, the screen will be clear and it draw a red circle at the point of contact.
 
 #########################
