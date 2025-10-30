@@ -62,6 +62,25 @@
       "MfgNotes": "Check Menu->Help for connection before testing"  
     },
     {
+      "name": "PixoBit",
+      "partNumber": "GDL-MCPIXOBIT-D",
+      "PID": "0x000002",
+      "category": "Microcomputer",
+      "price": 16.95,
+      "tagline": "micro:bit Form Factor with 128x64 OLED 0.96\" Display",
+      "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. You can now show sensor data right on the display! \n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::",
+      "keyFeatures": [
+        "128x64 OLED 0.96\" display",
+        "Light Sensor",
+        "Buzzer",
+        "2x User Buttons",
+        "micro:bit inspired edge connector",
+        "USB-C connector",
+        "52x42mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnUpA()` | Returns 1 if button A was released. |\n| `BtnDownA()` | Returns 1 if button A was pressed. |\n| `BtnUpB()` | Returns 1 if button B was released. |\n| `BtnDownB()` | Returns 1 if button B was pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |"
+    },
+    {
       "name": "ClipIt",
       "partNumber": "GDL-MCCLIPIT-B",
       "PID": "0x000011",
@@ -120,25 +139,6 @@
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnPin(a)` | Returns button's pin number, based on `a` alias ('U' = Up, 'D' = Down, 'L' = Left, 'R' = Right) |\n| `GetX()` | Returns the X axis of the Accelerometer. |\n| `GetY()` | Returns the Y axis of the Accelerometer. |\n| `GetZ()` | Returns the Z axis of the Accelerometer. |\n| `SetBulb(c)` | Sets Lightbulb `c` color with 24bit RGB color (RRGGBB). |\n| `Tunes(f,d)` | Plays Tunes buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage level from Light sensor. |\n| `ReadTemp()` | Returns voltage level from Temperature sensor. |\n| `DVer()` | This driver version. |",
       "MfgNotes": "Check Menu->Help for connection before testing"  
-    },
-    {
-      "name": "PixoBit",
-      "partNumber": "GDL-MCPIXOBIT-D",
-      "PID": "0x000002",
-      "category": "Microcomputer",
-      "price": 16.95,
-      "tagline": "micro:bit Form Factor with 128x64 OLED 0.96\" Display",
-      "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. You can now show sensor data right on the display! \n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::",
-      "keyFeatures": [
-        "128x64 OLED 0.96\" display",
-        "Light Sensor",
-        "Buzzer",
-        "2x User Buttons",
-        "micro:bit inspired edge connector",
-        "USB-C connector",
-        "52x42mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnUpA()` | Returns 1 if button A was released. |\n| `BtnDownA()` | Returns 1 if button A was pressed. |\n| `BtnUpB()` | Returns 1 if button B was released. |\n| `BtnDownB()` | Returns 1 if button B was pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Stamp",
@@ -281,7 +281,7 @@
           "price": 9.95
         },
         {
-          "name": "RED",
+          "name": "Red",
           "partCode": "R",
           "price": 14.95
         }
@@ -346,124 +346,6 @@
         "USB Type C",
         "71x37mm overall dimension"
       ]
-    },
-    {
-      "name": "ePaper M29",
-      "partNumber": "GDL-DSEPAPRM29-A",
-      "PID": "0x01000B",
-      "category": "Display",
-      "price": 49.95,
-      "tagline": "2.9\" - e-Ink Display",
-      "description": "e-Ink (ePaper) displays only need power to update the screen. But then power can be disconnected and the display will retain the graphics with zero power requirements.",
-      "keyFeatures": [
-        "2.9\" e-Ink display",
-        "296x128 resolution",
-        "Red/White/Black Color",
-        "102x37mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Width()` | Display width. |\n| `Height()` | Display Height. |\n| `DrawOnBW()` | Next drawing functions will go on B&W. |\n| `DrawOnRed()` | Next drawing functions will go on Red. |\n| `DVer()` | This driver version. |"
-    },
-    {
-      "name": "ePaper M42",
-      "partNumber": "GDL-DSEPAPRM42-A",
-      "PID": "0x01000C",
-      "category": "Display",
-      "price": 79.95,
-      "tagline": "4.2\" - e-Ink Display",
-      "description": "e-Ink (ePaper) displays only need power to update the screen. But then power can be disconnected and the display will retain the graphics with zero power requirements.\n\nThis display works via the graphics internal services with 2x pixel multiplier, giving the user 200x150 pixels.",
-      "keyFeatures": [
-        "4.2\" e-Ink display",
-        "400x300 resolution",
-        "200x150 actual res",
-        "Red/White/Black color",
-        "107x87mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Width()` | Display width. |\n| `Height()` | Display Height. |\n| `DrawOnBW()` | Next drawing functions will go on B&W. |\n| `DrawOnRed()` | Next drawing functions will go on Red. |\n| `DVer()` | This driver version. |"
-    },
-    {
-      "name": "HDMI",
-      "partNumber": "GDL-DSHDMI-B",
-      "PID": "0x010001",
-      "category": "Display",
-      "price": 69.95,
-      "tagline": "HDMI Graphics Module",
-      "description": "Add HDMI graphics to any [Supported Hardware](/docs/hw/intro). The board has its own graphics processor and memory. Your system will only need to issue simple commands to show graphics on a 90\" TV screen!\n\nThe module uses [BT817Q](https://brtchip.com/product/bt817q/). Drawing with this module will be done via the graphics coprocessor and not the internal graphics engine.",
-      "keyFeatures": [
-        "HDMI interface",
-        "BT817Q graphics processor",
-        "Dedicated graphics processor and memory",
-        "90\" TV screen support",
-        "Graphics coprocessor drawing (not internal graphics engine)",
-        "57x77mm overall dimension"
-      ],
-      "resources": {
-        "schematic": "/sch/gdl-dhdmi-b.pdf",
-        "3dModel": "/3d/gdl-dhdmi-b.step",
-        "driver": "https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/display/hdmi.txt",
-        "samples": {
-          "script": "https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/display/hdmi.txt",
-          "python": "https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/display/hdmi.py",
-          "javascript": "https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/display/hdmi.js"
-        },
-        "chipInfo": "https://brtchip.com/product/bt817q/"
-      },
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start. |\n| `DLClear()` | Clear the commands. |\n| `DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments. |\n| `DLSwap()` | Execute the graphics commands and swap working buffers. |\n| `DVer()` | This driver version. |",
-      "MfgNotes": "Need monitor and speaker for testing" 
-    },
-    {
-      "name": "LCD 16x2",
-      "partNumber": "GDL-DSLCD16X2-C",
-      "PID": "0x010002",
-      "category": "Display",
-      "tagline": "16x2 Character Display",
-      "description": "Print up to 16 characters over 2 rows on this character display.",
-      "keyFeatures": [
-        "16 Characters by 2 rows",
-        "97x37mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |",
-      "variations": [
-        {
-          "name": "Yellow",
-          "partCode": "Y",
-          "price": 19.95
-        }
-      ]
-    },
-    {
-      "name": "LCD 20x4",
-      "partNumber": "GDL-DSLCD20X4-B",
-      "PID": "0x010003",
-      "category": "Display",
-      "tagline": "20x4 Character Display",
-      "description": "Print up to 20 characters over 4 rows on this character display.",
-      "keyFeatures": [
-        "20 Characters by 4 Rows",
-        "112x62mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |",
-      "variations": [
-        {
-          "name": "Yellow",
-          "partCode": "Y",
-          "price": 24.95
-        }
-      ]
-    },
-    {
-      "name": "OLED 096",
-      "partNumber": "GDL-DSOLED096-A",
-      "PID": "0x010004",
-      "category": "Display",
-      "price": 14.95,
-      "tagline": "0.96\" - 128x64 OLED BW Display",
-      "description": "This small 0.96\" display is very sharp due to its OLED construction. It is B&W color, but with 128x64 pixels, it has enough resolution to show plenty of data and [graphics](/docs/engine/graphics).",
-      "keyFeatures": [
-        "0.96\" display",
-        "128x64",
-        "40x27mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Portal CP70",
@@ -550,6 +432,124 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(m)` | Initialize the display. Automatically called on power up `m`mode to (1-direct, 0-buffered (default)). |\n| `GetW()` | Get display width: 80 in buffered, 240 in direct. |\n| `GetH()` | Get display height: 80 in buffered, 240 in direct. |\n| `IsColor()` | Returns 1. |\n| `TouchX()` | Returns touch x. |\n| `TouchY()` | Returns touch y. |\n| `DVer()` | This driver version. |"
     },
     {
+      "name": "ePaper M42",
+      "partNumber": "GDL-DSEPAPRM42-A",
+      "PID": "0x01000C",
+      "category": "Display",
+      "price": 79.95,
+      "tagline": "4.2\" - e-Ink Display",
+      "description": "e-Ink (ePaper) displays only need power to update the screen. But then power can be disconnected and the display will retain the graphics with zero power requirements.\n\nThis display works via the graphics internal services with 2x pixel multiplier, giving the user 200x150 pixels.",
+      "keyFeatures": [
+        "4.2\" e-Ink display",
+        "400x300 resolution",
+        "200x150 actual res",
+        "Red/White/Black color",
+        "107x87mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Width()` | Display width. |\n| `Height()` | Display Height. |\n| `DrawOnBW()` | Next drawing functions will go on B&W. |\n| `DrawOnRed()` | Next drawing functions will go on Red. |\n| `DVer()` | This driver version. |"
+    },
+    {
+      "name": "ePaper M29",
+      "partNumber": "GDL-DSEPAPRM29-A",
+      "PID": "0x01000B",
+      "category": "Display",
+      "price": 49.95,
+      "tagline": "2.9\" - e-Ink Display",
+      "description": "e-Ink (ePaper) displays only need power to update the screen. But then power can be disconnected and the display will retain the graphics with zero power requirements.",
+      "keyFeatures": [
+        "2.9\" e-Ink display",
+        "296x128 resolution",
+        "Red/White/Black Color",
+        "102x37mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Width()` | Display width. |\n| `Height()` | Display Height. |\n| `DrawOnBW()` | Next drawing functions will go on B&W. |\n| `DrawOnRed()` | Next drawing functions will go on Red. |\n| `DVer()` | This driver version. |"
+    },
+    {
+      "name": "HDMI",
+      "partNumber": "GDL-DSHDMI-B",
+      "PID": "0x010001",
+      "category": "Display",
+      "price": 69.95,
+      "tagline": "HDMI Graphics Module",
+      "description": "Add HDMI graphics to any [Supported Hardware](/docs/hw/intro). The board has its own graphics processor and memory. Your system will only need to issue simple commands to show graphics on a 90\" TV screen!\n\nThe module uses [BT817Q](https://brtchip.com/product/bt817q/). Drawing with this module will be done via the graphics coprocessor and not the internal graphics engine.",
+      "keyFeatures": [
+        "HDMI interface",
+        "BT817Q graphics processor",
+        "Dedicated graphics processor and memory",
+        "90\" TV screen support",
+        "Graphics coprocessor drawing (not internal graphics engine)",
+        "57x77mm overall dimension"
+      ],
+      "resources": {
+        "schematic": "/sch/gdl-dhdmi-b.pdf",
+        "3dModel": "/3d/gdl-dhdmi-b.step",
+        "driver": "https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/display/hdmi.txt",
+        "samples": {
+          "script": "https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/display/hdmi.txt",
+          "python": "https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/display/hdmi.py",
+          "javascript": "https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/display/hdmi.js"
+        },
+        "chipInfo": "https://brtchip.com/product/bt817q/"
+      },
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start. |\n| `DLClear()` | Clear the commands. |\n| `DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments. |\n| `DLSwap()` | Execute the graphics commands and swap working buffers. |\n| `DVer()` | This driver version. |",
+      "MfgNotes": "Need monitor and speaker for testing" 
+    },
+    {
+      "name": "LCD 20x4",
+      "partNumber": "GDL-DSLCD20X4-B",
+      "PID": "0x010003",
+      "category": "Display",
+      "tagline": "20x4 Character Display",
+      "description": "Print up to 20 characters over 4 rows on this character display.",
+      "keyFeatures": [
+        "20 Characters by 4 Rows",
+        "112x62mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "Yellow",
+          "partCode": "Y",
+          "price": 24.95
+        }
+      ]
+    },
+    {
+      "name": "LCD 16x2",
+      "partNumber": "GDL-DSLCD16X2-C",
+      "PID": "0x010002",
+      "category": "Display",
+      "tagline": "16x2 Character Display",
+      "description": "Print up to 16 characters over 2 rows on this character display.",
+      "keyFeatures": [
+        "16 Characters by 2 rows",
+        "97x37mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "Yellow",
+          "partCode": "Y",
+          "price": 19.95
+        }
+      ]
+    },
+    {
+      "name": "OLED 096",
+      "partNumber": "GDL-DSOLED096-A",
+      "PID": "0x010004",
+      "category": "Display",
+      "price": 14.95,
+      "tagline": "0.96\" - 128x64 OLED BW Display",
+      "description": "This small 0.96\" display is very sharp due to its OLED construction. It is B&W color, but with 128x64 pixels, it has enough resolution to show plenty of data and [graphics](/docs/engine/graphics).",
+      "keyFeatures": [
+        "0.96\" display",
+        "128x64",
+        "40x27mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `DVer()` | This driver version. |"
+    },
+    {
       "name": "VFD B8",
       "partNumber": "GDL-DSVFDB8-C",
       "PID": "0x01000A",
@@ -564,33 +564,35 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `CPrint(x, c)` | Print an ASCII `c` character at `x` pos. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |"
     },
     {
-      "name": "Fan",
-      "partNumber": "GDL-ACFAN-B",
-      "PID": "0x020001",
-      "category": "Actuator",
-      "price": 9.95,
-      "tagline": "Fan Motor Module",
-      "description": "This smart DUELink fan has speed and direction control.",
-      "keyFeatures": [
-        "On-board motor",
-        "2 blade fan",
-        "42x42mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Fan(s)` | Sets fan `s` speed (-100 to 100). |\n| `DVer()` | This driver version. |"
-    },
-    {
-      "name": "Load",
-      "partNumber": "GDL-ACLOAD-A",
-      "PID": "0x020002",
+      "name": "Servo X1",
+      "partNumber": "GDL-ACSERVOX1-A",
+      "PID": "0x020009",
       "category": "Actuator",
       "price": 14.95,
-      "tagline": "8x 80V 1.5A Power Load Driver for Motors and Lights",
-      "description": "The Load module is designed to control up to 8 actuators. No soldering is necessary as all connections are found on a screw terminal block.",
+      "tagline": "Self-Power Single Servo Motor",
+      "description": "This DUELink 9G micro servo has everything in a single package. The motor uses power right from the DUELink bus, where it is being controlled as well.",
       "keyFeatures": [
-        "8x Load Screw Terminal Connections",
-        "80V 1.5A Max",
-        "82x32mm overall dimension"
+        "Single positional 180 degree servo",
+        "9G micro servo included",
+        "Self-powered",
+        "37x31mm overall dimension"
       ]
+    },
+    {
+      "name": "Servo P8",
+      "partNumber": "GDL-ACSERVOP8-B",
+      "PID": "0x020008",
+      "category": "Actuator",
+      "price": 14.95,
+      "tagline": "8x Servo Motor Controller",
+      "description": "Control up to 8x servo motors. Daisylink multiple Servo-P8 for controlling hundreds of servo motors!",
+      "keyFeatures": [
+        "8x servo motor connections",
+        "Eight 3-pin male headers",
+        "Power terminal block",
+        "37x27mm overall dimension"
+      ],
+      "MfgNotes": "An external 5V power supply is required"  
     },
     {
       "name": "MotoMax",
@@ -624,6 +626,64 @@
         "37x37mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SMotorA(s)` | Sets Motor A `s` speed and direction (-100 to 100). |\n| `SMotorB(s)` | Sets Motor B `s` speed and direction (-100 to 100). |\n| `DVer()` | This driver version. |"
+    },
+    {
+      "name": "Fan",
+      "partNumber": "GDL-ACFAN-B",
+      "PID": "0x020001",
+      "category": "Actuator",
+      "price": 9.95,
+      "tagline": "Fan Motor Module",
+      "description": "This smart DUELink fan has speed and direction control.",
+      "keyFeatures": [
+        "On-board motor",
+        "2 blade fan",
+        "42x42mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Fan(s)` | Sets fan `s` speed (-100 to 100). |\n| `DVer()` | This driver version. |"
+    },
+    {
+      "name": "StepDrive P3",
+      "partNumber": "GDL-ACSTEPDP3-B",
+      "PID": "0x02000B",
+      "category": "Actuator",
+      "price": 24.95,
+      "tagline": "3x Stepper Motor Driver",
+      "description": "This module utilizes the very common stepper motor drivers commonly used in Arduino CNC Shield. They are available in multiple models. We include drivers capable of 30V @ 1A each, but you can easily swap them with your favorite driver if desired.",
+      "keyFeatures": [
+        "3x stepper motor control",
+        "Terminal Block Connectors",
+        "77x42mm overall dimension"
+      ]
+    },
+    {
+      "name": "StepDrive P1",
+      "partNumber": "GDL-ACSTEPDP1-A",
+      "PID": "0x02000A",
+      "category": "Actuator",
+      "price": 14.95,
+      "tagline": "Single Stepper Motor Driver",
+      "description": "This module utilizes the very common stepper motor drivers commonly used in Arduino CNC Shield. They are available in multiple models. We include a driver capable of 30V @ 1A, but you can easily swap it with your favorite driver if desired.",
+      "keyFeatures": [
+        "Single stepper motor control",
+        "30V @ 1A",
+        "Terminal block connectors",
+        "37x37mm overall dimension"
+      ]
+    },
+    {
+      "name": "StepPulse",
+      "partNumber": "GDL-ACSTEPP-A",
+      "PID": "0x02000C",
+      "category": "Actuator",
+      "price": 9.95,
+      "tagline": "Stepper Motor Signal Generator",
+      "description": "This module will generate the signal (pulses) necessary to drive stepper motor controllers. There is a wide range of available controllers, including nicely isolated ones.",
+      "keyFeatures": [
+        "X,Y,and Z axis control",
+        "Terminal Block Connectors",
+        "62x22mm overall dimension"
+      ]
     },
     {
       "name": "Relay P16",
@@ -674,77 +734,17 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Sets(v)` | Activate the relay (1 on, 0 off). |\n| `DVer()` | This driver version. |"
     },
     {
-      "name": "Servo P8",
-      "partNumber": "GDL-ACSERVOP8-B",
-      "PID": "0x020008",
+      "name": "Load",
+      "partNumber": "GDL-ACLOAD-A",
+      "PID": "0x020002",
       "category": "Actuator",
       "price": 14.95,
-      "tagline": "8x Servo Motor Controller",
-      "description": "Control up to 8x servo motors. Daisylink multiple Servo-P8 for controlling hundreds of servo motors!",
+      "tagline": "8x 80V 1.5A Power Load Driver for Motors and Lights",
+      "description": "The Load module is designed to control up to 8 actuators. No soldering is necessary as all connections are found on a screw terminal block.",
       "keyFeatures": [
-        "8x servo motor connections",
-        "Eight 3-pin male headers",
-        "Power terminal block",
-        "37x27mm overall dimension"
-      ],
-      "MfgNotes": "An external 5V power supply is required"  
-    },
-    {
-      "name": "Servo X1",
-      "partNumber": "GDL-ACSERVOX1-A",
-      "PID": "0x020009",
-      "category": "Actuator",
-      "price": 14.95,
-      "tagline": "Self-Power Single Servo Motor",
-      "description": "This DUELink 9G micro servo has everything in a single package. The motor uses power right from the DUELink bus, where it is being controlled as well.",
-      "keyFeatures": [
-        "Single positional 180 degree servo",
-        "9G micro servo included",
-        "Self-powered",
-        "37x31mm overall dimension"
-      ]
-    },
-    {
-      "name": "StepPulse",
-      "partNumber": "GDL-ACSTEPP-A",
-      "PID": "0x02000C",
-      "category": "Actuator",
-      "price": 9.95,
-      "tagline": "Stepper Motor Signal Generator",
-      "description": "This module will generate the signal (pulses) necessary to drive stepper motor controllers. There is a wide range of available controllers, including nicely isolated ones.",
-      "keyFeatures": [
-        "X,Y,and Z axis control",
-        "Terminal Block Connectors",
-        "62x22mm overall dimension"
-      ]
-    },
-    {
-      "name": "StepDrive P1",
-      "partNumber": "GDL-ACSTEPDP1-A",
-      "PID": "0x02000A",
-      "category": "Actuator",
-      "price": 14.95,
-      "tagline": "Single Stepper Motor Driver",
-      "description": "This module utilizes the very common stepper motor drivers commonly used in Arduino CNC Shield. They are available in multiple models. We include a driver capable of 30V @ 1A, but you can easily swap it with your favorite driver if desired.",
-      "keyFeatures": [
-        "Single stepper motor control",
-        "30V @ 1A",
-        "Terminal block connectors",
-        "37x37mm overall dimension"
-      ]
-    },
-    {
-      "name": "StepDrive P3",
-      "partNumber": "GDL-ACSTEPDP3-B",
-      "PID": "0x02000B",
-      "category": "Actuator",
-      "price": 24.95,
-      "tagline": "3x Stepper Motor Driver",
-      "description": "This module utilizes the very common stepper motor drivers commonly used in Arduino CNC Shield. They are available in multiple models. We include drivers capable of 30V @ 1A each, but you can easily swap them with your favorite driver if desired.",
-      "keyFeatures": [
-        "3x stepper motor control",
-        "Terminal Block Connectors",
-        "77x42mm overall dimension"
+        "8x Load Screw Terminal Connections",
+        "80V 1.5A Max",
+        "82x32mm overall dimension"
       ]
     },
     {
@@ -761,6 +761,21 @@
         "27x18mm overall dimension"
       ],
       "driverApi": ":::tip\nDio X12 module uses the [Standard Library API](/docs/engine/stdlib) directly. No other drivers are needed.\n:::"
+    },
+    {
+      "name": "RS485",
+      "partNumber": "GDL-CMRS485-A",
+      "PID": "0x030005",
+      "category": "Communication",
+      "price": 14.95,
+      "tagline": "RS485 Serial Interface",
+      "description": "Connect and control any industrial-grade low-cost electrically-isolated RS485 Sensors and Actuators with ease. Here is an example analog input.\n\n![RS485 Analog Input](pathname:///img/rs485-ain.jpg)",
+      "keyFeatures": [
+        "RS485 Transceiver",
+        "Serial Communication",
+        "Terminal Block Connector",
+        "32x22mm overall dimension"
+      ]
     },
     {
       "name": "CAN",
@@ -812,21 +827,6 @@
       ]
     },
     {
-      "name": "RS485",
-      "partNumber": "GDL-CMRS485-A",
-      "PID": "0x030005",
-      "category": "Communication",
-      "price": 14.95,
-      "tagline": "RS485 Serial Interface",
-      "description": "Connect and control any industrial-grade low-cost electrically-isolated RS485 Sensors and Actuators with ease. Here is an example analog input.\n\n![RS485 Analog Input](pathname:///img/rs485-ain.jpg)",
-      "keyFeatures": [
-        "RS485 Transceiver",
-        "Serial Communication",
-        "Terminal Block Connector",
-        "32x22mm overall dimension"
-      ]
-    },
-    {
       "name": "Serial USB",
       "partNumber": "GDL-CMSERUSB-A",
       "PID": "0x030006",
@@ -839,6 +839,157 @@
         "Virtual Serial Port",
         "USB-C connector",
         "32x27mm overall dimension"
+      ]
+    },
+    {
+      "name": "Button S",
+      "partNumber": "GDL-HIBUTTONS-A",
+      "PID": "0x040005",
+      "category": "HMI",
+      "price": 4.95,
+      "tagline": "Small 5x5mm Tactile Button",
+      "description": "This module offers a small \"squishy\" 5x5mm tactile button.",
+      "keyFeatures": [
+        "Single 5x5mm tactile button",
+        "Soft touch",
+        "22x22mm overall dimension"
+      ]
+    },
+    {
+      "name": "Button S7",
+      "partNumber": "GDL-HIBUTTONS7-A",
+      "PID": "0x04000B",
+      "category": "HMI",
+      "price": 7.95,
+      "tagline": "7x Tactile 5x5 Buttons",
+      "description": "This module includes 7x 5x5mm tactile buttons. All buttons, except middle, has a controllable LED.",
+      "keyFeatures": [
+        "7x 5x5mm buttons",
+        "6x LEDs",
+        "32x42mm overall dimension"
+      ]
+    },
+    {
+      "name": "Button L",
+      "partNumber": "GDL-HIBUTTONL-A",
+      "PID": "0x040003",
+      "category": "HMI",
+      "price": 5.95,
+      "tagline": "Large 10x10mm Tactile Button",
+      "description": "Add a 10x10mm button to any project!",
+      "keyFeatures": [
+        "Single 10x10mm Button",
+        "27x22mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `BtnPin()` | Returns button's pin number. |\n| `DVer()` | This driver version. |"
+    },
+    {
+      "name": "Button L7",
+      "partNumber": "GDL-HIBUTTONL7-B",
+      "PID": "0x040004",
+      "category": "HMI",
+      "price": 9.95,
+      "tagline": "7x Tactile 10x10mm Buttons",
+      "description": "This module includes 7x 10x10mm tactile buttons. All buttons, except middle, has a controllable LED.",
+      "keyFeatures": [
+        "7x 10x10mm buttons",
+        "6x LEDs",
+        "52x67mm overall dimension"
+      ]
+    },
+    {
+      "name": "Joystick L",
+      "partNumber": "GDL-HIJOYSTKL-C",
+      "PID": "0x04000A",
+      "category": "HMI",
+      "price": 12.95,
+      "tagline": "Joystick with Push Button",
+      "description": "This is a 2-axis joystick with push button.",
+      "keyFeatures": [
+        "Analog Output",
+        "X/Y Axis",
+        "Push Button",
+        "32x32mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `JoystickX()` | Returns X value from 0 to 100. |\n| `JoystickY()` | Returns Y value from 0 to 100. |\n| `BtnPin()` | Returns button's pin number. |\n| `DVer()` | Returns the driver version. |"
+    },
+    {
+      "name": "Rotary",
+      "partNumber": "GDL-HIROTARY-C",
+      "PID": "0x04000D",
+      "category": "HMI",
+      "price": 14.95,
+      "tagline": "Rotary Encoder with Push Button",
+      "description": "Rotary encoder with push button for menu navigation",
+      "keyFeatures": [
+        "Encoder",
+        "360 degree rotation",
+        "27x22mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetValue()` | Returns the current rotary reading. |\n| `DVer()` | This driver version. |"
+    },
+    {
+      "name": "Dial",
+      "partNumber": "GDL-HIDIAL-A",
+      "PID": "0x040007",
+      "category": "HMI",
+      "price": 12.95,
+      "tagline": "Dial Module",
+      "description": "Use this module to read the position of the dial (potentiometer).",
+      "keyFeatures": [
+        "Dial (pot) measurement",
+        "300 degree rotation",
+        "27x22mm overall dimension"
+      ]
+    },
+    {
+      "name": "Slider",
+      "partNumber": "GDL-HISLIDER-B",
+      "PID": "0x04000E",
+      "category": "HMI",
+      "price": 16.95,
+      "tagline": "Read the position of the slider",
+      "description": "Slider Module with Potentiometer",
+      "keyFeatures": [
+        "Slider Potentiometer",
+        "77x27mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Slider()` | Returns value from 0 to 100. |\n| `DVer()` | Returns driver version. |"
+    },
+    {
+      "name": "Fingerprint",
+      "partNumber": "GDL-HIFNGRPRNT-B",
+      "PID": "0x040009",
+      "category": "HMI",
+      "price": 49.95,
+      "tagline": "Biometric Fingerprint Detector",
+      "description": "Read and match prerecorded fingerprints with this intelligent HMI sensor.",
+      "keyFeatures": [
+        "Fingerprint detector",
+        "Biometric sensor",
+        "47x42mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetSavedCnt()` | Returns how many fingerprint model are saved. |\n| `DelModel(l)` | Deletes model at `l` location. |\n| `StoreModel(l)` | Stores a converted model at `l` location. |\n| `TakeImg()` | Captures a fingerprint image. Returns 0 if succeeded. |\n| `ConvertImg(s)` | Converts captured image and stores it in `s` slot (1 or 2). |\n| `FastSearch()` | Searches the internal database for a converted image. |\n| `SetLed(c,b,k)` | Sets the LED to `c` color (1 red, 2 blue, 3 purple), with `b` blink(0 always on, 1 blink), with `k` count (0 is forever!). |\n| `DVer()` | This driver version. |"
+    },
+    {
+      "name": "Keypad",
+      "partNumber": "GDL-HIKEYP-B",
+      "PID": "0x04000C",
+      "category": "HMI",
+      "tagline": "Button Keypad",
+      "description": "Keypad with 16x \"squishy\" push buttons.",
+      "keyFeatures": [
+        "4x4 numerical keypad",
+        "16 buttons",
+        "65x87mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `IsKeyChange()` | Returns true if a a change happened, press or unpress. |\n| `RdKey()` | Read the current key state, in ASCII. Zero for no press. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "4x4",
+          "partCode": "44",
+          "price": 14.95
+        }
       ]
     },
     {
@@ -872,76 +1023,6 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetClr(i,c,l)` | Sets a button at `i` index to `c` color with `l` luminance. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `BtnC()` | Returns 1 if button C is pressed. |\n| `BtnD()` | Returns 1 if button D is pressed. |\n| `DVer()` | This driver version. |"
     },
     {
-      "name": "Button L",
-      "partNumber": "GDL-HIBUTTONL-A",
-      "PID": "0x040003",
-      "category": "HMI",
-      "price": 5.95,
-      "tagline": "Large 10x10mm Tactile Button",
-      "description": "Add a 10x10mm button to any project!",
-      "keyFeatures": [
-        "Single 10x10mm Button",
-        "27x22mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `BtnPin()` | Returns button's pin number. |\n| `DVer()` | This driver version. |"
-    },
-    {
-      "name": "Button L7",
-      "partNumber": "GDL-HIBUTTONL7-B",
-      "PID": "0x040004",
-      "category": "HMI",
-      "price": 9.95,
-      "tagline": "7x Tactile 10x10mm Buttons",
-      "description": "This module includes 7x 10x10mm tactile buttons. All buttons, except middle, has a controllable LED.",
-      "keyFeatures": [
-        "7x 10x10mm buttons",
-        "6x LEDs",
-        "52x67mm overall dimension"
-      ]
-    },
-    {
-      "name": "Button S7",
-      "partNumber": "GDL-HIBUTTONS7-A",
-      "PID": "0x04000B",
-      "category": "HMI",
-      "price": 7.95,
-      "tagline": "7x Tactile 5x5 Buttons",
-      "description": "This module includes 7x 5x5mm tactile buttons. All buttons, except middle, has a controllable LED.",
-      "keyFeatures": [
-        "7x 5x5mm buttons",
-        "6x LEDs",
-        "32x42mm overall dimension"
-      ]
-    },
-    {
-      "name": "Button S",
-      "partNumber": "GDL-HIBUTTONS-A",
-      "PID": "0x040005",
-      "category": "HMI",
-      "price": 4.95,
-      "tagline": "Small 5x5mm Tactile Button",
-      "description": "This module offers a small \"squishy\" 5x5mm tactile button.",
-      "keyFeatures": [
-        "Single 5x5mm tactile button",
-        "Soft touch",
-        "22x22mm overall dimension"
-      ]
-    },
-    {
-      "name": "Dial",
-      "partNumber": "GDL-HIDIAL-A",
-      "PID": "0x040007",
-      "category": "HMI",
-      "price": 12.95,
-      "tagline": "Dial Module",
-      "description": "Use this module to read the position of the dial (potentiometer).",
-      "keyFeatures": [
-        "Dial (pot) measurement",
-        "300 degree rotation",
-        "27x22mm overall dimension"
-      ]
-    },
-    {
       "name": "DipSwitch",
       "partNumber": "GDL-HIDIPSWCH-B",
       "PID": "0x040008",
@@ -956,99 +1037,21 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Read(i)` | read `i` index value from switch returns 0=Off, 1=On. |\n| `DVer()` | This driver version. |"
     },
     {
-      "name": "Fingerprint",
-      "partNumber": "GDL-HIFNGRPRNT-B",
-      "PID": "0x040009",
-      "category": "HMI",
-      "price": 49.95,
-      "tagline": "Biometric Fingerprint Detector",
-      "description": "Read and match prerecorded fingerprints with this intelligent HMI sensor.",
-      "keyFeatures": [
-        "Fingerprint detector",
-        "Biometric sensor",
-        "47x42mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetSavedCnt()` | Returns how many fingerprint model are saved. |\n| `DelModel(l)` | Deletes model at `l` location. |\n| `StoreModel(l)` | Stores a converted model at `l` location. |\n| `TakeImg()` | Captures a fingerprint image. Returns 0 if succeeded. |\n| `ConvertImg(s)` | Converts captured image and stores it in `s` slot (1 or 2). |\n| `FastSearch()` | Searches the internal database for a converted image. |\n| `SetLed(c,b,k)` | Sets the LED to `c` color (1 red, 2 blue, 3 purple), with `b` blink(0 always on, 1 blink), with `k` count (0 is forever!). |\n| `DVer()` | This driver version. |"
-    },
-    {
-      "name": "Joystick L",
-      "partNumber": "GDL-HIJOYSTKL-C",
-      "PID": "0x04000A",
-      "category": "HMI",
-      "price": 12.95,
-      "tagline": "Joystick with Push Button",
-      "description": "This is a 2-axis joystick with push button.",
-      "keyFeatures": [
-        "Analog Output",
-        "X/Y Axis",
-        "Push Button",
-        "32x32mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `JoystickX()` | Returns X value from 0 to 100. |\n| `JoystickY()` | Returns Y value from 0 to 100. |\n| `BtnPin()` | Returns button's pin number. |\n| `DVer()` | Returns the driver version. |"
-    },
-    {
-      "name": "Keypad",
-      "partNumber": "GDL-HIKEYP-B",
-      "PID": "0x04000C",
-      "category": "HMI",
-      "tagline": "Button Keypad",
-      "description": "Keypad with 16x \"squishy\" push buttons.",
-      "keyFeatures": [
-        "4x4 numerical keypad",
-        "16 buttons",
-        "65x87mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `IsKeyChange()` | Returns true if a a change happened, press or unpress. |\n| `RdKey()` | Read the current key state, in ASCII. Zero for no press. |\n| `DVer()` | This driver version. |",
-      "variations": [
-        {
-          "name": "4x4",
-          "partCode": "44",
-          "price": 14.95
-        }
-      ]
-    },
-    {
-      "name": "Rotary",
-      "partNumber": "GDL-HIROTARY-C",
-      "PID": "0x04000D",
-      "category": "HMI",
-      "price": 14.95,
-      "tagline": "Rotary Encoder with Push Button",
-      "description": "Rotary encoder with push button for menu navigation",
-      "keyFeatures": [
-        "Encoder",
-        "360 degree rotation",
-        "27x22mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetValue()` | Returns the current rotary reading. |\n| `DVer()` | This driver version. |"
-    },
-    {
-      "name": "Slider",
-      "partNumber": "GDL-HISLIDER-B",
-      "PID": "0x04000E",
-      "category": "HMI",
-      "price": 16.95,
-      "tagline": "Read the position of the slider",
-      "description": "Slider Module with Potentiometer",
-      "keyFeatures": [
-        "Slider Potentiometer",
-        "77x27mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Slider()` | Returns value from 0 to 100. |\n| `DVer()` | Returns driver version. |"
-    },
-    {
-      "name": "Flash",
-      "partNumber": "GDL-STFLASH-A",
-      "PID": "0x080001",
+      "name": "USB Host",
+      "partNumber": "GDL-STUSBHOST-B",
+      "PID": "0x080004",
+      "CoprocFwVer": "003",
       "category": "Storage",
-      "price": 9.95,
-      "tagline": "Flash Memory Storage",
-      "description": "Add 16MB of flash storage to any project. Create your own file management system or use the provided sector read/write methods.",
+      "price": 19.95,
+      "tagline": "USB Host Controller",
+      "description": "USB host controller for connecting USB peripherals",
       "keyFeatures": [
-        "16MB Flash Storage",
-        "22x22mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SfGetid(b9)` | Returns 3 bytes in `b9` |\n| `SfErase(a)` | Erases a block at `a` address. |\n| `SfWrite(a,b9)` | Writes a byte array `b9` at `a` address. |\n| `SfRead(a,b9)` | Reads a byte array from flash at `a` address. |\n| `DVer()` | This driver version. |"
+        "USB Host interface",
+        "MSC Class",
+        "FAT16/FAT32 with LFN support",
+        "USB-A Host Connector",
+        "32x27mm overall dimension"
+      ]
     },
     {
       "name": "SD Card",
@@ -1079,21 +1082,18 @@
       ]
     },
     {
-      "name": "USB Host",
-      "partNumber": "GDL-STUSBHOST-B",
-      "PID": "0x080004",
-      "CoprocFwVer": "003",
+      "name": "Flash",
+      "partNumber": "GDL-STFLASH-A",
+      "PID": "0x080001",
       "category": "Storage",
-      "price": 19.95,
-      "tagline": "USB Host Controller",
-      "description": "USB host controller for connecting USB peripherals",
+      "price": 9.95,
+      "tagline": "Flash Memory Storage",
+      "description": "Add 16MB of flash storage to any project. Create your own file management system or use the provided sector read/write methods.",
       "keyFeatures": [
-        "USB Host interface",
-        "MSC Class",
-        "FAT16/FAT32 with LFN support",
-        "USB-A Host Connector",
-        "32x27mm overall dimension"
-      ]
+        "16MB Flash Storage",
+        "22x22mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SfGetid(b9)` | Returns 3 bytes in `b9` |\n| `SfErase(a)` | Erases a block at `a` address. |\n| `SfWrite(a,b9)` | Writes a byte array `b9` at `a` address. |\n| `SfRead(a,b9)` | Reads a byte array from flash at `a` address. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Wireless ESP32",
@@ -1185,6 +1185,36 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `isCard()` | Returns 1 if a new card is detected. |\n| `ReadCard(a1)` | read the new card in a 16byte array. |\n| `DVer()` | This driver version. |"
     },
     {
+      "name": "Light",
+      "partNumber": "GDL-SELIGHT-A",
+      "PID": "0x06000B",
+      "category": "Sensor",
+      "price": 6.95,
+      "tagline": "Ambient Light Sensor",
+      "description": "A good sensor for detecting daytime or when lights are turned on. This is not an accurate light level sensor, but provides overall ambient light levels.",
+      "keyFeatures": [
+        "Light sensor",
+        "17x19mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Light()` | Returns value from 0 to 100. |\n| `DVer()` | This driver version. |"
+    },
+    {
+      "name": "DOF9",
+      "partNumber": "GDL-SEDOF9-C",
+      "PID": "0x060007",
+      "category": "Sensor",
+      "price": 19.95,
+      "tagline": "9DoF MEMS Sensor",
+      "description": "This 9DoF (Degrees of Freedom) MEMS (Micro Electro Mechanical System) sensor includes 3axis accelerometer, 3axis gyro, & 3axis magnetometer. The combination of these inputs can be used to get exact tilt and orientation.",
+      "keyFeatures": [
+        "3axis Accelerometer",
+        "3axis Gyro",
+        "3axis Magnetometer",
+        "22x25mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `RAccel()` | Reads the acceleration XYZ in `_x`, `_y`, `_Z` variables. |\n| `RCompass()` | Reads the compass XYZ in `_x`, `_y`, `_Z` variables. |\n| `RGyro()` | Reads the gyro XYZ and its internal temp in `_x`, `_y`, `_Z`, `_T` variables. |\n| `DVer()` | This driver version. |"
+    },
+    {
       "name": "Accel",
       "partNumber": "GDL-SEACCEL-A",
       "PID": "0x060001",
@@ -1197,6 +1227,44 @@
         "22x20mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetX()` | Returns X value. |\n| `GetY()` | Returns Y value. |\n| `GetZ()` | Returns Z value. |\n| `DVer()` | This driver version. |"
+    },
+    {
+      "name": "Distance",
+      "partNumber": "GDL-SEDISTANCE-B",
+      "PID": "0x060008",
+      "category": "Sensor",
+      "price": 9.95,
+      "tagline": "Ultrasonic Distance Sensor",
+      "description": "This sensor sends an ultrasonic chirp, then it measures the time it takes for the sound to bounce back. The time it takes maps to the distance between the sensor and the object it's facing.",
+      "keyFeatures": [
+        "Ultrasonic Type",
+        "15° range",
+        "40mm to 4meter",
+        "47x30mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Distance()` | Reads the current distance in cm. |\n| `DVer()` | This driver version. |"
+    },
+    {
+      "name": "Gas",
+      "partNumber": "GDL-SEGAS-B",
+      "PID": "0x06000A",
+      "category": "Sensor",
+      "tagline": "Gas Sensor",
+      "description": "This gas sensor ships with MQ-7 (carbon monoxide) installed. However, the module uses a socket allowing the sensor be be easily swapped with other gas sensors, like MQ-3 alcohol gas sensor.",
+      "keyFeatures": [
+        "Gas Sensing",
+        "Sensor Socket",
+        "Heating control circuit",
+        "27x42mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Heater(s)` | Sets the heater `s` state (1 on, 0 off). |\n| `Read()` | Reads the current voltage level in Volts. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "MQ7 CO",
+          "partCode": "MQ7",
+          "price": 14.95
+        }
+      ]
     },
     {
       "name": "AirQuality",
@@ -1227,22 +1295,6 @@
       ]
     },
     {
-      "name": "ClipSense",
-      "partNumber": "GDL-SECLIPSEN-A",
-      "PID": "0x060004",
-      "category": "Sensor",
-      "price": 9.95,
-      "tagline": "Clip-friendly IOs with Capacitive Sensing",
-      "description": "With these alligator-clip-friendly pads, users can easily connect(clip) anything that requires digital inputs/outputs. These pads also support analog and PWM (analog out) functionality.\n\nThe pads also support capacitive sensing to detect touch from a connected object.",
-      "keyFeatures": [
-        "8x Digital GPIO",
-        "8x Analog inputs",
-        "8x Digital outputs",
-        "8x Capacitive touch",
-        "37x34mm overall dimension"
-      ]
-    },
-    {
       "name": "Current",
       "partNumber": "GDL-SECURRENT-A",
       "PID": "0x060006",
@@ -1263,38 +1315,6 @@
       ]
     },
     {
-      "name": "Distance",
-      "partNumber": "GDL-SEDISTANCE-B",
-      "PID": "0x060008",
-      "category": "Sensor",
-      "price": 9.95,
-      "tagline": "Ultrasonic Distance Sensor",
-      "description": "This sensor sends an ultrasonic chirp, then it measures the time it takes for the sound to bounce back. The time it takes maps to the distance between the sensor and the object it's facing.",
-      "keyFeatures": [
-        "Ultrasonic Type",
-        "15° range",
-        "40mm to 4meter",
-        "47x30mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Distance()` | Reads the current distance in cm. |\n| `DVer()` | This driver version. |"
-    },
-    {
-      "name": "DOF9",
-      "partNumber": "GDL-SEDOF9-C",
-      "PID": "0x060007",
-      "category": "Sensor",
-      "price": 19.95,
-      "tagline": "9DoF MEMS Sensor",
-      "description": "This 9DoF (Degrees of Freedom) MEMS (Micro Electro Mechanical System) sensor includes 3axis accelerometer, 3axis gyro, & 3axis magnetometer. The combination of these inputs can be used to get exact tilt and orientation.",
-      "keyFeatures": [
-        "3axis Accelerometer",
-        "3axis Gyro",
-        "3axis Magnetometer",
-        "22x25mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `RAccel()` | Reads the acceleration XYZ in `_x`, `_y`, `_Z` variables. |\n| `RCompass()` | Reads the compass XYZ in `_x`, `_y`, `_Z` variables. |\n| `RGyro()` | Reads the gyro XYZ and its internal temp in `_x`, `_y`, `_Z`, `_T` variables. |\n| `DVer()` | This driver version. |"
-    },
-    {
       "name": "EKG",
       "partNumber": "GDL-SEEKG-A",
       "PID": "0x060009",
@@ -1308,42 +1328,6 @@
         "Electrocardiogram",
         "52x32mm overall dimension"
       ]
-    },
-    {
-      "name": "Gas",
-      "partNumber": "GDL-SEGAS-B",
-      "PID": "0x06000A",
-      "category": "Sensor",
-      "tagline": "Gas Sensor",
-      "description": "This gas sensor ships with MQ-7 (carbon monoxide) installed. However, the module uses a socket allowing the sensor be be easily swapped with other gas sensors, like MQ-3 alcohol gas sensor.",
-      "keyFeatures": [
-        "Gas Sensing",
-        "Sensor Socket",
-        "Heating control circuit",
-        "27x42mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Heater(s)` | Sets the heater `s` state (1 on, 0 off). |\n| `Read()` | Reads the current voltage level in Volts. |\n| `DVer()` | This driver version. |",
-      "variations": [
-        {
-          "name": "MQ7 CO",
-          "partCode": "MQ7",
-          "price": 14.95
-        }
-      ]
-    },
-    {
-      "name": "Light",
-      "partNumber": "GDL-SELIGHT-A",
-      "PID": "0x06000B",
-      "category": "Sensor",
-      "price": 6.95,
-      "tagline": "Ambient Light Sensor",
-      "description": "A good sensor for detecting daytime or when lights are turned on. This is not an accurate light level sensor, but provides overall ambient light levels.",
-      "keyFeatures": [
-        "Light sensor",
-        "17x19mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Light()` | Returns value from 0 to 100. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Motion",
@@ -1379,21 +1363,6 @@
           "price": 19.95
         }
       ]
-    },
-    {
-      "name": "RTC",
-      "partNumber": "GDL-SERTC-B",
-      "PID": "0x06000F",
-      "category": "Sensor",
-      "price": 12.95,
-      "tagline": "Realtime Clock",
-      "description": "This module is a RTC (Real Time Clock) \"time sensor\" with a backup battery to keep time running even when the system is powered off.",
-      "keyFeatures": [
-        "Real Time Clock",
-        "Button Battery Holder",
-        "37x22mm overall dimension"
-      ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetTime(y,n,d,h,m,s)` | Sets date/time to `y` year, `n` month, `d` day, `h` hour, `m` minute, and `s` second. |\n| `GetTime()` | Returns current time in \\_y, \\_n, \\_d, \\_h, \\_m, \\_s variables. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Temperature & Humidity",
@@ -1444,25 +1413,49 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Temp()` | Returns temperature in celsius. |\n| `DVer()` | This driver version. |"
     },
     {
-      "name": "LED MT1208",
-      "partNumber": "GDL-LDMT1208-A",
-      "PID": "0x050003",
-      "category": "LED",
-      "tagline": "12x8 LED Matrix",
-      "description": "Use these 96 dazzling LEDs to show text, create flashy games, or run whatever effect you desire. You will be surprised with how much you can do with a 12x8 LED matrix!",
+      "name": "RTC",
+      "partNumber": "GDL-SERTC-B",
+      "PID": "0x06000F",
+      "category": "Sensor",
+      "price": 12.95,
+      "tagline": "Realtime Clock",
+      "description": "This module is a RTC (Real Time Clock) \"time sensor\" with a backup battery to keep time running even when the system is powered off.",
       "keyFeatures": [
-        "12x8 LED Matrix",
-        "96 Total LEDs",
-        "42x32mm overall dimension"
+        "Real Time Clock",
+        "Button Battery Holder",
+        "37x22mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `DVer()` | This driver version. |",
-      "variations": [
-        {
-          "name": "Red",
-          "partCode": "R",
-          "price": 14.95
-        }
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetTime(y,n,d,h,m,s)` | Sets date/time to `y` year, `n` month, `d` day, `h` hour, `m` minute, and `s` second. |\n| `GetTime()` | Returns current time in \\_y, \\_n, \\_d, \\_h, \\_m, \\_s variables. |\n| `DVer()` | This driver version. |"
+    },
+    {
+      "name": "ClipSense",
+      "partNumber": "GDL-SECLIPSEN-A",
+      "PID": "0x060004",
+      "category": "Sensor",
+      "price": 9.95,
+      "tagline": "Clip-friendly IOs with Capacitive Sensing",
+      "description": "With these alligator-clip-friendly pads, users can easily connect(clip) anything that requires digital inputs/outputs. These pads also support analog and PWM (analog out) functionality.\n\nThe pads also support capacitive sensing to detect touch from a connected object.",
+      "keyFeatures": [
+        "8x Digital GPIO",
+        "8x Analog inputs",
+        "8x Digital outputs",
+        "8x Capacitive touch",
+        "37x34mm overall dimension"
       ]
+    },
+    {
+      "name": "LED RGB3",
+      "partNumber": "GDL-LDLEDRGB3-A",
+      "PID": "0x050005",
+      "category": "LED",
+      "price": 6.95,
+      "tagline": "3x RGB LED",
+      "description": "A visual LED with 3x RGB LEDs. These lights can be set to any of 7 colors or can be turned off.",
+      "keyFeatures": [
+        "3 RGB LEDs",
+        "32x22mm overall dimension"
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLed(i, c)` | sets an LED at `i` (0 to 3) to `c` (RRGGBB color). |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "LED R16",
@@ -1485,17 +1478,25 @@
       ]
     },
     {
-      "name": "LED RGB3",
-      "partNumber": "GDL-LDLEDRGB3-A",
-      "PID": "0x050005",
+      "name": "LED MT1208",
+      "partNumber": "GDL-LDMT1208-A",
+      "PID": "0x050003",
       "category": "LED",
-      "tagline": "3x RGB LED",
-      "description": "A visual LED with 3x RGB LEDs. These lights can be set to any of 7 colors or can be turned off.",
+      "tagline": "12x8 LED Matrix",
+      "description": "Use these 96 dazzling LEDs to show text, create flashy games, or run whatever effect you desire. You will be surprised with how much you can do with a 12x8 LED matrix!",
       "keyFeatures": [
-        "3 RGB LEDs",
-        "32x22mm overall dimension"
+        "12x8 LED Matrix",
+        "96 Total LEDs",
+        "42x32mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLed(i, c)` | sets an LED at `i` (0 to 3) to `c` (RRGGBB color). |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `DVer()` | This driver version. |",
+      "variations": [
+        {
+          "name": "Red",
+          "partCode": "R",
+          "price": 14.95
+        }
+      ]
     },
     {
       "name": "LED S284",
@@ -1710,31 +1711,6 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `PixTemp(p)` | Read one of the `p` pixels' temp. There are 64 pixels (0 to 63). |\n| `DVer()` | This driver version. |"
     },
     {
-      "name": "DueShield",
-      "partNumber": "GDL-ADDUESHIELD-A",
-      "category": "Adapter",
-      "price": 5.95,
-      "tagline": "Arduino Shield with mounting holes.",
-      "description": "Basic Arduino Shield with I2C Downlink connector. The holes are on a 5mm pitch, allowing for an easy mounting of other DUELink modules.",
-      "keyFeatures": [
-        "I2C Downlink connectors",
-        "69.5x54mm overall dimension"
-      ]
-    },
-    {
-      "name": "DueMBUS",
-      "partNumber": "GDL-ADDUEMBUS-A",
-      "PID": "0x0A0005",
-      "category": "Adapter",
-      "price": 9.95,
-      "tagline": "MikroBus Click Compatible Host",
-      "description": "Take advantage of the thousands of available [MikroBus Click modules](https://www.mikroe.com/click).\n\nThe module can also be used as a basic female header IO connection module.",
-      "keyFeatures": [
-        "MikroBus headers",
-        "42x27mm overall dimension"
-      ]
-    },
-    {
       "name": "DuePi",
       "partNumber": "GDL-ADDUEPI-B",
       "PID": "0x0A0004",
@@ -1786,16 +1762,15 @@
       ]
     },
     {
-      "name": "Breakout",
-      "partNumber": "GDL-ADBREAKOUT-A",
+      "name": "DueShield",
+      "partNumber": "GDL-ADDUESHIELD-A",
       "category": "Adapter",
-      "price": 2.95,
-      "tagline": "Signals Breakout and Cable Extender",
-      "description": "This module can be used as a DUELink cable extender. It also exposes all DUELink cable signals on a female header. This is useful to wire a [Supported Hardware](/docs/hw/intro) that does not have a JST connector.\n\nThe DRP and CTN signals are a mix of [UART](/docs/interface/uart), [I2C](/docs/interface/i2c) and [USB](/docs/interface/usb) [Interfaces](/docs/interface/intro).\n\nHere is a UART example:\n![Arduino Breakout UART](pathname:///img/arduino-breakout-uart.png)\n\nHere is an I2C example:\n![Arduino Breakout I2C](pathname:///img/arduino-breakout-i2c.png)",
+      "price": 5.95,
+      "tagline": "Arduino Shield with mounting holes.",
+      "description": "Basic Arduino Shield with I2C Downlink connector. The holes are on a 5mm pitch, allowing for an easy mounting of other DUELink modules.",
       "keyFeatures": [
-        "Access to DUELink Pins",
-        "Female Header",
-        "27x18mm overall dimension"
+        "I2C Downlink connectors",
+        "69.5x54mm overall dimension"
       ]
     },
     {
@@ -1826,15 +1801,28 @@
       ]
     },
     {
-      "name": "Power Hook",
-      "partNumber": "GDL-ADPWRHOOK-A",
+      "name": "DueMBUS",
+      "partNumber": "GDL-ADDUEMBUS-A",
+      "PID": "0x0A0005",
       "category": "Adapter",
-      "price": 12.95,
-      "tagline": "Rechargeable Battery Power Hook",
-      "description": "The Power Hook works just like the USB Hook, but then it also includes a recharging circuit for 3.7V 10440 battery, which is required but not included. Note that the required 10440 battery is the same size as standard AAA batteries, but they are NOT compatible. NEVER install a AAA battery on this module!",
+      "price": 9.95,
+      "tagline": "MikroBus Click Compatible Host",
+      "description": "Take advantage of the thousands of available [MikroBus Click modules](https://www.mikroe.com/click).\n\nThe module can also be used as a basic female header IO connection module.",
       "keyFeatures": [
-        "3.7v 10440 Battery Module",
-        "77x27mm overall dimension"
+        "MikroBus headers",
+        "42x27mm overall dimension"
+      ]
+    },
+    {
+      "name": "MBUSLink",
+      "partNumber": "GDL-ADMBUSLINK-A",
+      "category": "Adapter",
+      "price": 4.95,
+      "tagline": "Turn any a MikroBUS Host into a DUELink Host",
+      "description": "Add [Downlink](/docs/interface/downlink) connector to any SBC that has a [mikro BUS](https://www.mikroe.com/mikrobus) socket. You get two options, UART or I2C.",
+      "keyFeatures": [
+        "Two options: I2C & UART",
+        "25x28mm overall dimension"
       ]
     },
     {
@@ -1852,18 +1840,6 @@
       ]
     },
     {
-      "name": "PullUp",
-      "partNumber": "GDL-ADPULLUP-A",
-      "category": "Adapter",
-      "price": 2.95,
-      "tagline": "Inline 2.2k Pull-Up Module",
-      "description": "If the I2C was chosen and the system does not have the proper I2C pull up resistors, then these PullUp modules come in very handy.",
-      "keyFeatures": [
-        "2.2k pull-up to I2C",
-        "8x18mm overall dimension"
-      ]
-    },
-    {
       "name": "Power Switch",
       "partNumber": "GDL-ADPWRSWCH-A",
       "category": "Adapter",
@@ -1877,16 +1853,15 @@
       ]
     },
     {
-      "name": "Sticker",
-      "partNumber": "GDL-ADSTICKER-C",
+      "name": "Power Hook",
+      "partNumber": "GDL-ADPWRHOOK-A",
       "category": "Adapter",
-      "price": 8.95,
-      "tagline": "Development Board for Stick Modules",
-      "description": "This is the ideal combo for Stick Microcomputer. It exposes all pins, some on male and some on female headers. The male headers add power and ground in a standard servo pinout.",
+      "price": 12.95,
+      "tagline": "Rechargeable Battery Power Hook",
+      "description": "The Power Hook works just like the USB Hook, but then it also includes a recharging circuit for 3.7V 10440 battery, which is required but not included. Note that the required 10440 battery is the same size as standard AAA batteries, but they are NOT compatible. NEVER install a AAA battery on this module!",
       "keyFeatures": [
-        "RST/LDR buttons",
-        "Pin headers",
-        "52x37mm overall dimension"
+        "3.7v 10440 Battery Module",
+        "77x27mm overall dimension"
       ]
     },
     {
@@ -1920,15 +1895,41 @@
       ]
     },
     {
-      "name": "MBUSLink",
-      "partNumber": "GDL-ADMBUSLINK-A",
+      "name": "Sticker",
+      "partNumber": "GDL-ADSTICKER-C",
       "category": "Adapter",
-      "price": 4.95,
-      "tagline": "Turn any a MikroBUS Host into a DUELink Host",
-      "description": "Add [Downlink](/docs/interface/downlink) connector to any SBC that has a [mikro BUS](https://www.mikroe.com/mikrobus) socket. You get two options, UART or I2C.",
+      "price": 8.95,
+      "tagline": "Development Board for Stick Modules",
+      "description": "This is the ideal combo for Stick Microcomputer. It exposes all pins, some on male and some on female headers. The male headers add power and ground in a standard servo pinout.",
       "keyFeatures": [
-        "Two options: I2C & UART",
-        "25x28mm overall dimension"
+        "RST/LDR buttons",
+        "Pin headers",
+        "52x37mm overall dimension"
+      ]
+    },
+    {
+      "name": "Breakout",
+      "partNumber": "GDL-ADBREAKOUT-A",
+      "category": "Adapter",
+      "price": 2.95,
+      "tagline": "Signals Breakout and Cable Extender",
+      "description": "This module can be used as a DUELink cable extender. It also exposes all DUELink cable signals on a female header. This is useful to wire a [Supported Hardware](/docs/hw/intro) that does not have a JST connector.\n\nThe DRP and CTN signals are a mix of [UART](/docs/interface/uart), [I2C](/docs/interface/i2c) and [USB](/docs/interface/usb) [Interfaces](/docs/interface/intro).\n\nHere is a UART example:\n![Arduino Breakout UART](pathname:///img/arduino-breakout-uart.png)\n\nHere is an I2C example:\n![Arduino Breakout I2C](pathname:///img/arduino-breakout-i2c.png)",
+      "keyFeatures": [
+        "Access to DUELink Pins",
+        "Female Header",
+        "27x18mm overall dimension"
+      ]
+    },
+    {
+      "name": "PullUp",
+      "partNumber": "GDL-ADPULLUP-A",
+      "category": "Adapter",
+      "price": 2.95,
+      "tagline": "Inline 2.2k Pull-Up Module",
+      "description": "If the I2C was chosen and the system does not have the proper I2C pull up resistors, then these PullUp modules come in very handy.",
+      "keyFeatures": [
+        "2.2k pull-up to I2C",
+        "8x18mm overall dimension"
       ]
     },
     {
