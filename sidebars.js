@@ -63,7 +63,7 @@ const sidebars = {
           type: "category",
           label: "Specialty",
           items: [
-            "products/spghizzyjr-a",
+            "products/spghizzyjr-b",
             "products/spghizzy-d",
             "products/sptree-b",
             "products/spsnowy-a",

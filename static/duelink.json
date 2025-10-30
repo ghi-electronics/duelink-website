@@ -128,7 +128,7 @@
       "category": "Microcomputer",
       "price": 16.95,
       "tagline": "micro:bit Form Factor with 128x64 OLED 0.96\" Display",
-      "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. You can now show sensor data right on teh display! \n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::",
+      "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. You can now show sensor data right on the display! \n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::",
       "keyFeatures": [
         "128x64 OLED 0.96\" display",
         "Light Sensor",
@@ -174,7 +174,7 @@
     },
     {
       "name": "Ghizzy Jr",
-      "partNumber": "GDL-SPGHIZZYJR-A",
+      "partNumber": "GDL-SPGHIZZYJR-B",
       "PID": "0x0C0002",
       "category": "Specialty",
       "tagline": "Tiny Robot-shaped Microcomputer",
@@ -254,7 +254,7 @@
           "price": 4.95
         },
         {
-          "name": "BLUE",
+          "name": "Blue",
           "partCode": "B",
           "price": 5.95
         }
@@ -341,7 +341,7 @@
       "tagline": "A 7x Button Controller with 8x LED ring",
       "description": "Use the buttons to control other modules. The 8x LED ring can help with indications of the controller usage.",
       "keyFeatures": [     
-        "7X buttons",
+        "7x buttons",
         "8x LEDs",
         "USB Type C",
         "71x37mm overall dimension"
@@ -486,7 +486,7 @@
           "price": 99.95
         },
         {
-          "name": "/w Capacitive Touch",
+          "name": "w/ Capacitive Touch",
           "partCode": "CP",
           "price": 129.95
         }        
@@ -512,7 +512,7 @@
           "price": 29.95
         },
         {
-          "name": "/w Capacitive Touch",
+          "name": "w/ Capacitive Touch",
           "partCode": "CP",
           "price": 39.95
         }
