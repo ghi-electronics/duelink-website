@@ -128,7 +128,7 @@
       "category": "Microcomputer",
       "price": 16.95,
       "tagline": "micro:bit Form Factor with 128x64 OLED 0.96\" Display",
-      "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. You can now show sensor data right on teh display! \n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::",
+      "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. You can now show sensor data right on the display! \n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::",
       "keyFeatures": [
         "128x64 OLED 0.96\" display",
         "Light Sensor",
