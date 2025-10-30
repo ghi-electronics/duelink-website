@@ -1,0 +1,67 @@
+##### Rotary Driver ######
+
+_x = 0
+_y = 0
+_z = 0
+_c = 0
+
+Alias(PinA=6,PinB=5,timeb=_x,timeAS=_y,timeAE=_z,val=_c)
+
+IStart("IntA", PinA, 2, 0)
+IStart("IntB", PinB, 0, 0)
+ 
+fn IntB()
+    #Println("Detect B")
+    b = dread(PinB,0)
+    n = TickUs()
+    
+    if b = 0
+        timeb = TickUs()
+    else
+        timeb = 0
+    end
+    
+
+fend
+
+fn IntA()
+    #Println("Detect A")
+    a = dread(PinA,0)
+    
+    
+    if timeAS = 0
+        if a = 1
+            return
+        end
+        
+        timeAS = TickUs()
+    else
+        if a = 0
+            timeAs = 0
+            timeAE = 0
+            
+            return
+        else 
+            timeAE = TickUs()
+            
+            if ((timeb < timeAE) && (timeb >timeAS ))
+                val = val-1
+            else
+                val = val + 1
+            end
+            
+            timeAE = 0
+            timeAS = 0
+        end
+    end
+fend
+
+fn GetValue()
+    return val
+fend
+
+fn Pressed() 
+    return dread(2,1) = 0
+fend
+
+#########################
