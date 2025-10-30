@@ -115,7 +115,8 @@
         "Downlink connector for Daisylinking modules",
         "69x56mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `DVer()` | This driver version. |",
+      "MfgNotes": "Check Menu->Help for USB connection before testing"
     },
     {
       "name": "DueSTEM",
