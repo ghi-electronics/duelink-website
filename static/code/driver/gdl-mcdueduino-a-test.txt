@@ -16,15 +16,17 @@ fn Test()
     s = 0
     
     while (1)
-        p = dread(BtnPin(),0) 
+        p = dread(BtnPin(),2) 
         
         if (s != p)
             s = p
             cmd("Clear(0)")
-            If (s)            
+            If (s)      
+                println("Btn pressed")
                 cmd(fmt("TextS(\"Btn pressed\", 1, 0, 20, 1,2)"))
             else
                 cmd(fmt("TextS(\"Btn released\", 1, 0, 20, 1,2)"))
+                println("Btn released")
             end
             
              cmd("Show()") 
