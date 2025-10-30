@@ -14,18 +14,21 @@ fn Test()
     cmd("TextS(\"shown correctly\", 1, 0, 40, 1,2)")
     cmd("Show()") 
         
+            
     Clear(0)
     TextS("This is red", 0xFF0000, 0, 0, 3, 3)
     TextS("This is green", 0x00FF00, 0, 40, 3, 3)
     TextS("This is blue", 0x0000FF, 0, 80, 3, 3)
     TextS("This is white", 0xFFffff, 0,120, 3, 3)
+    
     show()
     
-    x = 0
-    y = 0
+    x = TouchX()
+    y = TouchY()
     f = 0
     while 1
-         
+
+        
         if (x != TouchX() || y != TouchY())
             x = TouchX()
             y = TouchY()
@@ -39,10 +42,12 @@ fn Test()
             show()
         end
         
+        
+        
         wait(10)
  
     wend
  
-fend   
+fend    
  
 #########################
