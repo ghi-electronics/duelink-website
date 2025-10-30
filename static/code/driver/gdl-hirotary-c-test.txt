@@ -1,6 +1,9 @@
 ##### Rotary Driver ######
 
 fn Test()
+    
+    IStart("IntA", PinA, 2, 0)
+    IStart("IntB", PinB, 0, 0)
     Wait(1)
     dlmode(2,0)
     Wait(10)
