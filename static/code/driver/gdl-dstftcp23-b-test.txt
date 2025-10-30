@@ -1,6 +1,7 @@
 ##### TFT CP24 Test #####
 
 fn Test()
+    IStart("TouchIrq", 2, 0, 1)
     println("Starting test...")
     Wait(1)
     dlmode(2,0)
