@@ -431,140 +431,6 @@ duelink.Analog.Write(4, 0.33);
 
 ---
 
-### Beep
-
-Generate tones. This is a blocking function that works on all pins.
-
-Function | Description
---- | ---
-`Beep(pin, frequency, duration)` | Generate a beep on `pin` with `frequency` for `duration` in milliseconds.
-
-<details>
-  <summary>Samples</summary>
-<Tabs groupid="language" queryString="show"
-  values={[
-    {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
-    {label: 'JavaScript', value: 'js'},
-    {label: '.NET', value: 'dotnet'},
-    {label: 'Arduino', value: 'arduino'},
-
-]}>
-<TabItem value="script">
-```py
-# Generate a frequency of 1KHz on pin 1 for 200ms
-Beep(1, 1000, 200)
-```
-</TabItem>
-<TabItem value="py">
-```py
-# Generate a frequency of 1KHz on pin 1 for 200ms
-duelink.Sound.Beep(1, 1000, 200)
-```
-</TabItem>
-<TabItem value="js">
-```js
-// Generate a frequency of 1KHz on pin 1 for 200ms
-await duelink.Sound.Beep(1, 1000, 200)
-```
-</TabItem>
-<TabItem value="arduino">
-```cpp
-// Generate a frequency of 1KHz on pin 1 for 200ms
-duelink.Sound.Beep(1, 1000, 200);
-```
-</TabItem>
-<TabItem value="micropy">
-```py
-# Generate a frequency of 1KHz on pin 1 for 200ms
-duelink.Sound.Beep(1, 1000, 200)
-```
-</TabItem>
-<TabItem value="dotnet">
-```cs
-// Generate a frequency of 1KHz on pin 1 for 200ms
-duelink.Sound.Beep(1, 1000, 200);
-```
-</TabItem>
-</Tabs>
-</details>
-
----
-
-### Melody
-
-Generate tones. This is a non-blocking function that works on PWM pins.
-
-`MelodyP()` requires a float array, use `a1` for example. Float arrays must be initialized with `{}` brackets.
-
-Function | Description
---- | ---
-`MelodyP(pin, {notes})` | A non-blocking call to play a melody in the background on `pin` using the frequencies and delays found in `{notes}` float array.
-`MelodyS(pin)` | Stop a melody on `pin`.
-
-<details>
-  <summary>Samples</summary>
-<Tabs groupid="language" queryString="show"
-  values={[
-    {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
-    {label: 'JavaScript', value: 'js'},
-    {label: '.NET', value: 'dotnet'},
-    {label: 'Arduino', value: 'arduino'},
-
-]}>
-<TabItem value="script">
-```py
-Dim a1[]={500, 50, # 500Hz for 50ms
-        1000, 100} # 1000Hz for 100ms
-MelodyP(3, a1)
-Wait(2000)
-MelodyS(3)
-```
-</TabItem>
-<TabItem value="py">
-```py
-duelink.Sound.MelodyPlay(3, [500, 50, 1000, 100])
-time.sleep(2)
-duelink.Sound.MelodyStop(3)
-```
-</TabItem>
-<TabItem value="js">
-```js
-await duelink.Sound.MelodyPlay(3, [500, 50, 1000, 100])
-await Util.sleep(2000)
-await duelink.Sound.MelodyStop(3)
-```
-</TabItem>
-<TabItem value="arduino">
-```cpp
-float tones[4] = {500, 50, 1000, 100};
-duelink.Sound.MelodyPlay(3, tones, 4)
-delay(2000);
-duelink.Sound.MelodyStop(3);
-```
-</TabItem>
-<TabItem value="micropy">
-```py
-duelink.Sound.MelodyPlay(3, [500, 50, 1000, 100])
-time.sleep(2)
-duelink.Sound.MelodyStop(3)
-```
-</TabItem>
-<TabItem value="dotnet">
-```cs
-duelink.Sound.MelodyPlay(3, [500, 50, 1000, 100])
-Thread.Sleep(2000);
-duelink.Sound.MelodyStop(3);
-```
-</TabItem>
-</Tabs>
-</details>
-
----
-
 ### Button
 
 Use interrupts to keep track of pins. Only available on interrupt capable pins, see [Special Pins](#special-pins) above!
@@ -1654,6 +1520,101 @@ Script only functionality.
 
 ---
 
+## Sound
+
+These functions help in generrating sounds.
+
+Function | Description
+--- | ---
+`MelodyP(pin, {notes})` | A non-blocking call to play a melody in the background on `pin` using the frequencies and delays found in `{notes}` float array.
+`MelodyS(pin)` | Stop a melody on `pin`.
+`Beep(pin, frequency, duration)` | Generate a beep on `pin` with `frequency` for `duration` in milliseconds. This is a blocking function that works on any pin.
+`Wave(pin, buffer, offset, count, freq, delay_us)` | Play a WAV PCM 8-bit `buffer` data on PWM `pin`, starting with `offset` for `count`. Use `delay_us` between each sample. 
+`Sweep(pin, freq_start, freq_end, vol_start, vol_end, duration)` | Sweep through a frequency on PWM `pin` from `freq_start` to `freq_end` and change that frequency volume from `vol_start` to `vol_end` for a `duration`.
+
+:::tip
+1. `Sweep()` needs time to process each pulse. Give ample `duration` when using lower frequencies for more accurate results.
+2. `Sweep()` has a limit of 5Khz.
+3. All functions, except `Beep()`, change the base timer frequency. This timer might be used/shared with other pins.
+:::
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+Dim a1[]={500, 50, # 500Hz for 50ms
+        1000, 100} # 1000Hz for 100ms
+MelodyP(3, a1)
+Wait(2000)
+MelodyS(3)
+# Generate a frequency of 1KHz on pin 1 for 200ms
+Beep(1, 1000, 200)
+```
+</TabItem>
+<TabItem value="py">
+```py
+duelink.Sound.MelodyPlay(3, [500, 50, 1000, 100])
+time.sleep(2)
+duelink.Sound.MelodyStop(3)
+# Generate a frequency of 1KHz on pin 1 for 200ms
+duelink.Sound.Beep(1, 1000, 200)
+```
+</TabItem>
+<TabItem value="js">
+```js
+await duelink.Sound.MelodyPlay(3, [500, 50, 1000, 100])
+await Util.sleep(2000)
+await duelink.Sound.MelodyStop(3)
+// Generate a frequency of 1KHz on pin 1 for 200ms
+await duelink.Sound.Beep(1, 1000, 200)
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+float tones[4] = {500, 50, 1000, 100};
+duelink.Sound.MelodyPlay(3, tones, 4)
+delay(2000);
+duelink.Sound.MelodyStop(3);
+// Generate a frequency of 1KHz on pin 1 for 200ms
+duelink.Sound.Beep(1, 1000, 200);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+duelink.Sound.MelodyPlay(3, [500, 50, 1000, 100])
+time.sleep(2)
+duelink.Sound.MelodyStop(3)
+# Generate a frequency of 1KHz on pin 1 for 200ms
+duelink.Sound.Beep(1, 1000, 200)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+duelink.Sound.MelodyPlay(3, [500, 50, 1000, 100])
+Thread.Sleep(2000);
+duelink.Sound.MelodyStop(3);
+// Generate a frequency of 1KHz on pin 1 for 200ms
+duelink.Sound.Beep(1, 1000, 200);
+```
+</TabItem>
+</Tabs>
+</details>
+
+
+
+
+---
+
 ## System Info
 
 Read info about the system.
@@ -1814,6 +1775,7 @@ Function | Description
 `IStart("func", pin, trigger, pull)` | Enable interrupt on `pin` to trigger `func`. `trigger` is: 0 - falling, 1 - rising, 2 - rising and falling. Enable `pull`: 0 - pull down, 1 - pull up, 2 - no pull.
 `Istatled("func")` | Returns status of interrupt on `func`: 0- no interrupt, 1- active interrupt.
 `IAbort("func")` | Abort interrupt for `func`.
+`IrqEn(e)` | Control global interrupts: 1-enable, 0-disable. Only disable interrupts for a very short time and when absolutely necessary!
 
 <details>
   <summary>Samples</summary>
