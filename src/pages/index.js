@@ -16,10 +16,6 @@ function HomepageHeader() {
 
         <img src="/img/duelink-intro.png" alt="DUELink" />
   
-   
-
-
-
        <Heading as="h2" >
         Daisylink Hundreds of Modules
         </Heading>
@@ -29,13 +25,13 @@ function HomepageHeader() {
         </p>
          <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className="button button--secondary"
             to="/docs/what-is">
             What's DUELink?
           </Link>
            &nbsp; &nbsp;&nbsp;
           <Link
-            className="button button--secondary button--lg"
+            className="button button--secondary"
             to="/docs/catalog/intro">
             Product Catalog
           </Link>
@@ -50,7 +46,7 @@ export default function Home() {
   return (
     <Layout
       title={`DUELink`}
-      description="Dynamic, Universal, and Extensible Link.">
+      description="Dynamic, Universal, and Extensible - Link.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
