@@ -1,4 +1,4 @@
-##### RelayP16 Test #####
+##### RelayP16 #####
 
 1. Make sure 12V external power (+/-) suplies to VCC/GND, and red power led (close to R17) are on.
 2. Make sure status LED on DUT is blinking first.
