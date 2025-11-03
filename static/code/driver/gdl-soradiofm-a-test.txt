@@ -1,4 +1,4 @@
-##### MP3 #####
+##### Radio #####
 
 fn Rset()
     cmd("reset(0)") # reset my client
@@ -12,8 +12,8 @@ fn Test()
     Wait(10)
     
  
-    PlayFile(1,0)
-    Loop(1)
+    SetVol(100) 
+    SetChan(95.5)
     while 1
         
         wait(1000)
