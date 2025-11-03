@@ -4,29 +4,35 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Dynamic',
-    Svg: require('@site/static/img/dynamic.svg').default,
-    description: (
-      <>
-        Chainable and linkable over USB, I2C and UART, running with a host or standalone!
-      </>
-    ),
-  },
-  {
-    title: 'Universal',
-    Svg: require('@site/static/img/universal.svg').default,
-    description: (
-      <>
-        Works with computers, phones, Raspberry Pi, Arduino and more!
-      </>
-    ),
-  },
-  {
-    title: 'Extensible',
+    title: 'Engineers',
     Svg: require('@site/static/img/extensible.svg').default,
     description: (
       <>
-        Supports Python, JavaScript & .NET, with block-coding options like MicroBlocks.
+        Build prototypes and proof of concepts in minutes vs days at an extremely low-cost.<br/>
+        <br/>
+        <a class="button button--primary" href="/docs/engineers">Engineers</a>
+      </>
+    ),
+  },
+  {
+    title: 'Makers',
+    Svg: require('@site/static/img/universal.svg').default,
+    description: (
+      <>
+        Beginners to experts will turn their dream projects into a reality.<br/>
+        <br/>
+        <a class="button button--primary" href="/docs/makers">Makers</a>
+      </>
+    ),
+  },
+  {
+    title: 'Educators',
+    Svg: require('@site/static/img/dynamic.svg').default,
+    description: (
+      <>
+        Write code and instantly see it come alive—just plug, code, and create.<br/>
+        <br/>
+        <a class="button button--primary" href="/docs/educators">Educators</a>
       </>
     ),
   },
@@ -45,11 +51,16 @@ function Feature({Svg, title, description}) {
     </div>
   );
 }
+//<div style={{display: 'block',  justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>
 
 export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
-      <div className="container">
+      
+      <div className="container" style={{textAlign: 'center'}}>
+        <Heading as="h2" >
+          DUELink is for everyone!
+        </Heading>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />

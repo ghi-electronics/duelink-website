@@ -3,35 +3,71 @@ hide_table_of_contents: true
 ---
 
 # Engineers
-Build prototypes and proof of concepts in minutes vs days at an extremely low-cost. Use your favorite [Hardware](./hw/intro) and [Coding Language](./language/intro).
 
-Start by [Mounting](./products/axmnt) the modules on one of the user-friendly [Holey Boards](./products/axholey).
-
-<table>
-<td width='50%'>
-    ![Holey Board](pathname:///img/catalog/axholey-4.png)
-</td>
-<td width='50%'>
-    ![Holey Board](pathname:///img/catalog/axholey-5.png)
-</td>
-</table>
-
-The prototype can also be moved into a laser-cut enclosure.
-
-![Laser Cut Enclosure](pathname:///img/laser-enclosure.png)
-
-Or use it as a base to start a 3D printed design.
+DUELink serves electrical and computer engineering in multiple ways, from initial prototyping to post production expandability options.
 
 ![Commercial Product](pathname:///img/commercial-product.png)
+
+---
+
+## Prototype
+
+Build prototypes and proof of concepts in minutes vs days, at an extremely low-cost. Let's say you have a quick need for a device that connect to a vehicle with these requirements:
+1. Power from a car battery.
+1. Capture CAN bus messages.
+1. Read current position from GPS.
+1. Record a log on a USB memory Stick.
+1. Show information on a color display.
+
+Put the soldering iron aside and grab a [Holey Board](./products/axholey) instead! Here is your project done in a couple of hours!
+
+![Vehicle project](pathname:///img/vehicle-project.png)
+
+Each module has a built in library for you! Simple ASCII human-readable commands can show graphics on the display and record files on a USB memory stick! See the [Standard Library](./engine/stdlib) for an impressive list of options.
+
+---
+
+## Standard Sizing
+
+The standard hole sizes and placement pitch allow for an easier enclosure designs. See [Specifications](./specs) for more details.
+
+![Hole Specs](pathname:///img/duelink-hole-specs.png)
+
+Move your prototypes into a 3D printed design a laser-cut enclosure.
+
+![Laser Cut Enclosure](pathname:///img/laser-enclosure.png)
 
 See the DUELink [Specs](./specs) for details and evolve into making your own [Third-Party Modules](./catalog/third-party).
 
 ---
 
+## A Trusty Connector
+
+By adding a tiny JST connector, you will magically bring a whole level of expandability to your designs. Just imagine how versatile designs will be when you are able to connect any [DUELink Catalog](./catalog/intro) module to your design. 
+
+![downlink](pathname:///img/downlink.png)
+
+This one connector allows you to connect one, or connect several!
+
+![dueduino link](pathname:///img/dueduino-uplink.png)
+
+This is all possible using DUELink [daisylink](./engine/daisylink).
+
+![uplink downlink](pathname:///img/uplink-downlink.png)
+
+You have the option of using either [I2C](./interface/i2c) or [UART](./interface/uart) interface.
+
+---
+
+## We are Here to Support
+
+With DUELink, you will receive support from a USA-based company that has been in the commercial **engineering and manufacturing** of **Hardware and Software** for over 20 years!
+
 ![GHI Electronics Logo](pathname:///img/ghi-electronics-logo.png)
 
-With DUELink, you will receive support from a USA-based company that has been in the commercial **engineering and manufacturing** of **Hardware and Software** for over 20 years! 
+Do you need help with the design? Are you ready for production? [Let us know](https://www.ghielectronics.com/contact/) how we can support.
 
-There is a reason why we say: [GHI Electronics](https://www.ghielectronics.com/) is where Hardware meets Software!
 
 ![USA Manufacturing](pathname:///img/usa-mfg.png)
+
+There is a reason why we say: [GHI Electronics](https://www.ghielectronics.com/) is where Hardware meets Software!
