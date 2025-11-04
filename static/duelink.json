@@ -46,9 +46,8 @@
       "partNumber": "GDL-MCCINCOBIT-E",
       "PID": "0x000001",
       "category": "Microcomputer",
-      "price": 6.95,
       "tagline": "Ultra low-cost, micro:bit inspired, educational board",
-      "description": "[Educators](/docs/educators) and [Makers](/docs/makers) will find great value in this ultra low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.\n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::",
+      "description": "[Educators](/docs/educators) will find great value in this ultra low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.\n\nCincoBit is designed for classrooms on a budget. You get a set of 15 at under $100. Classrooms with more than 15 students can work in groups, which is a desired approach to work in STEM. To keep this amazing price, we do not offer CincoBit individually. Contact us if you need more than 100 units.\n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::",
       "keyFeatures": [
         "5x5 LED Matrix",
         "micro:bit inspired edge connector",
@@ -59,7 +58,19 @@
         "52x42mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 5. |\n| `GetH()` | Get display height: 5. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |\n\n:::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::",
-      "MfgNotes": "Check Menu->Help for connection before testing"  
+      "MfgNotes": "Check Menu->Help for connection before testing",
+      "variations": [
+        {
+          "name": "Single",
+          "partCode": "1X",
+          "price": 6.95
+        },
+        {
+          "name": "15x Set",
+          "partCode": "15X",
+          "price": 99.95
+        }
+      ]
     },
     {
       "name": "PixoBit",
