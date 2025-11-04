@@ -21,7 +21,7 @@ function HomepageHeader() {
         </Heading>
         <p> DUELink revolutionizes electronics innovation with a vast ecosystem of sensor, actuator, and display modules.
         <br/> 
-        Each module is a mini-computer, powered by a smart daisylink that seamlessly integrates with your favorite hardware platform and coding language.
+        Each module is a mini-computer, that daisylinks with your favorite hardware platform and coding language.
         </p>
          <div className={styles.buttons}>
           <Link
