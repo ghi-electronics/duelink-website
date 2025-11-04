@@ -89,7 +89,8 @@
         "USB-C connector",
         "52x42mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnUpA()` | Returns 1 if button A was released. |\n| `BtnDownA()` | Returns 1 if button A was pressed. |\n| `BtnUpB()` | Returns 1 if button B was released. |\n| `BtnDownB()` | Returns 1 if button B was pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnUpA()` | Returns 1 if button A was released. |\n| `BtnDownA()` | Returns 1 if button A was pressed. |\n| `BtnUpB()` | Returns 1 if button B was released. |\n| `BtnDownB()` | Returns 1 if button B was pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |",
+      "MfgNotes": "Check Menu->Help for connection before testing"
     },
     {
       "name": "ClipIt",
@@ -1739,7 +1740,8 @@
         "Terminal Block for Additional Connectivity",
         "65x56.5mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `DVer()` | This driver version. |",
+      "MfgNotes": "Check Menu->Help for connection before testing"
     },
     {
       "name": "RPILink",
@@ -1771,7 +1773,8 @@
         "8 Pin Header",
         "Piezo Buzzer",
         "65x37mm overall dimension"
-      ]
+      ],
+      "MfgNotes": "Check Menu->Help for connection before testing"
     },
     {
       "name": "DueShield",
