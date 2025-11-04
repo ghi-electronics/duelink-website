@@ -1,5 +1,10 @@
 ##### TFT N18 Test #####
 
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
 fn Test()
     println("Starting test...")
     Wait(1)

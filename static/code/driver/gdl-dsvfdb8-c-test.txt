@@ -1,22 +1,23 @@
-##### FAN Test #####
+##### VFD B8 Driver #####
 
 fn Rset()
     cmd("reset(0)") # reset my client
     reset(0) # reset myself
-fend
-
+fend 
+ 
 fn Test()
     println("Starting test...")
     Wait(1)
     dlmode(2,0)
-    Wait(10)
+    Wait(10)    
+ 
+    CPrintS("DUELink!")
+    VShow()
 
     while 1
-        Fan(70)
-        Wait(1000)
-
-        Fan(-70)
-        Wait(1000)        
+        wait(10)
     wend
-    
-fend  
+ 
+fend 
+
+##############################
