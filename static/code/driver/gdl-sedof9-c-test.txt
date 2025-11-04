@@ -18,25 +18,26 @@ fn Test()
     while (1)
         cmd("Clear(0)")
         RAccel()
-        cmd(fmt("TextS(\"Accel XYZ: ",_x,",",_y,",",_z,"\", 1, 0, 0, 1,2)"))
+        cmd(fmt("TextS(\"Accel:",_x,",",_y,",",_z,"\", 1, 0, 0, 1,2)"))
         RGyro()
-        cmd(fmt("TextS(\"Gyro XYZT: ",_x,",",_y,",",_z,",",t,"\", 1, 0, 20, 1,2)"))
+        cmd(fmt("TextS(\"Gyro:",_x,",",_y,",",_z,"\", 1, 0, 16, 1,2)"))
         RCompass()
-        cmd(fmt("TextS(\"Gyro XYZ: ",_x,",",_y,",",_z,"\", 1, 0, 40, 1,2)"))
-        
-        
+        cmd(fmt("TextS(\"Cpass:",_x,",",_y,",",_z,"\", 1, 0, 32, 1,2)"))
+        cmd(fmt("TextS(\"Temp:",_t,"\", 1, 0, 48, 1,2)"))
         
         cmd("Show()")
         
-        println("Accel XYZ: ", _x,_y,_z)
+        println("Accel XYZ: ", _x,",",_y,",",_z)
         wait(10)
-        println("Gyro XYZT: ", _x,_y,_z,_t)
+        println("Gyro XYZT: ", _x,",",_y,",",_z)
         wait(10)
-        println("Gyro XYZ: ", _x,_y,_z)        
+        println("Compass XYZ: ", _x,",",_y,",",_z)        
+        wait(10) 
+        println("Temp: ", _t)        
         wait(1000) 
                 
     wend
-fend
+fend 
  
 ##############################
  
