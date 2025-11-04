@@ -59,13 +59,18 @@ export default function HomepageFeatures() {
       
       <div className="container" style={{textAlign: 'center'}}>
         <Heading as="h2" >
-          DUELink is for everyone!
+          DUELink is for Everyone!
         </Heading>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
         </div>
+        <hr></hr>
+        <Heading as="h4" >
+          What is the latest?
+        </Heading>
+        <a class="button button--primary" href="/news">See the News!</a>
       </div>
     </section>
   );
