@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 const FeatureList = [
   {
     title: 'Engineers',
-    Svg: require('@site/static/img/extensible.svg').default,
+    Svg: require('@site/static/img/engineers.svg').default,
     description: (
       <>
         Build prototypes and proof of concepts in minutes vs days at an extremely low-cost.<br/>
@@ -16,7 +16,7 @@ const FeatureList = [
   },
   {
     title: 'Makers',
-    Svg: require('@site/static/img/universal.svg').default,
+    Svg: require('@site/static/img/makers.svg').default,
     description: (
       <>
         Beginners to experts will turn their dream projects into a reality.<br/>
@@ -27,7 +27,7 @@ const FeatureList = [
   },
   {
     title: 'Educators',
-    Svg: require('@site/static/img/dynamic.svg').default,
+    Svg: require('@site/static/img/educators.svg').default,
     description: (
       <>
         Write code and instantly see it come alive—just plug, code, and create.<br/>
