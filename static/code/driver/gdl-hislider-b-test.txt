@@ -1,5 +1,10 @@
 ##### Slide Driver ######
 
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
 fn Test()
     Wait(1)
     dlmode(2,0)

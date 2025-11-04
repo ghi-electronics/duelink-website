@@ -1,5 +1,10 @@
 ##### DueDuino Test #####
 
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
 statled(100,100,0) # this make sure using power led still blink without USB connected
 
 fn Test()
