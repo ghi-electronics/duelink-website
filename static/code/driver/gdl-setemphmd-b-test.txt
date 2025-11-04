@@ -26,10 +26,10 @@ fn Test()
         cmd("Show()")
         
         println("Temp: ", t)
+        wait(10)
         println("Humd: ", h)        
         wait(1000) 
-        
-        wait (1000) 
+                
     wend
 fend
 #########################
