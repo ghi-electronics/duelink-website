@@ -219,8 +219,8 @@ fn ReadCard(b1)
         if k != b1[i]
             s = 2 # MI_ERR
         end
-    else
-        PrintLn("anticoll failed")
+    #else
+        #PrintLn("anticoll failed")
     end
     
     return s
