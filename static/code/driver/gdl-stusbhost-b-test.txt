@@ -4,7 +4,6 @@ fn Rset()
     cmd("reset(0)") # reset my client
     reset(0) # reset myself
 fend
-
 fn Test()  
     println("Starting test...")
     Wait(1)
@@ -28,14 +27,14 @@ fn Test()
     h = FsOpen("/test.txt", 0x01)
     Dim b2[11]
     FsRead(h, b2)
-    FSClose(h)
+    FSClose(h) 
     
-    fsunmnt()
+    fsunmnt() 
     
     for i = 0 to 11
         if (b2[i] != b1[i])
             r = 0
-            break;
+            break
         end
     next
     
@@ -52,3 +51,4 @@ fn Test()
     
     cmd("show()")
 fend
+
