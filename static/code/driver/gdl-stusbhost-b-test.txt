@@ -41,11 +41,11 @@ fn Test()
     cmd("clear(0)")
     
     if (r)
-        println("Passed!")
+        println("USBHost Passed!")
         cmd("Texts(\"Passed!\",1,0,0,2,2)")
         
     else
-        println("Failed!")
+        println("USBHost Failed!")
         cmd("Texts(\"Failed!\",1,0,0,2,2)")
     end
     
