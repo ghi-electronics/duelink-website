@@ -21,11 +21,11 @@ fn Test()
             SerRds(b1, 1000) # read data            
             SerWr(b1[0] + 1 ) # write back to sender
             
-            println("Received:", char(b1[0]))
-            println("Sent:", char(b1[0]+1))
+            println("Received:", chr(b1[0]))
+            println("Sent:", chr(b1[0]+1))
             
-           cmd(fmt("Texts(\"Received:", char(b1[0]), "\",1,0,20,1,2)"))
-           cmd(fmt("Texts(\"Sent:", char(b1[0]+1), "\",1,0,20,1,2)"))
+           cmd(fmt("Texts(\"Received:", chr(b1[0]), "\",1,0,0,1,2)"))
+           cmd(fmt("Texts(\"Sent:", chr(b1[0]+1), "\",1,0,20,1,2)"))
            cmd("show()")
         end
         Wait(1)
