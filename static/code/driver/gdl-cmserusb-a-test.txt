@@ -24,8 +24,8 @@ fn Test()
             println("Received:", chr(b1[0]))
             println("Sent:", chr(b1[0]+1))
             
-           cmd(fmt("Texts(\"Received:", chr(b1[0]), "\",1,0,0,1,2)"))
-           cmd(fmt("Texts(\"Sent:", chr(b1[0]+1), "\",1,0,20,1,2)"))
+            cmd(fmt("Texts(\"Received byte:", (b1[0]), "\",1,0,0,1,2)"))
+           cmd(fmt("Texts(\"Sent byte:", (b1[0]+1), "\",1,0,20,1,2)"))
            cmd("show()")
         end
         Wait(1)
