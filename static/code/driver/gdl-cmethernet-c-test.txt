@@ -43,5 +43,5 @@ fn Test()
         cmd("show()")
         
         Wait(1000)
-    end
+    wend
 fend
