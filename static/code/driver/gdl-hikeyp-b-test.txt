@@ -12,13 +12,15 @@ fn Test()
     Wait(10)
     cmd("sel(1)")
         
-    
+    SStart("Scan", 100, 0)
     while 1 
 
         if IsKeyChange()
+            cmd("clear(0)")
             c = chr(RdKey())
             PrintLn("key pressed: ", c)
             cmd(fmt("Texts(\"key pressed:", c, "\",1,0,0,1,2)"))
+            cmd("show()")
         end
         
         wait(10)
