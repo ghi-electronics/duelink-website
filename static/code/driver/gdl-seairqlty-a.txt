@@ -15,23 +15,6 @@ fn AhtSts()
     return b1[0]
 fend
 
-fn AhtInit() 
-    Dim b1[1]    
-    Wait(20)  
-    b1[0] = 0xBA
-    I2cWr(0x38, b1, 0) 
-    Wait(20)
-    
-    while (AhtSts() & 0x80)
-        Wait(20)
-    wend
-
-    while (!AhtSts() & 0x08)
-        return 0
-    wend
-    
-    return 1    
-fend
 
 fn AhtTemp()  
     I2cWr(0x38, [0xAC, 0x33, 0], 0)
@@ -135,7 +118,26 @@ fn EnsEco2()
     return  b1[3] | (b1[4] << 8)
 fend
 
-fn EnsInit()
+
+fn Init()
+    I2cCfg(400)
+    #AhtInit() 
+    Dim b1[1]    
+    Wait(20)  
+    b1[0] = 0xBA
+    I2cWr(0x38, b1, 0) 
+    Wait(20)
+    
+    while (AhtSts() & 0x80)
+        Wait(20)
+    wend
+
+    while (!AhtSts() & 0x08)
+        return 0
+    wend
+    
+    
+    #EnsInit()
     DWrite(12,1) # high I2c
     DWrite(19, 0) # low: address 0x52
     DRead(13, 1)
@@ -145,15 +147,7 @@ fn EnsInit()
     Wait(10)
 
     #set mode ENS160_OPMODE_STD
-    EnsSetm(0x02) 
-fend
-
-fn Init()
-    I2cCfg(400)
-    AhtInit() 
-    EnsInit()
+    EnsSetm(0x02)
 fend
 
 Init()
-
-#############################

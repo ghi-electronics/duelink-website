@@ -1,0 +1,33 @@
+##### Cubicle #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()  
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+ 
+    while 1 
+        
+        for y = 0 to 8
+            for x = 0 to 8
+                pixel(1,x,y)
+            next
+        next
+        show()
+        wait(500)
+        for y = 0 to 8
+            for x = 0 to 8
+                pixel(0,x,y)
+            next
+        next
+        show()
+        wait(500)
+    wend
+fend
+ 

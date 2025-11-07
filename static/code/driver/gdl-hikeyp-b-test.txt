@@ -1,0 +1,38 @@
+##### Keypad 4x4 #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+fn Test()  
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+ 
+    SStart("Scan", 100, 0)
+    p = 0
+    s = 0
+    while 1 
+        p = IsKeyChange()
+ 
+        if (s != p)
+            s = p
+ 
+            if s = 1
+ 
+                c = RdKey()
+                if c > 0
+                    cmd("clear(0)")    
+                    PrintLn("key pressed: ", chr(c))
+                    cmd(fmt("Texts(\"key (ascii): ", c,"\",1,0,0,1,2)"))
+                    cmd("show()")
+                end 
+            end
+ 
+        end
+ 
+        wait(10)
+    wend
+fend

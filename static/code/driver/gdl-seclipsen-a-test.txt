@@ -1,0 +1,33 @@
+##### ClipSense #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+
+fn Test()  
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+ 
+    cmd("Clear(0)")
+    cmd("TextS(\"Staring test...\", 1, 0, 0, 1,2)")
+    cmd("Show()")
+ 
+
+    while 1
+        for i = 0 to 8
+            if(Touch(i+1, 10, 1, 100)>100)
+                PrintLn("Touched on pin: ", i+1)
+                cmd("Clear(0)")
+                cmd(fmt("TextS(\"touched on pin: ",(i+1),"\", 1, 0, 20, 1,2)"))
+                cmd("Show()")
+                Wait(1000)
+            end
+        next
+        
+        Wait(10)
+    wend
+fend

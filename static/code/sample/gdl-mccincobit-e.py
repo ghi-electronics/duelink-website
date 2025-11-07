@@ -3,6 +3,8 @@ import time
 availablePort = DUELinkController.GetConnectionPort()
 duelink = DUELinkController(availablePort)
 x = 0
+duelink.Graphics.Configuration(1, [0x3C], 128, 64, 1) # config for OLED 96
+
 while True:
     duelink.Graphics.TextT("DUELink", 1, x, 0)
     duelink.Graphics.Show()

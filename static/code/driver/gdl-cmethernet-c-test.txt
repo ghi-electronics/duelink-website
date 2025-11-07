@@ -1,0 +1,47 @@
+##### Ethernet #####
+
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()  
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+        
+    while (1)
+    
+        v = RegWrRd(0x0039 << 8, 0, 0)
+                       
+        cmd("clear(0)")
+        
+        if (v = 4)
+        
+            dim b4[4]
+            
+            b4[0] = RegWrRd((0x000f+0) << 8, 0, 0)
+            b4[1] = RegWrRd((0x000f+1) << 8, 0, 0)
+            b4[2] = RegWrRd((0x000f+2) << 8, 0, 0)
+            b4[3] = RegWrRd((0x000f+3) << 8, 0, 0)
+            
+            println("Read version OK!")
+            println("IP:", b4[0], ".", b4[1], ".", b4[2], ".", b4[3])
+            
+            cmd("Texts(\"Read version OK!\",1,0,0,1,2)")
+            cmd(fmt("Texts(\"", b4[0], ".", b4[1], ".", b4[2], ".", b4[3], "\",1,0,20,1,2)"))
+
+        else
+            println("Read version Failed!")
+            cmd("Texts(\"Read version\",1,0,0,1,2)")
+            cmd("Texts(\"Failed!\",1,0,20,1,2)")
+        end
+        
+        cmd("show()")
+        
+        Wait(1000)
+    wend
+fend
