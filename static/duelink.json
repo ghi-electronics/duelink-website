@@ -215,7 +215,7 @@
       "category": "Specialty",
       "price": 9.95,
       "tagline": "Robot-shaped Microcomputer",
-      "description": "Tiny robot-shaped circuits with LEDs, buzzer, and buttons.\n\n:::note\n\n The \"legs\" are a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n",
+      "description": "Tiny robot-shaped circuits with LEDs, buzzer, and buttons.\n\nEverything you need to get started is found at: [ghizzy.duelink.com](https://ghizzy.duelink.com/)\n\n:::note\n\n The \"legs\" are a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n",
       "keyFeatures": [
         "2x RGB LEDs",
         "2x ear & 3x mouth LEDs",
@@ -236,7 +236,7 @@
       "category": "Specialty",
       "price": 24.95,
       "tagline": "Smart Holiday Tree with 26 LEDs",
-      "description": "This is arguably the smartest holiday tree in the world! Control the LEDs in Standalone mode or connect to a host and control the tree from one of the many supported languages and devices. The 2 boards (A and B) slide into each other, turning this into a 3D-ish module!",
+      "description": "This is arguably the smartest holiday tree in the world! Control the LEDs in Standalone mode or connect to a host and control the tree from one of the many supported languages and devices. The 2 boards (A and B) slide into each other, turning this into a 3D-ish module!\n\nEverything you need to get started is at: [holidaytree.duelink.com](https://holidaytree.duelink.com/)",
       "keyFeatures": [
         "Stand-up Design",
         "26 Smart LEDs",
