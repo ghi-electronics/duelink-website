@@ -135,7 +135,7 @@
       "partNumber": "GDL-MCDUESTEM-B",
       "PID": "0x000010",
       "category": "Microcomputer",
-      "price": 22.95,
+      "price": 24.95,
       "tagline": "Complete All-in-One STEM Solution",
       "description": "`Input -> Process -> Output` is how DueSTEM brings everything [educators](/docs/educators) need to demonstrate physical computing. There are 4 inputs and 4 outputs. The graphical display can be used to show sensor levels or for building games!\n\nExtend the board with sensors and actuators on the female pin-header and the [Downlink](/docs/interface/downlink) connector.",
       "keyFeatures": [
@@ -329,7 +329,7 @@
       "partNumber": "GDL-SPPIANO-A",
       "PID": "0x0C0005",
       "category": "Specialty",
-      "price": 12.95,
+      "price": 14.95,
       "tagline": "Capacitive Touch Piano Module",
       "description": "Play notes using capacitive touch pads or connect alligator clips to turn ordinary objects into a piano keys. Mounting holes to connect additional modules.",
       "keyFeatures": [     
