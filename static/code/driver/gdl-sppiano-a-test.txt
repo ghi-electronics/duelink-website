@@ -1,0 +1,52 @@
+##### Piano #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+fn Test()  
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+ 
+    # C, Cb, D, Db, E, F, Fb, G, Gb, A, Ab, B, c
+    dim b1[15] = [23,19,12,13,14,15,16,18,24,10,9,8,17,11,7]
+    dim b2[15] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    dim b3[15] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    dim b4[5] = [1,2,4,5,6]
+    freq(3,1000,100, 0.5)
+    while 1
+        for i = 0 to len(b1) 
+
+            if touch(b1[i], 10, 1, 100) > 120
+                
+                freq(3,1000,100, 0.5)
+                for x = 0 to len (b4)
+                    dwrite(b4[x],0)
+                next
+                
+                wait(100)        
+            else
+                for x = 0 to len (b4)
+                    dwrite(b4[x],1)
+                next
+                
+            end
+        next
+        
+        if dread(20, 2)
+            freq(3,1000,100, 0.5)
+            for x = 0 to len (b4)
+                dwrite(b4[x],0)
+            next
+            
+            wait(100)
+            
+            for x = 0 to len (b4)
+                dwrite(b4[x],1)
+            next
+        end
+        wait(1)
+    wend
+fend

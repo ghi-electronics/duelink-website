@@ -27,20 +27,6 @@ Each module has a built in library for you! Simple ASCII human-readable commands
 
 ---
 
-## Standard Sizing
-
-The standard hole sizes and placement pitch allow for an easier enclosure designs. See [Specifications](./specs) for more details.
-
-![Hole Specs](pathname:///img/duelink-hole-specs.png)
-
-Move your prototypes into a 3D printed design a laser-cut enclosure.
-
-![Laser Cut Enclosure](pathname:///img/laser-enclosure.png)
-
-See the DUELink [Specs](./specs) for details and evolve into making your own [Third-Party Modules](./catalog/third-party).
-
----
-
 ## A Trusty Connector
 
 By adding a tiny JST connector, you will magically bring a whole level of expandability to your designs. Just imagine how versatile designs will be when you are able to connect any [DUELink Catalog](./catalog/intro) module to your design. 
@@ -55,7 +41,78 @@ This is all possible using DUELink [daisylink](./engine/daisylink).
 
 ![uplink downlink](pathname:///img/uplink-downlink.png)
 
-You have the option of using either [I2C](./interface/i2c) or [UART](./interface/uart) interface.
+You have the option of using either [I2C](./interface/i2c) or [UART](./interface/uart).
+
+---
+
+## Advanced Modules
+
+DUELink ecosystem includes some complex modules that can advance your design with relatively minimal work, turning weeks of frustration into hours of progress!
+
+All modules, including the onces listed below, are controlled using ASCII commands. We even provide libraries to handle these ASCII commands for many [Languages](./language/intro), including [Python](./language/python), [JavaScript](./language/javascript), [.NET](./language/dotnet), and [C++](./language/cpp).
+
+<div style={{textAlign: 'center'}}>
+
+<table>
+ <tr>
+<td width='50%'>
+    <img alt="Back" src="/img/catalog/stusbhost-b-3.png" />
+    The module already includes all FAT file system and USB Host software libraries internally. You simpley send a file command and the module will do the rest for you. There are also SD and Micro SD module options as well.
+    <Button
+        style={{ margin: "10px", color: "white" }}
+        label="USB Host"
+        link="./products/stusbhost-b"
+    />
+</td>
+<td width='50%'>
+    <img alt="Size" src="/img/catalog/dsprtlcp70-b-3.png" />
+    This full color 800x600 7" display has advanced Bridgetek graphics coprocessor  to handle image decoding,font rendering, and shape drawing. It also includes a capacitive touch screen.
+
+    <Button
+        style={{ margin: "10px", color: "white" }}
+        label="Portal CP70"
+        link="./products/dsprtlcp70-b"
+    />
+</td>
+</tr>
+ <tr>
+<td width='50%'>
+    <img alt="Size" src="/img/catalog/dshdmi-b-3.png" />
+    The same tine JST connector brings HDMI to your design! The onboard Bridgetek graphics coprocessor renders high definition graphics. Yes, any design can have a 50" monitor now!
+
+    <Button
+        style={{ margin: "10px", color: "white" }}
+        label="HDMI"
+        link="./products/dshdmi-b"
+    />
+</td>
+<td width='50%'>
+    <img alt="Back" src="/img/catalog/mcstick-a-3.png" />
+    Want something else? Make your own module using this very small 13x13mm "stick"! It includes Uplink and Downlink connectors and all the IOs you need. Solder it directly on your board or use pin headers to plug into a breadboard.  
+    <Button
+        style={{ margin: "10px", color: "white" }}
+        label="Stick"
+        link="./products/mcstick-a"
+    />
+</td>
+</tr>
+</table>
+</div>
+
+
+---
+
+## Standard Sizing
+
+The standard hole sizes and placement pitch allow for an easier enclosure designs. See [Specifications](./specs) for more details.
+
+![Hole Specs](pathname:///img/duelink-hole-specs.png)
+
+Move your prototypes into a 3D printed design a laser-cut enclosure.
+
+![Laser Cut Enclosure](pathname:///img/laser-enclosure.png)
+
+See the DUELink [Specs](./specs) for details and evolve into making your own [Third-Party Modules](./catalog/third-party).
 
 ---
 
