@@ -93,7 +93,7 @@
       "MfgNotes": "Check Menu->Help for connection before testing"
     },
     {
-      "name": "ClipIt",
+      "name": "Clipit",
       "partNumber": "GDL-MCCLIPIT-B",
       "PID": "0x000011",
       "category": "Microcomputer",
