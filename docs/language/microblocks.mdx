@@ -24,22 +24,18 @@ While you can load MicroBlocks on any DUELink module, the ones recommended on th
 
 ### Installing the Firmware
 
-To work with MicroBlocks, one must first install the MicroBlocks firmware,
-a process that takes less than a minute.
+Educational-tailored boards automatically ship with MicroBlocks preloaded. However, here are the steps needed to re-load MicroBlocks firmware, a process that takes less than a minute.
 
-Start by connecting your DUELink board to a laptop using a USB cable.
-**Make sure it is not a charge-only cable!**
+Start by connecting your DUELink board to a laptop using a USB cable. Make sure it is not a charge-only cable!
 
 :::note
 Linux may require an extra step to ensure that the user has access to USB serial devices.
 See the Linux tab in the Computer Setup section of the [MicroBlocks Get Started](https://microblocks.fun/get-started) page.
 :::
 
-The board must be placed in a special mode to prepare it for firmware installation.
-The process is similar for the four educational microcomputer boards.
+The board must be placed in a special mode to prepare it for firmware installation using `LDR` or `A` buttons. The process is similar for all educational-tailored microcomputer boards.
 
-Prepare a CincoBit or PixoBit to accept firmware by holding down the **A** button
-while clicking the **RESET** on the back of the board:
+For example, prepare CincoBit to accept firmware by holding down the 'A' button while clicking the `RESET` on the back of the board:
 
 <table>
 <td width='50%'>
@@ -50,13 +46,11 @@ while clicking the **RESET** on the back of the board:
 </td>
 </table>
 
-Prepare a DueSTEM to accept firmware by holding down the **LDR** (left-most red button)
-while clicking the small **RESET** button:
+On DueSTEM, the button is labeled `LDR` (left-most red button). Hold it while clicking the `Reset` button:
 
 ![duestem Reset](pathname:///img/duestem-reset.png)
 
-Prepare a Clipit to accept firmware by holding down the **LDR** button
-while clicking the **RST** button:
+ClipIt is done similarly to DueSTEM:
 
 ![clipit Reset](pathname:///img/clipit-reset.png)
 
@@ -87,7 +81,7 @@ If you do not see the dialog box, make sure you are using a Chrome or Edge brows
 
 If you see an entry marked **DUELink**, repeat the board preparation process described above. Remember to keep the **A** or **LDR** button held down while you press and release the **Reset** button.
 
-If you do not see any entry, check that your board is connected to your laptop with a good USB cable.
+If you still do not see any entry, check that your board is connected to your laptop with a good USB cable.
 
 Select the **DFU in FS Mode** entry and click the **Connect** button.
 
@@ -139,15 +133,15 @@ Linux may require an extra step to ensure that the user has access to USB serial
 See the Linux tab in the Computer Setup section of the [MicroBlocks Get Started](https://microblocks.fun/get-started) page.
 :::
 
-Click the **Connect** button in the MicroBlocks editor:
+Click the `Connect` button in the MicroBlocks editor:
 
 ![microblocks-connect](pathname:///img/microblocks-connect-1.png)
 
-Select **Connect (USB)** from the menu:
+Select `Connect (USB)` from the menu:
 
 ![microblocks-connect](pathname:///img/microblocks-connect-2.png)
 
-Select the DUELink board in the dialog that appears, then click the **Connect** button:
+Select the DUELink board in the dialog that appears, then click the `Connect` button:
 
 <div style={{textAlign: 'center'}}>
 ![microblocks-connect](pathname:///img/microblocks-connect-3.png)
@@ -155,11 +149,11 @@ Select the DUELink board in the dialog that appears, then click the **Connect** 
 
 If you do not see your DUELink board, make sure it is connected with a good USB cable, then click its reset button.
 
-When the board is connected, the **Connect** button will turn green and the name of the board will appear next to it:
+When the board is connected, the `Connect` button will turn green and the name of the board will appear next to it:
 
 ![microblocks-connect](pathname:///img/microblocks-connect-4.png)
 
-With the board connected, click the file icon and select **New** from the menu:
+With the board connected, click the file icon and select `New` from the menu:
 
 ![microblocks-new-project](pathname:///img/microblocks-new-project.png)
 
@@ -167,7 +161,7 @@ MicroBlocks will load a set of libraries that can be used with that board:
 
 ![microblocks-default-libraries](pathname:///img/microblocks-default-libraries.png)
 
-To verify that everything is working, click on the **set user LED** block in the **Output** category:
+To verify that everything is working, click on the `set user LED` block in the `Output` category:
 
 ![microblocks-setuserled](pathname:///img/microblocks-setuserled.png)
 
@@ -198,7 +192,7 @@ Here is a simple script for the CincoBit:
 
 ![demo cinco](pathname:///img/mb-demo-cinco.png)
 
-Here is a similar script using the Clipit's **A** touch pad:
+Here is a similar script using the ClipIt's **A** touch pad:
 
 ![demo clipit](pathname:///img/mb-demo-clipit.png)
 
@@ -284,13 +278,13 @@ all modules before attempting to use any module.
 
 ### MicroBlocks DUELink Libraries
 
-GHI maintains a set of MicroBlocks libraries to support its growing collection of DUELink modules. You'll use those libraries to control your DUELink modules from MicroBlocks.
+MicroBlocks already include `DUELink Edu` library by default. Additionally, we maintain a set of MicroBlocks libraries to support the growing collection of DUELink modules. You'll use those libraries to control your DUELink modules from MicroBlocks.
 
 :::note
-The MicroBlocks DUELink libraries are not built into the MicroBlocks editor so they must be downloaded from the DUELink website.
+Beyond `DUELink Edu`, the MicroBlocks DUELink libraries are not built into the MicroBlocks editor so they must be downloaded from the DUELink website.
 :::
 
-Download the MicroBlocks libraries from the [MicroBlocks Firmware/Lib](https://www.duelink.com/docs/downloads?show=libraries#microblocks-firmwarelib) section on the [Downloads Page](../downloads). Be sure to select the "Libraries" tab and download the latest available version:
+Download the MicroBlocks libraries from the [MicroBlocks Firmware/Lib](https://www.duelink.com/docs/downloads?show=libraries#microblocks-firmwarelib) section on the [Downloads Page](../downloads).
 
 <div style={{textAlign: 'center'}}>
 ![lib download](pathname:///img/mb-lib-download.png)
@@ -315,7 +309,7 @@ Navigate to the folder of libraries you saved and add the DUELink library and th
 You can also add a library by dragging the library file (ending in .ubl) onto the MicroBlocks editor.
 
 :::note
-You always need the DUELink library.
+Always add the core `DUELink` library in addition to whatever other libraries you need.
 :::
 
 ### Daisylink Example
@@ -380,7 +374,7 @@ Download the desired library and add it to your MicroBlocks project by using the
 Product | Library | Provided Blocks
 --- | --- | ---
 [Holiday Tree](../products/sptree-b) | <a download href="/code/driver/microblocks/holiday-tree.ubl">holiday-tree.ubl</a> | Control the RGB smart lights and buzzer.
-[Ghizzy](../products/spghizzy-d) | <a download href="/code/driver/microblocks/ghizzy.ubl">ghizzy.ubl</a> | Control RGB Eyes, mouth, and ears LEDs and buzzer.
+[Ghizzy](../products/spghizzy-d) | <a download href="/code/driver/microblocks/ghizzy.ubl">ghizzy.ubl</a> | Control RGB Eyes, mouth, and ears and buzzer.
 [Ghizzy Jr](../products/spghizzyjr-b) | <a download href="/code/driver/microblocks/ghizzy-jr.ubl">ghizzy-jr.ubl</a> | Control RGB eyes.
 
 This list of additional MicroBlocks libraries will probably grow over time as new specialty boards are added.
