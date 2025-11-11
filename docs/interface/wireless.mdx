@@ -38,7 +38,10 @@ This code assumes the module is loaded with [drivers](../engine/drivers).
 
 
 ```py
-# Add code
+# Connect a daisylink bridge using Bluetooth
+StartBT("DUELink BT")
+# Wait for Bluetooth connection and initiate the bridge
+Bridge()
 ```
 
 ---
@@ -59,10 +62,11 @@ This code assumes the module is loaded with [drivers](../engine/drivers).
 :::
 
 ```py
-# Modify to fit your setup
-SSID("DUELink")
-PASS("123456789")
-TCPHook()
+# Connect a daisylink bridge using WiFi
+StartWiFi("MySSID", "MyPassword") 
+StartTcp("DUELink")
+# Wait for WiFi connection and initiate the bridge
+Bridge()
 ```
 
 You can now continue to use USB as a power source, or use something like [Power Hook](../products/adpwrhook-a). Note how the Wireless module is now a host to its [daisylink](../engine/daisylink).
@@ -71,5 +75,10 @@ You can now continue to use USB as a power source, or use something like [Power 
 
 Open TeraTerm and select `TCP/IP` then enter `DUELink` for the `Host` name. Select `Other` from the `Service` options. Set `TCP Port#` to `22`.
 
-Once the connections is established, you can type in commands to control modules. `Echo()` does not work properly as TeraTerm (and most terminals) will only send data when you hit enter. You can enable `local echo` to see what you type! Go ahead and enter `list` and hot enter to see the code listing. 
+Once the connections is established, you can type in commands to control modules. `Echo()` does not work properly as TeraTerm (and most terminals) will only send data when you hit enter. You can enable `local echo` to see what you type! Go ahead and enter `list` and hot enter to see the code listing.
+
+Note how the Wireless ESP32 module is now a host. See [Daisylink](../engine/daisylink) for more info.
+
+![Wireless daisylink address](pathname:///img/wireless-daisylink-addr-host.png)
+
 
