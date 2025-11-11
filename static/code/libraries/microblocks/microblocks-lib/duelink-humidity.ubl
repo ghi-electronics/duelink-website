@@ -1,0 +1,12 @@
+module 'DUELink Humidity'
+author 'GHI Electronics'
+version 1 0 
+depends 'DUELink Comm' 
+description 'DUELink Humidity Library'
+
+  spec 'r' 'due_humid' 'read humidity on pin _ type _' 'auto auto' 18 4
+
+to due_humid pin type {
+  return ('[data:convertType]' (due_runWithResult ('due_make_command' 'Humid' pin type)) 'number')
+}
+

@@ -1,0 +1,19 @@
+module 'DUELink Digital'
+author 'GHI Electronics'
+version 1 0 
+depends 'DUELink Comm' 
+description 'DUELink Digital Library
+
+'
+
+  spec ' ' 'due_dwrite' 'write pin _ on _' 'num bool' 1 true
+  spec 'r' 'due_dread' 'read pin _ pull _' 'num num' 1 0
+
+to due_dread pin pull {
+  return ('[data:convertType]' (due_runWithResult (due_make_command 'dread' pin pull)) 'number')
+}
+
+to due_dwrite pin onOff {
+  due_run (due_make_command 'dwrite' pin onOff)
+}
+
