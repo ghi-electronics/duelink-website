@@ -293,7 +293,7 @@ ${resourceLinks.join('<br/>\n')}<br/>`
     let sampleContent = '';
     
     if (hasSamples) {
-        tabs.push({label: 'Samples', value: 'samples'});
+        tabs.push({label: 'Samples Daisylink', value: 'samples'});
         
         // Build sample tabs for each available language
         // Order: Script, Python, MicroPython, JavaScript, .NET, Arduino
