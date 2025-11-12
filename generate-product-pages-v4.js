@@ -156,6 +156,12 @@ function getAvailableStandaloneSamples(product) {
         samples.arduino = inoPath;
     }
 
+    // Check for MicroBlocks Project (.ubp)
+    const ubpPath = path.join(__dirname, 'static', 'code', 'sample', 'standalone', `${baseName}.ubp`);
+    if (fs.existsSync(ubpPath)) {
+        samples.microblocks = ubpPath;
+    }
+
     return samples;
 }
 
@@ -462,6 +468,26 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/s
 \`\`\`ino reference title="Standalone Arduino Sample"
 https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/standalone/${baseName}.ino
 \`\`\`
+
+</TabItem>`);
+            }
+        }
+
+        if (availableStandaloneSamples.microblocks) {
+            const scriptCode = loadSampleContent(availableStandaloneSamples.script);
+            if (scriptCode) {
+                standaloneSampleTabs.push({label: 'MicroBlocks', value: 'microblocks'});
+                standaloneSampleTabItems.push(`<TabItem value="microblocks">
+
+                    This project runs standalone. It assumes that the [MicroBlocks](/docs/language/microblocks) firmware is already loaded on the module.
+
+                    Click the button below to open, edit, and run the project directly on MicroBlocks' website.
+
+                    <Button
+                    style={{ color:'white' }}
+                    label="Load Project"
+                    link="https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/sample/standalone/${baseName}.ubp"
+                    />
 
 </TabItem>`);
             }
