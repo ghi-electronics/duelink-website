@@ -304,7 +304,7 @@ ${resourceLinks.join('<br/>\n')}<br/>`
     
     // Only add Drivers tab if driver file exists
     if (driverPath) {
-        tabs.push({label: 'Drivers', value: 'drivers'});
+        tabs.push({label: 'Driver', value: 'driver'});
     }
     
     // Check for available daisylink samples and add tab if any exist
@@ -313,7 +313,7 @@ ${resourceLinks.join('<br/>\n')}<br/>`
     let sampleContent = '';
 
     if (hasSamples) {
-        tabs.push({label: 'Daisylink Samples', value: 'dl-samples'});
+        tabs.push({label: 'Daisylink', value: 'dl-samples'});
         
         // Build sample tabs for each available language
         // Order: Script, Python, MicroPython, JavaScript, .NET, Arduino
@@ -409,7 +409,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/d
             sampleContent = `
 <TabItem value="dl-samples">
 
-Samples assume the drivers are installed, see the <a href="?show=drivers" onClick={(e) => { e.preventDefault(); const scrollPos = window.scrollY; window.history.pushState(null, '', '?show=drivers'); Array.from(document.querySelectorAll('.tabs__item')).find(el => el.textContent === 'Drivers')?.click(); setTimeout(() => window.scrollTo(0, scrollPos), 0); }} style={{"cursor": "pointer"}}>Drivers Tab</a>.
+These Daisylink samples assume the driver is installed, see the <a href="?show=driver" onClick={(e) => { e.preventDefault(); const scrollPos = window.scrollY; window.history.pushState(null, '', '?show=driver'); Array.from(document.querySelectorAll('.tabs__item')).find(el => el.textContent === 'Driver')?.click(); setTimeout(() => window.scrollTo(0, scrollPos), 0); }} style={{"cursor": "pointer"}}>Driver Tab</a>.
 
 <Tabs groupid="language" queryString="lang" defaultValue="${sampleTabs[0].value}"
   values={${JSON.stringify(sampleTabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>
@@ -428,7 +428,7 @@ ${sampleTabItems.join('\n')}
     let standaloneSampleContent = '';
 
     if (hasStandaloneSamples) {
-        tabs.push({label: 'Standalone Samples', value: 'sa-samples'});
+        tabs.push({label: 'Standalone', value: 'sa-samples'});
 
         // Build sample tabs for each available language
         // Order: Script, Arduino
@@ -440,6 +440,8 @@ ${sampleTabItems.join('\n')}
             if (scriptCode) {
                 standaloneSampleTabs.push({label: 'Script', value: 'script'});
                 standaloneSampleTabItems.push(`<TabItem value="script">
+
+                    This example runs using the default DUELink [Internal Engine](/docs/engine/intro) using its [Scripting Language](/docs/engine/scripting), and it expects the driver to be loaded first, see the <a href="?show=driver" onClick={(e) => { e.preventDefault(); const scrollPos = window.scrollY; window.history.pushState(null, '', '?show=driver'); Array.from(document.querySelectorAll('.tabs__item')).find(el => el.textContent === 'Driver')?.click(); setTimeout(() => window.scrollTo(0, scrollPos), 0); }} style={{"cursor": "pointer"}}>Driver Tab</a>.
 
 \`\`\`py reference title="Standalone Script Sample"
 https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/standalone/${baseName}.txt
@@ -455,6 +457,8 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/s
                 standaloneSampleTabs.push({label: 'Arduino', value: 'arduino'});
                 standaloneSampleTabItems.push(`<TabItem value="arduino">
 
+                See [Arduino](/docs/hw/arduino) page for more info.
+
 \`\`\`ino reference title="Standalone Arduino Sample"
 https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/standalone/${baseName}.ino
 \`\`\`
@@ -466,6 +470,8 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/s
         if (standaloneSampleTabItems.length > 0) {
             standaloneSampleContent = `
 <TabItem value="sa-samples">
+
+These samples show how to run DUELink [Standalone](/docs/language/standalone).
 
 <Tabs groupid="standalone-language" queryString="sa-lang" defaultValue="${standaloneSampleTabs[0].value}"
   values={${JSON.stringify(standaloneSampleTabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>
@@ -490,7 +496,7 @@ ${standaloneSampleTabItems.join('\n')}
         
         // Use reference attribute for GitHub CodeBlock plugin
         driverTabContent = `
-<TabItem value="drivers">
+<TabItem value="driver">
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
