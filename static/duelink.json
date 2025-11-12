@@ -493,17 +493,6 @@
         "Graphics coprocessor drawing (not internal graphics engine)",
         "57x77mm overall dimension"
       ],
-      "resources": {
-        "schematic": "/sch/gdl-dhdmi-b.pdf",
-        "3dModel": "/3d/gdl-dhdmi-b.step",
-        "driver": "https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/drivers/display/hdmi.txt",
-        "samples": {
-          "script": "https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/script/display/hdmi.txt",
-          "python": "https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/python/display/hdmi.py",
-          "javascript": "https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/samples/javascript/display/hdmi.js"
-        },
-        "chipInfo": "https://brtchip.com/product/bt817q/"
-      },
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start. |\n| `DLClear()` | Clear the commands. |\n| `DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments. |\n| `DLSwap()` | Execute the graphics commands and swap working buffers. |\n| `DVer()` | This driver version. |",
       "MfgNotes": "Need monitor and speaker for testing" 
     },
