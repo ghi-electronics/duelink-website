@@ -1413,12 +1413,12 @@
       ]
     },
     {
-      "name": "Temperature Analog",
+      "name": "Temp An",
       "partNumber": "GDL-SETEMPAN-A",
       "PID": "0x060012",
       "category": "Sensor",
       "price": 6.95,
-      "tagline": "Analog Temperature Sensor",
+      "tagline": "Analog to Digital Temperature Sensor",
       "description": "Measure ambient temperature with ease!",
       "keyFeatures": [
         "17x19mm overall dimension"
