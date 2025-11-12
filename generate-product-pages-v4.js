@@ -139,6 +139,26 @@ function getAvailableSamples(product) {
     return samples;
 }
 
+// Check which standalone sample types exist for product
+function getAvailableStandaloneSamples(product) {
+    const baseName = product.partNumber.toLowerCase();
+    const samples = {};
+
+    // Check for Script sample (.txt)
+    const scriptPath = path.join(__dirname, 'static', 'code', 'sample', 'standalone', `${baseName}.txt`);
+    if (fs.existsSync(scriptPath)) {
+        samples.script = scriptPath;
+    }
+
+    // Check for Arduino sample (.ino)
+    const inoPath = path.join(__dirname, 'static', 'code', 'sample', 'standalone', `${baseName}.ino`);
+    if (fs.existsSync(inoPath)) {
+        samples.arduino = inoPath;
+    }
+
+    return samples;
+}
+
 // Load sample content from file
 function loadSampleContent(filepath) {
     try {
@@ -287,13 +307,13 @@ ${resourceLinks.join('<br/>\n')}<br/>`
         tabs.push({label: 'Drivers', value: 'drivers'});
     }
     
-    // Check for available samples and add tab if any exist
+    // Check for available daisylink samples and add tab if any exist
     const availableSamples = getAvailableSamples(product);
     const hasSamples = Object.keys(availableSamples).length > 0;
     let sampleContent = '';
-    
+
     if (hasSamples) {
-        tabs.push({label: 'Daisylink Samples', value: 'samples'});
+        tabs.push({label: 'Daisylink Samples', value: 'dl-samples'});
         
         // Build sample tabs for each available language
         // Order: Script, Python, MicroPython, JavaScript, .NET, Arduino
@@ -387,7 +407,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/d
         
         if (sampleTabItems.length > 0) {
             sampleContent = `
-<TabItem value="samples">
+<TabItem value="dl-samples">
 
 Samples assume the drivers are installed, see the <a href="?show=drivers" onClick={(e) => { e.preventDefault(); const scrollPos = window.scrollY; window.history.pushState(null, '', '?show=drivers'); Array.from(document.querySelectorAll('.tabs__item')).find(el => el.textContent === 'Drivers')?.click(); setTimeout(() => window.scrollTo(0, scrollPos), 0); }} style={{"cursor": "pointer"}}>Drivers Tab</a>.
 
@@ -401,7 +421,63 @@ ${sampleTabItems.join('\n')}
 </TabItem>`;
         }
     }
-    
+
+    // Check for available standalone samples and add tab if any exist
+    const availableStandaloneSamples = getAvailableStandaloneSamples(product);
+    const hasStandaloneSamples = Object.keys(availableStandaloneSamples).length > 0;
+    let standaloneSampleContent = '';
+
+    if (hasStandaloneSamples) {
+        tabs.push({label: 'Standalone Samples', value: 'sa-samples'});
+
+        // Build sample tabs for each available language
+        // Order: Script, Arduino
+        let standaloneSampleTabs = [];
+        let standaloneSampleTabItems = [];
+
+        if (availableStandaloneSamples.script) {
+            const scriptCode = loadSampleContent(availableStandaloneSamples.script);
+            if (scriptCode) {
+                standaloneSampleTabs.push({label: 'Script', value: 'script'});
+                standaloneSampleTabItems.push(`<TabItem value="script">
+
+\`\`\`py reference title="Standalone Script Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/standalone/${baseName}.txt
+\`\`\`
+
+</TabItem>`);
+            }
+        }
+
+        if (availableStandaloneSamples.arduino) {
+            const arduinoCode = loadSampleContent(availableStandaloneSamples.arduino);
+            if (arduinoCode !== null) {
+                standaloneSampleTabs.push({label: 'Arduino', value: 'arduino'});
+                standaloneSampleTabItems.push(`<TabItem value="arduino">
+
+\`\`\`ino reference title="Standalone Arduino Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/standalone/${baseName}.ino
+\`\`\`
+
+</TabItem>`);
+            }
+        }
+
+        if (standaloneSampleTabItems.length > 0) {
+            standaloneSampleContent = `
+<TabItem value="sa-samples">
+
+<Tabs groupid="standalone-language" queryString="sa-lang" defaultValue="${standaloneSampleTabs[0].value}"
+  values={${JSON.stringify(standaloneSampleTabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>
+
+${standaloneSampleTabItems.join('\n')}
+
+</Tabs>
+
+</TabItem>`;
+        }
+    }
+
     // Generate driver tab content if driver file exists
     let driverTabContent = '';
     
@@ -471,6 +547,7 @@ ${resourcesSection}${pidSection}
 </TabItem>
 ${driverTabContent}
 ${sampleContent}
+${standaloneSampleContent}
 
 </Tabs>
 
