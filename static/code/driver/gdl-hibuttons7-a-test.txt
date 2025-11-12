@@ -1,4 +1,4 @@
-##### Button s7 Test #####
+##### Button S7 Test #####
 
 fn Rset()
     cmd("reset(0)") # reset my client

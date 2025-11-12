@@ -1,4 +1,4 @@
-##### Button s7 Test #####
+##### Button S7 Test #####
 
 1. Make sure status LED is blinking first.
 2. Press button Up, the 'up' led will be on, as long as button Up is pressed and hold down.

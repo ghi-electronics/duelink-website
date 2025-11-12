@@ -1,4 +1,4 @@
-##### Button s7 Driver #####
+##### Button S7 Driver #####
 
 fn DVer()
   return 1.0
