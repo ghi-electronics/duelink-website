@@ -135,6 +135,12 @@ function getAvailableSamples(product) {
     if (fs.existsSync(inoPath)) {
         samples.arduino = inoPath;
     }
+
+    // Check for MicroBlocks sample (.ubp files)
+    const ubpPath = path.join(__dirname, 'static', 'code', 'sample', 'daisylink', `${baseName}.ubp`);
+    if (fs.existsSync(ubpPath)) {
+        samples.microblocks = ubpPath;
+    }
     
     return samples;
 }
@@ -411,6 +417,30 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/d
             }
         }
         
+
+        // Check for microblocks files (.ubp only)
+        if (availableSamples.microblocks) {
+            const microblocks = loadSampleContent(availableSamples.microblocks);
+            if (microblocks !== null) {  // Check for null explicitly since empty file returns ""
+                sampleTabs.push({label: 'MicroBlocks', value: 'microblocks'});
+                sampleTabItems.push(`<TabItem value="microblocks">
+
+                    This project runs on a device that is loaded with MicroBlocks. This same device is also Daisylinked to this DUELink module. See [MicroBlocks](/docs/language/microblocks) to learn more.
+
+                    Click the button below to open, edit, and run the project directly on MicroBlocks' website.
+
+                    <Button
+                    style={{ color:'white' }}
+                    label="Load Project"
+                    link="https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/sample/daisylink/${baseName}.ubp"
+                    />
+                    
+
+</TabItem>`);
+            }
+        }
+
+
         if (sampleTabItems.length > 0) {
             sampleContent = `
 <TabItem value="dl-samples">
