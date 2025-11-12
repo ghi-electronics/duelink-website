@@ -101,37 +101,37 @@ function getAvailableSamples(product) {
     const samples = {};
     
     // Check for Python sample
-    const pythonPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.py`);
+    const pythonPath = path.join(__dirname, 'static', 'code', 'sample', 'daisylink', `${baseName}.py`);
     if (fs.existsSync(pythonPath)) {
         samples.python = pythonPath;
     }
     
     // Check for JavaScript sample
-    const jsPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.js`);
+    const jsPath = path.join(__dirname, 'static', 'code', 'sample', 'daisylink', `${baseName}.js`);
     if (fs.existsSync(jsPath)) {
         samples.javascript = jsPath;
     }
     
     // Check for Script sample
-    const scriptPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.txt`);
+    const scriptPath = path.join(__dirname, 'static', 'code', 'sample', 'daisylink', `${baseName}.txt`);
     if (fs.existsSync(scriptPath)) {
         samples.script = scriptPath;
     }
     
     // Check for C# sample
-    const csPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.cs`);
+    const csPath = path.join(__dirname, 'static', 'code', 'sample', 'daisylink', `${baseName}.cs`);
     if (fs.existsSync(csPath)) {
         samples.csharp = csPath;
     }
     
     // Check for MicroPython sample
-    const mpyPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.mpy`);
+    const mpyPath = path.join(__dirname, 'static', 'code', 'sample', 'daisylink', `${baseName}.mpy`);
     if (fs.existsSync(mpyPath)) {
         samples.micropython = mpyPath;
     }
     
     // Check for Arduino sample (.ino files)
-    const inoPath = path.join(__dirname, 'static', 'code', 'sample', `${baseName}.ino`);
+    const inoPath = path.join(__dirname, 'static', 'code', 'sample', 'daisylink', `${baseName}.ino`);
     if (fs.existsSync(inoPath)) {
         samples.arduino = inoPath;
     }
@@ -293,7 +293,7 @@ ${resourceLinks.join('<br/>\n')}<br/>`
     let sampleContent = '';
     
     if (hasSamples) {
-        tabs.push({label: 'Samples Daisylink', value: 'samples'});
+        tabs.push({label: 'Daisylink Samples', value: 'samples'});
         
         // Build sample tabs for each available language
         // Order: Script, Python, MicroPython, JavaScript, .NET, Arduino
@@ -307,7 +307,7 @@ ${resourceLinks.join('<br/>\n')}<br/>`
                 sampleTabItems.push(`<TabItem value="script">
 
 \`\`\`py reference title="Script Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/${baseName}.txt
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/daisylink/${baseName}.txt
 \`\`\`
 
 </TabItem>`);
@@ -321,7 +321,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/$
                 sampleTabItems.push(`<TabItem value="python">
 
 \`\`\`py reference title="Python Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/${baseName}.py
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/daisylink/${baseName}.py
 \`\`\`
 
 </TabItem>`);
@@ -335,7 +335,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/$
                 sampleTabItems.push(`<TabItem value="micropython">
 
 \`\`\`py reference title="MicroPython Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/${baseName}.mpy
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/daisylink/${baseName}.mpy
 \`\`\`
 
 </TabItem>`);
@@ -349,7 +349,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/$
                 sampleTabItems.push(`<TabItem value="javascript">
 
 \`\`\`js reference title="JavaScript Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/${baseName}.js
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/daisylink/${baseName}.js
 \`\`\`
 
 </TabItem>`);
@@ -363,7 +363,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/$
                 sampleTabItems.push(`<TabItem value="dotnet">
 
 \`\`\`cs reference title=".NET Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/${baseName}.cs
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/daisylink/${baseName}.cs
 \`\`\`
 
 </TabItem>`);
@@ -378,7 +378,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/$
                 sampleTabItems.push(`<TabItem value="arduino">
 
 \`\`\`ino reference title="Arduino Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/${baseName}.ino
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/daisylink/${baseName}.ino
 \`\`\`
 
 </TabItem>`);
