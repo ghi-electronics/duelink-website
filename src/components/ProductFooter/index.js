@@ -4,7 +4,7 @@ import styles from './styles.module.css';
 const ProductFooter = () => {
   return (
     <div className={styles.productFooter}>
-      <a href="#" className={styles.footerBtn}>
+      <a href="/distributors" className={styles.footerBtn}>
         Distributors
       </a>
       <a href="/docs/catalog/intro" className={styles.footerBtn}>
