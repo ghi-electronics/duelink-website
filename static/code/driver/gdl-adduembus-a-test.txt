@@ -1,4 +1,4 @@
-##### DuePico #####
+##### DueMBUS #####
 
 fn Rset()
     cmd("reset(0)") # reset my client
