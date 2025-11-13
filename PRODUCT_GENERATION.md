@@ -80,11 +80,11 @@ Located in `static/img/catalog/`:
 - Images are resolved from part number (removing GDL- prefix, lowercase)
 - Format: `[product]-[1-5].png`
 - Example for GDL-MCCINCOBIT-E:
-  - `mccincobit-e-1.png` (front view)
-  - `mccincobit-e-2.png` (back view)
-  - `mccincobit-e-3.png` (pencil/size reference)
-  - `mccincobit-e-4.png` (front 45° angle)
-  - `mccincobit-e-5.png` (back 45° angle)
+  - `mccincobit-e-1.webp` (front view)
+  - `mccincobit-e-2.webp` (back view)
+  - `mccincobit-e-3.webp` (pencil/size reference)
+  - `mccincobit-e-4.webp` (front 45° angle)
+  - `mccincobit-e-5.webp` (back 45° angle)
 
 ### Other Resource Files (Convention-Based)
 - **Schematic PDFs**: `static/sch/[product].pdf`
