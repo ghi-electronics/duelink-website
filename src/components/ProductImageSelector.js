@@ -13,11 +13,11 @@ const ProductImageSelector = ({ images, partNumber, productName }) => {
         { key: 5, src: images.back45, alt: 'View 5' }
       ].filter(img => img.src && img.src.trim())
     : [
-        { key: 1, src: `${partNumber}-1.png`, alt: 'View 1' },
-        { key: 2, src: `${partNumber}-2.png`, alt: 'View 2' },
-        { key: 3, src: `${partNumber}-3.png`, alt: 'View 3' },
-        { key: 4, src: `${partNumber}-4.png`, alt: 'View 4' },
-        { key: 5, src: `${partNumber}-5.png`, alt: 'View 5' }
+        { key: 1, src: `${partNumber}-1.webp`, alt: 'View 1' },
+        { key: 2, src: `${partNumber}-2.webp`, alt: 'View 2' },
+        { key: 3, src: `${partNumber}-3.webp`, alt: 'View 3' },
+        { key: 4, src: `${partNumber}-4.webp`, alt: 'View 4' },
+        { key: 5, src: `${partNumber}-5.webp`, alt: 'View 5' }
       ];
 
   const [selectedImage, setSelectedImage] = useState(imageList[0]?.src);

@@ -108,7 +108,7 @@ const config = {
         title: 'by GHI Electronics',
         logo: {
           alt: 'DUELink Logo',
-          src: 'img/duelinklogo.png',
+          src: 'img/duelinklogo.webp',
 
         },
         items: [
@@ -151,32 +151,32 @@ const config = {
           {
           href: 'https://www.x.com/ghielectronics',
           position: 'left',
-          html: '<img src="/img/x-icon.png" alt="X">',
+          html: '<img src="/img/x-icon.webp" alt="X">',
           },
                     {
           href: 'https://www.instagram.com/ghielectronics/',
           position: 'left',
-          html: '<img src="/img/instagram-icon.png" alt="Instagram">',
+          html: '<img src="/img/instagram-icon.webp" alt="Instagram">',
           },
           {
           href: 'https://www.facebook.com/ghielec',
           position: 'left',
-          html: '<img src="/img/facebook-icon.png" alt="Facebook">',
+          html: '<img src="/img/facebook-icon.webp" alt="Facebook">',
           },
           {
           href: 'https://www.youtube.com/user/GHIElectronics',
           position: 'left',
-          html: '<img src="/img/youtube-icon.png" alt="Youtube">',
+          html: '<img src="/img/youtube-icon.webp" alt="Youtube">',
           },   
           {
           href: 'https://linkedin.com/company/ghielectronics/',
           position: 'left',
-          html: '<img src="/img/linkedin-icon.png" alt="Linkedin">',
+          html: '<img src="/img/linkedin-icon.webp" alt="Linkedin">',
           },
           {
           href: 'https://github.com/ghi-electronics',
           position: 'left',
-          html: '<img src="/img/github-icon.png" alt="GitHub">',
+          html: '<img src="/img/github-icon.webp" alt="GitHub">',
           },
           
          // {to: '/blog', label: 'Blog', position: 'left'},
@@ -249,7 +249,7 @@ const config = {
         logo: 
         {
           alt: 'DUELink Logo',
-          src: 'img/duelinklogo.png',
+          src: 'img/duelinklogo.webp',
         },
         copyright: `Copyright © ${new Date().getFullYear()} GHI Electronics, LLC`,
       },
