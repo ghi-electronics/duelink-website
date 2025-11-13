@@ -14,7 +14,7 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
 
-        <img src="/img/duelink-intro.png" alt="DUELink" />
+        <img src="/img/duelink-intro.webp" alt="DUELink" />
   
        <Heading as="h2" >
         Daisylink Hundreds of Modules

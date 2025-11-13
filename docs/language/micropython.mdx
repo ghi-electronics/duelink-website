@@ -1,17 +1,17 @@
 # MicroPython
 
 
-![MicroPython](pathname:///img/micropython.png)
+![MicroPython](pathname:///img/micropython.webp)
 
 You can use DUELink with any microcontroller that uses MicroPython by connecting a [Breakout](../products/adbreakout-a) module to either the I2C or UART output of the board.
 
-![board with Breakout](pathname:///img/micropython-breakout.png)
+![board with Breakout](pathname:///img/micropython-breakout.webp)
 
 MicroPython with DUELink is also fully supported on [Raspberry Pi](../hw/raspberry-pi) microcontroller-level (RP2040/RP2350) boards, such as Raspberry Pi Pico.
 
 [DuePico](../products/adduepico-b) is the perfect [Raspberry Pi](../hw/raspberry-pi) adapter for connecting DUELink modules. 
 
-![DuePico](pathname:///img/duepico-rgbled.png)
+![DuePico](pathname:///img/duepico-rgbled.webp)
 
 We'll use [Thonny](https://thonny.org/) IDE to program the RaspberryPi Pico in MicroPython. We will use the Pico to access DUELink modules attached to the [DuePico's](../products/adduepico-b) Downlink connector.
 
@@ -23,7 +23,7 @@ First make sure your board is set up for MicroPython. Follow the steps found at 
 
 Connect to the board by going to `Tools/Options` and select the proper `Interpreter`. In this case we'll be selecting `MicroPython(Raspberry Pi Pico)`.
 
-![Thonny Connect](pathname:///img/thonny-connect.png)
+![Thonny Connect](pathname:///img/thonny-connect.webp)
 
  We can test that everything is working correctly by blinking the Raspberry Pi Pico's onboard LED.
 
@@ -46,11 +46,11 @@ while True:
 
 Users have two options for loading the DUELink MicroPython library into Thonny. They can either download the [duelink-stdlib-mp](https://pypi.org/project/duelink-stdlib-mp/#files) file found at `pypi.org` to their computer, and `Install from local file` found under `Tools/Manage packages`. 
 
-![DUELink library from local file](pathname:///img/download-mp-library.png)
+![DUELink library from local file](pathname:///img/download-mp-library.webp)
 
 Alternatively, users can type `duelink-stdlib-mp` into the search window and `Install from PyPi` directly. 
 
-![DUELink library from PyPi](pathname:///img/install-mp-library.png)
+![DUELink library from PyPi](pathname:///img/install-mp-library.webp)
 
 ---
 
@@ -73,7 +73,7 @@ due.system.statled(50,50,0)
 
 You can also use boards that already have a JST connector, like [Adafruit QT Py RP2040](https://www.adafruit.com/product/4900) or [Sparkfun Pro Micro RP2350](https://www.sparkfun.com/sparkfun-pro-micro-rp2350.html). However, note that these boards use the [I2C Interface](../interface/i2c).
 
-![Other boards](pathname:///img/rp2040-rp2350.png)
+![Other boards](pathname:///img/rp2040-rp2350.webp)
 
 ```python
 import time
@@ -96,7 +96,7 @@ due.system.statled(50,50,0)
 Some third-party boards are not properly equipped with the proper I2C pull up resistors. The DUEink pull-up board can be used to solve this problem. See [I2C Interface](../interface/i2c) page for more details. 
 :::
 
-![QTPY with Pull-up](pathname:///img/qtpy-pullup-button.png)
+![QTPY with Pull-up](pathname:///img/qtpy-pullup-button.webp)
 
 ---
 
@@ -110,7 +110,7 @@ Make sure these modules are loaded with [Drivers](../engine/drivers).
 
 Note how the DuePico itself is a module, which is `Device 1`.
 
-![DuePico Daisylinked](pathname:///img/duepico-daisylinked.png)
+![DuePico Daisylinked](pathname:///img/duepico-daisylinked.webp)
 
 
 ```python

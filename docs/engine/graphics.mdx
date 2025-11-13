@@ -258,7 +258,7 @@ There are two ways to add images, with a "color" per pixel, or a single binary b
 
 ### Color
 
-![Image Array](pathname:///img/image-array.png)
+![Image Array](pathname:///img/image-array.webp)
 
 The `Img()` function uses a color array bitmap to create an image. These arrays can sometimes be visualized when looking at the array.
 
@@ -278,7 +278,7 @@ Show()
 ```
 This example below creates the same sprite using colors set to different elements of the sprite. Note the use of `Alias()` to make the code more readable.
 
-![Color Image Array](pathname:///img/image-array-color.png)
+![Color Image Array](pathname:///img/image-array-color.webp)
 
 ```py
 Alias(body=0x00ff00,hat=0xff00ff,legs=0x0000FF,back=0xFFFFFF)
@@ -311,7 +311,7 @@ ImgB([data],color,x,y,w,h)
 Users can take advantage of 0b0000000 to use binary numbers to create an image.
 :::
 
-![Color Binary Array](pathname:///img/image-binary-array.png)
+![Color Binary Array](pathname:///img/image-binary-array.webp)
 
 ```py
 ImgB(b1,0x1377AB,20,30,24,8)
@@ -319,14 +319,14 @@ ImgB(b1,0x1377AB,20,30,24,8)
 
 Additional binary arrays can be added to create multi-color images.
 
-![Color Binary Array](pathname:///img/image-binary-array-i.png)
+![Color Binary Array](pathname:///img/image-binary-array-i.webp)
 
 ```py 
 ImgB(b1,0xFAA957,20,30,24,8)
 ```
 Finally the `Show()` function is called to display the overlapping image arrays together. 
 
-![Final Binary image](pathname:///img/binary-image.png)
+![Final Binary image](pathname:///img/binary-image.webp)
 
 ```py
 Dim b1[] = [
@@ -560,11 +560,11 @@ NeoPixel supports buffered graphics only, with x1 multiplier.
 
 Pixels are usually connected inside a panel in a zigzag pattern. This zigzag can be horizontal or vertical.
 
-![NeoPixel Horizontal and Vertical Zigzag](pathname:///img/neopixel-horizontal-vertical.png)
+![NeoPixel Horizontal and Vertical Zigzag](pathname:///img/neopixel-horizontal-vertical.webp)
 
 With the vertical scanning, we only support a single panel, but this panel can be of any size. A good example here is the 32x8 pixel panels. Note that while we support only a single panel, you can set the width to double the panel to get 64x8 pixels.
 
-![64x9 Matrix](pathname:///img/64x8-matrix.png)
+![64x9 Matrix](pathname:///img/64x8-matrix.webp)
 
 This is the easiest setup to make long LED display.
 
@@ -592,7 +592,7 @@ wend
 ```
 Things are quite different when using horizontal scanning as the system supports panels in different configurations. When connecting panels horizontally the panels need to be in order like the image below.
 
-![Horizontal signal path](pathname:///img/neopixel-horizontal-signal.png)
+![Horizontal signal path](pathname:///img/neopixel-horizontal-signal.webp)
 
 ```py
 # 3 horizontal 16x16 panels creating 48x16 display
@@ -619,7 +619,7 @@ wend
 
 When connecting panels in a matrix, to build up larger "panels", they need to be connected as follows:
 
-![Horizontal signal path](pathname:///img/neopixel-vertical-signal.png)
+![Horizontal signal path](pathname:///img/neopixel-vertical-signal.webp)
 
 ```py
 # 4 panels placed as 2x2, where each one is 16x16 pixels, creating 48x48 pixel displays
@@ -673,7 +673,7 @@ It is possible to make your own panels using LED strips. For example, 5 strips o
 
 This is a partial image to demonstrate the connections.
 
-![LED strip signal path](pathname:///img/ledtrip-signal.png)
+![LED strip signal path](pathname:///img/ledtrip-signal.webp)
 
 ```py
 Dim a1[]={1, # Pin used
@@ -730,7 +730,7 @@ wend
 
 This is a perfect match for [CincoBit](../products/mccincobit-e) with its 5x5 LED matrix. This type supports buffered mode, with 1x multiplier only.
 
-![CincoBit](pathname:///img/catalog/mccincobit-e-1.png)
+![CincoBit](pathname:///img/catalog/mccincobit-e-1.webp)
 
 ```py
 Dim a1[11] = {0,11,19,18,21,22,7,5,0,8,6} # first number sets common-anode, second 5 for data, third 5 for scan
@@ -833,7 +833,7 @@ Note that ePaper displays need several seconds to update, which completely block
 Once updated, ePaper retains the content without the need for power!
 :::
 
-![ePaper M29](pathname:///img/catalog/dsepaprm29-a-1.png)
+![ePaper M29](pathname:///img/catalog/dsepaprm29-a-1.webp)
 
 ```py reference title="ePaper M29 Driver"
 https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/driver/gdl-dsepaprm29-a.txt
