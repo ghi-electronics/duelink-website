@@ -12,7 +12,7 @@ const ImageBlock = ({
     useEffect(() => {
         const checkImages = async () => {
             const images = [];
-            const mainImg = `/img/catalog/${product}-1.png`;
+            const mainImg = `/img/catalog/${product}-1.webp`;
             
             // Check main image
             try {
@@ -26,7 +26,7 @@ const ImageBlock = ({
             
             // Check thumbnail images (2-5)
             for (let i = 2; i <= 5; i++) {
-                const imgPath = `/img/catalog/${product}-${i}.png`;
+                const imgPath = `/img/catalog/${product}-${i}.webp`;
                 try {
                     const response = await fetch(imgPath, { method: 'HEAD' });
                     if (response.ok) {

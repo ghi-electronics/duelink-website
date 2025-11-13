@@ -1,0 +1,88 @@
+##### Button S7 Driver #####
+
+fn DVer()
+  return 1.0
+fend
+
+fn Init() 
+    # All LEDs off
+    DWrite(9, 0) # Led up
+    DWrite(8, 0) # Led down
+    DWrite(17, 0) # Led left
+    DWrite(12, 0) # Led right
+    DWrite(13, 0) # Led back
+    DWrite(14, 0) # Led forward
+
+    # initialize buttons
+    BtnEn(BtnPin('U'), 0) # Btn Up
+    BtnEn(BtnPin('D'), 0) # Btn Down
+    BtnEn(BtnPin('L'), 0) # Btn Left
+    BtnEn(BtnPin('R'), 0) # Btn Right
+    BtnEn(BtnPin('B'), 0) # Btn Back
+    BtnEn(BtnPin('F'), 0) # Btn Forward
+    BtnEn(BtnPin('E'), 0) # Btn Enter
+fend
+
+fn BtnPin(a)
+    if a = 'U'
+        return 1
+    end
+    if a = 'D'
+        return 2
+    end
+    if a = 'L'
+        return 3
+    end
+    if a = 'R'
+        return 4
+    end
+    if a = 'B'
+        return 5
+    end
+    if a = 'F'
+        return 6
+    end
+    if a = 'E'
+        return 7
+    end
+    while 1
+        PrintLn("ERROR!!")
+        Wait(200)
+    wend
+fend
+
+fn SetLed(a, v)
+    if a = 'U'
+        DWrite(9,v)
+        return
+    end
+    if a = 'D'
+        DWrite(8,v)
+        return
+    end
+    if a = 'L'
+        DWrite(17,v)
+        return
+    end
+    if a = 'R'
+        DWrite(12,v)
+        return
+    end
+    if a = 'B'
+        DWrite(13,v)
+        return
+    end
+    if a = 'F'
+        DWrite(14,v)
+        return
+    end
+    while 1
+        PrintLn("ERROR!!")
+        Wait(200)
+    wend
+
+fend
+
+Init()
+
+####################

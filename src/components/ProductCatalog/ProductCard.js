@@ -27,11 +27,11 @@ const ProductCard = memo(({ product, index, onCategoryClick }) => {
   
   // Array of all image URLs
   const imageUrls = [
-    `/img/catalog/${cleanPN}-1.png`,
-    `/img/catalog/${cleanPN}-2.png`,
-    `/img/catalog/${cleanPN}-3.png`,
-    `/img/catalog/${cleanPN}-4.png`,
-    `/img/catalog/${cleanPN}-5.png`
+    `/img/catalog/${cleanPN}-1.webp`,
+    `/img/catalog/${cleanPN}-2.webp`,
+    `/img/catalog/${cleanPN}-3.webp`,
+    `/img/catalog/${cleanPN}-4.webp`,
+    `/img/catalog/${cleanPN}-5.webp`
   ];
 
   const openLightbox = (index) => {
