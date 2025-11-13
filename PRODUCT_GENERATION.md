@@ -78,7 +78,7 @@ MDX files are created as: `[product-name]-rev-[revision].mdx`
 ### Image Files (Convention-Based)
 Located in `static/img/catalog/`:
 - Images are resolved from part number (removing GDL- prefix, lowercase)
-- Format: `[product]-[1-5].png`
+- Format: `[product]-[1-5].webp`
 - Example for GDL-MCCINCOBIT-E:
   - `mccincobit-e-1.webp` (front view)
   - `mccincobit-e-2.webp` (back view)

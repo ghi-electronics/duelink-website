@@ -75,7 +75,7 @@ export default function ForumFeed() {
                     }
                   }
                   
-                  // Remove image metadata text (like "NewsletterImage1456×900 74.8 KB" or "image.png1920×1080 123 KB")
+                  // Remove image metadata text (like "NewsletterImage1456×900 74.8 KB" or "image.webp1920×1080 123 KB")
                   let plainText = (tempDiv.textContent || '');
                   // Remove image filenames with dimensions and size (e.g., "NewsletterImage1456×900 74.8 KB")
                   plainText = plainText.replace(/\b\w+\d+×\d+\s+[\d.]+\s*[KMG]?B\b/gi, '');

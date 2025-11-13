@@ -1,10 +1,10 @@
 # Downlink
 
-![Downlink](pathname:///img/downlink.png)
+![Downlink](pathname:///img/downlink.webp)
 
 The Downlink connector found on every single DUELink module is used to connect to the next Uplink connector on the next module. The DUELink software magically handles the data going across the entire [Daisylink](../engine/daisylink) chain of connected modules.
 
-![Downlink](pathname:///img/daisylink.png)
+![Downlink](pathname:///img/daisylink.webp)
 
 ---
 
@@ -49,8 +49,8 @@ The user has the option to switch to `Host`, `Gateway`, or `Inactive` modes at a
 
 The Downlink connector can be switched to a special I2C non-DUELink mode. This mode will free up the Downlink connector from its normal use, giving the user access to `DLI2CWr()` function. This will allow for an I2C access on the Downlink connector, see [Standard Library](../engine/stdlib).
 
-![DUELink STEM I2C qwiic stemmaQT modulino](pathname:///img/qwiic-stemma-modulino-i2c.png)
+![DUELink STEM I2C qwiic stemmaQT modulino](pathname:///img/qwiic-stemma-modulino-i2c.webp)
 
 It is also possible to have a [Daisylink](../engine/daisylink) of DUELink modules where the last module (and only the last module) is switched to `I2C non-DUELink` mode (mode #4). This last module can now use `DLI2CWr()` to access those I2C non-DUELink modules.
 
-![I2C non-DUELink](pathname:///img/i2c-nonduelink.png)
+![I2C non-DUELink](pathname:///img/i2c-nonduelink.webp)
