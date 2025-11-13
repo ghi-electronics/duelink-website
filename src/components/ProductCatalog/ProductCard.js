@@ -22,7 +22,7 @@ const ProductCard = memo(({ product, index, onCategoryClick }) => {
   const productUrl = `/docs/products/${productSlug}`;
 
   // Main product image URL
-  const mainImageUrl = `/img/catalog/${cleanPN}-1.png`;
+  const mainImageUrl = `/img/catalog/${cleanPN}-1.webp`;
 
   return (
     <>

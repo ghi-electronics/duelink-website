@@ -135,6 +135,12 @@ function getAvailableSamples(product) {
     if (fs.existsSync(inoPath)) {
         samples.arduino = inoPath;
     }
+
+    // Check for MicroBlocks sample (.ubp files)
+    const ubpPath = path.join(__dirname, 'static', 'code', 'sample', 'daisylink', `${baseName}.ubp`);
+    if (fs.existsSync(ubpPath)) {
+        samples.microblocks = ubpPath;
+    }
     
     return samples;
 }
@@ -154,6 +160,12 @@ function getAvailableStandaloneSamples(product) {
     const inoPath = path.join(__dirname, 'static', 'code', 'sample', 'standalone', `${baseName}.ino`);
     if (fs.existsSync(inoPath)) {
         samples.arduino = inoPath;
+    }
+
+    // Check for MicroBlocks Project (.ubp)
+    const ubpPath = path.join(__dirname, 'static', 'code', 'sample', 'standalone', `${baseName}.ubp`);
+    if (fs.existsSync(ubpPath)) {
+        samples.microblocks = ubpPath;
     }
 
     return samples;
@@ -304,7 +316,7 @@ ${resourceLinks.join('<br/>\n')}<br/>`
     
     // Only add Drivers tab if driver file exists
     if (driverPath) {
-        tabs.push({label: 'Drivers', value: 'drivers'});
+        tabs.push({label: 'Driver', value: 'driver'});
     }
     
     // Check for available daisylink samples and add tab if any exist
@@ -313,7 +325,7 @@ ${resourceLinks.join('<br/>\n')}<br/>`
     let sampleContent = '';
 
     if (hasSamples) {
-        tabs.push({label: 'Daisylink Samples', value: 'dl-samples'});
+        tabs.push({label: 'Daisylink', value: 'dl-samples'});
         
         // Build sample tabs for each available language
         // Order: Script, Python, MicroPython, JavaScript, .NET, Arduino
@@ -405,11 +417,35 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/d
             }
         }
         
+
+        // Check for microblocks files (.ubp only)
+        if (availableSamples.microblocks) {
+            const microblocks = loadSampleContent(availableSamples.microblocks);
+            if (microblocks !== null) {  // Check for null explicitly since empty file returns ""
+                sampleTabs.push({label: 'MicroBlocks', value: 'microblocks'});
+                sampleTabItems.push(`<TabItem value="microblocks">
+
+                    This project runs on a device that is loaded with MicroBlocks. This same device is also Daisylinked to this DUELink module. See [MicroBlocks](/docs/language/microblocks) to learn more.
+
+                    Click the button below to open, edit, and run the project directly on MicroBlocks' website.
+
+                    <Button
+                    style={{ color:'white' }}
+                    label="Load Project"
+                    link="https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/sample/daisylink/${baseName}.ubp"
+                    />
+                    
+
+</TabItem>`);
+            }
+        }
+
+
         if (sampleTabItems.length > 0) {
             sampleContent = `
 <TabItem value="dl-samples">
 
-Samples assume the drivers are installed, see the <a href="?show=drivers" onClick={(e) => { e.preventDefault(); const scrollPos = window.scrollY; window.history.pushState(null, '', '?show=drivers'); Array.from(document.querySelectorAll('.tabs__item')).find(el => el.textContent === 'Drivers')?.click(); setTimeout(() => window.scrollTo(0, scrollPos), 0); }} style={{"cursor": "pointer"}}>Drivers Tab</a>.
+These Daisylink samples assume the driver is installed, see the <a href="?show=driver" onClick={(e) => { e.preventDefault(); const scrollPos = window.scrollY; window.history.pushState(null, '', '?show=driver'); Array.from(document.querySelectorAll('.tabs__item')).find(el => el.textContent === 'Driver')?.click(); setTimeout(() => window.scrollTo(0, scrollPos), 0); }} style={{"cursor": "pointer"}}>Driver Tab</a>.
 
 <Tabs groupid="language" queryString="lang" defaultValue="${sampleTabs[0].value}"
   values={${JSON.stringify(sampleTabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>
@@ -428,7 +464,7 @@ ${sampleTabItems.join('\n')}
     let standaloneSampleContent = '';
 
     if (hasStandaloneSamples) {
-        tabs.push({label: 'Standalone Samples', value: 'sa-samples'});
+        tabs.push({label: 'Standalone', value: 'sa-samples'});
 
         // Build sample tabs for each available language
         // Order: Script, Arduino
@@ -440,6 +476,8 @@ ${sampleTabItems.join('\n')}
             if (scriptCode) {
                 standaloneSampleTabs.push({label: 'Script', value: 'script'});
                 standaloneSampleTabItems.push(`<TabItem value="script">
+
+                    This example runs using the default DUELink [Internal Engine](/docs/engine/intro) using its [Scripting Language](/docs/engine/scripting), and it expects the driver to be loaded first, see the <a href="?show=driver" onClick={(e) => { e.preventDefault(); const scrollPos = window.scrollY; window.history.pushState(null, '', '?show=driver'); Array.from(document.querySelectorAll('.tabs__item')).find(el => el.textContent === 'Driver')?.click(); setTimeout(() => window.scrollTo(0, scrollPos), 0); }} style={{"cursor": "pointer"}}>Driver Tab</a>.
 
 \`\`\`py reference title="Standalone Script Sample"
 https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/standalone/${baseName}.txt
@@ -455,6 +493,8 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/s
                 standaloneSampleTabs.push({label: 'Arduino', value: 'arduino'});
                 standaloneSampleTabItems.push(`<TabItem value="arduino">
 
+                See [Arduino](/docs/hw/arduino) page for more info.
+
 \`\`\`ino reference title="Standalone Arduino Sample"
 https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/standalone/${baseName}.ino
 \`\`\`
@@ -463,9 +503,31 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/s
             }
         }
 
+        if (availableStandaloneSamples.microblocks) {
+            const scriptCode = loadSampleContent(availableStandaloneSamples.script);
+            if (scriptCode) {
+                standaloneSampleTabs.push({label: 'MicroBlocks', value: 'microblocks'});
+                standaloneSampleTabItems.push(`<TabItem value="microblocks">
+
+                    This project runs standalone. It assumes that the [MicroBlocks](/docs/language/microblocks) firmware is already loaded on the module.
+
+                    Click the button below to open, edit, and run the project directly on MicroBlocks' website.
+
+                    <Button
+                    style={{ color:'white' }}
+                    label="Load Project"
+                    link="https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/sample/standalone/${baseName}.ubp"
+                    />
+
+</TabItem>`);
+            }
+        }
+
         if (standaloneSampleTabItems.length > 0) {
             standaloneSampleContent = `
 <TabItem value="sa-samples">
+
+These samples show how to run DUELink [Standalone](/docs/language/standalone).
 
 <Tabs groupid="standalone-language" queryString="sa-lang" defaultValue="${standaloneSampleTabs[0].value}"
   values={${JSON.stringify(standaloneSampleTabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>
@@ -490,7 +552,7 @@ ${standaloneSampleTabItems.join('\n')}
         
         // Use reference attribute for GitHub CodeBlock plugin
         driverTabContent = `
-<TabItem value="drivers">
+<TabItem value="driver">
 
 See [Drivers](/docs/engine/drivers) page for further details.
 
