@@ -1,4 +1,4 @@
-module 'Holiday Tree'
+module 'DUELink Holiday Tree'
 author GHIElectronics
 version 0 5 
 depends Tone 
@@ -7,13 +7,14 @@ description 'DUELink Holiday Tree Library
 '
 variables _due_tree_array _due_tree_enabled 
 
-  spec ' ' 'due_tree_beep' 'Play beep'
-  spec ' ' 'due_tree_show' 'Show led'
-  spec ' ' 'due_tree_setled_id' 'Set led index _ red _ green _ blue _ brightness _ %' 'auto auto auto auto auto' 1 255 255 255 50
-  spec ' ' 'due_tree_setled_all' 'Set all leds red _ green _ blue _ brightness _ %' 'auto auto auto auto auto' 255 255 255 50
-  spec ' ' 'due_tree_clearled_all' 'Clear all leds'
-  spec ' ' '_due_tree_initialize' 'Initialize Holiday Tree'
-  spec 'r' 'due_tree_button' 'Button pressed'
+  spec ' ' 'due_tree_beep' 'play beep'
+  spec ' ' 'due_tree_show' 'show led'
+  spec ' ' 'due_tree_setled_id' 'set led index _ red _ green _ blue _ brightness _ %' 'auto auto auto auto auto' 1 255 255 255 50
+  spec ' ' 'due_tree_setled_all' 'set all leds red _ green _ blue _ brightness _ %' 'auto auto auto auto auto' 255 255 255 50
+  spec ' ' 'due_tree_clearled_all' 'clear all leds'
+  spec 'r' 'due_tree_button' 'button pressed'
+  space
+  spec ' ' '_due_tree_initialize' '_initialize Holiday Tree'  
 
 to '_due_tree_initialize' {
   if (_due_tree_enabled != 1) {
