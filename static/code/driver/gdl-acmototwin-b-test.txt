@@ -1,4 +1,4 @@
-##### DueMBUS #####
+##### MotoTwin #####
 
 fn Rset()
     cmd("reset(0)") # reset my client
@@ -13,8 +13,16 @@ fn Test()
        
     
     while 1
- 
-        wait(10)
+        
+        SMotorA(50)
+        SMotorB(50)
+        
+        Wait(2000)
+        
+        SMotorA(-50)
+        SMotorB(-50)
+        
+        Wait(2000)
           
     wend
 fend
