@@ -634,7 +634,7 @@ const ProductTable: React.FC<ProductTableProps> = ({ autoSaveEnabled = false, fi
                 data-color-mode="light"
               />
               <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: 'block' }}>
-                You can use markdown to add images: ![alt text](/img/filename.png)
+                You can use markdown to add images: ![alt text](/img/filename.webp)
               </Typography>
             </Box>
           </Box>
