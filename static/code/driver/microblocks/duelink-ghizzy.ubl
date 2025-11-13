@@ -13,7 +13,8 @@ variables _due_ghizzy_enabled _due_ghizzy_oldver
   spec ' ' 'due_ghizzy_set_mouth' 'set mouth left _ center _ right _' 'bool bool bool' true true true
   spec ' ' 'due_ghizzy_beep' 'play beep'
   spec 'r' 'due_ghizzy_button' 'button pressed'
-  spec ' ' '_due_ghizzy_initialize' 'initialize'
+  space
+  spec ' ' '_due_ghizzy_initialize' '_initialize'
 
 to '_due_ghizzy_initialize' {
   if (_due_ghizzy_enabled == 0) {

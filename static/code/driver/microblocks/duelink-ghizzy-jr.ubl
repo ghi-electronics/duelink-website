@@ -9,7 +9,8 @@ variables _due_ghizzyjr_enabled _due_ghizzyjr_oldver
   spec ' ' 'due_ghizzyjr_set_left_eye' 'set left eye red _ green _ blue _' 'num num num' 128 128 128
   spec ' ' 'due_ghizzyjr_set_right_eye' 'set right eye red _ green _ blue _' 'num num num' 128 128 128
   spec 'r' 'due_ghizzyjr_button' 'button pressed'
-  spec ' ' '_due_ghizzyjr_initialize' 'initialize'
+  space
+  spec ' ' '_due_ghizzyjr_initialize' '_initialize'
 
 to '_due_ghizzyjr_initialize' {
   if (_due_ghizzyjr_enabled != 1) {
