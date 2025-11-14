@@ -36,7 +36,7 @@ const sidebars = {
     {
       type: "category",
       label: "Product Catalog",
-      link: {type: 'doc', id: 'catalog/intro'},
+      link: {type: 'doc', id: 'catalog/products'},
       items: [
         {
           type: "category",

@@ -121,7 +121,7 @@ const config = {
             label: 'What is DUElink?',
           },
           {
-            href: '/docs/catalog/intro',
+            href: '/docs/catalog/products',
             //type: 'docSidebar',
             //sidebarId: 'tutorialSidebar',
             position: 'right',
