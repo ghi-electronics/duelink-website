@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo, useCallback, useRef } from 'react';
+import { useHistory, useLocation } from '@docusaurus/router';
 import ProductCard from './ProductCard';
 import styles from './styles.module.css';
 
@@ -20,6 +21,9 @@ const useDebounce = (value, delay) => {
 };
 
 const ProductCatalog = () => {
+  const history = useHistory();
+  const location = useLocation();
+
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -28,7 +32,7 @@ const ProductCatalog = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const searchInputRef = useRef(null);
-  
+
   // Debounce search term for better performance
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
 
@@ -37,12 +41,54 @@ const ProductCatalog = () => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // Initialize filters from URL parameters on mount
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const categoryParam = params.get('category');
+    const sortParam = params.get('sort');
+    const searchParam = params.get('search');
+
+    if (categoryParam) {
+      setSelectedCategory(categoryParam);
+    }
+    if (sortParam) {
+      setSortBy(sortParam);
+    }
+    if (searchParam) {
+      setSearchTerm(searchParam);
+    }
+  }, []); // Only run on mount
+
+  // Update URL when filters change
+  useEffect(() => {
+    const params = new URLSearchParams();
+
+    if (selectedCategory !== 'all') {
+      params.set('category', selectedCategory.toLowerCase());
+    }
+    if (sortBy !== 'category') {
+      params.set('sort', sortBy);
+    }
+    if (searchTerm) {
+      params.set('search', searchTerm);
+    }
+
+    const newSearch = params.toString();
+    const newUrl = newSearch ? `${location.pathname}?${newSearch}` : location.pathname;
+
+    // Only update if URL actually changed
+    const currentUrl = `${location.pathname}${location.search}`;
+    if (newUrl !== currentUrl) {
+      history.replace(newUrl);
+    }
+  }, [selectedCategory, sortBy, searchTerm, history, location.pathname, location.search]);
 
   useEffect(() => {
     fetch('/duelink.json')
@@ -158,10 +204,18 @@ const ProductCatalog = () => {
         });
         break;
       case 'price-asc':
-        sorted.sort((a, b) => a.price - b.price);
+        sorted.sort((a, b) => {
+          const priceA = a.variations ? a.variations[0].price : a.price;
+          const priceB = b.variations ? b.variations[0].price : b.price;
+          return priceA - priceB;
+        });
         break;
       case 'price-desc':
-        sorted.sort((a, b) => b.price - a.price);
+        sorted.sort((a, b) => {
+          const priceA = a.variations ? a.variations[0].price : a.price;
+          const priceB = b.variations ? b.variations[0].price : b.price;
+          return priceB - priceA;
+        });
         break;
       default:
         break;
