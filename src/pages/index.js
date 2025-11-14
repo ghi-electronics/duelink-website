@@ -32,7 +32,7 @@ function HomepageHeader() {
            &nbsp; &nbsp;&nbsp;
           <Link
             className="button button--secondary"
-            to="/docs/catalog/intro">
+            to="/docs/catalog/products">
             Product Catalog
           </Link>
         </div>

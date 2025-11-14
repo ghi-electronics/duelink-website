@@ -1,4 +1,4 @@
-module Ghizzy
+module 'DUELink Ghizzy'
 author GHIElectronics
 version 0 5 
 depends Tone 
@@ -7,13 +7,14 @@ description 'DUELink Ghizzy Library
 '
 variables _due_ghizzy_enabled _due_ghizzy_oldver 
 
-  spec ' ' 'due_ghizzy_set_left_eye' 'Set left eye red _ green _ blue _' 'num num num' 128 128 128
-  spec ' ' 'due_ghizzy_set_right_eye' 'Set right eye red _ green _ blue _' 'num num num' 128 128 128
-  spec ' ' 'due_ghizzy_set_ear' 'Set ear left _ right _' 'bool bool' true true
-  spec ' ' 'due_ghizzy_set_mouth' 'Set mouth left _ center _ right _' 'bool bool bool' true true true
-  spec ' ' 'due_ghizzy_beep' 'Play beep'
-  spec 'r' 'due_ghizzy_button' 'Button pressed'
-  spec ' ' '_due_ghizzy_initialize' 'Initialize'
+  spec ' ' 'due_ghizzy_set_left_eye' 'set left eye red _ green _ blue _' 'num num num' 128 128 128
+  spec ' ' 'due_ghizzy_set_right_eye' 'set right eye red _ green _ blue _' 'num num num' 128 128 128
+  spec ' ' 'due_ghizzy_set_ear' 'set ear left _ right _' 'bool bool' true true
+  spec ' ' 'due_ghizzy_set_mouth' 'set mouth left _ center _ right _' 'bool bool bool' true true true
+  spec ' ' 'due_ghizzy_beep' 'play beep'
+  spec 'r' 'due_ghizzy_button' 'button pressed'
+  space
+  spec ' ' '_due_ghizzy_initialize' '_initialize'
 
 to '_due_ghizzy_initialize' {
   if (_due_ghizzy_enabled == 0) {
