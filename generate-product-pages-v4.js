@@ -504,8 +504,8 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/s
         }
 
         if (availableStandaloneSamples.microblocks) {
-            const scriptCode = loadSampleContent(availableStandaloneSamples.script);
-            if (scriptCode) {
+            const microblocksCode = loadSampleContent(availableStandaloneSamples.microblocks);
+            if (microblocksCode) {
                 standaloneSampleTabs.push({label: 'MicroBlocks', value: 'microblocks'});
                 standaloneSampleTabItems.push(`<TabItem value="microblocks">
 
