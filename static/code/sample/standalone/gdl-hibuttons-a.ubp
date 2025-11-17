@@ -1,0 +1,17 @@
+module main
+author unknown
+version 1 0 
+description ''
+
+script 158 95 {
+whenStarted
+forever {
+  if (not (digitalReadOp 1 'up')) {
+    setUserLED true
+    waitMillis 200
+    setUserLED false
+    waitMillis 200
+  }
+}
+}
+
