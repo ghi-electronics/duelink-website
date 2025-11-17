@@ -14,16 +14,13 @@ fn Test()
     Wait(1)
     dlmode(2,0)
     Wait(10)
-    
-    dwrite(3,1) # max volume on channel 1
-    dwrite(4,1) # max volume on channel 1
 
     while 1
 
-        sweep(1, 1000, 2000, 10, 255, 1000)
-        wait(500)  
-        sweep(1, 2000, 1000, 255, 10, 1000)
-        wait(500)  
+        sweep(GetPin(), 1000, 2000, 10, 255, 1000)
+        wait(1000)  
+        sweep(GetPin(), 2000, 1000, 255, 10, 1000)
+        wait(1000)  
                 
     wend
  
