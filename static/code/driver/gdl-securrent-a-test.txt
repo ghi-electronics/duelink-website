@@ -16,7 +16,7 @@ fn Test()
         c = Current()
         println("current: ", c)
         cmd("clear(0)")        
-        cmd(fmt("Texts(\"current: ", c, "\",1,0,0,2,2)"))            
+        cmd(fmt("Texts(\"current: ", c, "\",1,0,0,1,2)"))            
         cmd("show()")
         
         Wait(1000)       
