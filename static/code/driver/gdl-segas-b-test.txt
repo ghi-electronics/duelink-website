@@ -17,7 +17,7 @@ fn Test()
         if (c < 20)
             c = c + 1
         
-            println("Wait for ", c, " sec")
+            println("Wait for ", c, "/20 sec")
         end
         
         if (c = 20)
