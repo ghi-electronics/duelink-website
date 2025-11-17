@@ -1,9 +1,5 @@
 ##### Retro Sound #####
 
-fn DVer()
-    return 1.0
-fend
-
 fn Rset()
     cmd("reset(0)") # reset my client
     reset(0) # reset myself
