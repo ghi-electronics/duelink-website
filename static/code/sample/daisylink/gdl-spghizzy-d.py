@@ -5,13 +5,59 @@ from DUELink.DUELinkController import DUELinkController
 availablePort = DUELinkController.GetConnectionPort()
 duelink = DUELinkController(availablePort)
 
-duelink.Engine.Run("Ear(1,1)")
-duelink.Engine.Run("PlayBeep(2000,100)")
-duelink.Engine.Run("statled(100, 100, 0) # blink led forever")
+def Init():
+    duelink.Engine.ExecuteCommand("BtnEn(BtnPin(), 0)")
+
+def SetLeftEye(red:int, green:int, blue:int):  
+    cmd = f"LEye({red},{green},{blue})" 
+    duelink.Engine.ExecuteCommand(cmd)
+
+def SetRightEye(red:int, green:int, blue:int):  
+    cmd = f"REye({red},{green},{blue})" 
+    duelink.Engine.ExecuteCommand(cmd)    
+
+def SetEar(left: bool, right:bool):
+    l = {True:1,False:0}[left == True]  
+    r = {True:1,False:0}[right == True]  
+    cmd = f"Ear({l},{r})" 
+    duelink.Engine.ExecuteCommand(cmd) 
+
+def SetMouth(left:bool, center:bool,right:bool):
+    l = {True:1,False:0}[left == True]  
+    c = {True:1,False:0}[center == True]  
+    r = {True:1,False:0}[right == True] 
+    cmd = f"Mouth({l},{c},{r})"
+    duelink.Engine.ExecuteCommand(cmd)  
+
+def PlayBeep() :
+    cmd = f"freq(3,1000,100,0.5)"
+    duelink.Engine.ExecuteCommand(cmd)  
+    time.sleep(0.1)
+
+def IsButtonPressed()->bool:
+    cmd = f"dread(20,2)"
+    ret = duelink.Engine.ExecuteCommand(cmd)  
+    return ret == 1
+
+
+# Use ExecuteCommand to send standard library
+duelink.Engine.ExecuteCommand("statled(100, 100, 0)")
+
+# Use defined function
+SetEar(True,True)
+PlayBeep()
+
 while True:
-    duelink.Engine.Run("Eye(0x0000FF,0x0000FF)")
-    duelink.Engine.Run("Mouth(1)")
-    time.sleep(1)
-    duelink.Engine.Run("Eye(0xFF0000,0xFF0000)")
-    duelink.Engine.Run("Mouth(0)")
-    time.sleep(1)
+    delay = 0.5
+    btnPress = IsButtonPressed()
+    if btnPress:
+        delay = 0.1 
+        PlayBeep()       
+
+    SetMouth(btnPress, btnPress,btnPress)
+    SetLeftEye(255,255,255)
+    SetRightEye(255,255,255)
+    time.sleep(delay)
+    SetLeftEye(0,0,0)
+    SetRightEye(0,0,0)
+    time.sleep(delay) 
