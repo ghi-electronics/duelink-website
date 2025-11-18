@@ -10,7 +10,7 @@ fn Init()
     
 fend
 
-fn LEye(r,g,b)    
+fn REye(r,g,b)    
     if dread(10,1) = 1 # revB or earlier
         DWrite(4,(b >> 0) & 0xFF)
         DWrite(5,(r >> 0) & 0xFF)
@@ -22,7 +22,7 @@ fn LEye(r,g,b)
     end
 fend
 
-fn REye(r,g,b)    
+fn LEye(r,g,b)    
     if dread(10,1) = 1 # revB or earlier
         DWrite(7,(b >> 0) & 0xFF)
         DWrite(8,(r >> 0) & 0xFF)
@@ -45,10 +45,10 @@ fn Ear(l,r)
     end
 fend
  
-fn Mouth(o)
-    DWrite(14,o)
-    DWrite(15,o)
-    DWrite(16,o)
+fn Mouth(l,c,r)
+    DWrite(14,l)
+    DWrite(15,c)
+    DWrite(16,r)
 fend
  
 fn BtnPin()
@@ -62,8 +62,9 @@ fn BtnLdr()
 fend
 
  
-fn Buzzer(f,d)
-    Beep(3, f, d)
+fn PlyBeep()
+    freq(3, 1000, 100,0.5)
+    wait(100)
 fend
  
 Init()

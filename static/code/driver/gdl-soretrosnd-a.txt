@@ -1,0 +1,17 @@
+##### Retro Sound #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn GetPin()
+    return 1
+fend
+
+fn Init() 
+    dwrite(3,1)
+    dwrite(4,1)
+fend
+
+Init() 
+#######################

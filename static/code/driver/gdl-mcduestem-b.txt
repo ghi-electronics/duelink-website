@@ -80,10 +80,6 @@ fn GetW()
     return 128
 fend
  
-fn IsColor()
-    return 0
-fend
- 
 ##### Accelerometer #####
  
 Dim b1[1]
