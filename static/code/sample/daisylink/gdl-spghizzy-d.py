@@ -5,9 +5,6 @@ from DUELink.DUELinkController import DUELinkController
 availablePort = DUELinkController.GetConnectionPort()
 duelink = DUELinkController(availablePort)
 
-def Init():
-    duelink.Engine.ExecuteCommand("BtnEn(BtnPin(), 0)")
-
 def SetLeftEye(red:int, green:int, blue:int):  
     cmd = f"LEye({red},{green},{blue})" 
     duelink.Engine.ExecuteCommand(cmd)
