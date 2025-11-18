@@ -10,6 +10,7 @@ Note:
 If a SPIM is not available, the tester can select any Infrared module and program it using the script below.
 Once programmed, the Infrared module becomes a SPIM and can be used for testing the DUT.
 
+Asio(1) 
 IrEn(5,3)
 while (1)
     _r = irread()
