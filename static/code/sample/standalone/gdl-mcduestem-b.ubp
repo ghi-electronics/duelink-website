@@ -1,0 +1,981 @@
+module main
+author unknown
+version 1 0 
+description ''
+variables x bullet pos 'circle x' 'circle y' 
+
+script 86 82 {
+whenStarted
+x = 64
+bullet = -10
+pos = -80
+'circle x' = 64
+bullet = 32
+forever {
+  x = (minimum 118 (maximum x 0))
+  bullet += -5
+  if (bullet < 0) {
+    stopTone
+  } else {
+    startTone (500 + (10 * (100 - bullet)))
+  }
+  tinyOLED_hideUpdates
+  tinyOLED_clear
+  comment 'Draw the bullet'
+  tinyOLED_drawPixel (x + 4) bullet true
+  comment 'draw spaceship'
+  tinyOLED_drawImage (tinyOLED_image '00100
+01110
+11011
+10001') x 55 2
+  comment 'Show accel'
+  'circle x' += (dueSTEM_tilt 'x')
+  'circle y' += (dueSTEM_tilt 'y')
+  'circle x' = (minimum 118 (maximum (v 'circle x') 0))
+  'circle y' = (minimum 60 (maximum (v 'circle y') 0))
+  tinyOLED_drawCircle ((v 'circle x') + 2) ((v 'circle y') + 2) 3 true true
+  comment 'Show light and temp'
+  tinyOLED_drawString ('[data:join]' 'Light: ' (dueSTEM_light) '%') 0 0 true
+  tinyOLED_drawString ('[data:join]' 'Temp: ' ((dueSTEM_temperature) / 10) 'c') 70 0 true
+  tinyOLED_showUpdates
+}
+}
+
+script 698 110 {
+whenCondition (dueSTEM_button 'left')
+x += -1
+}
+
+script 690 233 {
+whenCondition (dueSTEM_button 'right')
+x += 1
+}
+
+script 700 366 {
+whenCondition (dueSTEM_button 'up')
+bullet = 60
+waitUntil (not (dueSTEM_button 'up'))
+}
+
+script 698 535 {
+whenStarted
+comment 'Show random colors'
+forever {
+  dueSTEM_setLED (10 * (random 0 5)) (10 * (random 0 5)) (10 * (random 0 5))
+  waitMillis 500
+}
+}
+
+script 698 835 {
+whenCondition (dueSTEM_button 'down')
+pos += 10
+if (pos > 80) {
+  pos = -80
+}
+setServoAngle 6 pos
+setServoAngle 5 pos
+waitUntil (not (dueSTEM_button 'down'))
+}
+
+
+module 'DUELink Edu'
+author MicroBlocks
+version 1 10 
+choices dueSTEM_pianoPad left right C 'C#' D 'D#' E F 'F#' G 'G#' A 'A#' B 'High C' 
+choices dueSTEM_clipItPad A B left right up down 
+choices dueSTEM_buttonName left right up down 
+choices dueSTEM_axis x y z 
+description 'Library for DUELink Educational boards: CincoBit, PixoBit, ClipIt, and DueSTEM.
+
+The "due PID" works on all DUELink boards.
+Blocks labeled "dueSTEM" work only on the DueSTEM board.
+
+Touch sensing works only on pins with capacitive touch circuits including pins 0, 1, 2 of the CincoBit and PixoBit and all but the SCL/SDA pins of the ClipIt.
+'
+variables dueSTEM_accelAddr dueSTEM_touchAdjustments 
+
+  spec 'r' 'dueSTEM_light' 'due light level (0-1000)'
+  spec 'r' 'dueSTEM_LDR_button' 'due LDR button'
+  spec 'r' 'dueSTEM_buzzerPin' 'due buzzer pin'
+  spec 'r' 'dueSTEM_PID' 'due PID'
+  space
+  spec 'r' 'dueSTEM_touched' 'due pin _ touched' 'num' 1
+  spec ' ' 'dueSTEM_waitForRelease' 'due wait for pin _ release' 'auto' 1
+  spec 'r' 'dueSTEM_clipitPadPin' 'Clipit _ pin' 'menu.dueSTEM_clipItPad' 'A'
+  spec 'r' 'dueSTEM_pianoPadPin' 'Piano _ pin' 'menu.dueSTEM_pianoPad' 'C'
+  space
+  spec ' ' 'dueSTEM_setLED' 'DueSTEM bulb red _ green _ blue _ (0-1000)' 'auto auto auto' 100 0 200
+  spec 'r' 'dueSTEM_button' 'DueSTEM _ button' 'menu.dueSTEM_buttonName' 'left'
+  spec 'r' 'dueSTEM_tilt' 'DueSTEM tilt _' 'menu.dueSTEM_axis' 'x'
+  spec 'r' 'dueSTEM_temperature' 'DueSTEM temperature (x10)'
+  space
+  spec ' ' '_dueSTEM_accelInit' '_dueSTEM_accelInit'
+  spec 'r' '_dueSTEM_accelRead16BitReg' '_dueSTEM_accelRead16BitReg _' 'auto' 13
+  spec 'r' '_dueSTEM_adjustmentForPin' '_dueSTEM_adjustmentForPin _' 'num' 1
+  spec 'r' '_dueSTEM_dischargeTime' '_dueSTEM_dischargeTime _' 'num' 1
+  spec 'r' '[misc:dueLinkPID]' 'obsolete obsolete due PID'
+  spec 'r' 'dueSTEM_clipitTouched' 'obsolete obsolete Clipit pad _ touched : threshold _' 'menu.dueSTEM_clipItPad num' 'A' 100
+
+to '_dueSTEM_accelInit' {
+  comment 'MC3216
+https://www.mouser.com/datasheet/2/821/MEMSIC_MC3216_Datasheet-1879973.pdf'
+  if (dueSTEM_accelAddr != 0) {
+    return
+  }
+  dueSTEM_accelAddr = (hexToInt '4C')
+  comment 'Turn off accelerometer before changing settings'
+  i2cSet dueSTEM_accelAddr 7 0
+  comment 'Sampling rate: 256 Hz'
+  i2cSet dueSTEM_accelAddr 8 10
+  comment '+/-2G range, 10-bit resolution'
+  i2cSet dueSTEM_accelAddr (hexToInt '20') 3
+  comment 'Start accelerometer'
+  i2cSet dueSTEM_accelAddr 7 1
+}
+
+to '_dueSTEM_accelRead16BitReg' reg {
+  '_dueSTEM_accelInit'
+  local 'buf' (newList 2)
+  '[sensors:i2cWrite]' (hexToInt '4C') ('[data:makeList]' reg) false
+  '[sensors:i2cRead]' (hexToInt '4C') buf
+  local '16bit' (((at 2 buf) << 8) | (at 1 buf))
+  '16bit' = (((v '16bit') << 15) >> 15)
+  return ((100 * (v '16bit')) / 255)
+}
+
+to '_dueSTEM_adjustmentForPin' pin {
+  if (dueSTEM_touchAdjustments == 0) {dueSTEM_touchAdjustments = (newList (digitalPins) -1)}
+  local 'result' (at (pin + 1) dueSTEM_touchAdjustments)
+  if (result >= 0) {
+    return result
+  }
+  local 'total usecs' 0
+  repeat 80 {
+    'total usecs' += ('_dueSTEM_dischargeTime' pin)
+  }
+  result = (maximum 0 (minimum (((v 'total usecs') / 80) - 99) 30))
+  atPut (pin + 1) dueSTEM_touchAdjustments result
+  return result
+}
+
+to '_dueSTEM_dischargeTime' pin {
+  comment 'Charge up pin'
+  digitalWriteOp pin true
+  local 'startT' (microsOp)
+  waitUntil (not (digitalReadOp pin))
+  local 'usecs' (microsSince startT)
+  digitalWriteOp pin true
+  return usecs
+}
+
+to dueSTEM_LDR_button {
+  if (or ((boardType) == 'CincoBit') ((boardType) == 'PixoBit')) {return (buttonA)}
+  return (digitalReadOp 20 'down')
+}
+
+to dueSTEM_PID {
+  local 'result' ('[data:makeList]')
+  for i 6 {
+    local 'hexDigit' ((('[misc:dueLinkPID]') >> (24 - (4 * i))) & 15)
+    '[data:addLast]' (at (hexDigit + 1) '0123456789ABCDEF') result
+  }
+  return ('[data:joinStrings]' result)
+}
+
+to dueSTEM_button which {
+  if ((boardType) != 'DueSTEM') {return (booleanConstant false)}
+  if ('left' == which) {
+    return (digitalReadOp 20 'down')
+  } ('right' == which) {
+    return (digitalReadOp 1 'down')
+  } ('up' == which) {
+    return (digitalReadOp 18 'down')
+  } ('down' == which) {
+    return (digitalReadOp 10 'down')
+  }
+  return (booleanConstant false)
+}
+
+to dueSTEM_buzzerPin {
+  if (or ((boardType) == 'CincoBit') ((boardType) == 'PixoBit')) {
+    return 21
+  } ((boardType) == 'DueSTEM') {
+    return 3
+  } ((boardType) == 'Clipit') {
+    return 7
+  } ((dueSTEM_PID) == '0C0001') {
+    comment 'Ghizzy'
+    return 3
+  } ((dueSTEM_PID) == '0C0003') {
+    comment 'Holiday Tree'
+    return 1
+  } ((dueSTEM_PID) == '0C0005') {
+    comment 'Piano'
+    return 3
+  } ((dueSTEM_PID) == '070001') {
+    comment 'Buzzer'
+    return 7
+  }
+  return -1
+}
+
+to dueSTEM_clipitPadPin padName {
+  if ('A' == padName) {
+    return 10
+  } ('B' == padName) {
+    return 24
+  } ('left' == padName) {
+    return 14
+  } ('right' == padName) {
+    return 12
+  } ('up' == padName) {
+    return 13
+  } ('down' == padName) {
+    return 18
+  } ('P1' == padName) {
+    return 1
+  } ('P2' == padName) {
+    return 2
+  } ('P3' == padName) {
+    return 3
+  }
+  return 10
+}
+
+to dueSTEM_light {
+  return (minimum ('[display:lightLevel]') 1000)
+}
+
+to dueSTEM_pianoPadPin padName {
+  if ('left' == padName) {
+    return 11
+  } ('right' == padName) {
+    return 7
+  } ('C' == padName) {
+    return 23
+  } ('C#' == padName) {
+    return 19
+  } ('D' == padName) {
+    return 12
+  } ('D#' == padName) {
+    return 13
+  } ('E' == padName) {
+    return 14
+  } ('F' == padName) {
+    return 15
+  } ('F#' == padName) {
+    return 16
+  } ('G' == padName) {
+    return 18
+  } ('G#' == padName) {
+    return 24
+  } ('A' == padName) {
+    return 10
+  } ('A#' == padName) {
+    return 9
+  } ('B' == padName) {
+    return 8
+  } ('High C' == padName) {
+    return 17
+  }
+  return 23
+}
+
+to dueSTEM_setLED r g b {
+  if ((boardType) != 'DueSTEM') {return 0}
+  analogWriteOp 11 r
+  analogWriteOp 4 g
+  analogWriteOp 2 b
+}
+
+to dueSTEM_temperature {
+  if ((boardType) != 'DueSTEM') {return 0}
+  local 'mVx10' ((330000 * (analogReadOp 9)) / 1023)
+  return ((mVx10 - 40000) / 195)
+}
+
+to dueSTEM_tilt axis {
+  if ((boardType) != 'DueSTEM') {return 0}
+  if ('x' == axis) {
+    return ('_dueSTEM_accelRead16BitReg' 13)
+  } ('y' == axis) {
+    return (0 - ('_dueSTEM_accelRead16BitReg' 15))
+  } ('z' == axis) {
+    return ('_dueSTEM_accelRead16BitReg' 17)
+  }
+  return 0
+}
+
+to dueSTEM_touched pin {
+  local 'touch adjustment' ('_dueSTEM_adjustmentForPin' pin)
+  comment 'Charge up pin'
+  digitalWriteOp pin true
+  comment 'Switch pin to input mode. Capacitor starts
+discharging through 1M resistor to ground.'
+  local 'ignore' (digitalReadOp pin)
+  comment 'Tricky code: MicroBlocks does not switch tasks for waits of 30 usecs
+or less so the following four blocks are essentially a busy wait. Because
+of overhead, this takes ~140 usecs on DUELink boards. If the pin is still
+high after that time, it is because it is being touched, thus increasing
+the discharge time of the total effective capacitance of the pin.'
+  waitMicros 30
+  waitMicros 30
+  waitMicros 2
+  waitMicros (v 'touch adjustment')
+  return (digitalReadOp pin)
+}
+
+to dueSTEM_waitForRelease pin {
+  comment 'There is a lot of electrical noise while a pin is being touched.
+That noise causes "due pin touched" to sometimes return false
+even though the pin is still being touched. Experimentation
+determined that it requires 60 to 70 "false" reports in a row to
+be certain that the pin is not being touched. Those tests take
+about 16 milliseconds total on an otherwise idle DUELink board.'
+  local 'releaseCount' 0
+  forever {
+    if (dueSTEM_touched pin) {
+      releaseCount = 0
+    } else {
+      releaseCount += 1
+      if (releaseCount >= 80) {
+        return 0
+      }
+    }
+  }
+}
+
+
+module Servo Output
+author MicroBlocks
+version 1 4 
+tags servo motor angle rotation position 
+description 'Control both positional (angle) and rotational servo motors.
+'
+variables _servoPin _servoPulseWidth 
+
+  spec ' ' 'setServoAngle' 'set servo _ to _ degrees (-90 to 90)' 'num num' 1 90
+  spec ' ' 'setServoSpeed' 'set servo _ to speed _ (-100 to 100)' 'num num' 1 100
+  spec ' ' 'stopServo' 'stop servo _' 'num' 1
+  spec 'r' '_servoIndex' '_servoIndex _' 'num' 1
+  spec ' ' '_servoPulse' '_servoPulse pin _ usecs _' 'num num' 1 1500
+  spec ' ' '_servoUpdateLoop' '_servoUpdateLoop'
+
+to '_servoIndex' which {
+  if (_servoPin == 0) {
+    _servoPin = ('[data:makeList]')
+    _servoPulseWidth = ('[data:makeList]')
+    sendBroadcast '_servoUpdateLoop'
+  }
+  local 'i' ('[data:find]' which _servoPin)
+  if (i < 0) {
+    comment 'Add new pin'
+    '[data:addLast]' which _servoPin
+    '[data:addLast]' 1500 _servoPulseWidth
+    i = (size _servoPin)
+  }
+  return i
+}
+
+to '_servoPulse' pin usecs {
+  if (usecs == 0) {
+    comment 'Servo stopped; do nothing'
+    return 0
+  }
+  usecs = (maximum 500 (minimum usecs 2900))
+  comment 'Split wait into a long wait followed by a wait of <= 30 usecs for greater accuracy'
+  local 'endTime' ((microsOp) + usecs)
+  digitalWriteOp pin true
+  waitMicros (usecs - 30)
+  waitMicros (endTime - (microsOp))
+  digitalWriteOp pin false
+}
+
+to '_servoUpdateLoop' {
+  forever {
+    if (_servoPin != 0) {
+      comment 'If the _servoPin list is not 0, update the servos'
+      for i (size _servoPin) {
+        local 'pin' (at i _servoPin)
+        local 'usecs' (at i _servoPulseWidth)
+        if (and (pin >= 0) (usecs != 0)) {
+          '_servoPulse' pin usecs
+        }
+      }
+      waitMillis 15
+    }
+  }
+}
+
+to setServoAngle which degrees optionalReverse {
+  local 'reversed' false
+  if ((pushArgCount) > 2) {
+    reversed = optionalReverse
+  }
+  if reversed {
+    degrees = (0 - degrees)
+  }
+  local 'pulseWidth' (1500 - (10 * degrees))
+  if ('[io:hasServo]') {
+    '[io:setServo]' which pulseWidth
+  } else {
+    atPut ('_servoIndex' which) _servoPulseWidth pulseWidth
+  }
+}
+
+to setServoSpeed which speed optionalReverse {
+  local 'reversed' false
+  if ((pushArgCount) > 2) {
+    reversed = optionalReverse
+  }
+  if reversed {
+    speed = (0 - speed)
+  }
+  local 'pulseWidth' (1500 - (10 * speed))
+  if ((absoluteValue speed) < 2) {
+    pulseWidth = 0
+  }
+  if ('[io:hasServo]') {
+    '[io:setServo]' which pulseWidth
+  } else {
+    atPut ('_servoIndex' which) _servoPulseWidth pulseWidth
+  }
+}
+
+to stopServo which {
+  if ('[io:hasServo]') {
+    '[io:setServo]' which 0
+  } else {
+    atPut ('_servoIndex' which) _servoPulseWidth 0
+  }
+}
+
+
+module 'Tiny OLED' Output
+author MicroBlocks
+version 1 6 
+description 'Tiny graphics library for a 128x64 pixel monochrome OLED display with a SSD1306 controller.
+Useful on boards with very limited code store space such as the DUELink PixoBit and DueSTEM.
+'
+variables _tinyOLED_buffer _tinyOLED_hideUpdates 
+
+  spec ' ' 'tinyOLED_clear' 'clear tiny OLED display'
+  spec ' ' 'tinyOLED_drawString' 'draw string _ x _ y _ white _' 'str num num bool' 'Hello!' 48 52 true
+  spec ' ' 'tinyOLED_drawStringBig' 'draw big string _ x _ y _ white _' 'str num num bool' 'Hello!' 36 0 true
+  space
+  spec ' ' 'tinyOLED_drawRect' 'draw rect x _ y _ w _ h _ fill _ white _' 'num num num num bool bool' 44 17 40 30 false true
+  spec ' ' 'tinyOLED_drawCircle' 'draw circle center _ _ radius _ fill _ white _' 'num num num bool bool' 64 32 10 false true
+  spec ' ' 'tinyOLED_drawLine' 'draw line from _ _ to _ _ white _' 'num num num num bool' 0 0 127 63 true
+  spec ' ' 'tinyOLED_drawPixel' 'draw pixel x _ y _ white _' 'num num bool' 20 30 true
+  space
+  spec ' ' 'tinyOLED_drawImage' 'draw image _ x _ y _ : scale _' 'str num num num' '' 0 0 1
+  spec 'r' 'tinyOLED_image' 'image _' 'str' '00000
+01010
+00000
+10001
+01110'
+  space
+  spec ' ' 'tinyOLED_setBrightness' 'set tiny OLED brightness _' 'menu.range:1-5' 4
+  space
+  spec ' ' 'tinyOLED_hideUpdates' 'defer tiny OLED display updates'
+  spec ' ' 'tinyOLED_showUpdates' 'show tiny OLED display updates'
+  space
+  spec ' ' 'tinyOLED_setResetPin' 'reset tiny OLED pin _' 'num' 22
+  space
+  spec ' ' '_tinyOLED_init' '_tinyOLED_init'
+  spec ' ' '_tinyOLED_cmd' '_tinyOLED_cmd _' 'auto' 10
+  spec ' ' '_tinyOLED_updateDisplay' '_tinyOLED_updateDisplay'
+  spec ' ' '_tinyOLED_drawChar' '_tinyOLED_drawChar _ x _ y _' 'auto num num' 65 0 0
+  spec ' ' '_tinyOLED_setPixel' '_tinyOLED_setPixel x _ y _ white _' 'num num bool' 0 0 true
+  spec ' ' '_tinyOLED_drawBigPixel' '_tinyOLED_drawBigPixel x _ y _ scale _' 'num num num' 0 0 2
+  spec ' ' '_tinyOLED_hline' '_hline startX _ endX _ y _ white _' 'num num num bool' 10 110 10 true
+
+to '_tinyOLED_cmd' cmdString {
+  comment 'Input is a comma separated string of hex values.'
+  local 'i2cAddr' 60
+  for cmd ('[data:split]' ('[data:convertType]' cmdString 'string') ',') {
+    '[sensors:i2cWrite]' i2cAddr ('[data:makeList]' (hexToInt '80') (hexToInt cmd))
+  }
+}
+
+to '_tinyOLED_drawBigPixel' x y scale {
+  comment 'Fill a square of size scale at the given position.'
+  local 'right' ((x + scale) - 1)
+  repeat scale {
+    '_tinyOLED_hline' x right y true
+    y += 1
+  }
+}
+
+to '_tinyOLED_drawChar' ch x y {
+  '_tinyOLED_init'
+  local 'columns' ('[misc:shapeforChar]' ch)
+  if (columns == 0) {
+    return 0
+  }
+  if (or (y < -7) (y > 63)) {
+    return 0
+  }
+  local 'firstCol' (ifExpression (x < 0) (1 - x) 1)
+  local 'lastCol' (ifExpression (x > 123) (128 - x) 5)
+  if (or (firstCol > 5) (lastCol < 1)) {
+    return 0
+  }
+  local 'offset' (ifExpression (y < 0) (x - 127) ((128 * (y / 8)) + (x + 1)))
+  for i 5 {
+    if (and (i >= firstCol) (i <= lastCol)) {
+      local 'shift' (y % 8)
+      local 'mask' (255 >> (8 - shift))
+      if (y >= 0) {
+        comment 'Draw top part of character if y >= 0'
+        atPut offset _tinyOLED_buffer ((((at offset _tinyOLED_buffer) & mask) | ((at i columns) << shift)) & 255)
+      }
+      if (and (y < 56) (shift != 0)) {
+        comment 'Draw bottom part of character if y not an even multiple of 8'
+        atPut (offset + 128) _tinyOLED_buffer ((((at (offset + 128) _tinyOLED_buffer) & (mask ^ 255)) | ((at i columns) >> (8 - shift))) & 255)
+      }
+    }
+    offset += 1
+  }
+}
+
+to '_tinyOLED_hline' startX endX y white {
+  '_tinyOLED_init'
+  if (or (y < 0) (y > 63)) {
+    return 0
+  }
+  if (or (endX < 0) (startX > 127)) {
+    return 0
+  }
+  startX = (maximum 0 (minimum startX 127))
+  endX = (maximum 0 (minimum endX 127))
+  local 'byteIndex' ((startX + ((y / 8) * 128)) + 1)
+  local 'bit mask' (1 << (y % 8))
+  repeat ((endX - startX) + 1) {
+    local 'byte' (at byteIndex _tinyOLED_buffer)
+    if white {
+      byte = (byte | (v 'bit mask'))
+    } else {
+      byte = (byte & ('~' (v 'bit mask')))
+    }
+    atPut byteIndex _tinyOLED_buffer byte
+    byteIndex += 1
+  }
+}
+
+to '_tinyOLED_init' {
+  if (_tinyOLED_buffer != 0) {return 0}
+  comment 'Use default reset pin 22 for PixoBit and ClipIt boards.'
+  tinyOLED_setResetPin 22
+}
+
+to '_tinyOLED_setPixel' x y white {
+  comment 'Set the value of pixel at x,y.
+Ranges:
+  x: 0-127
+  y: 0-63
+  byteIndex: 1-1024
+  bitIndex: 0-7
+'
+  comment 'Check ranges'
+  if (or (x < 0) (x > 127)) {
+    return
+  }
+  if (or (y < 0) (y > 63)) {
+    return
+  }
+  local 'byteIndex' ((x + ((y / 8) * 128)) + 1)
+  local 'bitIndex' (y % 8)
+  local 'byte' (at byteIndex _tinyOLED_buffer)
+  if white {
+    byte = (byte | (1 << bitIndex))
+  } else {
+    byte = (byte & ('~' (1 << bitIndex)))
+  }
+  atPut byteIndex _tinyOLED_buffer byte
+}
+
+to '_tinyOLED_updateDisplay' {
+  comment 'Copies contents of virtual _GDBuffer to display via I2C in 64 byte chunks for speed.'
+  if ((booleanConstant true) == _tinyOLED_hideUpdates) {
+    return 0
+  }
+  '_tinyOLED_init'
+  local '_dataPrefix' ('[data:newByteArray]' 1 (hexToInt '40'))
+  local 'idx' 1
+  for j 8 {
+    '_tinyOLED_cmd' '0x10'
+    comment 'Column offset:'
+    '_tinyOLED_cmd' '0x00'
+    '[sensors:i2cWrite]' 60 ('[data:makeList]' (hexToInt '80') ((hexToInt 'B0') + (j - 1)))
+    '[sensors:i2cWrite]' 60 ('[data:join]' _dataPrefix ('[data:copyFromTo]' _tinyOLED_buffer idx (idx + 63)))
+    idx += 64
+    '[sensors:i2cWrite]' 60 ('[data:join]' _dataPrefix ('[data:copyFromTo]' _tinyOLED_buffer idx (idx + 63)))
+    idx += 64
+  }
+}
+
+to tinyOLED_clear {
+  '_tinyOLED_init'
+  atPut 'all' _tinyOLED_buffer 0
+  '_tinyOLED_updateDisplay'
+}
+
+to tinyOLED_drawCircle cx cy r fill white {
+  comment 'Draw a circle with radius r centered at cx,cy using Bresenham circle algorithm.'
+  '_tinyOLED_init'
+  local 'x' (0 - r)
+  local 'y' 0
+  local 'err' (2 - (2 * r))
+  repeatUntil (x >= 0) {
+    if fill {
+      '_tinyOLED_hline' (cx + x) (cx - x) (cy - y) white
+      '_tinyOLED_hline' (cx + x) (cx - x) (cy + y) white
+    } else {
+      '_tinyOLED_setPixel' (cx - x) (cy + y) white
+      '_tinyOLED_setPixel' (cx - y) (cy - x) white
+      '_tinyOLED_setPixel' (cx + x) (cy - y) white
+      '_tinyOLED_setPixel' (cx + y) (cy + x) white
+    }
+    r = err
+    if (r <= y) {
+      y += 1
+      err = (err + ((y * 2) + 1))
+    }
+    if (or (r > x) (err > y)) {
+      x += 1
+      err = (err + ((x * 2) + 1))
+    }
+  }
+  '_tinyOLED_updateDisplay'
+}
+
+to tinyOLED_drawImage imageString x y optionalScale {
+  comment 'Draw an image at the given position. An image is represented by a multi-line string
+of 0 and 1 characters where each line is one row of the image. 1 means that pixel on (lit).'
+  '_tinyOLED_init'
+  local 'scale' (argOrDefault 4 1)
+  local 'left' x
+  for ch ('[data:convertType]' imageString 'byte array') {
+    if (ch == 10) {
+      y += scale
+      x = left
+    } else {
+      if (ch == 49) {'_tinyOLED_drawBigPixel' x y scale}
+      x += scale
+    }
+  }
+  '_tinyOLED_updateDisplay'
+}
+
+to tinyOLED_drawLine x0 y0 x1 y1 white {
+  comment 'Draws a line from x0,y0 to x1,y1 using the Bresenham line algorithm.'
+  '_tinyOLED_init'
+  local 'dx' (absoluteValue (x1 - x0))
+  local 'dy' (-1 * (absoluteValue (y1 - y0)))
+  local 'err' (dx + dy)
+  if (x0 < x1) {
+    local 'sx' 1
+  } else {
+    local 'sx' -1
+  }
+  if (y0 < y1) {
+    local 'sy' 1
+  } else {
+    local 'sy' -1
+  }
+  forever {
+    '_tinyOLED_setPixel' x0 y0 white
+    if (and (x0 == x1) (y0 == y1)) {
+      '_tinyOLED_updateDisplay'
+      return
+    }
+    local 'e2' (2 * err)
+    if (e2 >= dy) {
+      err += dy
+      x0 += sx
+    }
+    if (e2 <= dx) {
+      err += dx
+      y0 += sy
+    }
+  }
+}
+
+to tinyOLED_drawPixel x y white {
+  '_tinyOLED_init'
+  '_tinyOLED_setPixel' x y white
+  '_tinyOLED_updateDisplay'
+}
+
+to tinyOLED_drawRect x y w h fill white {
+  '_tinyOLED_init'
+  x = (maximum 0 (minimum x 127))
+  y = (maximum 0 (minimum y 63))
+  local 'right' (x + w)
+  local 'bottom' (y + h)
+  if fill {
+    repeatUntil (y > bottom) {
+      '_tinyOLED_hline' x right y white
+      y += 1
+    }
+  } else {
+    '_tinyOLED_hline' x right y white
+    repeatUntil (y >= bottom) {
+      '_tinyOLED_setPixel' x y white
+      '_tinyOLED_setPixel' right y white
+      y += 1
+    }
+    '_tinyOLED_hline' x right y white
+  }
+  '_tinyOLED_updateDisplay'
+}
+
+to tinyOLED_drawString s x y white {
+  '_tinyOLED_init'
+  if (not white) {
+    comment 'Clear string rectangle'
+    tinyOLED_drawRect x y (6 * (size s)) 7 true false
+    return
+  }
+  for ch s {
+    '_tinyOLED_drawChar' ch x y
+    x += 6
+  }
+  '_tinyOLED_updateDisplay'
+}
+
+to tinyOLED_drawStringBig s x y white {
+  comment 'Draw double-size string.'
+  '_tinyOLED_init'
+  if (not white) {
+    comment 'Clear string rectangle'
+    tinyOLED_drawRect x y (12 * (size s)) 14 true false
+    return
+  }
+  for ch s {
+    local 'charShape' ('[misc:shapeforChar]' ch)
+    for col charShape {
+      for i 8 {
+        if ((col & 1) == 1) {'_tinyOLED_drawBigPixel' x (y + (2 * (i - 1))) 2}
+        col = (col >> 1)
+      }
+      x += 2
+    }
+    x += 1
+  }
+  '_tinyOLED_updateDisplay'
+}
+
+to tinyOLED_hideUpdates {
+  _tinyOLED_hideUpdates = (booleanConstant true)
+}
+
+to tinyOLED_image s {
+  return ('[data:convertType]' s 'string')
+}
+
+to tinyOLED_setBrightness level {
+  level = (maximum 1 (minimum level 5))
+  local 'cLevels' ('[data:makeList]' 0 20 40 80 'FF')
+  '_tinyOLED_cmd' ('[data:join]' '81,' (at level cLevels))
+}
+
+to tinyOLED_setResetPin resetPin {
+  _tinyOLED_buffer = ('[data:newByteArray]' 1024)
+  if (resetPin >= 0) {
+    comment 'Toggle OLED reset pin (skip this if resetPin < 0)'
+    digitalWriteOp resetPin false
+    waitMillis 1
+    digitalWriteOp resetPin true
+    waitMillis 1
+  }
+  comment 'Minimal initialization commands:
+A1     - Horizontal flip (A0 or A1)
+C8     - Vertical flip (C0 or C8)
+8D,14  - Enable charge pump
+AF     - Display on'
+  '_tinyOLED_cmd' 'A1,C8,8D,14,AF'
+}
+
+to tinyOLED_showUpdates {
+  _tinyOLED_hideUpdates = (booleanConstant false)
+  '_tinyOLED_updateDisplay'
+}
+
+
+module Tone Output
+author MicroBlocks
+version 1 10 
+tags tone sound music audio note speaker 
+choices tone_NoteName 'nt;c' 'nt;c#' 'nt;d' 'nt;d#' 'nt;e' 'nt;f' 'nt;f#' 'nt;g' 'nt;g#' 'nt;a' 'nt;a#' 'nt;b' 
+description 'Audio tone generation. Make music with MicroBlocks!
+'
+variables _tonePin _toneInitalized _toneLoopOverhead _toneNoteNames _toneArezzoNotes _toneFrequencies 
+
+  spec ' ' 'play tone' 'play note _ octave _ for _ ms' 'str.tone_NoteName num num' 'nt;c' 0 500
+  spec ' ' 'playMIDIKey' 'play midi key _ for _ ms' 'num num' 60 500
+  spec ' ' 'play frequency' 'play frequency _ for _ ms' 'num num' 261 500
+  space
+  spec ' ' 'startTone' 'start tone _ Hz' 'num' 440
+  spec ' ' 'stopTone' 'stop tone'
+  space
+  spec ' ' 'attach buzzer to pin' 'attach buzzer to pin _' 'auto' ''
+  space
+  spec 'r' '_measureLoopOverhead' '_measureLoopOverhead'
+  spec 'r' '_baseFreqForNote' '_baseFreqForNote _' 'auto' 'c'
+  spec 'r' '_baseFreqForSemitone' '_baseFreqForSemitone _' 'num' 0
+  spec ' ' '_toneLoop' '_toneLoop _ for _ ms' 'num num' 440000 100
+  spec 'r' '_trimmedLowercase' '_trimmedLowercase _' 'str' 'A. b C...'
+  spec ' ' '_tone init note names' '_tone init note names'
+
+to '_baseFreqForNote' note {
+  comment 'Return the frequency for the given note in the middle-C octave
+scaled by 1000. For example, return 440000 (440Hz) for A.
+Note names may be upper or lower case. Note names
+may be followed by # for a sharp or b for a flat.'
+  local 'normalized note' ('_trimmedLowercase' note)
+  'normalized note' = (ifExpression ((at 1 (v 'normalized note')) == 'n') (v 'normalized note') ('[data:join]' 'nt;' (v 'normalized note')))
+  '_tone init note names'
+  if (('[data:find]' (v 'normalized note') _toneArezzoNotes) > 0) {
+    return ('_baseFreqForSemitone' ('[data:find]' (v 'normalized note') _toneArezzoNotes))
+  } else {
+    return ('_baseFreqForSemitone' ('[data:find]' (v 'normalized note') _toneNoteNames))
+  }
+}
+
+to '_baseFreqForSemitone' semitone {
+  if (_toneFrequencies == 0) {_toneFrequencies = ('[data:makeList]' 261626 277183 293665 311127 329628 349228 369994 391995 415305 440000 466164 493883 246942 277183 277183 311127 311127 349228 329628 369994 369994 415305 415305 466164 466164 523252)}
+  if (and (1 <= semitone) (semitone <= (size _toneFrequencies))) {
+    return (at semitone _toneFrequencies)
+  } else {
+    comment 'Bad note name; return 10 Hz'
+    return 10000
+  }
+}
+
+to '_measureLoopOverhead' {
+  comment 'Measure the loop overhead on this device'
+  local 'halfCycle' 100
+  local 'startT' (microsOp)
+  repeat 100 {
+    digitalWriteOp _tonePin false
+    waitMicros halfCycle
+    digitalWriteOp _tonePin false
+    waitMicros halfCycle
+  }
+  local 'usecs' ((microsOp) - startT)
+  return ((usecs - 20000) / 200)
+}
+
+to '_tone init note names' {
+  if (_toneNoteNames == 0) {
+    _toneNoteNames = ('[data:makeList]' 'nt;c' 'nt;c#' 'nt;d' 'nt;d#' 'nt;e' 'nt;f' 'nt;f#' 'nt;g' 'nt;g#' 'nt;a' 'nt;a#' 'nt;b' 'nt;c_' 'nt;db' 'nt;d_' 'nt;eb' 'nt;e_' 'nt;e#' 'nt;f_' 'nt;gb' 'nt;g_' 'nt;ab' 'nt;a_' 'nt;bb' 'nt;b_' 'nt;b#')
+    _toneArezzoNotes = ('[data:makeList]' 'nt;do' 'nt;do#' 'nt;re' 'nt;re#' 'nt;mi' 'nt;fa' 'nt;fa#' 'nt;sol' 'nt;sol#' 'nt;la' 'nt;la#' 'nt;si' 'nt;do_' 'nt;dob' 'nt;re_' 'nt;reb' 'nt;mi_' 'nt;mi#' 'nt;fa_' 'nt;solb' 'nt;sol_' 'nt;lab' 'nt;la_' 'nt;sib' 'nt;si_' 'nt;si#')
+  }
+}
+
+to '_toneLoop' scaledFreq ms {
+  if (_toneInitalized == 0) {'attach buzzer to pin' ''}
+  if ('[io:hasTone]') {
+    '[io:playTone]' _tonePin (scaledFreq / 1000)
+    waitMillis ms
+    '[io:playTone]' _tonePin 0
+  } else {
+    local 'halfCycle' ((500000000 / scaledFreq) - _toneLoopOverhead)
+    local 'cycles' ((ms * 500) / halfCycle)
+    repeat cycles {
+      digitalWriteOp _tonePin true
+      waitMicros halfCycle
+      digitalWriteOp _tonePin false
+      waitMicros halfCycle
+    }
+  }
+}
+
+to '_trimmedLowercase' s {
+  comment 'Return a copy of the given string without whitespace
+or periods and all lowercase.'
+  local 'result' (newList (size s))
+  '[data:delete]' 'all' result
+  for i (size s) {
+    local 'ch' ('[data:unicodeAt]' i s)
+    if (and (ch > 32) (ch != 46)) {
+      if (and (65 <= ch) (ch <= 90)) {ch = (ch + 32)}
+      '[data:addLast]' ch result
+    }
+  }
+  return ('[data:unicodeString]' result)
+}
+
+to 'attach buzzer to pin' pinNumber {
+  if (pinNumber == '') {
+    comment 'Pin number not specified; use default pin for this device'
+    if ((boardType) == 'Citilab ED1') {
+      _tonePin = 26
+    } ((boardType) == 'M5Stack-Core') {
+      _tonePin = 25
+    } ((boardType) == 'M5StickC') {
+      _tonePin = 26
+    } ((boardType) == 'Calliope') {
+      digitalWriteOp 23 true
+      digitalWriteOp 24 true
+      _tonePin = 25
+    } ((boardType) == 'D1-Mini') {
+      _tonePin = 12
+    } ((boardType) == 'CodingBox') {
+      _tonePin = 32
+    } else {
+      _tonePin = -1
+    }
+  } else {
+    _tonePin = pinNumber
+  }
+  _toneLoopOverhead = ('_measureLoopOverhead')
+  _toneInitalized = (booleanConstant true)
+}
+
+to 'play frequency' freq ms {
+  '_toneLoop' (freq * 1000) ms
+}
+
+to 'play tone' note octave ms {
+  local 'freq' ('_baseFreqForNote' note)
+  if (freq <= 10000) {
+    waitMillis ms
+    return 0
+  }
+  if (octave < 0) {
+    repeat (absoluteValue octave) {
+      freq = (freq / 2)
+    }
+  }
+  repeat octave {
+    freq = (freq * 2)
+  }
+  '_toneLoop' freq ms
+}
+
+to playMIDIKey key ms {
+  local 'freq' ('_baseFreqForSemitone' ((key % 12) + 1))
+  local 'octave' ((key / 12) - 5)
+  if (octave < 0) {
+    repeat (absoluteValue octave) {
+      freq = (freq / 2)
+    }
+  }
+  repeat octave {
+    freq = (freq * 2)
+  }
+  '_toneLoop' freq ms
+}
+
+to startTone freq {
+  if (_toneInitalized == 0) {'attach buzzer to pin' ''}
+  if ('[io:hasTone]') {'[io:playTone]' _tonePin freq}
+}
+
+to stopTone {
+  startTone 0
+}
+
