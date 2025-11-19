@@ -1,10 +1,14 @@
-const { SerialUSB } = require("dlserialusb");
-const { DUELinkController } = require("duelink");
+import pkg_serialusb from 'dlserialusb';
+const {SerialUSB} = pkg_serialusb
+
+import pkg_duelink from 'duelink';
+const {DUELinkController} = pkg_duelink
+
 import { setTimeout as sleep } from 'timers/promises';
 
-let duelink = new due.DUELinkController(new SerialUSB());
-await duelink.Connect();
+let duelink = new DUELinkController(new SerialUSB());
 
+await duelink.Connect();
 
 async function SetLed(index, color, brightness) {
     const b = Math.floor((brightness * 31) / 100);
@@ -45,6 +49,11 @@ async function PlayJingle() {
     await duelink.Engine.ExecuteCommand("melodyP(1,a1)");
 }
 
+async function Wait(delay_ms) {
+    //await new Promise(resolve => setTimeout(resolve, delay_ms));
+    await sleep(delay_ms)
+}
+
 // Frequency-duration array
 const freq_dur = [
     330,200, 330,200, 330,300, 0,100,
@@ -64,7 +73,7 @@ for (let i = 0; i < freq_dur.length; i++) {
 }
 
 
-SetAll(0);
+await SetAll(0);
 let btnStatus = false;
 
 while (true) {
@@ -78,5 +87,5 @@ while (true) {
     }
 
     await RndLed();
-    await sleep(250);
+    await Wait(250);
 }
