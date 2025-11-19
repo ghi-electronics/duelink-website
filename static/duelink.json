@@ -99,7 +99,7 @@
       "category": "Microcomputer",
       "price": 14.95,
       "tagline": "Alligator clip friendly STEM-microcomputer",
-      "description": "[Educators](/docs/educators) can now elevate their STEM-mission with Clipit. Start immediately with light sensor and touch pads to read inputs. Then use any of the supported [Languages](/docs/language/intro) to process those inputs and then control the output on the 5x5 LED matrix and buzzer.\n\nGo beyond and add alligator clips for reading touch from objects, or control other circuits.\n\nOf course, this is a DUELink board and [Downlink](/docs/interface/downlink) is ready for [Daisylinking](/docs/engine/daisylink) all of your modules.",
+      "description": "[Educators](/docs/educators) can now elevate their STEM-mission with Clipit. Start immediately with light sensor and touch pads to read inputs. Then use any of the supported [Languages](/docs/language/intro) to process those inputs and then control the output on the 5x5 LED matrix and buzzer.\n\nGo beyond and add alligator clips for reading touch from objects, or control other circuits.\n\nOf course, this is a DUELink board and [Downlink](/docs/interface/downlink) is ready for [Daisylinking](/docs/engine/daisylink) all of your modules.\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
       "keyFeatures": [
         "Clip Friendly Holes",
         "Capacitive Touchpads",
@@ -137,7 +137,7 @@
       "category": "Microcomputer",
       "price": 24.95,
       "tagline": "Complete All-in-One STEM Solution",
-      "description": "`Input -> Process -> Output` is how DueSTEM brings everything [educators](/docs/educators) need to demonstrate physical computing. There are 4 inputs and 4 outputs. The graphical display can be used to show sensor levels or for building games!\n\nExtend the board with sensors and actuators on the female pin-header and the [Downlink](/docs/interface/downlink) connector.",
+      "description": "`Input -> Process -> Output` is how DueSTEM brings everything [educators](/docs/educators) need to demonstrate physical computing. There are 4 inputs and 4 outputs. The graphical display can be used to show sensor levels or for building games!\n\nExtend the board with sensors and actuators on the female pin-header and the [Downlink](/docs/interface/downlink) connector.\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
       "keyFeatures": [
         "128x64 OLED 0.96\" Display",
         "Temperature Sensor",
@@ -191,7 +191,7 @@
       "PID": "0x0C0002",
       "category": "Specialty",
       "tagline": "Tiny Robot-shaped Microcomputer",
-      "description": "Thinking about an exciting give-away for your next event customized with your logo?  This is Ghizzy Jr, quite possibly the smallest, cutest, and smartest keychain in the world! This mini robot-shaped pocket-sized microcomputer plugs right into a USB socket and is a programmable board with endless possibilities, thanks to its [Downlink](/docs/interface/downlink) connector. Start by controlling the full-color eyes and then start [daiylinking](/docs/engine/daisylink) any of the DUELink modules!\n\n Ghizzy can be commanded from one of the many supported [Coding Languages](/docs/language/intro), and it can run stand alone using [MicroBlocks](/docs/language/microblocks).\nGhizzy Jr is only available as a special order,  **customized with your artwork**. \n\n![custom logo](pathname:///img/ghizzy-jr-logo.webp)\n\nThe listed price is for an order of 500 pieces, with higher price for 250 pieces. Account for a 4-weeks lead-time. Please [Contact us](https://www.ghielectronics.com/contact/) for more information.\n\n:::note\n\n The \"legs\" are not a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n",
+      "description": "Thinking about an exciting give-away for your next event customized with your logo?  This is Ghizzy Jr, quite possibly the smallest, cutest, and smartest keychain in the world! This mini robot-shaped pocket-sized microcomputer plugs right into a USB socket and is a programmable board with endless possibilities, thanks to its [Downlink](/docs/interface/downlink) connector. Start by controlling the full-color eyes and then start [daiylinking](/docs/engine/daisylink) any of the DUELink modules!\n\n Ghizzy can be commanded from one of the many supported [Coding Languages](/docs/language/intro), and it can run stand alone using [MicroBlocks](/docs/language/microblocks).\nGhizzy Jr is only available as a special order,  **customized with your artwork**. \n\n![custom logo](pathname:///img/ghizzy-jr-logo.webp)\n\nThe listed price is for an order of 500 pieces, with higher price for 250 pieces. Account for a 4-weeks lead-time. Please [Contact us](https://www.ghielectronics.com/contact/) for more information.\n\n:::note\n\n The \"legs\" are not a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
       "keyFeatures": [
         "2x RGB LEDs",
         "Downlink DUELink Connector",
@@ -215,7 +215,7 @@
       "category": "Specialty",
       "price": 9.95,
       "tagline": "Robot-shaped Microcomputer",
-      "description": "Tiny robot-shaped circuits with LEDs, buzzer, and buttons.\n\nEverything you need to get started is found at: [ghizzy.duelink.com](https://ghizzy.duelink.com/)\n\n:::note\n\n The \"legs\" are not a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n",
+      "description": "Tiny robot-shaped circuits with LEDs, buzzer, and buttons.\n\nEverything you need to get started is found at: [ghizzy.duelink.com](https://ghizzy.duelink.com/)\n\n:::note\n\n The \"legs\" are not a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
       "keyFeatures": [
         "2x RGB LEDs",
         "2x ear & 3x mouth LEDs",
@@ -236,7 +236,7 @@
       "category": "Specialty",
       "price": 24.95,
       "tagline": "Smart Holiday Tree with 26 LEDs",
-      "description": "This is arguably the smartest holiday tree in the world! Control the LEDs in Standalone mode or connect to a host and control the tree from one of the many supported languages and devices. The 2 boards (A and B) slide into each other, turning this into a 3D-ish module!\n\nEverything you need to get started is at: [holidaytree.duelink.com](https://holidaytree.duelink.com/)",
+      "description": "This is arguably the smartest holiday tree in the world! Control the LEDs in Standalone mode or connect to a host and control the tree from one of the many supported languages and devices. The 2 boards (A and B) slide into each other, turning this into a 3D-ish module!\n\nEverything you need to get started is at: [holidaytree.duelink.com](https://holidaytree.duelink.com/)\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
       "keyFeatures": [
         "Stand-up Design",
         "26 Smart LEDs",
