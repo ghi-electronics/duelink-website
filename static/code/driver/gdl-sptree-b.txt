@@ -8,17 +8,17 @@ fn Init()
     SpiCfg(0,8000)
 
     # first 4 bytes need to be 0
-    for _i = 0 to 3
+    for _i = 0 to 4
         b1[_i] = 0
     next
 
     # All led off
-    for _i = 1 to _n
+    for _i = 1 to _n+1
         SetLed(_i, 0, 0)
     next
 
     # last 4 bytes need to be 255
-    for _i = _a-4 to _a-1
+    for _i = _a-4 to _a
         b1[_i] = 0xFF
     next
 
