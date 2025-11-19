@@ -1,3 +1,1 @@
-##### Driver Code Starts Here ###
-
-##### User Code Starts Here #####
+## No driver is necessary, use standard library.
