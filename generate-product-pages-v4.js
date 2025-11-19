@@ -432,7 +432,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/d
                     <Button
                     style={{ color:'white' }}
                     label="Load Project"
-                    link="https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/sample/daisylink/${baseName}.ubp"
+                    link="https://microblocks.fun/run-pilot/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/sample/daisylink/${baseName}.ubp"
                     />
                     
 
@@ -516,7 +516,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/s
                     <Button
                     style={{ color:'white' }}
                     label="Load Project"
-                    link="https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/sample/standalone/${baseName}.ubp"
+                    link="https://microblocks.fun/run-pilot/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/sample/standalone/${baseName}.ubp"
                     />
 
 </TabItem>`);
