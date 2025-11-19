@@ -47,7 +47,7 @@
       "PID": "0x000001",
       "category": "Microcomputer",
       "tagline": "Ultra low-cost, micro:bit inspired, educational board",
-      "description": "[Educators](/docs/educators) will find great value in this ultra low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.\n\nCincoBit is designed for classrooms on a budget. You get a set of 15 at under $100!\n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::",
+      "description": "[Educators](/docs/educators) will find great value in this ultra low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.\n\nCincoBit is designed for classrooms on a budget. You get a set of 15 at under $100!\n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
       "keyFeatures": [
         "5x5 LED Matrix",
         "micro:bit inspired edge connector",
@@ -79,7 +79,7 @@
       "category": "Microcomputer",
       "price": 16.95,
       "tagline": "micro:bit Form Factor with 128x64 OLED 0.96\" Display",
-      "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. You can now show sensor data right on the display! \n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::",
+      "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. You can now show sensor data right on the display! \n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
       "keyFeatures": [
         "128x64 OLED 0.96\" display",
         "Light Sensor",
@@ -331,7 +331,7 @@
       "category": "Specialty",
       "price": 14.95,
       "tagline": "Capacitive Touch Piano Module",
-      "description": "Play notes using capacitive touch pads or connect alligator clips to turn ordinary objects into a piano keys. Mounting holes to connect additional modules.",
+      "description": "Play notes using capacitive touch pads or connect alligator clips to turn ordinary objects into a piano keys. Mounting holes to connect additional modules.\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
       "keyFeatures": [     
         "Piano key layout",
         "Multiple octave selection",
