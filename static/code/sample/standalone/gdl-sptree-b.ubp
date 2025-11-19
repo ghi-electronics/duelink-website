@@ -2,116 +2,173 @@ module main
 author unknown
 version 1 0 
 description ''
+variables delay 
 
-script 133 82 {
+  spec ' ' 'Jingle' 'Jingle'
+  spec ' ' 'RendomLight' 'RendomLight'
+
+to Jingle {
+  delay = 5
+  'play tone' 'nt;b' 1 200
+  RendomLight
+  'play tone' 'nt;b' 1 200
+  RendomLight
+  'play tone' 'nt;b' 1 500
+  RendomLight
+  'play tone' 'nt;b' 1 200
+  RendomLight
+  'play tone' 'nt;b' 1 200
+  RendomLight
+  'play tone' 'nt;b' 1 500
+  RendomLight
+  'play tone' 'nt;b' 1 200
+  RendomLight
+  'play tone' 'nt;d' 2 200
+  RendomLight
+  'play tone' 'nt;g' 1 300
+  RendomLight
+  'play tone' 'nt;a' 1 100
+  RendomLight
+  'play tone' 'b' 1 900
+  'play tone' 'c' 2 200
+  RendomLight
+  'play tone' 'c' 2 200
+  RendomLight
+  'play tone' 'c' 2 300
+  RendomLight
+  'play tone' 'c' 2 100
+  RendomLight
+  'play tone' 'c' 2 200
+  RendomLight
+  'play tone' 'b' 1 200
+  RendomLight
+  'play tone' 'b' 1 200
+  RendomLight
+  'play tone' 'b' 1 100
+  RendomLight
+  'play tone' 'b' 1 100
+  RendomLight
+  'play tone' 'b' 1 200
+  RendomLight
+  'play tone' 'a' 1 200
+  RendomLight
+  'play tone' 'a' 1 200
+  RendomLight
+  'play tone' 'b' 1 200
+  RendomLight
+  'play tone' 'a' 1 400
+  RendomLight
+  'play tone' 'nt;d' 2 400
+  delay = 500
+}
+
+to RendomLight {
+  for index 26 {
+    due_tree_setled_id index ((random 0 1) * 100) ((random 0 1) * 100) ((random 0 1) * 100) 20
+  }
+  waitMillis delay
+  due_tree_show
+}
+
+script 133 66 {
+to Jingle {}
+}
+
+script 474 406 {
 whenStarted
-due_ghizzy_set_mouth false true false
+due_tree_clearled_all
+Jingle
 forever {
-  for i 100 {
-    due_ghizzy_set_left_eye i 0 0
-    due_ghizzy_set_right_eye (100 - i) 0 0
-    startTone (1000 + (i * 20))
-    waitMillis 5
-  }
-  for i ('[data:range]' 100 1) {
-    due_ghizzy_set_left_eye i 0 0
-    due_ghizzy_set_right_eye (100 - i) 0 0
-    startTone (1000 + (i * 20))
-    waitMillis 5
+  RendomLight
+  if (due_tree_button) {
+    Jingle
   }
 }
 }
 
+script 463 714 {
+to RendomLight {}
+}
 
-module Ghizzy
+
+module 'Holiday Tree'
 author GHIElectronics
 version 0 5 
 depends Tone 
-description 'DUELink Ghizzy Library
+description 'DUELink Holiday Tree Library
+
+
 
 '
-variables _due_ghizzy_enabled _due_ghizzy_oldver 
+variables _due_tree_array _due_tree_enabled 
 
-  spec ' ' 'due_ghizzy_set_left_eye' 'Set left eye red _ green _ blue _' 'num num num' 128 128 128
-  spec ' ' 'due_ghizzy_set_right_eye' 'Set right eye red _ green _ blue _' 'num num num' 128 128 128
-  spec ' ' 'due_ghizzy_set_ear' 'Set ear left _ right _' 'bool bool' true true
-  spec ' ' 'due_ghizzy_set_mouth' 'Set mouth left _ center _ right _' 'bool bool bool' true true true
-  spec ' ' 'due_ghizzy_beep' 'Play beep'
-  spec 'r' 'due_ghizzy_button' 'Button pressed'
-  spec ' ' '_due_ghizzy_initialize' 'Initialize'
+  spec ' ' 'due_tree_beep' 'Play beep'
+  spec ' ' 'due_tree_show' 'Show led'
+  spec ' ' 'due_tree_setled_id' 'Set led index _ red _ green _ blue _ brightness _ %' 'auto auto auto auto auto' 1 255 255 255 50
+  spec ' ' 'due_tree_setled_all' 'Set all leds red _ green _ blue _ brightness _ %' 'auto auto auto auto auto' 255 255 255 50
+  spec ' ' 'due_tree_clearled_all' 'Clear all leds'
+  spec ' ' '_due_tree_initialize' 'Initialize Holiday Tree'
+  spec 'r' 'due_tree_button' 'Button pressed'
 
-to '_due_ghizzy_initialize' {
-  if (_due_ghizzy_enabled == 0) {
-    _due_ghizzy_enabled = 1
-    _due_ghizzy_oldver = (digitalReadOp 10 'up')
-    'attach buzzer to pin' 3
+to '_due_tree_initialize' {
+  if (_due_tree_enabled != 1) {
+    _due_tree_enabled = 1
+    'attach buzzer to pin' 1
+    '[sensors:spiSetup]' 1000000
+    local 'i' 0
+    _due_tree_array = (newList 112)
+    comment 'Set first 4 bytes to 0x00'
+    for i ('[data:range]' 1 4) {
+      atPut i _due_tree_array 0
+    }
+    comment 'Set 26*4 bytes to 0'
+    for i ('[data:range]' 5 108) {
+      atPut i _due_tree_array 0
+    }
+    comment 'Set last 4 bytes to 255'
+    for i ('[data:range]' 109 112) {
+      atPut i _due_tree_array 255
+    }
+    for i ('[data:range]' 1 26) {
+      due_tree_setled_id i 0 0 0 0
+    }
   }
 }
 
-to due_ghizzy_beep {
-  '_due_ghizzy_initialize'
+to due_tree_beep {
+  '_due_tree_initialize'
   'play frequency' 1000 100
 }
 
-to due_ghizzy_button {
+to due_tree_button {
   return ('[data:convertType]' (digitalReadOp 20 'down') 'boolean')
 }
 
-to due_ghizzy_set_ear left right {
-  if _due_ghizzy_oldver {
-    if (left == (booleanConstant true)) {
-      digitalWriteOp 12 true
-    } else {
-      digitalWriteOp 12 false
-    }
-    if (right == (booleanConstant true)) {
-      digitalWriteOp 13 true
-    } else {
-      digitalWriteOp 13 false
-    }
-  } else {
-    if (left == (booleanConstant true)) {
-      digitalWriteOp 2 true
-    } else {
-      digitalWriteOp 2 false
-    }
-    if (right == (booleanConstant true)) {
-      digitalWriteOp 7 true
-    } else {
-      digitalWriteOp 7 false
-    }
+to due_tree_clearled_all {
+  for i ('[data:range]' 1 26) {
+    due_tree_setled_id i 0 0 0 0
   }
 }
 
-to due_ghizzy_set_left_eye red green blue {
-  '_due_ghizzy_initialize'
-  if _due_ghizzy_oldver {
-    analogWriteOp 8 ('[misc:rescale]' red 0 255 0 1023)
-    analogWriteOp 7 ('[misc:rescale]' blue 0 255 0 1023)
-    analogWriteOp 9 ('[misc:rescale]' green 0 255 0 1023)
-  } else {
-    analogWriteOp 1 ('[misc:rescale]' green 0 255 0 1023)
-    analogWriteOp 11 ('[misc:rescale]' blue 0 255 0 1023)
-    analogWriteOp 4 ('[misc:rescale]' red 0 255 0 1023)
+to due_tree_setled_all red green blue percent {
+  for i ('[data:range]' 1 26) {
+    due_tree_setled_id i red green blue percent
   }
 }
 
-to due_ghizzy_set_mouth left center right {
-  digitalWriteOp 14 left
-  digitalWriteOp 15 center
-  digitalWriteOp 16 right
+to due_tree_setled_id index red green blue percent {
+  '_due_tree_initialize'
+  local 'i' ((index * 4) + 0)
+  local 'brightness' ('[data:convertType]' ((percent * 31) / 100) 'number')
+  atPut (i + 1) _due_tree_array ((224 | brightness) & 255)
+  atPut (i + 2) _due_tree_array (blue & 255)
+  atPut (i + 3) _due_tree_array (green & 255)
+  atPut (i + 4) _due_tree_array (red & 255)
 }
 
-to due_ghizzy_set_right_eye red green blue {
-  if _due_ghizzy_oldver {
-    analogWriteOp 5 ('[misc:rescale]' red 0 255 0 1023)
-    analogWriteOp 6 ('[misc:rescale]' green 0 255 0 1023)
-    analogWriteOp 4 ('[misc:rescale]' blue 0 255 0 1023)
-  } else {
-    analogWriteOp 8 ('[misc:rescale]' green 0 255 0 1023)
-    analogWriteOp 5 ('[misc:rescale]' blue 0 255 0 1023)
-    analogWriteOp 6 ('[misc:rescale]' red 0 255 0 1023)
-  }
+to due_tree_show {
+  '_due_tree_initialize'
+  '[sensors:spiExchange]' ('[data:asByteArray]' _due_tree_array)
 }
 
 
@@ -121,6 +178,7 @@ version 1 10
 tags tone sound music audio note speaker 
 choices tone_NoteName 'nt;c' 'nt;c#' 'nt;d' 'nt;d#' 'nt;e' 'nt;f' 'nt;f#' 'nt;g' 'nt;g#' 'nt;a' 'nt;a#' 'nt;b' 
 description 'Audio tone generation. Make music with MicroBlocks!
+
 '
 variables _tonePin _toneInitalized _toneLoopOverhead _toneNoteNames _toneArezzoNotes _toneFrequencies 
 
@@ -142,8 +200,11 @@ variables _tonePin _toneInitalized _toneLoopOverhead _toneNoteNames _toneArezzoN
 
 to '_baseFreqForNote' note {
   comment 'Return the frequency for the given note in the middle-C octave
+
 scaled by 1000. For example, return 440000 (440Hz) for A.
+
 Note names may be upper or lower case. Note names
+
 may be followed by # for a sharp or b for a flat.'
   local 'normalized note' ('_trimmedLowercase' note)
   'normalized note' = (ifExpression ((at 1 (v 'normalized note')) == 'n') (v 'normalized note') ('[data:join]' 'nt;' (v 'normalized note')))
@@ -206,6 +267,7 @@ to '_toneLoop' scaledFreq ms {
 
 to '_trimmedLowercase' s {
   comment 'Return a copy of the given string without whitespace
+
 or periods and all lowercase.'
   local 'result' (newList (size s))
   '[data:delete]' 'all' result
