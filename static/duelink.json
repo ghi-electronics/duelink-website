@@ -198,7 +198,7 @@
         "PCB USB-A",
         "20x47mm overall dimension"
       ],
-      "driverApi": "Function | Description\n---|---\n`LEye(r,g,b)` | Sets the left eye with `r` red, `g` for green and `b` for blue color.\n`REye(r,g,b)` | Sets the right eye with `r` red, `g` for green and `b` for blue color. \n`BtnLdr()` | Returns 1 if LDR button is pressed.\n`DVer()` | This driver version.",
+      "driverApi": "Function | Description\n---|---\n`LEye(r,g,b)` | Sets the left eye with `r` for red, `g` for green and `b` for blue color.\n`REye(r,g,b)` | Sets the right eye with `r` for red, `g` for green and `b` for blue color. \n`BtnLdr()` | Returns 1 if LDR button is pressed.\n`DVer()` | This driver version.",
       "MfgNotes": "Connect Ghizzy Jr leg to USB port directly",
       "variations": [
         {
@@ -225,7 +225,7 @@
         "PCB USB-A",
         "27x61mm overall dimension"
       ],
-      "driverApi": "Function | Description\n----------|-------------\n`LEye(r,g,b)` | Sets the left eye with `r` red, `g` for green and `b` for blue color.\n`REye(r,g,b)` | Sets the right eye with `r` red, `g` for green and `b` for blue color.\n`Ear(l,r)` | Activate the `l` left and `r` \"ears\" LEDs (1 on, 0 off).\n`Mouth(l,c,r)` | Activate the `m` \"mouth\" LEDs with `l` for left led, `c` for center and `r` is right led.\n`BtnLdr()` | Returns 1 if LDR button is pressed.\n`PlyBeep()` | Plays buzzer \n`DVer()` | This driver version.",
+      "driverApi": "Function | Description\n----------|-------------\n`LEye(r,g,b)` | Sets the left eye with `r` for red, `g` for green and `b` for blue color.\n`REye(r,g,b)` | Sets the right eye with `r` for red, `g` for green and `b` for blue color.\n`Ear(l,r)` | Activate the `l` left and `r` \"ears\" LEDs (1 on, 0 off).\n`Mouth(l,c,r)` | Activate the `m` \"mouth\" with `l` for left, `c` for center and `r` is right leds.\n`BtnLdr()` | Returns 1 if LDR button is pressed.\n`PlyBeep()` | Plays buzzer. \n`DVer()` | This driver version.",
       "video": "D4073veneWI",
       "MfgNotes": "Connect Ghizzy leg to USB port directly"
     },
