@@ -7,8 +7,6 @@ const {DUELinkController} = pkg_duelink
 let duelink = new DUELinkController(new SerialUSB());
 await duelink.Connect();
 
-await duelink.Engine.ExecuteCommand("Statled(100,100,10)")
-
 async function GetAccelX() {
     const ret = parseInt(await duelink.Engine.ExecuteCommand("GetX()"));
     return ret;
