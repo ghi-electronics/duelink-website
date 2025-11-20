@@ -1,6 +1,3 @@
-
-using System.Drawing;
-using System.Runtime.CompilerServices;
 using GHIElectronics.DUELink;
 
 var availablePort = DUELinkController.GetConnectionPort();
@@ -57,7 +54,6 @@ void TurnLedAll(bool on) {
     duelink.Engine.ExecuteCommand("show()");
 }
 
-
 while (true) {
 
     // Turn all light on if light is 10% or higher    
@@ -70,5 +66,4 @@ while (true) {
         PlayBuzzer(1000, 100);
     }        
     Thread.Sleep(100);
-
 }
