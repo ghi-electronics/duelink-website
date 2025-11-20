@@ -1310,8 +1310,8 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Current()` | Reads the current flow level in Amps. |\n| `DVer()` | This driver version. |",
       "variations": [
         {
-          "name": "12.5A",
-          "partCode": "125",
+          "name": "25A",
+          "partCode": "250",
           "price": 9.95
         }
       ]
