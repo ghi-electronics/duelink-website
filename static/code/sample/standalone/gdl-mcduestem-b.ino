@@ -1,7 +1,6 @@
 // This sample displays temperature and light on the screen.
 
-// Setup IDE
-// Select DUELink from board manager
+// Setup IDE:Select DUELink from board manager
 // Install Adafruit_GFX
 // Install Adafruit_SSD1306
 #include <Wire.h>

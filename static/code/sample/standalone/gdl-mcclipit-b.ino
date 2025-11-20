@@ -1,8 +1,7 @@
 // This sample displays a heart (5x5) when light is detected at more than 10%.
 // When light is below 10%, the heart turns off and a beep sound is played.
 
-// Setup IDE
-// Select DUELink from board manager
+// Setup IDE:Select DUELink from board manager
 // Pin configuration
 const int rows[5] = {PA15, PA10, PC6, PA9, PA13};    // Row pins
 const int cols[5] = {PB1,PB0,PA7,PA6,PA5};  // Column pins
