@@ -10,131 +10,53 @@ fn Test()
     Wait(1)
     dlmode(2,0)
     Wait(10)
-    cmd("sel(1)")
     
-    _p = 0
-    _s = 0
-    _c = 0
-    while 1        
+    s = 1
+    b = 1
+    while 1
+        b = CheckBtn()
         
-        _c = 0
-        if (dread(BtnPin('U'), 1) = 0)
-            SetLed('U', 1)
-            cmd("Clear(0)")
-            cmd("TextS(\"Btn Up pressed\",1,0,0,1,2)")
-            cmd("Show()") 
-            println("Button up pressed")
-            
-            while (dread(BtnPin('U'), 1) = 0)
-                wait(10)
-            wend
-            
-            _c = 1
+        if b != s
+            s = b
+            if ( b = 0)
+                println("Button released")
+                SetCtr(1)
+                for i = 0 to 3
+                    SetRing(i,100,0,0)
+                next
+         
+                CheckBtn()
+         
+                for i = 0 to 3
+                    SetRing(i,0,100,0)
+                next
+         
+                CheckBtn()
+         
+                for i = 0 to 3
+                    SetRing(i,0,0,100)
+                next
+            else
+                println("Button pressed")
+            end
         end
-        
-        if (dread(BtnPin('D'), 1) = 0)
-            SetLed('D', 1)
-            cmd("Clear(0)")
-            cmd("TextS(\"Btn Down pressed\",1,0,0,1,2)")
-            cmd("Show()") 
-            println("Button down pressed")
-            
-            while (dread(BtnPin('D'), 1) = 0)
-                wait(10)
-            wend
-            
-            _c = 1
-        end
-        
-        if (dread(BtnPin('L'), 1) = 0)
-            SetLed('L', 1)
-            cmd("Clear(0)")
-            cmd("TextS(\"Btn Left pressed\",1,0,0,1,2)")
-            cmd("Show()") 
-            println("Button Left pressed")
-            
-            while (dread(BtnPin('L'), 1) = 0)
-                wait(10)
-            wend
-            
-            _c = 1
-        end
-        
-        if (dread(BtnPin('R'), 1) = 0)
-            SetLed('R', 1)
-            cmd("Clear(0)")
-            cmd("TextS(\"Btn Right pressed\",1,0,0,1,2)")
-            cmd("Show()") 
-            println("Button Right pressed")
-            
-            while (dread(BtnPin('R'), 1) = 0)
-                wait(10)
-            wend
-            
-            _c = 1
-        end
-        
-        if (dread(BtnPin('B'), 1) = 0)
-            SetLed('B', 1)
-            cmd("Clear(0)")
-            cmd("TextS(\"Btn Back pressed\",1,0,0,1,2)")
-            cmd("Show()") 
-            println("Button Back pressed")
-            
-            while (dread(BtnPin('B'), 1) = 0)
-                wait(10)
-            wend
-            
-            _c = 1
-        end
-        
-        if (dread(BtnPin('F'), 1) = 0)
-            SetLed('F', 1)
-            cmd("Clear(0)")
-            cmd("TextS(\"Btn Forward pressed\",1,0,0,1,2)")
-            cmd("Show()") 
-            println("Button Forward pressed")
-            
-            while (dread(BtnPin('F'), 1) = 0)
-                wait(10)
-            wend
-            
-            _c = 1
-        end
-        
-         if (dread(BtnPin('E'), 1) = 0)
-            SetLed('U', 1)
-            SetLed('D', 1)
-            SetLed('L', 1)
-            SetLed('R', 1)
-            SetLed('B', 1)
-            SetLed('F', 1)
-            cmd("Clear(0)")
-            cmd("TextS(\"Btn Enter pressed\",1,0,0,1,2)")
-            cmd("Show()") 
-            println("Button Enter pressed")
-            
-            while (dread(BtnPin('E'), 1) = 0)
-                wait(10)
-            wend
-            
-            _c = 1
-        end
-        
-        if _c = 1
-            _c = 0
-            SetLed('U', 0)
-            SetLed('D', 0)
-            SetLed('L', 0)
-            SetLed('R', 0)
-            SetLed('B', 0)
-            SetLed('F', 0)
-            cmd("Clear(0)")
-            cmd("TextS(\"No Btn pressed\",1,0,0,1,2)")
-            cmd("Show()")
-            println("No Btn pressed")
-        end
-        Wait(200)
-        
-    wend
+    wend  
 fend   
+
+fn CheckBtn()
+    e = tickms() + 500
+    while (tickms() < e)
+        b = BtnRead(BtnPin())
+ 
+        if b
+            SetCtr(0)
+            for i = 0 to 3
+                setring(i,0,0,0)
+            next
+            
+            return 1
+ 
+        end
+    wend
+    return 0
+fend
