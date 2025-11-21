@@ -1,8 +1,7 @@
 # In this sample:
-# Display a heart on a 5x5 matrix
-# When light is detected below 15%, the heart will be cleared and a sweep sound will play
-# Play a sweep sound when a press is detected on button A or B
-# Play a sweep sound when any touch is detected on pin 0, 1, or 2
+# Simulate tones from note C4 to C5
+# Press the left or right arrow to play a sweep sound
+# All leds 1,2,3,4,5 turn to ON
 
 import time
 from DUELink.DUELinkController import DUELinkController
