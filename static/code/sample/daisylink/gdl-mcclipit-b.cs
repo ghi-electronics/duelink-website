@@ -1,3 +1,9 @@
+// In this sample:
+// When the light level is above 10%, all LEDs (5x5) turn on.
+// When the light level is below 10%, all LEDs (5x5) turn off.
+// Touch any touch pad (A, B, Up, Down, Left, Right): a short beep plays.
+
+
 using GHIElectronics.DUELink;
 
 var availablePort = DUELinkController.GetConnectionPort();

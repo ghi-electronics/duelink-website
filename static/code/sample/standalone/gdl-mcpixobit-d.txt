@@ -1,7 +1,12 @@
+# In this sample:
+# Display light level on the screen
+# A circle moves on the screen.
+# A short beep plays when button A or B is pressed
+# A short beep plays when pin 1,2 or 3 is touched
+
 _x = 50
 _d = 10
 _w = GetW()
-
 
 while 1
     Clear(0)

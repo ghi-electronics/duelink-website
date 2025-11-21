@@ -1,7 +1,9 @@
-// This sample displays a heart (5x5) when light is detected at more than 10%.
-// When light is below 10%, the heart turns off and a beep sound is played.
+// In this sample:
+// Displays a heart (5x5) when light is detected at more than 10%.
+// When light is below 10%, the heart disappear, and the buzzer play.
 
 // Setup IDE:Select DUELink from board manager
+
 // Pin configuration
 const int rows[5] = {PA15, PA10, PC6, PA9, PA13};    // Row pins
 const int cols[5] = {PB1,PB0,PA7,PA6,PA5};  // Column pins
@@ -82,11 +84,11 @@ float light() {
 void loop() {
   if (light() > 10) {
     showheart();
-    analogWrite(getpin(buzzerPin), 0); // play buzzer
+    analogWrite(getpin(buzzerPin), 0); // stop buzzer
   }
   else {
     clearall();
-    analogWrite(getpin(buzzerPin), 128);  // stop buzzer
+    analogWrite(getpin(buzzerPin), 128);  // play buzzer
   }
   // Continuously refresh
   flush();

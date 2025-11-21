@@ -10,7 +10,7 @@ fn Init()
     GfxCfg(4, a1, 5, 5, 1)# type 4: 5x5 type, 1: buffered x1
 fend
 fn TouchA()
-    t = PulseIn(10, 10, 1, 1000)
+    t = PulseIn(10, 1000, 1, 100)
  
     if(t>_t && t < 65000)
         return 1
@@ -18,35 +18,35 @@ fn TouchA()
         return 0
 fend
 fn TouchB()
-    t = PulseIn(24, 10, 1, 1000)
+    t = PulseIn(24, 1000, 1, 100)
     if(t>_t && t < 65000)
         return 1
     else 
         return 0
 fend
 fn TouchUp()
-    t = PulseIn(13, 10, 1, 1000)
+    t = PulseIn(13, 1000, 1, 100)
     if(t>_t && t < 65000)
         return 1
     else 
         return 0
 fend
 fn TouchDown()
-    t = PulseIn(18, 10, 1, 1000)
+    t = PulseIn(18, 1000, 1, 100)
     if(t>_t && t < 65000)
         return 1
     else 
         return 0
 fend
 fn TouchLeft()
-    t = PulseIn(14, 10, 1, 1000)
+    t = PulseIn(14, 1000, 1, 100)
     if(t>_t && t < 65000)
         return 1
     else 
         return 0
 fend
 fn TouchRight()
-    t = PulseIn(12, 10, 1, 1000)
+    t = PulseIn(12, 1000, 1, 100)
     if(t>_t && t < 65000)
         return 1
     else 
