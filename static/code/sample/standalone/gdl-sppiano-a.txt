@@ -1,0 +1,33 @@
+// In this sample:
+// Simulate tones from note C4 to C5
+
+# C, Cb, D, Db, E, F, Fb, G, Gb, A, Ab, B, c5, 
+dim b1[13] = [23,19,12,13,14,15,16,18,24,10,9,8,17]
+dim b2[13] = [20,31,26,32,8,21,34,23,35,28,36,24,20]
+dim a1[13] = {261,277,293,311,329,349,369,392,415,440,466,493,523}
+
+dim b3[13] = [0,0,0,0,0,0,0,0,0,0,0,0,0]
+dim b4[13] = [0,0,0,0,0,0,0,0,0,0,0,0,0]
+
+while 1     
+    for i = 0 to len(b1) 
+        t = PulseIn(b1[i], 500, 1, 10)
+
+        b3[i] = IsTouch(t)
+        
+        if (b4[i] !=  b3[i])
+            b4[i] = b3[i]
+
+            if (b4[i])
+                freq(3,a1[i],500, 0.5)
+            end
+        end
+    next
+wend
+
+fn IsTouch(t)    
+    if t >150 && t < 65000     
+        return 1
+    end    
+    return 0    
+fend 
