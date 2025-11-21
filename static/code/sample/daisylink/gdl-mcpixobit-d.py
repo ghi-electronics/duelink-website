@@ -44,7 +44,7 @@ while True:
     if duelink.Engine.ExecuteCommand("BtnA()") != 0 or duelink.Engine.ExecuteCommand("BtnB()") != 0:
         duelink.Sound.Sweep(buzzerPin, 1000, 2000, 50, 255, 100)
 
-    time.sleep(0.001)  # Thread.Sleep(1) in C# is 1 ms
+    time.sleep(0.001)  
 
 
 

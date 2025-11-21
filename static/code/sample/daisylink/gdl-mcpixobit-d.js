@@ -51,5 +51,5 @@ while (true) {
         await duelink.Sound.Sweep(buzzerPin, 1000, 2000, 50, 255, 100);
     }
 
-    await new Promise(resolve => setTimeout(resolve, 1)); // Equivalent to Thread.Sleep(1)
+    await new Promise(resolve => setTimeout(resolve, 1)); 
 }
