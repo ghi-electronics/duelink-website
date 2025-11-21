@@ -82,11 +82,11 @@ float light() {
 void loop() {
   if (light() > 10) {
     showheart();
-    analogWrite(getpin(buzzerPin), 0); // play buzzer
+    analogWrite(getpin(buzzerPin), 0); // stop buzzer
   }
   else {
     clearall();
-    analogWrite(getpin(buzzerPin), 128);  // stop buzzer
+    analogWrite(getpin(buzzerPin), 128);  // play buzzer
   }
   // Continuously refresh
   flush();
