@@ -1,3 +1,9 @@
+# In this sample:
+# Display the temperature and the accelerometer X, Y, Z values on the screen.
+# A short beep plays when the Up, Down, Left, or Right button is pressed.
+# A circle moves on the screen.
+
+
 _x = 0
 _d = -9
  

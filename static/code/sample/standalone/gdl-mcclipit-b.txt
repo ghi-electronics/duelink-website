@@ -1,3 +1,11 @@
+# In this sample:
+# Scroll the text "DUELink" on the screen
+# The light level value changes the buzzer's frequency.
+# A short beep plays when the Up, Down, Left, or Right pad is touched.
+# Display the text 'A' when pad A is touched.
+# Display the text 'B' when pad B is touched.
+
+
 while 1
     TextT("DUELink", 1, _x, 0)
     Show()

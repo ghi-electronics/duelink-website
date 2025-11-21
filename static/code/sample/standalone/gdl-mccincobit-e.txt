@@ -1,3 +1,8 @@
+# In this sample:
+# Scroll the text "DUELink" on the screen.
+# A short beep plays when button A or B is pressed.
+# A short beep plays when pin 1, 2, or 3 is touched.
+
 while 1
     TextT("DUELink", 1, _x, 0)
     Show()
