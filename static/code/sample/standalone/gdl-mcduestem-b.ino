@@ -1,4 +1,5 @@
-// This sample displays temperature and light on the screen.
+// In this sample:
+// Displays temperature and light on the screen.
 
 // Setup IDE:Select DUELink from board manager
 // Install Adafruit_GFX
