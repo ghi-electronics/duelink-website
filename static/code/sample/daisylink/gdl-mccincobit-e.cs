@@ -1,7 +1,7 @@
 // In this sample:
 // Display a heart on 5x5 matrix 
 // When light is detected below 15%, the heart will be cleared and a sweep sound will play
-// lay a sweep sound when a press is detected on button A or B
+// Play a sweep sound when a press is detected on button A or B
 // Play a sweep sound when any touch is detected on pin 0, 1, or 2
 
 using GHIElectronics.DUELink;
