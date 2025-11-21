@@ -97,7 +97,7 @@ fn Light()
 fend
 
 fn IsTouch(p)
-    return Touch(p+1,10,1,1) > 200
+    return PulseIn(p+1,1000,1,100) > 200
 fend
 
 Init()
