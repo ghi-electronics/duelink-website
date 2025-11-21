@@ -5,8 +5,9 @@ fn DVer()
 fend
 
 fn SetLED(i,s)
-    if i > 2
-        i = i + 1
+    i = 7-i    
+    if (i <4)
+        i = i - 1
     end
     
     dwrite(i,s)
