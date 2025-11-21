@@ -1,3 +1,9 @@
+// In this sample:
+// Display Accel X, Y, and Z on the screen.
+// Press the Up button: the light bulb turns red and a short beep plays.
+// Press the Down button: the light bulb turns green and a short beep plays.
+// Press the Left button: the light bulb turns blue and a short beep plays.
+
 import pkg_serialusb from 'dlserialusb';
 const {SerialUSB} = pkg_serialusb
 
