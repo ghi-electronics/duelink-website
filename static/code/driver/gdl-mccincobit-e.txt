@@ -39,7 +39,7 @@ fend
 
 fn BtnA()
     if BtnDown(BtnPin('A')) 
-        PrintLn("A pressed")
+
         return 1
     else
         return 0
@@ -48,7 +48,7 @@ fend
 
 fn BtnB()
     if BtnDown(BtnPin('B'))
-        PrintLn("B pressed")
+
         return 1
     else
         return 0
