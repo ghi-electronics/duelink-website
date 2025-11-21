@@ -1,4 +1,9 @@
-# This sample draws circles on the screen and plays a sweep sound when a touch is detected on pin 0, 1, or 2
+# In this sample:
+# Draws circles on the screen
+# Plays a sweep sound when a touch is detected on pin 0, 1, or 2
+# Plays a sweep sound when a pressed is detected on button A,B
+# Show light value on the top of the screen
+
 import time
 from DUELink.DUELinkController import DUELinkController
 
@@ -14,6 +19,7 @@ def IsTouch(pin):
 
     return ret == 1
 
+buzzerPin = 4
 x = 50
 d = 10
 width = int(duelink.Engine.ExecuteCommand("getw()"))
@@ -27,12 +33,20 @@ while True:
     if x > width or x < 0:
         d = d * -1
         duelink.Graphics.Clear(0)
+        light = duelink.Engine.ExecuteCommand("Light()")
+        duelink.Graphics.TextS(f"Light: {light}%", 1, 0, 0, 1, 1)
 
     for i in range(3):
         if IsTouch(i):
-            duelink.Sound.Sweep(4, 1000, 2000, 50, 255, 500)
+            duelink.Sound.Sweep(buzzerPin, 2000, 4000, 50, 255, 100)
             break
 
+    if duelink.Engine.ExecuteCommand("BtnA()") != 0 or duelink.Engine.ExecuteCommand("BtnB()") != 0:
+        duelink.Sound.Sweep(buzzerPin, 1000, 2000, 50, 255, 100)
+
     time.sleep(0.001)  # Thread.Sleep(1) in C# is 1 ms
+
+
+
 
 
