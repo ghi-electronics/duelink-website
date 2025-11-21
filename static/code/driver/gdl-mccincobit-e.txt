@@ -60,7 +60,8 @@ fn Buzzer(f,d)
 fend
 
 fn IsTouch(p)
-    return Touch(p+1,50,1,100) > 200
+    p = PulseIn(p+1,1000,1,100)
+    return (p > 200) && (p < 65000)
 fend
 
 fn Light()
