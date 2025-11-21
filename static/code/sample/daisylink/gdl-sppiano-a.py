@@ -17,7 +17,7 @@ def CreateArray(array, data):
     for i in range(len(data)):
         cmd = f"{array}[{i}]=data[{i}]"
         duelink.Engine.ExecuteCommand(cmd)
-        time.sleep(0.001)  # Thread.Sleep(1) in C# is 1 ms
+        time.sleep(0.001)  
 
 def IsTouch(pin):
     cmd = f"PulseIn({pin}, 500, 1,100)"
