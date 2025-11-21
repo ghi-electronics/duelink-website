@@ -1,7 +1,12 @@
-const { SerialUSB } = require("dlserialusb");
-const { DUELinkController } = require("duelink");
+import pkg_serialusb from 'dlserialusb';
+const {SerialUSB} = pkg_serialusb
 
-let duelink = new due.DUELinkController(new SerialUSB());
+import pkg_duelink from 'duelink';
+const {DUELinkController} = pkg_duelink
+
+import { setTimeout as sleep } from 'timers/promises';
+
+let duelink = new DUELinkController(new SerialUSB());
 await duelink.Connect();
 
 async function setLeftEye(red, green, blue) {
@@ -34,8 +39,8 @@ while (true) {
     
     await setLeftEye(255, 255, 255);
     await setRightEye(255, 255, 255);
-    await new Promise(resolve => setTimeout(resolve, delay));
+    await sleep(delay);
     await setLeftEye(0, 0, 0);
     await setRightEye(0, 0, 0);
-    await new Promise(resolve => setTimeout(resolve, delay));
+    await sleep(delay);
 }

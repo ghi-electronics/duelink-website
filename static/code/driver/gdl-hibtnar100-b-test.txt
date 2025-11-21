@@ -1,0 +1,64 @@
+##### Button AR100 #####
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+fn Test()
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    
+    s = 1
+    b = 1
+    while 1
+        b = CheckBtn()
+        
+        if b != s
+            s = b
+            
+            if ( b = 0)
+                println("Button released")
+            else
+                println("Button pressed")
+            end
+            
+        end
+        if ( b = 0)
+           
+            SetCtr(1)
+            for i = 0 to 3
+                SetRing(i,100,0,0)
+            next
+     
+            CheckBtn()
+     
+            for i = 0 to 3
+                SetRing(i,0,100,0)
+            next
+     
+            CheckBtn()
+     
+            for i = 0 to 3
+                SetRing(i,0,0,100)
+            next
+        end
+    wend  
+fend   
+fn CheckBtn()
+    e = tickms() + 500
+    while (tickms() < e)
+        b = BtnRead(BtnPin())
+ 
+        if b
+            SetCtr(0)
+            for i = 0 to 3
+                setring(i,0,0,0)
+            next
+            
+            return 1
+ 
+        end
+    wend
+    return 0
+fend

@@ -1,8 +1,10 @@
 module 'DUELink Ghizzy'
 author GHIElectronics
-version 0 5 
+version 0 6 
 depends Tone 
 description 'DUELink Ghizzy Library
+
+
 
 '
 variables _due_ghizzy_enabled _due_ghizzy_oldver 
@@ -12,7 +14,6 @@ variables _due_ghizzy_enabled _due_ghizzy_oldver
   spec ' ' 'due_ghizzy_set_ear' 'set ear left _ right _' 'bool bool' true true
   spec ' ' 'due_ghizzy_set_mouth' 'set mouth left _ center _ right _' 'bool bool bool' true true true
   spec ' ' 'due_ghizzy_beep' 'play beep'
-  spec 'r' 'due_ghizzy_button' 'button pressed'
   space
   spec ' ' '_due_ghizzy_initialize' '_initialize'
 
@@ -27,10 +28,6 @@ to '_due_ghizzy_initialize' {
 to due_ghizzy_beep {
   '_due_ghizzy_initialize'
   'play frequency' 1000 100
-}
-
-to due_ghizzy_button {
-  return ('[data:convertType]' (digitalReadOp 20 'down') 'boolean')
 }
 
 to due_ghizzy_set_ear left right {
