@@ -1,10 +1,12 @@
-import pkg_serialusb from 'dlserialusb';
-const {SerialUSB} = pkg_serialusb
 // In this sample:
 // Draws circles on the screen
 // Plays a sweep sound when a touch is detected on pin 0, 1, or 2
 // Plays a sweep sound when a pressed is detected on button A,B
 // Show light value on the top of the screen
+
+import pkg_serialusb from 'dlserialusb';
+const {SerialUSB} = pkg_serialusb
+
 import pkg_duelink from 'duelink';
 const {DUELinkController} = pkg_duelink
 
