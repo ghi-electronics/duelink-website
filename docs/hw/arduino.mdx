@@ -6,11 +6,11 @@ import Zoom from "react-medium-image-zoom";
 
 ![Arduino logo](pathname:///img/arduino-logo.webp)
 
-This is an interesting option because it allows DUELink to be used in 2 very different ways. You can use a third-party Arduino board to control a chain of [Daisylinked](../engine/daisylink) DUELink modules. Also, you can program any DUELink module using the Arduino IDE/software. We will cover them individually. 
+This is an interesting option because it allows DUELink to be used in 2 very different ways. You can use a third-party Arduino board to control a chain of [Daisylinked](../engine/daisylink) DUELink modules. Also, you can program any DUELink module using the Arduino IDE/software [Standalone](../language/standalone). We will cover them individually. 
 
 ---
 
-## Daisylinking
+## Daisylink
 
 Any board running Arduino software can utilize DUELink modules. An example can be [Arduino Uno R4 WiFi](https://store-usa.arduino.cc/products/uno-r4-wifi), which already includes a JST connector.
 
@@ -24,7 +24,7 @@ Boards without a JST connector can use [DueShield](../products/addueshield-a). I
 
 ![DueShield](pathname:///img/catalog/addueshield-a-1.webp)
 
-Youc an also use the [Breakout](../products/adbreakout-a) module to wire the connections using either I2C or UART.
+You can also use the [Breakout](../products/adbreakout-a) module to wire the connections using either I2C or UART.
 
 ![Arduino Breakout UART](pathname:///img/arduino-breakout-uart.webp)
 
@@ -107,15 +107,19 @@ void loop() {
 
 ---
 
-## Hosting Arduino
+## Standalone
 
-Any DUELink module can be run Arduino software, replacing the default DUELink firmware. A good example will be [DueDuino](../products/mcdueduino-a).
+Any DUELink module can be run Standalone using the Arduino software, replacing the default DUELink firmware. An example will be [DueDuino](../products/mcdueduino-a).
 
 ![DueDuino](pathname:///img/dueduino.webp)
 
-The chip used on al DUELink modules is STM32C071, which is fully supported by the Arduino IDE through the ST extension. However, we have made a board support package specifically for you. But wait, we did not just leave it at that! We have a board support package for you.
+The chip used on al DUELink modules is STM32C071, which is fully supported by the Arduino IDE through the ST extension. But wait, we did not just leave it at that! We have a board support package for you.
 
-Start the Arduino IDE, under `File` navigate to `Preferences` click `Additional boards manager URLs:` icon, in the new window copy and add both URLs below. Click `Ok`. 
+:::tip
+Arduino standalone samples for DUELink modules are provided in their individual product pages. Those make for a great starting point.
+:::
+
+Start the Arduino IDE. Under `File`, navigate to `Preferences` then click `Additional boards manager URLs:` icon. In the new window, copy and add both URLs below then click `Ok`. 
 
 ```cpp
 https://github.com/ghi-electronics/duelink-libraries/raw/main/arduino/BoardManager/package_duelink_index.json
@@ -124,7 +128,7 @@ https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectron
 
 ![Add DUELink package links](pathname:///img/arduino-ide-packages.webp)
 
-After the URLs have been added we can now add the board. Select the `Board Manager` Icon from the side menu and search for `duelink` then click `Install`.
+After the URLs have been added we can now add the "board". Select the `Board Manager` Icon from the side menu and search for `duelink` then click `Install`.
 
 ![Add DUELink Board](pathname:///img/arduino-ide-boardmanager.webp)
 
@@ -174,7 +178,7 @@ Note that the linked modules must continue to run the standard DUElink firmware.
 
 ![DueDuino Host](pathname:///img/arduino-dueduino-host.webp)
 
-In comparison, when Arduino is not used, and the host is the PC for example, DueDuino has an address like any other module, because it is not the host.
+In comparison, when Arduino is not used, and the host is the PC for example, DueDuino has an address like any other module, because it is not the host. You can now use a coding language, like [Python](../language/python), on the PC to control IOs on DueDuino and the other modules. 
 
 ![DueDuino PC Host](pathname:///img/dueduino-pchost-daisylink.webp)
 
