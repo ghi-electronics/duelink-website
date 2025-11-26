@@ -1,0 +1,95 @@
+##### Driver Code Starts Here ###
+fn Init()
+
+    #reset
+    dwrite(14,1)
+ 
+    dwrite(16,0)
+ 
+    dwrite(14,0)
+    wait(10)
+    dwrite(14,1)
+    wait(100)
+ 
+    I2cCfg(100)
+    dim a1[16]
+    dim b1[32]
+    Dim b2[12]
+ 
+ 
+ 
+    Rdrgs()
+    DumpReg()
+    
+    a1[7]= a1[7] | 0x8100#enable osc
+    WrRgs()
+    wait(1000)#wait for osc to stabilize
+    DumpReg()
+ 
+    Rdrgs()
+    
+    a1[2]=0xC001#enable and unmute, disable soft mute
+    a1[10]=0x1000
+    WrRgs()
+    wait(500)
+    DumpReg()
+ 
+    Rdrgs()
+
+fend
+ 
+fn DumpReg()
+    
+fend
+ 
+fn RdRgs()
+    I2cWr(0x10,[],b1)
+    x=0xa
+    for i in range(0,12,2)
+        a1[x]= (b1[i]<<8) | b1[i+1]
+        x=x+1
+    next
+    x=0
+    for i in range(12,32,2)
+        a1[x]= (b1[i]<<8) | b1[i+1]
+        x=x+1
+    next
+
+fend
+ 
+fn WrRgs()
+    i=0
+    for x in range(2,8)
+        b2[i]=a1[x]>>8
+        b2[i+1]= a1[x] &0xff
+        i=i+2
+    next
+    I2cWr(0x10,b2,[])
+    #Dump(b2)
+fend
+ 
+fn SetChan(c)
+    Rdrgs()
+    _c= (c-87.5)/0.2
+    a1[3] = a1[3] & 0xFE00#; //Clear out the channel bits
+    a1[3] = a1[3] | _c#; //Mask in the new channel
+    a1[3] = a1[3] | (1<<15)#; //Set the TUNE bit to start
+    WrRgs()
+    DumpReg()
+fend
+ 
+fn SetVol(v)
+    if v > 0xf
+        v=0xf
+    end
+    RdRgs()
+    a1[5] = v
+ 
+    WrRgs()
+    DumpReg()
+ 
+fend
+
+Init()
+
+ 

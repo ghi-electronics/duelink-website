@@ -1,0 +1,38 @@
+##### ePaper M29 #####
+
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test() 
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    
+    Clear(0)
+    TextS("DUELink", 1, 110, 70 ,2,3)
+    Circle(1, 148, 64, 56)
+    Circle(1, 148, 64, 57)
+    Circle(1, 148, 64, 63)
+    Circle(1, 148, 64, 64)
+    Fill(1,100,40,95,20)
+    Show()
+    
+    DrawOnRed() 
+    Clear(0)
+    Text("!Smart Modules!", 1, 103, 47)
+    Circle(1, 148, 64, 58)
+    Circle(1, 148, 64, 59)
+    Circle(1, 148, 64, 60)
+    Circle(1, 148, 64, 61)
+    Circle(1, 148, 64, 62)
+    Show()
+    
+    while 1
+        wait(10)
+    wend
+fend

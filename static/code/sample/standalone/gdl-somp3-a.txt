@@ -1,0 +1,14 @@
+if (Rst()) # reset module
+    SetVol(30) # set volume to max
+    if (PlayFile(1, 1)) # play file 001.mp3 in folder 01        
+        PrintLn("File is playing.")
+    end
+else
+    PrintLn("Reset failed.")
+end
+
+while (IsBusy()) # Busy mean playing
+   wait(1)
+wend
+
+PrintLn("Play ended.")

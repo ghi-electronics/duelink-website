@@ -1,0 +1,25 @@
+##### LCD 16x2 Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    
+    Pos(0,5)
+    CPrnt('P')
+    CPrnt('A')
+    CPrnt('S')
+    CPrnt('S')
+    CPrnt('E')
+    CPrnt('D')
+  
+fend  
+
+####################

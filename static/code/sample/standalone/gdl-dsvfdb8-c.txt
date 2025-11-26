@@ -1,0 +1,24 @@
+CPrintS("DUELink")
+VShow()
+wait(1000)
+CPrintS("        ")
+VSHow()
+
+_x = 0
+_i = 0
+while (1)   
+    CPrint(_i, _x + '0')
+    VShow()
+    _x = _x + 1
+    
+    if (_x = 10)
+        _x = 0
+        _i = _i + 1
+        
+        if _i = 8
+            _i = 0
+            VShow()
+        end
+    end
+    wait(10)      
+wend

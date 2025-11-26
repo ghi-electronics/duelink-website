@@ -1,0 +1,44 @@
+##### MotoTwin Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+# Pin 8: Sleep, active low
+# Pin 9: Fault, active low
+# Pin 4,5: A+, A-
+# Pin 6,7: B+, B-
+
+fn Init()
+    DWrite(8,1)# No sleep!
+    Freq(4, 500, 0, 0)
+    Freq(5, 500, 0, 0)
+    Freq(6, 500, 0, 0)
+    Freq(7, 500, 0, 0)
+fend
+
+fn SMotorA(s)
+    if (s > 0)
+        Freq(5, 500, 0, 0)
+        Freq(4, 500, 0, s / 100)
+    else
+        s = s * -1
+        Freq(4, 500, 0, 0)
+        Freq(5, 500, 0, s / 100)
+    end
+fend
+
+fn SMotorB(s)
+    if (s > 0)
+        Freq(7, 500, 0, 0)
+        Freq(6, 500, 0, s / 100)
+    else
+        s = s * -1
+        Freq(6, 500, 0, 0)
+        Freq(7, 500, 0, s / 100)
+    end
+fend
+
+Init()
+
+####################

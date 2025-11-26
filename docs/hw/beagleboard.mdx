@@ -1,0 +1,83 @@
+# BeagleBoard
+
+
+![BeagleBoard](pathname:///img/beagleboard-logo.webp)
+
+BeagleBoard has many open-source offerings and they all work with the DUELink ecosystem.
+
+![BeagleBoard Family of Products](pathname:///img/beagleboard-family.webp)
+
+Any of the [Coding Language](../language/intro) options can be use on these boards. Depending on the boards, there might be an easier way to connect DUELink modules.
+
+---
+
+## BeaglePlay
+
+This board has a built in JST connector with [I2C](../interface/i2c) signals, I2C5 to be exact! Their [Qwicc Example](https://docs.beagleboard.org/boards/beagleplay/demos-and-tutorials/using-qwiic.html#beagleplay-qwiic) is a good starting point on how to access the I2C bus. Consider this as a DUELink [Downlink](../interface/downlink) socket.
+
+![BeagleBoard](pathname:///img/beagleplay-jst.webp)
+
+---
+
+## BeagleY-AI
+
+This board has a [Raspberry PI](raspberry-pi) compatible footprint/pinout. We recommend using DUELink [DuePI](../products/adduepi-b), which adds a display, a buzzer, a terminal block, and [Downlink](../interface/downlink) socket.
+
+![BeagleBonePlay with DUEPI](pathname:///img/beagleplay-duepi.gif)
+
+The hat uses UART for communication. Here is an example to show the system's IP address on the display.
+
+
+```python
+import sys
+import serial
+import time
+import socket
+
+from DUELink.DUELinkController import DUELinkController
+
+def get_ip_address():
+    try:
+        # Get all IP addresses associated with the hostname, filtering out 127.0.0.1
+        ips = [ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.startswith("127.")]
+        if ips:
+            return ips[0]  # Returns the first non-loopback IP address found
+        else:
+            # If no non-loopback IP is found, try connecting to an external server to determine the IP used
+            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            s.connect(("8.8.8.8", 80)) # Connect to Google's DNS server (doesn't send data, just sets up connection)
+            ip = s.getsockname()[0]
+            s.close()
+            return ip
+    except socket.error:
+        return None
+    
+
+myip = get_ip_address()
+
+# DUELink connection
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController("/dev/ttyAMA0")  # uart port define
+
+# DUELink graphics
+# Show IP address on screen
+duelink.Graphics.Clear(1)
+duelink.Graphics.Text("--DUELink--", 0, 33,5)
+duelink.Graphics.Text("My IP:" + myip, 0, 1,20)
+duelink.Graphics.Show()
+
+# Beep once a second
+while True:
+    duelink.Sound.Beep(14,1000,100)
+    time.sleep(1)
+```
+
+---
+
+# Other Beagles
+
+Use the [Breakout](../products/adbreakout-a) module to wire [UART Interface](../interface/uart) or [I2C Interface](../interface/i2c)from any BeagleBoard. When using I2C, pull-up resistors are required. The DUELink [PullUp](../products/adpullup-a) module is available if needed.
+
+![BeagleBone Black Breakout UART](pathname:///img/beaglebone-breakout-uart.webp)
+
+![BeagleBone Black Breakout I2C](pathname:///img/beaglebone-breakout-i2c.webp)

@@ -1,0 +1,99 @@
+##### DueSTEM Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test() 
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+ 
+    c = 0
+    t = 0
+    while 1
+        _l = Light()
+        if BtnDown(BtnPin('U')) = 1
+            SetBulb(0xFF0000)
+            cmd("clear(0)")
+            cmd("Texts(\"Button Up\",1,0,0,1,2)")
+            cmd("Texts(\"pressed\",1,0,20,1,2)")
+            cmd("show()")
+ 
+            println("Button Up pressed")
+            
+            Tunes(1000, 100)
+            
+        end
+ 
+        if BtnDown(BtnPin('D')) = 1
+            SetBulb(0x00FF00)
+            cmd("clear(0)")
+            cmd("Texts(\"Button Down\",1,0,0,1,2)")
+            cmd("Texts(\"pressed\",1,0,20,1,2)")
+            cmd("show()")
+ 
+            println("Button Down pressed")
+            
+            Tunes(1000, 100)
+            
+        end
+ 
+        if BtnDown(BtnPin('L')) = 1
+            SetBulb(0x0000FF)
+            cmd("clear(0)")
+            cmd("Texts(\"Button Left\",1,0,0,1,2)")
+            cmd("Texts(\"pressed\",1,0,20,1,2)")
+            cmd("show()")
+ 
+            println("Button Left pressed")
+            
+            Tunes(1000, 100)
+        end
+ 
+        if BtnDown(BtnPin('R')) = 1
+            SetBulb(0xffffff)
+            cmd("clear(0)")
+            cmd("Texts(\"Button Right\",1,0,0,1,2)")
+            cmd("Texts(\"pressed\",1,0,20,1,2)")
+            cmd("show()")
+ 
+            println("Button Right pressed")
+            
+            Tunes(1000, 100)
+        end
+ 
+        clear(0)
+        _t = ReadTemp()
+        _l = Light()
+        _x = GetX()
+        _y = GetY()
+        _z = GetZ()
+ 
+        TextS("Temp: ", 1, 0, 0, 2, 1)
+        TextS(fmt(_t), 1, 74, 0, 2, 1)
+ 
+        TextS("Light: ", 1, 0, 10, 2, 1)
+        TextS(fmt(_l), 1, 74, 10, 2, 1)
+ 
+        TextS("X: ", 1, 0, 20, 2, 1)
+        TextS(fmt(_x), 1, 74, 20, 2, 1)
+ 
+        TextS("Y: ", 1, 0, 30, 2, 1)
+        TextS(fmt(_y), 1, 74, 30, 2, 1)
+ 
+        
+        TextS("Z: ", 1, 0, 40, 2, 1)
+        TextS(fmt(_z), 1, 64, 40, 2, 1)
+ 
+        
+        show()
+        wait(100)
+        
+ 
+    wend    
+fend
+ 

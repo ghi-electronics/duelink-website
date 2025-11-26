@@ -1,0 +1,5 @@
+##### TempAn #####
+
+fn ReadTemp()
+    return VRead(1)/(ReadVCC() )*100
+fend

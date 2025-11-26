@@ -1,0 +1,101 @@
+##### Flash Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+# CS - P16
+# WP - P15
+# RS - P19
+
+fn SfWr8(b)
+    DWrite(16,0)
+    r = SpiWr(b)
+    DWrite(16,1)
+    return r
+fend
+
+fn SfInit()
+    SpiCfg(0, 8000)
+    DWrite(19, 0)
+    Wait(10)
+    DWrite(19, 1)
+    DWrite(16, 1)
+    DWrite(15, 1)
+fend
+
+fn SfGetId(b2)
+    Dim b2[3]
+    DWrite(16,0)
+    SpiWr(0x9f)
+    SpiWrs(b2, b2)
+    DWrite(16,1)
+fend
+
+fn SfIsBusy()
+    DWrite(16,0)
+    SpiWr(0x05)
+    r = SpiWr(0)
+    DWrite(16,1)
+    return r & 1
+fend
+
+fn SfWait()
+    while(SfIsBusy())
+    wend
+fend
+
+fn SfErase(a)
+    SfWait()
+    SfWr8(0x06)
+    SfWait()
+    DWrite(16,0)
+    SpiWr(0x20)
+    SpiWr((a>>16)&0xff)
+    SpiWr((a>>8)&0xff)
+    SpiWr((a>>0)&0xff)
+    DWrite(16,1)
+    SfWait()
+    SfWr8(0x04)
+fend
+
+fn SfRead(a, b2)
+    SfWait()
+    DWrite(16,0)
+    SpiWr(0x03)
+    SpiWr((a>>16)&0xff)
+    SpiWr((a>>8)&0xff)
+    SpiWr((a>>0)&0xff)
+    SpiWrs(0, b2)
+    DWrite(16,1)
+fend
+
+fn SfWrite(a, b2)
+    SfWait()
+    SfWr8(0x06)
+    c = Len(b2)
+    o = 0
+    while(c>0)
+        DWrite(16,0)
+        SpiWr(0x02)
+        SpiWr((a>>16)&0xff)
+        SpiWr((a>>8)&0xff)
+        SpiWr((a>>0)&0xff)
+
+        if (c > 256) n=256 else n=c
+           for i=0 to n
+           SpiWr(b2[o+i])
+        next
+        
+        o=o+n
+        c=c-n
+        a=a+256
+        DWrite(16,1)
+        SfWait()
+    wend
+    SfWr8(0x04)
+fend
+
+SfInit()
+
+#########################

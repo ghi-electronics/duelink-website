@@ -1,0 +1,4 @@
+while 1
+    PrintLn(PixTemp(63) , " - ", PixTemp(0))
+    Wait(100)
+wend

@@ -1,0 +1,140 @@
+##### Button S7 Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    
+    _p = 0
+    _s = 0
+    _c = 0
+    while 1        
+        
+        _c = 0
+        if (dread(BtnPin('U'), 1) = 0)
+            SetLed('U', 1)
+            cmd("Clear(0)")
+            cmd("TextS(\"Btn Up pressed\",1,0,0,1,2)")
+            cmd("Show()") 
+            println("Button up pressed")
+            
+            while (dread(BtnPin('U'), 1) = 0)
+                wait(10)
+            wend
+            
+            _c = 1
+        end
+        
+        if (dread(BtnPin('D'), 1) = 0)
+            SetLed('D', 1)
+            cmd("Clear(0)")
+            cmd("TextS(\"Btn Down pressed\",1,0,0,1,2)")
+            cmd("Show()") 
+            println("Button down pressed")
+            
+            while (dread(BtnPin('D'), 1) = 0)
+                wait(10)
+            wend
+            
+            _c = 1
+        end
+        
+        if (dread(BtnPin('L'), 1) = 0)
+            SetLed('L', 1)
+            cmd("Clear(0)")
+            cmd("TextS(\"Btn Left pressed\",1,0,0,1,2)")
+            cmd("Show()") 
+            println("Button Left pressed")
+            
+            while (dread(BtnPin('L'), 1) = 0)
+                wait(10)
+            wend
+            
+            _c = 1
+        end
+        
+        if (dread(BtnPin('R'), 1) = 0)
+            SetLed('R', 1)
+            cmd("Clear(0)")
+            cmd("TextS(\"Btn Right pressed\",1,0,0,1,2)")
+            cmd("Show()") 
+            println("Button Right pressed")
+            
+            while (dread(BtnPin('R'), 1) = 0)
+                wait(10)
+            wend
+            
+            _c = 1
+        end
+        
+        if (dread(BtnPin('B'), 1) = 0)
+            SetLed('B', 1)
+            cmd("Clear(0)")
+            cmd("TextS(\"Btn Back pressed\",1,0,0,1,2)")
+            cmd("Show()") 
+            println("Button Back pressed")
+            
+            while (dread(BtnPin('B'), 1) = 0)
+                wait(10)
+            wend
+            
+            _c = 1
+        end
+        
+        if (dread(BtnPin('F'), 1) = 0)
+            SetLed('F', 1)
+            cmd("Clear(0)")
+            cmd("TextS(\"Btn Forward pressed\",1,0,0,1,2)")
+            cmd("Show()") 
+            println("Button Forward pressed")
+            
+            while (dread(BtnPin('F'), 1) = 0)
+                wait(10)
+            wend
+            
+            _c = 1
+        end
+        
+         if (dread(BtnPin('E'), 1) = 0)
+            SetLed('U', 1)
+            SetLed('D', 1)
+            SetLed('L', 1)
+            SetLed('R', 1)
+            SetLed('B', 1)
+            SetLed('F', 1)
+            cmd("Clear(0)")
+            cmd("TextS(\"Btn Enter pressed\",1,0,0,1,2)")
+            cmd("Show()") 
+            println("Button Enter pressed")
+            
+            while (dread(BtnPin('E'), 1) = 0)
+                wait(10)
+            wend
+            
+            _c = 1
+        end
+        
+        if _c = 1
+            _c = 0
+            SetLed('U', 0)
+            SetLed('D', 0)
+            SetLed('L', 0)
+            SetLed('R', 0)
+            SetLed('B', 0)
+            SetLed('F', 0)
+            cmd("Clear(0)")
+            cmd("TextS(\"No Btn pressed\",1,0,0,1,2)")
+            cmd("Show()")
+            println("No Btn pressed")
+        end
+        Wait(200)
+        
+    wend
+fend   

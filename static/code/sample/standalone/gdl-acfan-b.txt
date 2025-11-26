@@ -1,0 +1,10 @@
+while 1
+    Fan(40)
+    Wait(1000)
+
+    Fan(80)
+    Wait(2000)
+
+    Fan(-20)
+    Wait(2000)
+wend

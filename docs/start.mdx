@@ -1,0 +1,222 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Getting Started
+
+
+![Getting Started](pathname:///img/getting-started.webp)
+
+There are many ways to use DUELink, with its long list of supported [coding languages](./language/intro) and [supported hardware](./hw/intro) options. This page will focus on the bare minimum to get you started with **any** DUELink module!
+
+---
+
+## MicroBlocks Getting started
+
+![MicroBlocks](pathname:///img/microblocks.webp)
+
+
+This page focuses on the DUELink firmware. Users (especially [Educators](./educators)) interested in block-coding can skip this page and start with [MicroBlocks](./language/microblocks).
+
+---
+
+## Online Demo
+
+The fastest way to try DUELink is though this [Online Demo](https://demo.duelink.com/), which uses [JavaScript](./language/javascript) through a web browser to run some of the DUELink [Standard Library](./engine/stdlib) commands.
+
+![DUELink Demo website](pathname:///img/demo-website.webp)
+
+All DUELink modules support the [USB Interface](./interface/usb). While a few boards have a USB connector built-in, most will have an Uplink connector allowing for all USB/I2C/UART interfaces. [USB Hook](./products/adusbhook-a) can be used to bring out the USB connection.
+
+Here is a Microcomputer module example, which has a USB connector built-in, vs an LED module that is connected to USB through a USB Hook module.
+
+![DUELink Connection](pathname:///img/duelink-connection.webp)
+ 
+Start by plugging in your device to a USB port, open the [demo site](https://demo.duelink.com/) and connect the device.
+
+![Demo Connect](pathname:///img/demo-connect.webp)
+
+The first tab is for controlling the STAT LED. This is an LED that is found on all DUELink modules. Change the parameters and observe the STAT LED on the board.
+
+![Demo LED tab](pathname:///img/demo-led-tab.webp)
+
+If you are using a board with `A` or `LDR` buttons, you can also try Digital read on these buttons. These buttons are connected to pin `20`. You will need to set `Pull` to `Down`. You can now hold the button up or down while clicking `Read`.
+
+![Read Button](pathname:///img/demo-digital-read.webp)
+
+By the way, when connected, the demo site shows the device ID (module type) and its firmware version.
+
+![Device Firmware](pathname:///img/demo-firmware-version.webp)
+
+---
+
+## Firmware Update
+
+The DUELink Console is a useful online platform to handle many important tasks, such as firmware update and scripting. It is fully covered in details [here](./console).
+
+When you receive a new module, it is important that your board is using latest firmware. We will use the Console to check the firmware version and update if necessary. 
+
+Plug in your device and "connect" it.
+
+![Console Connect](pathname:///img/due-connect.webp)
+
+The console will show the current version loaded on the module and also the latest available version.
+
+![Console About](pathname:///img/console-about.webp)
+
+:::tip
+The [Release Notes](./release-notes) lists the changes.
+:::
+
+To update the firmware, open DUELink console [https://console.duelink.com/](https://console.duelink.com/) and click `Firmware`.
+
+![Firmware](pathname:///img/due-firmware.webp)
+
+Follow the instructions and load the latest firmware. Full details are found on the [loader](./loader) page.
+
+---
+
+## Demo Scripts
+
+The console includes a few simple scripts. Give some a try for an easy start with zero setup! These examples utilize the [Internal Engine's](./engine/intro) built-in [scripting language](./engine/scripting).
+
+![Demos](pathname:///img/due-demos.webp)
+
+An example script would be a single line that controls the status LED (STAT LED). This LED is found on every single DUELink module.
+
+```py
+# Blinks Status LED High for 200ms, Low for 200ms, repeat 50 times
+StatLed(200,200,50)
+```
+
+`Record` and `run` your script then observe the LED. Try changing the numbers to change the LED behavior.
+
+![Status LED](pathname:///img/statled-blink.gif)
+
+See the [Console](./console) page for full details.
+
+---
+
+## Hello World
+
+Now, you are ready to use one of the [languages](./language/intro), such as [Python](./language/python) or [JavaScript](./language/javascript). These are just some of the available [Coding Language](./language/intro) options. There are [standalone](./language/standalone) options as well. Those pages include full instructions on how to load programs, but here is a small example that shows what a full program looks like.  We will blink the STAT LED using `StatLed()`.
+
+<Tabs groupid = "samples" queryString="show"
+  values={[
+    {label: 'Python', value: 'py'},
+    {label: 'Javascript', value: 'js'},
+    {label: '.NET C#', value: 'dotnet'},
+  ]}>
+
+<TabItem value="py">
+
+You need to install the DUELink Python library using `pip install DUELink`, see [Python](./language/python) page for details.
+
+```py
+from DUELink.DUELinkController import DUELinkController
+import time
+
+# Connect
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+
+# Blink
+duelink.System.StatLed(200,200,50)
+```
+
+</TabItem>
+
+<TabItem value="js">
+You need ot install the DUELink JavaScript library using `npm install DUELink` & `npm install serialport`, see [JavaScript](./language/javascript) page for details.
+
+```js
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+const { Util } = require("duelink");
+
+// Connect
+let duelink = new DUELinkController(new SerialUSB());
+await duelink.Connect();
+
+// Blink
+await duelink.System.StatLed(200, 200, 50);
+```
+
+</TabItem>
+<TabItem value="dotnet">
+You need ot install the DUELink Nuget `GHIElectronics.DUELink`, see [.NET](./language/dotnet.mdx) page for details.
+
+```csharp
+using GHIElectronics.DUELink
+
+// Connect
+var availablePort = DUELinkController.GetConnectionPort();
+var duelink = new DUELinkController(availablePort);
+
+// Blink
+duelink.System.StatLed(200, 200, 50);
+```
+
+</TabItem>
+</Tabs>
+
+This is another example that controls the STAT LED directly using digital write. Note that the STAT LED is always pin 0. This program runs an infinite loop. Stopping the program will stop the LED from blinking.
+
+<Tabs groupid = "samples" queryString="show"
+  values={[
+    {label: 'Python', value: 'py'},
+    {label: 'Javascript', value: 'js'},
+    {label: '.NET C#', value: 'dotnet'},
+  ]}>
+
+<TabItem value="py">
+
+```py
+from DUELink.DUELinkController import DUELinkController
+import time
+
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+
+while True:
+  duelink.Digital.Write(0, 1)
+  time.sleep(0.5)
+  duelink.Digital.Write(0, 0)
+  time.sleep(0.5)
+```
+
+</TabItem>
+<TabItem value="js">
+
+```js
+import {SerialUSB} from './serialusb.js';
+import * as DUELink from './duelink.js';
+import { Util } from "./util.js";
+
+let duelink = new DUELink.DUELinkController(new SerialUSB());
+await duelink.Connect();
+
+while (true){
+    await duelink.Digital.Write(0, 1)
+    await Util.sleep(500)
+    await duelink.Digital.Write(0, 0)
+    await Util.sleep(500)
+}
+```
+
+</TabItem>
+<TabItem value="dotnet">
+
+```cs
+var availablePort = DUELinkController.GetConnectionPort();
+var duelink = new DUELinkController(availablePort);
+
+while (true) {
+    duelink.Digital.Write(0, 1);
+    Thread.Sleep(500);
+    duelink.Digital.Write(0, 0);
+    Thread.Sleep(500);
+}
+```
+
+</TabItem>
+</Tabs>

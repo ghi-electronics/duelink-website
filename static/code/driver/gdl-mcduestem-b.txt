@@ -1,0 +1,150 @@
+##### DueSTEM Driver  #####
+
+fn DVer()
+    return 1.0
+fend
+ 
+fn Init()
+    I2cCfg(400)    
+    I2cWr(0x4c, [0x20, 2], 0) # 0x4c: I2C address, [0x20,1] MC3216_Outcfg
+    I2cWr(0x4c, [0x07, 1], 0) # 0x4c: I2C address, [0x07,1] MC3216_Mode
+ 
+    BtnEn(BtnPin('U'), 1) # Btn Up
+    BtnEn(BtnPin('D'), 1) # Btn Down
+    BtnEn(BtnPin('L'), 1) # Btn Left
+    BtnEn(BtnPin('R'), 1) # Btn Right
+
+
+    DWrite(22,0) # reset pin
+    DWrite(22,1) 
+    Wait(10)
+ 
+    # config I2C bus with 400Kz
+    I2cCfg(400)
+    Wait(20)
+    GfxCfg(1,{0x3C}, 128, 64, 1)# type 1, 128x64 pixels, buffered x1
+ 
+    LcdCmd(0xAE):LcdCmd(0x00):LcdCmd(0x10)
+    LcdCmd(0x40):LcdCmd(0x81):LcdCmd(0xCF)
+    LcdCmd(0xA1):LcdCmd(0xA6):LcdCmd(0xA8)
+    LcdCmd(0x3F):LcdCmd(0xD3):LcdCmd(0x00)
+    LcdCmd(0xD5):LcdCmd(0x80):LcdCmd(0xD9)
+    LcdCmd(0xF1):LcdCmd(0xDA):LcdCmd(0x12)
+    LcdCmd(0xDB):LcdCmd(0x40):LcdCmd(0x8D)
+    LcdCmd(0x14):LcdCmd(0xAF):LcdCmd(0xC8)
+    LcdCmd(0x20):LcdCmd(0x00):LcdCmd(0x21)
+    LcdCmd(0):LcdCmd(128-1)
+    LcdCmd(0x22):LcdCmd(0):LcdCmd(7)
+    
+    Dim a1[]={131, 200, 
+        147, 200,
+        262, 500}
+        MelodyP(3, a1)      
+
+    Clear(0)
+    TextS("DUELink",1,25,25,2,3)
+    Show()
+fend
+
+fn BtnPin(a)
+    if a = 'U'
+        return 18
+    end
+    if a = 'D'
+        return 10
+    end
+    if a = 'L'
+        return 20
+    end
+    if a = 'R'
+        return 1
+    end
+    while 1
+        PrintLn("ERROR!!")
+        Wait(200)
+    wend
+fend
+
+ 
+##### Display #####
+ 
+fn LcdCmd(c)
+    I2cWr(0x3c, [0, c], 0)
+fend
+ 
+fn GetH()
+    return 64
+fend
+ 
+fn GetW()
+    return 128
+fend
+ 
+##### Accelerometer #####
+ 
+Dim b1[1]
+ 
+fn Convert(c)
+    if (c > 127)
+        c = c - 256
+    end
+ 
+    c = c * 1024 / 64
+ 
+    if (c > 1024)
+        c = 1024
+    end
+ 
+    if (c < -1024)
+        c = -1024
+    end
+ 
+    return c
+fend
+ 
+fn GetX()
+    I2cWr(0x4C, [0x0D], b1) # 0x0D MC3216_XOut
+    return Convert(b1[0])
+fend
+ 
+fn GetY()
+    I2cWr(0x4C, [0x0F], b1) # 0x0F MC3216_YOut
+    return Convert(b1[0])
+fend
+ 
+fn GetZ()
+    I2cWr(0x4C, [0x11], b1) # 0x11 MC3216_ZOut
+    return Convert(b1[0])
+fend
+
+##### LightBulb #####
+ 
+fn SetBulb(c) #c = Hex Value
+    r = ((c>>16)&0xff)/255
+    g =((c>>8)&0xff)/255
+    b = (c&0xff)/255
+ 
+    AWrite(2,b)
+    AWrite(11,r)
+    AWrite(4,g)
+fend
+
+fn Light()
+    return Trunc(VRead(17)/(ReadVCC() )*100)
+fend
+
+##### Temperature #####
+
+fn ReadTemp()
+    return Trunc(VRead(9)/(ReadVCC() )*100)
+fend
+
+##### Tunes #####
+
+fn Tunes(f,d)
+    Beep(3, f, d)
+fend
+ 
+Init()
+ 
+#########################

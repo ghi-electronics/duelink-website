@@ -1,0 +1,58 @@
+##### TFT CP24 Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    IStart("TouchIrq", 2, 0, 1)
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+ 
+    cmd("Clear(0)")
+    cmd("TextS(\"Make sure\", 1, 0, 0, 2,2)")
+    cmd("TextS(\"colors are\", 1, 0, 20, 2,2)")
+    cmd("TextS(\"shown correctly\", 1, 0, 40, 1,2)")
+    cmd("Show()") 
+        
+            
+    Clear(0)
+    TextS("This is red", 0xFF0000, 0, 0, 3, 3)
+    TextS("This is green", 0x00FF00, 0, 40, 3, 3)
+    TextS("This is blue", 0x0000FF, 0, 80, 3, 3)
+    TextS("This is white", 0xFFffff, 0,120, 3, 3)
+    
+    show()
+    
+    x = TouchX()
+    y = TouchY()
+    f = 0
+    while 1
+
+        
+        if (x != TouchX() || y != TouchY())
+            x = TouchX()
+            y = TouchY()
+            
+            if (f = 0)
+                f = 1
+                Clear(0)
+            end
+            
+            Circle(0xFF0000,x,y,10)
+            show()
+        end
+        
+        
+        
+        wait(10)
+ 
+    wend
+ 
+fend    
+ 
+#########################

@@ -1,0 +1,8 @@
+while 1
+
+    Set(2, 1) # turn on relay 2
+    wait(1000)
+    Set(2, 0) # turn off relay 2
+    wait(2000)
+
+wend

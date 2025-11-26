@@ -1,0 +1,51 @@
+# In this sample:
+# Scroll the text "DUELink" on the screen
+# The light level value changes the buzzer's frequency.
+# A short beep plays when the Up, Down, Left, or Right pad is touched.
+# Display the text 'A' when pad A is touched.
+# Display the text 'B' when pad B is touched.
+
+
+while 1
+    TextT("DUELink", 1, _x, 0)
+    Show()
+    _x= _x-1
+    if _x < -40
+        _x = 6
+    end
+    wait(100)
+    
+    if TouchUp()
+      Buzzer(7, 1000, 500)
+    end
+    
+    if TouchDown()
+      Buzzer(7, 200, 500)
+    end
+    
+    if TouchRight()
+      Buzzer(7, 400, 500)
+    end
+    
+    if TouchLeft()
+      Buzzer(7, 600, 500)
+    end
+    
+    if TouchA()
+      Clear(0)
+      TextT("A", 1, 0, 0)
+      Show()
+      Wait(1000)
+    end
+    
+    if TouchB()
+      Clear(0)
+      TextT("B", 1, 0, 0)
+      Show()
+      Wait(1000)
+    end
+
+    Buzzer(Light()*50+500,30)#Light sensor value changes freq of buzzer
+
+    Clear(0) # need to clear for next character
+wend

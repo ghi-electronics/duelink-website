@@ -1,0 +1,43 @@
+##### TFT R128 Test #####
+ 
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+ 
+    cmd("Clear(0)")
+    cmd("TextS(\"Make sure\", 1, 0, 0, 2,2)")
+    cmd("TextS(\"colors are\", 1, 0, 20, 2,2)")
+    cmd("TextS(\"shown correctly\", 1, 0, 40, 1,2)")
+    cmd("Show()") 
+ 
+    x = 0
+    d = -9
+ 
+    while 1
+        Clear(0)
+        TextS("I am red", 0xFF0000, 15, 15, 1, 1)
+        TextS("I am green", 0x00FF00, 10, 25, 1, 1)
+        TextS("I am blue", 0x0000FF, 5, 35, 1, 1)
+        TextS("I am white", 0xFFffff, 5,45, 1, 1)
+ 
+        Circle(0xFFffff, x, 60, 5)
+ 
+        x=x+d
+        if(x < 0 || x > 70)
+            d = d * -1
+        end
+        show()
+
+        wait(1)
+    wend
+fend  
+ 
+#########################

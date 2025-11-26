@@ -1,0 +1,101 @@
+# This includes 2 samples. The first to to control a DMX device (light) and the second is for receiving from a DMX controller.
+
+# Example 1: Control a DMX device #########
+
+# This driver assumes there is 4 channels
+# ch1: brightness
+# ch2: red
+# ch3: green
+# ch4: blue
+# device add: d001 (our dmx light text)
+
+Dim b1[4]
+
+fn Init()
+
+    SerCfg(250000, 513)
+    DWrite(5, 1)
+    DWrite(6, 1)
+
+fend
+
+fn SetBright(v)
+    b1[0] = v #brightness
+fend
+
+fn SetColor(r,g,b)
+    b1[1] = r #red
+    b1[2] = g #red
+    b1[3] = b #red
+fend
+
+fn Flush()
+    DmxW(b1)
+fend
+
+
+Init()
+
+
+_i = 0
+_d = 1
+
+while 1
+    SetColor(255,255,255)
+    SetBright(_i)
+    Flush()
+    
+    _i = _i + 5 * _d
+    
+    if (_i >= 255)
+        _d = -1
+    end
+    
+    if (_i <=0)
+        _d = 1
+    end
+    
+    Wait(10) 
+wend
+
+#############################
+#############################
+#############################
+
+# Example 2: Read a DMX controller DMX-48
+
+Alias(ch1=_v, ch2=_x)
+
+fn Init()
+
+    SerCfg(250000, 513)
+    DWrite(5,0) # enable receive
+    DWrite(6,0) # disable transmit
+    
+fend
+
+_v = 0
+_x = 0
+fn Test()
+    Init()
+    PrintLn("test")
+
+    while (1)
+        DmxU()
+        while (DmxRdy() =0)
+            wait(1)
+        wend
+        
+        if (DmxR(0) != ch1)
+            ch1 = DmxR(0)
+            PrintLn("ch1: ", ch1)
+        end
+        
+        if (DmxR(1) != ch2)
+            ch2 = DmxR(1)
+            PrintLn("ch2: ", ch2)
+        end
+            
+        Wait(100)
+    wend
+fend 

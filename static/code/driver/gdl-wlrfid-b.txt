@@ -1,0 +1,243 @@
+##### RFID Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+# https://github.com/lsongdev/RFID-RC522/blob/master/RFID.cpp#L118
+Dim b2[5] # serial number
+Alias(rst=3,cs=5)
+
+
+_z = 0
+
+fn Init()
+    SpiCfg(0,8000)
+    DWrite(rst, 1)        
+    DWrite(cs, 1)   
+    RstReg()    
+    WriteReg(0x2A, 0x8D) #TModeReg
+    WriteReg(0x2B, 0x3E) #TPrescalerReg
+    WriteReg(0x2D, 30) #TReloadRegL
+    WriteReg(0x2C, 0) #TReloadRegH
+    WriteReg(0x15, 0x40) #TxAutoReg
+    WriteReg(0x11, 0x3D) #ModeReg
+    
+    AntenOn()
+    
+fend
+
+fn RstReg() 
+    WriteReg(0x01, 0x0F) #CommandReg, PCD_RESETPHASE
+fend
+
+fn WriteReg(r, v)
+    DWrite(cs, 0)  
+    
+    SpiWr((r<<1)&0x7E)
+    SpiWr(v)
+    
+    DWrite(cs, 1)  
+fend
+
+fn ReadReg(r)
+    DWrite(cs, 0)  
+    
+    SpiWr(((r<<1)&0x7E) | 0x80)
+    r = SpiWr(0)
+    
+    DWrite(cs, 1) 
+    
+    return r
+fend
+
+fn SetBitM(r, m)
+    t = ReadReg(r)
+    
+    WriteReg(r, (t | m) & 0xFF)
+fend
+
+fn ClrBitM(r, m)
+    t = ReadReg(r)
+    
+    WriteReg(r, (t &  (~m) ) & 0xFF)
+fend
+
+fn AntenOn() 
+    t = ReadReg(0x14) #TxControlReg  
+    
+    if (!(t & 0x03))
+        SetBitM(0x14, 0x03)
+    end
+fend
+
+fn AntenOff() 
+    t = ReadReg(0x14) #TxControlReg  
+    
+    if (!(t & 0x03))
+        ClrBitM(0x14, 0x03)
+    end
+fend
+
+fn Crc(b1,l, b2)
+    ClrBitM(0x05, 0x04) #DivIrqReg             
+    SetBitM(0x0A, 0x80) #FIFOLevelReg
+    
+    for i = 0 to l
+        WriteReg(0x09, b1[i] ) #FIFODataReg           
+    next
+    
+    WriteReg(0x01, 0x03) #CommandReg PCD_CALCCRC
+    
+    i = 0xFF
+    n = 0
+    
+    while ((i != 0) && !(n & 0x04))
+        n = ReadReg(0x05) #DivIrqReg
+        i = i - 1
+    wend
+    
+    b2[0] = ReadReg(0x22) #CRCResultRegL         
+    b2[1] = ReadReg(0x21) #CRCResultRegM         
+    
+fend
+
+fn toCard(c, b1, s, b1, b) # b is _z
+    e = 2 #status MI_ERR
+    q = 0 #irqEn 
+    w = 0 #waitIRq 
+    l = 0 #lastBits
+    n = 0
+    i = 0
+    
+    if c = 0x0E #PCD_AUTHENT
+        q = 0x12
+        w = 0x10
+    end
+    
+    if c = 0x0C #PCD_TRANSCEIVE
+
+        q = 0x77
+        w = 0x30
+    end
+    
+    WriteReg(0x02, q | 0x80) #CommIEnReg
+    ClrBitM(0x04, 0x80) #CommIrqReg
+    SetBitM(0x0A, 0x80) #FIFOLevelReg   
+    
+    WriteReg(0x01, 0x00) #CommandReg,PCD_IDLE
+    
+    for i = 0 to s
+        WriteReg(0x09, b1[i]) #FIFODataReg
+    next
+    
+    WriteReg(0x01, c) #CommandReg
+    
+    if c = 0x0C #PCD_TRANSCEIVE
+        SetBitM(0x0D, 0x80) #BitFramingReg, StartSend=1,transmission of data starts
+    end
+    
+    i = 2000
+    
+    while ((i != 0) && !(n & 0x1) && !(n&w)) 
+        n = ReadReg(0x04) #
+        i = i - 1
+    wend
+    
+    ClrBitM(0x0D, 0x80) #BitFramingReg
+    
+    if (i != 0)
+        if (!(ReadReg(0x06) & 0x1B)) #ErrorReg
+            e = 0 #MI_OK
+            if (n & q & 0x01)
+                e = 1 # MI_NOTAGERR
+            end
+            
+            if (c = 0x0C)
+                n = ReadReg(0x0A) #FIFOLevelReg
+                l = ReadReg(0x0C) & 0x07 #ControlReg       
+
+                if (l != 0)
+                    _z = (n - 1)  * 8 + l
+                else
+                    _z = n * 8
+                end
+                
+                if ( n = 0)
+                    n = 1
+                end
+                
+                if (n > 16) # MAX_LEN
+                    n = 16
+                end
+                
+                for i = 0 to n
+                    b1[i] = ReadReg(0x09) #FIFODataReg
+                next
+            end
+        
+        else
+        
+            e = 2 #MI_ERR
+        end
+    end
+    
+    return e
+fend
+
+fn Request(m, b1)
+    s = 0
+    b = 0
+    
+    WriteReg(0x0D, 0x07) #BitFramingReg
+    b1[0] = m
+    
+    s = toCard(0x0C, b1, 1, b1, b) #PCD_TRANSCEIVE
+    
+    if (s != 0 && b != 0x10) #: 0 is MI_OK
+        s = 2 #MI_ERR
+    end
+    
+    return s    
+fend
+
+fn ReadCard(b1)
+    WriteReg(0x0D, 0x00) #BitFramingReg 
+    
+    k = 0 #serNumCheck
+    
+    b1[0] = 0x93 #PICC_ANTICOLL
+    b1[1] = 0x20
+    
+    s = toCard  (0x0C, b1, 2, b1, _z) #0x0C PCD_TRANSCEIVE      
+
+    if s = 0 #MI_OK
+        for i = 0 to 4
+            k = k ^ b1[i]
+        next
+        
+        if k != b1[i]
+            s = 2 # MI_ERR
+        end
+    #else
+        #PrintLn("anticoll failed")
+    end
+    
+    return s
+fend
+
+fn isCard()
+    Dim b1[16]
+    
+    s = request(0x26, b1) #PICC_REQIDL
+    
+    if s = 0
+        return 1
+    else
+        return 0        
+    end
+fend
+
+Init()
+
+####################

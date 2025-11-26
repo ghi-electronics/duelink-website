@@ -1,0 +1,33 @@
+##### SerialUSB SerCfg(115200, 1024) # set baudrate 115200, 1024 byte buffer
+
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()  
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+        
+    Dim b1[1]
+    SerCfg(9600, 1024) # set baudrate 115200, 1024 byte buffer
+    while 1
+        if SerB2R() > 0
+            cmd("clear(0)")
+            SerRds(b1, 1000) # read data            
+            SerWr(b1[0] + 1 ) # write back to sender
+            
+            println("Received:", chr(b1[0]))
+            println("Sent:", chr(b1[0]+1))
+            
+            cmd(fmt("Texts(\"Rec byte:", (b1[0]), "\",1,0,0,1,2)"))
+            cmd(fmt("Texts(\"Sent byte:", (b1[0]+1), "\",1,0,20,1,2)"))
+            cmd("show()")
+        end
+        Wait(1)
+    wend#####
+fend

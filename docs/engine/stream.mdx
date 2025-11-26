@@ -1,0 +1,107 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Stream
+
+DUELink [Scripting](scripting) language is built to be ASCII human-friendly. This works great; however, there are instances where speed or raw binary data is required, like when writing or reading a buffer.
+
+A direct benefit of streams is in giving a language, such as [Python](../language/python), an easy way to transfer buffers to and from the module.
+
+---
+
+## Usage
+
+This is an example to send a buffer to the module. This example is for Python but other languages work almost exactly the same.
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+Library only functionality.
+```
+</TabItem>
+<TabItem value="py">
+```py
+# write first 64 byte elements from byte_array to b1
+duelink.Stream.WriteBytes("b1", byte_array) 
+# write first 64 float elements from float_array to a1
+duelink.Stream.WriteFloats("a1", float_array) 
+# read 64 byte elements from b1 to byte_array
+duelink.Stream.ReadBytes("b1", byte_array) 
+# read 64 byte elements from a1 to float_array
+duelink.Stream.ReadFloats("a1", float_array) 
+```
+</TabItem>
+<TabItem value="js">
+```js
+// write first 64 byte elements from byte_array to b1
+await duelink.Stream.WriteBytes("b1", byte_array);
+// write first 64 float elements from float_array to a1
+await duelink.Stream.WriteFloats("a1", float_array);
+// read 64 byte elements from b1 to byte_array
+await duelink.Stream.ReadBytes("b1", byte_array);
+// read 64 byte elements from a1 to float_array
+await duelink.Stream.ReadFloats("a1", float_array);
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// write first 64 byte elements from byte_array to b1
+duelink.Stream.WriteBytes("b1", byte_array, 64);
+// write first 64 float elements from float_array to a1
+duelink.Stream.WriteFloats("a1", float_array, 64); 
+// read 64 byte elements from b1 to byte_array
+duelink.Stream.ReadBytes("b1", byte_array, 64);
+// read 64 byte elements from a1 to float_array
+duelink.Stream.ReadFloats("a1", float_array, 64);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# write first 64 byte elements from byte_array to b1
+duelink.Stream.WriteBytes("b1", byte_array) 
+# write first 64 float elements from float_array to a1
+duelink.Stream.WriteFloats("a1", float_array) 
+# read 64 byte elements from b1 to byte_array
+duelink.Stream.ReadBytes("b1", byte_array) 
+# read 64 byte elements from a1 to float_array
+duelink.Stream.ReadFloats("a1", float_array) 
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// write first 64 byte elements from byte_array to b1
+duelink.Stream.WriteBytes("b1", byte_array);
+// write first 64 float elements from float_array to a1
+duelink.Stream.WriteFloats("a1", float_array);
+// read 64 byte elements from b1 to byte_array
+duelink.Stream.ReadBytes("b1", byte_array);
+// read 64 byte elements from a1 to float_array
+duelink.Stream.ReadFloats("a1", float_array);
+```
+</TabItem>
+</Tabs>
+</details>
+
+
+:::tip
+Stream can't be used directly by typing in ASCII commands, like when using the [Console](../console) or a terminal.
+:::
+
+---
+
+## Mechanism
+
+Understanding and utilizing Stream mechanism is only needed by advanced users. See the source code of one of the provided libraries for reference.
+
+A Stream command initiates the request. Once this command is received and accepted by the device, the `&` symbol will be returned indicating readiness. The host can then send the entire binary data exactly to the required byte count or float count. Keep in mind that a float is 4 bytes.

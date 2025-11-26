@@ -1,0 +1,65 @@
+##### SmartLED Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+## 2Pin (SCK, DAT) LPD8806 Smart LEDs work using SPI and can't be used with graphics libs.
+# Uses b1 and b2 arrays
+fn IntLPD(c)
+    SpiCfg(0,8000)
+    Dim b1[3*c]
+    Dim b2[3 * ((c + 63) / 64)]
+    for i in Range(c)
+        SetLPD(i, 0)
+    next
+fend
+
+fn SetLPD(i, c)
+    r = (c>>16) & 0x7f
+    g = (c>>8) & 0x7f
+    b = c & 0x7f
+    b1[i * 3 + 2] = 0x80 | b 
+    b1[i * 3 + 1] = 0x80 | r 
+    b1[i * 3 + 0] = 0x80 | g
+fend
+
+fn ShwLPD()
+    SpiWrs(b1,0)#color
+    SpiWrs(b2,0)#zero terminator
+fend
+
+####################
+
+## 2Pin (SCK, DAT) APA102C Smart LEDs work using SPI and can't be used with graphics libs.
+# Uses b1 array
+fn IntAPA(c)
+    SpiCfg(0,8000)
+    Dim b1[4+c*4+4] # Num of led x 4, plus first and last 4 bytes
+    for i in Range(c)
+        SetAPA(i, 0, 10)
+    next
+fend
+
+fn SetAPA(i, c, l)
+    r = (c>>16) & 0x7f
+    g = (c>>8) & 0x7f
+    b = c & 0x7f
+    b1[i*4+4+0] = 0xE0 | l # luminance (0 to 31)
+    b1[i*4+4+1] = ((c >> 0) & 0xFF) # blue
+    b1[i*4+4+2] = ((c >> 8) & 0xFF) # green
+    b1[i*4+4+3] = ((c >> 16) & 0xFF) # red
+fend
+
+fn ShwAPA()
+    SpiWrs(b1,0)
+fend
+
+####################
+
+## 1Pin WS2811 work through internal graphics, and with panel support
+fn WS2811()
+    return 14
+fend
+
+####################

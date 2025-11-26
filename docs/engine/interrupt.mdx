@@ -1,0 +1,28 @@
+
+# Interrupts
+
+DUELink Engine can invoke a function when a pin changes, using the pin hardware interrupt. `IStart(func, pin, trigger, pull)` where trigger is: 0- Falling edge, 1- Rising edge, and 2- Falling & Rising edges. Pull is: 0- none, 1- up, 2- down.
+
+:::tip
+This only works on interrupt-capable pins.
+:::
+
+```py
+_i = 450
+_b = 0
+IStart("Blink", 1, 0, 1)
+
+while 1
+  PrintLn("Stat: ", Istat("Blink"))
+  Wait(100)
+wend
+
+fn Blink()
+  DWrite(0, _b&1)# Status LED is always on pin 0
+  _b=_b+1
+  PrintLn("Blink: ", _b)
+  if _b=100# stop the interrupt after 100
+    IAbort("Blink")
+  end
+fend
+```

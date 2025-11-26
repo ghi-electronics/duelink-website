@@ -1,0 +1,35 @@
+##### Wireless ESP32 Test ###
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()    
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    
+    AtCmd("AT+GMR") # Get version     
+    ATWaitRes(100)
+     
+    cmd("sel(1)")
+    cmd("Clear(0)")
+
+    if b0[0] = 'A' && b0[1] = 'T' && b0[2] = ' '
+        if b0[3] = 'v' && b0[4] = 'e' && b0[5] = 'r' && b0[6] = 's' && b0[7] = 'i' && b0[8] = 'o' && b0[9] = 'n'
+
+            cmd("TextS(\"Status: Passed!\", 1, 0, 0, 1,2)")
+            cmd("Show()") 
+            println("Status: Passed")
+
+            return
+        end
+    end
+
+
+    cmd("TextS(\"Status: Failed!\", 1, 0, 0, 1,2)")
+    cmd("Show()") 
+    println("Status: Failed!") 
+fend

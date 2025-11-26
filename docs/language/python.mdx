@@ -1,0 +1,104 @@
+# Python
+
+
+![Python Logo](pathname:///img/python.webp)
+
+Python is the main language used with AI and data science. The provided DUELink Python library allows a full standard Python program to access the physical world. For example, an AI vision facial recognition can now control a door lock.
+
+---
+
+## Setup
+
+This page assumes the user is already familiar with Python and there is a development machine that is already setup to build and run Python programs.
+
+
+:::tip
+Make sure your hardware is updated with the latest firmware. The [Console](../console) can help with that!
+:::
+
+Start a new project with a simple line of code to test that the project is running.
+
+```py
+Print("Hello DUELink!")
+```
+---
+
+## Libraries
+
+We now need to install the DUELink Python library using `pip install DUELink`. You may also upgrade the libraries using `pip install --upgrade DUELink`. The DUELink package will also install all required dependencies.
+
+:::tip
+The DUELink python library requires pySerial, which may require an admin access to install.
+:::
+
+---
+
+## Blinky!
+
+Our first program will blink the on-board status LED, on for 200ms then it shuts off for 800ms, and does this 20 times.
+
+```py
+from DUELink.DUELinkController import DUELinkController
+print("Hello DUELink!")
+availablePort = DUELinkController.GetConnectionPort()
+print("Using port: ", availablePort)
+duelink = DUELinkController(availablePort)
+# Flash the LED  (on for 200ms, off for 800ms, 20 times)
+duelink.System.StatLed(200,800,20)
+print("Bye DUELink!")
+```
+
+:::tip
+The Python library is open source: [DUELink Libraries Repo](https://github.com/ghi-electronics/duelink-libraries).
+:::
+
+---
+
+## Daisylinking
+
+In the example below, we'll use Python to control an OLED 0.96 Display, a Button, and a Buzzer module Daisylinked together.
+
+![Daisylinked Modules](pathname:///img/usbhook-daisylinked.webp)
+
+:::tip
+Make sure these modules are pre-loaded with [Drivers](../engine/drivers).
+:::
+
+```python
+# Device 1 is OLED 0.96" Display
+# Device 2 is button
+# device 3 is buzzer
+
+from DUELink.DUELinkController import DUELinkController
+ 
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+
+# Blink the Status LED
+duelink.Engine.Select(1)
+duelink.System.StatLed(200,200,0)
+
+# Show messages on screen
+duelink.ReadTimeout = 0.1
+duelink.Graphics.Clear(0)
+duelink.Graphics.TextS("-- DUELink --", 1, 30, 1, 1, 2)
+duelink.Graphics.Text("Press button on", 1, 1, 21)
+duelink.Graphics.Text("device 2 to play", 1, 1, 31)
+duelink.Graphics.Text("sound on device 3", 1, 1, 41)
+duelink.Graphics.Show()
+
+# Enable button feature on pin 1 on device address 2
+duelink.Engine.Select(2)
+duelink.Button.Enable(1, 1, 1)
+
+# Read if button is down on device address 2 to buzz device address 3
+while True:
+    duelink.Engine.Select(2)
+    if (duelink.Button.Down(1)) :
+        duelink.Engine.Select(3)
+        duelink.Frequency.Write(7, 1000, 50, 0.5)  
+
+```
+## Standard Library
+
+Available functions are documented by the DUELink [Standard Library](../engine/stdlib). All APIs have Python samples to help you get started.

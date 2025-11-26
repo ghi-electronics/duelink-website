@@ -1,0 +1,44 @@
+##### DOF9 #####
+ 
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()  
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    
+    cmd("Clear(0)")
+    cmd("TextS(\"Staring test...\", 1, 0, 0, 1,2)")
+    cmd("Show()")
+    
+    while (1)
+        cmd("Clear(0)")
+        RAccel()
+        cmd(fmt("TextS(\"Accel:",_x,",",_y,",",_z,"\", 1, 0, 0, 1,2)"))
+        RGyro()
+        cmd(fmt("TextS(\"Gyro:",_x,",",_y,",",_z,"\", 1, 0, 16, 1,2)"))
+        RCompass()
+        cmd(fmt("TextS(\"Cpass:",_x,",",_y,",",_z,"\", 1, 0, 32, 1,2)"))
+        cmd(fmt("TextS(\"Temp:",_t,"\", 1, 0, 48, 1,2)"))
+        
+        cmd("Show()")
+        
+        println("Accel XYZ: ", _x,",",_y,",",_z)
+        wait(10)
+        println("Gyro XYZT: ", _x,",",_y,",",_z)
+        wait(10)
+        println("Compass XYZ: ", _x,",",_y,",",_z)        
+        wait(10) 
+        println("Temp: ", _t)        
+        wait(1000) 
+                
+    wend
+fend 
+ 
+##############################
+ 
+ 

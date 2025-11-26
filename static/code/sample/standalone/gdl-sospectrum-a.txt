@@ -1,0 +1,5 @@
+while (1)
+    UpdBnd()
+    PrintLn("63Hz: ", a1[0])
+    wait(1)
+wend

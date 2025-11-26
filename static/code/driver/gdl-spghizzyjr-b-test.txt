@@ -1,0 +1,43 @@
+##### Ghizy Jr Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()    
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")    
+
+    r = 0
+    s = 0
+
+    while 1
+        r = dread(BtnPin(),2)
+
+        if (s != r)
+            cmd("clear(0)")
+            if (r = 1) 
+                cmd("Texts(\"Btn pressed!\",1,0,0,1,2)")                                 
+                println("Pressed")
+                LEye(255,255,255)
+                REye(255,255,255)
+            else
+                cmd("Texts(\"Btn released!\",1,0,0,1,2)") 
+                println("Released")
+                LEye(0,0,0)
+                REye(0,0,0)
+            end
+            
+            cmd("show()")
+            s = r
+        end
+        
+        wait(100)
+    
+    wend
+    
+fend

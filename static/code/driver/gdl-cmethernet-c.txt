@@ -1,0 +1,183 @@
+##### Ethernet Driver #####
+
+_c = 19 # chip select
+_i = 7 # interrupt
+_r = 15 # reset
+
+dim b1[4]
+dim b2[3]
+dim b3[4]
+
+# w: 1: write, 0: read, ignore v
+fn RegWrRd(r, v, w) 
+    if w = 1 # write
+        b1[0] = (r >> 16) & 0xFF
+        b1[1] = (r >> 8) & 0xFF
+        b1[2] = ((r >> 0) & 0xF8) | 4
+        b1[3] = v
+        
+        dwrite(_c, 0)
+        SpiWrs(b1, 0)
+        dwrite(_c, 1)        
+    else # read
+        b2[0] = (r >> 16) & 0xFF
+        b2[1] = (r >> 8) & 0xFF
+        b2[2] = ((r >> 0) & 0xF8)
+        
+        dwrite(_c, 0)
+        SpiWrs(b2, b3)
+        dwrite(_c, 1)
+        
+        return b3[3]
+    end
+fend
+
+
+fn SetReg(a,b9)
+  for i=0 to 4
+    RegWrRd((a+i)<<8, b9[i],1)
+  next
+fend
+
+# IP, GW, Subnet
+fn Init(b7, b8, b9)
+    spicfg(0, 8000)
+    
+    dread(_i, 0)
+
+    dwrite(_r, 0)
+    wait(2)
+    dwrite(_r, 1)
+    wait(50)
+    
+    RegWrRd(0, 0x80,1)
+    
+    wait(3000)
+    
+    SetReg(0x000f, b7)
+    SetReg(0x0001, b8)
+    SetReg(0x0005, b9)
+fend
+
+
+fn s_wr(s,r,v)
+  s = (s<<5)|8
+  RegWrRd((r<<8)|s,v,1)
+fend
+
+fn s_rr(s,r)
+  s = (s<<5)|8
+  RegWrRd((r<<8)|s, 0, 0)
+  return b3[3]
+fend
+
+fn s_wr16(s,r,v)
+  s_wr(s,r,(v>>8)&0xff)
+  s_wr(s,r+1,v&0xff)
+fend
+
+fn s_rr16(s,r)
+  h=s_rr(s,r)
+  l=s_rr(s,r+1)
+  return (h<<8)|l
+fend
+
+fn Send(s,b9)
+  t=(s<<5)|16
+  a=s_rr16(s,0x24)
+  b2[0] = (a>>8) & 0xFF
+  b2[1] = (a>>0) & 0xFF
+  b2[2] = t|4
+  
+  dwrite(_c,0)
+  spiwrs(b2,0)
+  spiwrs(b9,0)
+  dwrite(_c,1)
+  
+  s_wr16(s,0x24,a+len(b9))
+  
+  s_wr(s,1,0x20)
+fend
+
+fn Recv(s,b9)
+  t=(s<<5)|24
+  r=s_rr16(s,0x26)
+  l=len(b9)
+  if (r=0 || l=0)
+    return 0
+  end
+
+  a=s_rr16(s,0x28)
+  b2[0] = (a>>8) & 0xFF
+  b2[1] = (a>>0) & 0xFF
+  b2[2] = t
+  
+  dwrite(_c,0)
+  spiwrs(b2,0)
+  spiwrs(0,b9)
+  dwrite(_c,1)
+  
+  s_wr16(s,0x28,a+l)
+  s_wr(s,1,0x40)
+  
+  return len(b9)
+fend
+
+fn Close(s)
+  s_wr(s,1,0x8)
+  s_wr(s,1,0x10)
+fend
+
+# s-socket, l-local port, b9-ip address, p-remote port
+fn Connect(s,l,b9,p)
+  s_wr(s,0,1)
+  s_wr16(s,4,l)
+  
+  for i=0 to 4
+    s_wr(s,0x0c+i,b9[i])
+  next
+  
+  s_wr16(s,0x10,p)
+  
+  s_wr(s,1,1)
+  while s_rr(s,3) != 0x13
+  wend
+  
+  s_wr(s,1,4)
+  t=1000 #timeout
+  while(t && s_rr(s,3) != 0x17)
+    wait(1)
+    t=t-1
+  wend
+  return s_rr(s,3)=0x17
+fend
+
+fn Listen(s,p)
+  s_wr(s,0,1)
+  s_wr16(s,4,p)
+  s_wr(s,1,1)
+  wait(10)
+  
+  s_wr(s,1,2)
+ 
+  while(s_rr(s,3) != 0x14)
+    wait(1)
+  wend
+fend
+
+fn Accept(s)
+  while(s_rr(s,3) != 0x17)
+    wait(1)
+  wend
+fend
+
+fn Avail(s)
+  return s_rr16(s,0x26)
+fend
+
+#default:
+#ip: 192,168,0,50
+#gw: 192,168,0,1
+#subnet: 255,255,255,0
+
+Init([192,168,0,50], [192,168,0,1], [255,255,255,0])

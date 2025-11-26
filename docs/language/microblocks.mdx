@@ -1,0 +1,392 @@
+# MicroBlocks
+
+<div style={{textAlign: 'center'}}>
+![MicroBlocks](pathname:///img/microblocks.webp)
+</div>
+
+MicroBlocks is a blocks language (like Scratch) that makes it easy for beginners (9 years to adults) to program DUELink boards. A huge benefit of MicroBlocks is that it is live and
+interactive: users can click commands to see what they do and they can test their scripts as they work.
+
+![MicroBlocks](pathname:///img/microblocks-sample.webp)
+
+Yet in spite of its apparent simplicity, MicroBlocks is a fast, powerful programming language with the ability to interface with peripherals via GPIO, I2C, SPI, and serial
+and nearly 200 extension libraries. In fact, some hardware designers prefer MicroBlocks for rapid prototyping and testing because of its fast, interactive development cycle.
+
+There are two ways beginners and educators can use MicroBlocks with DUELink:
+1. Run **MicroBlocks on DUELink** modules/boards.
+2. Use modules to start **Daisylinking with MicroBlocks**.
+
+---
+
+## MicroBlocks on DUELink
+
+While you can load MicroBlocks on any DUELink module, the ones recommended on the [educators](../educators) page make it especially easy to get started.
+
+### Installing the Firmware
+
+Educational-tailored boards automatically ship with MicroBlocks preloaded. However, here are the steps needed to re-load MicroBlocks firmware, a process that takes less than a minute.
+
+Start by connecting your DUELink board to a laptop using a USB cable. Make sure it is not a charge-only cable!
+
+:::note
+Linux may require an extra step to ensure that the user has access to USB serial devices.
+See the Linux tab in the Computer Setup section of the [MicroBlocks Get Started](https://microblocks.fun/get-started) page.
+:::
+
+The board must be placed in a special mode to prepare it for firmware installation using `LDR` or `A` buttons. The process is similar for all educational-tailored microcomputer boards.
+
+For example, prepare CincoBit to accept firmware by holding down the 'A' button while clicking the `RESET` on the back of the board:
+
+<table>
+<td width='50%'>
+![CincoBit A Button](pathname:///img/cincobit-a-button.webp)
+</td>
+<td width='50%'>
+![CincoBit Reset](pathname:///img/cincobit-reset.webp)
+</td>
+</table>
+
+On DueSTEM, the button is labeled `LDR` (left-most red button). Hold it while clicking the `Reset` button:
+
+![duestem Reset](pathname:///img/duestem-reset.webp)
+
+ClipIt is done similarly to DueSTEM:
+
+![clipit Reset](pathname:///img/clipit-reset.webp)
+
+With your board connected and ready to accept firmware, open [console.duelink.com](https://console.duelink.com/) in a Chrome or Edge browser:
+
+<div style={{textAlign: 'center'}}>
+![dueconsole](pathname:///img/duelink-console.webp)
+</div>
+
+Click on the **Firmware** tab:
+
+<div style={{textAlign: 'center'}}>
+![firmware](pathname:///img/console-firmware.webp)
+</div>
+
+In the dialog that appears, click the **Connect** button:
+<div style={{textAlign: 'center'}}>
+![console](pathname:///img/console-connect-1.webp)
+</div>
+
+If your board is connected and ready to accept firmware, you will see a dialog box with an entry marked **DFU in FS Mode**:
+
+<div style={{textAlign: 'center'}}>
+![console](pathname:///img/console-connect-2.webp)
+</div>
+
+If you do not see the dialog box, make sure you are using a Chrome or Edge browser. Other browsers cannot connect to the board.
+
+If you see an entry marked **DUELink**, repeat the board preparation process described above. Remember to keep the **A** or **LDR** button held down while you press and release the **Reset** button.
+
+If you still do not see any entry, check that your board is connected to your laptop with a good USB cable.
+
+Select the **DFU in FS Mode** entry and click the **Connect** button.
+
+In the next dialog, select **MicroBlocks (microblocks.fun)** in the Firmware menu.
+The version menu will default to the most recent version, which is what you want:
+
+<div style={{textAlign: 'center'}}>
+![console](pathname:///img/console-connect-3.webp)
+</div>
+
+Click the **Load** button.
+You'll see progress as the board is erased and then the firmware is written:
+
+<div style={{textAlign: 'center'}}>
+![progress-erasing](pathname:///img/progress-erasing.webp)
+![progress-writing](pathname:///img/progress-writing.webp)
+</div>
+
+Close the console.duelink.com browser tab.
+
+Congratulations! You've installed MicroBlocks!
+
+You don't need to install MicroBlocks firmware every time you use MicroBlocks, only if you want to update to a newer version or switch between MicroBlocks and DUELink firmware.
+
+:::note
+Although this section focused on installing MicroBlocks on the educational microcomputer boards, MicroBlocks can be installed on *any* DUELink board. See [MicroBlocks Everywhere!](#microblocks-everywhere).
+:::
+
+Once the MicroBlocks firmware is installed, you're ready to start coding!
+
+### Connecting the Board
+
+You can run MicroBlocks in a Chrome or Edge browser by visiting [microblocks.fun](https://microblocks.fun) and clicking the **Run** button in the top bar menu or by clicking [this link](https://microblocks.fun/run).
+
+<div style={{textAlign: 'center'}}>
+![microblocks-browser-run](pathname:///img/microblocks-browser-run.webp)
+</div>
+
+You can also download a stand-alone app for Windows, macOS, or Linux from the [Download page](https://microblocks.fun/download) on the website.
+
+<div style={{textAlign: 'center'}}>
+![microblocks-download](pathname:///img/microblocks-download.webp)
+</div>
+
+The first step is to connect to the board.
+
+:::note
+Linux may require an extra step to ensure that the user has access to USB serial devices.
+See the Linux tab in the Computer Setup section of the [MicroBlocks Get Started](https://microblocks.fun/get-started) page.
+:::
+
+Click the `Connect` button in the MicroBlocks editor:
+
+![microblocks-connect](pathname:///img/microblocks-connect-1.webp)
+
+Select `Connect (USB)` from the menu:
+
+![microblocks-connect](pathname:///img/microblocks-connect-2.webp)
+
+Select the DUELink board in the dialog that appears, then click the `Connect` button:
+
+<div style={{textAlign: 'center'}}>
+![microblocks-connect](pathname:///img/microblocks-connect-3.webp)
+</div>
+
+If you do not see your DUELink board, make sure it is connected with a good USB cable, then click its reset button.
+
+When the board is connected, the `Connect` button will turn green and the name of the board will appear next to it:
+
+![microblocks-connect](pathname:///img/microblocks-connect-4.webp)
+
+With the board connected, click the file icon and select `New` from the menu:
+
+![microblocks-new-project](pathname:///img/microblocks-new-project.webp)
+
+MicroBlocks will load a set of libraries that can be used with that board:
+
+![microblocks-default-libraries](pathname:///img/microblocks-default-libraries.webp)
+
+To verify that everything is working, click on the `set user LED` block in the `Output` category:
+
+![microblocks-setuserled](pathname:///img/microblocks-setuserled.webp)
+
+On most DUELink boards, this will turn on the green STAT LED. On the CincoBit, which does not have a STAT LED, it will turn on the middle LED in the 5x5 LED display.
+
+### Coding in MicroBlocks
+
+MicroBlocks is a **live** coding environment so you can test as you code
+and try out blocks to discover what they do.
+
+Click on a block or script to run it:
+
+<div style={{textAlign: 'center'}}>
+![Smile and Frown](pathname:///img/microblocks-instant.gif)
+</div>
+
+Drag blocks into the scripting pane and assemble them to create scripts.
+
+Your code is stored in persistent flash memory and can run even when the board is not connected to the MicroBlocks editor.
+
+Scripts starting with a **when started** block will run when the board is powered on.
+
+MicroBlocks supports concurrency. Up to ten scripts can run at the same time.
+
+### Examples
+
+Here is a simple script for the CincoBit:
+
+![demo cinco](pathname:///img/mb-demo-cinco.webp)
+
+Here is a similar script using the ClipIt's **A** touch pad:
+
+![demo clipit](pathname:///img/mb-demo-clipit.webp)
+
+These scripts will switch from a "smile" to a "frown" on the CincoBit based on the pressed button.
+
+![Smile and Frown](pathname:///img/microblocks-smile-frown.gif)
+
+This script displays the light level as a bar graph on the PixoBit and DueSTEM. It also shows the temperature on the DueSTEM:
+
+![demo duestem](pathname:///img/mb-demo-duestem.webp)
+
+In addition to its many built-in blocks, MicroBlocks has nearly 200 libraries that support additional features and peripherals.
+Click the **Add Library** button to add libraries.
+
+### MicroBlocks Pin Numbers
+
+On the CincoBit and PixoBit, MicroBlocks uses the same edge connector pin numbers as the [micro:bit](https://tech.microbit.org/hardware/edgeconnector/).
+Pins 0, 1, and 2 are the three alligator clip connections with holes on the left side of the edge connector.
+
+On the CincoBit:
+- pin 9 is the analog light sensor
+- pin 21 is the buzzer
+
+On the PixoBit:
+- pin 21 is the buzzer
+- pin 22 is the display reset pin
+- pin 23 is the analog light sensor
+
+On all other DUELink boards, MicroBlocks uses standard DUELink pin numbers.
+Pins 0-9 and 17 are capable of analog input.
+The pin numbers are marked on the DueSTEM and most other microcomputer boards.
+You can always find the pin numbers for a given board on its schematic.
+
+---
+
+## Daisylinking with MicroBlocks
+
+MicroBlocks can control one or more external DUELink modules connected via [Daisylink](../engine/daisylink). When you do this, only the first module in the chain runs the MicroBlocks firmware. All other modules in the chain run the standard DUELink firmware and respond to commands from MicroBlocks.
+
+![PixoBit Daisylinked](pathname:///img/pixobit-daisylinked.webp)
+
+
+### Daisylink Connections
+
+If you are running MicroBlocks on a DUELink educational board (or other DUELink module),
+connect the Downlink (**D**) connector on that board:
+
+<div style={{textAlign: 'center'}}>
+![Cincobit downlink port](pathname:///img/cincobit-downlink.webp)
+</div>
+
+to the Uplink (**U**) connector of the DUELink module:
+
+<div style={{textAlign: 'center'}}>
+![RGB3 uplink port](pathname:///img/rgb3-uplink.webp)
+</div>
+
+If you are running MicroBlocks on a non-DUELink board,
+connect the Daisylink module chain to your board's I2C pins.
+If you have a micro:bit, you can use a
+[LinkBit](../products/adlinkbit-a)
+to connect to the I2C pins:
+
+<div style={{textAlign: 'center'}}>
+![Linkbit](pathname:///img/microbit-linkbit.webp)
+</div>
+
+When using multiple DUELink modules, modules are daisy-chained together by connecting
+the Downlink (**D**) connector of one module to the Uplink (**U**) connector of the next
+(see [Daisylink](../engine/daisylink)):
+
+![Uplink/Downlink Connections](pathname:///img/mb-uplink-downlink.webp)
+
+:::tip
+Always connect a Downlink (**D**) connector to an Uplink (**U**) connector.
+Nothing will work if a **D** is connected to a **D** or a **U** to a **U** anywhere in the chain.
+:::
+
+:::tip
+Once all connections have been made, power cycle the entire chain to reset
+all modules before attempting to use any module.
+:::
+
+### MicroBlocks DUELink Libraries
+
+MicroBlocks already include `DUELink Edu` library by default. Additionally, we maintain a set of MicroBlocks libraries to support the growing collection of DUELink modules. You'll use those libraries to control your DUELink modules from MicroBlocks.
+
+:::note
+Beyond `DUELink Edu`, the MicroBlocks DUELink libraries are not built into the MicroBlocks editor so they must be downloaded from the DUELink website.
+:::
+
+Download the MicroBlocks libraries from the [MicroBlocks Firmware/Lib](https://www.duelink.com/docs/downloads?show=libraries#microblocks-firmwarelib) section on the [Downloads Page](../downloads).
+
+<div style={{textAlign: 'center'}}>
+![lib download](pathname:///img/mb-lib-download.webp)
+</div>
+
+Unzip the downloaded file and place the folder of libraries in a convenient location.
+
+In the MicroBlocks editor, click the **Add Library** button:
+
+![add-library](pathname:///img/add-library.webp)
+
+then select the **Computer** shortcut:
+
+![computer-shortcut](pathname:///img/computer-shortcut.webp)
+
+Navigate to the folder of libraries you saved and add the DUELink library and the libraries for the features you want to use:
+
+<div style={{textAlign: 'center'}}>
+![mb-duelink-libraries](pathname:///img/mb-duelink-libraries.webp)
+</div>
+
+You can also add a library by dragging the library file (ending in .ubl) onto the MicroBlocks editor.
+
+:::note
+Always add the core `DUELink` library in addition to whatever other libraries you need.
+:::
+
+### Daisylink Example
+
+Connect an RGB3 module to the **D** port of your board. Power cycle the board and module by disconnecting and then reconnecting the USB cable.
+
+Open the MicroBlocks editor, connect to your board, then load the **DUELink** and **DUELink.Digital** libraries:
+
+![duelink-and-digital-libraries](pathname:///img/duelink-and-digital-libraries.webp)
+
+Click the **DUELink connected?** block in the DUELink library palette to verify that your DUELink module is connected and detected by MicroBlocks:
+
+![connected-test](pathname:///img/connected-test.webp)
+
+The LEDs on the RGB3 module are controlled by pins 1, 2, 3, 4, 5, 6, 7, 8, and 11.
+
+Use the **Write pin** block from the DUELink.Digital library to turn on LED 1 (a blue one):
+
+![turn-on-blue-led](pathname:///img/turn-on-blue-led.webp)
+
+This script will flash all of the LEDs on the RGB3 module in sequence when the A button is pressed:
+
+![blink-rgb-leds](pathname:///img/blink-rgb-leds.webp)
+
+<div style={{textAlign: 'center'}}>
+![animated GIF of flashing LEDs](pathname:///img/microblocks-daisylinked.gif)
+</div>
+
+---
+
+## MicroBlocks Everywhere!
+
+We recommend starting with MicroBlocks on the boards recommended for [educators](../educators). From there, all other modules can be daisylinked as shown in the previous section. However, it is possible to run MicroBlocks on any DUELink module! For example, you can install MicroBlocks on the [LED RGB3](../products/ldledrgb3-a) and control the LEDs directly from MicroBlocks.
+
+Since [LED RGB3](../products/ldledrgb3-a) does not have a USB connector, you will need an adapter such as [USB Hook](../products/adusbhook-a).
+
+![USB Hook for LED RGB3](pathname:///img/usbhook-rgb3.webp)
+
+To install MicroBlocks firmware on boards that lack a LDR button,
+use a wire or paperclip to connect the two small holes while powering up the board
+(see [Loader](/docs/loader#entering-the-loader)).
+
+When MicroBlocks firmware is installed, it replaces the DUELink standard firmware, so controlling the module's hardware must be done with MicroBlocks code. For modules with simple hardware such as LEDs, buttons, and analog sensors, the MicroBlocks code is easy to write. However, more complex modules such as displays and SD card readers are best used as Daisylinked modules so one can take advantage of the hardware support built into the DUELink standard firmware. For example, MicroBlocks firmware can be loaded on [CincoBit](../products/mccincobit-e), which is then connected to the [SD Card](../products/stsdcard-b) module that is running the DUELink standard firmware.
+
+![Cincobit and SD Card](pathname:///img/cincobit-sdcard.webp)
+
+### Additional MicroBlocks Libraries
+
+When connected to one of the [educational](../educators) boards, MicroBlocks adds the relevant libraries automatically. For example, when a new project is created while connected to a CincoBit board, MicroBlocks adds the LED Display library.
+
+As mentioned [earlier](#microblocks-duelink-libraries), we provide
+ a set of MicroBlocks libraries for working with daisylinked modules.
+
+We also provide MicroBlocks libraries for a few specialty boards for use when the MicroBlocks firmware is installed on those boards.
+
+For example, you might install the MicroBlocks firmware on the Holiday Tree, then write a MicroBlocks script to animate the RGB LEDs on the tree.
+Once the tree is programmed, it will run stand-alone. It just needs a power source such as a cell phone power bank.
+The Holiday Tree library simplifies this task by providing blocks to set the colors of individual LEDs and update the entire string of LEDs via SPI.
+
+Download the desired library and add it to your MicroBlocks project by using the **Add Library** button or by dropping the library file onto the MicroBlocks editor.
+
+Product | Library | Provided Blocks
+--- | --- | ---
+[Holiday Tree](../products/sptree-b) | <a download href="/code/driver/microblocks/duelink-holiday-tree.ubl">holiday-tree.ubl</a> | Control the RGB smart lights and buzzer.
+[Ghizzy](../products/spghizzy-d) | <a download href="/code/driver/microblocks/duelink-ghizzy.ubl">ghizzy.ubl</a> | Control RGB Eyes, mouth, and ears and buzzer.
+[Ghizzy Jr](../products/spghizzyjr-b) | <a download href="/code/driver/microblocks/duelink-ghizzy-jr.ubl">ghizzy-jr.ubl</a> | Control RGB eyes.
+
+This list of additional MicroBlocks libraries will probably grow over time as new specialty boards are added.
+
+---
+
+## MicroBlocks Resources
+
+These are some useful resources:
+
+* [Website](https://microblocks.fun)
+* [User Guide](https://wiki.microblocks.fun/en/ide)
+* [Blocks Reference](https://wiki.microblocks.fun/en/reference_manual)
+* [Libraries Reference](https://wiki.microblocks.fun/en/libraries)
+* [Learning Guides](https://learn.microblocks.fun)

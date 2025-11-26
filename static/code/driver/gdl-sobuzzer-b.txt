@@ -1,0 +1,25 @@
+##### Buzzer Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+Alias(CNote=262, CSharpNote=277, DNote=294, DSharpNote=311, ENote=330, FNote=349, FSharpNote=370, GNote=392, GSharpNote=415, ANote=440, ASharpNote=466, BNote=494)
+
+fn PlayNote(n,d)
+    Beep(7, n, d)
+fend
+
+fn PlaySound(f, d, c)
+    Freq(7, f, d, c)
+fend
+
+fn PlayMelody(a1)
+    MelodyP(7, a1)
+fend
+
+fn StopMelody()
+    MelodyS(7)
+fend
+
+########################

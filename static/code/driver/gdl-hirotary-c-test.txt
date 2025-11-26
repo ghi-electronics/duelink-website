@@ -1,0 +1,66 @@
+##### Rotary Driver ######
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    
+    IStart("IntA", PinA, 2, 0)
+    IStart("IntB", PinB, 0, 0)
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    cmd("Clear(0)")
+    cmd("TextS(\"Starting test...\", 1, 0, 0, 1,2)")
+    cmd("Show()") 
+    println("Starting test...")
+    
+    x = 0
+    y = 0
+    
+    m = 0
+    n = 0
+    
+    c = 0
+    
+    while (1)
+        x = GetValue()
+        m = Pressed()
+     
+        if y != x
+            y = x
+            println(y)
+            c = 1
+        end
+        
+        if (n != m)
+            n = m
+            if (n)
+                println("Pressed")
+            else
+                println("Released")
+            end
+            c = 1
+        end
+        
+        if (c)
+            c = 0
+            cmd("Clear(0)")
+            cmd(fmt("TextS(\"Value: ",y,"\", 1, 0, 0, 1,2)"))
+            If (n)            
+                cmd(fmt("TextS(\"Btn pressed\", 1, 0, 20, 1,2)"))
+            else
+                cmd(fmt("TextS(\"Btn released\", 1, 0, 20, 1,2)"))
+            end
+            cmd("Show()") 
+            
+        end
+        
+        Wait(10)  
+    wend
+fend
+
+#########################

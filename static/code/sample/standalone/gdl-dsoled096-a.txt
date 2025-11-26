@@ -1,0 +1,14 @@
+_x = 0
+_d = -9
+
+while 1
+    Clear(1)
+    TextS("DUELink", 0, 25, 5, 2, 2)
+    TextS(Fmt(_x), 0, 50, 25, 2, 2)
+    Circle(0, _x, 50, 5)
+    _x=_x+_d
+    if(_x < 0 || _x > 128)
+        _d = _d * -1
+    end
+    Show()
+wend

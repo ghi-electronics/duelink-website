@@ -1,0 +1,4 @@
+while 1
+    PrintLn("Current: ", Current(),"A")
+    Wait(200) 
+wend

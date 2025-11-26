@@ -1,0 +1,72 @@
+##### VFD B8 Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+Alias(en=9,rst=8,cs=17,clk=12,din=14)
+
+fn Write(d)
+    for i in Range(0,8)
+        DWrite(clk,0)
+        
+        if (d & 0x01)
+            DWrite(din,1)
+        else
+            DWrite(din,0)
+        end
+        
+        d = d >> 1
+        DWrite(clk,1)
+    next
+fend
+
+fn VCmd(c)
+    DWrite(cs,0)
+    Write(c)
+    DWrite(cs,1)
+fend
+
+fn VShow()
+    VCmd(0xe8)
+fend
+
+fn Init()
+    DWrite(en,1)
+    DWrite(rst,0)
+    Wait(1)
+    DWrite(rst,1)
+    Wait(1)
+    #SET HOW MANY digital numbers
+    DWrite(cs,0)
+    Write(0xe0)
+    Wait(1)
+    Write(0x07)#//8 digital
+    DWrite(cs,1)
+    Wait(1)
+
+    #set bright
+    DWrite(cs,0)
+    Write(0xe4)
+    Wait(1)
+    Write(0xff)#//level 255 max
+    DWrite(cs,1)
+    Wait(1)
+fend
+
+fn CPrint(x, c)
+    DWrite(cs,0)
+    Write(0x20 + x)
+    Write(c)
+    DWrite(cs,1)
+fend
+
+fn CPrintS(b2)
+    for i in Range(len(b2))
+        CPrint(i, b2[i])
+    next
+fend
+
+Init()
+
+##############################

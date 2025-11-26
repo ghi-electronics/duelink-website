@@ -1,0 +1,36 @@
+##### AirQuality #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+
+fn Test()  
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+ 
+    cmd("Clear(0)")
+    cmd("TextS(\"Staring test...\", 1, 0, 0, 1,2)")
+    cmd("Show()")
+ 
+    while (1)
+        t = AhtTemp()
+        wait (1000) 
+        h = AhtHumid()
+ 
+        cmd("Clear(0)")
+        cmd(fmt("TextS(\"Temp: ",t,"\", 1, 0, 0, 1,2)"))
+        cmd(fmt("TextS(\"Humd: ",h,"%\", 1, 0, 20, 1,2)"))
+        cmd("Show()")
+ 
+        println("Temp: ", t)
+        wait(10)
+        println("Humd: ", h, "%")        
+        wait(1000) 
+ 
+    wend
+fend
+ 

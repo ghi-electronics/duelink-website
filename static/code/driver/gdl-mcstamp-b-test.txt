@@ -1,0 +1,32 @@
+##### Stamp Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()  
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    
+    cmd("sel(1)")
+    while 1
+    
+        cmd("clear(0)")
+        
+        if BtnLdr()
+            cmd("Texts(\"Button Pressed\",1,0,0,1,2)")
+            println("Button Pressed")
+        else
+            cmd("Texts(\"Button Release\",1,0,20,1,2)")
+        end
+
+        cmd("show()") 
+
+        Wait(250)    
+    
+    wend
+fend    
+ 

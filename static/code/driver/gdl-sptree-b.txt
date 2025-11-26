@@ -1,0 +1,80 @@
+##### Holiday Tree Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn Init()
+    SpiCfg(0,8000)
+
+    # first 4 bytes need to be 0
+    for _i = 0 to 4
+        b1[_i] = 0
+    next
+
+    # All led off
+    for _i = 1 to _n+1
+        SetLed(_i, 0, 0)
+    next
+
+    # last 4 bytes need to be 255
+    for _i = _a-4 to _a
+        b1[_i] = 0xFF
+    next
+
+    ShowLed()
+fend
+
+_n = 26 # num of leds
+_a = 4+_n*4+4 # num of led x 4, plus first and last 4 bytes
+_i = 0
+
+Dim b1[_a]
+
+fn SetLed(i,c,l)
+    i = i - 1
+
+    if (i < 0)
+        return
+    end
+
+    b1[i*4+4+0] = 0xE0 | l
+    b1[i*4+4+1] = ((c >> 0) & 0xFF) # blue
+    b1[i*4+4+2] = ((c >> 8) & 0xFF) # green
+    b1[i*4+4+3] = ((c >> 16) & 0xFF) # red
+fend
+
+fn SetAll(c)
+    for i=1 to _n+1
+        SetLED(i, c, 10)
+    next
+fend
+
+fn ShowLed()
+    SpiWrs(b1,0)
+fend
+
+fn RndLed()
+    for i=1 to _n
+        r=Rnd(2)*50
+        g=Rnd(2)*50
+        b=Rnd(2)*50
+        SetLED(i, (r << 16) | (g << 8) | (b << 0), 10)
+    next
+
+    ShowLed()
+fend
+
+fn PlayLed(e)
+    if (e = 1)
+        SStart("RndLed", 500, 1000)
+    else
+        SAbort("RndLed")
+    end
+fend
+
+fn Buzzer(f,d)
+    Beep(1,f,d)
+fend
+
+Init()

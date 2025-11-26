@@ -1,0 +1,153 @@
+##### AirQuality Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+# Includes ENS160 and AHT21
+# eCO2 = equivalent CO2
+# AQI = Air Quality Index
+# TVOC = Total Volatile Organic Compounds
+
+fn AhtSts()
+    Dim b1[1] 
+    I2cWr(0x38, 0, b1)  
+    return b1[0]
+fend
+
+
+fn AhtTemp()  
+    I2cWr(0x38, [0xAC, 0x33, 0], 0)
+    
+    while (AhtSts() & 0x80)
+        Wait(20)
+    wend
+    
+    Dim b1[6]  
+    I2cWr(0x38, 0, b1) 
+    t = b1[3] & 0x0F
+    t = t << 8
+    t =t | b1[4]
+    t = t << 8
+    t = t | b1[5]
+    return (t * 200 / 0x100000) - 50 
+fend
+
+fn AhtHumid()
+    I2cWr(0x38, [0xAC, 0x33, 0], 0)
+    
+    while (AhtSts() & 0x80)
+        Wait(20)
+    wend
+    
+    Dim b1[6]  
+    I2cWr(0x38, 0, b1)   
+    h = b1[1] 
+    h = h << 8
+    h = h | b1[2]
+    h = h << 4
+    h = h | (b1[3] >> 4)
+    return (h * 100) / 0x100000
+fend
+
+fn EnsWrt8(r, v)
+    Dim b1[2] = [r, v]
+    I2cWr(0x52, b1, 0)
+    
+fend
+
+fn EnsRd8(r)
+    Dim b1[1] = [r]
+    I2cWr(0x52, b1, 0)
+    
+    I2cWr(0x52, 0, b1)
+    return b1[0]
+fend
+
+fn EnsWrt(r, b1, l)
+    Dim b2[l+1]
+    
+    b2[0] = r
+    MemCpy(b2, 1, b1, 0, l)
+    
+    I2cWr(0x52, b2, 0)
+fend
+
+fn EnsRd(r, b1)
+    I2cWr(0x52, [r], 0)
+    I2cWr(0x52, 0, b1)
+fend
+
+fn EnsSetm(m)
+    EnsWrt8(0x10, m)
+fend
+
+fn EnsWait()
+   while (0x02 != (ensrd8(0x20) & 0x02))
+        Wait(1)
+    wend
+fend
+
+fn EnsAqi()
+    EnsWait()
+    
+    Dim b1[7]
+    I2cWr(0x52, [0x21], 0)
+    I2cWr(0x52, 0, b1)
+    
+    return b1[0]
+fend
+
+fn EnsTvoc()
+    EnsWait()
+    
+    Dim b1[7]
+    I2cWr(0x52, [0x21], 0)
+    I2cWr(0x52, 0, b1)
+    
+    return b1[1] | (b1[2] << 8)
+fend
+
+fn EnsEco2()
+    enswait()
+    
+    Dim b1[7]
+    I2cWr(0x52, [0x21], 0)
+    I2cWr(0x52, 0, b1)
+
+    return  b1[3] | (b1[4] << 8)
+fend
+
+
+fn Init()
+    I2cCfg(400)
+    #AhtInit() 
+    Dim b1[1]    
+    Wait(20)  
+    b1[0] = 0xBA
+    I2cWr(0x38, b1, 0) 
+    Wait(20)
+    
+    while (AhtSts() & 0x80)
+        Wait(20)
+    wend
+
+    while (!AhtSts() & 0x08)
+        return 0
+    wend
+    
+    
+    #EnsInit()
+    DWrite(12,1) # high I2c
+    DWrite(19, 0) # low: address 0x52
+    DRead(13, 1)
+    Wait(10)
+    #reset
+    EnsWrt8(0x10, 0xF0)
+    Wait(10)
+
+    #set mode ENS160_OPMODE_STD
+    EnsSetm(0x02)
+fend
+
+Init()

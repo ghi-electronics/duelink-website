@@ -1,0 +1,40 @@
+##### Thermal Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn Init()
+    I2cCfg(400)
+    Dim b1[2]
+fend
+
+fn rReg16(a)
+    i2cwr(0x69,[a],b1)
+    l= b1[0]
+    h= b1[1]
+    v=(h<<8)|l
+    return v
+fend
+
+fn PixTemp(p)
+  # Temperature registers are numbered 128-255
+  # Each pixel has a lower and higher register
+  a = 0x80 + (2 * p)
+ 
+  v = rReg16(a)
+ 
+ if (v & (1 << 11)) > 0
+    v=~v
+    v=v+1
+    v = v & 0x7ff
+    v=-v
+ end
+ 
+  return v  * 0.25
+fend
+
+
+Init()
+
+####################

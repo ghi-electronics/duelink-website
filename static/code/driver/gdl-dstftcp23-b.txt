@@ -1,0 +1,185 @@
+##### TFT CP23 #####
+
+fn DVer()
+    return 1.0
+fend
+
+Dim b1[2]
+_s = 5
+_r = 6
+_m = 1
+_x = 0
+_y = 0
+_p = 0
+
+fn Init(m, p)
+    DWrite(4,1)
+    DWrite(7,1)
+    SpiCfg(0, 24000)
+    _m=m
+    _p=p
+
+    if m = 0 # buffered
+	    GfxCfg(2, {_s,_r},GetW(),GetH(), 3)
+    else # direct
+	    GfxCfg(2,{_s,_r},GetW(),GetH(), 0)
+    end
+    
+	LcdCmd(0xc8, [0xFF])
+	LcdCmd(0x93, [0xFF])
+	LcdCmd(0x36, [0xc8])
+	LcdCmd(0x3a, [0x55])
+	LcdCmd(0xc0, [0x10,0x10])
+	LcdCmd(0xc1, [0x36])
+	LcdCmd(0xc5, [0xc3])
+	LcdCmd(0xE0, [0x00,0x05,0x08,0x02,0x1a,0x0c,0x42,0x7a,0x54,0x08,0x0d,0x0c,0x23,0x25,0x0f])
+	LcdCmd(0xE1, [0x00,0x29,0x2f,0x03,0x0f,0x05,0x42,0x55,0x53,0x06,0x0f,0x0c,0x38,0x3a,0x0f])
+	LcdCmd(0x11,[])
+	Wait(120)
+	LcdCmd(0x36, [0xc8])
+	LcdCmd(0x2a, [0x00,0x00,0x01,0x3d])
+	LcdCmd(0xE1, [0x00,0x00,0x00,0xef])
+    Wait(120)
+    
+    if (_p = 0)
+        SetDACtrl(0,1,1,1)
+        SetWindow(0,0,320-1,240-1)
+    else
+        SetDACtrl(1,1,0,1)
+        SetWindow(0,0,240-1,320-1)
+    end
+    
+	LcdCmd(0x29,[])
+
+	i2cCfg(400)
+	IStart("TouchIrq", 2, 0, 1)
+
+    Clear(0)
+    TextS("DUELink",1,60,90,5,7)
+    Show()
+fend
+
+fn LcdCmd(c, b1)
+    ##SendLcdCmd(c)
+    DWrite(_s, 0)#select
+    DWrite(_r, 0)#LcdCmd
+    SpiWr(c)
+    DWrite(_r, 1)#data
+    
+    for i in Range(0,Len(b1))
+        SpiWr(b1[i])
+    next
+    
+    DWrite(_s, 1)#deselect
+fend
+
+fn IsColor()
+    return 1
+fend
+
+fn TouchIrq() 
+    Dim b1[1] = [0]
+    Dim b2[32]
+    
+    I2cWr(0x38, b1, 0)
+    
+    I2cWr(0x38, 0, b2)
+    
+    for i = 0 to 1
+        d = i * 6 + 3
+        f = (b2[0 + d] & 0xC0) >> 6
+        x = ((b2[0 + d] & 0x0F) << 8) | b2[1 + d]
+        y = ((b2[2 + d] & 0x0F) << 8) | b2[3 + d]
+        
+        if (f <= 2)
+            _x = x
+            _y = y
+        end
+    next 
+fend
+
+fn TouchX()
+    if _m = 0
+        _x = _x / 3 #buffered ratio 3x
+    end
+    
+    return GetW() - _x
+fend
+
+fn TouchY()
+    if _m = 0
+        _y = _y / 3 #buffered ratio 3x
+    end
+    
+    return _y
+fend
+
+fn GetW() 
+    if _m = 0
+        if (_p = 1)
+            return 80
+        else 
+            return 106
+        end    
+    else
+        if (_p = 1)
+            return 240
+        else 
+            return 320
+        end
+    end
+fend
+
+fn GetH()
+    if _m = 0
+        if (_p = 1)
+            return 106
+        else 
+            return 80
+        end    
+    else
+        if (_p = 1)
+            return 320
+        else 
+            return 240
+        end
+    end
+    
+fend
+
+fn SetDACtrl(s,r,c,b)
+    v = 0
+    
+    if b = 1
+        v = v | (1<<3)
+    end
+    
+    if s = 1
+        v = v | (1<<5)
+    end
+    
+    if c = 1
+        v = v | (1<<6)
+    end
+    
+    if r = 1
+        v = v | (1<<7)
+    end
+    
+    LcdCmd(0x36, [v])
+fend
+
+fn SetWindow(x,y,w,h)
+    e = x + w
+    LcdCmd(0x2A, [x>> 8, x, e >> 8, e])
+    
+    e = y + h
+    LcdCmd(0x2B, [y>> 8, y, e >> 8, e])
+    
+    LcdCmd(0x2c, [])
+fend
+
+Init(1, 0)
+Show()
+
+######################### 

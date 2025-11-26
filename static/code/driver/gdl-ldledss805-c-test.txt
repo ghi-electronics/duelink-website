@@ -1,0 +1,37 @@
+##### LED SS805 Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+ 
+fn Test() 
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    cmd("Clear(0)")
+    cmd("TextS(\"Starting test...\", 1, 0, 0, 1,2)")
+    cmd("Show()") 
+    println("Starting test...")
+    c = 0
+    
+    while (1)
+        for y = 0 to 5
+            for x = 0 to 17
+                Pixel(c%2, x, y)
+            next
+        next
+        
+        show()
+       
+        c = c + 1
+        wait(500)
+ 
+ 
+ 
+    wend
+fend 
+ 
+ 
+####################

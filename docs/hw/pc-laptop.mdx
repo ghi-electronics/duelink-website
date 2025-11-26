@@ -1,0 +1,62 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# PC & Laptop
+
+
+![Windows, Linux, and Mac Logos](pathname:///img/pc-laptop-logos.webp)
+
+PCs and Laptops (Windows, Linux, or mac OS) can finally have an easy access to hundreds of sensors and actuators. There are many [Coding Language](../language/intro) options to cover every need.
+
+Our [demo](https://demo.duelink.com/) is built using [JavaScript](../language/javascript) and offers an excellent starting point to play with DUELink modules and see how the web can be used to access sensors and actuators.
+
+![DUELink Demo Site](pathname:///img/demo-website.webp)
+
+Artificial Intelligence (AI) applications that use [Python](../language/python) can take advantage of the entire DUELink ecosystem. This demo uses facial detection to move a servo (to open a door!)
+
+![Python AI](pathname:///img/python-ai.gif)
+
+This demo uses a [USB Hook](../products/adusbhook-a) with [Servo X1](../products/acservox1-a) module, but any other modules, or multiple modules, can be used as well.
+
+![USB hook](pathname:///img/usbhook-servo-x1.webp)
+
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Python', value: 'py'},
+    {label: 'JavaScript', value: 'js'},
+]}>
+
+<TabItem value="py">
+```py
+from DUELink.DUELinkController import DUELinkController
+availablePort = DUELinkController.GetConnectionPort()
+print("Using port: ", availablePort)
+duelink = DUELinkController(availablePort)
+# Servo on pin 1 to 90 degrees
+duelink.Servo.Set(1, 90)
+```
+</TabItem>
+<TabItem value="js">
+```js
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
+
+async function MoveServo() {
+    let duelink = new DUELinkController(new SerialUSB());
+    await duelink.Connect();
+
+    // Servo on pin 1 to 90 degrees
+    await duelink.Servo.Set(1, 90)
+}
+
+await MoveServo();
+```
+</TabItem>
+</Tabs>
+
+## Wireless Connections
+
+WiFi and Bluetooth [Wireless](../interface/wireless) interfaces can also be used instead of USB. In the case where Bluetooth is used, a virtual com port is established and the provided libraries simply work!
+
+![Wireless daisylink](pathname:///img/wireless-daisylink.webp)
+

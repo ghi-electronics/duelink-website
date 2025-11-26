@@ -1,0 +1,227 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# File System
+
+A complete FAT file system is a built in the DUELink firmware. It includes, FAT16, FAT32, Long-File-Name (LFN), directory handling, and several file-processing functions. It is limited to 2 GBytes size files! Thanks to [Elm Chan](http://elm-chan.org/docs/fat_e.html) for the awesome open-source FAT library.
+
+## Mount
+
+Mount and initialize the file system. Only one media is supported at any given time.
+
+| Function                            | Description                                                                                                                                                                |
+| ----------------- | ----------------------------- |
+| `FsMnt(type, cs, baud, max_handle)` | Enable file system to a specific `type` of media on SPI bus with `cs` chip-select pin at `baud` KHz, with maximum allowed file handles `max_handle`. Returns 0 if success. |
+| `FsUnMnt()`                         | Release file system. Returns 0 if success.                                                                                                                                 |
+| `FsFmt(type, cs, baud)`             | Format the mounted media. Note that this takes several minutes to complete.                                                                                                |
+
+Supported media types:
+
+| ID  | Type                                 |
+| --- | ------------------------------------ |
+| 0   | Reserved                             |
+| 1   | SD or Micro SD cards (includes SDHC) |
+| 2   | USB                                  |
+
+---
+
+## File Operations
+
+:::tip
+Unless otherwise stated, all functions return 0 or positive for error code (error code 0: success), or negative on failure.
+:::
+
+| Function                  | Description                                                                                                               |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `FsOpen("path", mode)`    | Returns a file handle on success. 0 or negative on failure.                                                               |
+| `FsClose(handle)`         | Close file and release `handle`.                                                                                          |
+| `FsWrite(handle, [data])` | Write from `data` array. Returns how many bytes were write, negative error code otherwise.                                |
+| `FsRead(handle, [data])`  | Read into `data` array. Returns how many bytes were read, negative error code otherwise.                                  |
+| `FsSync(handle)`          | Sync file with any buffered data.                                                                                         |
+| `FsSeek(handle, offset)`  | Change the location in the `handle` file on where to read or write.                                                       |
+| `FsTell(handle)`          | Returns the current location being access in `handle` file.                                                               |
+| `FsDel("path")`           | Delete file or directory at `path`.                                                                                       |
+| `FsFind("path")`          | Find if existing name is available. Returns the item type if found, return 0x10 for directory, 0x20 for file for example. |
+| `fsfsz("path")`           | Returns `path` file size, negative number on failure.                                                                     |
+
+File Open Modes:
+
+| ID | mode
+| --- | ---
+| 0x01 | Read only
+| 0x02 | Write only
+| 0x00 | Open existing. Require existing file, or return -1
+| 0x04 | Create new. Require NOT existing file, or return -1
+| 0x08 | Create always. Force create new. If file is already exiting, it will be deleted for new file
+| 0x30 | Open append. If not existing, create one
+
+:::tip
+Combine multiple modes, like use `FsOpen("/test.txt", 0x02|0x0x30)` to open a file for write and append if existing.
+:::
+
+---
+
+## Directory Operations
+
+| Function                  | Description                                                                                                                                                                                                                                                               |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `FsMkDir("path")`         | Create a new directory at `path`.                                                                                                                                                                                                                                         |
+| `FsOpDir("path")`         | Open a directory at `path`.                                                                                                                                                                                                                                               |
+| `FsFNext([name], [type])` | Finds the next item and fills in `name` with the next file or directory it found in an open directory using `FsOpDir()`. `type` is a single byte array containing the item type in standard FAT file system format, for example [0x10] for directly and [0x20] for files. |
+
+
+```py
+# file open types
+_r = 0x01 # Read only
+_w = 0x02 # Write only
+_x = 0x00 # Open existing. Require existing file, or return -1
+_n = 0x04 # Create new. Require NOT existing file, or return -1
+_c = 0x08 # Create always. Force create new. If file is already exit, it will be deleted for new file.
+_a = 0x30 # Open append. If not existing, create one.
+
+Dim b1[] = "Hello World"
+
+# SD card, pin 17 chip select, 8Mhz clock, 4 file handles max
+fsmnt(1, 17, 8000, 4)
+
+# Write b1 array to a file
+h = FsOpen("/test.txt", _w|_c)
+FsWrite(h, b1)
+FSClose(h)
+
+
+# Read from the same file to b2 array
+h = FsOpen("/test.txt", _r)
+Dim b2[11]
+FsRead(h, b2)
+PrintLn(b2)
+FSClose(h)
+
+fsunmnt()
+```
+
+---
+
+## USB Memory Drives
+
+Use  [USB Host](../products/stusbhost-b) to accessing files on USB thumb drives. It works just like SD cards but select type 2 media. The second and third arguments are ignored in USB host mode.
+
+```py
+# USB thumbdrive, 4 file handles max
+fsmnt(2, 0, 0, 4)
+```
+
+---
+
+## Sample Code
+
+Coding language libraries include access to the internal file system. This is not the same as using the PC's file system for example!
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Mount SD card, pin 17 chip select, 8Mhz clock, 4 file handles max
+fsmnt(1, 17, 8000, 4)
+
+# open file test.txt to write, mode (0x02 | 0x08)
+_h = FsOpen("/test.txt", 0x2|0x8)
+
+# write 4 bytes to handle h
+_w = FsWrite_(h, [1,2,3,4])
+
+# close handle
+FSClose(_h)
+```
+</TabItem>
+<TabItem value="py">
+```py
+# Mount SD card, pin 17 chip select, 8Mhz clock, 4 file handles max
+duelink.FileSystem.Mount(1, 17, 8000, 4)
+
+# open file test.txt to write, mode (0x02 | 0x08)
+h = duelink.FileSystem.Open("/test.txt", 0x02 | 0x08 )
+
+# write 4 bytes to handle h
+wrote = duelink.FileSystem.Write(h, [1,2,3,4])
+
+# close handle
+duelink.FileSystem.Close(h)
+```
+</TabItem>
+<TabItem value="js">
+```js
+// Mount SD card, pin 17 chip select, 8Mhz clock, 4 file handles max
+await duelink.FileSystem.Mount(1, 17, 8000, 4)
+
+// open file test.txt to write, mode (0x02 | 0x08)
+let h = await duelink.FileSystem.Open("/test.txt", 0x02 | 0x08 )
+
+// write 4 bytes to handle h
+let wrote = await duelink.FileSystem.Write(h, [1,2,3,4])
+
+// close handle
+await duelink.FileSystem.Close(h)
+
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// Mount SD card, pin 17 chip select, 8Mhz clock, 4 file handles max
+duelink.FileSystem.Mount(1, 17, 8000, 4);
+
+// open file test.txt to write, mode (0x02 | 0x08)
+int h = duelink.FileSystem.Open("/test.txt", 0x02 | 0x08 );
+
+// write 4 bytes to handle h
+byte data[4] = {1,2,3,4};
+int wrote = duelink.FileSystem.Write(h, data,4);
+
+// close handle
+duelink.FileSystem.Close(h);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# Mount SD card, pin 17 chip select, 8Mhz clock, 4 file handles max
+duelink.FileSystem.Mount(1, 17, 8000, 4)
+
+# open file test.txt to write, mode (0x02 | 0x08)
+h = duelink.FileSystem.Open("/test.txt", 0x02 | 0x08 )
+
+# write 4 bytes to handle h
+wrote = duelink.FileSystem.Write(h, [1,2,3,4])
+
+# close handle
+duelink.FileSystem.Close(h)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// Mount SD card, pin 17 chip select, 8Mhz clock, 4 file handles max
+duelink.FileSystem.Mount(1, 17, 8000, 4);
+
+// open file test.txt to write, mode (0x02 | 0x08)
+var h = duelink.FileSystem.Open("/test.txt", 0x02 | 0x08 );
+
+// write 4 bytes to handle h
+var wrote = duelink.FileSystem.Write(h, new byte[1,2,3,4]);
+
+// close handle
+duelink.FileSystem.Close(h);
+```
+</TabItem>
+</Tabs>
+</details>
+
+

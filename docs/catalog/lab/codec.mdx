@@ -1,0 +1,28 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import React from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import ImageSection from "/src/components/ImageSection/index.js";
+import OrderSection from "/src/components/OrderSection/index.js";
+
+# Codec
+
+<table>
+<td width='50%'>
+    <img alt="Back" src="/img/catalog/codec-1.webp" />
+</td>
+<td width='50%'>
+    <img alt="Size" src="/img/catalog/codec-2.webp" />
+</td>
+</table>
+
+This is a high quality audio codec, capable of playing MP3 and other audio formats. It even has recording capabilities.
+
+Data is transferred in very small chunks, adding a lot of stress on the data streams on the DUELink bus. It worked fine at lower bitrates but we were not fully satisfied. We are still investigating options. Consider using [MP3 PLayer](../../products/somp3-a.mdx) module for now.

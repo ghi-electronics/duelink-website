@@ -1,0 +1,61 @@
+##### Clipit Driver #####
+_t = 100
+ 
+fn DVer()
+    return 1.0
+fend
+fn Init()
+    #Initialize LED Matrix
+    Dim a1[] = {0, 8,9,6,5,4,  19,22,11,21,23} # first number sets common-anode, second 5 for data, third 5 for scan
+    GfxCfg(4, a1, 5, 5, 1)# type 4: 5x5 type, 1: buffered x1
+fend
+fn TouchA()
+    t = PulseIn(10, 1000, 1, 100)
+ 
+    if(t>_t && t < 65000)
+        return 1
+    else 
+        return 0
+fend
+fn TouchB()
+    t = PulseIn(24, 1000, 1, 100)
+    if(t>_t && t < 65000)
+        return 1
+    else 
+        return 0
+fend
+fn TouchUp()
+    t = PulseIn(13, 1000, 1, 100)
+    if(t>_t && t < 65000)
+        return 1
+    else 
+        return 0
+fend
+fn TouchDown()
+    t = PulseIn(18, 1000, 1, 100)
+    if(t>_t && t < 65000)
+        return 1
+    else 
+        return 0
+fend
+fn TouchLeft()
+    t = PulseIn(14, 1000, 1, 100)
+    if(t>_t && t < 65000)
+        return 1
+    else 
+        return 0
+fend
+fn TouchRight()
+    t = PulseIn(12, 1000, 1, 100)
+    if(t>_t && t < 65000)
+        return 1
+    else 
+        return 0
+fend
+fn Light()
+    return Trunc(VRead(17)/(ReadVCC() )*100)
+fend
+fn Buzzer(f,d)
+    Beep(7, f, d)
+fend
+Init()

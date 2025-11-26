@@ -1,0 +1,79 @@
+##### Relay P16 Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn Set(r, v)
+    if v > 0
+        v = 0
+    else
+        v = 1
+    end
+
+    if (r = 1)
+        DWrite(11, v)
+    end
+    
+    if (r = 2)
+        DWrite(7, v)
+    end
+    
+    if (r = 3)
+        DWrite(8, v)
+    end
+    
+    if (r = 4)
+        DWrite(9, v)
+    end
+    
+    if (r = 5)
+        DWrite(6, v)
+    end
+    
+    if (r = 6)
+        DWrite(5, v)
+    end
+    
+    if (r = 7)
+        DWrite(4, v)
+    end
+    
+    if (r = 8)
+        DWrite(3, v)
+    end
+    
+    if (r = 9)
+        DWrite(2, v)
+    end
+    
+    if (r = 10)
+        DWrite(1, v)
+    end
+    
+    if (r = 11)
+        DWrite(12, v)
+    end
+    
+    if (r = 12)
+        DWrite(13, v)
+    end
+    
+    if (r = 13)
+        DWrite(15, v)
+    end
+    
+    if (r = 14)
+        DWrite(14, v)
+    end
+    
+    if (r = 15)
+        DWrite(16, v)
+    end
+    
+    if (r = 16)
+        DWrite(10, v)
+    end
+fend
+
+####################

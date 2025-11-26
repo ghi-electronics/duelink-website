@@ -1,0 +1,57 @@
+##### Flash Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    dim b6[7] = "Test It"
+    Dim b7[7]
+    
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    
+    dim b2[3]
+    SfGetId(b2)
+    
+    r = 1
+    
+    if b2[0] != 239 || b2[1] != 64 || b2[2] !=24
+        r = 0
+    end
+    
+    if r = 1
+        SfErase(0)
+        
+        SfWrite(0, "Test")
+        SfWrite(4, " ")
+        SfWrite(5, "It")
+        
+        
+        SfRead(0, b7)
+        
+        for i=0 to 7
+            if (b6[i] != b7[i])
+                r = 0
+                break
+            end
+        next
+    end
+    
+    cmd("clear(0)")
+    
+    if (r)
+        println("Passed!")
+        cmd("Texts(\"Passed!\",1,0,0,2,2)")
+        
+    else
+        println("Failed!")
+        cmd("Texts(\"Failed!\",1,0,0,2,2)")
+    end
+    
+    cmd("show()")
+fend

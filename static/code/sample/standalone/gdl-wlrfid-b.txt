@@ -1,0 +1,20 @@
+dim b1[16]
+while (1)
+    if (isCard() = 1)
+        PrintLn("New card found")
+        
+        if ReadCard(b1) = 0
+            PrintLn("Number received")
+            for i in range (16)
+                print(" ", hex(b1[i]))
+            next
+            PrintLn("")
+        else
+            PrintLn("Failed to read")
+        end
+        
+    else
+        PrintLn("No card found")
+    end
+    Wait(1000)
+wend

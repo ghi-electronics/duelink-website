@@ -1,0 +1,12 @@
+_i = 0
+while 1
+
+    servost(1, _i)    
+    PrintLn(_i)
+    _i = _i + 20
+    if _i > 180
+        _i = 0
+    end
+    Wait(100)
+
+wend

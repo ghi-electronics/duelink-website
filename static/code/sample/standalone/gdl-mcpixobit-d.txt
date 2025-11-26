@@ -1,0 +1,36 @@
+# In this sample:
+# Display light level on the screen
+# A circle moves on the screen.
+# A short beep plays when button A or B is pressed
+# A short beep plays when pin 1,2 or 3 is touched
+
+_x = 50
+_d = 10
+_w = GetW()
+
+while 1
+    Clear(0)
+    Circle(1,_x,GetH()/2,10)
+    
+    Text(Fmt(Light()),1,50,5)
+    Show()
+    
+    _x=_x+_d
+ 
+    if (_x > _w || _x <0)
+        _d = _d * -1    
+    end
+    
+    if BtnA()
+        Buzzer(1000,100)
+    end
+    
+    if BtnB()
+        Buzzer(500,100)
+    end
+    
+     if (IsTouch(0) || IsTouch(1) || IsTouch(2))
+        Buzzer(1500,100)
+    end
+    
+wend

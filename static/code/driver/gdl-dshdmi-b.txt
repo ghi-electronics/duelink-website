@@ -1,0 +1,314 @@
+##### HDMI Driver #####
+
+fn DVer()
+    return 0.2
+fend
+
+Alias(cs=10,pd=18,bit32=32,bit24=24,bit16=16,bit8=8,dladd=_a)
+
+_a = 0x00300000
+Dim b3[4]
+
+fn SpiWrRd(d, o)
+    Dim b1[1]
+    Dim b2[1]
+    
+    v = 0
+    if o = bit8
+        b1[0] = d
+        SpiWrs(b1,b2)
+        v = b2[0]
+        #PrintLn("Write read 8")
+    end
+    
+    if o = bit16
+        b1[0] = (d >> 8) & 0xFF
+        SpiWrs(b1,b2)
+        v = v | (b2[0] << 8)
+        b1[0] = d & 0xFF
+        SpiWrs(b1,b2)
+        v = v | (b2[0] << 0)
+        #PrintLn("Write read 16")
+    end
+    
+    if o = bit24 
+        b1[0] = (d >> 24) & 0xFF
+        SpiWrs(b1,b2)
+        v = v | (b2[0] << 24)
+        #PrintLn(hex(b1[0]))
+        b1[0] = (d>>16) & 0xFF
+        SpiWrs(b1,b2)
+        v = v | ((b2[0]) << 16)
+        #PrintLn(hex(b1[0]))
+        b1[0] = (d>>8) & 0xFF
+        SpiWrs(b1,b2)
+        v = v | ((b2[0]) << 8)
+        #PrintLn(hex(b1[0]))
+        #PrintLn("Write read 24")
+    end
+    
+    if o = bit32
+        b1[0] = (d >> 24) & 0xFF
+        SpiWrs(b1,b2)
+        v = v | (b2[0] << 24)
+        #PrintLn(hex(b1[0]))
+        b1[0] = (d>>16) & 0xFF
+        SpiWrs(b1,b2)
+        v = v | ((b2[0]) << 16)
+        #PrintLn(hex(b1[0]))
+        b1[0] = (d>>8) & 0xFF
+        SpiWrs(b1,b2)
+        v = v | ((b2[0]) << 8)
+        #PrintLn(hex(b1[0]))
+        b1[0] = (d>>0) & 0xFF
+        SpiWrs(b1,b2)
+        v = v | ((b2[0]) << 0)
+        #PrintLn(hex(b1[0]))
+        #PrintLn("Write read 32")
+    end 
+    return v
+fend
+
+fn SetAddrr(a,r)
+
+    if (r=1) # read
+        a = (a << 8) | (0 << 31)
+        SpiWrRd(a,bit32) # read send 4 bytes
+    else
+        a = (a << 8) | (1 << 31)
+        SpiWrRd(a,bit24) # write send 3 bytes
+    end
+fend
+
+fn MemRead(a, o) 
+    DWrite(cs,0)
+    SetAddrr(a,1) # set add read
+    v = SpiWrRd(0, o)
+    DWrite(cs,1)
+    return v
+fend
+
+fn MemWrite(a, b3, o) 
+    DWrite(cs,0)
+    SetAddrr(a,0) # set add write
+    if o = bit32
+        SpiWr(b3[3])
+        SpiWr(b3[2])
+        SpiWr(b3[1])
+        SpiWr(b3[0])
+    end
+    if o = 24
+        SpiWr(b3[2])
+        SpiWr(b3[1])
+        SpiWr(b3[0])
+    end
+    if o = 16
+        SpiWr(b3[1])
+        SpiWr(b3[0])
+    end
+    if o = 8
+        SpiWr(b3[0])
+    end
+    DWrite(cs,1)
+fend
+
+fn HCmdWrite(c,p)
+    DWrite(cs,0)
+    SpiWr(c)
+    SpiWr(p)
+    SpiWr(0)
+    DWrite(cs,1) 
+fend
+
+fn Synth(n,p)
+    # Play sound beep
+    if (p = 1)
+        MemWrite(0x00302084,  [0xff], bit8) #max EVE_REG_VOL_SOUND
+        MemWrite(0x00302088,  [0x6C,n], bit16)
+        MemWrite(0x0030208C,  [0x01], bit8) #EVE_REG_PLAY
+    end
+    if p = 0
+        MemWrite(0x00302088,  [0x00,0x00], bit16) # stop sound
+        MemWrite(0x0030208C,  [0x01], bit8)
+    end
+fend
+
+fn DLClear()
+    dladd = 0x00300000
+fend
+
+fn DLSwap()
+   MemWrite(0x00302054,  [0x02], bit8)
+fend
+
+fn Init() 
+    # init TFP410-HDMI
+    DWrite(1,0)
+    Wait(50)
+    DWrite(1,1)
+    Wait(50)
+    
+    I2cCfg(400)
+    
+    Dim b1[1]
+    Dim b2[5] 
+    
+    b1[0] = 0
+    
+    v = I2cWr(0x38,b1,b2)
+    v = I2cWr(0x38,b1,b2)
+    v = I2cWr(0x38,b1,b2)
+    
+    Dim b1[4]
+    
+    b1[0] = 0x08
+    b1[1] = 0x35
+    b1[2] = 0x01 | 0x04 | 0x08 | 0x30
+    b1[3] = 0x80
+    
+    v = I2cWr(0x38,b1,b2)
+    
+    if v =1
+        PrintLn("TFP410 init ok")
+    else
+        PrintLn("TFP410 init failed")
+    end
+    
+    # init Bridgtek
+    SpiCfg(0,1000)
+    
+    #Set Chip Select OFF
+    DWrite(cs,1)
+    
+    #Reset the display
+    Wait(20)
+    DWrite(pd,1)
+    Wait(20)
+    DWrite(pd,0)
+    Wait(20)
+    DWrite(pd,1)
+    Wait(20)  
+    
+    HCmdWrite(0x44,0x00) # HostCMD_CLKEXT
+    HCmdWrite(0x61,0x46) # HostCMD_CLKEXT
+    HCmdWrite(0x68,0x00) # Reset
+    HCmdWrite(0x00,0x00) # Set active
+    
+    Wait(500) #Optional delay can be commented so long as we check the REG_ID and REG_CPURESET
+    
+    c = 0
+    r = 0
+    while (r != 0x7C)
+        r = MemRead(0x302000, bit8) #EVE_REG_ID
+        Wait(100)
+    wend
+    
+    while (r != 0)
+        r = MemRead(0x302020, bit8) #EVE_REG_CPURESET
+        Wait(100)
+    wend
+    
+    MemWrite(0x0030200C,[0x04,0x4A,0xA2,0x00], bit32) #EVE_REG_FREQUENCY 72000000
+    
+    # Active width of LCD display
+	MemWrite(0x00302034,   [0x03,0x20],bit16)
+	# Total number of clocks per line
+	MemWrite(0x0030202C,  [0x03,0xA0],bit16)
+	# Start of active line
+	MemWrite(0x00302030, [0x00,0x58],bit16)
+	# Start of horizontal sync pulse
+	MemWrite(0x00302038,  [0x00,0x00],bit16)
+	# End of horizontal sync pulse
+	MemWrite(0x0030203C,  [0x00,0x30],bit16)
+	# Active height of LCD display
+	MemWrite(0x00302048,   [0x01,0xE0],bit16)
+	# Total number of lines per screen
+	MemWrite(0x00302040,  [0x02,0x0D],bit16)
+	# Start of active screen
+	MemWrite(0x00302044, [0x00,0x20],bit16)
+	# Start of vertical sync pulse
+	MemWrite(0x0030204C,  [0x00,0x00],bit16)
+	# End of vertical sync pulse
+	MemWrite(0x00302050,  [0x00,0x03],bit16)
+	# Define RGB output pins
+	MemWrite(0x00302064,  [0x00], bit8)
+	# Define active edge of PCLK
+	MemWrite(0x0030206C, [0x01], bit8)
+	# Turn on or off CSpread
+	MemWrite(0x00302068,  [0x00], bit8)
+	# Turn on or off Dither
+	MemWrite(0x00302060,  [0x01], bit8)
+	
+	# Write first display list
+    MemWrite(0x00300000,  [0x02,0x00,0x00,0x00], bit32)
+    MemWrite(0x00300004,  [0x26,0x00,0x00,0x07], bit32)
+    MemWrite(0x00300008,  [0x00,0x00,0x00,0x00], bit32)
+    
+    MemWrite(0x00302054,  [0x02], bit8)
+    
+    r = MemRead(0x302094, bit8)
+
+    r = r | 0x80
+    
+    MemWrite(0x00302094,  [r], bit8)
+    MemWrite(0x00302070,  [0x02], bit8)
+    MemWrite(0x003020D4,  [127], bit8)
+    
+    # ---------------------- Touch and Audio settings -------------------------
+    MemWrite(0x00302118,  [0x04,0xB0], bit16)
+    MemWrite(0x00302080,  [0x00], bit8)
+    MemWrite(0x00302084,  [0x00], bit8)
+    MemWrite(0x00302088,  [0x60,0x00], bit16)
+fend
+
+Alias(C_DISPLAY=0x00,C_CLEAR_COLOR=0x02,C_COLOR=0x04,C_POINT_SIZE=0x0D)
+Alias(C_BEGIN=0x1f,C_END=0x21,C_CLEAR=0x26,C_VERTEX2F=0x40,C_VERTEX2II=0x80)
+
+Alias(BITMAPS=1,POINTS=2,LINES=3,RECTS=9)
+
+fn DLCmd(c,a9)
+    b3[0]=c
+    if c=C_DISPLAY
+        b3[1]=0:b3[2]=0:b3[3]=0
+    end
+
+    if c=C_CLEAR_COLOR || c=C_COLOR
+        b3[1]=a9[0]:b3[2]=a9[1]:b3[3]=a9[2]
+    end
+
+    if c=C_POINT_SIZE
+        b3[1]=0:b3[2]=a9[0]>>8:b3[3]=a9[0]&0xff
+    end
+
+    if c=C_BEGIN
+        b3[1]=0:b3[2]=0:b3[3]=a9[0]
+    end
+
+    if c=C_CLEAR
+        b3[1]=0:b3[2]=0:b3[3]=7
+    end
+
+    if c=C_VERTEX2F
+        n=(a9[0]<<15)|a9[1]
+        b3[0]=0x40|(n>>24)
+        b3[1]=(n>>16)&0xff
+        b3[2]=(n>>8)&0xff
+        b3[3]=n&0xff
+    end
+
+    if c=C_VERTEX2II
+        x=a9[0]:y=a9[1]:h=a9[2]
+        b3[0]=0x80|(x>>3)
+        b3[1]=((x&0x07)<<5)|((y>>4))
+        b3[2]=((y&0x0f)<<4)|(h>>1)
+        b3[3]=((h&1)<<7)|a9[3]  
+    end
+
+  MemWrite(dladd,b3,bit32)
+  dladd = dladd + 4
+
+fend
+
+Init() 
+
+###########################

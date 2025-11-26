@@ -1,0 +1,80 @@
+# I2C
+
+I2C is the most common interface when selecting a microcontroller-level [Hardware](../hw/intro).
+
+---
+
+## Microcomputers
+
+Many microcomputers today include JST connectors that use I2C bus. Some companies have standards around the same JST connector, such as Sparkfun QWIIC and Adafruit STEMMA products.
+
+A good example is Arduino UNO R4 WiFi. [Arduino](../hw/arduino) is one the [Supported Hardware](../hw/intro) options, providing all the necessary libraries.
+
+![Arduino Uno R4 Wifi](pathname:///img/arduino-uno-r4-wifi.webp)
+
+Another example is Sparkfun Redboard.
+
+![Sparkfun Redboard with DUELink](pathname:///img/redboard-duelink-display.webp)
+
+Note that typical use of non-DUELink I2C on JST connector is done by connecting all modules on the same I2C signals. This is definitely not the case with DUELink. DUELink only uses I2C on the first module. Then that module connects to other modules using the [Downlink](../interface/downlink) interface. This typology does not consume I2C addresses and allows for [Daisylinking](../engine/daisylink) hundreds of modules!
+
+---
+
+## The Protocol
+
+A DUELink module is always an I2C slave listening to an I2C bus master on address is 0x52 (7bit), which is fixed and can't be changed. 
+
+The host (I2C master) can send data as individual bytes or multiple bytes. The module will look at individual bytes and disregard how they're packed in I2C frames. In other words, start, restart, and stop conditions are ignored by the data stream.
+
+The module (I2C slave) will return 0xFF when the host requests data with no available data to return. This is works well in most cases as 0xFF is not used in commands and responses as they are all readable ASCII. However, in cases when the slave needs to send 0xFF as an actual data, it will instead send 0xFE followed by 1. And similarly, to send 0xFE it will instead send 0xFE followed by 2.
+
+This code explains how to process received I2C data.
+
+```c
+escape = false;
+error = false;
+ProcRxI2C(b)
+{
+    if(escape)
+    {
+        if(b == 1)
+            InsetFifo(0xff);
+        else if(b == 2)
+            InsertFifo(0xfe);
+        else
+            error = true;
+        escape = false;
+    }else
+    {
+        if(b == 0xfe)
+            escape = true;
+        else if(b == 0xff)
+            return;
+        else
+            InsertFifo(b);
+    }
+}
+```
+
+
+When the device is too busy to accept data, it will use clock stretching feature. Clock stretching support is a standard I2C feature and is required from the host.
+
+---
+
+## Non-DUELink Modules
+
+Many modules on the market include a JST connector with I2C bus signals. They simply use I2C and most will not have any intelligence. DUELink gracefully allows for these modules to be connected on the same [Daisylink](../engine/daisylink). The only rule is you have to connect the non-DUELink modules first in the chain. Access those module like you normally would, as DUELink will simply ignore them.
+
+![QWIIC, STEMMA QT, and Modulino with DUELink modules](pathname:///img/qwiic-stemma-modulino-duelink.webp)
+
+:::tip
+You can't use any non-DUELink modules that have the same address as DUELink, which is very unlikely!
+:::
+
+---
+
+## Pull Up Resistors
+
+I2C requires pull up resistors to operate, typically 2.2K. Some boards on the market do not include these resistors. Instead, they rely on the internal weak pull up resistors inside the micro. This may cause problems in some cases. DUELink has a [PullUp](../products/adpullup-a) module to solve this issue.
+
+![QTPY with Pull-up](pathname:///img/qtpy-pullup.webp)

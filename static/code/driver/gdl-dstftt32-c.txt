@@ -1,0 +1,135 @@
+##### TFT T32 #####
+
+fn DVer()
+    return 0.1
+fend
+
+_s = 5 # sel pin
+_r = 6 # reg sel pin
+_m = 1 # mode
+
+fn Init()
+    Mode(0)# buffered
+fend
+
+fn Mode(m)
+    SpiCfg(0, 12000)
+    _m=m
+
+    If m = 0 # buffered
+    	GfxCfg(2, {_s,_r},80,106, 3)
+    else # direct
+    	GfxCfg(2,{_s,_r},240,320, 0)
+    end
+    
+    DWrite(_s, 1)#deselect
+    DWrite(4,0)#reset
+    Wait(10)
+    DWrite(4,1)#reset
+    Wait(120)
+    DWrite(7,1)# backlight
+    LcdCmd(0x11,[])#wkup
+    Wait(120)
+    LcdCmd(0xCf,[0x00,0xc3,0x30])
+    LcdCmd(0xED,[0x64,0x03,0x12,0x81])
+    LcdCmd(0xE8,[0x85,0x10,0x79])
+    LcdCmd(0xCB,[0x39,0x2c,0x00,0x34,0x02])
+    LcdCmd(0xF7,[0x20])
+    LcdCmd(0xEA,[0x00,0x00])
+    LcdCmd(0xC0,[0x22])#PWR VRH[5:0]
+    LcdCmd(0xC1,[0x11])#SAP[2:0] BT[3:0]
+    LcdCmd(0xC5,[0x3d,0x20])
+    LcdCmd(0xC7,[0xaa])#0xB0 #VCM
+    LcdCmd(0x36,[0x08])#mem acc
+    LcdCmd(0x3A,[0x55])
+    LcdCmd(0xB1,[0x00,0x13])
+    LcdCmd(0xB6,[0x0A,0xA2])#dis func
+    LcdCmd(0xF6,[0x01,0x30])
+    LcdCmd(0xF2,[0x00])#gmma dis
+    LcdCmd(0x26,[0x01])
+    LcdCmd(0xE0,[0xf,0x3f,0x2f,0xc,0x10,0xa,0x53,0xd5,0x40,0xa,0x13,3,8,3,0])
+    LcdCmd(0xE1,[0,0,0x10,3,0xf,5,0x2c,0xa2,0x3f,5,0xe,0xc,0x37,0x3c,0xf])    
+    LcdCmd(0x11,[])#wkup
+    Wait(120)
+    LcdCmd(0x29,[])
+    Wait(50)
+fend
+
+fn LcdCmd(c, b1)
+    ##SendLcdCmd(c)
+    DWrite(_s, 0)#select
+    DWrite(_r, 0)#LcdCmd
+    SpiWr(c)
+    DWrite(_r, 1)#data
+    
+    for i in Range(Len(b1))
+        SpiWr(b1[i])
+    next
+    
+    DWrite(_s, 1)#deselect
+fend
+
+fn IsColor()
+    return 1
+fend
+
+fn GetH()
+    if _m = 0
+        return 320
+    else
+        return 106
+    end
+fend
+
+fn GetW()
+    if _m = 0
+        return 240
+    else
+        return 80
+    end
+fend
+
+#XL 1
+#YU 2
+#XR 15
+#YD 16
+
+fn GetX()
+    DWrite(1, 0)
+    DWrite(15, 1)
+
+    z = DRead(16, 0)
+    t = 0
+
+    for i = 0 to 9
+        Wait(1)
+        t = t + VRead(2)
+    next
+
+    x = t / 10
+    x = Scale(x, 0, ReadVCC(), 0, 240)
+
+    return x
+fend
+
+fn GetY()	
+    DWrite(2, 0)
+    DWrite(16, 1)
+
+    z = DRead(15, 0)
+    t = 0
+
+    for i = 0 to 9
+        Wait(1)
+        t = t + VRead(1)
+    next
+
+    y = t / 10
+    y = Scale(y, 0, ReadVCC(), 0, 320)
+
+    return y
+fend
+
+Init()
+
+##############################

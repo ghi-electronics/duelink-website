@@ -1,0 +1,91 @@
+# USB
+
+
+All DUELink modules include USB support. A few boards have a built-in USB connector, but others need an adapter like [USB Hook](../products/adusbhook-a) or [USB Stick](../products/adusbstick-a).
+
+![USB Connection](pathname:///img/usbhook-servo-x1.webp)
+
+USB on DUELink module is configured in standard CDC class, making these modules show up as virtual serial port to the connected [Hardware](../hw/intro).
+
+No drivers are necessary on any modern Windows, Linux, Android or Mac operating systems. These systems use a [Host Language](../language/intro) to command a [Daisylink](../engine/daisylink) of modules.
+
+![USB Android](pathname:///img/android-usbhook.webp)
+
+USB is also first choice with the [Console](../console) and [Demo Website](https://demo.duelink.com/).
+
+---
+
+## HID Interface
+
+With the CDC (Virtual Serial) interface, USB also includes HID (Human Interface Device) Class. A USB connected computer/phone (any OS) will see Serial+Keyboard+Mouse devices on the same USB cable (composite device). The Serial interface is used to communicate with the [engine](../engine/intro). This works just like all other interfaces, such as [I2C](./i2c).
+
+The connected OS will receive "keyboard keystrokes" and "mouse movements" using the `Hid(type, [data])` function. `type` is 1: Keyboard - 2: mouse. The `[data]` array depends on the device.
+
+
+**Mouse** Data | Use
+--- | ---
+Byte 0 | Buttons (bitmask: Left=1, Right=2, Middle=4)
+Byte 1-2 | X movement (signed int16)
+Byte 3-4 | Y movement (signed int16)
+Byte 5 | Wheel (signed int8)
+Byte 6 | Pan (signed int8)
+ 
+ 
+**Keyboard** Data | Use
+--- | ---
+Byte 0 | Modifier keys (e.g., Ctrl, Shift)
+Byte 1 | Reserved (always 0)
+Bytes 2-7 | Keycodes for up to 6 simultaneous key presses
+
+Modifier key | Value
+--- | ---
+Left Ctrl | 0x01
+Left Shift | 0x02
+Left Alt | 0x04
+Left GUI | 0x08
+Right Ctrl | 0x10
+Right Shift | 0x20
+Right Alt | 0x40
+Right GUI | 0x80
+
+USB `Keyboard keycodes` are found in the USB Specifications https://usb.org/sites/default/files/hut1_21.pdf and in many other places online, like https://gist.github.com/MightyPork/6da26e382a7ad91b5496ee55fdc73db2.
+
+For example, the codes for 'G', 'H' and 'I' are 0x0A, 0x0B, and 0x0C respectively.
+
+This is an example that reads touch pads on a DUELink module and then send their status as keyboard arrows key presses.
+
+```py
+Asio(1) # Enable Asynchronous Commands
+dim b1[8] # keyboard need 8 bytes for one report
+ 
+_p = 0 # press status
+_s = 0 # backup status
+ 
+while (1)
+    if (TouchUp())
+        b1[2] = 0x52
+        _p = 1
+    end
+    if (TouchDown())
+        b1[2] = 0x51
+        _p = 1
+    end
+    if (TouchLeft())
+        b1[2] = 0x50
+        _p = 1
+    end
+    if (TouchRight())
+        b1[2] = 0x4F
+        _p = 1
+    end
+    if _p != _s
+        if _p = 1
+            hid(1,b1) # send key        
+        else
+            hid(1,[0,0,0,0,0,0,0,0]) # release    
+        end
+        _s = _p
+    end
+    _p = 0 # reset press status
+wend
+```

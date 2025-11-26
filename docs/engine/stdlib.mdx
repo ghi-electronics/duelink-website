@@ -1,0 +1,2594 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Standard Library
+
+
+These standard library functions are built in natively into the firmware and are available on all systems. You will likely not use these directly, but use the simpler wrapper methods provided by the individual modules.
+
+:::tip
+These are particularly useful for using DUELink Microcomputers or for making custom modules.
+:::
+
+---
+
+:::caution
+Unless otherwise is stated, all Standard Libraries that calls for array require a byte array and not a float array. Use `b1` for example instead of `a1`.
+:::
+
+## Special Pins
+
+Some functions only work on pins with specific features.
+
+- Analog capable pins: P1, P2, P3, P4, P5, P6, P7, P8, P9, P17
+- Interrupt capable pins: P1, P2, P3, P4, P5, P6, P7, P12
+- PWM capable pins: P1, P2, P3, P4, P5, P6, P7, P8, P11
+
+:::tip
+PWM pins share timers. Changing the frequency on one will affect the other. Changing duty-cycle is okay however!
+
+- P1, P2
+- P3
+- P4, P11
+- P5, P6, P7, P8
+:::
+
+---
+
+## Print
+
+Print to output.
+
+| Function                      | Description                                        |
+| ----------------------------- | -------------------------------------------------- |
+| `Print("text" or variable)`   | Print the value of its argument.                   |
+| `PrintLn("text" or variable)` | Print the value of its argument with line breaks.  |
+
+`Print()` accepts multiple arguments, separated by commas, `Print("Value is: ", _v)`.
+
+:::tip
+Print is invoked automatically when a function returns a value that is not consumed. Running `DRead(1, 1)` in immediate mode will show 0 or 1.
+:::
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+Print("DUELink")
+PrintLn(" is awesome!")
+_x=100
+PrintLn(_X)
+Print("_X = ", _X)
+```
+</TabItem>
+<TabItem value="py">
+Not needed. Use Python's native `print()` method.
+</TabItem>
+<TabItem value="js">
+Not needed. Use JavaScript native facilities.
+</TabItem>
+<TabItem value="arduino">
+Not needed. Use Arduino native facilities.
+</TabItem>
+<TabItem value="micropy">
+Not needed. Use MicroPython native facilities.
+</TabItem>
+<TabItem value="dotnet">
+Not needed. Use .NET native facilities.
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## Timing
+
+Function | Description
+--- | ---
+`Wait(duration)` | Wait for `duration` milliseconds.
+`WaitUs(duration)` | Wait for `duration` microseconds. See tip below!
+`TickMs()` | Read system ticks in milliseconds.
+`TickUs()` | Read system ticks in microseconds.
+
+:::tip
+Calling `WaitUs()` has a minimum of 160us, which is what the function needs to run itself. Also, calling functions, `DWrite()` takes ~300us and executing instructions, like `while`, takes ~100uS. Keep these in mind to generate relatively accurate delays when generating signals.
+:::
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+ _T = TickMs()
+PrintLn("Current tick = ",_T)
+Wait(5000)
+_N = TickMs()
+PrintLn("New tick = ",_N)
+PrintLn("Delta = ",_N - _T)
+```
+</TabItem>
+<TabItem value="py">
+```py
+# Wait is not provided, use native facilities
+ms = duelink.System.GetTickMilliseconds()
+us = duelink.System.GetTickMicroseconds()
+```
+</TabItem>
+<TabItem value="js">
+```js
+// Wait is not provided, use native facilities
+ms = await duelink.System.GetTickMilliseconds();
+us = await duelink.System.GetTickMicroseconds();
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// Wait is not provided, use native facilities
+ms = duelink.System.GetTickMilliseconds();
+us = duelink.System.GetTickMicroseconds();
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# Wait is not provided, use native facilities
+ms = duelink.System.GetTickMilliseconds()
+us = duelink.System.GetTickMicroseconds()
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// Wait is not provided, use native facilities
+ms = duelink.System.GetTickMilliseconds();
+us = duelink.System.GetTickMicroseconds();
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## Pin Control
+
+### Status LED
+
+Control the on-board STAT LED, found on every single DUELink module.
+
+Function | Description
+--- | ---
+`StatLed(high, low, count)` | Blink the status (STAT) LED with `high` duration on in milliseconds and `low` duration in milliseconds. Repeat `count`, use 0 to repeat forever.
+
+The status LED is automatically controlled by the engine by default, as explained on the [Specs](../specs.mdx) page. Calling `StatLed()` will take control over the LED. It is possible to release LED back to the engine by calling `StatLed(0,0,0)`.
+
+:::tip
+Any write operation (`AWrite()`, `DWrite()`, or `Freq()`) to the STAT LED (Pin 0) will terminate any current operations to set it to the desired state.
+:::
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Blink the STAT LED on for 1000 milliseconds, off for 1000 milliseconds, 10 times. 
+StatLed(1000, 1000, 10)
+# Wait for 5 seconds
+Wait(5000)
+# Release the Status LED back to the system
+StatLed(0, 0, 0)
+```
+</TabItem>
+<TabItem value="py">
+```py
+#Blink the STAT LED on for 1000 milliseconds, off for 1000 milliseconds, 10 times. 
+duelink.System.StatLed(1000, 1000, 10)
+# Wait for 5 seconds
+time.sleep(5)
+# Release the Status LED back to the system
+duelink.System.StatLed(0, 0, 0)
+```
+</TabItem>
+<TabItem value="js">
+```js
+//Blink the STAT LED on for 1000 milliseconds, off for 1000 milliseconds, 10 times. 
+await duelink.System.StatLed(1000, 1000, 10);
+// Wait 5 seconds
+await Util.sleep(5000);
+// Release the Status LED back to the system
+await duelink.System.StatLed(0, 0, 0);
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// Blink the STAT LED on for 1000 milliseconds, off for 1000 milliseconds, 10 times. 
+duelink.System.StatLed(1000, 1000, 10);
+// Wait for 5 seconds
+delay(5000);
+// Release the Status LED back to the system
+duelink.System.StatLed(0, 0, 0);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+#Blink the STAT LED on for 1000 milliseconds, off for 1000 milliseconds, 10 times. 
+duelink.System.StatLed(1000, 1000, 10)
+# Wait for 5 seconds
+time.sleep(5)
+# Release the Status LED back to the system
+duelink.System.StatLed(0, 0, 0)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// Blink the STAT LED on for 1000 milliseconds, off for 1000 milliseconds, 10 times. 
+duelink.System.StatLed(1000, 1000, 10);
+// Wait for 5 seconds
+Thread.Sleep(5000);
+// Release the Status LED back to the system
+duelink.System.StatLed(0, 0, 0);
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+### Digital
+
+Access digital pins.
+
+Function | Description
+--- | ---
+`DRead(pin, pull)`   | Returns the digital state of `pin`. Enable `pull` (0 none, 1 up, 2 down).
+`DWrite(pin, state)` | Sets `pin` to `state`: 1 = high or 0 = low.
+
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Read the current level of pin 1, with pull-down resistor enabled
+_P = DRead(1,2)
+# Set pin 2 to high (active) state
+DWrite(2,1)
+```
+</TabItem>
+<TabItem value="py">
+```py
+# Read the current level of pin 1, with pull-down resistor enabled
+pinState = duelink.Digital.Read(1,2)
+# Set pin 2 to high (active) state
+duelink.Digital.Write(2,1)
+```
+</TabItem>
+<TabItem value="js">
+```js
+// Read the current level of pin 1, with pull-down resistor enabled
+await pinState = duelink.Digital.Read(1,2);
+// Set pin 2 to high (active) state
+await duelink.Digital.Write(2,1);
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// Read the current level of pin 1, with pull-down resistor enabled
+pinState = duelink.Digital.Read(1,2);
+// Set pin 2 to high (active) state
+duelink.Digital.Write(2,1);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# Read the current level of pin 1, with pull-down resistor enabled
+pinState = duelink.Digital.Read(1,2)
+# Set pin 2 to high (active) state
+duelink.Digital.Write(2,1)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// Read the current level of pin 1, with pull-down resistor enabled
+pinState = duelink.Digital.Read(1,2);
+// Set pin 2 to high (active) state
+duelink.Digital.Write(2,1);
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+### Analog
+
+Access pins in an analog format.
+
+Function | Description
+--- | ---
+`ARead(pin)` | Read the analog level on `pin` (0 to 4095).
+`VRead(pin)` | Read calibrated voltage level on `pin`.
+`AWrite(pin, power)` | Sets the power level on `pin` using PWM. Power level is 0 to 1, 0.33 is 33% for example.
+
+`VRead()` and `ARead()` only work with analog capable pins, see [Special Pins](#special-pins).
+
+`AWrite()` only works on PWM pins, see [Special Pins](#special-pins).
+
+
+:::tip
+`AWrite()` changes the internal timer frequency to 1Khz, see Special Pins.
+:::
+
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Read the voltage level at pin 3
+_V = VRead(3)
+# Read the analog input on pin 2
+_A = Aread(2)
+# Set power level (duty-cycle) of pin 4 to 33%
+AWrite(4, 0.33)
+```
+</TabItem>
+<TabItem value="py">
+```py
+# Read the voltage level at pin 3
+voltage = duelink.Analog.VoltRead(3)
+# Read the analog input on pin 2
+analog = duelink.Analog.Read(2)
+# Set power level (duty-cycle) of pin 4 to 33%
+duelink.Analog.Write(4, 0.33)
+```
+</TabItem>
+<TabItem value="js">
+```js
+// Read the voltage level at pin 3
+await duelink.Analog.VoltRead(3)
+// Read the analog input on pin 2
+analog = duelink.Analog.Read(2)
+// Set power level (duty-cycle) of pin 4 to 33%
+await duelink.Analog.Write(4, 0.33)
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// Read the voltage level at pin 3
+voltage = duelink.Analog.VoltRead(3);
+// Read the analog input on pin 2
+analog = duelink.Analog.Read(2);
+// Set power level (duty-cycle) of pin 4 to 33%
+duelink.Analog.Write(4, 0.33);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# Read the voltage level at pin 3
+voltage = duelink.Analog.VoltRead(3)
+# Read the analog input on pin 2
+analog = duelink.Analog.Read(2)
+# Set power level (duty-cycle) of pin 4 to 33%
+duelink.Analog.Write(4, 0.33)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// Read the voltage level at pin 3
+voltage = duelink.Analog.VoltRead(3);
+// Read the analog input on pin 2
+analog = duelink.Analog.Read(2);
+// Set power level (duty-cycle) of pin 4 to 33%
+duelink.Analog.Write(4, 0.33);
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+### Button
+
+Use interrupts to keep track of pins. Only available on interrupt capable pins, see [Special Pins](#special-pins) above!
+
+Function | Description                          
+--- | ---
+`BtnEn(p,l)` | Enable button scanning feature on `p` pin with `l` as pressed state (0 is low when pressed, 1 is high when pressed).
+`BtnUp(p)`         | Returns 1 if `p` pin **transitioned** to unpressed state.
+`BtnDown(p)`       | Returns 1 if `p` pin **transitioned** to a pressed state.
+`BtnRead(p)`       | Returns 1 if button on `p` is currently pressed.
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Enable button on pin 1 with a low for pressed-state.
+BtnEn(1, 1)
+# Read the current button state, pressed or unpressed.
+_B = BtnRead(1)
+```
+</TabItem>
+<TabItem value="py">
+```py
+# Enable button on pin 1 with a low for pressed-state.
+duelink.Button.Enable(1, False)
+# Read the current button state, pressed or unpressed.
+state = duelink.Button.Read(1)
+```
+</TabItem>
+<TabItem value="js">
+```js
+// Enable button on pin 1 with a low for pressed-state.
+await duelink.Button.Enable(1, False);
+// Read the current button state, pressed or unpressed.
+await state = duelink.Button.Read(1);
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// Enable button on pin 1 with a low for pressed-state.
+duelink.Button.Enable(1, False);
+// Read the current button state, pressed or unpressed.
+state = duelink.Button.Read(1);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# Enable button on pin 1 with a low for pressed-state.
+duelink.Button.Enable(1, False)
+# Read the current button state, pressed or unpressed.
+state = duelink.Button.Read(1)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// Enable button on pin 1 with a low for pressed-state.
+duelink.Button.Enable(1, False);
+// Read the current button state, pressed or unpressed.
+state = duelink.Button.Read(1);
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+### Frequency
+
+Sets a frequency and duty-cycle parameters to a pin, using the internal PWM hardware. Only works on pins that support PWM.
+
+:::tip
+This changes the timer frequency, see Special Pins.
+:::
+
+Function | Description
+--- | ---
+`Freq(pin, frequency, duration, dutycycle)` | Sets PWM `pin` to `frequency` for `duration` in milliseconds at `dutycycle` where 1 is 100%, 0.2 is 20%...etc.
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Sweep though frequencies on pin 3
+for _x in range(800,8000,50)
+  Freq(3, _x, 100, 0.5)
+  Wait(100)
+next
+```
+</TabItem>
+<TabItem value="py">
+```py
+for x in range(800,8000,50)
+  duelink.Frequency.Write(3, _x, 100, 0.5)
+  time.sleep(0.1)
+next
+```
+</TabItem>
+<TabItem value="js">
+```js
+
+for (let x = 800; x <= 8000; x += 50) {
+  await duelink.Frequency.Write(3, x, 100, 0.5);
+  await Util.sleep(100);
+}
+
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+for (x=800; x<8000, x=x+50)
+{
+  duelink.Frequency.Write(3, _x, 100, 0.5);
+  delay(100);
+}
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+for x in range(800,8000,50)
+  duelink.Frequency.Write(3, _x, 100, 0.5)
+  time.sleep(0.1)
+next
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+for (x=800; x<8000, x=x+50)
+{
+  duelink.Frequency.Write(3, _x, 100, 0.5);
+  Thread.Sleep(100);
+}
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+### PulseIn
+
+Used for measuring pulses and for capacitive sensing.
+
+Function | Description
+--- | ---
+`PulseIn(pin, charge, state, timeout)` | Read a pulse width on a `pin` where the pulse is level selected using `state` (high or low). Optionally, charge the pin for `charge` microseconds before switching it back to input to read the pulse duration. Returns pulse width, or 0 if timeout. This is a blocking function waiting for the pulse, or returns after `timeout` milliseconds.
+
+:::tip
+Set `charge` to 0 if charge is not needed. Using `charge` is needed for capacitive sensing.
+
+`Timeout` should be set to the smallest possible value as this function disables the interrupts internally. A long timeout may cause the system to become unstable.
+::: 
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Detect high width on pin 3
+println(PulseIn(3,0,1,1000))
+# Sense capacitive touch (discharge time) on pin 4 by charging the pin for 1000 microseconds
+println(PulseIn(4,1000,0,100))
+
+```
+</TabItem>
+<TabItem value="py">
+```py
+print(duelink.Pulse.Read(3,0,1,1000))
+```
+</TabItem>
+<TabItem value="js">
+```js
+console.log(await duelink.Pulse.Read(3,0,1,1000))
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+Serial.print(duelink.Pulse.Read(3,0,1,1000));
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+print(duelink.Pulse.Read(3,0,1,1000))
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+Console.WriteLine(duelink.Pulse.Read(3,0,1,1000).ToString());
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## Digital Control
+
+### Distance
+
+Read distance from ultrasonic distance sensors.
+
+Function | Description
+--- | ---
+`Dist(trig, echo)` | Returns distance in centimeters from ultrasonic distance sensor connected to `trig` and `echo` pins.
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Measure ultrasonic distance with trig on pin 2 and echo on pin 1
+_D = _Dist(2, 1)
+```
+</TabItem>
+<TabItem value="py">
+```py
+distance = duelink.Distance.Read(2, 1)
+```
+</TabItem>
+<TabItem value="js">
+```js
+await distance = duelink.Distance.Read(2, 1);
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+distance = duelink.Distance.Read(2, 1);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+distance = duelink.Distance.Read(2, 1)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+distance = duelink.Distance.Read(2, 1);
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+### Servo Motors
+
+Control servo motors.
+
+:::tip
+This changes the timer frequency to 50Hz, see Special Pins.
+:::
+
+Function | Description
+--- | ---
+`ServoSt(pin, degree)` | Position a servo on `pin` to `degree`: 0 to 180
+
+`ServoSt()` only works with PWM pins, see [Special Pins](#special-pins).
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Servo on pin 1 to 90 degrees
+servost(1, 90)
+```
+</TabItem>
+<TabItem value="py">
+```py
+# Servo on pin 1 to 90 degrees
+duelink.Servo.Set(1, 90)
+```
+</TabItem>
+<TabItem value="js">
+```js
+// Servo on pin 1 to 90 degrees
+await duelink.Servo.Set(1, 90);
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// Servo on pin 1 to 90 degrees
+duelink.Servo.Set(1, 90);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# Servo on pin 1 to 90 degrees
+duelink.Servo.Set(1, 90)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// Servo on pin 1 to 90 degrees
+duelink.Servo.Set(1, 90);
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+### I2C
+
+Access the I2C bus.
+
+Function | Description
+--- | ---
+`I2cCfg(baudrate)` | `baudrate`: Sets the I2C clock speed in khz, typically 100K or 400K, and 1M in some cases.
+`I2cWr(address, [arrayWrite], [arrayRead])` | `address`: I2C slave address (7 bits) - `arrayWrite`: array to send, `arrayRead`: array to read.
+
+Pins used for I2C are 15-SCL and 16-SDA.
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Write 2 bytes to 0x3C and do not read anything back
+i2ccfg(100) # set clock 100KHz
+b1[0] = 1
+b1[1] = 2
+i2cwr(0x3C,b1,[])
+```
+</TabItem>
+<TabItem value="py">
+```py
+b1 = bytearray([0x01,0x02])
+duelink.I2C.Configuration(100)
+duelink.I2C.WriteRead(0x3c, b1, 0)
+```
+</TabItem>
+<TabItem value="js">
+```js
+let b1 = new Uint8Array([0x01, 0x02])
+await duelink.I2C.Configuration(100)
+await duelink.I2C.WriteRead(0x3c, b1, 0)
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+byte b1[] = {0x01,0x02}
+duelink.I2C.Configuration(100)
+duelink.I2C.WriteRead(0x3c, b1, 2, 0, 0)
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+b1 = bytearray([0x01,0x02])
+duelink.I2C.Configuration(100)
+duelink.I2C.WriteRead(0x3c, b1, 0)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+var b1 = new byte[]{0x01,0x02}
+duelink.I2C.Configuration(100)
+duelink.I2C.WriteRead(0x3c, b1, 0)
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+### SPI
+
+Access the SPI bus.
+
+Function | Description
+--- | ---
+`SpiCfg(mode, frequency)` | Configure SPI with `mode`: 0 to 3 and `frequency` in KHz, ranging 200KHz to 20MHz. If LSB is needed, set `mode` bit 7 to 1 `mode=mode\|0x80 `.
+`SpiWr(byte)` | Write a `byte` then return the received byte.
+`SpiWrs([data_w], [data_r])` | Write an byte array of `data_w`, also returns an byte array of `data_r`.
+
+:::tip
+The system defaults to `SpiCfg(0,8000)`, means SPI mode 0, 8MHz, and first bit is MSB.
+:::
+
+Pins used for SPI are 12-SCK, 13-MISO, 14-MOSI. Use any GPIO for manual use of CS.
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+spicfg(0,8000)
+# Write/Read (exchange) a byte
+_R = SpiWr(0x55)
+# Write B1 array and read back B2
+Dim B1[2] = [1,2]
+Dim B2[2]
+SpiWrs(B1,B2)
+```
+</TabItem>
+<TabItem value="py">
+```py
+duelink.Spi.Configuration(0,8000)
+
+# Write/Read (exchange) a byte
+r = duelink.Spi.Write(0x55)
+
+# Write B1 array and read back B2
+b1 = bytearray([0x01,0x02])
+b2 = bytearray(2)
+
+duelink.Spi.WriteRead(b1,b2)
+```
+</TabItem>
+<TabItem value="js">
+```js
+await duelink.Spi.Configuration(0,8000)
+
+# Write/Read (exchange) a byte
+let r = await duelink.Spi.Write(0x55)
+
+# Write B1 array and read back B2
+let b1 = new Uint8Array([0x01, 0x02])
+let b2 = new Uint8Array()
+
+await duelink.Spi.WriteRead(b1,b2)
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+duelink.Spi.Configuration(0,8000);
+
+// Write/Read (exchange) a byte
+byte r = duelink.Spi.Write(0x55);
+
+// Write B1 array and read back B2
+byte b1[] = {0x01,0x02};
+byte b2[2];
+
+duelink.Spi.WriteRead(b1,2,b2,2);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+duelink.Spi.Configuration(0,8000)
+
+# Write/Read (exchange) a byte
+r = duelink.Spi.Write(0x55)
+
+# Write B1 array and read back B2
+b1 = bytearray([0x01,0x02])
+b2 = bytearray(2)
+
+duelink.Spi.WriteRead(b1,b2)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+duelink.Spi.Configuration(0,8000);
+
+// Write/Read (exchange) a byte
+var r = duelink.Spi.Write(0x55);
+
+// Write B1 array and read back B2
+var b1 = new byte[] {0x01,0x02};
+var b2 = new byte[];
+
+duelink.Spi.WriteRead(b1,b2);
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+### Serial (UART)
+
+Read and write serial data.
+
+Function | Description
+--- | ---
+`SerCfg(baud, rxsize)` | Start serial port with `baud` and allocate a receive buffer of `rxsize`.
+`SerRd()` | Read a single byte from the receive buffer. Returns zero if it finds no data.
+`SerRds([data], timeout)` | Block the system until all data elements are filled. Terminate and return if no data received in `timeout` milliseconds. Returns how many bytes it read successfully.
+`SerWr(byte)` | Write a single `byte` to the serial port.
+`SerWrs([data])` | Write an array of `data`.
+`SerB2R()` | Returns how many bytes are available in the receive buffer.
+`SerDisc()` | Discard the receive buffer.
+
+The pins used for UART are 1-RX and 2-TX. The DBG pin is an output indicating the sample point, used by us internally.
+
+Serial is handled by software with special internal features. There is also basic hardware UART option available when UART Uplink is not needed, for example on boards with only USB Uplink, such as [DueDuino](../products/mcdueduino-a). To activate the hardware UART, use a negative `baud` in `SerCfg()`, for example `SerCfg(-115200,100)`. Pins used for hardware UART are 21-TX and 22-RX. We do not support using both hardware and software UARTs simultaneously.
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+SerCfg(9600, 1024)
+
+# If there is data, read a byte and write it back
+if SerB2R() > 0
+  _B = SerRd()
+  SerWr(_B)
+end
+```
+</TabItem>
+<TabItem value="py">
+```py
+duelink.Uart.Configuration(9600, 1024)
+
+# If there is data, read a byte and write it back
+if duelink.Uart.BytesToRead() > 0:
+  data = duelink.Uart.ReadByte()
+  duelink.Uart.WriteByte(data)
+
+```
+</TabItem>
+<TabItem value="js">
+```js
+await duelink.Uart.Configuration(9600, 1024)
+
+// If there is data, read a byte and write it back
+if (duelink.Uart.BytesToRead() > 0) {
+  let data = await duelink.Uart.ReadByte()
+  await duelink.Uart.WriteByte(data)
+}
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+duelink.Uart.Configuration(9600, 1024);
+
+// If there is data, read a byte and write it back
+if (duelink.Uart.BytesToRead() > 0)
+{
+  byte data = duelink.Uart.ReadByte();
+  duelink.Uart.WriteByte(data);
+}
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+duelink.Uart.Configuration(9600, 1024)
+
+# If there is data, read a byte and write it back
+if duelink.Uart.BytesToRead() > 0:
+  data = duelink.Uart.ReadByte()
+  duelink.Uart.WriteByte(data)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+duelink.Uart.Configuration(9600, 1024);
+
+// If there is data, read a byte and write it back
+if (duelink.Uart.BytesToRead() > 0)
+{
+  var data = duelink.Uart.ReadByte();
+  duelink.Uart.WriteByte(data);
+}
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+### DMX
+
+Read and write from [DMX512](https://en.wikipedia.org/wiki/DMX512) devices. Must call `SerCfg(250000, 513)` before using these functions. The pins used for DMX are same as UART.
+
+Function | Description
+--- | ---
+`DmxW([channels])` | Write `channel` byte array.
+`DmxU()` | Enable receive to update internal buffer with incoming channels.
+`DmxRdy()` | Returns 1 when there is a frame that was requested by `DmxU()`.
+`DmxR(channel)` | Returns the value of a specific channel.
+
+:::tip
+This feature only supports DMX frames with `Start Code` zero.
+:::
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Enable DMX update on UART pins
+DmxU()
+
+# wait until ready
+while DmxRdy() = 0
+  wait(200)
+wend
+
+# Read channel 3
+_D = DmxR(3)
+
+```
+</TabItem>
+<TabItem value="py">
+```py
+duelink.DMX.Update()
+
+# wait until ready
+while duelink.DMX.Ready() == 0:
+  time.sleep(0.2) 
+
+d = duelink.DMX.Read(3)
+
+```
+</TabItem>
+<TabItem value="js">
+```js
+await duelink.DMX.Update()
+
+# wait until ready
+while (duelink.DMX.Ready() == 0)
+  await Util.sleep(200)
+
+let d = await duelink.DMX.Read(3)
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+duelink.DMX.Update();
+
+// wait until ready
+while(duelink.DMX.Ready() == 0)
+{
+  delay(200);
+}
+int d = duelink.DMX.Read(3);
+
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+duelink.DMX.Update()
+
+# wait until ready
+while duelink.DMX.Ready() == 0:
+  time.sleep(0.2) 
+
+d = duelink.DMX.Read(3)
+
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+duelink.DMX.Update()
+
+// wait until ready
+while(duelink.DMX.Ready() == 0)
+{
+  Thread.Sleep(200) 
+}
+var d = duelink.DMX.Read(3);
+
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+### Infrared
+
+Receive and decode signals from Infrared remotes. Generate tones. Tx pin must be a PWM capable pin. Rx pin must be an interrupt capable pin.
+
+Function | Description
+--- | ---
+`IrEn(t,r)` | Enable IR transmitter on `t` pin and scanner on `r` pin. Both pins are optional, use -1 for the pin not being used.
+`IrRead()` | Returns previously received key press value. Returns -1 if no key press was received.
+`IrWrite(data)` | Write data. This is a blocking call.
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Enable Ir transmit feature on pin 3, no receiver 
+IrEn(3, -1)
+# Send 0x55
+IrWrite(0x55)
+```
+</TabItem>
+<TabItem value="py">
+```py
+# Enable Ir transmit feature on pin 3, no receiver
+duelink.Infrared.Enable(3,-1)
+
+duelink.Infrared.Write(0x55)
+```
+</TabItem>
+<TabItem value="js">
+```js
+// Enable Ir transmit feature on pin 3, no receiver
+await duelink.Infrared.Enable(3,-1)
+
+await duelink.Infrared.Write(0x55)
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// Enable Ir transmit feature on pin 3, no receiver
+duelink.Infrared.Enable(3,-1);
+
+duelink.Infrared.Write(0x55);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# Enable Ir transmit feature on pin 3, no receiver
+duelink.Infrared.Enable(3,-1)
+
+duelink.Infrared.Write(0x55)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// Enable Ir transmit feature on pin 3, no receiver
+duelink.Infrared.Enable(3,-1);
+
+duelink.Infrared.Write(0x55);
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+### Temperature
+
+Read temperature from a specific sensor.
+
+Function | Description
+--- | ---
+`Temp(pin, type)` | Read temperature sensor with `type` connected to `pin`. Returns temperature in Celsius.
+
+ID  | Type
+--- | ---
+0 | Internal CPU temperature (pin is ignored)
+1 | DHT11
+2 | DHT12
+3 | DHT21
+4 | DHT22
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Read DH22 sensor on pin 5
+Temp(5,4)
+```
+</TabItem>
+<TabItem value="py">
+```py
+# Read DH22 sensor on pin 5
+duelink.Temperature.Read(5, 4)
+```
+</TabItem>
+<TabItem value="js">
+```js
+// Read DH22 sensor on pin 5
+await duelink.Temperature.Read(5, 4)
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// Read DH22 sensor on pin 5
+duelink.Temperature.Read(5, 4);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# Read DH22 sensor on pin 5
+duelink.Temperature.Read(5, 4)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// Read DH22 sensor on pin 5
+duelink.Temperature.Read(5, 4);
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+### Humidity
+
+Read humidity from a specific sensor.
+
+Function | Description
+--- | ---
+`Humid(pin, type)` | Read a humidity sensor `type` connected to `pin`.
+
+ID  | Type
+--- | ---
+0   | reserved
+1   | DHT11
+2   | DHT12
+3   | DHT21
+4   | DHT22
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Read DH22 sensor on pin 5
+duelink.Humid(5, 4)
+```
+</TabItem>
+<TabItem value="py">
+```py
+# Read DH22 sensor on pin 5
+duelink.Humidity.Read(5, 4)
+```
+</TabItem>
+<TabItem value="js">
+```js
+// Read DH22 sensor on pin 5
+await duelink.Humidity.Read(5, 4)
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// Read DH22 sensor on pin 5
+duelink.Humidity.Read(5, 4);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# Read DH22 sensor on pin 5
+duelink.Humidity.Read(5, 4)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// Read DH22 sensor on pin 5
+duelink.Humidity.Read(5, 4);
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+### USB
+
+The [USB](../interface/usb) interface presents itself as three devices: Serial Port, Keyboard, and Mouse! The main use is typically through the Serial port to access the module's engine.
+
+The Keybpard and Mouse interfaces allow the user to send keystrokes and mouse movements to the connected PC/Phone.
+
+Function | Description
+--- | ---
+`Hid(type, [data])` | Send virtual Keyboard or Mouse activity to the connected Mouse/Keyboard.
+
+See [USB](../interface/usb) interfsce for details.
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Send Keyboard 3 key presses GHI every 5 seconds!
+while (1)
+    hid(1,[0,0,0x0A,0x0B,0x0C,0,0,0])#8 bytes: 0,0,G,H,I,0,0,0
+    wait(5000)# Every 5 seconds!
+wend
+```
+</TabItem>
+<TabItem value="py">
+```py
+Script only functionality.
+```
+</TabItem>
+<TabItem value="js">
+```js
+Script only functionality.
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+Script only functionality.
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+Script only functionality.
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+Script only functionality.
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## Sound
+
+These functions help in generrating sounds.
+
+Function | Description
+--- | ---
+`MelodyP(pin, {notes})` | A non-blocking call to play a melody in the background on `pin` using the frequencies and delays found in `{notes}` float array.
+`MelodyS(pin)` | Stop a melody on `pin`.
+`Beep(pin, frequency, duration)` | Generate a beep on `pin` with `frequency` for `duration` in milliseconds. This is a blocking function that works on any pin.
+`Wave(pin, buffer, offset, count, freq, delay_us)` | Play a WAV PCM 8-bit `buffer` data on PWM `pin`, starting with `offset` for `count`. Use `delay_us` between each sample. 
+`Sweep(pin, freq_start, freq_end, vol_start, vol_end, duration)` | Sweep through a frequency on PWM `pin` from `freq_start` to `freq_end` and change that frequency volume from `vol_start` to `vol_end` for a `duration`.
+
+:::tip
+1. `Sweep()` needs time to process each pulse. Give ample `duration` when using lower frequencies for more accurate results.
+2. `Sweep()` has a limit of 5Khz.
+3. All functions, except `Beep()`, change the base timer frequency. This timer might be used/shared with other pins.
+:::
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+Dim a1[]={500, 50, # 500Hz for 50ms
+        1000, 100} # 1000Hz for 100ms
+MelodyP(3, a1)
+Wait(2000)
+MelodyS(3)
+# Generate a frequency of 1KHz on pin 1 for 200ms
+Beep(1, 1000, 200)
+```
+</TabItem>
+<TabItem value="py">
+```py
+duelink.Sound.MelodyPlay(3, [500, 50, 1000, 100])
+time.sleep(2)
+duelink.Sound.MelodyStop(3)
+# Generate a frequency of 1KHz on pin 1 for 200ms
+duelink.Sound.Beep(1, 1000, 200)
+```
+</TabItem>
+<TabItem value="js">
+```js
+await duelink.Sound.MelodyPlay(3, [500, 50, 1000, 100])
+await Util.sleep(2000)
+await duelink.Sound.MelodyStop(3)
+// Generate a frequency of 1KHz on pin 1 for 200ms
+await duelink.Sound.Beep(1, 1000, 200)
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+float tones[4] = {500, 50, 1000, 100};
+duelink.Sound.MelodyPlay(3, tones, 4)
+delay(2000);
+duelink.Sound.MelodyStop(3);
+// Generate a frequency of 1KHz on pin 1 for 200ms
+duelink.Sound.Beep(1, 1000, 200);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+duelink.Sound.MelodyPlay(3, [500, 50, 1000, 100])
+time.sleep(2)
+duelink.Sound.MelodyStop(3)
+# Generate a frequency of 1KHz on pin 1 for 200ms
+duelink.Sound.Beep(1, 1000, 200)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+duelink.Sound.MelodyPlay(3, [500, 50, 1000, 100])
+Thread.Sleep(2000);
+duelink.Sound.MelodyStop(3);
+// Generate a frequency of 1KHz on pin 1 for 200ms
+duelink.Sound.Beep(1, 1000, 200);
+```
+</TabItem>
+</Tabs>
+</details>
+
+
+
+
+---
+
+## System Info
+
+Read info about the system.
+
+Function      | Description
+--- | ---
+`Info(type)` | Returns the a specific `type` of info!
+
+Type ID | Returned value
+---|---
+0 | Product type
+1 | Firmware version
+2 | Interface (0: None, 1: I2C, 2: USB, 3: UART)
+3 | Downlink Mode, see [Downlink](../interface/downlink) Interface.
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Read the firmware version
+_v = Info(1)
+```
+</TabItem>
+<TabItem value="py">
+```py
+# Read the firmware version
+_v = duelink.System.Info(1)
+```
+</TabItem>
+<TabItem value="js">
+```js
+// Read the firmware version
+_v = duelink.System.Info(1)
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// Read the firmware version
+int _v = duelink.System.Info(1);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# Read the firmware version
+_v = duelink.System.Info(1)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// Read the firmware version
+var _v = duelink.System.Info(1);
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## Graphics
+
+DUELink firmware includes a flexible graphics facilities, detailed on the [Graphics Engine](./graphics) page.
+
+---
+
+## File System
+
+DUELink firmware includes a complete file system facilities, detailed on the [File System](./filesystem) page.
+
+---
+
+## Scheduler
+
+See [Scheduler](./scheduler) for details.
+
+Function | Description
+--- | ---
+`SStart("func", timeout, count)` | Schedule `func` to run at every `timeout` (in milliseconds) for `count` times, or -1 to run forever.
+`SStat("func")` | `func`: Returns how many times the schedule will still need to run for, 0 is complete and -1 is forever.
+`SAbort("func")` | `func`: Abort `func` scheduler.
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+_S = 1
+
+fn Blink()
+  _S = ! _S
+  DWrite(1,_S)
+fend
+
+# Start the scheduler to run Blink 20 times once every 100ms. 
+SStart("Blink",100,20)
+
+# Do not terminate
+while 1 
+  # Do something!
+wend
+
+```
+</TabItem>
+<TabItem value="py">
+
+Script only functionality.
+
+</TabItem>
+<TabItem value="js">
+
+Script only functionality.
+
+</TabItem>
+<TabItem value="arduino">
+
+Script only functionality.
+
+</TabItem>
+<TabItem value="micropy">
+
+Script only functionality.
+
+</TabItem>
+<TabItem value="dotnet">
+
+Script only functionality.
+
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## Interrupts
+
+See [Interrupts](./interrupt) for details.
+
+Function | Description
+--- | ---
+`IStart("func", pin, trigger, pull)` | Enable interrupt on `pin` to trigger `func`. `trigger` is: 0 - falling, 1 - rising, 2 - rising and falling. Enable `pull`: 0 - pull down, 1 - pull up, 2 - no pull.
+`Istatled("func")` | Returns status of interrupt on `func`: 0- no interrupt, 1- active interrupt.
+`IAbort("func")` | Abort interrupt for `func`.
+`IrqEn(e)` | Control global interrupts: 1-enable, 0-disable. Only disable interrupts for a very short time and when absolutely necessary!
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+fn Changed()
+  PrintLn("Pin was changed!")
+fend
+
+# Run "Changed" function when pin 1 goes low
+IStart("Changed", 1, 0, 1)
+
+
+# Do not terminate
+while 1 
+  # Do something!
+wend
+
+```
+</TabItem>
+<TabItem value="py">
+
+Script only functionality.
+
+</TabItem>
+<TabItem value="js">
+
+Script only functionality.
+
+</TabItem>
+<TabItem value="arduino">
+
+Script only functionality.
+
+</TabItem>
+<TabItem value="micropy">
+
+Script only functionality.
+
+</TabItem>
+<TabItem value="dotnet">
+
+Script only functionality.
+
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## Downlink Control
+
+Function | Description
+--- | ---
+`DLMode(mode, {cfg})` | Sets Downlink `mode`, see [Downlink](../interface/downlink) interface page.
+`DLI2cWr(address, [arrayWrite], [arrayRead])` | `address`: I2C slave address (7 bits) - `arrayWrite`: array to send, `arrayRead`: array to read. This only works with `DLMode(4,0)`.
+`Cmd("command")` | Sends a script command Downlink, only available in `DLMode(2,0)` mode, `Host` mode. You can only to read a float from a function or a variable: `_W = Cmd("GetW()")` or `_W = Cmd("_W")`. Setting a remote value is done using `cmd(fmt("_x=",_x))`. 
+`CmdTmot(t)` | Sets `t` timeout for `Cmd()` in milliseconds, default 1000ms. 
+`DLSerWr([array])` | Writes `array` to downlink.
+`DLSerRd([array], timeout)` | Returns how many bytes was read before `timeout` ms. Received data go in `array`.
+`DLSer2R()` | Returns how many bytes are "to read", coming from the internal receive FIFO.
+
+More info is found on the [Downlink](../interface/downlink) interface and [Daisylink](./daisylink) pages.
+
+:::tip
+Use `Info()` to read the current `DLMode()` state.
+:::
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Switch Downlink to I2C mode
+DLMode(4,0)
+Dim B1[]=[0x11,0x22]
+# Write 2 bytes to 0x44 and read nothing
+DLI2CWr(0x44,B1,[])
+```
+</TabItem>
+<TabItem value="py">
+Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
+```py
+duelink.Engine.ExecuteCommand("DLMode(4,0)")
+duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []")
+```
+</TabItem>
+<TabItem value="js">
+Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
+```js
+await duelink.Engine.ExecuteCommand("DLMode(4,0)");
+await duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []");
+```
+</TabItem>
+<TabItem value="arduino">
+Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
+```cpp
+duelink.Engine.ExecuteCommand("DLMode(4,0)");
+duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []");
+```
+</TabItem>
+<TabItem value="micropy">
+Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
+```py
+duelink.Engine.ExecuteCommand("DLMode(4,0)")
+duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []")
+```
+</TabItem>
+<TabItem value="dotnet">
+Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
+```cs
+duelink.Engine.ExecuteCommand("DLMode(4,0)");
+duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []");
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## Device Addressing
+
+These functions are needed for helping with [Daisylink](./daisylink) devices chained through [Downlink](../interface/downlink) connections.
+
+Function | Description
+--- | ---
+`Sel(add, add, add ...)` | Select a devices at `add` in the chain.
+`GetAdd()` | Returns the selected device(s) address.
+`SetAdd(add)` | `add` Sets the device's address. This command has chain reaction where each device sets the next one. ** Internal function, do not use**
+
+The `Sel(add)` command accepts multiple addresses. `Sel(3,7)` will activate the third and and seventh modules in [Daisylink](./daisylink). Any command issue from that point forward are executed by both modules. Zero is broadcast address, where `Sel(0)` will activate all modules. Use `GetAdd()` to detect what modules are currently active.
+
+Device addressing controls modules on a [Daisylink](./daisylink), not a device itself. For that, `Sel()` can only be issued by the host. Of course, the host can be a third-party board or a DUELink module in host mode.
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Select device 2
+Sel(2)
+# Blink the LED on selected device
+StatLed(200,200,10)
+```
+</TabItem>
+<TabItem value="py">
+```py
+# Select device 2
+duelink.Engine.Select(1)
+# Blink the LED on selected device
+duelink.System.StatLed(200, 200, 10)
+```
+</TabItem>
+<TabItem value="js">
+```js
+// Select device 2
+await duelink.Engine.Select(1);
+// Blink the LED on selected device
+await duelink.System.StatLed(200, 200, 10);
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// Select device 2
+duelink.Engine.Select(1);
+// Blink the LED on selected device
+duelink.System.StatLed(200, 200, 10);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# Select device 2
+duelink.Engine.Select(1)
+# Blink the LED on selected device
+duelink.System.StatLed(200, 200, 10)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// Select device 2
+duelink.Engine.Select(1);
+// Blink the LED on selected device
+duelink.System.StatLed(200, 200, 10);
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## Math
+
+Function | Description
+--- | ---
+`Rnd(max)`    | Returns a random number with `max` value.
+`Cos(rad)`      | Returns cosine of `rad`.
+`Sin(rad)`      | Returns sine of `rad`.
+`Tan(rad)`      | Returns tangent `rad`.
+`Sqrt(number)`  | Returns square root of `number`.
+`Abs(number)` | Returns absolute value of a `number`.
+`Ceil(number)` | Returns ceiling of a `number`.
+`Floor(number)` | Floor a `number`.
+`Round(number)` | Round a `number`.
+`Trunc(number)` | Returns a truncated value `number`.
+`IsNaN(number)` | Returns 1 `number` is a valid value.
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Read a random number between 0 and 10
+_R = Rnd(10)
+```
+</TabItem>
+<TabItem value="py">
+
+Use Python native facilities.
+
+</TabItem>
+<TabItem value="js">
+
+Use JavaScript native facilities.
+
+</TabItem>
+<TabItem value="arduino">
+
+Use Arduino native facilities.
+
+</TabItem>
+<TabItem value="micropy">
+
+Use MicroPython native facilities.
+
+</TabItem>
+<TabItem value="dotnet">
+
+Use .NET native facilities.
+
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## Converters
+
+Function | Description
+--- | ---
+`Fmt(...)` | Returns formatted string for internal functions, takes arguments just like `Print()`.
+`Hex(num)` | Returns the number in hex.
+`Chr(num)` | Returns the ascii char of a number.
+`Scale(value, fromLow, fromHigh, toLow, toHigh)` | Returns a scaled number from `value`.
+`Memcpy([dst], offset_dst, [src], offset_src, count)` | Used to copy a block of memory from one location to another. `[dst]` and `[src]` must be same array type.
+`Parse("str", start, count)` |  Returns a number that is parsed from `str` string or byte array or chracters. Parsing starts at `start` and for `count` bytes. 
+`SprintF([buffer], format)` | A wrapper for the internal `sprintf()` in the C-language.
+`Base64("str")` | Returns a byte array from a Base64 string. This is useful for creating large arrays. 
+
+:::caution
+The scripting engine automatically handles array sizes and realocate small arrays to exapnd as ncessary. This is not the case with `sprintf()`. The user must provide `sprintf()` with an arrays that is large enough to conain the entire string, including a null termination.
+:::
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+_H = 0x55
+# Print the value in its hex representation
+PrintLn(Hex(_H))
+```
+</TabItem>
+<TabItem value="py">
+
+Use Python native facilities.
+
+
+</TabItem>
+<TabItem value="js">
+
+Use JavaScript native facilities.
+
+</TabItem>
+<TabItem value="arduino">
+
+Use Arduino native facilities.
+
+</TabItem>
+<TabItem value="micropy">
+
+Use MicroPython native facilities.
+
+</TabItem>
+<TabItem value="dotnet">
+
+Use .NET native facilities.
+
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## Asynchronous IO
+
+Enable Asynchronous IO. Detailed on the [Engine](./intro.mdx) main page.
+
+| Function       | Description                       |
+| -------------- | --------------------------------- |
+| `AsIo(enable)` | `enable`: 1 = Enable, 0 = Disable |
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+AsIo(1) # Enable Asynchronous IO
+
+# The engine will respond even when looping
+while 1
+# ...do something!
+wend
+```
+</TabItem>
+<TabItem value="py">
+
+Script only functionality.
+
+</TabItem>
+<TabItem value="js">
+
+Script only functionality.
+
+</TabItem>
+<TabItem value="arduino">
+
+Script only functionality.
+
+</TabItem>
+<TabItem value="micropy">
+
+Script only functionality.
+
+</TabItem>
+<TabItem value="dotnet">
+
+Script only functionality.
+
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## System Reset
+
+Reset or clear the system.
+
+Function | Description
+--- | ---
+`Reset(mode)` | Reset the system with `mode`.
+
+mode | Description
+--- | ---
+0 | System Reset (just like pressing reset button).
+1 | Wipe out the entire chip (factory reset!). This command must be executed twice for it to take effect.
+
+It is important to keep device addressing under consideration. To do so, `Reset(0)` will automatically reset all devices, regardless of what device was selected using `Sel()`. However, `Reset(1)` will only erase the selected device. We recommend `Reset(1):Reset(1)` on a singular connected device, or on the first connected device in a daisylink. If you really need, `Sel(0):Reset(1):Reset(1)` will wipe out every single device in a daisylink!
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Reset All devices
+Sel(0)
+Reset(0)
+```
+</TabItem>
+<TabItem value="py">
+```py
+# Reset All devices
+duelink.Engine.Select(0)
+duelink.System.Reset(0)
+```
+</TabItem>
+<TabItem value="js">
+```js
+// Reset All devices
+await duelink.Engine.Select(0)
+await duelink.System.Reset(0)
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+# Reset All devices
+duelink.Engine.Select(0);
+duelink.System.Reset(0);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# Reset All devices
+duelink.Engine.Select(0)
+duelink.System.Reset(0)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+# Reset All devices
+duelink.Engine.Select(0);
+duelink.System.Reset(0);
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## Low Power
+
+Function | Description
+--- | ---
+`LowPwr(m, p)` | Put the module in `m` sleep mode.
+
+Sleep Mode | Wake up pin | Description
+--- |  --- | ---
+0 | Pins 1 or 3 only | Complete system shutdown, including shutting down the internal including RTC. A change on `p` pin from low-to-high will **reset** (wake up) the module.
+1 | Any interrupt-capable pin | System goes into hibernate, but with internal RTC running.
+
+
+Important notes about using Mode 1: 
+1. The `p` argument is ignored and the system will wake up from an interrupt on any pin used by `Button()` or `IStart()`. 
+2. from `RtcA()`
+3. Waking up from this mode will **resume** execution, not **reset**. 
+4. If no interrupts are used the system can only wake up from `RtcA()` or a system reset. 
+5. Pin I2C SDA on [I2C](../interface/i2c) interface is monitored to allow for a system wake up using any I2C activities. Also, most modules also have this pin connected to UART RX, allowing the system to also wake up from UART.
+6. It is not possible to wake the system up using USB. You must use other options or wake the system us. However, USB will reactivate after the system wakes up.
+The system needs about 4mS to be fully operational and ready for new commands.
+7. The first byte after waking up may get corrupted. A good idea is to send a carriage-return to wake the system up, wait 4ms, then continue as normal.
+
+:::tip
+A module will exit any low power mode after system reset (using reset pin) or power cycle.
+::: 
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Go to sleep and reset when pin 3 changes from low to high.
+LowPwr(0, 3)
+```
+</TabItem>
+<TabItem value="py">
+
+Script only functionality.
+
+</TabItem>
+<TabItem value="js">
+
+Script only functionality.
+
+</TabItem>
+<TabItem value="arduino">
+
+Script only functionality.
+
+</TabItem>
+<TabItem value="micropy">
+
+Script only functionality.
+
+</TabItem>
+<TabItem value="dotnet">
+
+Script only functionality.
+
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## One-Time Programmable
+
+Write and read from a special memory type that can be written only once and can **never** be erased or changed! The size of this special memory region is 512 bytes (64 8-Byte blocks).
+
+Function | Description
+--- | ---
+`OtpR(addr)` | Read a single byte from `addr`.
+`OtpW(addr, [data])` | **\*STOP** Irreversible Action! Write `data` bytes to `addr`, where both `addr` and data size must be multiple of 8. Returns 1 on success, 0 if failed because an 8 byte block was previously written to.
+
+:::tip
+Use byte arrays. If float array is used then only the first byte of each element is written.
+:::
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Read a value from OTP address 12
+OtpR(12)
+```
+</TabItem>
+<TabItem value="py">
+```py
+# Read a value from OTP address 12
+duelink.Otp.Read(12)
+```
+</TabItem>
+<TabItem value="js">
+```js
+// Read a value from OTP address 12
+await duelink.Otp.Read(12)
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// Read a value from OTP address 12
+duelink.Otp.Read(12);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# Read a value from OTP address 12
+duelink.Otp.Read(12)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// Read a value from OTP address 12
+duelink.Otp.Read(12);
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## Coprocessor
+
+A few modules, such as [USB Host](../products/stusbhost-b) includes a coprocessor. See [Coprocessor](./coprocessor) for more details.
+
+---
+
+## RTC
+
+Access clock and date in the internal Real Time Clock (RTC).
+
+Function | Description
+--- | ---
+RtcW([timedate]) | Sets (write) the desired time and date from `[timedate]` array in the RTC.
+RtcR([timedate]) | Read the current time and date into array. If 0 is used instead of array, then the rtc value is printed as `HH:MM:SS - DD MMM YYYY`.
+RtcA([timedate]) | Sets the Alarm to `[timedate]` array. Using `RtcA(0)` will disable the alarm. This feature is used for system wakeup, see `LowPwr()`.
+
+The array used for all RTC functions is 6 bytes, organized as: `[Second,minute,hour,day,mon,year]`. Values must be proper for their field. For example, there is no 70 seconds in time. Also, year is starting from the year 2000. For year 2025, just use 25. Hours are military 24 hours.
+
+:::tip
+Power loss will cause the internal RTC to lose its value. This is where [RTC Module](../products/sertc-b) comes in handy.
+:::
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Sets the current time to 18:10:00 27 Feb 2025
+Dim b1[6]= [0,10,18,27,2,25]
+RtcW(b1)
+
+Dim b2[6]
+# Read the time into array
+RtcR(b2)
+# Show (print) the current time
+RtcR(0)
+```
+</TabItem>
+<TabItem value="py">
+```py
+# Sets the current time to 18:10:00 27 Feb 2025
+b1 = bytearray([0,10,18,27,2,25])
+
+duelink.Rtc.Write(b1)
+
+# Read the time into array
+b2 = bytearray(6)
+duelink.Rtc.Read(b2)
+```
+</TabItem>
+<TabItem value="js">
+```js
+// Sets the current time to 18:10:00 27 Feb 2025
+let b1 = Uint8Array([0,10,18,27,2,25])
+
+await duelink.Rtc.Write(b1)
+
+// Read the time into array
+let b2 = Uint8Array(6)
+await duelink.Rtc.Read(b2)
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// Sets the current time to 18:10:00 27 Feb 2025
+byte[] b1 = {0,10,18,27,2,25};
+
+duelink.Rtc.Write(b1);
+
+// Read the time into array
+byte[] b2 = byte[6];
+duelink.Rtc.Read(b2);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# Sets the current time to 18:10:00 27 Feb 2025
+b1 = bytearray([0,10,18,27,2,25])
+
+duelink.Rtc.Write(b1)
+
+# Read the time into array
+b2 = bytearray(6)
+duelink.Rtc.Read(b2)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// Sets the current time to 18:10:00 27 Feb 2025
+var b1 = new byte[] {0,10,18,27,2,25};
+
+duelink.Rtc.Write(b1);
+
+// Read the time into array
+var b2 = new byte[6];
+duelink.Rtc.Read(b2);
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## Streams
+
+Streams allows a [Supported Hardware](../hw/intro.mdx) to "stream" data out of or into a device. See [Stream](./stream.mdx) page.
+
+---
+
+## Misc
+
+Function | Description
+--- | ---
+`Version()` | Returns firmware version and device ID in this format: `GHI Electronics DUELink v01.03:BB01`.
+`Echo(enable)` | Sets local echo functionality(1: Enable, 0: Disable). This is disabled by default.
+`Len([array])` | Returns the length of `array`.
+`ReadVCC()` | Returns current system voltage.
+`Exit()` | Terminate and exit the script.
+`esp32gw(reset, io0, io2)` | Reset the module into a USB gateway for ESP32 firmware update. Only reset or power cyrcle will release the module from this mode.
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Read the system's voltage
+_V = ReadVCC()
+```
+</TabItem>
+<TabItem value="py">
+```py
+v = duelink.Analog.ReadVcc()
+```
+</TabItem>
+<TabItem value="js">
+```js
+let v = await duelink.Analog.ReadVcc()
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+float v = duelink.Analog.ReadVcc();
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+v = duelink.Analog.ReadVcc()
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+var v = duelink.Analog.ReadVcc();
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
+## Library Specific
+
+These are library specific functions that are added to help with controlling modules and scripts. These functions do not exist on the script side.
+
+Function | Description                          
+--- | ---
+`float duelink.Engine.ExecuteCommand("cmd")` | Writes a command to a module and returns a float.
+`string duelink.Engine.ExecuteCommandRaw("cmd")` | Writes a command to a module and returns a raw string.
+
+Also, there are other functions to help with accessing the module's internal arrays, see [stream](./stream). 
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+
+Library only functionality.
+
+</TabItem>
+<TabItem value="py">
+```py
+# Read the module's internal voltage
+v = Engine.ExecuteCommand("ReadVCC()")
+# Read the value of the script's global variable _X
+x = Engine.ExecuteCommand("_X")
+# Set the value of the script's global variable _Y to 10
+y = 10
+Engine.ExecuteCommand(f'_Y={y}')
+```
+</TabItem>
+<TabItem value="js">
+```js
+// Read the module's internal voltage
+await v = Engine.ExecuteCommand("ReadVCC()");
+// Read the value of the script's global variable _X
+await x = Engine.ExecuteCommand("_X");
+// Set the value of the script's global variable _Y to 10
+var y = 10;
+await Engine.ExecuteCommand("_Y=" + y);
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// Read the module's internal voltage
+float v = Engine.ExecuteCommand("ReadVCC()")
+// Read the value of the script's global variable _X
+float x = Engine.ExecuteCommand("_X")
+// Set the value of the script's global variable _Y to 10
+float y = 10
+Engine.ExecuteCommand(f'_Y={y}')
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# Read the module's internal voltage
+v = Engine.ExecuteCommand("ReadVCC()")
+# Read the value of the script's global variable _X
+x = Engine.ExecuteCommand("_X")
+# Set the value of the script's global variable _Y to 10
+y = 10
+Engine.ExecuteCommand(f'_Y={y}')
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// Read the module's internal voltage
+var v = Engine.ExecuteCommand("ReadVCC()");
+// Read the value of the script's global variable _X
+var x = Engine.ExecuteCommand("_X");
+// Set the value of the script's global variable _Y to 10
+var y = 10;
+Engine.ExecuteCommand($'_Y={y}');
+```
+</TabItem>
+</Tabs>
+</details>

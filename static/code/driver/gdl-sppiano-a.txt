@@ -1,0 +1,24 @@
+##### Piano #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn SetLED(i,s)
+ 
+    i = 7-i
+    
+    if (i <4)
+        i = i - 1
+    end
+    
+    dwrite(i,s)
+fend
+
+fn SetLEDAll(o)
+    for i = 1 to 6
+        SetLED(i,o)
+    next
+fend
+
+

@@ -1,0 +1,77 @@
+##### BTN RGB28X4 #####
+Alias(blue=1,green=2,red=4,white=7)
+fn DVer()
+    return 1.0
+fend
+
+Dim b2[]=[16,14,15,8,7,
+18,10,24,1,2,
+13,19,12,6,5,
+11,9,17,4,3]
+
+fn SetClr(i, c, l)
+    DWrite(b2[i*5+0],(c&1)=0)
+    DWrite(b2[i*5+1],(c&2)=0)
+    DWrite(b2[i*5+2],(c&4)=0)
+    AWrite(b2[i*5+3], l/100)
+fend
+
+fn Init()
+    BtnEn(BtnPin('A'), 0)
+    BtnEn(BtnPin('B'), 0)
+    BtnEn(BtnPin('C'), 0)
+    BtnEn(BtnPin('D'), 0)
+fend
+
+fn BtnPin(a)
+    if a = 'A'
+        return 7
+    end
+    if a = 'B'
+        return 2
+    end
+    if a = 'C'
+        return 5
+    end
+    if a = 'D'
+        return 3
+    end
+    while 1
+        PrintLn("ERROR!!")
+        Wait(200)
+    wend
+fend
+
+fn BtnA()
+    if BtnDown(BtnPin('A')) 
+        return 1
+    else
+        return 0
+    end
+fend
+
+fn BtnB()
+    if BtnDown(BtnPin('B'))
+        return 1
+    else
+        return 0
+    end
+fend
+
+fn BtnC()
+    if BtnDown(BtnPin('C'))
+        return 1
+    else
+        return 0
+    end
+fend
+
+fn BtnD()
+    if BtnDown(BtnPin('D'))
+        return 1
+    else
+        return 0
+    end
+fend
+
+Init()

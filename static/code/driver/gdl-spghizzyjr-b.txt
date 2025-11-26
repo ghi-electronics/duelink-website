@@ -1,0 +1,48 @@
+##### GhizzyJr Driver #####
+
+fn DVer()
+    return 1.0
+fend 
+
+fn Init()
+    BtnEn(BtnPin(), 1) # Btn LDR
+fend
+
+fn BtnPin()
+    return 20
+fend
+
+fn BtnLdr()
+    if BtnDown(BtnPin())
+        return 1
+    end
+fend
+
+fn LEye(r,g,b)    
+    if dread(10,1) = 1 # RevA
+        DWrite(4,(b >> 0) & 0xFF)
+        DWrite(5,(r >> 0) & 0xFF)
+        DWrite(6,(g >> 0) & 0xFF)
+    else
+       awrite(4, Scale(b, 0,255, 0, 1))
+       awrite(5, Scale(r, 0,255, 0, 1))
+       awrite(6, Scale(g, 0,255, 0, 1))
+    end
+fend
+
+fn REye(r,g,b)    
+    if dread(10,1) = 1 # revB or earlier
+        DWrite(7,(b >> 0) & 0xFF)
+        DWrite(8,(r >> 0) & 0xFF)
+        DWrite(9,(g >> 0) & 0xFF)
+    else
+       awrite(7, Scale(b, 0,255, 0, 1))
+       awrite(8, Scale(r, 0,255, 0, 1))
+       awrite(1, Scale(g, 0,255, 0, 1))
+    end
+fend
+
+
+Init()
+
+####################

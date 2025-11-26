@@ -1,0 +1,9 @@
+while 1 
+
+if IsKeyChange()
+
+    PrintLn(chr(RdKey()))
+end
+
+wait(10)
+wend
