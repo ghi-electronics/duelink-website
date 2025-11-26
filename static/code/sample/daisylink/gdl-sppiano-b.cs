@@ -1,80 +1,55 @@
 // In this sample:
 // Simulate tones from note C4 to C5
-// Press the left or right arrow to play a sweep sound
-// All leds 1,2,3,4,5 turn to ON
+// Press the left arrow all leds 1,2,3,4,5 are off, play a sweep sound
+// Press the right arrow all leds 1,2,3,4,5 are on, play a sweep sound
 
 using GHIElectronics.DUELink;
 
 var availablePort = DUELinkController.GetConnectionPort();
 var duelink = new DUELinkController(availablePort);
-
-void CreateArray(string array, int[] data) {
-    var cmd = string.Empty;
-
-    cmd = $"dim {array}";
-    duelink.Engine.ExecuteCommand(cmd);
-
-    for (var i = 0; i < data.Length; i++) {
-        cmd = $"{array}[{i}]=data[{i}]";
-        duelink.Engine.ExecuteCommand(cmd);
-        Thread.Sleep(1);
-    }
+bool IsLeftArrowTouched() {
+    var ret = duelink.Engine.ExecuteCommand("TLArrow()");
+    return ret == 1;
 }
 
-bool IsTouch(int pin) {
-    var cmd = $"PulseIn({pin}, 500, 1,100)";
-    var ret = duelink.Engine.ExecuteCommand(cmd);
-
-    if (ret > 150 && ret < 65000)
-        return true;
-    return false;
+bool IsRightArrowTouched() {
+    var ret = duelink.Engine.ExecuteCommand("TRArrow()");
+    return ret == 1;
 }
 
-void PlayTone(int tone) {
-    var cmd = $"freq(3, {tone}, 500, 0.5)";
-    duelink.Engine.ExecuteCommand(cmd);
+bool IsPadTouched(int i) {
+    var ret = duelink.Engine.ExecuteCommand($"TPad({i})");
+    return ret == 1;
 }
 
-void SweepSound() {
-    var cmd = $"sweep(3, 2000,4000,50,255,100)";
-    duelink.Engine.ExecuteCommand(cmd);
-}
-
-void SetAllLed(bool on) {
-    var value = on ? 1 : 0;
-    for (var i = 0; i < 5; i++) {
-        var cmd = $"SetLED({i+1},{value})";
-        duelink.Engine.ExecuteCommand(cmd);
-    }
-}
-
-var b1 = new int[] { 23, 19, 12, 13, 14, 15, 16, 18, 24, 10, 9, 8, 17 };
-var a1 = new int[] { 261, 277, 293, 311, 329, 349, 369, 392, 415, 440, 466, 493, 523 };
-
-var b3 = new bool[] { false, false, false, false, false, false, false, false, false, false, false, false, false };
-var b4 = new bool[] { false, false, false, false, false, false, false, false, false, false, false, false, false };
-
-CreateArray("b1", b1);
-CreateArray("a1", a1);
-
-SetAllLed(true);
+var tones = new int[] { 523, 554, 587, 622, 659, 698, 740, 784, 830, 880, 932, 987, 1047 };
 
 while (true) {
-    for (var i = 0; i < b1.Length; i++) {
-        b3[i] = IsTouch(b1[i]);
-
-        if (b4[i] != b3[i]) {
-            b4[i] = b3[i];
-
-            if (b4[i]) {
-                PlayTone(a1[i]);
+    for (var i = 0; i < tones.Length; i++) {
+        if (IsPadTouched(i)) {            
+            duelink.Engine.ExecuteCommand($"freq(3, {tones[i]}, 0, 0.5)");
+            while (true) {
+                if (!IsPadTouched(i)) {
+                    duelink.Engine.ExecuteCommand($"freq(3, {tones[i]}, 0, 1)");
+                    break;
+                }
+                Thread.Sleep(10);
             }
+
         }
     }
 
-    if (IsTouch(7) || IsTouch(11)) {
-        SweepSound();
+    if (IsLeftArrowTouched()) {
+        duelink.Engine.ExecuteCommand("SetLEDAll(0)");
+        duelink.Engine.ExecuteCommand("sweep(3, 1000,2000,50,255,250)");
+        Thread.Sleep(250);       
+    }
+
+    if (IsRightArrowTouched()) {
+        duelink.Engine.ExecuteCommand("SetLEDAll(1)");
+        duelink.Engine.ExecuteCommand("sweep(3, 2000,1000,255,50,250)");
+        Thread.Sleep(250);        
     }
     Thread.Sleep(1);
-}
 
+}

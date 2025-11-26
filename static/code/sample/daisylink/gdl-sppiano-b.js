@@ -1,7 +1,7 @@
 // In this sample:
 // Simulate tones from note C4 to C5
-// Press the left or right arrow to play a sweep sound
-// All LEDs 1, 2, 3, 4, 5 turn ON
+// Press the left arrow all leds 1,2,3,4,5 are off, play a sweep sound
+// Press the right arrow all leds 1,2,3,4,5 are on, play a sweep sound
 
 import pkg_serialusb from 'dlserialusb';
 const {SerialUSB} = pkg_serialusb
@@ -12,70 +12,52 @@ const {DUELinkController} = pkg_duelink
 let duelink = new DUELinkController(new SerialUSB());
 await duelink.Connect();
 
-async function CreateArray(array, data) {
-    let cmd = `dim ${array}`;
-    await duelink.Engine.ExecuteCommand(cmd);
 
-    for (let i = 0; i < data.length; i++) {
-        cmd = `${array}[${i}]=data[${i}]`;
-        await duelink.Engine.ExecuteCommand(cmd);
-        await new Promise(resolve => setTimeout(resolve, 1)); // Sleep 1 ms
-    }
+async function IsLeftArrowTouched() {
+    const ret = await duelink.Engine.ExecuteCommand("TLArrow()");
+    return ret === 1;
 }
 
-async function IsTouch(pin) {
-    const cmd = `PulseIn(${pin}, 500, 1,100)`;
-    const ret = await duelink.Engine.ExecuteCommand(cmd);
-
-    return ret > 150 && ret < 65000;
+async function IsRightArrowTouched() {
+    const ret = await duelink.Engine.ExecuteCommand("TRArrow()");
+    return ret === 1;
 }
 
-async function PlayTone(tone) {
-    const cmd = `freq(3, ${tone}, 500, 0.5)`;
-    await duelink.Engine.ExecuteCommand(cmd);
+async function IsPadTouched(i) {
+    const ret = await duelink.Engine.ExecuteCommand(`TPad(${i})`);
+    return ret === 1;
 }
 
-async function SweepSound() {
-    const cmd = `sweep(3, 2000,4000,50,255,100)`;
-    await duelink.Engine.ExecuteCommand(cmd);
-}
+const tones = [523, 554, 587, 622, 659, 698, 740, 784, 830, 880, 932, 987, 1047];
 
-async function SetAllLed(on) {
-    const value = on ? 1 : 0;
-    for (let i = 0; i < 5; i++) {
-        const cmd = `SetLED(${i + 1},${value})`;
-        await duelink.Engine.ExecuteCommand(cmd);
-    }
-}
-
-const b1 = [23, 19, 12, 13, 14, 15, 16, 18, 24, 10, 9, 8, 17];
-const a1 = [261, 277, 293, 311, 329, 349, 369, 392, 415, 440, 466, 493, 523];
-
-let b3 = Array(b1.length).fill(false);
-let b4 = Array(b1.length).fill(false);
-
-await CreateArray("b1", b1);
-await CreateArray("a1", a1);
-
-await SetAllLed(true);
-
-while (true) {
-    for (let i = 0; i < b1.length; i++) {
-        b3[i] = await IsTouch(b1[i]);
-
-        if (b4[i] !== b3[i]) {
-            b4[i] = b3[i];
-
-            if (b4[i]) {
-                await PlayTone(a1[i]);
+(async function main() {
+    while (true) {
+        for (let i = 0; i < tones.length; i++) {
+            if (await IsPadTouched(i)) {
+                await duelink.Engine.ExecuteCommand(`freq(3, ${tones[i]}, 0, 0.5)`);
+                while (true) {
+                    if (!(await IsPadTouched(i))) {
+                        await duelink.Engine.ExecuteCommand(`freq(3, ${tones[i]}, 0, 1)`);
+                        break;
+                    }
+                    
+                    await new Promise(resolve => setTimeout(resolve, 1));
+                }
             }
         }
+
+        if (await IsLeftArrowTouched()) {
+            await duelink.Engine.ExecuteCommand("SetLEDAll(0)");
+            await duelink.Engine.ExecuteCommand("sweep(3, 1000,2000,50,255,250)");
+            await new Promise(resolve => setTimeout(resolve, 250));
+        }
+
+        if (await IsRightArrowTouched()) {
+            await duelink.Engine.ExecuteCommand("SetLEDAll(1)");
+            await duelink.Engine.ExecuteCommand("sweep(3, 2000,1000,255,50,250)");
+            await new Promise(resolve => setTimeout(resolve, 250));
+        }
+
+        await new Promise(resolve => setTimeout(resolve, 1));
     }
-
-    if (await IsTouch(7) || await IsTouch(11)) {
-        await SweepSound();
-    }
-
-    await new Promise(resolve => setTimeout(resolve, 1)); // Sleep 1 ms
-}
-
+})();
