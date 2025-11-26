@@ -1,0 +1,83 @@
+# This sample runs on QT-PY 2040 adafruit
+# In this sample:
+# All 27 LEDs are repeatedly set to random colors.
+# When the LDR button is pressed, the Jingle song is played.
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+
+def SetLed(index, color, brightness):
+    b = int((brightness * 31) / 100)
+    cmd = 'SetLed({},{},{})'.format(index, color, b)
+    due.Engine.ExecuteCommand(cmd)
+
+def SetAll(color):
+    cmd = 'SetAll({})'.format(color)
+    due.Engine.ExecuteCommand(cmd)
+
+def ShowLed():
+    due.Engine.ExecuteCommand('ShowLed()')
+
+def RndLed():
+    due.Engine.ExecuteCommand('RndLed()')
+
+def PlayLed(enable):
+    e = 1 if enable else 0
+    cmd = 'PlayLed({})'.format(e)
+    due.Engine.ExecuteCommand(cmd)
+
+def Buzzer(frequency, durationMs):
+    cmd = 'freq(1,{},{},0.5)'.format(frequency, durationMs)
+    due.Engine.ExecuteCommand(cmd)
+    time.sleep(durationMs / 1000)
+
+def IsButtonPressed():
+    cmd = 'dread(20,2)'
+    ret = due.Engine.ExecuteCommand(cmd)
+    return ret == 1  # Assuming ExecuteCommand returns int
+
+def PlayJingle():
+    cmd = 'melodyP(1,a1)'
+    due.Engine.ExecuteCommand(cmd)
+
+# Frequency-duration array
+freq_dur = [
+    330,200, 330,200, 330,300, 0,100,
+    330,200, 330,200, 330,300, 0,100,
+    330,200, 392,200, 262,300, 294,100,
+    330,400, 0,400, 349,200, 349,200,
+    349,300, 0,0, 349,100, 349,200,
+    330,200, 330,200, 0,0, 330,100,
+    330,100, 392,200, 392,200, 349,200,
+    294,200, 262,400, 0,400
+]
+
+# Send array to DUELink
+due.Engine.ExecuteCommand('dim a1[31*2]')
+for i in range(len(freq_dur)):
+    cmd = 'a1[{}]={}'.format(i, freq_dur[i])
+    due.Engine.ExecuteCommand(cmd)
+
+# Main loop
+SetAll(0)
+btnStatus = False
+
+while True:
+    btnPress = IsButtonPressed()
+
+    if btnPress != btnStatus:
+        btnStatus = btnPress
+        if btnStatus:
+            PlayJingle()
+
+    RndLed()
+    time.sleep(0.25)

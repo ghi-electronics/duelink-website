@@ -1,3 +1,7 @@
+// In this sample:
+// All 27 LEDs are repeatedly set to random colors.
+// When the LDR button is pressed, the Jingle song is played.
+
 import pkg_serialusb from 'dlserialusb';
 const {SerialUSB} = pkg_serialusb
 

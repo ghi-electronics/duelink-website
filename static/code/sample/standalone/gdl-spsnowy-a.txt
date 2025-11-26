@@ -1,0 +1,22 @@
+# In this sample:
+# First led: 1
+# Last led: 13
+# Run a cycle from LED 1 to LED 13, with a 200 ms delay between each LED.
+# When LED 13 is reached, turn off all LEDs and repeat the cycle.
+
+setall(0)
+
+_l = 1
+
+while 1
+    SetLed(_l,1)
+    wait(200)
+
+    _l = _l +1
+
+    if _l = 14
+        setall(0)
+        _l = 1
+        wait(200)
+    end
+wend

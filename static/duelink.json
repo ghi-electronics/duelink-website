@@ -326,12 +326,12 @@
     },
     {
       "name": "Piano",
-      "partNumber": "GDL-SPPIANO-A",
+      "partNumber": "GDL-SPPIANO-B",
       "PID": "0x0C0005",
       "category": "Specialty",
       "price": 14.95,
       "tagline": "Capacitive Touch Piano Module",
-      "description": "Play notes using capacitive touch pads or connect alligator clips to turn ordinary objects into a piano keys. Mounting holes to connect additional modules.\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
+      "description": "Play notes using capacitive touch pads or connect alligator clips to turn ordinary objects into piano keys. Mounting holes to connect additional modules.\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
       "keyFeatures": [     
         "Piano key layout",
         "Multiple octave selection",

@@ -1,3 +1,7 @@
+# In this sample:
+# All 27 LEDs are repeatedly set to random colors.
+# When the LDR button is pressed, the Jingle song is played.
+
 import sys
 import time
 from DUELink.DUELinkController import DUELinkController

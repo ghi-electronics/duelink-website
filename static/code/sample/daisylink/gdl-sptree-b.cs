@@ -1,6 +1,8 @@
+// In this sample:
+// All 27 LEDs are repeatedly set to random colors.
+// When the LDR button is pressed, the Jingle song is played.
 
 using GHIElectronics.DUELink;
-
 
 var availablePort = DUELinkController.GetConnectionPort();
 var duelink = new DUELinkController(availablePort);
