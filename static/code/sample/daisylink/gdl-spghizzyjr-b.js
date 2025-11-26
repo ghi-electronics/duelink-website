@@ -1,3 +1,7 @@
+// In this sample:
+// When the LDR button is not pressed: the left and right eyes blink every second.
+// When the LDR button is pressed: the left and right eyes blink every 200 ms.
+
 import pkg_serialusb from 'dlserialusb';
 const {SerialUSB} = pkg_serialusb
 
