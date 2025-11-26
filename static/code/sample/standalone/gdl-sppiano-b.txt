@@ -1,81 +1,30 @@
 # In this sample:
 # Simulate tones from note C4 to C5
+# Press the left arrow all leds 1,2,3,4,5 are off, play a sweep sound
+# Press the right arrow all leds 1,2,3,4,5 are on, play a sweep sound
 
-# C, Cb, D, Db, E, F, Fb, G, Gb, A, Ab, B, c5, 
-dim b1[13] = [23,19,12,13,14,15,16,18,24,10,9,8,17]
-dim b2[13] = [20,31,26,32,8,21,34,23,35,28,36,24,20]
-#dim a1[13] = {261,277,293,311,329,349,369,392,415,440,466,493,523}
 dim a1[13] = {523,554,587,622,659,698,740,784,830,880,932,987,1047}
-
-dim b3[13] = [0,0,0,0,0,0,0,0,0,0,0,0,0]
-dim b4[13] = [0,0,0,0,0,0,0,0,0,0,0,0,0]
-
-dim b5[13] = [150,150,150,150,150,150,150,150,150,150,150,150,150] # min start
-dim b6[13] = [90,90,90,90,90,90,90,90,90,90,90,90,90] # max start
-
-
-fn Calibrate(t,s)
-    # t: Calibration time. Longer duration provides more accurate calibration.
-    #    Minimum is 300 ms, which can run 10 times (scanning 13 pins takes 25 ms).
-    #    Ideally, use 500 ms or 1000 ms.
-    #
-    # s: Sensitivity level, from 0% to 100%.
-    #    Lower values mean higher sensitivity.
- 
-    e = tickms() + t 
+while 1     
+    for i = 0 to len(b0) 
+        if TPad(i)
+            freq(3,a1[i],0, 0.5)
+            while (1)
+                if (TPad(i)=0) 
+                    freq(3,a1[i],0, 1)
+                    break
+                end
+            wend
+        end
+    next
     
-    while tickms() < e
-        for i = 0 to len(b1) 
-            t = PulseIn(b1[i], 50, 1, 1)
-            
-            if (t > 150 || t < 90) 
-                # Just in case of a bad range (e.g., if the user touches the pad during calibration).
-                println("Bad calibrate - Redo again")
-                e = tickms() + t 
-                i = 0
-            end
-            
-            if t < b5[i]
-                b5[i] = t - t*s 
-            end
-            if t > b6[i]
-                b6[i] = t + t*s 
-            end
-        next
-    wend
+    if (TLArrow())
+        SetLEDAll(0)
+        sweep(3, 1000,2000,50,255,250)
+    end
     
-    println("Done calibration")
-    #for i = 0 to len(b5) 
-    #    println("pad ", i, ", min:", b5[i], ", max:",b6[i])
-    #next
-fend
-
-fn Test()
-    while 1     
-        for i = 0 to len(b1) 
-            t = PulseIn(b1[i], 50, 1, 1)
-    
-            if IsTouch(t,i)
-                freq(3,a1[i],0, 0.5)
-                while (1)
-                    t = PulseIn(b1[i], 25, 1, 1)
-                    if (IsTouch(t,i)=0) 
-                        dwrite(3,0)
-                        break
-                    end
-                wend
-            end
-        next
-    wend
-fend
-
-fn IsTouch(t,i) 
-    if t >b6[i] && t < 65000     
-        return 1
-    end     
-    return 0    
-fend 
-
-Calibrate(1000,0.05) # Perform calibration within 1 second, with a sensitivity variation of 5%.
-Test()
+    if (TRArrow())
+        SetLEDAll(0)
+        sweep(3, 2000,1000,255,50,250)
+    end
+wend
 
