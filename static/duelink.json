@@ -343,7 +343,7 @@
         "111.5x75.5mm overall dimension"
       ],
     
-      "driverApi": "Function | Description \n----------|-------------\n`SetLED(i,s)` | Set specific LED to on or off \n`DVer()` | This driver version.\n`SetLEDall(o)` | Set all leds 1,2,3,4,5 to on(1) or off(0).\n`TLArrow()` | return 1 if touched on left arrwow.\n`TRArrow()` | return 1 if touched on right arrwow.\n`TPad(i)` | return 1 if touched on pad `i`."
+      "driverApi": "Function | Description \n----------|-------------\n`DVer()` | This driver version.\n`SetLED(i,s)` | Set specific LED to on or off.\n`SetLedAll(o)` | Set all leds 1,2,3,4,5 to on(1) or off(0).\n`TLArrow()` | return 1 if touched on left arrow.\n`TRArrow()` | return 1 if touched on right arrow.\n`TPad(i)` | return 1 if touched on pad `i`."
     },
   {
       "name": "Controller",
