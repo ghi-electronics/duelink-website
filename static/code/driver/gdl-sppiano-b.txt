@@ -24,7 +24,9 @@ fn SetLEDAll(o)
     next
 fend
 
-fn Calibrate(t,s)
+fn Calibrate()
+    t = 1000
+    s = 0.05 # 5%
     # t: Calibration time. Longer duration provides more accurate calibration.
     #    Minimum is 300 ms, which can run 10 times (scanning (13+2) pins takes 25 ms).
     #    Ideally, use 500 ms or 1000 ms.
@@ -124,6 +126,6 @@ fn TPad(i) # pad touch: 0: not touched, 1: touched
     return (IsTouch(p,i))
 fend
 
-Calibrate(1000,0.05) # Perform calibration within 1 second, with a sensitivity variation of 5%.
+Calibrate()
 
 ##############################
