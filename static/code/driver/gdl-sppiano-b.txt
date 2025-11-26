@@ -7,33 +7,50 @@ fn DVer()
     return 1.0
 fend
 
+fn SetLED(i,s)
+ 
+    i = 7-i
+    
+    if (i <4)
+        i = i - 1
+    end
+    
+    dwrite(i,s)
+fend
+
+fn SetLEDAll(o)
+    for i = 1 to 6
+        SetLED(i,o)
+    next
+fend
+
 fn Calibrate(t,s)
     # t: Calibration time. Longer duration provides more accurate calibration.
-    #    Minimum is 300 ms, which can run 10 times (scanning 13 pins takes 25 ms).
+    #    Minimum is 300 ms, which can run 10 times (scanning (13+2) pins takes 25 ms).
     #    Ideally, use 500 ms or 1000 ms.
     #
     # s: Sensitivity level, from 0% to 100%.
     #    Lower values mean higher sensitivity.    
-
+ 
     e = tickms() + t 
-
+    
     # calibration values of left and right arrow are stored in last two elements of b1 and b2
     # right after pinao pads 
     l = len(b0) # left 
     r = l + 1 # right
-
+    
     # calibrate piano pads
     while tickms() < e
         for i = 0 to len(b0) 
             p = PulseIn(b0[i], 50, 1, 1)
-
+            
             if (p > 150 || p < 90) 
                 # Just in case of a bad range (e.g., if the user touches the pad during calibration).
                 #println("Bad calibrate - Redo again")
                 e = tickms() + t 
                 i = 0
             end
-
+            
             if p < b1[i]
                 b1[i] = p - p*s 
             end
@@ -41,13 +58,13 @@ fn Calibrate(t,s)
                 b2[i] = p + p*s 
             end
         next
-
-
+        
+        
     wend
-
+    
     # calibrate left arrow
     p = PulseIn(11, 50, 1, 1)
-
+    
     if (p > 150 || p < 90) 
         e = tickms() + t
         #println("Bad calibrate - Redo again")
@@ -58,13 +75,13 @@ fn Calibrate(t,s)
         if p > b2[l]
             b2[l] = p + p*s 
         end
-
+        
         #println("left: max: ", b2[l], ", min: ",b1[l])
     end
-
+    
     # calibrate right arrow
     p = PulseIn(7, 50, 1, 1)
-
+    
     if (p > 150 || p < 90) 
         e = tickms() + t
         #println("Bad calibrate - Redo again")
@@ -86,20 +103,25 @@ fn IsTouch(p,i)
     return 0    
 fend
 
-fn ArrowL()
+fn TLArrow() # left arrow touch: 0: not touched, 1: touched
     l = len(b0) # calibration value index
-
+    
     p = PulseIn(11, 50, 1, 1)
-
+    
     return (IsTouch(p,l))
 fend
 
-fn ArrowR()
+fn TRArrow() # right arrow touch: 0: not touched, 1: touched
     r = len(b0) + 1 # calibration value index
-
+    
     p = PulseIn(7, 50, 1, 1)
-
+    
     return (IsTouch(p,r))
+fend
+
+fn TPad(i) # pad touch: 0: not touched, 1: touched
+    p = PulseIn(b0[i], 50, 1, 1)
+    return (IsTouch(p,i))
 fend
 
 Calibrate(1000,0.05) # Perform calibration within 1 second, with a sensitivity variation of 5%.
