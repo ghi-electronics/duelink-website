@@ -12,7 +12,7 @@ from duelink import transport
 
 sclPIN = machine.Pin(23)
 sdaPIN = machine.Pin(22)
-
+ 
 i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
 due = duelink.DUELinkController(i2c)
 
@@ -41,4 +41,10 @@ while True:
         Clear()
         led_index = 1
         time.sleep(0.2)
-		
+
+
+
+
+
+
+

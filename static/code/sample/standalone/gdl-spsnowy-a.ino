@@ -14,7 +14,7 @@ int getpin(int pin) {
 void setled(int led, bool value) {
   if ((led > sizeof(pin_led)) || (led < 1))
     return;
-
+  
   digitalWrite(getpin(pin_led[led-1]), value);
 }
 
@@ -28,7 +28,7 @@ void setup() {
   for (int i = 0; i <sizeof(pin_led); i++ ) {
     pinMode(getpin(pin_led[i]),  OUTPUT);
   }
-
+  
   setall(false);  
 }
 
