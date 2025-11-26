@@ -1,0 +1,27 @@
+while (1)  
+    if (_h=0)
+        I2cCfg(100) # reset I2c if QMC5883L
+    end    
+ 
+    PrintLn("***********************")
+    RAccel()
+    PrintLn("accel XYZ: ",_x," ",_y," ",_z)
+ 
+     Wait(1000)  
+ 
+    RGyro()
+    PrintLn("Gyro XYZT: ",_x," ",_y," ",_z," ",_t)
+ 
+    Wait(1000)  
+ 
+    RCompass()
+    PrintLn("Compass XYZ: ", _x, " ", _y, " ", _z)
+ 
+ 
+    # This can take a while sometimes. Is this correct?
+    #while (dread(14, 1) = 1) # Wait for m_ready ready
+    #    Wait(1)
+    #wend
+ 
+    Wait(1000)    
+wend

@@ -1,0 +1,31 @@
+#This script sample is only shared to test the module, do not load when connected to a Raspberry Pi.  
+
+StatLed(100,100,10)
+Buzzer(200,100)
+
+_x = 50
+_d = 10
+_w = GetW()
+while 1
+    Clear(0)
+    Circle(1,_x,45,10)
+    
+    TextS("DUELink",1,25,5,2,2)
+    Show()
+    
+    _x=_x+_d
+
+    if (_x > _w || _x <0)
+        _d = _d * -1 
+        Buzzer(256,10)
+    end
+    
+    if BtnA()
+        Buzzer(1000,100)
+    end
+    
+    if BtnB()
+        Buzzer(500,100)
+    end
+
+wend

@@ -1,0 +1,25 @@
+##### Fan Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn Fan(s)
+    if s >100
+        s=100
+    end
+    if s <-100
+        s=-100
+    end
+    
+    if s<0
+        s=s*-1
+        AWrite(3,s/100)
+        DWrite(4,0)
+    else
+        AWrite(4,s/100)
+        DWrite(3,0)
+    end
+fend
+
+#########################

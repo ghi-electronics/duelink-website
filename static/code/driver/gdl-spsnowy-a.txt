@@ -1,0 +1,19 @@
+##### Snowy Driver #####
+dim b1[] = [24,2,4,8,9,15, 1,3,5,11,7,6, 0]
+fn DVer()
+    return 1.0
+fend
+ 
+fn SetLed(l, o) 
+    if (l > 13 || l < 1) # led start from 1 to
+        return 
+    end
+    dwrite(b1[l-1],o)   
+fend
+fn setall(v)
+    for i in range(0,13)
+        SetLed(i+1,(v>>i)&1)
+    next
+fend
+
+statled(0,1,0)# control STAT manually

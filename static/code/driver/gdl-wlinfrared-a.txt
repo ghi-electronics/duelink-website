@@ -1,0 +1,13 @@
+##### IR ###
+
+fn DVer()
+    return 1.0
+fend
+
+fn TxPin()
+    return 5
+fend
+
+fn RxPin()
+    return 3
+fend

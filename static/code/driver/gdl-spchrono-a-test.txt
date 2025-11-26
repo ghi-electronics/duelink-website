@@ -1,0 +1,51 @@
+##### Chrono  #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()  
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+ 
+    c = 0
+    while 1 
+        
+       if (BtnA())
+           
+            println("Btn A pressed!")
+            cmd("clear(0)")
+            cmd("Texts(\"Btn A pressed!\",1,0,0,1,2)")
+            cmd("show()")
+            
+        end
+        if (BtnB())
+           
+            println("Btn B pressed!")
+            cmd("clear(0)")
+            cmd("Texts(\"Btn B pressed!\",1,0,0,1,2)")
+            cmd("show()")
+            
+        end
+        
+        
+        c = c + 1
+        if (c = 50)        
+            clear(0)
+            show()
+        end
+        
+        if (c = 100)        
+            clear(1)
+            show()
+            c = 0
+            
+        end
+                
+        wait(10)
+    wend
+fend

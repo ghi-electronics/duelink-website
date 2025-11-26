@@ -1,0 +1,9 @@
+while 1
+    AWrite(1, 0.5) # L1 to half power
+    DWrite(2, 1) # L2 fully on
+    Wait(3000)
+
+    AWrite(1, 0) # L1 off
+    DWrite(2, 0) # L2 off
+    Wait(3000)
+wend

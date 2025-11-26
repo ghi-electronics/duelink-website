@@ -1,0 +1,28 @@
+##### Spectrum #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test() 
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+       
+    s = 0
+    v = 0
+    while 1
+        cmd("Clear(0)")
+        UpdBnd()
+        for i = 0 to 7
+            v = 60 - a1[i] * 0.6
+            cmd(fmt("Line(1,", i*10 +30,",60,", i*10 +30,",",v,")"))
+        next
+        cmd("show()")
+        
+        wait(1)
+          
+    wend
+fend

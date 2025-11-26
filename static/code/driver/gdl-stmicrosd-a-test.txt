@@ -1,0 +1,54 @@
+##### Micro SD Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()  
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    
+    r = 1
+    Dim b1[] = "Hello World"
+    
+    # uSD card, pin 17 chip select, 8Mhz clock, 4 file handles max
+    fsmnt(1, 17, 8000, 4)
+    
+    # Write b1 array to a file
+    h = FsOpen("/test.txt", 0x08|0x02)
+    FsWrite(h, b1)
+    FSClose(h)
+    
+    
+    # Read from the same file to b2 array
+    h = FsOpen("/test.txt", 0x01)
+    Dim b2[11]
+    FsRead(h, b2)
+    FSClose(h)
+    
+    fsunmnt()
+    
+    for i = 0 to 11
+        if (b2[i] != b1[i])
+            r = 0
+            break;
+        end
+    next
+    
+    cmd("clear(0)")
+    
+    if (r)
+        println("Passed!")
+        cmd("Texts(\"Passed!\",1,0,0,2,2)")
+        
+    else
+        println("Failed!")
+        cmd("Texts(\"Failed!\",1,0,0,2,2)")
+    end
+    
+    cmd("show()")
+fend

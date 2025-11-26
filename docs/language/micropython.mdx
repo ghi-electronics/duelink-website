@@ -1,0 +1,165 @@
+# MicroPython
+
+
+![MicroPython](pathname:///img/micropython.webp)
+
+You can use DUELink with any microcontroller that uses MicroPython by connecting a [Breakout](../products/adbreakout-a) module to either the I2C or UART output of the board.
+
+![board with Breakout](pathname:///img/micropython-breakout.webp)
+
+MicroPython with DUELink is also fully supported on [Raspberry Pi](../hw/raspberry-pi) microcontroller-level (RP2040/RP2350) boards, such as Raspberry Pi Pico.
+
+[DuePico](../products/adduepico-b) is the perfect [Raspberry Pi](../hw/raspberry-pi) adapter for connecting DUELink modules. 
+
+![DuePico](pathname:///img/duepico-rgbled.webp)
+
+We'll use [Thonny](https://thonny.org/) IDE to program the RaspberryPi Pico in MicroPython. We will use the Pico to access DUELink modules attached to the [DuePico's](../products/adduepico-b) Downlink connector.
+
+---
+
+## Setup
+
+First make sure your board is set up for MicroPython. Follow the steps found at [MicroPython.org](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html) to load the firmware for your specific hardware.
+
+Connect to the board by going to `Tools/Options` and select the proper `Interpreter`. In this case we'll be selecting `MicroPython(Raspberry Pi Pico)`.
+
+![Thonny Connect](pathname:///img/thonny-connect.webp)
+
+ We can test that everything is working correctly by blinking the Raspberry Pi Pico's onboard LED.
+
+```python
+import machine
+import time
+
+led = machine.Pin(25, machine.Pin.OUT)
+
+while True:
+    led.on()  
+    time.sleep(1) 
+    led.off() 
+    time.sleep(1)  
+```
+
+---
+
+## Libraries
+
+Users have two options for loading the DUELink MicroPython library into Thonny. They can either download the [duelink-stdlib-mp](https://pypi.org/project/duelink-stdlib-mp/#files) file found at `pypi.org` to their computer, and `Install from local file` found under `Tools/Manage packages`. 
+
+![DUELink library from local file](pathname:///img/download-mp-library.webp)
+
+Alternatively, users can type `duelink-stdlib-mp` into the search window and `Install from PyPi` directly. 
+
+![DUELink library from PyPi](pathname:///img/install-mp-library.webp)
+
+---
+
+## Blinky!
+
+We can now access the complete DUELink [standard library](../engine/stdlib) from inside Thonny. We need to use [UART Interface](../interface/uart) to communicate to the modules when using Raspberry Pi Pico. Let's blink the `STAT` led on a connected DUELink module. 
+
+```py
+import time
+import machine
+import duelink
+ 
+from duelink import transport
+ 
+uart = transport.UartTransportController(0)
+due = duelink.DUELinkController(uart)
+
+due.system.statled(50,50,0)
+```
+
+You can also use boards that already have a JST connector, like [Adafruit QT Py RP2040](https://www.adafruit.com/product/4900) or [Sparkfun Pro Micro RP2350](https://www.sparkfun.com/sparkfun-pro-micro-rp2350.html). However, note that these boards use the [I2C Interface](../interface/i2c).
+
+![Other boards](pathname:///img/rp2040-rp2350.webp)
+
+```python
+import time
+import machine
+import duelink
+ 
+from duelink import transport
+from machine import Pin, Timer
+ 
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+ 
+due.system.statled(50,50,0)
+```
+
+:::tip
+Some third-party boards are not properly equipped with the proper I2C pull up resistors. The DUEink pull-up board can be used to solve this problem. See [I2C Interface](../interface/i2c) page for more details. 
+:::
+
+![QTPY with Pull-up](pathname:///img/qtpy-pullup-button.webp)
+
+---
+
+## Daisylinking
+
+In the example below, we'll use the DuePico connected to an OLED 0.96 Display, Button, and Buzzer modules. 
+
+:::tip
+Make sure these modules are loaded with [Drivers](../engine/drivers).
+:::
+
+Note how the DuePico itself is a module, which is `Device 1`.
+
+![DuePico Daisylinked](pathname:///img/duepico-daisylinked.webp)
+
+
+```python
+import time
+import duelink  # standard lib
+
+from duelink import transport
+
+# device 1 is DuePico
+# device 2 is OLED 96
+# device 3 is Button S
+# device 4 is Buzzer
+
+uart = transport.UartTransportController(0)
+due = duelink.DUELinkController(uart)
+
+due.Engine.Select(1)#DuePico Display
+due.Graphics.Clear(0)
+due.Graphics.TextS("DUELink", 1, 30, 27,2,2)
+due.Graphics.Show()
+
+due.Engine.Select(2)#OLED 96 Module
+due.Graphics.Clear(0)
+due.Graphics.Text("--DUELink--", 1, 30, 1)
+due.Graphics.Text("Press button on", 1, 1, 21)
+due.Graphics.Text("device 2 to play", 1, 1, 31)
+due.Graphics.Text("sound on device 3", 1, 1, 41)
+due.Graphics.Show()
+
+due.Engine.Select(3)#Button Module
+due.Button.Enable(1,1,1)
+due.Engine.Select(1)#DuePico `A` Button
+due.Button.Enable(20,1,2)
+
+while True:
+    due.Engine.Select(3)#Button Module    
+    if due.Button.Down(1):
+        due.Engine.Select(4)
+        due.Frequency.Write(7, 1000, 100, 0.5)
+ 
+    time.sleep(0.1)
+    
+    due.Engine.Select(1)#DuePico Module 
+    if due.Button.Down(20):
+        due.Frequency.Write(11, 1000, 100, 0.5)
+ 
+    time.sleep(0.1)
+```
+
+:::tip
+With DUELink we can control multiple modules of the same type. For example, we can show information on both displays.
+:::

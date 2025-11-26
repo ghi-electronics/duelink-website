@@ -1,0 +1,13 @@
+# In this sample:
+# STATLED blinks 5 times every time the LDR button is pressed.
+
+StatLed(100,100,5) #Blink STAT LED 5 times on start
+
+while 1 
+    if BtnLdr()
+        PrintLn("LDR Pressed")
+        StatLed(100,100,5)
+    end 
+
+    Wait(10) 
+wend 

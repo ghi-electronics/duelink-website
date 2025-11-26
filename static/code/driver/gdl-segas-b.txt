@@ -1,0 +1,15 @@
+##### Gas Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn Heater(s)
+    DWrite(5,s)
+fend
+
+fn SenRead()
+    VRead(3)
+fend
+
+####################

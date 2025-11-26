@@ -1,0 +1,95 @@
+##### CincoBit Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test() 
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    
+    while 1
+        _l = Light()
+        clear(0)
+        Texts(fmt("light: ",_l),1,0,40,2,2)
+        
+        if (dread(23, 2) = 1)
+            
+            
+            Texts("Button B",1,0,0,2,2)
+            Texts("pressed",1,0,20,2,2)
+            show()
+            
+            
+            println("Button B pressed")
+            
+            while dread(23, 2) = 1
+                Buzzer(1000, 100)
+                wait(10)
+            wend
+        end
+     
+        if (dread(20, 2) = 1)
+            
+     
+            Texts("Button A",1,0,0,2,2)
+            Texts("pressed",1,0,20,2,2)
+            show()
+            
+            println("Button A pressed")
+            while dread(20, 2) = 1
+                Buzzer(1000, 100)
+                wait(10)
+            wend
+        end
+        
+        if IsTouch(0)
+            
+     
+            Texts("Touched on",1,0,0,2,2)
+            Texts("pin 0",1,0,20,2,2)
+            show()
+            
+            
+            println("Touch pin 0 detected")
+            Buzzer(1000, 100)
+            
+        end
+        
+        if IsTouch(1)
+            
+            Texts("Touched on",1,0,0,2,2)
+            Texts("pin 1",1,0,20,2,2)
+            show()
+            
+            
+            println("Touch pin 1 detected")
+            Buzzer(1000, 100)
+            
+        end
+        
+        if IsTouch(2)
+            
+            
+            Texts("Touched on",1,0,0,2,2)
+            Texts("pin 2",1,0,20,2,2)
+            show()
+   
+            
+            println("Touch pin 2 detected")
+            Buzzer(1000, 100)
+            
+        end
+        
+        
+        show()
+             
+        wait(10)
+     
+     
+    wend
+fend

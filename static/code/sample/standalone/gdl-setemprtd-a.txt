@@ -1,0 +1,5 @@
+
+while 1
+    PrintLn("Temp: ", readTemp())
+    Wait(1000)
+wend

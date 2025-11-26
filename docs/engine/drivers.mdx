@@ -1,0 +1,22 @@
+# Drivers
+
+
+The DUELink [Standard Library](../engine/stdlib) include a long list of commonly used features. However, it does not include any module-specific code/drivers.
+
+For example, an Accelerometer might use the SPI bus. The standard library includes SPI bus support, but it is unaware of the accelerometer. This is where the modules' drivers come in play. In this hybrid setup, the driver will include `ReadX()` function to read the acceleration in the X axis. This driver `ReadX()` function uses the standard library to access the SPI bus.
+
+Note that `ReadX()` might also be a function provided by a joystick module to read the joystick position in the X axis!
+
+Each module in the catalog shows each module's drivers and provided functionality.
+
+Drivers are loaded in [Region](./regions) 0 in memory. You may load your own user code on a module, but you probably do not want the drivers to be overwritten. Your code will be loaded on `Region 1`.
+
+To update or reload the drivers on a module, access the module from the [Console](../console), go to `0-Driver` region, then copy paste the drivers from the product catalog into the console. Click record, then switch to `1-User` region.
+
+---
+
+## Check for Drivers
+
+To check if a module has drivers installed. Open the [Console](../console) and click on `0 - Drivers` region to see what is loaded there.
+
+Every single driver has `DVer()` function that returns the driver version number. You can also call `DVer()` to check for an installed driver.

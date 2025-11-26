@@ -1,0 +1,496 @@
+##### Wireless ESP32 driver ###
+_d = 5 # WiFi, Bluetooth connection pin status. Low: Connected, High: Disconnected
+_s = 4 # Socket connection pin status. Low: Connected, High: Disconnected
+_m = 0 # _m: 0: Bluetooth, 1: WiFi
+dim b0[1024] # this buffer b0 is global used everywhere, do not touch
+ 
+AsIo(1)  # optional, in case user wants to talk to device during initialize ESP 
+  
+fn strlen(b0) # this is diffent len(),return actual character length
+    for i = 0 to len(b0)
+        if b0[i] = 0
+            return i
+        end
+    next
+fend
+ 
+# Sent AT command 
+fn AtCmd(b1) 
+    SerWrs(b1)
+    SerWr(13)
+    SerWr(10) 
+ 
+    # each command will be echo by cmd \r\n
+    # normally a respone will be sent after around 15ms
+    wait(20)
+ 
+    r = ATReadLn(100)
+    #println(b0)
+    return r
+fend   
+ 
+# Check AT command response
+fn ATWaitRes(t)    
+    for i = 0 to len(b0)
+        b0[i] = 0
+    next
+ 
+    z = t
+    i = 0
+ 
+    while t > 0
+        if SerB2R() = 0
+            wait(1)
+            t = t -1
+        else
+            t = z
+            d = SerRd()
+            b0[i]=d
+            if d  = 10
+                if (i >= 3)    
+                    if b0[i-1] = 13 && b0[i-2] = 0x4B && b0[i-3] = 0x4F
+                        return 1
+                    end
+                end
+            end
+            i = i + 1
+        end
+    wend
+ 
+    return t # t = 0 timeout, not found
+fend
+ 
+# Read line from AT response 
+fn ATReadLn(t) # get line from AT 
+    # ATReadLn will read all line, includes \r\n
+    for i = 0 to len(b0)
+        b0[i] = 0
+    next
+    
+    z = t
+    i = 0
+ 
+    while t > 0
+        if SerB2R() = 0
+            wait(1)
+            t = t - 1
+        else
+            t = z # reset t when valid data
+            d = SerRd()
+            b0[i] = d
+            i = i + 1
+ 
+            if (d = 10) # new line
+ 
+                break
+            end
+ 
+        end
+    wend
+ 
+    return i 
+ 
+fend
+ 
+# Read line from Downlink response 
+fn DLReadLn( t) # get line from AT 
+    # ATReadLn will read all line, includes \r\n 
+    for i = 0 to len(b0)
+        b0[i] = 0
+    next
+    
+    z = t
+    i = 0
+    
+    dim b1[1]
+ 
+    while t > 0
+        if DLSer2R() = 0
+            wait(2)
+            t = t - 1
+        else
+            t = z # reset t when valid data
+            DLSerRd(b1,1)
+            b0[i] = b1[0]
+            i = i + 1
+ 
+            if (b1[0] = 10) # new line
+                wait(2)
+ 
+                # downlnk can send \r\n> or \r\n\r\n>
+                while DLSer2R() > 0
+                    DLSerRd(b1,1)
+                    b0[i] = b1[0]
+ 
+                    i = i + 1
+                    wait(2)
+                wend
+                break
+            end
+        end
+    wend
+ 
+    return i 
+ 
+fend
+ 
+# Send data from ESP to Downlink 
+fn Esp2Dwlk()
+    if _m = 0 # parser for Bluetooth
+        ATReadLn(128) # get line include \r\n, timeout 128ms since max 128 character * 1ms (9600)
+        # example: +BTDATA:1,abcd\r\n
+        # Scan from end -2 (exclude \r\n) to start till see comma
+        # only send data after comma
+        for i = 0 to strlen(b0)
+            if b0[i] = 0x2C # comma: 
+                break
+            end
+        next
+ 
+        dim b4[strlen(b0)-2 -i-1]        
+ 
+        i = i + 1 # move to next byte
+        for x = i to strlen(b0) - 2 # minus \r\n
+            b4[x-i] = b0[x]
+        next
+ 
+        DLSerWr(b4) # Write to downlink
+ 
+        #println("ESP -> Downlink:", b4)
+    else # parser for wifi
+        ATReadLn(10) # first \r\n
+        #println(b0)
+        ATReadLn(10) # second \r\n
+        #println(b0)
+ 
+        #example: \r\n+IPD,0,12:Hello World!\r\n  => two \r\n, Bluetooth has one at the end
+ 
+        for i = 0 to strlen(b0)
+            if b0[i] = 0x3A #: after this is real data
+                break
+            end
+        next
+ 
+        dim b4[strlen(b0)-2 -i-1]        
+ 
+        i = i + 1 # move to next byte
+        for x = i to strlen(b0) - 2 # minus \r\n
+            b4[x-i] = b0[x]
+            #println(fmt(b4[x-i]))
+        next
+ 
+ 
+        DLSerWr(b4) # Write to downlink
+        #println("ESP -> Downlink:", b4)
+    end
+fend 
+ 
+# Send data from Downlink to ESP
+fn Dwlnk2Esp()  
+    if _m = 0
+        v = DLReadLn(128) # read from downlink till see \r\n
+ 
+        dim b5[v]
+        Memcpy(b5,0,b0,0,v)
+ 
+        #println("Downlink -> ESP:", b5, ", size: ", v)
+ 
+        dim b6[20]
+        sprintf(b6, "AT+BTSPPSEND=0,%d", v)
+ 
+        l = strlen(b6) + 2 
+        b6[l-1] = 10
+        b6[l-2] = 13
+ 
+ 
+        # write to ESP
+        # l is actual len because sprintf add 0 to last byte
+        dim b4[l]
+        for i = 0 to l
+            b4[i]=b6[i]
+        next
+        # write to ESP
+        SerWrs(b4)  
+ 
+        # Wait for '>'
+        r = 0
+        while (r = 0 )
+            if SerB2R() = 0
+                wait(1)
+            else
+                if SerRd() = '>'
+                    break
+                end
+            end
+        wend
+ 
+        # write b5 to ESP
+        SerWrs(b5)
+ 
+        # wait for OK
+        ATWaitRes(1000)
+    else 
+        v = DLReadLn(128) # read from downlink till see \r\n
+ 
+        dim b5[v]
+        Memcpy(b5,0,b0,0,v)
+ 
+ 
+        dim b6[20]
+        sprintf(b6, "AT+CIPSEND=0,%d", v)
+ 
+        l = strlen(b6) + 2 
+        b6[l-1] = 10
+        b6[l-2] = 13
+ 
+        # write to ESP
+        # l is actual len because sprintf add 0 to last byte
+        dim b4[l]
+        for i = 0 to l
+            b4[i]=b6[i]
+        next
+        # write to ESP
+        SerWrs(b4)  
+ 
+ 
+        # ESP send ....\r\nOK\r\n\r\n>
+        # Wait for '>'
+        r = 0
+        while (r = 0 )
+            if SerB2R() = 0
+                wait(2)
+            else
+                if SerRd() = '>'
+                    break
+                end
+            end
+        wend
+ 
+        # write b5 to ESP
+        # println("Downlink -> ESP:", b5, ", size: ", v)
+        SerWrs(b5)
+        ATWaitRes(1000)
+    end
+ 
+fend
+ 
+# socket connection status 
+#fn IsSockConn() 
+#    return dread(_s, 1) = 0 
+#fend 
+ 
+# Device connection status: If Bluetooth then Bluetooth connection. If use WiFi then WiFi connection 
+#fn IsDevConn()
+#    return dread(_d, 1) = 0 
+#fend 
+ 
+# General Initialize
+fn Init()
+    # Open HW UART1 UPLINK
+    SerCfg(9600, 1024)  
+ 
+    # reset ESP
+    dwrite(19, 0)
+    # Enable pin: 1: Normal mode, 0: Download mode
+    dwrite(18,1) #IO0
+    dwrite(24,1) #IO2 
+    wait(100)
+    dwrite(19, 1)
+    wait(100)
+ 
+ 
+    # Wait for ready
+    t = 5000
+    while (SerB2R() < 9) # wait for \r\nready\r\n
+        t = t - 1
+        wait(1000)
+        #println(SerB2R())
+    wend
+ 
+ 
+    # \r\nready\r\n is always sent
+    ATReadLn(1000) # \r\n
+    ATReadLn(1000) #ready\r\n
+    #println(b0)
+ 
+    # ESP may show something like GOT IP.... because previous config. Clear them
+    wait(1000)
+ 
+    # clear all responses
+    SerDisc() 
+ 
+    # Start initialize
+    # Start AT cmd
+    AtCmd("AT+BTINIT=1")    
+    ATWaitRes(2000) 
+ 
+    #Depen on WiFi or Bluetooth, user need initialize WiFi or Bluetooth
+fend
+ 
+fn EnterLder() # Enter loader mode
+    statled(0,1, 0)
+    # reset ESP
+    dwrite(19, 0)
+    # Enable pin: 
+    dwrite(18,0) # 1: Normal mode, 0: Download mode
+    dwrite(24,0) # 1: Normal mode, 0: Download mode
+    wait(100)
+    dwrite(19, 1)
+    wait(100) 
+ 
+    while 1
+        wait(100) 
+    wend
+fend  
+ 
+fn StartBT(b1) # b1 is Bluetooth name, t: 0: only init, 1: start bridge,
+    _m = 0
+    # Start AT - Bluetooth cmd
+ 
+    AtCmd("AT+BTSPPINIT=2")
+    ATWaitRes(2000)
+    #println(b0)
+ 
+    dim b6[] = "AT+BTNAME=\""
+    dim b5[len(b1) + len(b6) + 1]
+ 
+    Memcpy(b5, 0, b6, 0, len(b6))
+ 
+    Memcpy(b5, len(b6), b1, 0, len(b1))
+ 
+    b5[len(b5)-1] = 34 # '"'
+ 
+    AtCmd(b5) #AT+BTNAME=b1
+    ATWaitRes(2000)
+    #println(b0)
+ 
+    AtCmd("AT+BTSCANMODE=2")
+    ATWaitRes(2000)  
+    #println(b0)
+ 
+ 
+    AtCmd("AT+BTSPPSTART") 
+    ATWaitRes( 2000)
+    #println(b0)
+fend
+
+fn Bridge()
+    dlmode(2, 0) #DOWNLINK HOST MODE 
+ 
+    wait(10)
+ 
+    println("Waiting for connection...")
+    
+    b = 0 # backup state
+    s = 0 # current state 
+    i = 0 
+ 
+    while 1
+        # read the gateway status pin
+        if _m = 0
+            if dread(_d, 1) = 0
+                s = 1
+            else
+                s = 0
+            end
+        end    
+        if _m = 1 
+            if dread(_s, 1) = 0
+                s = 1
+            else 
+                s = 0
+            end
+        end
+ 
+        if b != s
+            b = s
+            if s = 1 # connected
+ 
+                println("Connected")
+                ATReadLn(100)
+            else
+ 
+                println("Disconnected")
+                ATReadLn(100)
+            end
+            println("Status: ", b0) 
+        end
+ 
+        if s = 1
+            # read from ESP, then write to downlink
+            if (SerB2R() > 0) 
+                wait(1) 
+                Esp2Dwlk()
+            end
+ 
+            # read from downlink, the write to ESP
+            if DLSer2R() > 0
+                wait(1)
+                Dwlnk2Esp()
+            end
+        end
+    wend
+fend
+
+ 
+fn StartWiFi(b1, b2) # b1:SSID, b2: password, t: 0: only init, 1: start bridge,
+    _m = 1
+    # Start AT - WiFi cmd
+    if AtCmd("AT+CWMODE=1") != 0
+        ATWaitRes(100)
+    end
+ 
+    dim b5[9 + 1 + len(b1) + len(b2)]
+    dim b6[] = "AT+CWJAP="
+    memcpy(b5, 0, b6, 0, len(b6))
+ 
+    memcpy(b5, 9, b1, 0, len(b1))
+    b5[9 + len(b1)] = ','
+    memcpy(b5, 9 + len(b1) + 1 , b2, 0, len(b2))
+ 
+    AtCmd(b5)   
+ 
+    c = 0
+    while (dread(_d, 1) = 1)
+        wait(1000)
+        c = c + 1
+        println("Wait for get IP: ", c)
+    wend
+ 
+    ATWaitRes(10000)
+ 
+    AtCmd("AT+CIFSR")   
+    ATWaitRes(1000)
+ 
+    AtCmd("AT+CIPMUX=1") 
+    ATWaitRes(1000)
+fend
+
+fn StartTcp(b1)
+
+    AtCmd("AT+CIPSERVER=1,8080")
+    ATWaitRes(1000)
+    
+    dim b4[] = "AT+MDNS=1,"
+    dim b5[] = ",\"_tcp\",80"
+    
+    dim b6[len(b4) + len(b1) + len(b5)]
+    
+    memcpy(b6,0,b4,0,len(b4))
+    memcpy(b6,len(b4),b1,0,len(b1))
+    
+    memcpy(b6,len(b4) +len(b1) ,b5,0,len(b5))
+    
+    
+    AtCmd(b6)
+    ATWaitRes(1000)
+fend
+
+fn DVer()
+    return 1.0
+fend 
+ 
+Init() 
+
+###################
+

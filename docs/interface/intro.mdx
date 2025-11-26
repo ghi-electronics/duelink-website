@@ -1,0 +1,45 @@
+# Interfaces
+
+DUELink modules are designed to be versatile and dynamic, with multiple interface options.
+
+---
+
+## Uplink
+
+Every single DUELink module works with [USB](./usb), [I2C](./i2c), and [UART](./uart) on their Uplink connector. This socket is marked with `U` and is off-white color.
+
+![Accel Module](pathname:///img/catalog/seaccel-a-1.webp)
+
+Some modules are made in a microcomputer form-factor and, therefore, the Uplink connector is replaced with a USB connector.
+
+![DueDuino](pathname:///img/dueduino.webp)
+
+[Supported Hardware](../hw/intro) devices can use the above interfaces with one of the [Coding Languages](../language/intro).
+
+---
+
+## Downlink
+
+The [Downlink](./downlink) socket is marked with `D` and it is blue color. It is automatically handled by the system and allows for [Daisylinking](../engine/daisylink) modules.
+
+![DueDuino](pathname:///img/uplink-downlink.webp)
+
+---
+
+## Wireless
+
+DUELink doesn't stop there as it also provides ways for connecting modules over a [wireless](./wireless) connection.
+
+![Wireless daisylink](pathname:///img/wireless-daisylink.webp)
+
+---
+
+## Connector Orientation
+
+Both `U` and `D` JST connectors are keyed to prevent from wrong orientation use. Do not try to force in the connector with the wrong orientation!
+
+![proper connection](pathname:///img/proper-connection.webp)
+
+Doing so will may cause the internal pins to be bent. If happened, the bent pins can be corrected using a tiny screwdriver.
+
+![bent pins](pathname:///img/bent-pins.webp)

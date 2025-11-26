@@ -1,0 +1,109 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* Import catalog override styles */
+@import './catalog-override.css';
+
+/* Dark mode support for react-medium-image-zoom */
+[data-theme='dark'] [data-rmiz-modal-overlay] {
+  background-color: rgba(0, 0, 0, 0.95) !important;
+}
+
+[data-theme='dark'] [data-rmiz-modal-img] {
+  background-color: transparent !important;
+}
+
+.container {
+
+  width: 95%;
+  
+  max-width: 900px;
+}
+
+.unique-tabs .tabs__item {
+  line-height: 16px;
+  margin-right: 8px;
+  border-radius: 0;
+  color: #000;
+  background-color:lightcyan;
+}
+
+.unique-tabs .tabs__item--active {
+  border: 0;
+  color: #fff;
+  border-radius: 0;
+  background-color:var(--ifm-color-primary);
+}
+
+
+.videocontainer {
+  position: relative;
+  overflow: hidden;
+  width: 95%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+.responsive-width {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*
+.content-center {
+    display: flex;
+    margin: 0;
+    justify-content: center;
+
+}*/
+/*
+img {
+
+    display: inline-block;
+    justify-content: center;
+    margin: 0 auto;
+
+}*/
+
+
+:root {
+  --ifm-color-primary: #0977aa;
+  --ifm-color-primary-dark: #0c92d0;
+  --ifm-color-primary-darker: #0c88c1;
+  --ifm-color-primary-darkest: #065174;
+  --ifm-color-primary-light: #ffaa55;
+  --ifm-color-primary-lighter: #fbba7a;
+  --ifm-color-primary-lightest: #fbcfa4;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #0977aa;
+  --ifm-color-primary-dark: #0c8ecb;
+  --ifm-color-primary-darker: #0c90cd;
+  --ifm-color-primary-darkest: #064765;
+  --ifm-color-primary-light: #ffaa55;
+  --ifm-color-primary-lighter: #ffaa55;
+  --ifm-color-primary-lightest: #ffaa55;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Override Docusaurus container max-width */
+/* Commented out to restore original max-width behavior
+.padding-top--md.padding-bottom--lg {
+  max-width: 100% !important;
+}
+
+.docMainContainer_TBSr {
+  max-width: 100% !important;
+}
+*/

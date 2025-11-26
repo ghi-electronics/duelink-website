@@ -1,0 +1,25 @@
+##### DueDuino Driver #####
+
+fn DVer()
+    return 1.0
+fend
+ 
+fn Init()
+    BtnEn(BtnPin(), 1)
+fend
+
+fn BtnPin()
+    return 20
+fend
+
+fn BtnLdr()
+    if BtnDown(BtnPin())
+        return 1
+    end
+    
+    return 0
+fend
+
+Init()
+ 
+#########################

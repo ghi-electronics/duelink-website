@@ -1,0 +1,36 @@
+# Phone & Tablet
+
+
+![android logo](pathname:///img/android-logo.webp)
+
+DUELink module versatility allows it to work with Phones and Tablets. The modules' internal [Scripting](../engine/scripting) engine is accessible from many [Interfaces](../interface/intro), and in this case, a serial [UART](../interface/uart) connection is all it takes.
+
+When connecting to an Android system, any DUElink module will present itself as a virtual serial connection. You can quickly try it by installing any serial terminal program to send commands.
+
+![USB Hook](pathname:///img/android-usbhook.webp)
+
+Here is a terminal sending a command to blink the status LED 40 times.
+
+![Serial USB Terminal](pathname:///img/serial-usb.webp)
+
+Similarly, a [Python](../language/python), [JavaScript](../language/javascript) or [C++](../language/cpp) can be used, as long as you have access to the virtual serial port.
+
+In other cases, using a wireless connection over WiFi or Bluetooth might be desired.
+
+![Wireless daisylink](pathname:///img/wireless-daisylink.webp)
+
+Similar to USB, wireless connectivity offers a virtual serial connection. Use [Wireless ESP32](../products/wlesp32-a) module to command modules through a wireless connection from a phone or a tablet. 
+
+![Wireless ESP32](pathname:///img/catalog/wlesp32-a-1.webp)
+
+See [Wireless Interface](../interface/wireless) for more details.
+
+---
+
+## Block Coding
+
+Support goes beyond typed coding and into block-coding, such as [MIT App Inventor](https://appinventor.mit.edu/). 
+
+![App Inventor](pathname:///img/app-inventor.webp)
+
+This educational app-building-tool allows users to build apps using a simple drag and drop IDE. See [App Inventor](../language/app-inventor) language page for more details.

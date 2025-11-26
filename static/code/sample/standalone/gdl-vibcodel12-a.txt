@@ -1,0 +1,45 @@
+fn DoTest1()
+    SetMode(1) # Trigger mode
+    
+    while (1)
+        Trigger()
+        Wait(3000) # Assuming press a button every 3 seconds
+        t = 2000 # timout 2 second to detect barcode
+        while (t > 0)
+            x = SerB2R()
+            Wait(2) # Wait 2ms (9600 need around 1ms timing for data coming, Wait 2ms to be sure)
+            if (x = SerB2R()) && (x > 7) # x = SerB2R() mean no more data coming, show
+                for i = 0 to x
+                    c = SerRd()
+                    if i >=7 # first 7 bytes (0...6) in trigger mode is header, ignore them. Only show from 7th          
+                        PrintLn(Chr(c)) # show barcode text
+                    end
+                next
+                
+                return
+            end
+            t = t-1
+        wend
+    wend
+fend
+
+fn DoTest2()
+    SetMode(2) # Continuous mode
+    
+    dim b1[3] 
+    
+    while (1)
+        x = SerB2R()
+        Wait(2) # Wait 1ms
+        if (x = SerB2R()) && (x > 0) # x = SerB2R() mean no more data coming, show
+            for i = 0 to x
+                c = SerRd()
+                PrintLn(Chr(c)) # show barcode text
+            next
+        end
+    wend
+ 
+fend
+
+#DoTest1()  # Test trigger mode
+#DoTest2()  # Test continuous mode

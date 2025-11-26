@@ -1,0 +1,100 @@
+# .NET
+
+
+![.NET C#](pathname:///img/csharp.webp)
+
+The .NET DUELink library allows full .NET programs to access physical sensors and actuators. This allows complex .NET programs to do all the heavy lifting.
+
+Note that the provided library is implemented in C#, but the user can use any .NET system, such as Visual Basic.
+
+---
+
+## Setup
+
+This page assumes the user is already familiar with .NET C# and there is a development machine that is already setup to build and run .NET programs.
+
+:::tip
+Make sure your hardware is updated with the latest firmware. The [Console](../console) is handy for that.
+:::
+
+Start a new project with a simple line of code to test that the project is running.
+
+:::info
+C# Top-level-statements feature is being utilized in these examples.
+:::
+
+```cs
+Console.WriteLine("Hello, World!");
+```
+---
+
+## Libraries
+
+Download and install the latest `GHIElectronics.DUELink` library from NuGet.org.
+
+---
+
+## Blinky!
+
+Our first program will blink the on-board status LED, on for 200ms then it shuts off for 800ms, and does this 20 times.
+
+```cs
+using GHIElectronics.DUELink;
+Console.WriteLine("Hello DUE!");
+var availablePort = DUELinkController.GetConnectionPort();
+var duelink = new DUELinkController(availablePort);
+
+// Flash the LED  (on for 200ms, off for 800ms, 20 times)
+// Note that "Device 1" is automatically selected
+duelink.System.Statled(200, 800, 20);
+Console.WriteLine("Bye DUE!");
+```
+
+:::tip
+The .NET library is open source: [DUELink Libraries Repo](https://github.com/ghi-electronics/duelink-libraries).
+:::
+
+---
+
+## Daisylinking
+
+In the example below, we'll use .NET to control an OLED 0.96 Display, a Button, and a Buzzer module Daisylinked together.
+
+![Daisylinked Modules](pathname:///img/usbhook-daisylinked.webp)
+
+:::tip
+Make sure these modules are loaded with [Drivers](../engine/drivers).
+:::
+
+```cs
+using GHIElectronics.DUELink;
+
+var availablePort = DUELinkController.GetConnectionPort();
+var duelink = new DUELinkController(availablePort);
+
+static void BasicExample() {
+     // Device 1 is Display OLDE 0.96, with driver installed! 
+     // Device 2 is button
+     // device 3 is buzzer
+     duelink.ReadTimeout = TimeSpan.FromMilliseconds(100);
+     duelink.Engine.Select(1);
+     duelink.Graphics.Clear(1);
+     duelink.Graphics.Text("DUELink", 0, 10, 10);
+     duelink.Graphics.Text("Press button on", 0, 1, 21);
+     duelink.Graphics.Text("device 2 to play", 0, 1, 31);
+     duelink.Graphics.Text("sound on device 3", 0, 1, 41);   
+     duelink.Graphics.Show();
+ 
+     duelink.Engine.Select(2);
+     duelink.Button.Enable(1, true, 1);
+ 
+     while (true) {
+         duelink.Engine.Select(2);
+         if (duelink.Button.Down(1)) {
+             duelink.Engine.Select(3);
+             duelink.Frequency.Write(7, 1000, 50, 0.5);
+         }
+         Thread.Sleep(100);
+     }
+}
+```

@@ -1,0 +1,51 @@
+##### Current Driver #####
+ 
+fn DVer()
+    return 1.0
+fend
+
+fn Current()
+    v = aRead(3)-(4096/2)
+    
+    # measuring at 1A, avarge is 75 for positive, and 65 for nagative, 25A chip
+    if v > 0
+        r = v / 75 
+    else
+        r = v / 60
+    end
+    
+    return r
+    
+fend
+
+fn CurrAvg(t, l) # t: timeout in ms, l: 1: Positive, 0: Negative
+
+    c = 0
+    r = 0
+    e = TickMs() + t
+    while (TickMs() < e)
+        v = Current()
+        
+        if l > 0 # positive
+            if v > 0
+                r = r + v
+                c = c + 1
+            end
+        end
+        
+        if l = 0 # nagative
+            if v < 0
+                r = r + v
+                c = c + 1
+            end
+        end   
+    end
+    
+    if (c > 0) # no div 0
+        r = r / c
+    end
+
+    return r
+fend
+
+####################

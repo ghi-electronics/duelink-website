@@ -1,0 +1,140 @@
+##### DOF9 Driver #####
+ 
+fn DVer()
+    return 0.1
+fend
+ 
+Alias(ADXL345=0x53, HMC5883L= 0x1E, QMC5883L=0x0D, ITG3200=0x68 )
+_h = 1 #HMC5883L as default
+ 
+ 
+fn Init()
+ 
+    I2cCfg(100) 
+    #ADXL345 - Accel
+    Dim b1[2] = [0x31 , 0x01]
+ 
+    I2cWr(ADXL345, [0x31 , 0x01], 0)
+    I2cWr(ADXL345, [0x2D , 0x08], 0)
+ 
+    #HMC5883L Compass
+    _h = I2cWr(HMC5883L, [0x02 , 0x00], 0)
+ 
+    if _h=0 # switch to QMC5883L
+        I2cWr(QMC5883L, [0x09, 0x1D], 0)
+        I2cWr(QMC5883L, [0x0A, 0x01], 0)
+        I2cWr(QMC5883L, [0x0B, 0x01], 0)
+    end
+ 
+    #ITG3200 Gyro
+    I2cWr(ITG3200, [0x03, 0x00], 0)
+    I2cWr(ITG3200, [0x15, 0x07], 0)
+    I2cWr(ITG3200, [0x16, 0x1E], 0)
+    I2cWr(ITG3200, [0x17, 0x00], 0)
+ 
+    Wait(10)
+    Dim b6[6]
+    Dim b2[8]
+    dim b3[1]
+fend
+ 
+ 
+fn RAccel() 
+ 
+    r = I2cWr(ADXL345, [0x32], 0) # write to register
+    v = I2cWr(ADXL345, 0, b6) # read from register, b6 need 6 bytes
+ 
+    if (v = 0)
+        PrintLn("Init Accel failed")
+        while (1)
+        wend
+    end
+    _x = Convert(b6[1], b6[0])
+    _y = Convert(b6[3], b6[2])
+    _z = Convert(b6[5], b6[4])
+ 
+fend
+ 
+fn RCompass()
+ 
+    if _h
+        I2cWr(HMC5883L, [0x3], 0) # write to register
+ 
+        v = I2cWr(HMC5883L, 0, b6) # read from register, b2 need 6 bytes
+ 
+        if (v = 0)
+            PrintLn("Init compass failed")
+            while (1)
+            wend
+        end
+        _x = Convert(b6[0], b6[1])
+        _y = Convert(b6[2], b6[3])
+        _z = Convert(b6[4], b6[5])
+    else
+ 
+ 
+        I2cWr(QMC5883L, [0x06], 0)
+ 
+        I2cWr(QMC5883L, 0, b3)
+ 
+        dim b5[8]
+ 
+        if (b3[0] & 1) # check ready first
+ 
+            I2cWr(QMC5883L, [0], 0) 
+            I2cWr(QMC5883L, 0, b6) 
+ 
+            _x = Convert(b6[1], b6[0])
+            _y = Convert(b6[3], b6[2])
+            _z = Convert(b6[5], b6[4])
+        else
+            println("Not ready")
+ 
+ 
+        end
+ 
+    end
+fend
+ 
+fn RGyro()
+ 
+ 
+    I2cWr(ITG3200, [0x1B], 0) # write to register
+    v = I2cWr(ITG3200, 0, b2) # read from register, b2 need 8 bytes
+ 
+    if (v = 0)
+        PrintLn("Init Gyro failed")
+        while (1)
+        wend
+    end
+ 
+    _x = Convert(b2[2], b2[3])
+    _y = Convert(b2[4], b2[5])
+    _z = Convert(b2[6], b2[7])
+    _t = Convert(b2[0], b2[1])  
+    _t = 35 + (_t + 13200)/280
+fend
+ 
+ 
+fn Convert(u,l)
+    v = (u << 8) | l
+    if v > 32768
+        v = 65536 - v
+        v = v * -1 
+    end
+    return v
+    # Here is another way to convert!
+    if(u&080) 
+        u = (~u)& 0xff
+        l = (~l)& 0xff
+        return (((u<<8) | l)*-1)-1
+    else
+        return (u<<8) | l
+    end
+fend
+ 
+Init()
+ 
+##############################
+ 
+ 

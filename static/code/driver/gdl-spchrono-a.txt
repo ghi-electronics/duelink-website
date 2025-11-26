@@ -1,0 +1,57 @@
+##### Chrono Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn Init()
+    BtnEn(BtnPin('A'), 1) # Btn A
+    BtnEn(BtnPin('B'), 1) # Btn B
+    GfxCfg(4, a1, 5,5,1) # 4: 5x5 type, 0: direct
+fend
+
+fn BtnPin(a)
+    if a = 'A'
+        return 20
+    end
+    if a = 'B'
+        return 1
+    end
+    while 1
+        PrintLn("ERROR!!")
+        Wait(200)
+    wend
+fend
+
+Dim a1[11] = {0,   9,19,18,4,3,    7,5,0,8,6} # 0: flag, next 5 for data pins, next 5 for scan pins
+
+fn IsColor()
+    return 0
+fend
+
+fn GetW()
+    return 5
+fend
+
+fn GetH()
+    return 5
+fend
+
+fn BtnA()
+    if BtnDown(BtnPin('A')) 
+        return 1
+    else
+        return 0
+    end
+fend
+
+fn BtnB()
+    if BtnDown(BtnPin('B'))
+        return 1
+    else
+        return 0
+    end
+fend
+
+Init()
+#########################

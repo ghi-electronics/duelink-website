@@ -1,0 +1,49 @@
+##### RFID #####
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+fn Test() 
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+
+    cmd("Clear(0)")
+    cmd("TextS(\"Starting test...\", 1, 0, 0, 1,2)")
+    cmd("Show()")
+
+    a = 0
+    s = 0
+    c = 0
+    while 1
+        a = isCard()   
+        if (s != a)
+            s = a            
+ 
+           
+            if s = 1
+                if ReadCard(b1) = 0
+                    c = c + 1
+                    println("Card read successfully")
+                    for i = 0 to len(b1)
+                        print(hex(b1[i]))
+                        if (i < len(b1) -1)
+                            print(":")
+                        end
+                    next
+                    println(" ")
+                    cmd("Clear(0)")
+                    cmd("TextS(\"Card read\", 1, 0, 0, 1,2)")
+                    cmd("TextS(\"successfully!\", 1, 0, 20, 1,2)")
+                    cmd(fmt("TextS(\"Count:", c, "\", 1, 0, 40, 1,2)"))
+                    cmd("Show()")
+                end
+ 
+            end
+            
+ 
+        end
+        wait(10)
+    wend
+fend

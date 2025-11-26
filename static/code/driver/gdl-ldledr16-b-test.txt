@@ -1,0 +1,26 @@
+##### Led LEDR16 Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test() 
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    while 1        
+        for i = 1 to 17
+            SetLed(i, 1)
+            wait(100)
+            SetLed(i, 0)  
+            wait(100)         
+        next        
+    wend
+fend   
+
+
+
+

@@ -1,0 +1,185 @@
+# Falling Bird
+
+---
+
+In this example we create 2 different versions of the same game one using a NeoPixel Matrix, and other using OLED display.
+
+
+## NeoPixel Falling Bird
+
+![NeoPixel Falling Bird](img/falling-bird.gif)
+
+This sample creates a simple falling bird type game using a NeoPixel matrix. The objective is for the player to move to avoid random obstacles. 
+
+```py
+w=16      # Width of the matrix 
+u=4       # Player X position
+v=8       # Player Y position
+t=0       # Player tail Y offset
+b=15      # Wall X position
+h=4       # Wall height
+g=6       # Wall gap
+BtnEnable('a', 1)
+# Game loop
+@loop
+   NeoClear()
+   plyr()
+   wall()
+   coll()
+   NeoShow(0,256)
+   wait(50)
+Goto loop
+# Handle the player
+@plyr
+   if BtnDown('a')
+     if v>0:v=v-1:end
+     t=1
+   else
+   if v<15:v=v+0.5:end
+       t=-1
+   end
+  x=u
+  y=trunc(v)
+  pxl()
+  NeoSet(p, 64,0,64)
+  x=x-1
+  y=y+t
+  pxl()
+  NeoSet(p, 64,0,64)
+return
+# Update wall
+@wall
+  b=b-0.25
+  if b<=0
+    b=15
+    g=4+rnd(2)
+    h=2+rnd(6)
+  end
+  for i=0 to 1
+    x=trunc(b)+i
+    for y=0 to h
+      pxl()
+      NeoSet(p, 0,64,0)
+    next
+    for y=h+g to 15
+      pxl()
+      NeoSet(p, 0,64,0)
+    next
+  next
+return
+# Check collision
+@coll
+  i=trunc(b)
+  if i != u && i != u-1 :return:end
+  if v<=h:Goto die:end
+  if v>=h+g:Goto die:end
+return
+# Player died
+@die
+  for i=0 to 20
+    x=(u-2)+rnd(4)
+    y=(v-2)+rnd(4)
+    pxl()
+    NeoSet(p, rnd(64),0,0)
+    NeoShow(0,256)
+  next
+  b=15
+return
+# Formula for index into 16x16 NeoPixel Matrix
+# p=pxl(x,y)
+@pxl
+  p = x*w+(x&1)*(w-1)+(1-2*(x&1))*y
+return
+```
+
+---
+
+# OLED Falling Bird
+
+![Pulse Falling Bird](img/oled-falling-bird.gif)
+
+```py
+lcdconfig(1, 0x3c, 0, 128, 64, 1, 1)
+
+_u=4       # Player X position
+_v=8       # Player Y position
+_t=0       # Player tail Y offset
+_b=31      # Wall X position
+_h=4       # Wall height
+_g=6       # Wall gap
+
+BtnEnable(1, 1)
+# Game loop
+@loop
+  LcdClear(0)
+  plyr()
+  wall()
+  coll()
+  LcdShow()
+Goto loop
+
+# Handle the player
+fn plyr()
+  if BtnDown(1)
+    if _v>0:_v=_v-1:end
+    _t=1
+  else
+    if _v<15:_v=_v+0.5:end
+    _t=-1
+  end
+  _x=_u
+  _y=trunc(_v)
+  pxl(_x, _y)
+  _x=_x-1
+  _y=_y+_t
+  pxl(_x, _y)
+fend
+
+# Update wall
+fn wall()
+  _b=_b-1
+  if _b<=0
+    _b=31
+    _g=4+rnd(2)
+    _h=2+rnd(6)
+  end
+  
+  l = (_h+_g)
+  x = trunc(_b)
+  for i=0 to 3
+    s=(x*4)+i
+    lcdline(255, s, 0, s, _h*4)
+    lcdline(255, s, l*4, s, 50)
+  next
+  
+fend
+
+# Check collision
+fn coll()
+  if trunc(_b) != _u:return:end
+  if (_v > _h) && (_v < _h+_g):return:end
+ 
+# Player died
+  for _i=0 to 15
+    pxl((_u-2)+rnd(4), (_v-2)+rnd(4))
+    LcdShow()
+  next
+  _b=31
+fend
+
+# Plot large pixel
+fn pxl(x,y)
+  LcdPixel(255, x*4, y*3)
+  LcdPixel(255, x*4+1, y*3)
+  LcdPixel(255, x*4+2, y*3)
+  LcdPixel(255, x*4+3, y*3)
+  LcdPixel(255, x*4, y*3+1)
+  LcdPixel(255, x*4+1, y*3+1)
+  LcdPixel(255, x*4+2, y*3+1)
+  LcdPixel(255, x*4+3, y*3+1)
+  LcdPixel(255, x*4, y*3+2)
+  LcdPixel(255, x*4+1, y*3+2)
+  LcdPixel(255, x*4+2, y*3+2)
+  LcdPixel(255, x*4+3, y*3+2)
+fend
+```

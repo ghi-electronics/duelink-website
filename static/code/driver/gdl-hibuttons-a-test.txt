@@ -1,0 +1,29 @@
+##### Button S Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    while 1        
+        if (dread(BtnPin(), 1))
+            cmd("Clear(0)")
+            cmd("TextS(\"Up\",1,0,0,3,3)")
+            cmd("Show()") 
+            println("Button up")
+        else
+            cmd("Clear(0)")
+            cmd("TextS(\"Down\",1,0,0,3,3)")
+            cmd("Show()")
+            println("Button pressed")
+        end
+        Wait(200)
+        
+    wend
+fend   

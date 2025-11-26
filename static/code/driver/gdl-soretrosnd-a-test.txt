@@ -1,0 +1,24 @@
+##### Retro Sound #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend 
+ 
+fn Test()
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+
+    while 1
+
+        sweep(GetPin(), 1000, 2000, 10, 255, 1000)
+        wait(1000)  
+        sweep(GetPin(), 2000, 1000, 255, 10, 1000)
+        wait(1000)  
+                
+    wend
+ 
+fend 
+

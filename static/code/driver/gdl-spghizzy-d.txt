@@ -1,0 +1,72 @@
+##### Ghizzy Driver #####
+
+
+fn DVer()
+    return 1.0
+fend
+ 
+fn Init()
+    BtnEn(BtnPin(), 0) # Btn LDR
+    
+fend
+
+fn REye(r,g,b)    
+    if dread(10,1) = 1 # revB or earlier
+        DWrite(4,(b >> 0) & 0xFF)
+        DWrite(5,(r >> 0) & 0xFF)
+        DWrite(6,(g >> 0) & 0xFF)
+    else
+       awrite(5, Scale(b, 0,255, 0, 1))
+       awrite(6, Scale(r, 0,255, 0, 1))
+       awrite(8, Scale(g, 0,255, 0, 1))
+    end
+fend
+
+fn LEye(r,g,b)    
+    if dread(10,1) = 1 # revB or earlier
+        DWrite(7,(b >> 0) & 0xFF)
+        DWrite(8,(r >> 0) & 0xFF)
+        DWrite(9,(g >> 0) & 0xFF)
+    else
+       awrite(11, Scale(b, 0,255, 0, 1))
+       awrite(4, Scale(r, 0,255, 0, 1))
+       awrite(1, Scale(g, 0,255, 0, 1))
+    end
+fend
+
+ 
+fn Ear(l,r)
+    if dread(10,1) = 1 # revB or earlier
+        DWrite(12,l)
+        DWrite(13,r)
+    else
+        DWrite(2,l)
+        DWrite(7,r)
+    end
+fend
+ 
+fn Mouth(l,c,r)
+    DWrite(14,l)
+    DWrite(15,c)
+    DWrite(16,r)
+fend
+ 
+fn BtnPin()
+    return 20
+fend
+
+fn BtnLdr()
+    if BtnDown(BtnPin())
+        return 1
+    end
+fend
+
+ 
+fn PlyBeep()
+    freq(3, 1000, 100,0.5)
+    wait(100)
+fend
+ 
+Init()
+
+#########################

@@ -1,0 +1,11 @@
+_i=0
+
+while 1    
+    if BtnRead(BtnPin('U'))
+        SetLED('U', _i)
+    end
+    
+    _i= ! _i
+
+    Wait(200)
+wend

@@ -1,0 +1,75 @@
+##### Holiday Tree Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    Wait(1)
+    dlmode(2,0) 
+    Wait(10)
+    cmd("sel(1)")
+    cmd("Clear(0)")
+    cmd("TextS(\"Starting test...\", 1, 0, 0, 1,2)")
+    cmd("Show()") 
+    println("Starting test...")
+    
+    _c = 0
+    _s = 0
+    _r = 0
+    
+    SetAll(0)
+    ShowLed()
+    while 1 
+        _r = DRead(20,2)
+        
+        if (_s != _r)
+            _s = _r
+            cmd("Clear(0)")
+            if (_r)
+                
+               
+                if _c%5 = 0
+                    SetAll(0xFF0000)
+                end
+                if _c%5 = 1
+                    SetAll(0x00FF00)
+                end
+                if _c%5 = 2
+                    SetAll(0x0000FF)
+                end
+                if _c%5 = 3
+                    SetAll(0xFFFFFF)
+                end
+                 if _c%5 = 4
+                    SetAll(0)
+                end
+                
+                _c = _c + 1
+                
+                Buzzer(700,100)
+                wait(100)
+                
+                println("Button pressed!")
+                
+                
+                cmd("TextS(\"Button pressed!\", 1, 0, 0, 1,2)")
+           
+            else
+                println("Button released!")
+                cmd("TextS(\"Button released!\", 1, 0, 0, 1,2)")
+                    
+                 
+            end
+            cmd("Show()") 
+            
+            ShowLed()
+        end
+        
+        
+        wait(10)
+        
+        
+    wend
+fend 

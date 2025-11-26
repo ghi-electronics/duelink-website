@@ -1,0 +1,27 @@
+/* Override max-width ONLY for the catalog page - more specific selectors */
+body:has(.catalog-full-width) .container,
+body:has(.catalog-full-width) .container.padding-top--md.padding-bottom--lg,
+body:has(.catalog-full-width) [class*="docItemContainer"],
+body:has(.catalog-full-width) [class*="docMainContainer"] {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* Also target if catalog-full-width is on article */
+article.catalog-full-width .container,
+.catalog-full-width .container {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* Target all parent containers when catalog page is active */
+.docMainContainer_TBSr:has(.catalogContainer) .container {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* Direct override when ProductCatalog component is present */
+.container:has(.catalogContainer) {
+  max-width: none !important;
+  width: 100% !important;
+}

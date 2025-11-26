@@ -1,0 +1,89 @@
+module 'DUELink Ghizzy'
+author GHIElectronics
+version 0 6 
+depends Tone 
+description 'DUELink Ghizzy Library
+
+
+
+'
+variables _due_ghizzy_enabled _due_ghizzy_oldver 
+
+  spec ' ' 'due_ghizzy_set_left_eye' 'set left eye red _ green _ blue _' 'num num num' 128 128 128
+  spec ' ' 'due_ghizzy_set_right_eye' 'set right eye red _ green _ blue _' 'num num num' 128 128 128
+  spec ' ' 'due_ghizzy_set_ear' 'set ear left _ right _' 'bool bool' true true
+  spec ' ' 'due_ghizzy_set_mouth' 'set mouth left _ center _ right _' 'bool bool bool' true true true
+  spec ' ' 'due_ghizzy_beep' 'play beep'
+  space
+  spec ' ' '_due_ghizzy_initialize' '_initialize'
+
+to '_due_ghizzy_initialize' {
+  if (_due_ghizzy_enabled == 0) {
+    _due_ghizzy_enabled = 1
+    _due_ghizzy_oldver = (digitalReadOp 10 'up')
+    'attach buzzer to pin' 3
+  }
+}
+
+to due_ghizzy_beep {
+  '_due_ghizzy_initialize'
+  'play frequency' 1000 100
+}
+
+to due_ghizzy_set_ear left right {
+  if _due_ghizzy_oldver {
+    if (left == (booleanConstant true)) {
+      digitalWriteOp 12 true
+    } else {
+      digitalWriteOp 12 false
+    }
+    if (right == (booleanConstant true)) {
+      digitalWriteOp 13 true
+    } else {
+      digitalWriteOp 13 false
+    }
+  } else {
+    if (left == (booleanConstant true)) {
+      digitalWriteOp 2 true
+    } else {
+      digitalWriteOp 2 false
+    }
+    if (right == (booleanConstant true)) {
+      digitalWriteOp 7 true
+    } else {
+      digitalWriteOp 7 false
+    }
+  }
+}
+
+to due_ghizzy_set_left_eye red green blue {
+  '_due_ghizzy_initialize'
+  if _due_ghizzy_oldver {
+    analogWriteOp 8 ('[misc:rescale]' red 0 255 0 1023)
+    analogWriteOp 7 ('[misc:rescale]' blue 0 255 0 1023)
+    analogWriteOp 9 ('[misc:rescale]' green 0 255 0 1023)
+  } else {
+    analogWriteOp 1 ('[misc:rescale]' green 0 255 0 1023)
+    analogWriteOp 11 ('[misc:rescale]' blue 0 255 0 1023)
+    analogWriteOp 4 ('[misc:rescale]' red 0 255 0 1023)
+  }
+}
+
+to due_ghizzy_set_mouth left center right {
+  digitalWriteOp 14 left
+  digitalWriteOp 15 center
+  digitalWriteOp 16 right
+}
+
+to due_ghizzy_set_right_eye red green blue {
+  if _due_ghizzy_oldver {
+    analogWriteOp 5 ('[misc:rescale]' red 0 255 0 1023)
+    analogWriteOp 6 ('[misc:rescale]' green 0 255 0 1023)
+    analogWriteOp 4 ('[misc:rescale]' blue 0 255 0 1023)
+  } else {
+    analogWriteOp 8 ('[misc:rescale]' green 0 255 0 1023)
+    analogWriteOp 5 ('[misc:rescale]' blue 0 255 0 1023)
+    analogWriteOp 6 ('[misc:rescale]' red 0 255 0 1023)
+  }
+}
+

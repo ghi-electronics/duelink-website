@@ -1,0 +1,49 @@
+##### Dial Test ######
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    cmd("Clear(0)")
+    cmd("TextS(\"Starting test...\", 1, 0, 0, 1,2)")
+    cmd("Show()") 
+    println("Starting test...")
+    
+    s = -1
+    r = 0
+    while (1)
+        o = VRead(3)/ReadVCC()*100
+        
+        r = trunc(o)
+        
+        if o < 0.5
+            r = 0
+        end
+        
+        if o > 99.5
+            r = 100
+        end
+            
+        if (s != r && s != r-1 && s != r+1)
+            
+            cmd("Clear(0)")
+            cmd(fmt("TextS(\"value: ",r,"\", 1, 0, 0, 1,2)"))
+            cmd("Show()") 
+            
+            println("value:", r)
+            s = r
+        end
+        
+        
+       
+        Wait(10)  
+    wend
+fend 
+
+#########################

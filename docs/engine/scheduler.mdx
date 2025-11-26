@@ -1,0 +1,25 @@
+
+# Scheduler
+
+
+DUELink Engine includes a scheduler to help execute tasks repeatedly. Use `SStart` to start scheduling a function. The arguments are `SStart(func, time, count)`, where 'func' is the function to schedule, `time` is the delay between executions, and finally `count` is for the scheduler repeat count.
+
+You can check the current status of a scheduler using `SStat(func)`. The returned value shows remaining count for the scheduler.
+
+It is possible to abort a schedule at any time using `SAbort(func)`.
+
+
+```py
+_i = 0
+SStart("Blink", 100, 50)
+
+while 1
+  if (_i % 10) = 0: PrintLn("stat: ", SStat("Blink")) :_i=_i+1 :end
+  # If button is pressed, SAbort("Blink")
+wend
+
+fn Blink()
+  DWrite(0, _i&1)# status LED is always on pin 0
+  _i=_i+1
+fend
+```

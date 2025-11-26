@@ -1,0 +1,49 @@
+# Excel
+
+
+![Excel](pathname:///img/excel-logo.webp)
+
+DUELink allows support on many systems, and Microsoft Excel is one the supported options! Yes, you can access devices right from spreadsheets! Combine that with VB macros and you have unlimited options.
+
+This is experimental support and only shows a very basic use for Excel power users that understand DUELink Scripts.
+
+---
+
+## Setup
+
+Accessing DUELink modules is done over the [UART Serial Interface](../interface/uart) using [Excel Data Streamer plug-in](https://microsoft.github.io/DataStreamerDevPortal/).
+
+Enabling the streamer is simple as it is already built in Excel:
+
+1. Go to `File > Options`
+2. In the Excel Options dialog click `Add-ins`
+3. At the bottom of the dialog under Manage: drop-down select `COM` Add-ins and click `Go`
+4. Check the box for `Microsoft Data Streamer for Excel`
+
+You should now see the `Data Streamer` tab in the Excel ribbon.
+
+![Data Streamer Link](pathname:///img/data-streamer.webp)
+
+Connect the correct COM port and you will be presented with 4 new tabs (`Data In`, `Data Out`, `Settings`, and `Manifest`).
+
+---
+
+## Blinky!
+
+Our first program will blink the on-board status LED, on for 200ms then it shuts off for 800ms, and does this 3 times.
+
+Go to `Settings` and change the `Data Channels` to 1.
+
+![Data Channels](pathname:///img/data-channels.webp)
+
+Go to the `Data Out` tab and enter the following text right under `CH1` column `statled(200, 800, 3)`.
+
+![Data Out](pathname:///img/data-out.webp)
+
+The LED should be blinking now!
+
+---
+
+## Libraries
+
+A VB library is necessary to cover and reflect the DUELink [Standard Library](../engine/stdlib), just like we have for [.NET](./dotnet) and [Python](./python). While we do nto have a library, interested developers can reference the [DUELink Libraries](https://github.com/ghi-electronics/duelink-libraries) repo.

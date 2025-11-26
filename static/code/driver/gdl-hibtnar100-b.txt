@@ -1,0 +1,39 @@
+##### Button AR100 #####
+ 
+fn DVer()
+  return 1.0
+fend
+ 
+fn SetRing(i,r,g,b)
+ 
+    if i = 0
+        AWrite(3,b/100)
+        AWrite(1,r/100)
+        AWrite(2,g/100)
+    end
+    if i = 1
+        AWrite(6,b/100)
+        AWrite(4,r/100)
+        AWrite(5,g/100)
+    end
+    if i = 2
+        AWrite(11,b/100)
+        AWrite(7,r/100)
+        AWrite(8,g/100)
+    end
+ 
+fend
+ 
+fn SetCtr(b)
+    DWrite(9,b)
+fend
+ 
+fn BtnPin()
+    return 12
+fend
+
+fn Init() 
+    BtnEn(BtnPin(),0)
+fend
+
+Init() 

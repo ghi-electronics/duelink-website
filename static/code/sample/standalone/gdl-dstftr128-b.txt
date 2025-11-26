@@ -1,0 +1,15 @@
+_x = 5
+_h = 0x64
+
+while 1   
+  Circle(_h,40,40,_x)
+  _x = _x + 5
+   Show()
+  
+   if _x > 35
+      _x = 5
+   end
+  
+  _h = _h + 1111111
+  Wait(5)
+wend 

@@ -1,0 +1,226 @@
+##### HDMI Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    cmd("Clear(0)")
+    cmd("TextS(\"Starting test...\", 1, 0, 0, 1,2)")
+    cmd("Show()") 
+
+    c = 0
+    t = 3
+    
+    DLClear()
+    DLCmd(C_CLEAR_COLOR,{0,0,0})
+    DLCmd(C_CLEAR,{})
+    
+    println("please wait... ", c, "/", t )  
+    c = c + 1
+     
+    #Color Bars White
+    DLCmd(C_COLOR,{255,255,255})
+    DLCmd(C_BEGIN, {RECTS})
+    DLCmd(C_VERTEX2F, {0,0}) 
+    DLCmd(C_VERTEX2F, {1800,7500})
+    DLCmd(C_END,{}) 
+     
+    #Color Bars Yellow
+    DLCmd(C_COLOR,{255,255,0})
+    DLCmd(C_BEGIN, {RECTS})
+    DLCmd(C_VERTEX2F, {1800,0}) 
+    DLCmd(C_VERTEX2F, {3600,7500})
+    DLCmd(C_END,{})
+    
+     
+    #Color Bars Cyan
+    DLCmd(C_COLOR,{0,255,255})
+    DLCmd(C_BEGIN, {RECTS})
+    DLCmd(C_VERTEX2F, {3600,0}) 
+    DLCmd(C_VERTEX2F, {5400,7500})
+    DLCmd(C_END,{})
+     
+    #Color Bars Green
+    DLCmd(C_COLOR,{0,255,0})
+    DLCmd(C_BEGIN, {RECTS})
+    DLCmd(C_VERTEX2F, {5400,0}) 
+    DLCmd(C_VERTEX2F, {7200,7500})
+    DLCmd(C_END,{})
+    
+     
+    #Color Bars Magenta
+    DLCmd(C_COLOR,{255,0,255})
+    DLCmd(C_BEGIN, {RECTS})
+    DLCmd(C_VERTEX2F, {7200,0}) 
+    DLCmd(C_VERTEX2F, {9000,7500})
+    DLCmd(C_END,{})
+     
+    #Color Bars Red
+    DLCmd(C_COLOR,{255,0,0})
+    DLCmd(C_BEGIN, {RECTS})
+    DLCmd(C_VERTEX2F, {9000,0}) 
+    DLCmd(C_VERTEX2F, {10800,7500})
+    DLCmd(C_END,{})
+    
+     
+    #Color Bars Blue
+    DLCmd(C_COLOR,{0,0,255})
+    DLCmd(C_BEGIN, {RECTS})
+    DLCmd(C_VERTEX2F, {10800,0}) 
+    DLCmd(C_VERTEX2F, {12700,7500})
+    DLCmd(C_END,{})
+     
+    #BLACK OUTLINE BACKGROUND
+    DLCmd(C_COLOR,{0,0,0})
+    DLCmd(C_BEGIN, {RECTS})
+    DLCmd(C_VERTEX2F, {0,2000})
+    DLCmd(C_VERTEX2F, {12700,4900}) 
+    DLCmd(C_END,{})
+    
+     
+    #YELLOW BACKGROUND
+    DLCmd(C_COLOR,{255,255,0})
+    DLCmd(C_BEGIN, {RECTS})
+    DLCmd(C_VERTEX2F, {0,2100})
+    DLCmd(C_VERTEX2F, {12700,4800}) 
+    DLCmd(C_END,{})
+    
+    println("please wait... ", c, "/", t )  
+    c = c + 1
+    
+    #RED LINES
+    DLCmd(C_BEGIN,{LINES})
+    DLCmd(C_COLOR,{255,0,0})
+    for y=2400 to 3000 step 100
+      DLCmd(C_VERTEX2F, {0,y})
+      DLCmd(C_VERTEX2F, {12700,y})
+    next
+    DLCmd(C_END,{})
+     
+    #GREEN LINES 
+    DLCmd(C_BEGIN,{LINES})
+    DLCmd(C_COLOR,{0,255,0})
+    for y=3200 to 3800 step 100
+      DLCmd(C_VERTEX2F, {0,y})
+      DLCmd(C_VERTEX2F, {12700,y})
+    next
+    DLCmd(C_END,{})
+         
+     
+    #BLUE LINES 
+    DLCmd(C_BEGIN,{LINES})
+    DLCmd(C_COLOR,{0,0,255})
+    for y=4000 to 4600 step 100
+      DLCmd(C_VERTEX2F, {0,y})
+      DLCmd(C_VERTEX2F, {12700,y})
+    next
+    DLCmd(C_END,{})
+    
+    println("please wait... ", c, "/", t )  
+    c = c + 1
+     
+    #First RED CIRCLE
+    DLCmd(C_COLOR,{0,0,0}) #Outer Circle
+    DLCmd(C_BEGIN,{POINTS})
+    DLCmd(C_POINT_SIZE,{20<<4})
+    DLCmd(C_VERTEX2F, {50<<4,3450})
+    DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
+    DLCmd(C_COLOR,{255,0,0})
+    DLCmd(C_VERTEX2F, {50<<4,3450})
+    DLCmd(C_END,{})
+     
+    #First GREEN CIRCLE
+    DLCmd(C_COLOR,{0,0,0}) #Outer Circle
+    DLCmd(C_BEGIN,{POINTS})
+    DLCmd(C_POINT_SIZE,{20<<4})
+    DLCmd(C_VERTEX2F, {140<<4,3450})
+    DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
+    DLCmd(C_COLOR,{0,255,0})
+    DLCmd(C_VERTEX2F, {140<<4,3450})
+    DLCmd(C_END,{})
+     
+    #First BLUE CIRCLE
+    DLCmd(C_COLOR,{0,0,0}) #Outer Circle
+    DLCmd(C_BEGIN,{POINTS})
+    DLCmd(C_POINT_SIZE,{20<<4})
+    DLCmd(C_VERTEX2F, {230<<4,3450})
+    DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
+    DLCmd(C_COLOR,{0,0,255})
+    DLCmd(C_VERTEX2F, {230<<4,3450})
+    DLCmd(C_END,{})
+     
+    #Second BLUE CIRCLE
+    DLCmd(C_COLOR,{0,0,0}) #Outer Circle
+    DLCmd(C_BEGIN,{POINTS})
+    DLCmd(C_POINT_SIZE,{20<<4})
+    DLCmd(C_VERTEX2F, {580<<4,3450})
+    DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
+    DLCmd(C_COLOR,{0,0,255})
+    DLCmd(C_VERTEX2F, {580<<4,3450})
+    DLCmd(C_END,{})
+     
+    #Second GREEN CIRCLE
+    DLCmd(C_COLOR,{0,0,0}) #Outer Circle
+    DLCmd(C_BEGIN,{POINTS})
+    DLCmd(C_POINT_SIZE,{20<<4})
+    DLCmd(C_VERTEX2F, {670<<4,3450})
+    DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
+    DLCmd(C_COLOR,{0,255,0})
+    DLCmd(C_VERTEX2F, {670<<4,3450})
+    DLCmd(C_END,{})
+     
+    #Second RED CIRCLE
+    DLCmd(C_COLOR,{0,0,0}) #Outer Circle
+    DLCmd(C_BEGIN,{POINTS})
+    DLCmd(C_POINT_SIZE,{20<<4})
+    DLCmd(C_VERTEX2F, {760<<4,3450})
+    DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
+    DLCmd(C_COLOR,{255,0,0})
+    DLCmd(C_VERTEX2F, {760<<4,3450})
+    DLCmd(C_END,{})
+     
+    #BLACK TEXT BOX
+    DLCmd(C_COLOR,{0,0,0})
+    DLCmd(C_BEGIN, {RECTS})
+    DLCmd(C_VERTEX2F, {8500,3100})
+    DLCmd(C_VERTEX2F, {4500,3800}) 
+    DLCmd(C_END,{}) 
+    
+    println("please wait... ", c, "/", t )  
+    c = c + 1
+     
+    #DUELINK WORDS
+    DLCmd(C_COLOR,{255,255,255})
+    DLCmd(C_BEGIN,{BITMAPS})
+    DLCmd(C_VERTEX2II, {300,192,31,'D'})
+    DLCmd(C_VERTEX2II, {335,192,31,'U'})
+    DLCmd(C_VERTEX2II, {370,192,31,'E'})
+    DLCmd(C_VERTEX2II, {405,192,31,'L'})
+    DLCmd(C_VERTEX2II, {435,192,31,'i'})
+    DLCmd(C_VERTEX2II, {460,192,31,'n'})
+    DLCmd(C_VERTEX2II, {495,192,31,'k'})
+    DLCmd(C_END,{})
+     
+    DLCmd(C_DISPLAY,{})
+    DLSwap()
+    
+    println("please wait... ", t, "/", t )  
+    c = c + 1
+     
+     
+    for i = 0 to 3
+        # Play sound beep
+        Synth(0x05, 1) # play note index 5 (built-in)
+        Wait(100)
+        # Play stop
+        Synth(0x00, 0)
+        Wait(1000)
+    next
+fend    

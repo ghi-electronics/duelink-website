@@ -1,0 +1,14 @@
+##### Relay P4 Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+fn Set(i, v)
+    if i < 1 || i > 4
+        return
+    end
+    DWrite(7-i, v)
+fend
+
+####################

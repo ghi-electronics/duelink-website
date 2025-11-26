@@ -1,0 +1,20 @@
+##### DueMBUS #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test() 
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+       
+    
+    while 1
+ 
+        wait(10)
+          
+    wend
+fend

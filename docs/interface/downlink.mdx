@@ -1,0 +1,56 @@
+# Downlink
+
+![Downlink](pathname:///img/downlink.webp)
+
+The Downlink connector found on every single DUELink module is used to connect to the next Uplink connector on the next module. The DUELink software magically handles the data going across the entire [Daisylink](../engine/daisylink) chain of connected modules.
+
+![Downlink](pathname:///img/daisylink.webp)
+
+---
+
+## Signal Integrity
+
+There will be no signal degradation along the wires as data is repeated on every Downlink connector. In cases where power is dropping after several modules, a [Power Inject](../products/adpwrinj-a) module can be used.
+
+![Power Inject](pathname:///img/catalog/adpwrinj-a-1.webp)
+
+This is not necessary in most cases since modules are very low power. However, large displays and motor drivers may require a decent amount of power.
+
+---
+
+## Modes
+
+The Downlink connector has multiple modes of operations to give the user more control. See `DLMode()` in [Standard Library](../engine/stdlib).
+
+Mode | Config | Description
+--- | --- | ---
+0 | None | Null
+1 | None | Daisylink
+2 | None | Host
+3 | `{Pin, level}` | Passthrough (deprecated)
+4 | None | Inactive
+5 | None | I2C
+
+On power up, the Downlink connection is `Null`. To initiate the [Daisylink](../engine/daisylink) and enumerate all connected modules, a command must be seen by the first module. This is true even if there is a single module. This very first command is only seen by the first device and discarded by others. We recommend using an empty command (just a carriage return) to initiate the module enumeration and addressing. Upon enumeration, Downlink is switched from `Null` to `Daisylink` mode automatically.
+
+The user has the option to switch to `Host`, `Gateway`, or `Inactive` modes at anytime. However, once switched to these modes, the user must only switch between these modes only. 
+
+`Host` mode is an options for [Daisylink](../engine/daisylink). 
+
+`Passthrough` (deprecated) is used in rare cases where the upstream and downstream UARTs are virtually connected in a `passthrough`, allowing the system to bridge and pipe the data between upstream and downstream. For config, there is a special `pin` that will automatically switch downstream mode to `Inactive` if the pin is at `level`. The system will not go back to `Passthough` mode on its own. It is up to the user to switch to `Host` or back to `Passthrough`. For example, `DLMode(3, {6,1})` will set the downlink mode to `Passthrough` and monitor pin 6. If pin 6 becomes high, the system will automatically switch to `Inactive`. The user may check the current mode using `Info(3)` to determine the current state.
+
+`Inactive` disables all communication with downstream.
+
+`I2C` non-DUElink mode is used to connect other devices, as detailed in the next section.
+
+---
+
+## I2C Mode
+
+The Downlink connector can be switched to a special I2C non-DUELink mode. This mode will free up the Downlink connector from its normal use, giving the user access to `DLI2CWr()` function. This will allow for an I2C access on the Downlink connector, see [Standard Library](../engine/stdlib).
+
+![DUELink STEM I2C qwiic stemmaQT modulino](pathname:///img/qwiic-stemma-modulino-i2c.webp)
+
+It is also possible to have a [Daisylink](../engine/daisylink) of DUELink modules where the last module (and only the last module) is switched to `I2C non-DUELink` mode (mode #4). This last module can now use `DLI2CWr()` to access those I2C non-DUELink modules.
+
+![I2C non-DUELink](pathname:///img/i2c-nonduelink.webp)

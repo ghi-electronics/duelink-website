@@ -1,0 +1,120 @@
+# Daisylink
+
+![Uplink-Downlink](pathname:///img/uplink-downlink.webp)
+
+In a DUELink setup, where there are more than one module, there will always be a connection between the Uplink and Downlink connector, creating a Daisylink. Each single module in a Daisylink is an active repeater of the signal. There will be no degradation of the signal quality. If necessary, add [Power Inject](../products/adpwrinj-a) to help in powering devices on its Downlink.
+![Daisylink](pathname:///img/daisylink.webp)
+
+---
+
+## Device Selection
+
+The [Standard Library](./stdlib) offers the `Sel()` command to activate devices on the chain. To blink the status LED on the second device on the Daisylink chain, use `Sel(2)` followed by `StatLed(200,200,50)`. The LED will blink 50 times on the second module in the stream.
+
+Daisylinked devices on a stream are addressed from `1`. The fourth device on the bus is selected using 'Sel(4)'.
+
+![Select](pathname:///img/select.webp)
+
+
+---
+
+## Broadcast
+
+Address zero is a special address on the chain, which indicates a broadcast selection. During a broadcast, all modules are required to process the command.
+
+In this example, we have 4 modules connected.
+
+Sending `Sel(0)` followed by `StatLed(200,200,50)` will blink the status LED 50 times on each one of the four modules.
+
+
+While it is also possible to read from multiple devices, `Sel(0):Print("Hi")`, this is not recommended as responses  come back as out-of-order.
+
+![Broadcast](pathname:///img/broadcast.webp)
+
+:::tip
+Do not confuse the module address with [I2C](../interface/i2c) address. They are unrelated! The module address works the same no matter what [Interface](../interface/intro) is being used.
+:::
+
+It is also possible to select more than one device at once, multi-select. Here is how to select devices 1, 3 and 4 `Sel(1,3,4)`.
+
+![Multiple Select](pathname:///img/multiple-select.webp)
+
+Same as for `Sel(0)`, reading responses in a multi-select setup is not supported.
+
+---
+
+## Device Enumeration
+
+When modules power up, they have a NULL interface, and they have no set address yet. Once an [Interface](../interface/intro) is detected, such as [USB](../interface/usb), then the first device will set its own address to 1 and then command all Downlink devices to take a new address, 1, 2, 3, 4...etc.
+
+To initiate the Daisylink and enumerate the modules connected on the [Downlink](../interface/downlink) interface, a command must be sent. This very first command is only seen by the first device. An empty command (just a carriage return) can also be used.
+
+Only smart modules receive an address. For example, both power modules in this Daisylink do not have an address.
+
+![Host Mode](pathname:///img/host-mode.webp)
+
+Use `GetAddr()` to read the current address. If the current address is zero, then the module has not been enumerated yet.
+
+There are 2 options for module to be enumerated, either by detecting an [Interface](../interface/intro) or by configuring a module in host mode as explained below.
+
+Since devices get enumerated in order and each module needs 1ms to 2ms to be ready, commands should not be sent to modules for 2ms for each module in the Daisylink. For example, wait for 10ms before commanding a Daisylink with 5 modules.
+
+---
+
+## Host Mode
+
+A host is used to command a stream of Daisylinked devices. There are several [Supported Hardware](../hw/intro) devices and many supported [Languages](../language/intro).
+
+![Other Micros](pathname:///img/other-micros.webp)
+
+DUELink modules can also run [Standalone](../language/standalone) and can also be the host of other Daisylinked modules, connected on the [Downlink](../interface/downlink) socket.
+
+
+![Button Controlling LEDs](pathname:///img/button-led.gif)
+
+Devices automatically receive an address, starting with 1. Note how power modules do not count. They are just power sources.
+
+![Normal Addressing](pathname:///img/daisylink-normal.webp)
+
+The host-module can be anywhere in the chain. Here is an example where the third module is configured as a host. Note how the host module is address 3 to its host, which is the Sparkfun micro. The other modules on its Downlink also have addresses starting at 1, but these are only visible to their host.
+
+![Third Module Host](pathname:///img/daisylink-third-host.webp)
+
+This host can also be anywhere else in the link, including the first device. Think of modules as always physically connected but logically separated and controlled by their own respective host.
+
+![First Module Host](pathname:///img/daisylink-first-host.webp)
+
+As documented on the [Downlink](../interface/downlink) interface page, `DLMode(2,0)` command is used to switch the module to host mode. This will automatically reset and re-enumerate thats host's clients.
+
+This is what addresses look like without a DUELink host. There is, however, an external non-DUELink host.
+
+![Normal Addressing](pathname:///img/daisylink-normal.webp)
+
+Load this code on the second device, which turns it into a host. It then sends a command to its client address 2 to blink its status LED. 
+
+:::tip
+You can only load code on the first device. To handle this example, connect device 2 directly to a PC, load the program, and then move it back to be device 2 in the stream.
+:::
+
+```py
+DLMode(2,0) # Switch Downlink to host mode
+Wait(100) # This delay is more than enough for 50x modules.
+Cmd("Sel(2)") # Select second device
+Cmd("StatLed(200,200,50)") # Blink the LED 50 times on the selected device
+```
+
+This is what the link would look like.
+
+![Blinking STAT LED from Host](pathname:///img/daisylink-host-blink.webp)
+
+A device in "host" mode is still listening to commands coming from Uplink, but it does not forward the commands Downlink. This allows for programming and configuring the host, from DUELink [Console](../console) for example.
+
+---
+
+## Wireless
+
+It is also possible to use a wireless connection to daisylink!
+
+![Wireless daisylink](pathname:///img/wireless-daisylink-addr-host.webp)
+
+See [Wireless](../interface/wireless) interface page for more info.

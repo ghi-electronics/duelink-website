@@ -1,0 +1,166 @@
+##### CincoBit Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test() 
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    c = 0
+    while 1
+        _l = Light()
+     
+        if c % 10 = 0
+            println("light: ", _l, "%")
+        end
+        
+        if _l < 10
+            for _x = 0 to 5
+                Pixel(0,_x, 0)
+                Pixel(0,_x, 1)
+                Pixel(0,_x, 2)
+                Pixel(0,_x, 3)
+                Pixel(0,_x, 4)
+            next
+        end
+     
+        if _l > 10 && _l <= 20
+            for _x = 0 to 5
+                Pixel(0,_x, 0)
+                Pixel(0,_x, 1)
+                Pixel(0,_x, 2)
+                Pixel(0,_x, 3)
+                Pixel(1,_x, 4)
+            next
+        end
+     
+        if _l > 20 && _l <= 40
+            for _x = 0 to 5
+                Pixel(0,_x, 0)
+                Pixel(0,_x, 1)
+                Pixel(0,_x, 2)
+                Pixel(1,_x, 3)
+                Pixel(1,_x, 4)
+            next
+        end
+     
+        if _l > 40 && _l <= 60
+            for _x = 0 to 5
+                Pixel(0,_x, 0)
+                Pixel(0,_x, 1)
+                Pixel(1,_x, 2)
+                Pixel(1,_x, 3)
+                Pixel(1,_x, 4)
+            next
+        end
+     
+        if _l > 60 && _l <= 80
+            for _x = 0 to 5
+                Pixel(0,_x, 0)
+                Pixel(1,_x, 1)
+                Pixel(1,_x, 2)
+                Pixel(1,_x, 3)
+                Pixel(1,_x, 4)
+            next
+        end
+     
+        if _l > 80 
+            for _x = 0 to 5
+                Pixel(1,_x, 0)
+                Pixel(1,_x, 1)
+                Pixel(1,_x, 2)
+                Pixel(1,_x, 3)
+                Pixel(1,_x, 4)
+            next
+        end
+     
+        show()
+     
+        if (dread(23, 2) = 1)
+            clear(1)
+            show()
+     
+            cmd("clear(0)")
+            cmd("Texts(\"Button B\",1,0,0,2,2)")
+            cmd("Texts(\"pressed\",1,0,20,2,2)")
+            cmd("show()")
+            
+            println("Button B pressed")
+            
+            while dread(23, 2) = 1
+                Buzzer(1000, 100)
+                wait(10)
+            wend
+        end
+     
+        if (dread(20, 2) = 1)
+            clear(0)
+            show()
+     
+            cmd("clear(0)")
+            cmd("Texts(\"Button A\",1,0,0,2,2)")
+            cmd("Texts(\"pressed\",1,0,20,2,2)")
+            cmd("show()")
+            
+            println("Button A pressed")
+            while dread(20, 2) = 1
+                Buzzer(1000, 100)
+                wait(10)
+            wend
+        end
+        
+        if IsTouch(0)
+            clear(0)
+            show()
+     
+            cmd("clear(0)")
+            cmd("Texts(\"Touch pin 0\",1,0,0,2,2)")
+            cmd("Texts(\"detected\",1,0,20,2,2)")
+            cmd("show()")
+            
+            println("Touch pin 0 detected")
+            Buzzer(1000, 100)
+            
+        end
+        
+        if IsTouch(1)
+            clear(0)
+            show()
+     
+            cmd("clear(0)")
+            cmd("Texts(\"Touch pin 1\",1,0,0,2,2)")
+            cmd("Texts(\"detected\",1,0,20,2,2)")
+            cmd("show()")
+            
+            println("Touch pin 1 detected")
+            Buzzer(1000, 100)
+            
+        end
+        
+        if IsTouch(2)
+            clear(0)
+            show()
+     
+            cmd("clear(0)")
+            cmd("Texts(\"Touch pin 2\",1,0,0,2,2)")
+            cmd("Texts(\"detected\",1,0,20,2,2)")
+            cmd("show()")
+            
+            println("Touch pin 2 detected")
+            Buzzer(1000, 100)
+            
+        end
+             
+        wait(10)
+        
+        c = c + 1
+     
+     
+    wend
+fend
+ 

@@ -1,0 +1,80 @@
+# Loader
+
+
+The STM32C071 chip utilized on all DUELink modules includes an ST loader that we use for firmware updates using the `USB DFU` standard. 
+
+The loaded "firmware" can be the official DUELink or MicroBlocks firmware option. However, it can also be a custom firmware built using [C++](./language/cpp) language page, for example. The [Arduino](./hw/arduino) IDE can also be used to build custom firmware as well.
+
+---
+
+## Update Options
+
+Users have two options for firmware updates. We recommend using the [Console](./console) as a first choice.
+
+![DUELink Console Firmware Menu](pathname:///img/console-firmware.webp)
+
+Advanced users can also use the [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) tool.
+
+![Select USB](pathname:///img/stm-select-usb.webp)
+
+Either way, the first step is in placing the board in loader mode (Entering the Loader!).
+
+---
+
+## Entering the Loader
+
+The standard DUELink software includes `Reset(1)` that wipes out the chip completely and, therefore, forcing it in the loader mode. Since this is a critical command, `Reset(1)` MUST BE called twice. You can send this command over any interface. An easy way would be to use the [Console](./console) immediate window.
+
+The other option is done using hardware. Locate the `LDR` button on your module. On some boards, the `LDR` button is labeled with `A`.
+
+![Setting Boot mode mode](pathname:///img/ldr-a-buttons.webp)
+
+Press and **continue to hold** the button while resetting the board. If there is no reset button, then unplug the USB cable first, then hold the button down while inserting the USB cable. Wait one second after the cable is inserted then release the button.
+
+If neither `LDR` nor `A` button is available, then the LDR pads are found on small through-hole pads. Bend and place a small metal paper clip (or a wire) between these 2 pads, and reset/repower the board. You can remove the paper clip after the board is powered up.
+
+![Setting Boot mode](pathname:///img/boot-mode.webp)
+
+:::info
+LDR is the name we use for STM32's BOOT0 pin, which is button A or LDR in some cases. 
+:::
+
+---
+
+## Console Update
+
+Once the device is in the loader mode, the system will detect a USB `DFU in FS Mode` device.
+
+![Verify DFU mode](pathname:///img/device-manager-dfu.webp)
+
+From [https://console.duelink.com/](https://console.duelink.com/), click `Firmware` on the top menu.
+
+![DUELink Console Firmware Menu](pathname:///img/due-firmware.webp)
+
+Follow the instructions to update the firmware, which is basically done by selecting the desired firmware file.
+
+---
+
+## STM32 Tools Update
+
+The [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) tool is good advanced option.
+
+First, download the desired firmware file from the [Downloads](./downloads) page. Connect the module and enter the loader mode, as explained before.
+
+STM32CubeProgrammer will now detect a USB DFU device, select `USB` from the drop down and click `Connect`.
+
+![Select USB](pathname:///img/stm-select-usb.webp)
+
+Click on the side tab then select the file you downloaded from the [Download](./downloads) page and then click `Start Programming`.
+
+![Select file](pathname:///img/stm-selectfile-program.webp)
+
+The board now has the desired file loaded!
+
+---
+
+## I2C Update
+
+This page focuses on firmware updates using USB DFU mode. We recommend to use USB DFU whenever possible; however, using I2C to send firmware updates over Uplink connectors is an unsupported option.
+
+The "[STM32 microcontroller system memory boot mode](https://www.st.com/resource/en/application_note/an2606-stm32-microcontroller-system-memory-boot-mode-stmicroelectronics.pdf)" application note covers all the needed details.

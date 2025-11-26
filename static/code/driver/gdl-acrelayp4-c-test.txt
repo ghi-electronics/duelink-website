@@ -1,0 +1,23 @@
+##### RelayP4 Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+
+    while 1
+        for _i in Range(4)
+            Set(_i+1,1)
+            wait(250)
+            Set(_i+1,0)
+            wait(250)
+        next     
+    wend
+    
+fend  

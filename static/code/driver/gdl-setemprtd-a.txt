@@ -1,0 +1,102 @@
+##### Distance Driver #####
+## Preliminary driver. Needs work!
+
+fn DVer()
+    return 0.1
+fend
+
+Alias(cs=4,rdy=3)
+
+fn MaxRead(a, b1)
+    a = a & (~0x00)
+    DWrite(cs,0) 
+    SpiWr(a)
+    SpiWrs(0,b1)
+    DWrite(cs,1)
+fend
+
+fn MaxWrite(a,d)
+    a = a | 0x80  
+    DWrite(cs,0)
+    SpiWr(a)
+    SpiWr(d)
+    DWrite(cs,1)
+fend
+
+fn EnBias(v)
+    Dim b1[1]  
+    MaxRead(0x00, b1)
+    
+    if (v = 1)
+        b1[0] = b1[0] | 0x80
+    else
+        b1[0] = b1[0] & (~0x80)
+    end
+    
+    MaxWrite(0x00, b1[0])  
+fend
+
+fn Auto(e)
+    Dim b1[1] 
+    MaxRead(0x00, b1)
+    
+    if e =1
+        b1[0] = b1[0] | 0x40
+    else
+        b1[0] = b1[0] & (~0x40)
+    end
+    
+    MaxWrite(0x00, b1[0])
+fend
+
+fn setWire(n)
+    Dim b1[1]
+    
+    MaxRead(0x00, b1)
+    
+    if n =3
+        b1[0] = b1[0] | 0x10
+    else
+        b1[0] = b1[0] & (~0x10)
+    end
+    
+    MaxWrite(0x00, b1[0])
+fend
+
+fn SShort()
+    Dim b1[1]
+    MaxRead(0x00, b1)
+    MaxWrite(0x00, b1[0] | 0x20)
+fend
+
+fn readTemp()
+    EnBias(1)
+    Wait(10)
+    SShort()
+    
+    while (DRead(rdy,0) = 1)
+        Wait(10)
+    wend
+    
+    Dim b1[2]  
+    MaxRead(0x01, b1) 
+    d = b1[0] << 8
+    d = d | b1[1]
+    d = d >> 1 
+    r = d * 430 / 32768
+    t = (r / 100 - 1) / 0.003851   
+    EnBias(0)
+    
+    return t  
+fend
+
+fn Init()
+    SpiCfg(1,1000)
+    SetWire(3)
+    EnBias(0)
+    Auto(0)
+fend
+
+Init()
+
+#########################

@@ -1,0 +1,25 @@
+##### Light Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    while 1    
+        v = Light()
+        cmd("Clear(0)")
+        cmd("TextS(\"Value:\",1,0,0,3,3)")
+        cmd(fmt("TextS(\"",v,"\",1,0,30,3,3)", v))
+        cmd("Show()") 
+        println(fmt("TextS(\"",v,"\",1,0,0,3,3)", v))
+ 
+        Wait(1000)        
+    wend
+    
+fend   

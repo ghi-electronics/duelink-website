@@ -1,0 +1,6 @@
+##### ClipSense Driver #####
+
+# No need for a driver!
+# Use standard library, like DWrite(), to access the pins.
+
+####################

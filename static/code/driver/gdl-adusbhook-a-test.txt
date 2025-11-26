@@ -1,0 +1,4 @@
+##### USB HOOK #####
+
+# No firmware and driver needed on this device
+ 

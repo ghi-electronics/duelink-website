@@ -1,0 +1,22 @@
+##### FAN Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+
+    while 1
+        Fan(70)
+        Wait(1000)
+
+        Fan(-70)
+        Wait(1000)        
+    wend
+    
+fend  

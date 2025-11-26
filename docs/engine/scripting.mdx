@@ -1,0 +1,527 @@
+# Scripting Language
+
+
+The DUELink Scripting Language runs internally on any DUELink Hardware. These scripts are used to extend and tunnel in the commands coming from a [Coding Language](../language/intro) such as [Python](../language/python.mdx). This is agnostic of what [Supported Hardware](../hw/intro) is being used, such as [Raspberry Pi](../hw/raspberry-pi). Additionally, scripts can also be used to run the modules [Standalone](../language/standalone).
+
+Scripts are not case sensitive, with a simple syntax that is inspired by BASIC and Python. The power of DUELink Scripts comes from its simplicity, rather than from its feature set. This is the perfect language to teach someone coding and to extend DUELink modules with additional functionality.
+
+:::tip
+Even though the scripting engine is not case sensitive, we use `Print()` rather than `print()` or `prInT()` to keep things looking great!
+:::
+
+---
+
+## Print
+
+`Print()` is a function that prints (outputs) the passed arguments. These arguments can be variables, strings, or equations. `Print()` can handle multiple arguments.
+
+`PrintLn()` is exactly the same except it adds line break at the end.
+
+```py
+x=100
+PrintLn(x)
+PrintLn("Hello World")
+PrintLn(x+x)
+PrintLn(x,"Hello World", x+x)
+```
+
+![Print](pathname:///img/print-output.webp)
+
+`Print()` also supports printing arrays. When it sees a float array, such as `Print(a1)` or `Print({22.4,66.5})` the output will be a dump of the array values, `{22.4,66.5}` in the later example. However, when it sees a byte array, it will print the ASCII values. Print("Hello DUELink") will show "Hello DUELink". This also applies to byte array variables and constants. `Print([0x55])` will result in `U` because `0x55` is ASCII for the letter `U`.
+
+This is an example on how to dump the values of a byte array, resulting in something similar to what print does with float arrays.
+
+```py
+fn DumpBA(b0)
+  Print("[")
+  for i in Range(Len(b0)
+    Print(b0[i],",")
+  next
+  Print("]")
+fend
+```
+---
+
+## Comments
+
+The `#` character is used to identify a comment. Comments are ignored by the program, text added to help developers understand the code.
+
+```py
+# This is a comment
+x=10
+Print(x) # This is also a comment
+```
+---
+
+## Whitespace
+
+Space doesn't mean anything to the DUELink Scripting Language. However, new lines (or `:`) are important to start new commands.
+
+```py
+Print   ( "DUELink"   )
+```
+
+Is exactly the same as
+
+```py
+Print("DUELink")
+```
+---
+
+## Variables
+
+DUELink Script has a fixed set of 26 global float-type variables, one for each letter, assigned to `_a` to `_z`. To use a global variable, simply use `_x=5.5`.
+
+There are also local variables used in functions, still float-type. More on these under functions.
+
+---
+
+## Arrays
+
+There are 10 float-type arrays and 10 byte-type arrays. The float arrays are named a0 to a9 and the byte arrays are names b0 to b9. All arrays are size zero by default. Use `Dim` to allocate memory for an array, like `Dim b1[10]`.
+
+:::caution
+Coding language libraries, such as Python, may need to use internal DUELink Script buffers. The use of `B8`/`B9` byte-array and  `A8`/`A9` float-array are reserved for libraries. Do not use in scripts nor drivers.
+:::
+
+Similar to other common languages, elements of a **byte** array are accessed using `[]`.
+
+This is an example that uses both, global variables and arrays:
+
+```py
+Dim b1[10]
+
+For _i=0 to 9
+  b1[_i]=_i*2
+Next
+
+For _i=0 to 9
+  PrintLn(b1[_i])
+Next
+```
+
+The output will look like:
+
+```
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+```
+
+:::tip
+Use `Dim b1[0]` to free up the memory reserved for array `b1[]`.
+:::
+
+Same goes for float arrays.
+
+```py
+Dim a1[10]
+
+for _i=0 to 9
+  a1[_i]=_i* 0.3
+next
+
+for _i=0 to 9
+  PrintLn(a1[_i])
+next
+```
+
+The output will look like:
+
+```
+0
+0.3
+0.6
+0.9
+1.2
+1.5
+1.8
+2.1
+2.4
+2.7
+```
+
+Arrays can be initialized in two different ways.
+
+Declare an array and initialize it with values at the same time.
+
+```py
+Dim b1[6] = [1,2,
+            3,4,
+            5,6]
+for _i in Range(Len(b1))
+  PrintLn(b1[_i])
+next
+```
+
+:::note
+`Len(b1)` returns the length (size) of the b1 array.
+:::
+
+The second way is to create the array first, then populate it later.
+
+```py
+Dim b1[6]
+
+b1 = [7,8,
+     9,10,
+     11,12]
+for _i in Range(Len(b1))
+  PrintLn(b1[_i])
+next
+```
+
+DUELink scripts use `{}` for float arrays initializers, instead of `[]`, which is used for byte arrays. The previous example will change to this.
+
+```py
+Dim a1[6]
+
+a1 = {7,8,
+     9,10,
+     11,12}
+for _i in Range(Len(a1))
+  PrintLn(a1[_i])
+next
+```
+
+There are some specific things we must know about initializing arrays:
+
+1. Multi-line initializers must have a comma ending the line if the following line will have more data for the initializer (see the examples above).
+2. It is possible to start initialization values on a new line after `{` and then `}` at the end of the last item.
+3. Multi-line initializers can only be used in "record" mode. In immediate mode, the initializer must be on a single line.
+4. Initializers are always run, so if the initializer is inside a loop every time the dim or assignment initializer is encountered, it will reinitialize the data in the array.
+5. You can have fewer values in the initializer than what the array holds, but you cannot have more. You will get an error indicating that a `]` was expected if there are too many elements in the initializer.
+6. Since we do not want to do too many dynamic allocations, the size of the array must be specified when using dim even when initializing the array.
+
+:::tip
+`Dim` will automatically set the appropriate size when it sees an initializer, like `Dim a1[] = [1,2,3,4,5]' will create an array with 5 elements.
+:::
+
+It is also possible to initialize an array with a string of text. The line `dim b1[]="GHI"` will set b1[0] to ASCII `G` and so on. The system automatically knows if bytes or floats are needed and create the array properly. Note that this is **not a string** in its true meaning, but a simple way to initialize an array with ASCII characters. For example, in C language strings are null-terminated, but they are not in DUELink Scripts.
+
+A few escape codes are available with strings-like initializer, similar to the ones in the C language `\r`, `\n`, `\t`, `\"`. `Print("He Said: \"I love DUELink\"")` will output `He Said: "I love DUELink"`.
+
+Functions that accept arrays can take initializers as well.
+
+```py
+fn PrintArray(b1, c)
+for _i in Range(c)
+  PrintLn(b1[_i])
+next
+fend
+
+Dim b1[5] = [1,2,3,4,5]
+PrintArray(b1, 3)
+
+PrintArray([1,2,3,4,5], 3)
+```
+---
+
+## Int vs Float
+
+The DUELink system only supports byte arrays and not byte variables. All local and global variables are floats. There are cases where a user may need a 32bit int value. There are a few way to make this easier.
+
+When using shift operator `<<` the system will treat the float variable as an int, making `1<<22` possible.
+
+Also, to carry a 32bit value, the proper way would be through using a 4 element byte-array. To simplify, DUELink engine uses `0i` and `0I` prefix to state a 4 element byte-array, where `i` is little endian and `I` is large endian. For example, `0I12345678` is exactly same as `{0x12,0x34,0x56,0x78}` and `0i12345678` is exactly the same as `{0x78,0x56,0xFF,0x12}`. The value is always 4 bytes, a `0i12` is same as `{0x12,0x00,0x00,0x00}`.
+
+An example function that processes 32bit values:
+
+```py
+fn Print32(b1)
+for i=0 to 4
+  PrintLn(hex(b1[i]))
+next
+fend
+
+Print32(0I12345678)
+Print32({0x12,0x34,0x56,0x78}) # same as above
+```
+---
+
+## Functions
+
+Functions start with `fn` and end with `fend`. Arguments must be included in the function definition.
+
+```py
+fn Add(a,b)
+  return a+b
+fend
+```
+
+Then the function can be executed using `Add()`. This can be done from withing the script, or from one of the [Interfaces](../interface/intro).
+
+Here it is used by the same script.
+
+```py
+_x = Add(5,33)
+PrintLn(_x)
+```
+:::caution
+The system is limited to 16 user created functions.
+:::
+
+Variables inside functions are local. You can use any of the 26 letters as a variable name. The argument will automatically set the local variable with the matching name to the passed value. In the previous example, `a` and `b` local variables were automatically assigned with first and second argument values.
+
+Function arguments can also be arrays. These arrays are passed as by reference.
+
+```py
+fn PrintArray(b1, c) # Note how the function expects the array is b1
+for _i in Range(c)
+  PrintLn(b1[_i])
+next
+fend
+
+Dim b3[] = [1,2,3,4,5]
+PrintArray(b3, 3) # Note how we pass b3 array. The system will automatically reference b3 to b1, a1 used in the function.
+```
+
+Array initializer can also be used to call the function above.
+
+```py
+PrintArray([1,2,3,4,5], 3) # Print 3 elements
+```
+
+And even use a string!
+
+```py
+PrintArray("DUELink", 7)
+```
+
+:::caution
+Float array initializers use `{}` as explained in the arrays section. Functions expecting float arrays do not work with byte arrays, and vice vera.
+:::
+
+---
+
+## Operands
+
+DUELink Scripting supports the following operators.
+
+**Mathematical**
+
+| Sign | Description            |
+| ---- | ---------------------- |
+| `+`  | Add                    |
+| `-`  | Subtract               |
+| `*`  | Multiply               |
+| `/`  | Divide                 |
+| `%`  | Modulus, the remainder |
+
+**Comparators**
+
+| Sign | Description              |
+| ---- | ------------------------ |
+| `>`  | Greater Than             |
+| `<`  | Less Than                |
+| `>=` | Greater Than or Equal To |
+| `<=` | Less Than or Equal To    |
+| `=`  | Equal                    |
+| `!=` | Not Equal                |
+
+**Logical**
+
+| Sign   | Description |
+| ------ | ----------- |
+| `&&`   | And         |
+| `\|\|` | Or          |
+
+**Bitwise**
+
+| Sign | Description |
+| ---- | ----------- |
+| `&`  | Bitwise And |
+| `\|` | Bitwise Or  |
+| `^`  | Bitwise XOR |
+| `<<` | Shift Left  |
+| `>>` | Shift Right |
+
+---
+
+## While-loop
+
+This is the kind of loop that stays active as long as a condition is true. A `while` loop block ends with `wend`.
+
+```py
+_x=10
+while _x>5
+  PrintLn(_x)
+  _x=_x-1
+wend
+```
+
+## For-Loop
+
+The for-loop has two different syntax styles. **BASIC** and **Python** style.
+
+**BASIC Style**
+
+The BASIC style for-loop includes the last number in the range.
+
+```py
+# Counting Up
+for _i=1 to 5
+  Print(_i,",")
+next
+```
+
+Output:
+
+`1,2,3,4,`
+
+```py
+# Counting Up in increments of 10
+for _i=1 to 1000 Step 10
+  PrintLn(_i)
+next
+
+# Counting Down in increments of 10
+for _i=1000 to 1 Step -10
+  PrintLn(_i)
+next
+```
+
+**Python Style**
+
+The for-loop also allows a format similar to Python.
+
+```py
+# Range with only stop value
+for _i in Range(5)
+  Print(_i,",")
+next
+```
+
+Output:
+
+`0,1,2,3,4,`
+
+```py
+# Range with start and stop value
+for _i in Range(1,5)
+  Print(_i,",")
+next
+
+# Range with start, stop, and step value
+for _i in Range(1,5,2)
+  Print(_i,",")
+next
+
+# Range with start, stop, and negative step value
+for _i in Range(10,1,-2)
+  Print(_i,",")
+next
+```
+---
+
+## Break & Continue
+
+`Break` is available to break out of the while-loop and for-loop. Similarly, `continue` is available to send the execution back to the top of a loop.
+
+---
+
+## If-Statement
+
+If-Statements must end with the `End` command.
+
+```py
+if _x=1
+  PrintLn("one")
+else
+  PrintLn("not one")
+end
+```
+
+If-Statements can also be nested within each other. Each If-Statement requires an `End` command to terminate its own process.
+
+```py
+if _x=1
+  PrintLn("one")
+else
+  if _x =2
+    PrintLn("two")
+  else
+    PrintLn("not one or two")
+  end
+end
+```
+---
+
+## Labels
+
+Labels are needed to redirect the program. They are used by `Goto`.
+
+A Label is created by using the `@` symbol in front of the desired label. Labels are limited to 8 characters.
+
+---
+
+## Goto
+
+`Goto` is useful for repeating tasks indefinitely by sending execution to a specific _Label_ name.
+
+```
+@Loop
+# add code here that runs forever
+Goto Loop
+```
+
+---
+
+# Exit
+
+`exit` terminates the program.
+
+```
+Print("Hello")
+exit
+Print("This will not get printed")
+```
+
+---
+
+## Multi-Command-Line
+
+Multiple commands can be combined on a single line. This is especially useful when using `Immediate mode` where a single line is required. To use multiple command, a `:` symbol is used.
+
+This is an example of a for-loop in a single line.
+
+```py
+for _i=1 to 1000 step 10:PrintLn(_i):next
+```
+
+---
+
+## Aliases
+
+Aliases allow for creating cleaner code. For example, the name `temp` can be an alias to `_t` variable holding temperature.
+
+`Alias()` is a special kind of function that adds new aliases to the system. It is not possible to remove an alias once it is added.
+
+An alias can be used for variables, arrays, function names, and constants.
+
+```py
+Dim b1[]=[65,66,67]
+Alias(vals=b1, doit=Test,age=23)
+
+PrintLn(age)
+for i=0 to len(vals)-1
+  doit(vals[i], vals[i])
+next
+
+fn Test(a, b)
+  PrintLn(a," ",b)
+fend
+```
+
+Aliases are handled in flash and has no RAM usage implications; however, they degrade performance due to the need for searching available aliases.
+
+:::tip
+Because Aliases are flash-dependant, they do not work in immediate mode. However, Aliases stored in flash using recorded mode are available to immediate commands. 
+:::

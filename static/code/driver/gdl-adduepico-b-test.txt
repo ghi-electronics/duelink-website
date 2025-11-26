@@ -1,0 +1,78 @@
+##### DuePico #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test() 
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    
+    a = 0
+    b = 0
+    x = 0
+    y = 0
+    while 1
+
+        a = dread(20, 2)
+        b = dread(7, 2)
+        
+        if (x != a)
+            clear(0)
+            x = a
+            
+            if x = 1
+                Texts("Button A",1,0,0,2,2)
+                Texts("pressed",1,0,20,2,2)
+                show()
+                
+                println("Button A pressed")
+                while dread(20, 2) = 1
+                    Buzzer(1000, 100)
+                    wait(10)
+                wend
+            else
+                Texts("Button A",1,0,0,2,2)
+                Texts("released",1,0,20,2,2)
+                show()
+                
+                println("Button A released")
+            end
+            
+        end
+        
+        if (y != b)
+            clear(0)
+            y = b
+            
+            if (y = 1)
+                Texts("Button B",1,0,0,2,2)
+                Texts("pressed",1,0,20,2,2)
+                show()
+                
+                
+                println("Button B pressed")
+                
+                while dread(7, 2) = 1
+                    Buzzer(1000, 100)
+                    wait(10)
+                wend
+            else
+                Texts("Button B",1,0,0,2,2)
+                Texts("released",1,0,20,2,2)
+                show()
+                
+                
+                println("Button B released")
+            end
+        end
+             
+        wait(10)
+     
+     
+    wend
+fend

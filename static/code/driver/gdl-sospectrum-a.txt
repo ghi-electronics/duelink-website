@@ -1,0 +1,50 @@
+##### Spectrum Driver #####
+
+fn DVer()
+    return 1.0
+fend
+
+Alias(strobePin=5, resetPin=3)
+ 
+Dim a1[7]
+ 
+fn Init() 
+    DWrite(strobePin,1)
+    DWrite(resetPin,1)
+    Wait(1)
+ 
+    DWrite(strobePin,0)
+    Wait(1)
+ 
+    DWrite(resetPin,1)
+    Wait(1)
+ 
+    DWrite(strobePin,1)
+    Wait(1)
+ 
+    DWrite(strobePin,0)
+    Wait(1)
+ 
+    DWrite(resetPin,0)
+    Wait(1)
+fend
+ 
+fn UpdBnd() 
+    for i = 0 to 7
+        a1[i] = VRead(4)/3.3*100
+ 
+        _t = TickUs()
+ 
+        DWrite(strobePin,1)
+        while (TickUs() - _t < 50) #Wait 50us
+        wend
+ 
+        DWrite(strobePin,0)
+        while (TickUs() - _t < 100) #Wait 50us
+        wend
+    next
+fend
+ 
+Init()
+
+####################

@@ -1,0 +1,36 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Coprocessor
+
+Some modules require a coprocessor that handles specific tasks. The DUELink's engine includes facilities to help with updating the coprocessor's firmware and also includes special commands for cross-chip communication.
+
+Specific module's [Drivers](./drivers) are always included to simplify the use of the coprocessor. This page is provided for reference only.
+
+---
+
+## Firmware Control
+
+These functions provide coprocessor firmware update facilities.
+
+Function | Description
+--- | ---
+`CoprocE()` | Erase entire coprocessor flash.
+`CoprocP()` | Initiate coprocessor firmware update: uses XModem 1K protocol.
+`CoprocS()` | Reset coprocessor.
+
+The upload command simply opens up an xmodem 1K transfer through the main micro. Once `CoprocP()` is called, the system will start sending `CCCCC...` back, indicating the coprocessor is ready for a new firmware. Any xmodem software, including TeraTerm, can be used to send the firmware. Do not forget to select the 1K option.
+
+We recommend using [DUELink Programmer](../programmer) tool for updating the coprocessor firmware.
+
+---
+
+## Application Command
+
+Once a coprocessor firmware is loaded, these commands provide means of data transfer between the system's main micro and the coprocessor.
+
+Function | Description
+--- | ---
+`CoprocV()`       | Returns current firmware version on coprocessor.
+`CoprocW([data])` | Write a byte-array to coprocessor. Returns how many bytes were written successfully.
+`CoprocR([data])` | Read byte-array from coprocessor. Returns how many bytes were read successfully.

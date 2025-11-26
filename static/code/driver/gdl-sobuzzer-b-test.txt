@@ -1,0 +1,29 @@
+##### Buzzer Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+
+    cmd("clear(0)")
+    cmd("Texts(\"Playing\",1,0,0,2,2)")
+    cmd("Texts(\"beep every\",1,0,20,2,2)")
+    cmd("Texts(\"one second\",1,0,40,2,2)")
+    cmd("show()")
+    
+    while (1)
+        PlaySound(1000, 100, 0.5)
+               
+        wait(1000)
+    wend
+fend   
+
+
+

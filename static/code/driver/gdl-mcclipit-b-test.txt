@@ -1,0 +1,198 @@
+##### Clipit Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+ 
+fn Test() 
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    dwrite(0,0) # statled off
+    c = 0
+    while 1
+        _l = Light()
+        if c % 10 = 0
+            println("light: ", _l, "%")
+        end
+ 
+        if _l < 10
+            for _x = 0 to 5
+                Pixel(0,_x, 0)
+                Pixel(0,_x, 1)
+                Pixel(0,_x, 2)
+                Pixel(0,_x, 3)
+                Pixel(0,_x, 4)
+            next
+        end
+     
+        if _l > 10 && _l <= 20
+            for _x = 0 to 5
+                Pixel(0,_x, 0)
+                Pixel(0,_x, 1)
+                Pixel(0,_x, 2)
+                Pixel(0,_x, 3)
+                Pixel(1,_x, 4)
+            next
+        end
+     
+        if _l > 20 && _l <= 40
+            for _x = 0 to 5
+                Pixel(0,_x, 0)
+                Pixel(0,_x, 1)
+                Pixel(0,_x, 2)
+                Pixel(1,_x, 3)
+                Pixel(1,_x, 4)
+            next
+        end
+     
+        if _l > 40 && _l <= 60
+            for _x = 0 to 5
+                Pixel(0,_x, 0)
+                Pixel(0,_x, 1)
+                Pixel(1,_x, 2)
+                Pixel(1,_x, 3)
+                Pixel(1,_x, 4)
+            next
+        end
+     
+        if _l > 60 && _l <= 80
+            for _x = 0 to 5
+                Pixel(0,_x, 0)
+                Pixel(1,_x, 1)
+                Pixel(1,_x, 2)
+                Pixel(1,_x, 3)
+                Pixel(1,_x, 4)
+            next
+        end
+     
+        if _l > 80 
+            for _x = 0 to 5
+                Pixel(1,_x, 0)
+                Pixel(1,_x, 1)
+                Pixel(1,_x, 2)
+                Pixel(1,_x, 3)
+                Pixel(1,_x, 4)
+            next
+        end
+ 
+ 
+ 
+        if (TouchA() = 1)
+            clear(1)
+ 
+ 
+            cmd("clear(0)")
+            cmd("Texts(\"Touch A\",1,0,0,2,2)")
+            cmd("Texts(\"detected\",1,0,20,2,2)")
+            cmd("show()")
+ 
+            println("Touch A detected")
+ 
+            Buzzer(1000, 100)
+            wait(10)
+        end
+ 
+        if (TouchB() = 1)
+            clear(1)
+ 
+ 
+            cmd("clear(0)")
+            cmd("Texts(\"Touch B\",1,0,0,2,2)")
+            cmd("Texts(\"detected\",1,0,20,2,2)")
+            cmd("show()")
+ 
+            println("Touch B detected")
+ 
+            Buzzer(1000, 100)
+            wait(10)
+        end
+ 
+        if (TouchUp() = 1)
+            clear(1)
+ 
+ 
+            cmd("clear(0)")
+            cmd("Texts(\"Touch Up\",1,0,0,2,2)")
+            cmd("Texts(\"detected\",1,0,20,2,2)")
+            cmd("show()")
+ 
+            println("Touch Up detected")
+ 
+            Buzzer(1000, 100)
+            wait(10)
+        end
+ 
+        if (TouchDown() = 1)
+            clear(1)
+ 
+ 
+            cmd("clear(0)")
+            cmd("Texts(\"Touch Down\",1,0,0,2,2)")
+            cmd("Texts(\"detected\",1,0,20,2,2)")
+            cmd("show()")
+ 
+            println("Touch Down detected")
+ 
+            Buzzer(1000, 100)
+            wait(10)
+        end
+ 
+        if (TouchLeft() = 1)
+            clear(1)
+ 
+ 
+            cmd("clear(0)")
+            cmd("Texts(\"Touch left\",1,0,0,2,2)")
+            cmd("Texts(\"detected\",1,0,20,2,2)")
+            cmd("show()")
+ 
+            println("Touch left detected")
+ 
+            Buzzer(1000, 100)
+            wait(10)
+        end
+ 
+        if (TouchRight() = 1)
+            clear(1)
+ 
+ 
+            cmd("clear(0)")
+            cmd("Texts(\"Touch right\",1,0,0,2,2)")
+            cmd("Texts(\"detected\",1,0,20,2,2)")
+            cmd("show()")
+ 
+            println("Touch right detected")
+ 
+            Buzzer(1000, 100)
+            wait(10)
+        end
+ 
+        if (dread(20, 2) = 1)
+            clear(1)
+ 
+ 
+            cmd("clear(0)")
+            cmd("Texts(\"Button LDR\",1,0,0,2,2)")
+            cmd("Texts(\"pressed\",1,0,20,2,2)")
+            cmd("show()")
+ 
+            println("Button LDR pressed")
+            Buzzer(1000, 100)
+            wait(10)
+        end
+ 
+        show()
+ 
+        wait(10)
+        c = c + 1
+        
+        
+ 
+ 
+    wend
+fend
+ 

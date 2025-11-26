@@ -1,0 +1,114 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Raspberry Pi
+
+![Raspberry Pi](pathname:///img/raspberrypi-logo.webp)
+
+There are multiple ways to take advantage of the DUELink ecosystem with the entire Raspberry Pi product line.
+
+![Raspberry Pi line](pathname:///img/raspberrypi-line.webp)
+
+---
+
+## RPI and RPI Zero
+
+For Raspberry Pi and Raspberry Pi Zero, we recommend using [DuePi](../products/adduepi-b) Hat.
+
+![DuePi](pathname:///img/catalog/adduepi-b-1.webp)
+
+This hat uses [UART Interface](../interface/uart). It includes a display, buzzer, terminal block for wiring, and a [Downlink](../interface/downlink) socket to extend your RPI with hundreds of available sensors and actuators.
+
+![DuePi](pathname:///img/duepi-daisylinked.webp)
+
+DuePi works great with Raspberry Pi Zero as well, with optional breakable area.
+
+![DuePi with Raspberry Pi Zero](pathname:///img/duepi-zero.webp)
+
+
+Everything is accessible through any of the RPI supported [Coding Languages](../language/intro), such as [Python](../language/python) .
+
+```python
+# Show IP address on display
+import sys
+import serial
+import time
+import socket
+
+from DUELink.DUELinkController import DUELinkController
+
+def get_ip_address():
+    try:
+        # Get all IP addresses associated with the hostname, filtering out 127.0.0.1
+        ips = [ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.startswith("127.")]
+        if ips:
+            return ips[0]  # Returns the first non-loopback IP address found
+        else:
+            # If no non-loopback IP is found, try connecting to an external server to determine the IP used
+            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            s.connect(("8.8.8.8", 80)) # Connect to Google's DNS server (doesn't send data, just sets up connection)
+            ip = s.getsockname()[0]
+            s.close()
+            return ip
+    except socket.error:
+        return None
+    
+
+myip = get_ip_address()
+
+# DUELink connection
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController("/dev/ttyAMA0")  # uart port define
+
+# DUELink graphics
+# Show IP address on screen
+duelink.Graphics.Clear(1)
+duelink.Graphics.Text("--DUELink--", 0, 33,5)
+duelink.Graphics.Text("My IP:" + myip, 0, 1,20)
+duelink.Graphics.Show()
+
+# Beep once a second
+while True:
+    duelink.Sound.Beep(14,1000,100)
+    time.sleep(1)
+```
+
+[RPILink](../products/adrpilink-a) is a simpler, and lower cost, option. It includes two options for connecting to RPI, via [I2C](../interface/i2c) or [UART](../interface/uart) interfaces.
+
+![RPILink](pathname:///img/catalog/adrpilink-a-1.webp)
+
+You can also use other third-party breakouts that adds JST connector, like the [Sparkfun Qwiic Shim for Raspberry Pi](https://www.sparkfun.com/sparkfun-qwiic-shim-for-raspberry-pi.html) or [Sparkfun Qwiic pHat](https://www.sparkfun.com/sparkfun-qwiic-phat-v2-0-for-raspberry-pi.html).
+
+![Sparkfun Qwiic Shim or Qwiic pHat](pathname:///img/qwiic-shim-phat.webp)
+
+:::tip
+When using the Qwiic pHat, only use one JST connectors as [Downlink](../interface/downlink). You can still use the other sockets to connect other non-DUELink I2C things!
+:::
+
+---
+
+## Raspberry Pi Pico
+
+Using Raspberry Pi Pico is easily achievable using [DuePico](../products/adduepico-b). It includes several things, such as a display to help you with printing diagnostics info.
+
+![DuePico](pathname:///img/catalog/adduepico-b-1.webp)
+
+And of course it includes a [Downlink](../interface/downlink) socket to help you [Daisylink](../engine/daisylink) modules.
+
+![DuePico Daisylinked](pathname:///img/duepico-daisylinked.webp)
+
+Visit the [MicroPython](../language/micropython) page to see how Raspberry Pi Pico can be used with DUELink.
+
+---
+
+## RP2350 & RP2040
+
+Beyond the official RPI Pico, using any board with a RPI microcontroller is possible. We recommend ones with a JST connector, like [Adafruit QT Py RP2040](https://www.adafruit.com/product/4900) or [Sparkfun Pro Micro RP2350](https://www.sparkfun.com/sparkfun-pro-micro-rp2350.html). You can as well use the [Breakout](../products/adbreakout-a) to wire a [Downlink](../interface/downlink) connection to any board.
+
+![RP2040-RP2350-Breakout](pathname:///img/rp2040-rp2350-breakout.webp)
+
+:::tip
+Pay attention to how much power these little circuits can provide. Consider adding a [Power Inject](../products/adpwrinj-a) module to add more juice!
+:::
+
+See the [MicroPython](../language/micropython) for code examples.

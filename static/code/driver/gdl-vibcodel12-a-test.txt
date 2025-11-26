@@ -1,0 +1,43 @@
+##### Barcode L1D2D Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+ 
+    SetMode(2) # Continuous mode
+    
+    while (1)
+        x = SerB2R()
+        Wait(3) # Wait 1ms
+        if (x = SerB2R()) && (x > 0) # x = SerB2R() mean no more data coming, show
+           
+            dim b1[x] 
+            for i = 0 to x
+                c = SerRd()
+                b1[i] = c 
+            next
+            println("Detected code:")
+            println(b1)
+            
+            cmd("Clear(0)")
+            cmd("TextS(\"Detected code:\", 1, 0, 0, 1,2)")
+            
+            for i = 0 to x # last character is carriage return or new line
+                if (b1[i] > 13) 
+                    cmd(fmt("TextS(\"", b1[i]-0x30, "\", 1, ",i*6,", 20, 1,2)"))
+                end
+            next
+            cmd("Show()") 
+        end
+    wend
+fend 
+
+####################

@@ -1,0 +1,55 @@
+# In this sample:
+# Display the temperature and the accelerometer X, Y, Z values on the screen.
+# A short beep plays when the Up, Down, Left, or Right button is pressed.
+# A circle moves on the screen.
+
+
+_x = 0
+_d = -9
+ 
+Dim a1[]={261, 200, 
+        293, 200,
+        523, 500}
+MelodyP(3, a1)
+
+SetBulb(0xff0000)
+ 
+while 1
+    if BtnDown(BtnPin('U'))
+        Tunes(100, 1000)
+    end
+    if BtnDown(BtnPin('D'))
+        Tunes(200, 1000)
+    end
+     if BtnDown(BtnPin('L'))
+        Tunes(300, 1000)
+    end
+     if BtnDown(BtnPin('R'))
+        Tunes(400, 1000)
+    end
+ 
+    Clear(1) 
+ 
+    TextS("Temperature", 0, 10, 6, 1, 1)
+    TextS(Fmt(ReadTemp()), 0,80, 5, 2, 2)
+ 
+    TextS("Light Level", 0, 10, 24, 1, 1)
+    TextS(Fmt(Light()), 0, 80, 20, 2, 2)
+ 
+    TextS("X", 0, 5, 35, 2, 2)
+    TextS(Fmt(GetX()), 0, 20, 40,1, 1)
+ 
+    TextS("Y", 0, 45, 35, 2, 2)
+    TextS(Fmt(GetY()), 0, 60, 40,1, 1)
+ 
+    TextS("Z", 0, 90, 35, 2, 2)
+    TextS(Fmt(GetZ()), 0, 100, 40,1, 1)
+ 
+    Circle(0, _x, 55, 5)
+    _x=_x+_d
+    if(_x < 0 || _x > 128)
+        _d = _d * -1
+    end
+    Show()
+    Wait(100)
+wend 

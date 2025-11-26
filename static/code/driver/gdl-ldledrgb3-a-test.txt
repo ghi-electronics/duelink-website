@@ -1,0 +1,31 @@
+##### Led RGB3 Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test() 
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    while 1        
+        setled(0,0x000000):setled(1,0x000000):setled(2,0x000000):cmd("clear(0)"):cmd("Texts(\"Off\",1,0,0,3,3)"):cmd("show()")
+        Wait(1000)
+        setled(0,0xff0000):setled(1,0xff0000):setled(2,0xff0000):cmd("clear(0)"):cmd("Texts(\"Red\",1,0,0,3,3)"):cmd("show()")
+        Wait(1000)
+        setled(0,0x00ff00):setled(1,0x00ff00):setled(2,0x00ff00):cmd("clear(0)"):cmd("Texts(\"Green\",1,0,0,3,3)"):cmd("show()")
+        Wait(1000)        
+        setled(0,0x0000ff):setled(1,0x0000ff):setled(2,0x0000ff):cmd("clear(0)"):cmd("Texts(\"Blue\",1,0,0,3,3)"):cmd("show()")
+        Wait(1000)
+        setled(0,0xffffff):setled(1,0xffffff):setled(2,0xffffff):cmd("clear(0)"):cmd("Texts(\"White\",1,0,0,3,3)"):cmd("show()")
+        Wait(1000)
+    wend
+fend   
+ 
+
+
+
+

@@ -1,0 +1,54 @@
+##### Fingerprint Test #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    cmd("sel(1)")
+    cmd("Clear(0)")
+    cmd("TextS(\"Starting test...\", 1, 0, 0, 1,2)")
+    cmd("Show()") 
+    SetLed(1,1,0) # Setting: Blink Red
+    p = DRead(4,1) 
+    s = -1
+    while (1)
+        
+        p = DRead(4,1) 
+        
+        if (p != s)
+            s = p
+            if p = 0
+                
+                println("Scanning...")
+                cmd("Clear(0)")
+                cmd("TextS(\"Scanning...\", 1, 0, 0, 1,2)")
+                cmd("Show()") 
+                SetLed(3,0,0) # Turn led to purple
+                while TakeImg() != 0 # 0 FINGERPRINT_OK 
+                    Wait(1000)
+                wend
+                
+                while ConvertImg(1) != 0
+                    Wait(1000)
+                wend
+                SetLed(2,0,0) # Turn led to Blue
+                println("Finger detected! Passed")
+                cmd("TextS(\"Finger detected!\", 1, 0, 20, 1,2)")
+                cmd("TextS(\"Passed\", 1, 0, 40, 1,2)")
+                cmd("Show()") 
+                
+                break
+            end
+        end
+
+        Wait (1)
+    wend
+fend
+
+####################

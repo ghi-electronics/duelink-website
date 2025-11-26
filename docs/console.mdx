@@ -1,0 +1,111 @@
+# Console
+
+
+The DUELink Console provides many functionalities. It is a great start to verify the device is functioning properly. It is also a great place to learn about and use [DUELink Scripts](/docs/engine/scripting.mdx).
+
+[**console.duelink.com**](https://console.duelink.com/)
+
+![DUELink Console](pathname:///img/due-console.webp)
+
+---
+
+## Top Buttons
+
+### Connect
+
+Select the connect button to connect to the DUELink hardware.
+
+![Connect Button](pathname:///img/due-connect.webp)
+
+### Immediate Window
+
+The immediate text box sends and runs the code immediately on the DUELink hardware as soon as the `Enter` key or `arrow` button is pressed.
+
+![DUELink immediate window](pathname:///img/immediate-window.webp)
+
+Try `statled(200,200,50)` to blink the STAT LED 50 times.
+
+### Regions Panel
+The regions panel is where users can switch to and control different regions in the memory. See [Regions](./engine/regions.mdx) page for more details.
+
+![Regions Panel](pathname:///img/console-regions-panel.webp)
+
+### Log & History Windows
+
+The DUELink Log window is where DUELink hardware will talk back to the console. `Print()` functions appear directly in this window. The History window provides a history of your DUELink session. The `eraser` button clears the windows.
+
+```py
+Print("This is where log outputs appear")
+```
+
+![DUELink console output](pathname:///img/console-output.webp)
+
+### Record
+
+Sends the script in the editor window to the DUELink hardware's flash.
+
+![Record Button](pathname:///img/due-record.webp)
+
+### Play
+
+Runs the code that is stored in flash.
+
+![Play Button](pathname:///img/due-play.webp)
+
+### Stop
+
+Stops the program running on the DUELink hardware.
+
+![Stop Button](pathname:///img/due-stop.webp)
+
+### List
+
+The List button loads the program currently stored in flash into the editor window.
+
+![List Button](pathname:///img/due-list.webp)
+
+### Download
+
+Saves the code in the consoles editor window to a text file.
+
+![Save Button](pathname:///img/due-save.webp)
+
+### Load
+
+Loads a saved program into the editor. You can also copy/paste code into the editor.
+
+![Load Button](pathname:///img/due-load.webp)
+
+### Zoom
+
+Zooms the edit window in and out.
+
+![Zoom Button](pathname:///img/due-zoom.webp)
+
+### Docs
+
+Links to the DUELink Script Documentation.
+
+![Docs](pathname:///img/due-docs.webp)
+
+### Demos
+
+Select from pre-built DUELink Script Demos that load into the edit window.
+
+![Demos](pathname:///img/due-demos.webp)
+
+### Theme
+
+Changes the consoles theme to Light or Dark.
+
+![Theme Button](pathname:///img/due-theme.webp)
+
+---
+
+## Firmware Update
+
+Select and load the appropriate firmware to your device. While there are multiple ways to load a firmware onto DUELink modules, using the console is the easiest way.
+
+![Firmware](pathname:///img/due-firmware.webp)
+
+Click on firmware and follow the steps. The [Loader](./loader) page has more details as well.
