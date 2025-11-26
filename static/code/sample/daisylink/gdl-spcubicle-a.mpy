@@ -1,0 +1,45 @@
+# This sample runs on QT-PY 2040 adafruit
+# In this sample:
+# Update counter from 0 to 9 every second
+# Press LDR button to reset the counter to 0
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+def ButtonLDRPressed():
+    cmd = "dread(20,2)"
+    ret = due.Engine.ExecuteCommand(cmd)
+    return ret != 0
+
+def DrawNumber(number):
+    due.Engine.ExecuteCommand("clear(0)")
+    cmd = 'TextS("{}", 1, 1,0,1,1)'.format(number)
+    due.Engine.ExecuteCommand(cmd)
+    due.Engine.ExecuteCommand("show()")
+
+counter = 0
+
+while True:
+    if ButtonLDRPressed():
+        counter = 0
+
+    DrawNumber(counter)
+
+    counter += 1
+    if counter == 10:
+        counter = 0
+
+    time.sleep(1)  # Sleep for 1 second
+
+
+
+
+
