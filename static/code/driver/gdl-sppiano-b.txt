@@ -1,0 +1,107 @@
+##### Piano #####
+dim b0[13] = [23,19,12,13,14,15,16,18,24,10,9,8,17]
+dim b1[15] = [150,150,150,150,150,150,150,150,150,150,150,150,150,150,150] # min start
+dim b2[15] = [90,90,90,90,90,90,90,90,90,90,90,90,90,90,90] # max start
+
+fn DVer()
+    return 1.0
+fend
+
+fn Calibrate(t,s)
+    # t: Calibration time. Longer duration provides more accurate calibration.
+    #    Minimum is 300 ms, which can run 10 times (scanning 13 pins takes 25 ms).
+    #    Ideally, use 500 ms or 1000 ms.
+    #
+    # s: Sensitivity level, from 0% to 100%.
+    #    Lower values mean higher sensitivity.    
+
+    e = tickms() + t 
+
+    # calibration values of left and right arrow are stored in last two elements of b1 and b2
+    # right after pinao pads 
+    l = len(b0) # left 
+    r = l + 1 # right
+
+    # calibrate piano pads
+    while tickms() < e
+        for i = 0 to len(b0) 
+            p = PulseIn(b0[i], 50, 1, 1)
+
+            if (p > 150 || p < 90) 
+                # Just in case of a bad range (e.g., if the user touches the pad during calibration).
+                #println("Bad calibrate - Redo again")
+                e = tickms() + t 
+                i = 0
+            end
+
+            if p < b1[i]
+                b1[i] = p - p*s 
+            end
+            if p > b2[i]
+                b2[i] = p + p*s 
+            end
+        next
+
+
+    wend
+
+    # calibrate left arrow
+    p = PulseIn(11, 50, 1, 1)
+
+    if (p > 150 || p < 90) 
+        e = tickms() + t
+        #println("Bad calibrate - Redo again")
+    else
+        if p < b1[l]
+            b1[l] = p - p*s 
+        end
+        if p > b2[l]
+            b2[l] = p + p*s 
+        end
+
+        #println("left: max: ", b2[l], ", min: ",b1[l])
+    end
+
+    # calibrate right arrow
+    p = PulseIn(7, 50, 1, 1)
+
+    if (p > 150 || p < 90) 
+        e = tickms() + t
+        #println("Bad calibrate - Redo again")
+    else
+        if p < b1[r]
+            b1[r] = p - p*s 
+        end
+        if p > b2[r]
+            b2[r] = p + p*s 
+        end
+        #println("right: max: ", b2[r], ", min: ",b1[r])
+    end
+fend
+
+fn IsTouch(p,i) 
+    if p > b2[i] && p < 65000     
+        return 1
+    end     
+    return 0    
+fend
+
+fn ArrowL()
+    l = len(b0) # calibration value index
+
+    p = PulseIn(11, 50, 1, 1)
+
+    return (IsTouch(p,l))
+fend
+
+fn ArrowR()
+    r = len(b0) + 1 # calibration value index
+
+    p = PulseIn(7, 50, 1, 1)
+
+    return (IsTouch(p,r))
+fend
+
+Calibrate(1000,0.05) # Perform calibration within 1 second, with a sensitivity variation of 5%.
+
+##############################
