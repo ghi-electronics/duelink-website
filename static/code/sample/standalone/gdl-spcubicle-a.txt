@@ -1,0 +1,28 @@
+# In this sample:
+# Update counter from 0 to 9 every second
+# Press LDR button to reset the counter to 0
+
+Asio(1) # Optional: Allow communication from the uplink while running the script.
+
+_c = 0
+dim b1[2]
+
+while (1) 
+    if dread(20,2)
+        _c = 10
+    end
+    
+    
+    clear(0)
+    SprintF(b1,"%d",_c)
+    println(len(b1))
+    TextS(b1,1,1,0,1,1)
+    show()
+    
+    _c = _c+1
+    if (_c = 10)
+        _c = 0
+    end
+    
+    wait(1000)
+wend
