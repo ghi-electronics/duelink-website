@@ -1,3 +1,8 @@
+# In this sample:
+# The left and right ears stay on.
+# When no button is pressed: the left and right eyes blink every second.
+# When the LDR button is pressed: the left and right eyes blink every 200 ms, and a beep plays as long as the button is held down.
+
 import sys
 import time
 from DUELink.DUELinkController import DUELinkController
