@@ -66,13 +66,13 @@ fn Test()
         end
         
         if a = 3 && b = 3 && c = 3
-            println("Test passed")
+            println("Test passed!")
             Wait (1000)
         end
         
         
 
-        Wait (10)
+        Wait (1)
     wend
 fend
 
