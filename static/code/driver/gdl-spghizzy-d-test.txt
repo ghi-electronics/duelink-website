@@ -29,7 +29,7 @@ fn Test()
                 LEye(255,255,255)
                 REye(255,255,255)
                 Ear(1,1)
-                Mouth(1)
+                Mouth(1,1,1)
                 
                 Buzzer(1000, 100)
             else
@@ -39,7 +39,7 @@ fn Test()
                 LEye(0,0,0)
                 REye(0,0,0)
                 Ear(0,0)
-                Mouth(0)
+                Mouth(0,0,0)
             end
             
             cmd("show()")
