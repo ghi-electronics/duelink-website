@@ -15,6 +15,25 @@ fn Test()
     cmd("TextS(\"Starting test...\", 1, 0, 0, 1,2)")
     cmd("Show()") 
 
+    s = MemRead(3155440,bit8) # read flash status
+    
+    if (s = 2)
+        z = MemRead(3182628,bit8) # read size
+        if (z != 16)
+            while (1)
+                println("Error: Flash Wrong size. Size is ", z, "MB")
+                wait(1000)
+            wend
+        end
+    else
+        while (1)
+            println("Error: Bad flash")
+            wait(1000)
+        wend
+    end
+    
+    println("Flash attached successfully. Size ", z, "MB")
+    
     c = 0
     t = 3
     

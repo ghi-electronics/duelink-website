@@ -1,5 +1,5 @@
 ##### HDMI Driver #####
-
+#The driver needs to be reworked.
 fn DVer()
     return 0.2
 fend
