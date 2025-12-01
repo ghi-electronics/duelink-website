@@ -31,7 +31,7 @@ fn Test()
                 Ear(1,1)
                 Mouth(1,1,1)
                 
-                Buzzer(1000, 100)
+                PlyBeep()
             else
                 cmd("Texts(\"Btn released!\",1,0,0,1,2)") 
                 println("Released")
