@@ -1,5 +1,5 @@
-##### HDMI Test #####
-
+##### Portal CP70 #####
+ 
 fn Rset()
     cmd("reset(0)") # reset my client
     reset(0) # reset myself
@@ -14,7 +14,7 @@ fn Test()
     cmd("Clear(0)")
     cmd("TextS(\"Starting test...\", 1, 0, 0, 1,2)")
     cmd("Show()") 
-
+    
     s = MemRead(3155440,bit8) # read flash status
     
     if (s = 2)
@@ -33,7 +33,7 @@ fn Test()
     end
     
     println("Flash attached successfully. Size ", z, "MB")
-    
+
     c = 0
     t = 3
     
@@ -242,4 +242,16 @@ fn Test()
         Synth(0x00, 0)
         Wait(1000)
     next
-fend    
+    
+    while (1)
+    
+        _x = TouchX()
+        _y = TouchY()
+        if _x != -1 || _y !=-1
+    
+            println("X = ", (_x), ", Y = ", (_y))
+        end
+    
+        wait(100) 
+    wend
+fend 

@@ -1,0 +1,84 @@
+##### Joystick L  #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    
+    x = JoystickX()
+    y = JoystickY()
+    p = dread(BtnPin(),1)
+    s = p
+    
+    n = x
+    m = y
+    a = 0
+    b = 0
+    c = 0
+
+    o = 0
+    while (1)
+        o = 0
+        n = JoystickX()
+        if (x > n+1 || x < n-1) 
+            
+            x = n 
+            
+
+            if (x >= 99)
+                a = a | 1
+            end
+            
+            if (x <= 1)
+                a = a | 2
+            end
+            o = 1
+        end
+        
+        m = JoystickY() 
+        if (y > m+1 || y < m-1) 
+            
+            y = m 
+
+            if (y >= 99)
+                b = b | 1
+            end
+            
+            if (y <= 1)
+                b = b | 2
+            end 
+            o = 1
+        end
+        
+        if (o)
+            println("X: ", x, ", Y: ", y)
+        end
+        
+        p = dread(BtnPin(),1)
+        if  s != p
+            s = p
+            
+            if (s)
+                c = c | 1
+                println("Button released")
+            else
+                c = c | 2
+                println("Button pressed")
+            end                               
+        end
+        
+        if a = 3 && b = 3 && c = 3
+            println("=>Test passed!!!")
+            Wait (1000)
+        end
+        
+        Wait (1)
+    wend
+fend
+
