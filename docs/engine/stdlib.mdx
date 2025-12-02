@@ -18,20 +18,22 @@ Unless otherwise is stated, all Standard Libraries that calls for array require 
 
 ## Special Pins
 
-Some functions only work on pins with specific features.
+Pin P0 is always connected to STAT led. In some rare cases the STAT LED becomes part on an LED matrix.
 
-- Analog capable pins: P1, P2, P3, P4, P5, P6, P7, P8, P9, P17
-- Interrupt capable pins: P1, P2, P3, P4, P5, P6, P7, P12
-- PWM capable pins: P1, P2, P3, P4, P5, P6, P7, P8, P11
+Some functions only work on pins with specific features:
 
-:::tip
-PWM pins share timers. Changing the frequency on one will affect the other. Changing duty-cycle is okay however!
+- Analog capable pins: P1, P2, P3, P4, P5, P6, P7, P8, P9, P17.
+- Interrupt capable pins: P1, P2, P3, P4, P5, P6, P7, P12.
+- PWM capable pins: P0, P1, P2, P3, P4, P5, P6, P7, P8, P11.
 
-- P1, P2
-- P3
-- P4, P11
-- P5, P6, P7, P8
-:::
+PWM pins share internal timers. Changing the frequency on one will affect the other. Changing duty-cycle is okay however! For example, using a servo motor on P1 and a buzzer on P2 will cause problems as both share the same timer.
+
+- P0: TIM16.
+- P1, P2: TIM1.
+- P3: TIM14.
+- P4, P11: TIM2.
+- P5, P6, P7, P8: TIM3.
+
 
 ---
 
