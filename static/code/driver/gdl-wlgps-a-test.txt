@@ -6,16 +6,16 @@ fn Rset()
     cmd("reset(0)") # reset my client
     reset(0) # reset myself
 fend
-
+ 
 fn Test()    
     println("Starting test...")
     Wait(1)
     dlmode(2,0)
     Wait(10)
-    
+ 
     c = 0
     p = 0
-    
+ 
     while (1)
         r = SerB2R()
         if(r = 0)
@@ -43,7 +43,7 @@ fn Test()
  
                     if b7[0] = '$' && b7[1]= 'G' && b7[2]= 'P' && b7[3]= 'T' && b7[4]= 'X'&& b7[5]= 'T'
                         p = 1
-                        
+ 
                         SerDisc() # No need
                     end
  
@@ -58,12 +58,14 @@ fn Test()
             println("***********************************")
  
             p = 0 # reset flag
-            for x = 6 to len(b7)
-                if b7[x] = 'A' && b7[x+1] = 'N' && b7[x+8] = 'O' && b7[x+9] = 'K'
-                    println("Antenna OK")
-                    break
+            for x = 6 to len(b7)-9
+                if b7[x] = 'A' 
+                    if b7[x+1] = 'N' &&  b7[x+2] = 'T'  && b7[x+3] = 'E' && b7[x+4] = 'N' && b7[x+5] = 'N' && b7[x+6] = 'A' && b7[x+7] = ' ' && b7[x+8] = 'O' && b7[x+9] = 'K'
+                        println("Antenna OK")
+                        break
+                    end
                 end
-                
+ 
             next
  
         end

@@ -212,3 +212,16 @@ fn Restart(c) # 0: cold restart, other: hot restart
     SerWr(0x0A)
     wait(100)
 fend
+
+fn DVer()
+    return 0.1
+fend
+
+fn Init() 
+    dwrite(3,1) # enable rx
+    SerCfg(9600, 2048)  
+fend
+ 
+Init() 
+
+####################
