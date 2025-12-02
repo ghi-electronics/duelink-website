@@ -1,0 +1,214 @@
+##### GPS #####
+# This driver parses the GNRMC message, which stands for Global Navigation Satellite System – Recommended Minimum Navigation Information.
+
+dim b7[2048] # message buffer
+
+_d = 0 # day
+_m = 0 # month
+_y = 0 # year
+_h = 0 # hour
+_n = 0 # min
+_h = 0 # second
+ 
+fn ParseSig(b7) # return signal ready: 1 or 0
+    c = 0
+    for i = 0 to len(b7)
+        if b7[i] = ','
+            c = c + 1
+ 
+            if c = 2 # Signal
+                break
+            end
+        end
+    next
+ 
+    i = i + 1
+ 
+    if (b7[i] = 'A')
+        #println("Signal ready")
+        return 1 # signal detected
+    end
+ 
+    #println("Signal not ready")
+    return 0
+fend
+ 
+fn ParseTime(b7) # hour, min, second set to _h, _n, _s
+    c = 0
+    for i = 0 to len(b7)
+        if b7[i] = ','
+            c = c + 1
+ 
+            if c = 1 # time
+                break
+            end
+        end
+    next
+ 
+    i = i + 1
+ 
+    _h = Parse(b7, i, 2)
+    i = i + 2 
+    _n = Parse(b7, i, 2)
+    i = i + 2 
+    _s = Parse(b7, i, 2)
+ 
+ 
+    #println("Time (UTC): ",h, ":",m, ":",s)
+fend
+ 
+fn ParseDate(b7) # set date, month, year to _d, _m, _y
+    #println("raw: ", b7)
+    c = 0
+    for i = 0 to len(b7) 
+        if b7[i] = ','
+            c = c + 1
+ 
+            if c = 9 # date
+                break
+            end
+        end
+    next
+ 
+    i = i + 1
+ 
+    _d = Parse(b7, i, 2)
+    i = i + 2 
+    _m = Parse(b7, i, 2)
+    i = i + 2 
+    _y = Parse(b7, i, 2)
+ 
+ 
+    #println("Date (DD/MM/YY): ",d, "/",m, "/",y)
+fend
+ 
+fn ParseLat(b7) #return latitude
+    c = 0
+    for i = 0 to len(b7)
+        if b7[i] = ','
+            c = c + 1
+ 
+            if c = 3 # lat
+                break
+            end
+        end
+    next
+ 
+    i = i + 1
+ 
+    for x = i to len(b7)
+        if b7[x] = '.'
+            break
+        end
+    next
+ 
+    d = Parse(b7, i, x-i-2) # deg
+ 
+    i = i + (x-i-2)
+ 
+    for x = i to len(b7)
+        if b7[x] = ','
+            break
+        end
+    next
+ 
+    m = Parse(b7, i, x-i) # min
+ 
+    v = d + (m / 60)
+ 
+    x = x + 1
+ 
+    if (b7[x] = 'S' || b7[x] = 'W')
+        v = v * -1
+    end
+ 
+    return v
+    #println("Latitude: ",v )
+ 
+fend
+ 
+fn ParseLon(b7) #return longitude
+    c = 0
+    for i = 0 to len(b7)
+        if b7[i] = ','
+            c = c + 1
+ 
+            if c = 5 # longtitube
+                break
+            end
+        end
+    next
+ 
+    i = i + 1
+ 
+    for x = i to len(b7)
+        if b7[x] = '.'
+            break
+        end
+    next
+ 
+    d = Parse(b7, i, x-i-2) # deg
+ 
+    i = i + (x-i-2)
+ 
+    for x = i to len(b7)
+        if b7[x] = ','
+            break
+        end
+    next
+ 
+    m = Parse(b7, i, x-i) # min
+ 
+    v = d + (m / 60)
+ 
+    x = x + 1
+ 
+    if (b7[x] = 'S' || b7[x] = 'W')
+        v = v * -1
+    end
+ 
+    return v
+    #println("Longitude: ",v )
+ 
+fend
+ 
+fn Speed(b7) #return speed
+    c = 0
+    for i = 0 to len(b7)
+        if b7[i] = ','
+            c = c + 1
+ 
+            if c = 7 # speedKnots
+                break
+            end
+        end
+    next
+ 
+    i = i + 1
+ 
+    for x= i to len(b7)
+        if b7[x] = ','
+            break
+        end
+    next
+ 
+    s = Parse(b7, i, x-i) # min
+ 
+    if s > 0
+        s = s * 1.852
+    end
+    return s
+    #println("Speed: " , s, " km/h")
+fend
+ 
+fn Restart(c) # 0: cold restart, other: hot restart
+    dim b6[] = "$PCAS10,0*1C"  
+    if c = 0
+        dim b6[] = "$PCAS10,2*1E"    
+    end
+    
+    SerWrs(b6)
+    SerWr(0x0D)
+    SerWr(0x0A)
+    wait(100)
+fend
