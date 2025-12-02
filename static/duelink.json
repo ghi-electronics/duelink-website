@@ -144,7 +144,6 @@
         "Accelerometer",
         "Light Sensor",
         "4 User Buttons",
-        "Light Sensor",
         "2 Servo Ports",
         "RGB LED",
         "Tunes Buzzer",
@@ -326,12 +325,12 @@
     },
     {
       "name": "Piano",
-      "partNumber": "GDL-SPPIANO-A",
+      "partNumber": "GDL-SPPIANO-B",
       "PID": "0x0C0005",
       "category": "Specialty",
       "price": 14.95,
       "tagline": "Capacitive Touch Piano Module",
-      "description": "Play notes using capacitive touch pads or connect alligator clips to turn ordinary objects into a piano keys. Mounting holes to connect additional modules.\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
+      "description": "Play notes using capacitive touch pads or connect alligator clips to turn ordinary objects into piano keys. Mounting holes to connect additional modules.\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
       "keyFeatures": [     
         "Piano key layout",
         "Multiple octave selection",
@@ -343,7 +342,7 @@
         "111.5x75.5mm overall dimension"
       ],
     
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLED(i,s)` | Set specific LED to on or off |\n| `DVer()` | This driver version. |"
+      "driverApi": "Function | Description \n----------|-------------\n`DVer()` | This driver version.\n`SetLED(i,s)` | Set specific LED to on or off.\n`SetLedAll(o)` | Set all leds 1,2,3,4,5 to on(1) or off(0).\n`TLArrow()` | return 1 if touched on left arrow.\n`TRArrow()` | return 1 if touched on right arrow.\n`TPad(i)` | return 1 if touched on pad `i`."
     },
   {
       "name": "Controller",

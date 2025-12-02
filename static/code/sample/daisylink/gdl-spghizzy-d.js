@@ -1,3 +1,8 @@
+// In this sample:
+// The left and right ears stay on.
+// When no button is pressed: the left and right eyes blink every second.
+
+
 import pkg_serialusb from 'dlserialusb';
 const {SerialUSB} = pkg_serialusb
 

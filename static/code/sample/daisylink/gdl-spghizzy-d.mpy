@@ -1,0 +1,77 @@
+# This sample runs on QT-PY 2040 adafruit
+# In this sample:
+# The left and right ears stay on.
+# When no button is pressed: the left and right eyes blink every second.
+# When the LDR button is pressed: the left and right eyes blink every 200 ms, and a beep plays as long as the button is held down.
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+
+def SetLeftEye(red, green, blue):
+    cmd = 'LEye({},{},{})'.format(red, green, blue)
+    due.Engine.ExecuteCommand(cmd)
+
+def SetRightEye(red, green, blue):
+    cmd = 'REye({},{},{})'.format(red, green, blue)
+    due.Engine.ExecuteCommand(cmd)
+
+def SetEar(left, right):
+    l = 1 if left else 0
+    r = 1 if right else 0
+    cmd = 'Ear({},{})'.format(l, r)
+    due.Engine.ExecuteCommand(cmd)
+
+def SetMouth(left, center, right):
+    l = 1 if left else 0
+    c = 1 if center else 0
+    r = 1 if right else 0
+    cmd = 'Mouth({},{},{})'.format(l, c, r)
+    due.Engine.ExecuteCommand(cmd)
+
+def PlayBeep():
+    cmd = 'freq(3,1000,100,0.5)'
+    due.Engine.ExecuteCommand(cmd)
+    time.sleep(0.1)
+
+def IsButtonPressed():
+    cmd = 'dread(20,2)'
+    ret = due.Engine.ExecuteCommand(cmd)
+    return ret == 1
+
+# Use ExecuteCommand to send standard library
+due.Engine.ExecuteCommand('statled(100, 100, 0)')
+
+# Use defined function
+SetEar(True, True)
+PlayBeep()
+
+while True:
+    delay = 0.5
+    btnPress = IsButtonPressed()
+
+    if btnPress:
+        delay = 0.1
+        PlayBeep()
+
+    SetMouth(btnPress, btnPress, btnPress)
+    SetLeftEye(255, 255, 255)
+    SetRightEye(255, 255, 255)
+    time.sleep(delay)
+    SetLeftEye(0, 0, 0)
+    SetRightEye(0, 0, 0)
+    time.sleep(delay)
+
+
+
+
+
+

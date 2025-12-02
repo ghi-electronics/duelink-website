@@ -1,0 +1,30 @@
+# In this sample:
+# Simulate tones from note C4 to C5
+# Press the left arrow all leds 1,2,3,4,5 are off, play a sweep sound
+# Press the right arrow all leds 1,2,3,4,5 are on, play a sweep sound
+
+dim a1[13] = {523,554,587,622,659,698,740,784,830,880,932,987,1047}
+while 1     
+    for i = 0 to len(b0) 
+        if TPad(i)
+            freq(3,a1[i],0, 0.5)
+            while (1)
+                if (TPad(i)=0) 
+                    freq(3,a1[i],0, 1)
+                    break
+                end
+            wend
+        end
+    next
+    
+    if (TLArrow())
+        SetLEDAll(0)
+        sweep(3, 1000,2000,50,255,250)
+    end
+    
+    if (TRArrow())
+        SetLEDAll(0)
+        sweep(3, 2000,1000,255,50,250)
+    end
+wend
+
