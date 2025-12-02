@@ -19,7 +19,7 @@ fn Test()
     while (1)
         r = SerB2R()
         if(r = 0)
-            println("Wait for data comming...")
+            #println("Waiting for incoming msg...")
             while (SerB2R() = 0)
                 wait(2)
             wend
