@@ -7,6 +7,6 @@
 5. Press Button D. The log box will display: “Btn D pressed!” LED 2 will turn on.
 6. Press Button L. The log box will display: “Btn L pressed!” LED 4 will turn on.
 7. Press Button R. The log box will display: “Btn R pressed!” LED 6 will turn on.
-8. Press Button LDR. The log box will display: “Btn LDR pressed!”. All red LEDs will blink.
+8. Hold down Button LDR. The log box will display: “Btn LDR pressed!”. All red LEDs will blink.
 
 
