@@ -13,7 +13,7 @@
       "name": "Essentials Kit",
       "partNumber": "GDL-KTESSEN-A",
       "category": "Kit",
-      "price": 74.95,
+      "price": 99.95,
       "tagline": "Essentials Kit With Most Common Modules!",
       "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [TFT N18](/docs/products/dstftn18-b) - 1.8\" Color Display\n* [LED R16](/docs/products/ldledr16-b)\n* [Rotary](/docs/products/hirotary-c)\n* [Distance](/docs/products/sedistance-b)\n* [ServoX1](/docs/products/acservox1-a)\n* [Buzzer](/docs/products/sobuzzer-b)\n* [Light](/docs/products/selight-a)\n* [USB Hook](/docs/products/adusbhook-a)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)\n* USB C Cable",
       "keyFeatures": [
@@ -29,7 +29,7 @@
       "name": "Gimme More Kit",
       "partNumber": "GDL-KTGIMME-A",
       "category": "Kit",
-      "price": 74.95,
+      "price": 99.95,
       "tagline": "Never Enough! Gimme More Modules!",
       "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Wireless ESP32](/docs/products/wlesp32-a)\n* [Button S7](/docs/products/hibuttons7-a)\n* [LED MT1208](/docs/products/ldmt1208-a)\n* [Fan](/docs/products/acfan-b)\n* [Accel](/docs/products/seaccel-a)\n* [Retro Sound](/docs/products/soretrosnd-a)\n* [Holey Board](/docs/products/axholey)\n* [USB Stick](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
       "keyFeatures": [
