@@ -1,23 +1,30 @@
+# This sample runs on QT-PY 2040 adafruit
 # In this sample:
 # Pull light value every second
 # When light below 25, turn the statled on
 # When light higher than 25, turn the statled off
 
 import time
-from DUELink.DUELinkController import DUELinkController
+import duelink 
 
-availablePort = DUELinkController.GetConnectionPort()
-duelink = DUELinkController(availablePort)
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
 
 def GetLight():
-    ret = duelink.Engine.ExecuteCommand("Light()")
+    ret = due.Engine.ExecuteCommand("Light()")
     return int(ret)
 
 def SetStatLed(on):
     cmd = "statled(1,0,0)"
     if not on:
         cmd = "statled(0,1,0)"
-    duelink.Engine.ExecuteCommand(cmd)
+    due.Engine.ExecuteCommand(cmd)
 
 while True:
     light = GetLight()
@@ -29,3 +36,4 @@ while True:
 
     print(f"Light value: {light}")
     time.sleep(1)
+

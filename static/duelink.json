@@ -15,7 +15,7 @@
       "category": "Kit",
       "price": 79.95,
       "tagline": "Essentials Kit With Most Common Modules!",
-      "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [TFT N18](/docs/products/dstftn18-b) - 1.8\" Color Display\n* [LED R16](/docs/products/ldledr16-b)\n* [Rotary](/docs/products/hirotary-c)\n* [Distance](/docs/products/sedistance-b)\n* [ServoX1](/docs/products/acservox1-a)\n* [Buzzer](/docs/products/sobuzzer-b)\n* [Light](/docs/products/selight-a)\n* [USB Hook](/docs/products/adusbhook-a)\n* [Holey Board](/docs/products/axholey)\n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)\n* USB C Cable",
+      "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [TFT N18 1.8\" Color Display](/docs/products/dstftn18-b)\n* [LED R16 Ring](/docs/products/ldledr16-b)\n* [Rotary Encoder Input](/docs/products/hirotary-c)\n* [Distance Sensor](/docs/products/sedistance-b)\n* [Servo X1 Motor](/docs/products/acservox1-a)\n* [Buzzer for Generating Sounds & Melodies](/docs/products/sobuzzer-b)\n* [Light Sensor](/docs/products/selight-a)\n* [USB Hook for Connecting Modules Directly to USB](/docs/products/adusbhook-a)\n* [Holey Board for Mounting Modules](/docs/products/axholey)\n* [Mounting Hardware Variety Pack](/docs/products/axmnt)\n* [Cables Variety & 50mm Packs](/docs/products/axcbl) (10 cables)\n* USB C Cable\n* Storage Box",
       "keyFeatures": [
         "Most Common Modules",
         "USB Hook + Cable",
@@ -31,7 +31,7 @@
       "category": "Kit",
       "price": 79.95,
       "tagline": "Never Enough! Gimme More Modules!",
-      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Wireless ESP32](/docs/products/wlesp32-a)\n* [Button S7](/docs/products/hibuttons7-a)\n* [LED MT1208](/docs/products/ldmt1208-a)\n* [Fan](/docs/products/acfan-b)\n* [Accel](/docs/products/seaccel-a)\n* [Retro Sound](/docs/products/soretrosnd-a)\n* [Holey Board](/docs/products/axholey)\n* [USB Stick](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n* [Mounting Hardware](/docs/products/axmnt) - Mounting HW Variety Pack\n* [Cables](/docs/products/axcbl) - Cable Variety Pack + 50mm Pack = (10 cables)",
+      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Wireless ESP32 Connectivity Module](/docs/products/wlesp32-a)\n* [7x Tactile Button Module](/docs/products/hibuttons7-a)\n* [12x8 LED Matrix](/docs/products/ldmt1208-a)\n* [Fan Motor](/docs/products/acfan-b)\n* [3-Axis Accelerometer](/docs/products/seaccel-a)\n* [Retro Sound 3.5mm Audio Jack](/docs/products/soretrosnd-a)\n* [Holey Board for Mounting Modules](/docs/products/axholey)\n* [USB Stick for Connecting Modules Directly to USB](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n*  [Mounting Hardware Variety Pack](/docs/products/axmnt)\n* [Cables Variety & 50mm Packs](/docs/products/axcbl) (10 cables)\n* USB C Cable\n* Storage Box",
       "keyFeatures": [
         "More Common Modules",
         "USB Stick",
@@ -927,7 +927,7 @@
         "360 degree rotation",
         "27x22mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetValue()` | Returns the current rotary reading. |\n| `DVer()` | This driver version. |"
+      "driverApi": "Function | Description \n----------|-------------\n`GetValue()` | Returns the current rotary reading. \n`SetValue(v)` | Set rotary to `v`. \n `DVer()` | This driver version. "
     },
     {
       "name": "Dial",

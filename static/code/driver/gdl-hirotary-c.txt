@@ -60,6 +60,10 @@ fn GetValue()
     return val
 fend
 
+fn SetValue(v)
+    val = v
+fend
+
 fn Pressed() 
     return dread(2,1) = 0
 fend
