@@ -1,0 +1,23 @@
+# This sample runs on QT-PY 2040 adafruit
+# In this sample:
+# Update distance in cm every second
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+def GetDistance():
+    ret = due.Engine.ExecuteCommand("Distance()")
+    return ret
+
+while True:
+    distance = GetDistance()
+    print(f"Distance: {distance} cm")
+    time.sleep_ms(1000)  # delay 1000 ms, matching C# Thread.Sleep(1000)
