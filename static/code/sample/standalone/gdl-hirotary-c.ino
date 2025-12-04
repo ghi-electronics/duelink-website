@@ -5,7 +5,6 @@
 
 #include <RotaryEncoder.h>
 
-// Pins (adjust for your board):
 #define PIN_A   getpin(6)  // CLK (A) 
 #define PIN_B   getpin(5)  // DT  (B)
 #define PIN_BTN getpin(2)  // SW (button) – active LOW with INPUT_PULLUP
