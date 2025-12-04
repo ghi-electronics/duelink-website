@@ -1,14 +1,17 @@
-_i = 1
- 
+# In this sample:
+# Scan from led D1 to led D16
+
+_i = 0
 while 1
  
-    LedOff()
- 
-    SetLed(_i, 1)
+    if (trunc(_i / 16) % 2 = 0)
+        SetLed(_i%16+1, 1)
+    else
+        SetLed(_i%16+1, 0)
+    end
  
     _i = (_i + 1)
- 
-    if (_i>16)
-        _i = 1
-    end
+    
+    wait(100)
+
 wend
