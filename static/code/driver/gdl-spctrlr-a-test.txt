@@ -1,0 +1,66 @@
+##### Controller #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+ 
+fn Test()
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+ 
+    for i = 0 to 3
+        wait(100)
+        SetAllLed(1)
+        wait(100)
+        SetAllLed(0)
+    next
+    while 1
+        if BtnDown(BtnPin('U'))
+            println("Btn Up pressed!")
+            SetLed(8,1)
+        end
+ 
+        if BtnDown(BtnPin('D'))
+            println("Btn Down pressed!!!")
+            SetLed(4,1)
+        end
+ 
+        if BtnDown(BtnPin('L'))
+            println("Btn Left pressed!!")
+            SetLed(6,1)
+        end
+ 
+        if BtnDown(BtnPin('R'))
+            println("Btn Right pressed!")
+            SetLed(2,1)
+        end
+ 
+        if BtnDown(BtnPin('A'))
+            println("Btn A pressed!")
+            SetAllLed(1)
+        end
+ 
+        if BtnDown(BtnPin('B'))
+            println("Btn B pressed!")
+            SetAllLed(0)
+        end
+ 
+        if dread(20,2)
+            println("Btn LDR pressed!")
+            while dread(20,2)
+                wait(100)
+                SetAllLed(0)
+                wait(100)
+                SetAllLed(1)
+            wend
+ 
+            SetAllLed(0)
+        end
+ 
+        wait(100)
+    wend  
+fend
+

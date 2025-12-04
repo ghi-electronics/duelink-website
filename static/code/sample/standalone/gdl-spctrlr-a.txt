@@ -1,0 +1,52 @@
+# In this sample:
+# Press buttons U, D, L, R: LEDs turn on at positions 8, 4, 6, and 2.
+# Press button A: All red LEDs turn on.
+# Press button B: All red LEDs turn off.
+# Press LDR button: All red LEDs blink.
+
+while 1
+    if BtnDown(BtnPin('U'))
+        println("Btn Up pressed")
+        SetLed(8,1)
+    end
+
+    if BtnDown(BtnPin('D'))
+        println("Btn Down pressed")
+        SetLed(4,1)
+    end
+
+    if BtnDown(BtnPin('L'))
+        println("Btn Left pressed")
+        SetLed(6,1)
+    end
+
+    if BtnDown(BtnPin('R'))
+        println("Btn Right pressed")
+        SetLed(2,1)
+    end
+
+    if BtnDown(BtnPin('A'))
+        println("Btn A pressed")
+        SetAllLed(1)
+    end
+
+    if BtnDown(BtnPin('B'))
+        println("Btn B pressed")
+        SetAllLed(0)
+    end
+
+    if dread(20,2)
+        println("Btn LDR pressed")
+        while dread(20,2)
+            wait(100)
+            SetAllLed(0)
+            wait(100)
+            SetAllLed(1)
+        wend
+
+        SetAllLed(0)
+    end
+
+    wait(100)
+wend  
+
