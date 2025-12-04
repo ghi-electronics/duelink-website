@@ -1,22 +1,31 @@
+# In this sample:
+# Draw texts with different colors and sizes
+# Draw a circle that moves from right to left and then from left to right.
+# Use FillRect to clear specific regions on the screen
+
 _x = 0
 _d = -9
 
 Clear(0xff) # Clear to blue color
-Fill(0xffffff, 0, 2, 80, 20)
-TextS("DUELink",0x00000, 0, 5, 2, 2)
+Fill(0xffffff, 0, 0, 80, 32)
+TextT("DUELink",0xFF0000, 22, 1)
+TextS("DUELink",0x00FF00, 20, 7, 1, 1)
+TextS("DUELink",0x0000FF, 0, 17, 2, 2)
     
 while 1
-    TextS(Fmt(_x), 0xfaf605, 36, 35 ,1, 1)
-    Circle(0xf54242, _x, 55, 3) 
+    TextS(Fmt(_x), 0xfaf605, 36, 37 ,1, 1)
+    Circle(0xf54242, _x, 55, 6) 
     Show()
     Wait(1)
     
     Fill(0xFF, 36, 35, 16, 8)#clear test
-    Circle(0xff, _x, 55, 3)#clear circle
+    Circle(0xff, _x, 55, 6)#clear circle
     
     _x=_x+_d
 
     if(_x < 0 || _x > 80)
         _d = _d * -1
     end   
-wend 
+    
+    wait(100)
+wend  
