@@ -18,7 +18,6 @@ async function main() {
     while (true) {
         const distance = await GetDistance();
         console.log(`Distance: ${distance} cm`);
-        // 1000 ms delay, matching C# Thread.Sleep(1000)
         await new Promise(resolve => setTimeout(resolve, 1000));
     }
 }
