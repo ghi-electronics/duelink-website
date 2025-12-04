@@ -1,0 +1,95 @@
+# This sample runs on QT-PY 2040 adafruit
+# In this sample:
+# Create a watch using the built-in graphics library.
+
+import time
+import math
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# Screen parameters
+WIDTH = 160 // 2
+HEIGHT = 128 // 2
+CENTER_X = WIDTH // 2
+CENTER_Y = HEIGHT // 2
+RADIUS = 30
+
+# --- API Wrappers ---
+def DrawTextTiny(text, color, x, y):
+    due.Engine.ExecuteCommand(f'textT("{text}", {color}, {x}, {y})')
+
+def DrawText(text, color, x, y, scalex, scaley):
+    due.Engine.ExecuteCommand(f'textS("{text}", {color}, {x}, {y}, {scalex}, {scaley})')
+
+def DrawLine(x1, y1, x2, y2, color):
+    due.Engine.ExecuteCommand(f'line({color}, {x1}, {y1}, {x2}, {y2})')
+
+def FillRect(color, x, y, width, height):
+    due.Engine.ExecuteCommand(f'fill({color}, {x}, {y}, {width}, {height})')
+
+def DrawCircle(x, y, radius, color):
+    due.Engine.ExecuteCommand(f'circle({color}, {x}, {y}, {radius})')
+
+def ClearScreen(color):
+    due.Engine.ExecuteCommand(f'clear({color})')
+
+def Show():
+    due.Engine.ExecuteCommand('show()')
+
+def SetPixel(color, x, y):
+    due.Engine.ExecuteCommand(f'Pixel({color},{x},{y})')
+
+# --- Color helper ---
+def RGB(r, g, b):
+    return (r << 16) | (g << 8) | b
+
+# --- Draw hour numbers ---
+def DrawNumbers():
+    for h in range(1, 13):
+        angle = math.pi / 6 * (h - 3)  # 0 hour at right
+        x = CENTER_X + int((RADIUS - 5) * math.cos(angle))
+        y = CENTER_Y + int((RADIUS - 5) * math.sin(angle))
+        DrawTextTiny(str(h), RGB(255, 255, 255), x-2, y-2)
+
+# --- Draw a watch hand ---
+def DrawHand(angle, length, color):
+    x = CENTER_X + int(length * math.cos(angle))
+    y = CENTER_Y + int(length * math.sin(angle))
+    DrawLine(CENTER_X, CENTER_Y, x, y, color)
+
+# --- Get current time ---
+def get_time():
+    t = time.localtime()  # returns (year, month, day, hour, min, sec, weekday, yearday)
+    return t[3], t[4], t[5]  # hour, minute, second
+
+# --- Main loop ---
+while True:
+    ClearScreen(RGB(0, 127, 255))  # background
+
+    DrawCircle(CENTER_X, CENTER_Y, RADIUS, RGB(0, 0, 127))  # clock circle
+    DrawNumbers()
+
+    hour, minute, second = get_time()
+
+    # Angles in radians
+    secondAngle = math.pi / 30 * (second - 15)
+    minuteAngle = math.pi / 30 * (minute - 15 + second / 60.0)
+    hourAngle = math.pi / 6 * ((hour % 12) - 3 + minute / 60.0)
+
+    # Draw hands
+    DrawHand(hourAngle, RADIUS - 10, RGB(255, 0, 0))    # Hour: Red
+    DrawHand(minuteAngle, RADIUS - 7, RGB(0, 255, 0))   # Minute: Green
+    DrawHand(secondAngle, RADIUS - 5, RGB(0, 0, 255))   # Second: Blue
+
+    DrawTextTiny("DUELink", RGB(255, 0, 255), 20, 30)
+    Show()
+
+    time.sleep(0.01)  # small delay for smooth update
+
