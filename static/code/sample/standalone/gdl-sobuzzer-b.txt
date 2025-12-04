@@ -1,4 +1,6 @@
+# In this sample:
 #Play One Octave using Array of frequencies
+
 Dim a1[10*2]= {262,200,
                294,200,
                311,200,
