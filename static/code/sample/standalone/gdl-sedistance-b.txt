@@ -1,4 +1,7 @@
+# In this sample:
+# Update distance in cm every second
+
 while 1
     PrintLn("Distance: ", Distance(),"cm")
-    Wait(200) 
+    Wait(1000) 
 wend
