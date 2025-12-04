@@ -927,7 +927,7 @@
         "360 degree rotation",
         "27x22mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetValue()` | Returns the current rotary reading. |\n| `DVer()` | This driver version. |"
+      "driverApi": "Function | Description \n----------|-------------\n`GetValue()` | Returns the current rotary reading. \n`SetValue(v)` | Set rotary to `v`. \n `DVer()` | This driver version. "
     },
     {
       "name": "Dial",
