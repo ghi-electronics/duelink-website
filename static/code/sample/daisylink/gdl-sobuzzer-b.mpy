@@ -1,15 +1,21 @@
+# This sample runs on QT-PY 2040 adafruit
 # In this sample:
 # Play Jingle song
 
 import time
-from DUELink.DUELinkController import DUELinkController
+import duelink 
 
-availablePort = DUELinkController.GetConnectionPort()
-duelink = DUELinkController(availablePort)
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
 
 def PlayJingle():
     cmd = "melodyP(7,a1)"
-    duelink.Engine.ExecuteCommand(cmd)
+    due.Engine.ExecuteCommand(cmd)
 
 # Frequency-duration array
 freq_dur = [
@@ -24,9 +30,11 @@ freq_dur = [
 ]
 
 # Send array to DUELink
-duelink.Engine.ExecuteCommand("dim a1[31*2]")
+due.Engine.ExecuteCommand("dim a1[31*2]")
+
 for i in range(len(freq_dur)):
-    cmd = f"a1[{i}]={freq_dur[i]}"
-    duelink.Engine.ExecuteCommand(cmd)
+    cmd = "a1[{}]={}".format(i, freq_dur[i])
+    due.Engine.ExecuteCommand(cmd)
 
 PlayJingle()
+
