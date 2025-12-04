@@ -64,7 +64,7 @@ const sidebars = {
           label: "Specialty",
           items: [
             "products/spchrono-a",
-            "products/spctrlr-a",
+            "products/spctrlr-b",
             "products/spcubicle-a",
             "products/spghizzy-d",
             "products/spghizzyjr-b",

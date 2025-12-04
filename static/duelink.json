@@ -346,7 +346,7 @@
     },
   {
       "name": "Controller",
-      "partNumber": "GDL-SPCTRLR-A",
+      "partNumber": "GDL-SPCTRLR-B",
       "PID": "0x0C0008",
       "category": "Specialty",
       "price": 9.95,
