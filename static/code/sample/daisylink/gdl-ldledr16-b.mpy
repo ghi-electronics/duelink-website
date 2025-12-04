@@ -1,0 +1,25 @@
+# This sample runs on QT-PY 2040 adafruit
+# In this sample:
+# Scan from led D1 to led D16
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+def SetLed(index, value):
+    val = 1 if value else 0
+    due.Engine.ExecuteCommand(f"SetLed({index},{val})")
+
+count = 0
+while True:
+    SetLed((count % 16) + 1, (count // 16) % 2 == 0)
+    count += 1
+    time.sleep(0.1)  # 100 ms
+
