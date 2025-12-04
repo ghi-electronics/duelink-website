@@ -1,4 +1,7 @@
+# In this sample:
+# Pull light value every second
+
 while 1
     PrintLn(Light())
-    Wait(200) 
+    Wait(1000) 
 wend
