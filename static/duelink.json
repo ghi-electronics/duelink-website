@@ -1737,12 +1737,12 @@
       "category": "Adapter",
       "price": 5.95,
       "tagline": "Raspberry Pi Basic Adapter",
-      "description": "RPILink is a simple low-cost adapter for all RPI (Raspberry Pi) models, including RPI Zero. The outer mounting holes are standard mounting holes for RPI. The bottom half of the board is a 5mm-pitched holes for mounting DUELink modules. This bottom side is breakable to make the board smaller to make it the right size for RPI Zero.",
+      "description": "RPILink is a simple low-cost adapter for all RPI (Raspberry Pi) models, including RPI Zero. The outer mounting holes are standard mounting holes for RPI. The bottom half of the board is a 5mm-pitched holes for mounting DUELink modules. This bottom side is breakable to make the board smaller to make it the right size for RPI Zero.\n\n:::tip\nThe board uses the RPI internal voltage regulators to power up the Tethered modules. You can add [PowerInject](/docs/products/adpwrinj-a) to have a dedicated power source.\n:::",
       "keyFeatures": [
         "Attaches to Raspberry Pi or Pi Zero Header",
         "UART and I2C Downlink connectors",
         "Breakaway \"Holey\" Section",
-        "RPI pin out holes",
+        "RPI pinout pads",
         "65x37mm overall dimension"
       ]
     },
