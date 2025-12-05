@@ -1,0 +1,167 @@
+# In this sample:
+# 1. Read the distance and display it on the TFT N18
+# 2. Continuously scan LEDs from D1 to D16 (play LEDs in a circular - circle mode)
+# 3. When the rotary button is pressed:
+#  - All LEDs from D1 to D16 on LEDR16 turn off.
+#  - The servo rotates to 180 degrees.
+# 4. When the rotary button is released:
+#  - All LEDs from D1 to D16 on LEDR16 return to circular mode.
+#  - The servo rotates back to 0 degrees.
+# 5. When light detection is below 10%, the buzzer repeatedly beeps. If it is above 20%, the buzzer stays quiet.
+# 6. Changes in distance will adjust the LED circle speed. For example:
+#    5 cm = 5 ms delay, 10 cm = 10 ms delay, and so on.
+
+# device address
+# Distance sensor is host-standalone which is first device.
+# 1: TFT N18
+# 2: Servo Motor
+# 3: LED R16
+# 4: Buzzer
+# 5: Rotary
+# 6: Light
+
+_a = 1 # address
+_d = 0 # distance
+_l = 0 # light
+_b = 0 # rotary button status
+_r = 0 # rotary value
+
+fn SetAddress(a)
+    # optimize bus, no need to set address if address is same
+    if a != _a
+        _a = a
+        cmd(fmt("sel(",_a,")"))
+    end
+fend
+
+# update TFT18 information
+fn ScreenUpdt(u)
+    if u
+        
+        SetAddress(1)
+        cmd("clear(0)")    
+        cmd("TextS(\"Distance:\",1,0,0,1,1)")
+        cmd(fmt("TextS(\"",_d,"\",0x00FF00,0,10,1,1)"))
+        
+        cmd("TextS(\"Rotary button:\",1,0,20,1,1)")
+        if _b
+           cmd(fmt("TextS(\"Pressed\",0x00FF00,0,30,1,1)"))
+        else
+            cmd(fmt("TextS(\"Released\",0x00FF00,0,30,1,1)"))
+        end
+        #cmd("TextS(\"Rotary value:\",1,0,20,1,1)")
+        #cmd(fmt("TextS(\"",_r,"\",0x00FF00,0,30,1,1)"))
+        
+        cmd("TextS(\"Light:\",1,0,40,1,1)")
+        cmd(fmt("TextS(\"",_l,"%\",0x00FF00,0,50,1,1)"))
+        cmd("show()")    
+    end
+fend
+
+# main sample
+fn Sample()
+    c = 0
+    dlmode(2,0)
+    wait(10)
+    
+    d = 0
+    l = 0
+    u = 0
+    b = 0
+    r = 0
+    while 1
+        
+        d = distance()
+        d = floor(d * 10)
+        d = d / 10
+        
+        if _d != d
+            _d = d
+            u = 1   
+        end
+        
+        # light
+        if ((c % 11) = 0)
+            SetAddress(6) # light
+            
+            l = cmd("light()")
+            
+            if _l != l
+                _l = l
+                u = 1
+                
+                if (_l < 10)
+                    SetAddress(4) # buzzer
+                    cmd("freq(7, 1000, 250, 0.5)")
+                end
+                
+            end
+        end
+        
+        # rotary
+        if ((c % 12) = 0)
+            SetAddress(5) # rotary
+            
+            if (1)
+                b = cmd("Pressed()")   
+                
+                if _b != b
+                    _b = b
+                    u = 1
+                    
+                    if (_b)
+                        SetAddress(3) # ledr16
+                        cmd("LedOff()")   
+                        
+                        SetAddress(2) # servo
+                        cmd("ServoSt(1,180)")   
+                    else
+                        SetAddress(2) # servo
+                        cmd("ServoSt(1,0)")   
+                    end
+                end
+            else
+                r = cmd("GetValue()")   
+                
+                if _r != r
+                    _r = r
+                    u = 1
+                    
+                end
+            end
+                
+        end 
+        
+        # ledr16 
+        if (_b = 0)
+            SetAddress(3) # ledr16
+            t = 0
+            
+            if (floor((c / 16) % 2)) = 0
+                t = 1
+            end
+            cmd(fmt("SetLed(",(c % 16) + 1,",", t, ")" ))
+        end
+        
+        if ((c % 16) = 0)
+            ScreenUpdt(u)
+        end
+        
+        c = c + 1
+        
+        if l > 100
+            l = 100
+        end
+        
+        if l < 10
+            l = 10
+        end
+        wait(l)
+    
+    wend
+fend
+
+Sample()
+
+
+

@@ -228,41 +228,34 @@ You can always find the pin numbers for a given board on its schematic.
 
 ---
 
-## Daisylinking with MicroBlocks
+## Tethering Modules
 
-MicroBlocks can control one or more external DUELink modules connected via [Daisylink](../engine/daisylink). When you do this, only the first module in the chain runs the MicroBlocks firmware. All other modules in the chain run the standard DUELink firmware and respond to commands from MicroBlocks.
+MicroBlocks can control Tethered DUELink modules. It can be a single module, or a [daisylink](../engine/daisylink) of modules. When you do this, only the first module in the chain runs the MicroBlocks firmware. All other modules in the chain run the standard DUELink firmware and respond to commands from MicroBlocks.
 
 ![PixoBit Daisylinked](pathname:///img/pixobit-daisylinked.webp)
 
 
-### Daisylink Connections
+### Tethering Options
 
-If you are running MicroBlocks on a DUELink educational board (or other DUELink module),
-connect the Downlink (**D**) connector on that board:
+If you are running MicroBlocks on a DUELink board/module, connect the Downlink (**D**) connector on that board.
 
 <div style={{textAlign: 'center'}}>
 ![Cincobit downlink port](pathname:///img/cincobit-downlink.webp)
 </div>
 
-to the Uplink (**U**) connector of the DUELink module:
+to the Uplink (**U**) connector of the next DUELink module.
 
 <div style={{textAlign: 'center'}}>
 ![RGB3 uplink port](pathname:///img/rgb3-uplink.webp)
 </div>
 
-If you are running MicroBlocks on a non-DUELink board,
-connect the Daisylink module chain to your board's I2C pins.
-If you have a micro:bit, you can use a
-[LinkBit](../products/adlinkbit-a)
-to connect to the I2C pins:
+If you are running MicroBlocks on a non-DUELink board, connect the daisylink module chain to your board's I2C or UART pins. If you have a micro:bit, you can use a [LinkBit](../products/adlinkbit-a) to tether DUELink modules.
 
 <div style={{textAlign: 'center'}}>
 ![Linkbit](pathname:///img/microbit-linkbit.webp)
 </div>
 
-When using multiple DUELink modules, modules are daisy-chained together by connecting
-the Downlink (**D**) connector of one module to the Uplink (**U**) connector of the next
-(see [Daisylink](../engine/daisylink)):
+When using multiple DUELink modules, modules are daisy-chained together by connecting the Downlink (**D**) connector of one module to the Uplink (**U**) connector of the next (see [daisylink](../engine/daisylink)).
 
 ![Uplink/Downlink Connections](pathname:///img/mb-uplink-downlink.webp)
 
@@ -272,8 +265,7 @@ Nothing will work if a **D** is connected to a **D** or a **U** to a **U** anywh
 :::
 
 :::tip
-Once all connections have been made, power cycle the entire chain to reset
-all modules before attempting to use any module.
+Once all connections have been made, power cycle the entire chain to reset all modules before attempting to use any module.
 :::
 
 ### MicroBlocks DUELink Libraries

@@ -15,7 +15,7 @@
       "category": "Kit",
       "price": 79.95,
       "tagline": "Essentials Kit With Most Common Modules!",
-      "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [TFT N18 1.8\" Color Display](/docs/products/dstftn18-b)\n* [LED R16 Ring](/docs/products/ldledr16-b)\n* [Rotary Encoder Input](/docs/products/hirotary-c)\n* [Distance Sensor](/docs/products/sedistance-b)\n* [Servo X1 Motor](/docs/products/acservox1-a)\n* [Buzzer for Generating Sounds & Melodies](/docs/products/sobuzzer-b)\n* [Light Sensor](/docs/products/selight-a)\n* [USB Hook for Connecting Modules Directly to USB](/docs/products/adusbhook-a)\n* [Holey Board for Mounting Modules](/docs/products/axholey)\n* [Mounting Hardware Variety Pack](/docs/products/axmnt)\n* [Cables Variety & 50mm Packs](/docs/products/axcbl) (10 cables)\n* USB C Cable\n* Storage Box",
+      "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [TFT N18 1.8\" Color Display](/docs/products/dstftn18-b)\n* [LED R16 Ring](/docs/products/ldledr16-b)\n* [Rotary Encoder Input](/docs/products/hirotary-c)\n* [Distance Sensor](/docs/products/sedistance-b)\n* [Servo X1 Motor](/docs/products/acservox1-a)\n* [Buzzer for Generating Sounds & Melodies](/docs/products/sobuzzer-b)\n* [Light Sensor](/docs/products/selight-a)\n* [USB Hook for Connecting Modules Directly to USB](/docs/products/adusbhook-a)\n* [Holey Board for Mounting Modules](/docs/products/axholey)\n* [Mounting Hardware Variety Pack](/docs/products/axmnt)\n* [Cables Variety Pack](/docs/products/axcbl) (10 cables)\n* USB C Cable\n* Storage Box",
       "keyFeatures": [
         "Most Common Modules",
         "USB Hook + Cable",
@@ -31,7 +31,7 @@
       "category": "Kit",
       "price": 79.95,
       "tagline": "Never Enough! Gimme More Modules!",
-      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Wireless ESP32 Connectivity Module](/docs/products/wlesp32-a)\n* [7x Tactile Button Module](/docs/products/hibuttons7-a)\n* [12x8 LED Matrix](/docs/products/ldmt1208-a)\n* [Fan Motor](/docs/products/acfan-b)\n* [3-Axis Accelerometer](/docs/products/seaccel-a)\n* [Retro Sound 3.5mm Audio Jack](/docs/products/soretrosnd-a)\n* [Holey Board for Mounting Modules](/docs/products/axholey)\n* [USB Stick for Connecting Modules Directly to USB](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n*  [Mounting Hardware Variety Pack](/docs/products/axmnt)\n* [Cables Variety & 50mm Packs](/docs/products/axcbl) (10 cables)\n* USB C Cable\n* Storage Box",
+      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [Wireless ESP32 Connectivity Module](/docs/products/wlesp32-a)\n* [7x Tactile Button Module](/docs/products/hibuttons7-a)\n* [12x8 LED Matrix](/docs/products/ldmt1208-a)\n* [Fan Motor](/docs/products/acfan-b)\n* [3-Axis Accelerometer](/docs/products/seaccel-a)\n* [Retro Sound 3.5mm Audio Jack](/docs/products/soretrosnd-a)\n* [Holey Board for Mounting Modules](/docs/products/axholey)\n* [USB Stick for Connecting Modules Directly to USB](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n*  [Mounting Hardware Variety Pack](/docs/products/axmnt)\n* [Cables Variety](/docs/products/axcbl) (10 cables)\n* USB C Cable\n* Storage Box",
       "keyFeatures": [
         "More Common Modules",
         "USB Stick",
@@ -1737,12 +1737,12 @@
       "category": "Adapter",
       "price": 5.95,
       "tagline": "Raspberry Pi Basic Adapter",
-      "description": "RPILink is a simple low-cost adapter for all RPI (Raspberry Pi) models, including RPI Zero. The outer mounting holes are standard mounting holes for RPI. The bottom half of the board is a 5mm-pitched holes for mounting DUELink modules. This bottom side is breakable to make the board smaller to make it the right size for RPI Zero.",
+      "description": "RPILink is a simple low-cost adapter for all RPI (Raspberry Pi) models, including RPI Zero. The outer mounting holes are standard mounting holes for RPI. The bottom half of the board is a 5mm-pitched holes for mounting DUELink modules. This bottom side is breakable to make the board smaller to make it the right size for RPI Zero.\n\n:::tip\nThe board uses the RPI internal voltage regulators to power up the Tethered modules. You can add [PowerInject](/docs/products/adpwrinj-a) to have a dedicated power source.\n:::",
       "keyFeatures": [
         "Attaches to Raspberry Pi or Pi Zero Header",
         "UART and I2C Downlink connectors",
         "Breakaway \"Holey\" Section",
-        "RPI pin out holes",
+        "RPI pinout pads",
         "65x37mm overall dimension"
       ]
     },

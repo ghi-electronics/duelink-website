@@ -17,11 +17,11 @@ function HomepageHeader() {
         <img src="/img/duelink-intro.webp" alt="DUELink" />
   
        <Heading as="h2" >
-        Daisylink Hundreds of Modules
+        Tether & Daisylink Hundreds of Modules!
         </Heading>
-        <p> DUELink revolutionizes electronics innovation with a vast ecosystem of sensor, actuator, and display modules.
+        <p> DUELink revolutionizes innovation with a vast ecosystem of daisylink-able electronic modules.
         <br/> 
-        Each module is a mini-computer, that daisylinks with your favorite hardware platform and coding language.
+        Each module is a mini-computer, that Tethers to your favorite hardware platform and coding language.
         </p>
          <div className={styles.buttons}>
           <Link
