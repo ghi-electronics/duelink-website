@@ -101,43 +101,43 @@ function getAvailableSamples(product) {
     const samples = {};
     
     // Check for Python sample
-    const pythonPath = path.join(__dirname, 'static', 'code', 'sample', 'daisylink', `${baseName}.py`);
+    const pythonPath = path.join(__dirname, 'static', 'code', 'sample', 'tethered', `${baseName}.py`);
     if (fs.existsSync(pythonPath)) {
         samples.python = pythonPath;
     }
     
     // Check for JavaScript sample
-    const jsPath = path.join(__dirname, 'static', 'code', 'sample', 'daisylink', `${baseName}.js`);
+    const jsPath = path.join(__dirname, 'static', 'code', 'sample', 'tethered', `${baseName}.js`);
     if (fs.existsSync(jsPath)) {
         samples.javascript = jsPath;
     }
     
     // Check for Script sample
-    const scriptPath = path.join(__dirname, 'static', 'code', 'sample', 'daisylink', `${baseName}.txt`);
+    const scriptPath = path.join(__dirname, 'static', 'code', 'sample', 'tethered', `${baseName}.txt`);
     if (fs.existsSync(scriptPath)) {
         samples.script = scriptPath;
     }
     
     // Check for C# sample
-    const csPath = path.join(__dirname, 'static', 'code', 'sample', 'daisylink', `${baseName}.cs`);
+    const csPath = path.join(__dirname, 'static', 'code', 'sample', 'tethered', `${baseName}.cs`);
     if (fs.existsSync(csPath)) {
         samples.csharp = csPath;
     }
     
     // Check for MicroPython sample
-    const mpyPath = path.join(__dirname, 'static', 'code', 'sample', 'daisylink', `${baseName}.mpy`);
+    const mpyPath = path.join(__dirname, 'static', 'code', 'sample', 'tethered', `${baseName}.mpy`);
     if (fs.existsSync(mpyPath)) {
         samples.micropython = mpyPath;
     }
     
     // Check for Arduino sample (.ino files)
-    const inoPath = path.join(__dirname, 'static', 'code', 'sample', 'daisylink', `${baseName}.ino`);
+    const inoPath = path.join(__dirname, 'static', 'code', 'sample', 'tethered', `${baseName}.ino`);
     if (fs.existsSync(inoPath)) {
         samples.arduino = inoPath;
     }
 
     // Check for MicroBlocks sample (.ubp files)
-    const ubpPath = path.join(__dirname, 'static', 'code', 'sample', 'daisylink', `${baseName}.ubp`);
+    const ubpPath = path.join(__dirname, 'static', 'code', 'sample', 'tethered', `${baseName}.ubp`);
     if (fs.existsSync(ubpPath)) {
         samples.microblocks = ubpPath;
     }
@@ -319,32 +319,32 @@ ${resourceLinks.join('<br/>\n')}<br/>`
         tabs.push({label: 'Driver', value: 'driver'});
     }
     
-    // Check for available daisylink samples and add tab if any exist
+    // Check for available tethered samples and add tab if any exist
     const availableSamples = getAvailableSamples(product);
     const hasSamples = Object.keys(availableSamples).length > 0;
     let sampleContent = '';
 
     if (hasSamples) {
-        tabs.push({label: 'Daisylink', value: 'dl-samples'});
+        tabs.push({label: 'Tethered', value: 'tie-samples'});
         
         // Build sample tabs for each available language
         // Order: Script, Python, MicroPython, JavaScript, .NET, Arduino
         let sampleTabs = [];
         let sampleTabItems = [];
         
-        if (availableSamples.script) {
+       /* if (availableSamples.script) {
             const scriptCode = loadSampleContent(availableSamples.script);
             if (scriptCode) {
                 sampleTabs.push({label: 'Script', value: 'script'});
                 sampleTabItems.push(`<TabItem value="script">
 
 \`\`\`py reference title="Script Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/daisylink/${baseName}.txt
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/tethered/${baseName}.txt
 \`\`\`
 
 </TabItem>`);
             }
-        }
+        }*/
         
         if (availableSamples.python) {
             const pythonCode = loadSampleContent(availableSamples.python);
@@ -353,7 +353,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/d
                 sampleTabItems.push(`<TabItem value="python">
 
 \`\`\`py reference title="Python Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/daisylink/${baseName}.py
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/tethered/${baseName}.py
 \`\`\`
 
 </TabItem>`);
@@ -367,7 +367,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/d
                 sampleTabItems.push(`<TabItem value="micropython">
 
 \`\`\`py reference title="MicroPython Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/daisylink/${baseName}.mpy
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/tethered/${baseName}.mpy
 \`\`\`
 
 </TabItem>`);
@@ -381,7 +381,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/d
                 sampleTabItems.push(`<TabItem value="javascript">
 
 \`\`\`js reference title="JavaScript Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/daisylink/${baseName}.js
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/tethered/${baseName}.js
 \`\`\`
 
 </TabItem>`);
@@ -395,7 +395,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/d
                 sampleTabItems.push(`<TabItem value="dotnet">
 
 \`\`\`cs reference title=".NET Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/daisylink/${baseName}.cs
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/tethered/${baseName}.cs
 \`\`\`
 
 </TabItem>`);
@@ -410,7 +410,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/d
                 sampleTabItems.push(`<TabItem value="arduino">
 
 \`\`\`ino reference title="Arduino Sample"
-https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/daisylink/${baseName}.ino
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/tethered/${baseName}.ino
 \`\`\`
 
 </TabItem>`);
@@ -425,14 +425,14 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/d
                 sampleTabs.push({label: 'MicroBlocks', value: 'microblocks'});
                 sampleTabItems.push(`<TabItem value="microblocks">
 
-                    This project runs on a device that is loaded with MicroBlocks. This same device is also Daisylinked to this DUELink module. See [MicroBlocks](/docs/language/microblocks) to learn more.
+                    This project runs on a MicroBlocks-enabled device that is Tethered to this module. That MicroBlocks-enabled device controls this module (or a daisylink of modules). Note that the tethered module continue to need both the official DUELink firmware the module's drivers. See [MicroBlocks](/docs/language/microblocks) page to learn more.
 
                     Click the button below to open, edit, and run the project directly on MicroBlocks' website.
 
                     <Button
                     style={{ color:'white' }}
                     label="Load Project"
-                    link="https://microblocks.fun/run-pilot/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/sample/daisylink/${baseName}.ubp"
+                    link="https://microblocks.fun/run-pilot/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/sample/tethered/${baseName}.ubp"
                     />
                     
 
@@ -443,9 +443,9 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/d
 
         if (sampleTabItems.length > 0) {
             sampleContent = `
-<TabItem value="dl-samples">
+<TabItem value="tie-samples">
 
-These Daisylink samples assume the driver is installed, see the <a href="?show=driver" onClick={(e) => { e.preventDefault(); const scrollPos = window.scrollY; window.history.pushState(null, '', '?show=driver'); Array.from(document.querySelectorAll('.tabs__item')).find(el => el.textContent === 'Driver')?.click(); setTimeout(() => window.scrollTo(0, scrollPos), 0); }} style={{"cursor": "pointer"}}>Driver Tab</a>.
+These Tethered samples assume the driver is installed, see the <a href="?show=driver" onClick={(e) => { e.preventDefault(); const scrollPos = window.scrollY; window.history.pushState(null, '', '?show=driver'); Array.from(document.querySelectorAll('.tabs__item')).find(el => el.textContent === 'Driver')?.click(); setTimeout(() => window.scrollTo(0, scrollPos), 0); }} style={{"cursor": "pointer"}}>Driver Tab</a>.
 
 <Tabs groupid="language" queryString="lang" defaultValue="${sampleTabs[0].value}"
   values={${JSON.stringify(sampleTabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>
