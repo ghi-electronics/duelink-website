@@ -8,7 +8,7 @@
 // 4. When the rotary button is released:
 //  - All LEDs from D1 to D16 on LEDR16 return to circular mode.
 //  - The servo rotates back to 0 degrees.
-// 5. When light detection is below 20%, the buzzer repeatedly beeps. If it is above 20%, the buzzer stays quiet.
+// 5. When light detection is below 10%, the buzzer repeatedly beeps. If it is above 20%, the buzzer stays quiet.
 // 6. Changes in distance will adjust the LED circle speed. For example:
 //    5 cm = 5 ms delay, 10 cm = 10 ms delay, and so on.
 
@@ -191,7 +191,7 @@ async function PlaySound() {
                 doUpdateScreen = true;
             }
 
-            if (light_val < 20) {
+            if (light_val < 10) {
                 await PlaySound();
             }
         }
