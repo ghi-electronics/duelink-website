@@ -66,11 +66,7 @@ export default function HomepageFeatures() {
             <Feature key={idx} {...props} />
           ))}
         </div>
-        <hr></hr>
-        <Heading as="h4" >
-          What is the latest?
-        </Heading>
-        <a class="button button--primary" href="/news">See the News!</a>
+        
       </div>
     </section>
   );
