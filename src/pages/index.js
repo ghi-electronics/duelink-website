@@ -7,6 +7,8 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
+import ForumFeed from '@site/src/components/ForumFeed';
+
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   
@@ -46,13 +48,13 @@ export default function Home() {
   return (
     <Layout
       title={`DUELink`}
-      description="Dynamic, Universal, and Extensible - Link.">
+      description="Smart Electronic Building Blocks.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
       </main>
-  
-       
+      <hr></hr>
+      <ForumFeed />
     </Layout>
   );
 }
