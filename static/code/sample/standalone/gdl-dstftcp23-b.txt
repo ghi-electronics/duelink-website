@@ -1,5 +1,9 @@
+# In this sample:
+# _t = 0: Draw different circles on the screen in various colors.
+# _t = 1: For touch version only. Draw a red circle at the detected touch coordinates (x, y).
+
 Clear(0)
-_t = 1 #_t = 0 test draw, _t =1 test touch
+_t = 0 #_t = 0 test draw, _t =1 test touch
 
 if _t = 0
     _i = 50
@@ -25,4 +29,4 @@ else
         Show()       
         Wait(1)
     wend
-end
+end 
