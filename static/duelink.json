@@ -1594,7 +1594,7 @@
       "category": "LED",
       "price": 14.95,
       "tagline": "Smart LED Controller with Signal Conditioning",
-      "description": "This module supports both 1-pin WS281x smart LEDs and 2-pin smart LEDs (clock and data). Byond standa LED control, DUELink standard library includes support for [graphics](/docs/engine/graphics) on WS281x matrices.\n\nThe control signals coming out of module are 3.3V logic levels by default. Optionally, you can supply 5V on the **Vsig** connection to convert the control signals to 5V.",
+      "description": "This module supports both 1-pin WS281x smart LEDs and 2-pin smart LEDs (clock and data). Beyond standard LED controls, DUELink standard library includes support for [graphics](/docs/engine/graphics) on WS281x matrices.\n\nThe control signals coming out of the module are 3.3V logic levels by default. Optionally, you can supply 5V on the **Vsig** connection to convert the control signals to 5V.",
       "keyFeatures": [
         "WS2811 LED Controller",
         "2-pin  Smart LED Controller",
