@@ -1,0 +1,89 @@
+# This sample runs on QT-PY 2040 adafruit
+# In this sample:
+# Create a watch using the built-in graphics library.
+
+import time
+import math
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# Default driver R128 is buffer mode, multiple 3. 240/3 = 80
+WIDTH = 80
+HEIGHT = 80
+CENTER_X = WIDTH // 2
+CENTER_Y = HEIGHT // 2
+RADIUS = 32
+
+def DrawText(text, color, x, y, scalex, scaley):
+    due.Engine.ExecuteCommand(f'textS("{text}", {color}, {x}, {y}, {scalex}, {scaley})')
+
+def DrawLine(x1, y1, x2, y2, color):
+    due.Engine.ExecuteCommand(f"line({color}, {x1}, {y1}, {x2}, {y2})")
+
+def ClearScreen(color):
+    due.Engine.ExecuteCommand(f"clear({color})")
+
+def Show():
+    due.Engine.ExecuteCommand("show()")
+
+def RGB(r, g, b):
+    return (r << 16) | (g << 8) | b
+
+def DrawNumbers():
+    for h in range(1, 13):
+        angle = math.pi / 6 * (h - 3)
+        x = CENTER_X + int((RADIUS - 0) * math.cos(angle))
+        y = CENTER_Y + int((RADIUS - 0) * math.sin(angle))
+        if h > 6:
+            x -= 4
+        DrawText(str(h), RGB(255, 255, 255), x if h < 10 else x - 4, y - 3, 1, 1)
+
+def DrawHand(angle, length, color):
+    x = CENTER_X + int(length * math.cos(angle))
+    y = CENTER_Y + int(length * math.sin(angle))
+    DrawLine(CENTER_X, CENTER_Y, x, y, color)
+
+last_sec = 0.0
+last_min = 0.0
+last_hour = 0.0
+counter = 0
+
+ClearScreen(RGB(0, 127, 255))
+
+while True:
+    t = time.localtime()  # returns tuple: (year, month, day, hour, min, sec, weekday, yearday)
+    hour = t[3]
+    minute = t[4]
+    second = t[5]
+
+    secondAngle = math.pi / 30 * (second - 15)
+    minuteAngle = math.pi / 30 * (minute - 15 + second / 60.0)
+    hourAngle = math.pi / 6 * ((hour % 12) - 3 + minute / 60.0)
+
+    if last_sec != secondAngle:
+        DrawHand(last_sec, RADIUS - 0, RGB(0, 127, 255))
+        last_sec = secondAngle
+        DrawHand(secondAngle, RADIUS - 0, RGB(0, 0, 255))
+        DrawHand(minuteAngle, RADIUS - 5, RGB(0, 255, 0))
+        DrawHand(hourAngle, RADIUS - 10, RGB(255, 0, 0))
+        counter += 1
+    elif last_min != minuteAngle:
+        DrawHand(last_min, RADIUS - 5, RGB(0, 127, 255))
+        last_min = minuteAngle
+        DrawHand(minuteAngle, RADIUS - 5, RGB(0, 255, 0))
+    elif last_hour != hourAngle:
+        DrawHand(last_hour, RADIUS - 10, RGB(0, 127, 255))
+        last_hour = hourAngle
+        DrawHand(hourAngle, RADIUS - 10, RGB(255, 0, 0))
+    else:
+        DrawNumbers()
+        DrawText("DUELink", RGB(255, 0, 255), CENTER_X - 18, CENTER_Y + 10, 1, 1)
+        Show()
+        time.sleep(0.1)

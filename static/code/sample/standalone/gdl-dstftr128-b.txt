@@ -1,3 +1,8 @@
+# In this sample:
+# Draw circles with their center at the middle of the screen.
+# These circles have different sizes and colors.
+
+Clear(0) 
 _x = 5
 _h = 0x64
 
