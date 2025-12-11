@@ -6,21 +6,39 @@ import Zoom from "react-medium-image-zoom";
 
 ![Arduino logo](pathname:///img/arduino-logo.webp)
 
-This is an interesting option because it allows DUELink to be used in 2 very different ways. You can use a third-party Arduino board to control a chain of [Daisylinked](../engine/daisylink) DUELink modules. Also, you can program any DUELink module using the Arduino IDE/software [Standalone](../language/standalone). We will cover them individually. 
+This is an interesting option because it allows DUELink to be used in 2 very different ways. You can tether an Arduino-running board to control one DUELink Module or a chain of [Daisylinked](../engine/daisylink) DUELink modules. 
+
+![Arduino UNO 4 Daisylinked](pathname:///img/arduino-uno-r4-daisylinked.webp)
+
+The other option is to program any DUELink module using the Arduino IDE/software to run [Standalone](../language/standalone). For example, use Arduino IDE/software to control [Ghizzy](../products/spghizzy-d).
+
+<div style={{ textAlign: 'center'}}>
+![Ghizzy Eyes](pathname:///img/ghizzy-eyes.gif)
+</div>
+
+You can also combine both options and tether a standalone arduino-running DUELink Module to other DUELink modules! Basically, you are combining both options above! In this example, we have a DueDuino loaded with Arduino software that is tethered to a dasylink of DUELink modules.
+
+![DueDuino daisylink](pathname:///img/dueduino-uplink.webp)
+
+
+
+:::tip
+Modules' product pages includes Arduino samples for both Tethered and Standalone options.
+:::
 
 ---
 
-## Daisylink
+## Tethered
 
-Any board running Arduino software can utilize DUELink modules. An example can be [Arduino Uno R4 WiFi](https://store-usa.arduino.cc/products/uno-r4-wifi), which already includes a JST connector.
+Any board running Arduino software can be tethered to DUELink modules using a commonly-used JST connector. An example can be [Arduino Uno R4 WiFi](https://store-usa.arduino.cc/products/uno-r4-wifi).
 
-![Arduino UNO R4 Wifi](pathname:///img/arduino-uno-r4-wifi.webp)
+![Arduino UNO  R4 Wifi](pathname:///img/arduino-uno-r4-wifi.webp)
 
 The [Sparkfun Redboard Qwiic](https://www.sparkfun.com/sparkfun-redboard-qwiic.html) is another option.
 
 ![Sparkfun Redboard Qwiic](pathname:///img/sparkfun-redboard-qwiic.webp)
 
-Boards without a JST connector can use [DueShield](../products/addueshield-a). It has a Downlink connector and an area with hole matrix for mounting DUELink modules.
+Arduino-shaped boards, such as Arduino UNO, that do not have a JST connector can utilize [DueShield](../products/addueshield-a). It has a Downlink connector plus an area with holes matrix for mounting DUELink modules.
 
 ![DueShield](pathname:///img/catalog/addueshield-a-1.webp)
 
@@ -32,7 +50,7 @@ When using I2C, pull-up resistors are required. If your board doesn't have them,
 
 ![Arduino Breakout I2C](pathname:///img/arduino-breakout-i2c.webp)
 
-To use daisylinked DUELink modules, you need to install the DUELink Arduino library.
+To command and control tether DUELink modules, you need to install the DUELink Arduino library.
 
 Under `Tools` on the top menu of the Arduino IDE select `Manage Libraries`.
 
@@ -105,15 +123,27 @@ void loop() {
 }
 ```
 
+Simple commands can do complex tasks, such as graphics in this case. This is possible because tethered DUELink modules are preloaded with the standard DUELink [engine](../engine/intro) and are also loaded with appropriate [drivers](../engine/drivers).
+
 ---
 
 ## Standalone
 
-Any DUELink module can be run Standalone using the Arduino software, replacing the default DUELink firmware. An example will be [DueDuino](../products/mcdueduino-a).
+Any DUELink module can be run Standalone using the Arduino software, replacing the default DUELink firmware. An example can be [DueDuino](../products/mcdueduino-a).
 
 ![DueDuino](pathname:///img/dueduino.webp)
 
-The chip used on al DUELink modules is STM32C071, which is fully supported by the Arduino IDE through the ST extension. But wait, we did not just leave it at that! We have a board support package for you.
+Or a [Ghizzy](../products/spghizzy-d)!
+
+![Ghizzy](pathname:///img/catalog/spghizzy-d-1.webp)
+
+If the module you want to use does not have a USB connector, then you need [USB Hook](../products/adusbhook-a) or a similar module.
+
+![USB hook with RGB3](pathname:///img/usbhook-rgb3.webp)
+
+
+
+The micro used on all DUELink modules is STM32C071, which is fully supported by the Arduino IDE, through the ST extension. But wait, we did not just leave it at that! We have a board support package for you.
 
 :::tip
 Arduino standalone samples for DUELink modules are provided in their individual product pages. Those make for a great starting point.
@@ -152,15 +182,38 @@ void loop() {
 }
 ```
 
-To load the Arduino program, put the board in loader mode (DFU) by holding LDR or "A" button down while resetting the board.
+Use the Arduino `Verify` button to make sure the IDE is able to compile your program.
+
+![Arduino verify button](pathname:///img/arduino-verify-btn.png)
+
+If all went well, you will see something like this:
+
+```
+Sketch uses 44608 bytes (34%) of program storage space. Maximum is 131072 bytes.
+Global variables use 1820 bytes (7%) of dynamic memory, leaving 22756 bytes for local variables. Maximum is 24576 bytes.
+```
+
+USB DFU (Device Firmware Update) is used to load the compiled program.
+
+![Arduino DFU menu](pathname:///img/arduino-menu-dfu.png)
+
+
+To load the Arduino program onto the DUELink module, put the board in loader mode (DFU) mode. This is done by holding LDR or "A" button down while resetting the board.
 
 ![LDR or A Button](pathname:///img/ldr-a-buttons.webp)
 
-If no button is found, there are special 2-hole-pads (BOOT0 - 3.3V) found on the module. Use a paper clip (or a wire) to short the two pads. Reset the board or cycle power then remove the paper clip.
+Modules that do not have buttons will include a 2-hole-pad (BOOT0 - 3.3V). Use a paper clip (or a wire) to short the two pads. Reset the board by cycling power then remove the paper clip.
 
 ![BootMode](pathname:///img/boot-mode.webp)
 
-Click on the `Upload` arrow, this will compile the sketch file and upload it to the device. 
+You can verify the board is in DFU mode by checking the device manager.
+
+![DFU device manager](pathname:///img/device-manager-dfu.webp)
+
+In order for the Arduino IDE to be able to DFU load programs onto the module, it relies on a tool from ST Micro. Go ahead and install [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) from ST Micro.
+
+
+Once STM32CubeProgrammer is installed, click on the `Upload` arrow, this will compile the sketch file and upload it to the device. 
 
 ![Compile and Upload](pathname:///img/arduino-ide-upload.webp)
 
@@ -172,16 +225,14 @@ If you'd like to go back to using DUELink software you'll need to reload the DUE
 
 ## Theory of Operation
 
-Loading Arduino software onto any DUELink module, turns it into an Arduino board. You will need to rely on the provided board schematics and the standard Arduino libraries for accessing the module. When a chain of [Daisylinked](../engine/daisylink) modules are used, the first one will be running Arduino software. This first "module" is the Host. Just like you did with other non-DUELink boards, this host (a DUELink board in this case) can use the provided Arduino DUELink library to access the Daisylinked modules. 
-
-Note that the linked modules must continue to run the standard DUElink firmware. These modules have the usual DUELink addressing, but DueDuino does not have an address as it is the host.
+Loading Arduino software onto any DUELink module, turns it into an Arduino board. You will need to rely on the provided board schematics and the standard Arduino libraries for using the module itself. When a chain of modules are used, the first one will be running Arduino software standalone, we will call it a "Host". All other modules are tethered and will must continue to run the standard DUElink firmware. These tethered modules have the usual DUELink addressing, but the host (DueDuino in this example) does not have an address.
 
 ![DueDuino Host](pathname:///img/arduino-dueduino-host.webp)
 
-In comparison, when Arduino is not used, and the host is the PC for example, DueDuino has an address like any other module, because it is not the host. You can now use a coding language, like [Python](../language/python), on the PC to control IOs on DueDuino and the other modules. 
+In comparison, when Arduino is not used, and the host is a PC for example, DueDuino has an address like any other module, because it is not the host. You can now use a coding language, like [Python](../language/python), on the PC to control IOs on DueDuino and the other modules. 
 
 ![DueDuino PC Host](pathname:///img/dueduino-pchost-daisylink.webp)
 
 :::tip
-Any module can run Arduino and can be a host, like a CinoBit. We are using DueDuino here for demonstration purposes.
+Any module can run Arduino to run standalone. We are using DueDuino here for demonstration purposes.
 :::
