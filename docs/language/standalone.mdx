@@ -1,27 +1,28 @@
 # Standalone
 
 
-DUELink is designed from the ground up to work with your favorite [hardware](../hw/intro) and your favorite [language](./intro). For example, you can use a phone to control a [daisylink](../engine/daisylink) of DUELink modules.
+DUELink is designed from the ground up to tether with your favorite [hardware](../hw/intro), using your favorite [coding language](./intro). For example, you can use a phone to control a [daisylink](../engine/daisylink) of DUELink modules.
 
 ![daisylink with Phone](pathname:///img/android-usbhook.webp)
 
- We call the device controlling the other DUELink modules a "host". This host will be running one of the provided libraries, like [Python](./python) for example. Similar to a [phone](../hw/phone-tablet) or [PC](../hw/pc-laptop), you can use a [Raspberry Pi](../hw/raspberry-pi) or an [Arduino](../hw/arduino).
+Tethered modules are controlled by programs running on the "host", which will be codded with one of the provided software libraries, like [Python](./python) and [JavaScript](./javascript) for example. This "host" can but a powerful [PC](../hw/pc-laptop) or simple [Arduino](../hw/arduino) board.
 
 ![daisylink with Arduino](pathname:///img/arduino-uno-r4-daisylinked.webp)
 
 
-Additionally, DUELink modules are self-contained mini-computers that can also run standalone. In this case, the first module (button in this case) is the "Host", which is controlling the other [Daisylinked](../engine/daisylink) modules. The power modules (red ones) are just a power sources.
-
-![daisylink with Power](pathname:///img/host-mode.webp)
-
-There are multiple options that you can use to turn any DUELink module into a "host", running **standalone**:
-
-* Scripting
-* MicroBlocks
-* C++
-* Arduino
+Additionally, DUELink modules are self-contained mini-computers that can also run standalone. Not only that, any standalone DUELink module can be a tethered to other DUELink modules!
 
 ![Ghizzy Eyes](pathname:///img/ghizzy-eyes.gif)
+
+There are multiple options for running **standalone**:
+
+* DUELink Scripts
+* MicroBlocks
+* Arduino
+* C++
+
+
+
 
 ---
 
@@ -29,11 +30,9 @@ There are multiple options that you can use to turn any DUELink module into a "h
 
 ![DUELink Logo](pathname:///img/duelinklogo.webp)
 
-This is the easiest option and most versatile. The default firmware already includes an [Internal Engine](../engine/intro) that has a [Scripting](../engine/scripting) language. It is easy to learn, making it a great choice for [educators](../educators), yet it is flexible enough to run complete applications for [Makers](../makers) and [Engineers](../engineers).
+DUELink firmware includes an [Internal Engine](../engine/intro) that has a [Scripting](../engine/scripting) language. It is easy to learn, making it a great choice for [educators](../educators), yet it is flexible enough to run complete applications for [Makers](../makers) and [Engineers](../engineers).
 
 Visit the [Internal Engine](../engine/intro) and [Scripting](../engine/scripting) language pages for more details.
-
-Modules can also become a `Host()` to other modules, as explained on the [daisylink](../engine/daisylink) page.
 
 ---
 
@@ -47,23 +46,22 @@ Visit [MicroBlocks](./microblocks) language page to get started.
 
 ---
 
+## Arduino
+
+![Arduino logo](pathname:///img/arduino-logo.webp)
+
+Arduino is essentially C++ wrapped in a nice setup, with user-friendly libraries and a very large community.
+
+The [Arduino](../hw/arduino) page shows how it can be used in 2 different ways: Tether Arduino compatible board to DUELink modules or load and run the Arduino software on any DUELink module!
+
+---
+
 ## C++
 
 ![C++ Logo](pathname:///img/cplusplus.webp)
 
 ST Micro offers STMCubeIDE as a complete solution to program STM micros. It is free and complete with many options.
 
-Another option is [Keil MDK](https://www.keil.com/), which is what we use at GHI Electronics. This is a commercial-grade paid-software, but it is licensed to be used for free on STM32C071.
+Another option is [Keil MDK](https://www.keil.com/), which is what we use at GHI Electronics. This is a paid-software. Fortunately, ST Micro has licensed it to be used for free on Cortex-M0 micros, such as the STM32C071 we use on DUELink modules.
 
 Visit the [C++](./cpp) page to learn more.
-
----
-
-## Arduino
-
-![Arduino logo](pathname:///img/arduino-logo.webp)
-
-Arduino is basically C++ but with easier user-friendly libraries and a very large community.
-
-The [Arduino](../hw/arduino) page shows how to use it with DUELink modules in 2 ways, one with using Arduino as a host and second by loading Arduino on a DUELink module.
-
