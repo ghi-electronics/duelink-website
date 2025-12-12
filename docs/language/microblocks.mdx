@@ -26,6 +26,10 @@ While you can load MicroBlocks on any DUELink module, the ones recommended on th
 
 Educational-tailored boards automatically ship with MicroBlocks preloaded. However, here are the steps needed to re-load MicroBlocks firmware, a process that takes less than a minute.
 
+:::tip
+The console has 2 firmware options, you need the MicroBlocks option!
+:::
+
 Start by connecting your DUELink board to a laptop using a USB cable. Make sure it is not a charge-only cable!
 
 :::note
@@ -33,7 +37,11 @@ Linux may require an extra step to ensure that the user has access to USB serial
 See the Linux tab in the Computer Setup section of the [MicroBlocks Get Started](https://microblocks.fun/get-started) page.
 :::
 
-The board must be placed in a special mode to prepare it for firmware installation using `LDR` or `A` buttons. The process is similar for all educational-tailored microcomputer boards.
+The board must be placed in a special DFU (Device Firmware Update) mode to prepare it for firmware installation using `LDR` or `A` buttons. The process is similar for all educational-tailored microcomputer boards.
+
+:::tip
+Another option is to ue the `Erase All` top-menu option that can be used to erase the device and put in DFU mode. No need to push any buttons on the device!
+:::
 
 For example, prepare CincoBit to accept firmware by holding down the 'A' button while clicking the `RESET` on the back of the board:
 
