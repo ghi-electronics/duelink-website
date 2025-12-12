@@ -1,3 +1,7 @@
+# In this sample:
+# Display the text "DUELink!" on the first row
+# Continuously display '*' moving from left to right, then right to left
+
 _i = 10
 _d = 1
 CPos(5,0)
