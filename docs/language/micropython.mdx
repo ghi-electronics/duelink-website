@@ -3,17 +3,18 @@
 
 ![MicroPython](pathname:///img/micropython.webp)
 
-You can use DUELink with any microcontroller that uses MicroPython by connecting a [Breakout](../products/adbreakout-a) module to either the I2C or UART output of the board.
+You can use DUELink with any microcontroller that supports MicroPython, include Raspberry Pi RP2040 and RP2350. Boards that have JST connector can plug in directly. However, you can use the [Breakout](../products/adbreakout-a) module to to connect any board! The [interface](../interface/intro) can be [I2C](../interface/i2c) or [UART](../interface/uart).
 
 ![board with Breakout](pathname:///img/micropython-breakout.webp)
 
-MicroPython with DUELink is also fully supported on [Raspberry Pi](../hw/raspberry-pi) microcontroller-level (RP2040/RP2350) boards, such as Raspberry Pi Pico.
 
-[DuePico](../products/adduepico-b) is the perfect [Raspberry Pi](../hw/raspberry-pi) adapter for connecting DUELink modules. 
+For MicroPython with DUELink is also fully supported on [Raspberry Pi](../hw/raspberry-pi) microcontroller-level (RP2040/RP2350) boards, such as Raspberry Pi Pico.
+
+We also offer [DuePico](../products/adduepico-b), the perfect Raspberry Pi Pico adapter! 
 
 ![DuePico](pathname:///img/duepico-rgbled.webp)
 
-We'll use [Thonny](https://thonny.org/) IDE to program the RaspberryPi Pico in MicroPython. We will use the Pico to access DUELink modules attached to the [DuePico's](../products/adduepico-b) Downlink connector.
+As for IDE options, you can use whatever you prefer. In the following examples, we'll use [Thonny](https://thonny.org/) IDE to program the RaspberryPi that is plugged into a [DuePico's](../products/adduepico-b).
 
 ---
 
@@ -163,3 +164,5 @@ while True:
 :::tip
 With DUELink we can control multiple modules of the same type. For example, we can show information on both displays.
 :::
+
+The earlier samples were generic and run on any module. The individual module's product pages. include specific samples.
