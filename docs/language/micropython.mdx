@@ -69,7 +69,7 @@ from duelink import transport
 uart = transport.UartTransportController(0)
 due = duelink.DUELinkController(uart)
 
-due.system.statled(50,50,0)
+due.System.StatLed(50,50,0)
 ```
 
 You can also use boards that already have a JST connector, like [Adafruit QT Py RP2040](https://www.adafruit.com/product/4900) or [Sparkfun Pro Micro RP2350](https://www.sparkfun.com/sparkfun-pro-micro-rp2350.html). However, note that these boards use the [I2C Interface](../interface/i2c).
@@ -90,7 +90,7 @@ sdaPIN = machine.Pin(22)
 i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
 due = duelink.DUELinkController(i2c)
  
-due.system.statled(50,50,0)
+due.System.StatLed(50,50,0)
 ```
 
 :::tip
@@ -142,9 +142,9 @@ due.Graphics.Text("sound on device 3", 1, 1, 41)
 due.Graphics.Show()
 
 due.Engine.Select(3)#Button Module
-due.Button.Enable(1,1,1)
+due.Button.Enable(1,0)
 due.Engine.Select(1)#DuePico `A` Button
-due.Button.Enable(20,1,2)
+due.Button.Enable(20,1)
 
 while True:
     due.Engine.Select(3)#Button Module    
