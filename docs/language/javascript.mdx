@@ -47,16 +47,18 @@ Our program will blink the on-board status LED on a tethered module, on for 200m
 Note that using `await` is very critical because JavaScript is designed to run tasks asynchronously. DUELink is accesses hardware live, in real-time. Things must run in order and using `await` is required with anything DUElink!
 
 ```js
-const { SerialUSB } = require("dlserialusb");
-const { DUELinkController } = require("duelink");
+import pkg_serialusb from 'dlserialusb';
+const {SerialUSB} = pkg_serialusb
+
+import pkg_duelink from 'duelink';
+const {DUELinkController} = pkg_duelink
+
+let duelink = new DUELinkController(new SerialUSB());
+await duelink.Connect();
 
 async function Blinky() {
-  let duelink = new DUELinkController(new SerialUSB());
-
-  await duelink.Connect();
-
   // Flash the LED  (on for 200ms, off for 800ms, 20 times)
-  await duelink.system.statled(200, 800, 20);
+  await duelink.System.StatLed(200, 800, 20);
 }
 
 Blinky();
@@ -79,7 +81,48 @@ Make sure these modules are loaded with [Drivers](../engine/drivers).
 :::
 
 ```js
-// code!
+import pkg_serialusb from 'dlserialusb';
+const {SerialUSB} = pkg_serialusb
+
+import pkg_duelink from 'duelink';
+const {DUELinkController} = pkg_duelink
+
+let duelink = new DUELinkController(new SerialUSB());
+await duelink.Connect();
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function main() {
+    // Device 1 is Display OLDE 0.96, with driver installed! 
+    // Device 2 is button
+    // Device 3 is buzzer
+    duelink.ReadTimeout = 100; // milliseconds
+
+    await duelink.Engine.Select(1);
+    await duelink.Graphics.Clear(1);
+    await duelink.Graphics.Text("DUELink", 0, 10, 10);
+    await duelink.Graphics.Text("Press button on", 0, 1, 21);
+    await duelink.Graphics.Text("device 2 to play", 0, 1, 31);
+    await duelink.Graphics.Text("sound on device 3", 0, 1, 41);
+    await duelink.Graphics.Show();
+
+    await duelink.Engine.Select(2);
+    await duelink.Button.Enable(1, 0);
+
+    while (true) {
+        await duelink.Engine.Select(2);
+        if (await duelink.Button.Down(1)) {
+            await duelink.Engine.Select(3);
+            await duelink.Frequency.Write(7, 1000, 50, 0.5);
+        }
+        await sleep(100); // Sleep 100 milliseconds
+    }
+}
+
+// Run the main function
+main();
 ```
 
 The earlier sample were generic and run on any module. The individual module's product pages. include specific samples.
