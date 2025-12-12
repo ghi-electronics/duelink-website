@@ -7,13 +7,15 @@
 
 There are 2 ways to access DUELink modules from App Inventor, either USB or Bluetooth.
 
-Examples are provided to get you started, but this is an experimental support. Consider one of the fully supported options, such as [Python](./python).
+Examples are provided to get you started, but this is an experimental support.
 
 ---
 
 ## USB
 
-This only works with Android as iOS does not support the standard USB CDC Class. As for the modules, you can either use one of the modules with built-in USB, such as the ultra-low-cost [CincoBit](../products/mccincobit-e) or add [USB Hook](../products/adusbhook-a).
+You can build apps that control actuators and read sensors, right from a tethered phone. Note that this only works on Android as iOS does not support the standard USB CDC Class. Modules with USB connectors, such as [DueSTEM](../products/mcduestem-b), can tether to a phone directly.
+
+Other modules without USB connectors will need a adapter, such as [USB Hook](../products/adusbhook-a).
 
 ![Android USB Hook](pathname:///img/android-usbhook.webp)
 
@@ -21,7 +23,7 @@ This only works with Android as iOS does not support the standard USB CDC Class.
 
 ## Wireless
 
-Wireless is a bit easier as there is no physical connection to the phone or tablet. These devices can pair with [Wireless ESP32](../products/wlesp32-a), which in turn brings the chain of [DaisyLink](../engine/daisylink) devices to the [Wireless](../interface/wireless) connection via WiFi or Bluetooth.
+Wireless is a bit easier as there is no physical connection to the phone or the tablet. These devices can pair with [Wireless ESP32](../products/wlesp32-a), which in turn brings the chain of [DaisyLink](../engine/daisylink) devices to the [Wireless](../interface/wireless) connection via WiFi or Bluetooth.
 
 ![Android Wireless ESP32](pathname:///img/wireless-daisylink.webp)
 
@@ -29,7 +31,7 @@ Wireless is a bit easier as there is no physical connection to the phone or tabl
 
 ## Demo
 
-This demo includes both USB and Bluetooth. Log in to App Inventor and then load [this file](https://github.com/ghi-electronics/duelink-libraries/tree/main/appinventor).
+This is a demo sample to help you get started. It includes both USB and Bluetooth. Log in to App Inventor and then load [this file](https://github.com/ghi-electronics/duelink-libraries/tree/main/appinventor).
 
 
 ![App Inventor Demo](pathname:///img/appinventor-demo.webp)
