@@ -7,6 +7,10 @@ JavaScript is one of the core technologies used by the World Wide Web. 98% of al
 
 Here is a website demo to demonstrate how JavaScript can control actuators and read sensors: [demo.duelink.com](https://demo.duelink.com/). It is covered in the [Getting Started](../start) page.
 
+:::tip
+Note that JavaScript will be executed on one of the [supported hardware](../hw/intro) options, which is tethered to DUELink modules. JavaScript does not run on the module itself!
+:::
+
 ---
 
 ## Setup
@@ -38,7 +42,9 @@ console.log("Hello World");
 
 ## Blinky!
 
-Our program will blink the on-board status LED, on for 200ms then it shuts off for 800ms, and does this 20 times. We will be using SerialUSB() here. If running on a website, use WebSerial() instead.
+Our program will blink the on-board status LED on a tethered module, on for 200ms then it shuts off for 800ms, and does this 20 times. We will be using SerialUSB() here. If running on a website, use WebSerial() instead.
+
+Note that using `await` is very critical because JavaScript is designed to run tasks asynchronously. DUELink is accesses hardware live, in real-time. Things must run in order and using `await` is required with anything DUElink!
 
 ```js
 const { SerialUSB } = require("dlserialusb");
@@ -57,7 +63,23 @@ Blinky();
 ```
 
 :::tip
-You are accessing hardware in real-time. Things must run in order and using `await` is required with anything DUElink! 
+The Python library is open source: [DUELink Libraries Repo](https://github.com/ghi-electronics/duelink-libraries).
 :::
 
-The JavaScript library is open source: [DUELink Libraries Repo](https://github.com/ghi-electronics/duelink-libraries).
+---
+
+## Daisylinking
+
+In the example below, we'll use Python to control an OLED 0.96 Display, a Button, and a Buzzer module Daisylinked together.
+
+![Daisylinked Modules](pathname:///img/usbhook-daisylinked.webp)
+
+:::tip
+Make sure these modules are loaded with [Drivers](../engine/drivers).
+:::
+
+```js
+// code!
+```
+
+The earlier sample were generic and run on any module. The individual module's product pages. include specific samples.
