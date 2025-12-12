@@ -13,7 +13,7 @@ Microsoft MakeCode **Arcade** is variant of MakeCode that has an Arcade game eng
 ![Arcade Daisylinked](pathname:///img/arcade-link.webp)
 
 :::tip
-MakeCode does not run on DUELink modules directly but you can use third party modules that support to MakeCode to access the DUELink ecosystem.
+MakeCode does not run on DUELink modules directly but you can use third party modules that support to MakeCode to tether to the DUELink ecosystem.
 
 [MicroBlocks](./microblocks) is a block-coding alternative that is fully supported.
 :::
@@ -59,12 +59,12 @@ If you have more than one module then use `Select device` block to select the de
 
 
 
-The `Execute Command` block is a powerful one! It gives you access to any internal commands, no matter if they come from [standard library](../engine/stdlib) or from [drivers](../engine/drivers). A good example is using it to control the status LED, like we just did before, but this time using the `statled(100,100,10)` function directly.
+The `Execute Command` block is a powerful one! It gives you access to any internal commands, no matter if they come from [standard library](../engine/stdlib) or from [drivers](../engine/drivers). A good example is in using `Execute Command` to control the status LED, like we just did before, but this time using the `statled(100,100,10)` function directly.
 
 ![Execute Command Block](pathname:///img/makecode-execute.webp)
 
 :::tip
-All blocks use `Execute Command` internally, but provided for your convenience.
+All blocks use `Execute Command` internally, but are provided for your convenience.
 :::
 
 ---

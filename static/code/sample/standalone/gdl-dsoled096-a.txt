@@ -1,3 +1,7 @@
+# In this sample:
+# Set background to WHITE color
+# Draw text and circle
+
 _x = 0
 _d = -9
 

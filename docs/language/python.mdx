@@ -5,6 +5,10 @@
 
 Python is the main language used with AI and data science. The provided DUELink Python library allows a full standard Python program to access the physical world. For example, an AI vision facial recognition can now control a door lock.
 
+:::tip
+Note that Python will be executed on one of the [supported hardware](../hw/intro) options, which is tethered to DUELink modules. Python does not run on the module itself!
+:::
+
 ---
 
 ## Setup
@@ -35,7 +39,7 @@ The DUELink python library requires pySerial, which may require an admin access 
 
 ## Blinky!
 
-Our first program will blink the on-board status LED, on for 200ms then it shuts off for 800ms, and does this 20 times.
+Our first program will blink the on-board status LED on a tethered module, on for 200ms then it shuts off for 800ms, and does this 20 times.
 
 ```py
 from DUELink.DUELinkController import DUELinkController
@@ -99,6 +103,5 @@ while True:
         duelink.Frequency.Write(7, 1000, 50, 0.5)  
 
 ```
-## Standard Library
 
-Available functions are documented by the DUELink [Standard Library](../engine/stdlib). All APIs have Python samples to help you get started.
+The earlier samples were generic and run on any module. The individual module's product pages. include specific samples.

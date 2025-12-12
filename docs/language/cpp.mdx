@@ -3,28 +3,28 @@
 
 ![C++ Logo](pathname:///img/cplusplus.webp)
 
-There are two ways to use C++ with DUELink, hosted or [Standalone](./standalone).
+There are two ways to use C++ with DUELink, tethered or [Standalone](./standalone).
 
 ---
 
-## Hosted
+## Tethered
 
-With a hosted option, a [PC & Laptop](../hw/pc-laptop) or [Phone & Tablets](../hw/phone-tablet.mdx) can be used to run the C++ program to command DUELink modules through [USB](../interface/usb) or [UART Serial](../interface/uart) interfaces.
+With this option, you can can tether a device, such as [PC & Laptop](../hw/pc-laptop) or [Phone & Tablets](../hw/phone-tablet.mdx) to DUELink modules, which you can be used to run the C++ program to command DUELink modules through [USB](../interface/usb) or [UART Serial](../interface/uart) interfaces.
 
 We do not provide a library for C++ as most of DUELink users enjoy the high-level supported languages, such as [.NET C#](./dotnet) and [Python](./python).
 
-Note that the [Arduino](../hw/arduino) library is C++ and will likely work with little changes. This is not an officially supported option however.
+Note that the [Arduino](../hw/arduino) library is C++ and will work with some changes. However, this is not an officially supported option.
 
 ---
 
 ## Standalone
 
-We recommend using [Arduino](../hw/arduino), which is C++ at its core but presents itself in a easier setup.
+We recommend using [Arduino](../hw/arduino), which is C++ at its core, but presents itself in a easier setup.
 
-You can use any other C++ compiler with STM32C071 microcontroller support, including free [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html). We, however, internally use ARM Keil MDK. This is a paid professional IDE but [ST Micro offers a free licensed for any STM32 Cortex-M0 micro](https://developer.arm.com/documentation/kan344/latest/?lang=en).
+You can also use any other C++ compiler with an STM32C071 microcontroller support, including the free [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html). Another option is ARM Keil MDK, which is what we use internally. This is a paid professional IDE but [ST Micro offers a free licensed for any STM32 Cortex-M0 micro](https://developer.arm.com/documentation/kan344/latest/?lang=en).
 
 :::tip
-These options use low-end versatile libraries. They are powerful but not user friendly! [Arduino](../hw/arduino) is a user-friendly alternative.
+These options use low-level versatile libraries. They are powerful but not user friendly! [Arduino](../hw/arduino) is a user-friendly alternative.
 :::
 
 Any DFU update tool can be used to load your compiled program onto a DUELink module. We recommend the [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html).
