@@ -5,7 +5,7 @@ import TabItem from "@theme/TabItem";
 
 ![Raspberry Pi](pathname:///img/raspberrypi-logo.webp)
 
-There are multiple ways to take advantage of the DUELink ecosystem with the entire Raspberry Pi product line.
+There are multiple ways to take advantage of the DUELink ecosystem with the entire Raspberry Pi product line. From full scale Raspberry Pi boards to small micro-level Pico boards.
 
 ![Raspberry Pi line](pathname:///img/raspberrypi-line.webp)
 
@@ -13,11 +13,11 @@ There are multiple ways to take advantage of the DUELink ecosystem with the enti
 
 ## RPI and RPI Zero
 
-For Raspberry Pi and Raspberry Pi Zero, we recommend using [DuePi](../products/adduepi-b) Hat.
+For using Raspberry Pi and Raspberry Pi Zero, we recommend the [DuePi](../products/adduepi-b) Hat.
 
 ![DuePi](pathname:///img/catalog/adduepi-b-1.webp)
 
-This hat uses [UART Interface](../interface/uart). It includes a display, buzzer, terminal block for wiring, and a [Downlink](../interface/downlink) socket to extend your RPI with hundreds of available sensors and actuators.
+This hat uses [UART Interface](../interface/uart) and includes display, buzzer, terminal block for wiring, and a [Downlink](../interface/downlink) socket to extend your RPI with hundreds of available sensors and actuators.
 
 ![DuePi](pathname:///img/duepi-daisylinked.webp)
 
@@ -26,7 +26,7 @@ DuePi works great with Raspberry Pi Zero as well, with optional breakable area.
 ![DuePi with Raspberry Pi Zero](pathname:///img/duepi-zero.webp)
 
 
-Everything is accessible through any of the RPI supported [Coding Languages](../language/intro), such as [Python](../language/python) .
+Everything is accessible through any of the RPI supported [Coding Languages](../language/intro), such as [Python](../language/python). Here is a sample that shows the RPI's IP address on the OLED Display.
 
 ```python
 # Show IP address on display
@@ -73,7 +73,7 @@ while True:
     time.sleep(1)
 ```
 
-[RPILink](../products/adrpilink-a) is a simpler, and lower cost, option. It includes two options for connecting to RPI, via [I2C](../interface/i2c) or [UART](../interface/uart) interfaces.
+[RPILink](../products/adrpilink-a) is another choice for using RPI or RPI Zero. You can pick either [I2C](../interface/i2c) or [UART](../interface/uart) for tethering and [daisylinking](../engine/daisylink) DUELink modules.
 
 ![RPILink](pathname:///img/catalog/adrpilink-a-1.webp)
 
@@ -85,11 +85,13 @@ You can also use other third-party breakouts that adds JST connector, like the [
 When using the Qwiic pHat, only use one JST connectors as [Downlink](../interface/downlink). You can still use the other sockets to connect other non-DUELink I2C things!
 :::
 
+You are now ready to start utilizing DUELink modules with your RPI or RPI Zero. Just select one of the [coding languages](../language/intro), and also look at samples found under any of the modules you are using.
+
 ---
 
 ## Raspberry Pi Pico
 
-Using Raspberry Pi Pico is easily achievable using [DuePico](../products/adduepico-b). It includes several things, such as a display to help you with printing diagnostics info.
+Using Raspberry Pi Pico is easily achievable using [DuePico](../products/adduepico-b), which includes display, buzzer, buttons, and more!
 
 ![DuePico](pathname:///img/catalog/adduepico-b-1.webp)
 
@@ -103,12 +105,12 @@ Visit the [MicroPython](../language/micropython) page to see how Raspberry Pi Pi
 
 ## RP2350 & RP2040
 
-Beyond the official RPI Pico, using any board with a RPI microcontroller is possible. We recommend ones with a JST connector, like [Adafruit QT Py RP2040](https://www.adafruit.com/product/4900) or [Sparkfun Pro Micro RP2350](https://www.sparkfun.com/sparkfun-pro-micro-rp2350.html). You can as well use the [Breakout](../products/adbreakout-a) to wire a [Downlink](../interface/downlink) connection to any board.
+Beyond the official RPI Pico, using any board with a RPI microcontroller is possible. We recommend ones with a JST connector, like [Adafruit QT Py RP2040](https://www.adafruit.com/product/4900) or [Sparkfun Pro Micro RP2350](https://www.sparkfun.com/sparkfun-pro-micro-rp2350.html). However, you can use the [Breakout](../products/adbreakout-a) module to wire any boards without JST connector, including RPI Pico!
 
 ![RP2040-RP2350-Breakout](pathname:///img/rp2040-rp2350-breakout.webp)
+
+See the [MicroPython](../language/micropython) for one of the most popular options for coding these boards.
 
 :::tip
 Pay attention to how much power these little circuits can provide. Consider adding a [Power Inject](../products/adpwrinj-a) module to add more juice!
 :::
-
-See the [MicroPython](../language/micropython) for code examples.
