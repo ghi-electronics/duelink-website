@@ -6,23 +6,33 @@ DUELink modules are designed to be versatile and dynamic, with multiple interfac
 
 ## Uplink
 
-Every single DUELink module works with [USB](./usb), [I2C](./i2c), and [UART](./uart) on their Uplink connector. This socket is marked with `U` and is off-white color.
+Every single DUELink module works with [USB](./usb), [I2C](./i2c), and [UART](./uart) on their Uplink connector. This common JST connector is marked with `U` and is off-white color.
 
 ![Accel Module](pathname:///img/catalog/seaccel-a-1.webp)
 
-Some modules are made in a microcomputer form-factor and, therefore, the Uplink connector is replaced with a USB connector.
+The first use of Uplink connector is to connect DUELink modules to a [Supported Hardware](../hw/intro).
+
+![arduino uni daisylink](pathname:///img/arduino-uno-r4-daisylinked.webp)
+
+Another option is to use Uplink to [daisylink](../engine/daisylink) DUELink modules.
+
+![daisylink modules](pathname:///img/daisylink.webp)
+
+Note that some modules are made in a microcomputer-form-factor and the Uplink connector is replaced with a USB connector, which can only use the [USB](./usb) interface.
 
 ![DueDuino](pathname:///img/dueduino.webp)
 
-[Supported Hardware](../hw/intro) devices can use the above interfaces with one of the [Coding Languages](../language/intro).
+Learn more about [USB](./usb), [I2C](./i2c), and [UART](./uart) interfaces.
 
 ---
 
 ## Downlink
 
-The [Downlink](./downlink) socket is marked with `D` and it is blue color. It is automatically handled by the system and allows for [Daisylinking](../engine/daisylink) modules.
+The Downlink socket is marked with `D` and it is blue color. It is automatically handled by the [internal engine](../engine/intro) and allows for [Daisylinking](../engine/daisylink) modules.
 
 ![DueDuino](pathname:///img/uplink-downlink.webp)
+
+Learn more about [Downlink](./downlink).
 
 ---
 

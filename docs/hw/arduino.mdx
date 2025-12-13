@@ -6,7 +6,7 @@ import Zoom from "react-medium-image-zoom";
 
 ![Arduino logo](pathname:///img/arduino-logo.webp)
 
-This is an interesting option because it allows DUELink to be used in 2 very different ways. You can tether an Arduino-running board to control one DUELink Module or a chain of [Daisylinked](../engine/daisylink) DUELink modules. 
+Using Arduino is an interesting option because it allows DUELink to be used in 2 very different ways. One option is to tether an Arduino-compatible board to control one DUELink Module or a chain of [daisylinked](../engine/daisylink) DUELink modules. 
 
 ![Arduino UNO 4 Daisylinked](pathname:///img/arduino-uno-r4-daisylinked.webp)
 
@@ -16,7 +16,7 @@ The other option is to program any DUELink module using the Arduino IDE/software
 ![Ghizzy Eyes](pathname:///img/ghizzy-eyes.gif)
 </div>
 
-You can also combine both options and tether a standalone arduino-running DUELink Module to other DUELink modules! Basically, you are combining both options above! In this example, we have a DueDuino loaded with Arduino software that is tethered to a dasylink of DUELink modules.
+You can also combine both options and tether a standalone arduino-running DUELink Module to other DUELink modules! In this example, we have a DueDuino loaded with Arduino software that is tethered to a dasylink of DUELink modules.
 
 ![DueDuino daisylink](pathname:///img/dueduino-uplink.webp)
 
@@ -129,7 +129,7 @@ Simple commands can do complex tasks, such as graphics in this case. This is pos
 
 ## Standalone
 
-Any DUELink module can be run Standalone using the Arduino software, replacing the default DUELink firmware. An example can be [DueDuino](../products/mcdueduino-a).
+Any DUELink module can run [standalone](../language/standalone) using the Arduino software, replacing the default DUELink firmware. An example can be [DueDuino](../products/mcdueduino-a).
 
 ![DueDuino](pathname:///img/dueduino.webp)
 
@@ -137,11 +137,9 @@ Or a [Ghizzy](../products/spghizzy-d)!
 
 ![Ghizzy](pathname:///img/catalog/spghizzy-d-1.webp)
 
-If the module you want to use does not have a USB connector, then you need [USB Hook](../products/adusbhook-a) or a similar module.
+If the module you want to use does not have a USB connector, then you need a [USB Hook](../products/adusbhook-a) or a similar module.
 
 ![USB hook with RGB3](pathname:///img/usbhook-rgb3.webp)
-
-
 
 The micro used on all DUELink modules is STM32C071, which is fully supported by the Arduino IDE, through the ST extension. But wait, we did not just leave it at that! We have a board support package for you.
 
