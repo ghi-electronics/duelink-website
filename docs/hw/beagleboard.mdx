@@ -13,7 +13,7 @@ Any of the [Coding Language](../language/intro) options can be use on these boar
 
 ## BeaglePlay
 
-This board has a built in JST connector with [I2C](../interface/i2c) signals, I2C5 to be exact! Their [Qwicc Example](https://docs.beagleboard.org/boards/beagleplay/demos-and-tutorials/using-qwiic.html#beagleplay-qwiic) is a good starting point on how to access the I2C bus. Consider this as a DUELink [Downlink](../interface/downlink) socket.
+This board has a built in JST connector with [I2C](../interface/i2c) signals, I2C5 to be exact! Their [Qwicc Example](https://docs.beagleboard.org/boards/beagleplay/demos-and-tutorials/using-qwiic.html#beagleplay-qwiic) is a good starting point on how to access the I2C bus, which is where you can tether DUELink modules.
 
 ![BeagleBoard](pathname:///img/beagleplay-jst.webp)
 
@@ -25,7 +25,7 @@ This board has a [Raspberry PI](raspberry-pi) compatible footprint/pinout. We re
 
 ![BeagleBonePlay with DUEPI](pathname:///img/beagleplay-duepi.gif)
 
-The hat uses UART for communication. Here is an example to show the system's IP address on the display.
+[DuePI](../products/adduepi-b) uses UART for communication. Here is an example to show the system's IP address on the display.
 
 
 ```python
@@ -74,10 +74,14 @@ while True:
 
 ---
 
-# Other Beagles
+# Other Beagles!
 
-Use the [Breakout](../products/adbreakout-a) module to wire [UART Interface](../interface/uart) or [I2C Interface](../interface/i2c)from any BeagleBoard. When using I2C, pull-up resistors are required. The DUELink [PullUp](../products/adpullup-a) module is available if needed.
+You can use the [Breakout](../products/adbreakout-a) module to wire [UART Interface](../interface/uart) or [I2C Interface](../interface/i2c)from any BeagleBoard.
 
 ![BeagleBone Black Breakout UART](pathname:///img/beaglebone-breakout-uart.webp)
+ 
+When using I2C, pull-up resistors are required. The DUELink [PullUp](../products/adpullup-a) module is available if needed.
 
 ![BeagleBone Black Breakout I2C](pathname:///img/beaglebone-breakout-i2c.webp)
+
+You are now ready to control DUELink modules using one of the [Coding Language](../language/intro) options.
