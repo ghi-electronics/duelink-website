@@ -1,3 +1,8 @@
+# In this sample:
+# Display the text "DUELink!"
+# Wait for 1 second
+# Display counting up from 0 to 99,999,999
+
 CPrintS("DUELink")
 VShow()
 wait(1000)

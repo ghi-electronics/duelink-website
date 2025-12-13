@@ -76,30 +76,28 @@ using GHIElectronics.DUELink;
 var availablePort = DUELinkController.GetConnectionPort();
 var duelink = new DUELinkController(availablePort);
 
-static void BasicExample() {
-     // Device 1 is Display OLDE 0.96, with driver installed! 
-     // Device 2 is button
-     // device 3 is buzzer
-     duelink.ReadTimeout = TimeSpan.FromMilliseconds(100);
-     duelink.Engine.Select(1);
-     duelink.Graphics.Clear(1);
-     duelink.Graphics.Text("DUELink", 0, 10, 10);
-     duelink.Graphics.Text("Press button on", 0, 1, 21);
-     duelink.Graphics.Text("device 2 to play", 0, 1, 31);
-     duelink.Graphics.Text("sound on device 3", 0, 1, 41);   
-     duelink.Graphics.Show();
- 
-     duelink.Engine.Select(2);
-     duelink.Button.Enable(1, true, 1);
- 
-     while (true) {
-         duelink.Engine.Select(2);
-         if (duelink.Button.Down(1)) {
-             duelink.Engine.Select(3);
-             duelink.Frequency.Write(7, 1000, 50, 0.5);
-         }
-         Thread.Sleep(100);
-     }
+// Device 1 is Display OLDE 0.96, with driver installed! 
+// Device 2 is button
+// device 3 is buzzer
+duelink.ReadTimeout = TimeSpan.FromMilliseconds(100);
+duelink.Engine.Select(1);
+duelink.Graphics.Clear(1);
+duelink.Graphics.Text("DUELink", 0, 10, 10);
+duelink.Graphics.Text("Press button on", 0, 1, 21);
+duelink.Graphics.Text("device 2 to play", 0, 1, 31);
+duelink.Graphics.Text("sound on device 3", 0, 1, 41);
+duelink.Graphics.Show();
+
+duelink.Engine.Select(2);
+duelink.Button.Enable(1, 0);
+
+while (true) {
+    duelink.Engine.Select(2);
+    if (duelink.Button.Down(1)) {
+        duelink.Engine.Select(3);
+        duelink.Frequency.Write(7, 1000, 50, 0.5);
+    }
+    Thread.Sleep(100);
 }
 ```
 

@@ -69,38 +69,34 @@ Make sure these modules are pre-loaded with [Drivers](../engine/drivers).
 :::
 
 ```python
-# Device 1 is OLED 0.96" Display
-# Device 2 is button
-# device 3 is buzzer
-
+import time
 from DUELink.DUELinkController import DUELinkController
- 
+
 availablePort = DUELinkController.GetConnectionPort()
 duelink = DUELinkController(availablePort)
 
-# Blink the Status LED
-duelink.Engine.Select(1)
-duelink.System.StatLed(200,200,0)
+# Device 1 is Display OLDE 0.96, with driver installed! 
+# Device 2 is button
+# Device 3 is buzzer
+duelink.ReadTimeout = 0.1  # 100 milliseconds
 
-# Show messages on screen
-duelink.ReadTimeout = 0.1
-duelink.Graphics.Clear(0)
-duelink.Graphics.TextS("-- DUELink --", 1, 30, 1, 1, 2)
-duelink.Graphics.Text("Press button on", 1, 1, 21)
-duelink.Graphics.Text("device 2 to play", 1, 1, 31)
-duelink.Graphics.Text("sound on device 3", 1, 1, 41)
+duelink.Engine.Select(1)
+duelink.Graphics.Clear(1)
+duelink.Graphics.Text("DUELink", 0, 10, 10)
+duelink.Graphics.Text("Press button on", 0, 1, 21)
+duelink.Graphics.Text("device 2 to play", 0, 1, 31)
+duelink.Graphics.Text("sound on device 3", 0, 1, 41)
 duelink.Graphics.Show()
 
-# Enable button feature on pin 1 on device address 2
 duelink.Engine.Select(2)
-duelink.Button.Enable(1, 1, 1)
+duelink.Button.Enable(1, 0)
 
-# Read if button is down on device address 2 to buzz device address 3
 while True:
     duelink.Engine.Select(2)
-    if (duelink.Button.Down(1)) :
+    if duelink.Button.Down(1):
         duelink.Engine.Select(3)
-        duelink.Frequency.Write(7, 1000, 50, 0.5)  
+        duelink.Frequency.Write(7, 1000, 50, 0.5)
+    time.sleep(0.1)  # Sleep 100 milliseconds 
 
 ```
 

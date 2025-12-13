@@ -1,0 +1,58 @@
+# This sample runs on QT-PY 2040 adafruit
+# In this sample:
+# Display the text "DUELink!"
+# Wait for 1 second
+# Display counting up from 0 to 99,999,999
+
+import time
+import utime 
+import math
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+def DrawNumber(x, number):
+    number = number + 48  # 48 = '0'
+    cmd = "CPrint(" + str(x) + "," + str(number) + ")"
+    due.Engine.ExecuteCommand(cmd)
+
+def DrawString(text):
+    cmd = "CPrintS(\"" + text + "\")"
+    due.Engine.ExecuteCommand(cmd)
+
+def Show():
+    due.Engine.ExecuteCommand("VShow()")
+
+def Clear():
+    DrawString("        ")
+    Show()
+
+number = 0
+i = 0
+
+Clear()
+DrawString("DUELink!")
+Show()
+time.sleep(1)  # 1000 ms
+Clear()
+
+while True:
+    DrawNumber(i, number)
+    Show()
+
+    number = number + 1
+    if number == 10:
+        number = 0
+        i = i + 1
+
+        if i == 8:
+            i = 0
+            Clear()
+
+    time.sleep(0.01)  # 10 ms
