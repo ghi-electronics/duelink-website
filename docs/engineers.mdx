@@ -4,15 +4,16 @@ hide_table_of_contents: true
 
 # Engineers
 
-DUELink serves electrical and computer engineering in multiple ways, from initial prototyping to post production expandability options.
+DUELink serves electrical and embedded engineering in multiple ways, from initial **prototyping** to post production **expandability** options.
 
 ![Commercial Product](pathname:///img/commercial-product.webp)
 
 ---
 
-## Prototype
+## Prototyping
 
 Build prototypes and proof of concepts in minutes vs days, at an extremely low-cost. Let's say you have a quick need for a device that connect to a vehicle with these requirements:
+
 1. Power from a car battery.
 1. Capture CAN bus messages.
 1. Read current position from GPS.
@@ -23,11 +24,11 @@ Put the soldering iron aside and grab a [Holey Board](./products/axholey) instea
 
 ![Vehicle project](pathname:///img/vehicle-project.webp)
 
-Each module has a built in library for you! Simple ASCII human-readable commands can show graphics on the display and record files on a USB memory stick! See the [Standard Library](./engine/stdlib) for an impressive list of options.
+On the software front, each module has a mini-computer with a built in engine! Simple ASCII human-readable commands can show graphics on the display and record files on a USB memory stick! We even provide libraries to support the impressive [Standard Library](./engine/stdlib) using almost any [coding language](./language/intro).
 
 ---
 
-## A Trusty Connector
+## Expandability
 
 By adding a tiny JST connector, you will magically bring a whole level of expandability to your designs. Just imagine how versatile designs will be when you are able to tether any [DUELink Catalog](./catalog/products) module to your design. 
 
@@ -49,7 +50,7 @@ Your hardware can be tethered to DUELink modules using either [I2C](./interface/
 
 DUELink ecosystem includes some complex modules that can advance your design with relatively minimal work, turning weeks of frustration into hours of progress!
 
-All modules, including the onces listed below, are controlled using ASCII commands. We even provide libraries to handle these ASCII commands for many [Languages](./language/intro), including [Python](./language/python), [JavaScript](./language/javascript), [.NET](./language/dotnet), and [C++](./language/cpp).
+All modules, including the onces listed below, are controlled using ASCII commands. We even provide libraries to handle these ASCII commands for almost all [coding languages](./language/intro), including [Python](./language/python), [JavaScript](./language/javascript), [.NET](./language/dotnet).
 
 <div style={{textAlign: 'center'}}>
 
@@ -57,7 +58,7 @@ All modules, including the onces listed below, are controlled using ASCII comman
  <tr>
 <td width='50%'>
     <img alt="Back" src="/img/catalog/stusbhost-b-3.webp" />
-    The module already includes all FAT file system and USB Host software libraries internally. You simpley send a file command and the module will do the rest for you. There are also SD and Micro SD module options as well.
+    The module already includes all FAT file system and USB Host software libraries internally. You simply send a file command, and the module will do the rest for you. There are also SD and Micro SD module options as well.
     <Button
         style={{ margin: "10px", color: "white" }}
         label="USB Host"
@@ -78,7 +79,7 @@ All modules, including the onces listed below, are controlled using ASCII comman
  <tr>
 <td width='50%'>
     <img alt="Size" src="/img/catalog/dshdmi-b-3.webp" />
-    The same tine JST connector brings HDMI to your design! The onboard Bridgetek graphics coprocessor renders high definition graphics. Yes, any design can have a 50" monitor now!
+    The same tine JST connector brings HDMI to your design! The onboard Bridgetek graphics coprocessor renders high-definition graphics. Yes, any design can have a 50" monitor now!
 
     <Button
         style={{ margin: "10px", color: "white" }}
@@ -99,12 +100,25 @@ All modules, including the onces listed below, are controlled using ASCII comman
 </table>
 </div>
 
+--- 
+
+## Standalone
+
+You know by now that you can tether DUELink modules to any [hardware](./hw/intro) and use almost any [coding language](./language/intro)! But, since every DUELink module is a mini-computer, it is also possible to program these modules to run standalone. This can be done using a bare-bone C++ project.
+
+![c++](pathname:///img/cplusplus.webp)
+
+Or, you can also use the Arduino ecosystem for en easier path. 
+
+![arduino.](pathname:///img/arduino-logo.webp)
+
+Visit the [standalone](./language/standalone) page to learn more.
 
 ---
 
 ## Standard Sizing
 
-The standard hole sizes and placement pitch allow for an easier enclosure designs. See [Specifications](./specs) for more details.
+The standard hole sizes and placement pitch allow for easier enclosure designs. See [Specifications](./specs) for more details.
 
 ![Hole Specs](pathname:///img/duelink-hole-specs.webp)
 
@@ -116,7 +130,7 @@ See the DUELink [Specs](./specs) for details and evolve into making your own [Th
 
 ---
 
-## We are Here to Support
+## We are Here to Support!
 
 With DUELink, you will receive support from a USA-based company that has been in the commercial **engineering and manufacturing** of **Hardware and Software** for over 20 years!
 
