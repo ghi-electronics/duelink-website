@@ -1,0 +1,49 @@
+# This sample runs on QT-PY 2040 adafruit
+# In this sample:
+# Draw the text "DUELink" in multiple colors at the center of the screen.
+import time
+import utime 
+
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+def Clear():
+    due.Engine.ExecuteCommand("DLClear()")
+    due.Engine.ExecuteCommand("DLCmd(C_CLEAR_COLOR,{0,0,0})")
+    due.Engine.ExecuteCommand("DLCmd(C_CLEAR,{})")
+
+def DrawChar(c, color, x, y, size):
+    r = (color >> 16) & 0xFF
+    g = (color >> 8) & 0xFF
+    b = (color >> 0) & 0xFF
+    cmd = "DLCmd(C_COLOR,{{{},{},{}}})".format(r, g, b)
+    due.Engine.ExecuteCommand(cmd)
+
+    due.Engine.ExecuteCommand("DLCmd(C_BEGIN,{BITMAPS})")
+
+    cmd = "DLCmd(C_VERTEX2II,{{{},{},{},'{}'}})".format(x, y, size, c)
+    due.Engine.ExecuteCommand(cmd)
+
+    due.Engine.ExecuteCommand("DLCmd(C_END,{})")
+
+def Show():
+    due.Engine.ExecuteCommand("DLCmd(C_DISPLAY,{})")
+    due.Engine.ExecuteCommand("DLSwap()")
+
+# Example usage
+Clear()
+DrawChar('D', 0xff0000, 300, 192, 31)
+DrawChar('U', 0x00ff00, 335, 192, 31)
+DrawChar('E', 0x0000ff, 370, 192, 31)
+DrawChar('L', 0x00ffff, 405, 192, 31)
+DrawChar('i', 0xff00ff, 435, 192, 31)
+DrawChar('n', 0xffff00, 460, 192, 31)
+DrawChar('k', 0xffffff, 495, 192, 31)
+Show()
