@@ -1,3 +1,8 @@
+# In this sample:
+# Show something on the screen
+# DL Commands are documented in the Bridgetek docs
+# Play 5 built-in notes
+
 DLClear()
 DLCmd(C_CLEAR_COLOR,{0,0,0})
 DLCmd(C_CLEAR,{})
@@ -175,7 +180,7 @@ DLCmd(C_DISPLAY,{})
 DLSwap()
  
 # Play sound beep
-Synth(0x05, 1) # play note index 5 (built-in)
+Synth(0x05, 1) # play notes index 5 (built-in)
 Wait(500)
 # Play stop
 Synth(0x00, 0)
