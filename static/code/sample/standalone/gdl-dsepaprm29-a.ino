@@ -6,8 +6,6 @@
 
 #define ENABLE_GxEPD2_display 0
 #include <GxEPD2_3C.h>
-#include <Fonts/FreeMonoBold9pt7b.h>
-
 
 const uint8_t pin_map[] = {PB8, PA0, PA1, PA4, PA5, PA6, PA7, PA8, PB1, PB0, PC15, PC6, PB3, PB4, PB5,PB6,PB7,PB2,PB9,PA15,PA14,PA9,PA10,PA13,PC14};
 
@@ -24,9 +22,9 @@ const int getpin(int pin) {
 #define EPD_BUSY getpin(4)
 
 // ================= DISPLAY SELECTION =================
-GxEPD2_3C<GxEPD2_290_C90c, GxEPD2_290_C90c::HEIGHT> display(GxEPD2_290_C90c(EPD_CS, EPD_DC, EPD_RST, EPD_BUSY)); // GDEM029C90 128x296, SSD1680
+GxEPD2_3C<GxEPD2_290_C90c, GxEPD2_290_C90c::HEIGHT> display(GxEPD2_290_C90c(EPD_CS, EPD_DC, EPD_RST, EPD_BUSY));
+//GxEPD2_3C<GxEPD2_420c_Z21, GxEPD2_420c_Z21::HEIGHT> display(GxEPD2_420c_Z21(EPD_CS, EPD_DC, EPD_RST, EPD_BUSY));
 
-SPIClass mySPI(SPI1_BASE);  
 const char HelloWorld[] = "Hello World!";
 void setup() {
     SPI.setMISO(PB4);
