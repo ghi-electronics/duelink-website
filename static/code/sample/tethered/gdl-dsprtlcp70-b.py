@@ -1,18 +1,42 @@
-from DUELink.DUELinkController import DUELinkController
+# In this sample:
+# Draw the text "DUELink" in multiple colors at the center of the screen.
+
 import time
+from DUELink.DUELinkController import DUELinkController
+
 availablePort = DUELinkController.GetConnectionPort()
 duelink = DUELinkController(availablePort)
 
-x = 50
-d = 10
-width = int(float(duelink.Engine.Run("getw()")))
-height = int(float(duelink.Engine.Run("geth()")))
+def Clear():
+    duelink.Engine.ExecuteCommand("DLClear()")
+    duelink.Engine.ExecuteCommand("DLCmd(C_CLEAR_COLOR,{0,0,0})")
+    duelink.Engine.ExecuteCommand("DLCmd(C_CLEAR,{})")
 
-while True:
-    duelink.Graphics.Circle(1, x, height//2, 10)
-    duelink.Graphics.Show()
-    x = x + d
-    if (x > width or x < 0):
-        d = d * -1
-        duelink.Graphics.Clear(0)
-    time.sleep(0.1)
+def DrawChar(c, color, x, y, size):
+    r = (color >> 16) & 0xFF
+    g = (color >> 8) & 0xFF
+    b = (color >> 0) & 0xFF
+    cmd = f"DLCmd(C_COLOR,{{{r},{g},{b}}})"
+    duelink.Engine.ExecuteCommand(cmd)
+
+    duelink.Engine.ExecuteCommand("DLCmd(C_BEGIN,{BITMAPS})")
+
+    cmd = f"DLCmd(C_VERTEX2II, {{{x},{y},{size},'{c}'}})"
+    duelink.Engine.ExecuteCommand(cmd)
+
+    duelink.Engine.ExecuteCommand("DLCmd(C_END,{})")
+
+def Show():
+    duelink.Engine.ExecuteCommand("DLCmd(C_DISPLAY,{})")
+    duelink.Engine.ExecuteCommand("DLSwap()")
+
+# Example usage
+Clear()
+DrawChar('D', 0xff0000, 300, 192, 31)
+DrawChar('U', 0x00ff00, 335, 192, 31)
+DrawChar('E', 0x0000ff, 370, 192, 31)
+DrawChar('L', 0x00ffff, 405, 192, 31)
+DrawChar('i', 0xff00ff, 435, 192, 31)
+DrawChar('n', 0xffff00, 460, 192, 31)
+DrawChar('k', 0xffffff, 495, 192, 31)
+Show()
