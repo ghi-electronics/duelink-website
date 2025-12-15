@@ -1,3 +1,10 @@
+# In this sample:
+# Draw a red circle with white borders.
+# Display the text "DUELink" in white at the center of the circle.
+# Draw a white rectangle at the top of the circle.
+# Display the text "!Smart module!" in red at the top of the circle.
+# Show() takes 20 seconds to flush the current buffer to the screen.
+
 Clear(0)
 TextS("DUELink", 1, 110, 70 ,2,3)
 Circle(1, 148, 64, 56)
