@@ -25,7 +25,9 @@ PrintLn(x+x)
 PrintLn(x,"Hello World", x+x)
 ```
 
+<div style={{ textAlign: 'center'}}>
 ![Print](pathname:///img/print-output.webp)
+</div>
 
 `Print()` also supports printing arrays. When it sees a float array, such as `Print(a1)` or `Print({22.4,66.5})` the output will be a dump of the array values, `{22.4,66.5}` in the later example. However, when it sees a byte array, it will print the ASCII values. Print("Hello DUELink") will show "Hello DUELink". This also applies to byte array variables and constants. `Print([0x55])` will result in `U` because `0x55` is ASCII for the letter `U`.
 

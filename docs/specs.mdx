@@ -7,11 +7,15 @@ DUELink unifies many aspects allowing modules to come in any shape and form and 
 
 ## Connections
 
+<div style={{ textAlign: 'center'}}>
 ![Uplink & Downlink](pathname:///img/uplink-downlink.webp)
+</div>
 
 Connections between modules is accomplished using standard 4pin 1mm pitch JST connectors.
 
+<div style={{ textAlign: 'center'}}>
 ![Pinout](pathname:///img/pinout.webp)
+</div>
 
 The pinout consists of:
 
@@ -28,12 +32,15 @@ CTN : [I2C](interface/i2c) SCL (Clock), [UART](interface/uart) TX (Transmit), an
 
 Each module includes both Uplink (white) and [Downlink](interface/downlink) (blue) connectors.
 
+<div style={{ textAlign: 'center'}}>
 ![JST Connectors](pathname:///img/jst-specs.webp)
-
+</div>
 
 The Uplink connector is used to connect the module to a [supported hardware](./hw/intro), such as Raspberry PI or Arduino, or a PC. It automatically works with [I2C](interface/i2c), [UART](interface/uart), and [USB](interface/usb).
 
+<div style={{ textAlign: 'center'}}>
 ![Other Micros](pathname:///img/other-micros.webp)
+</div>
 
 :::tip
 On UART, the pins are named from the module's perspective. The RX signal (pin 3) connects to TX on your board, and TX signal (pin 4) connects to RX on your board.
@@ -41,28 +48,40 @@ On UART, the pins are named from the module's perspective. The RX signal (pin 3)
 
 When USB is mostly desired on specific boards, a USB C connector is used instead of the JST Uplink connector. This is the case with [DueDuino](./products/mcdueduino-a) for example.
 
+<div style={{ textAlign: 'center'}}>
 ![DueDuino](pathname:///img/dueduino-uplink.webp)
+</div>
 
 Every single module can still access USB by wiring a USB connector to the Uplink connector. We also offer [USB Hook](./products/adusbhook-a) for convenience.
 
+<div style={{ textAlign: 'center'}}>
 ![USBhook to Servo](pathname:///img/usbhook-servo-x1.webp)
+</div>
 
 In some rare case, a module might have both Uplink and USB connector, like we have on [Ghizzy](./products/spghizzy-d). In this case, the user can use either USB or Uplink as they are both wired together internally.
 
+<div style={{ textAlign: 'center'}}>
 ![Ghizzy Connections](pathname:///img/ghizzy-connections.webp)
+</div>
 
 DUELink Uplink connection is compatible with Sparkfun Qwiic, Adafruit STEMMA QT, and Arduino Modulino.
 All use I2C, which is one of options available on any DUELink Uplink connection.
 
+<div style={{ textAlign: 'center'}}>
 ![Uplink](pathname:///img/uplink.webp)
+</div>
 
 Always connect the non-DUELink modules first in line with the microcomputer and then add as many DUELink modules as the wires can handle!!
 
+<div style={{ textAlign: 'center'}}>
 ![Qwiic Stemma Modulino DUELink Chain](pathname:///img/qwiic-stemma-modulino-duelink.webp)
+</div>
 
 The second connector is Downlink. It connects to the next modules' Uplink connector.
 
+<div style={{ textAlign: 'center'}}>
 ![Downlink](pathname:///img/downlink.webp)
+</div>
 
 Each module has intelligence to know what to transfer and return throughout the entire stream. Only connect DUELink modules on the Downlink connection. More details are on the [Downlink](interface/downlink) page.
 
@@ -90,7 +109,9 @@ An example of circuits that may not work are smart LEDs, which expect 3.5V (VDD 
 
 ## Status LED
 
+<div style={{ textAlign: 'center'}}>
 ![Status LED](pathname:///img/statled-blink.gif)
+</div>
 
 Each DUELink module must include a STAT (Status) LED. This is used by the system automatically and also accessible using the `StatLed()` command. On boards that have parts on both sides, STAT LED must be on the front face of the module.
 
@@ -102,19 +123,27 @@ The status LED is also available to the user through the [`StatLed()`](./engine/
 
 ## Dimensions
 
+<div style={{ textAlign: 'center'}}>
 ![size comparison](pathname:///img/duelink-modules.webp)
+</div>
 
 DUELink modules can be of any size and form; however, they must include mounting holes that are placed on a 5mm grid. On boards with right angle corners, holes must be placed 3.5mm from the edges of the circuit. Holes are 3mm diameter with 6.6mm circle around it with copper keep out.
 
+<div style={{ textAlign: 'center'}}>
 ![Hole Specs](pathname:///img/duelink-hole-specs.webp)
+</div>
 
 This allows for the use of M3 screws and hardware without worrying about creating circuit shorts.
 
+<div style={{ textAlign: 'center'}}>
 ![m3 screw](pathname:///img/m3-screw.webp)
+</div>
 
 The 5mm grid placement of holes aids in 3D-print and laser-cut enclosure designs. It also allowed us to make [Holey Boards](./products/axholey)!
 
+<div style={{ textAlign: 'center'}}>
 ![Holeyboard with Modules](pathname:///img/holeyboard-modules.webp)
+</div>
 
 DUELink Accessories include [Mounting Hardware](./products/axmnt) options.
 
@@ -124,11 +153,15 @@ DUELink Accessories include [Mounting Hardware](./products/axmnt) options.
 
 Currently, only STM32C071 is supported with DUELink. We use QFN32 package but, fear not, we have made [Stick](./products/mcstick-a) to help you make your own modules!
 
+<div style={{ textAlign: 'center'}}>
 ![Pencil Stick](pathname:///img/pencil-stick.webp)
+</div>
 
 The DUELink [Sticker](./products/adsticker-c) is a mini development board that uses the [Stick](./products/mcstick-a) to help you get started.
 
+<div style={{ textAlign: 'center'}}>
 ![Pencil Stick](pathname:///img/catalog/adsticker-c-1.webp)
+</div>
 
 ---
 

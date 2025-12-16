@@ -1,10 +1,14 @@
 # Downlink
 
+<div style={{ textAlign: 'center'}}>
 ![Downlink](pathname:///img/downlink.webp)
+</div>
 
 The Downlink connector found on every single DUELink module is used to connect to the next Uplink connector on the next module. The DUELink software magically handles the data going across the entire [daisylink](../engine/daisylink) chain of connected modules.
 
+<div style={{ textAlign: 'center'}}>
 ![Downlink](pathname:///img/daisylink.webp)
+</div>
 
 ---
 
@@ -12,7 +16,9 @@ The Downlink connector found on every single DUELink module is used to connect t
 
 There will be no signal degradation along the wires as data is repeated on every Downlink connector. In cases where power is dropping after several modules, a [Power Inject](../products/adpwrinj-a) module can be used.
 
+<div style={{ textAlign: 'center'}}>
 ![Power Inject](pathname:///img/catalog/adpwrinj-a-1.webp)
+</div>
 
 This is not necessary in most cases since modules are very low power. However, large displays and motor drivers may require a decent amount of power.
 
@@ -49,8 +55,12 @@ The user has the option to switch to `Host`, `Gateway`, or `Inactive` modes at a
 
 The Downlink connector can be switched to a special I2C non-DUELink mode. This mode will free up the Downlink connector from its normal use, giving the user access to `DLI2CWr()` function. This will allow for an I2C access on the Downlink connector, see [Standard Library](../engine/stdlib).
 
+<div style={{ textAlign: 'center'}}>
 ![DUELink STEM I2C qwiic stemmaQT modulino](pathname:///img/qwiic-stemma-modulino-i2c.webp)
+</div>
 
 It is also possible to have a [daisylink](../engine/daisylink) of DUELink modules where the last module (and only the last module) is switched to `I2C non-DUELink` mode (mode #4). This last module can now use `DLI2CWr()` to access those I2C non-DUELink modules.
 
+<div style={{ textAlign: 'center'}}>
 ![I2C non-DUELink](pathname:///img/i2c-nonduelink.webp)
+</div>
