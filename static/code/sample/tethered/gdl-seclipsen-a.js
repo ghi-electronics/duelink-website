@@ -1,5 +1,6 @@
 // In this sample:
-// Set PWM duty cycle: pin 1 = 10%, pin 2 = 20%, ... pin 8 = 80%
+// Touch on pin 2, status LED turns on
+// Touch on pin 7, status LED turns off
 
 import pkg_serialusb from 'dlserialusb';
 const {SerialUSB} = pkg_serialusb
@@ -16,26 +17,26 @@ function sleep(ms) {
 }
 
 // Methods
+async function SetStatLed(value) {
+    const high = value ? 1 : 0;
+    const low = value ? 0 : 1;
+    await duelink.Engine.ExecuteCommand(`Statled(${high},${low},0)`);
+}
 
-async function SetFrequency(pin, frequency, dutycycle) {
-    await duelink.Engine.ExecuteCommand(`freq(${pin},${frequency}, 0, ${dutycycle})`);
+async function Touched(pin) {
+    const ret = await duelink.Engine.ExecuteCommand(`PulseIn(${pin},1000,0,100)`);
+    return ret > 110;
 }
 
 (async () => {
-    // Set PWM duty cycles
-    await SetFrequency(1, 1000, 0.1); // pin 1, 1kHz, 10%
-    await sleep(50); // optional small delay between commands
-    await SetFrequency(2, 1000, 0.2);
-    await sleep(50);
-    await SetFrequency(3, 1000, 0.3);
-    await sleep(50);
-    await SetFrequency(4, 1000, 0.4);
-    await sleep(50);
-    await SetFrequency(5, 1000, 0.5);
-    await sleep(50);
-    await SetFrequency(6, 1000, 0.6);
-    await sleep(50);
-    await SetFrequency(7, 1000, 0.7);
-    await sleep(50);
-    await SetFrequency(8, 1000, 0.8);
+    while (true) {
+        if (await Touched(2)) {
+            await SetStatLed(true);
+        }
+        if (await Touched(7)) {
+            await SetStatLed(false);
+        }
+
+        await sleep(50); // 50 ms delay
+    }
 })();

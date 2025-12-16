@@ -1,23 +1,38 @@
 // In this sample:
-// Set PWM duty cycle: pin 1 = 10%, pin 2 = 20%, ... pin 8 = 80%
+// Touch on pin 2, status LED turns on
+// Touch on pin 7, status LED turns off
 
+
+using System.Net.NetworkInformation;
 using GHIElectronics.DUELink;
 
 var availablePort = DUELinkController.GetConnectionPort();
 var duelink = new DUELinkController(availablePort);
 
-void SetFrequency(int pin, int frequency, float dutycyle) {
-
-    duelink.Engine.ExecuteCommand($"freq({pin},{frequency}, 0, {dutycyle})");
+void SetStatLed(bool value) {
+    var high = value ? 1 : 0;
+    var low = !value ? 1 : 0;
+    duelink.Engine.ExecuteCommand($"Statled({high},{low},0)");
 }
 
-SetFrequency(1, 1000, 0.1f); // Set pin 1 frequency 1KHz, dutycycle 10%
-SetFrequency(2, 1000, 0.2f); // Set pin 1 frequency 1KHz, dutycycle 20%
-SetFrequency(3, 1000, 0.3f); // Set pin 1 frequency 1KHz, dutycycle 30%
-SetFrequency(4, 1000, 0.4f); // Set pin 1 frequency 1KHz, dutycycle 40%
-SetFrequency(5, 1000, 0.5f); // Set pin 1 frequency 1KHz, dutycycle 50%
-SetFrequency(6, 1000, 0.6f); // Set pin 1 frequency 1KHz, dutycycle 60%
-SetFrequency(7, 1000, 0.7f); // Set pin 1 frequency 1KHz, dutycycle 70%
-SetFrequency(8, 1000, 0.8f); // Set pin 1 frequency 1KHz, dutycycle 80%
+bool Touched(int pin) {
+   var ret = duelink.Engine.ExecuteCommand($"PulseIn({pin},1000, 0, 100)");
+
+    if (ret > 110) {
+        return true;
+    }
+
+    return false;
+   
+}
+
+while (true) {
+    if (Touched(2))
+        SetStatLed(true);
+    if (Touched(7))
+        SetStatLed(false);
+
+    Thread.Sleep(50);
+}
 
 

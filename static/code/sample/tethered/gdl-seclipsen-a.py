@@ -1,5 +1,6 @@
 # In this sample:
-# Set PWM duty cycle: pin 1 = 10%, pin 2 = 20%, ... pin 8 = 80%
+# Touch on pin 2, status LED turns on
+# Touch on pin 7, status LED turns off
 
 import time
 from DUELink.DUELinkController import DUELinkController
@@ -8,15 +9,19 @@ availablePort = DUELinkController.GetConnectionPort()
 duelink = DUELinkController(availablePort)
 
 # Methods
-def SetFrequency(pin, frequency, dutycycle):
-    duelink.Engine.ExecuteCommand(f"freq({pin},{frequency}, 0, {dutycycle})")
+def SetStatLed(value: bool):
+    high = 1 if value else 0
+    low = 0 if value else 1
+    duelink.Engine.ExecuteCommand(f"Statled({high},{low},0)")
 
-# Set PWM duty cycles
-SetFrequency(1, 1000, 0.1)  # pin 1, 1kHz, 10%
-SetFrequency(2, 1000, 0.2)  # pin 2, 1kHz, 20%
-SetFrequency(3, 1000, 0.3)  # pin 3, 1kHz, 30%
-SetFrequency(4, 1000, 0.4)  # pin 4, 1kHz, 40%
-SetFrequency(5, 1000, 0.5)  # pin 5, 1kHz, 50%
-SetFrequency(6, 1000, 0.6)  # pin 6, 1kHz, 60%
-SetFrequency(7, 1000, 0.7)  # pin 7, 1kHz, 70%
-SetFrequency(8, 1000, 0.8)  # pin 8, 1kHz, 80%
+def Touched(pin: int) -> bool:
+    ret = duelink.Engine.ExecuteCommand(f"PulseIn({pin},1000, 0, 100)")
+    return ret > 110
+
+while True:
+    if Touched(2):
+        SetStatLed(True)
+    if Touched(7):
+        SetStatLed(False)
+
+    time.sleep(0.05)  # 50 ms delay
