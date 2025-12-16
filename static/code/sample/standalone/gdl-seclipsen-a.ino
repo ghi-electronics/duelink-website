@@ -1,0 +1,29 @@
+// In this sample:
+// Toggle pin1 to pin 8 every 50ms
+
+const uint8_t pin_map[] = {PB8, PA0, PA1, PA4, PA5, PA6, PA7, PA8, PB1, PB0, PC15, PC6, PB3, PB4, PB5,PB6,PB7,PB2,PB9,PA15,PA14,PA9,PA10,PA13,PC14};
+
+const int getpin(int pin) {
+  // Input mapped DUELink pin: P1, P2, P3
+  // Return STM32 pin:PA0, PA1, PB0....
+  return pin_map[pin];
+}
+
+///////////////////////////
+// Main
+///////////////////////////
+void setup() {
+     for (int i = 0; i < 8; i++) {
+        pinMode(getpin(i+1), OUTPUT);
+    }
+
+}
+
+int count = 0;
+void loop() {
+    for (int i = 0; i < 8; i++) {
+        digitalWrite(getpin(i+1),count % 2 == 0 );
+    }
+    count++;
+    delay(50);
+}

@@ -1,6 +1,13 @@
+# In this sample:
+# Touch on pin 2, status LED turns on
+# Touch on pin 7, status LED turns off
+
 while 1
-    if(Touch(1, 10, 1, 1000)>100)
-        PrintLn("Pin 1 is touched!")
+    if(PulseIn(2, 1000, 0, 100)>110)
+        statled(1,0,0)
     end
-    Wait(100)
+    
+    if(PulseIn(7, 1000, 0, 100)>110)
+        statled(0,1,0)
+    end
 wend
