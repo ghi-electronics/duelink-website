@@ -1,20 +1,11 @@
 # This sample runs on QT-PY 2040 adafruit
 # In this sample:
-# Draw a red circle with white borders.
-# Display the text "DUELink" in white at the center of the circle.
-# Draw a white rectangle at the top of the circle.
-# Display the text "!Smart module!" in red at the top of the circle.
-# Show() takes 20 seconds to flush the current buffer to the screen.
-
-import time
-# In this sample:
 # Read temperature, humidity
 # Read Air Quality Index
 # Read Total Volatile Organic Compounds
 # Read Equivalent CO₂
 
-import utime 
-import math
+import time
 import duelink 
 
 from duelink import transport
