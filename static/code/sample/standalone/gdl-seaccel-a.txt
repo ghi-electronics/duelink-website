@@ -1,3 +1,6 @@
+# In this sample:
+# Reading X,Y,Z values
+
 while 1
     PrintLn("x = ", GetX())
     PrintLn("y = ", GetY())
