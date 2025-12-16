@@ -1,5 +1,6 @@
 // In this sample:
 // Draw the text "DUELink" in multiple colors at the center of the screen.
+// Draw a rectangle under the text
 
 import pkg_serialusb from 'dlserialusb';
 const {SerialUSB} = pkg_serialusb

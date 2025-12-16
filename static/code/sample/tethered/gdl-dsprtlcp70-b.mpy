@@ -1,10 +1,7 @@
 # This sample runs on QT-PY 2040 adafruit
 # In this sample:
-# Draw a red circle with white borders.
-# Display the text "DUELink" in white at the center of the circle.
-# Draw a white rectangle at the top of the circle.
-# Display the text "!Smart module!" in red at the top of the circle.
-# Show() takes 20 seconds to flush the current buffer to the screen.
+# Draw the text "DUELink" in multiple colors at the center of the screen.
+# Draw a rectangle under the text
 
 import time
 import utime 
