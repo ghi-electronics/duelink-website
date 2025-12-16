@@ -11,11 +11,15 @@ The loaded "firmware" can be the official DUELink or MicroBlocks firmware option
 
 Users have two options for firmware updates. We recommend using the [Console](./console) as a first choice.
 
+<div style={{ textAlign: 'center'}}>
 ![DUELink Console Firmware Menu](pathname:///img/console-firmware.webp)
+</div>
 
 Advanced users can also use the [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) tool.
 
+<div style={{ textAlign: 'center'}}>
 ![Select USB](pathname:///img/stm-select-usb.webp)
+</div>
 
 Either way, the first step is in placing the board in loader mode (Entering the Loader!).
 
@@ -27,13 +31,17 @@ The standard DUELink software includes `Reset(1)` that wipes out the chip comple
 
 The other option is done using hardware. Locate the `LDR` button on your module. On some boards, the `LDR` button is labeled with `A`.
 
+<div style={{ textAlign: 'center'}}>
 ![Setting Boot mode mode](pathname:///img/ldr-a-buttons.webp)
+</div>
 
 Press and **continue to hold** the button while resetting the board. If there is no reset button, then unplug the USB cable first, then hold the button down while inserting the USB cable. Wait one second after the cable is inserted then release the button.
 
 If neither `LDR` nor `A` button is available, then the LDR pads are found on small through-hole pads. Bend and place a small metal paper clip (or a wire) between these 2 pads, and reset/repower the board. You can remove the paper clip after the board is powered up.
 
+<div style={{ textAlign: 'center'}}>
 ![Setting Boot mode](pathname:///img/boot-mode.webp)
+</div>
 
 :::info
 LDR is the name we use for STM32's BOOT0 pin, which is button A or LDR in some cases. 
@@ -45,11 +53,15 @@ LDR is the name we use for STM32's BOOT0 pin, which is button A or LDR in some c
 
 Once the device is in the loader mode, the system will detect a USB `DFU in FS Mode` device.
 
+<div style={{ textAlign: 'center'}}>
 ![Verify DFU mode](pathname:///img/device-manager-dfu.webp)
+</div>
 
 From [https://console.duelink.com/](https://console.duelink.com/), click `Firmware` on the top menu.
 
+<div style={{ textAlign: 'center'}}>
 ![DUELink Console Firmware Menu](pathname:///img/due-firmware.webp)
+</div>
 
 Follow the instructions to update the firmware, which is basically done by selecting the desired firmware file.
 
@@ -63,11 +75,15 @@ First, download the desired firmware file from the [Downloads](./downloads) page
 
 STM32CubeProgrammer will now detect a USB DFU device, select `USB` from the drop down and click `Connect`.
 
+<div style={{ textAlign: 'center'}}>
 ![Select USB](pathname:///img/stm-select-usb.webp)
+</div>
 
 Click on the side tab then select the file you downloaded from the [Download](./downloads) page and then click `Start Programming`.
 
+<div style={{ textAlign: 'center'}}>
 ![Select file](pathname:///img/stm-selectfile-program.webp)
+</div>
 
 The board now has the desired file loaded!
 

@@ -21,7 +21,9 @@ It is possible to send multiple commands in a single `Immediate Mode` shot by ad
 
 To test the inter-working of the engine manually, we will use a terminal software instead of using [Console](../console). Open terminal software and connect it to the serial port presented by the connected DUELink module. We like [Tera Term](https://teratermproject.github.io/index-en.html).
 
+<div style={{ textAlign: 'center'}}>
 ![Tera Term](pathname:///img/teraterm-logo.webp)
+</div>
 
 The first thing you do is hit `enter`. This is required by the module on power up so it can detect the correct [Interface](../interface/intro). This will result with `>` prompt. It is possible that a module is running an internal script with an infinite loop and it does not respond to commands. In this case, pressing the `escape` key will terminate the running internal script.
 
@@ -35,8 +37,9 @@ Immediate Mode is the default mode on power up.
 
 Type `Print("Hello World")` and hit enter. The engine will execute the `Print` command and show `Hello World`.
 
+<div style={{ textAlign: 'center'}}>
 ![Tera Term](pathname:///img/teraterm.webp)
-
+</div>
 
 Entering `>` is the command to switch to `Immediate Mode`. Keep a note of this once you switch to `Recording Mode` later.
 
@@ -61,23 +64,33 @@ The commands `run`, `list`, and `new` are never recorded! They are used to handl
 :::
 
 Go ahead and enter `$` and press the enter key.
+<div style={{ textAlign: 'center'}}>
 ![Tera Term Record Mode](pathname:///img/teraterm-record.webp)
+</div>
 
 Add three lines of `Print` commands. Nothing will get executed as those commands are getting stored internally, not executed. When finished, use `list` to see the commands.
 
+<div style={{ textAlign: 'center'}}>
 ![Tera Term Print](pathname:///img/teraterm-print.webp)
+</div>
 
 Use `run` to run the program.
 
+<div style={{ textAlign: 'center'}}>
 ![Tera Term Run](pathname:///img/teraterm-run.webp)
+</div>
 
 Add another command to the list then try to `run` again.
 
+<div style={{ textAlign: 'center'}}>
 ![Tera Term Add Item and Run](pathname:///img/teraterm-additem-run.webp)
+</div>
 
 Use `new` to erase the program. Verify the program is removed using `list`.
 
+<div style={{ textAlign: 'center'}}>
 ![Tera Term New](pathname:///img/teraterm-erase.webp)
+</div>
 
 :::note
 It is not possible to modify individual lines once recorded. This is not a problem when using the [Console](../console) as it sends the program complete in one shot.
@@ -93,7 +106,9 @@ Print(" 123!!")
 Goto Loop
 ```
 
+<div style={{ textAlign: 'center'}}>
 ![Tera Term Loop](pathname:///img/teraterm-loop.webp)
+</div>
 
 A running program can be terminated by hitting the `escape` key. Hit ESC, then `new` to erase the program. Verify using `list`.
 
@@ -116,11 +131,15 @@ fend
 
 Now, `list` the program to make sure it was recorded properly.
 
+<div style={{ textAlign: 'center'}}>
 ![Tera Term Function](pathname:///img/teraterm-function.webp)
+</div>
 
 Switch to `Immediate Mode`  and enter `Hello("John Due")`.
 
+<div style={{ textAlign: 'center'}}>
 ![Tera Term Function Print](pathname:///img/teraterm-function-print.webp)
+</div>
 
 This is exactly how hundreds of modules provide user-friendly [drivers](./drivers). They all have a recorded script that handles module-specific tasks. Then these drivers commands can be executed from a [Supported Hardware](../hw/intro) over one of the [Interfaces](../interface/intro).
 

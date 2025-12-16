@@ -3,8 +3,9 @@ import TabItem from "@theme/TabItem";
 
 # Getting Started
 
-
+<div style={{ textAlign: 'center'}}>
 ![Getting Started](pathname:///img/getting-started.webp)
+</div>
 
 There are many ways to use DUELink, with its long list of supported [coding languages](./language/intro) and [supported hardware](./hw/intro) options. This page will focus on the bare minimum to get you started with **any** DUELink module!
 
@@ -12,8 +13,9 @@ There are many ways to use DUELink, with its long list of supported [coding lang
 
 ## MicroBlocks Getting started
 
+<div style={{ textAlign: 'center'}}>
 ![MicroBlocks](pathname:///img/microblocks.webp)
-
+</div>
 
 This page focuses on the DUELink firmware. Users (especially [Educators](./educators)) interested in block-coding can skip this page and start with [MicroBlocks](./language/microblocks).
 
@@ -27,29 +29,41 @@ Education/Maker focused products ship preloaded with MicroBlocks firmware. You c
 
 The fastest way to try DUELink is though this [Online Demo](https://demo.duelink.com/), which uses [JavaScript](./language/javascript) through a web browser to run some of the DUELink [Standard Library](./engine/stdlib) commands.
 
+<div style={{ textAlign: 'center'}}>
 ![DUELink Demo website](pathname:///img/demo-website.webp)
+</div>
 
 All DUELink modules support the [USB Interface](./interface/usb). While a few boards have a USB connector built-in, most will have an Uplink connector allowing for all USB/I2C/UART interfaces. [USB Hook](./products/adusbhook-a) can be used to bring out the USB connection.
 
 Here is a Microcomputer module example, which has a USB connector built-in, vs an LED module that is connected to USB through a USB Hook module.
 
+<div style={{ textAlign: 'center'}}>
 ![DUELink Connection](pathname:///img/duelink-connection.webp)
+</div>
  
 Start by plugging in your device to a USB port, open the [demo site](https://demo.duelink.com/) and connect the device.
 
+<div style={{ textAlign: 'center'}}>
 ![Demo Connect](pathname:///img/demo-connect.webp)
+</div>
 
 The first tab is for controlling the STAT LED. This is an LED that is found on all DUELink modules. Change the parameters and observe the STAT LED on the board.
 
+<div style={{ textAlign: 'center'}}>
 ![Demo LED tab](pathname:///img/demo-led-tab.webp)
+</div>
 
 If you are using a board with `A` or `LDR` buttons, you can also try Digital read on these buttons. These buttons are connected to pin `20`. You will need to set `Pull` to `Down`. You can now hold the button up or down while clicking `Read`.
 
+<div style={{ textAlign: 'center'}}>
 ![Read Button](pathname:///img/demo-digital-read.webp)
+</div>
 
 By the way, when connected, the demo site shows the device ID (module type) and its firmware version.
 
+<div style={{ textAlign: 'center'}}>
 ![Device Firmware](pathname:///img/demo-firmware-version.webp)
+</div>
 
 ---
 
@@ -61,11 +75,15 @@ When you receive a new module, it is important that your board is using latest f
 
 Plug in your device and "connect" it.
 
+<div style={{ textAlign: 'center'}}>
 ![Console Connect](pathname:///img/due-connect.webp)
+</div>
 
 The console will show the current version loaded on the module and also the latest available version.
 
+<div style={{ textAlign: 'center'}}>
 ![Console About](pathname:///img/console-about.webp)
+</div>
 
 :::tip
 The [Release Notes](./release-notes) lists the changes.
@@ -73,7 +91,9 @@ The [Release Notes](./release-notes) lists the changes.
 
 To update the firmware, open DUELink console [https://console.duelink.com/](https://console.duelink.com/) and click `Firmware`.
 
+<div style={{ textAlign: 'center'}}>
 ![Firmware](pathname:///img/due-firmware.webp)
+</div>
 
 Follow the instructions and load the latest firmware. Full details are found on the [loader](./loader) page.
 
@@ -83,11 +103,13 @@ Follow the instructions and load the latest firmware. Full details are found on 
 
 The console includes a few simple scripts. Give some a try for an easy start with zero setup! These examples utilize the [Internal Engine's](./engine/intro) built-in [scripting language](./engine/scripting).
 
+<div style={{ textAlign: 'center'}}>
 ![Demos](pathname:///img/due-demos.webp)
+</div>
 
 :::tip
 These are generic scripts. See the individual modules' pages for specific standalone scripts examples.
-:::
+::: 
 
 This example script controls the status LED (STAT LED). This LED is found on every single DUELink module.
 
@@ -98,7 +120,9 @@ StatLed(200,200,50)
 
 `Record` and `run` your script then observe the LED. Try changing the numbers to change the LED behavior.
 
+<div style={{ textAlign: 'center'}}>
 ![Status LED](pathname:///img/statled-blink.gif)
+</div>
 
 See the [Console](./console) page for full details.
 
