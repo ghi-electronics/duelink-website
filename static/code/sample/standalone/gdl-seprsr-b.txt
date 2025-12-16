@@ -1,4 +1,8 @@
-while 1
-    PrintLn(VRead(2),"V")
-    Wait(200)
+# In this sample:
+# Display pressure in kPa and PSI units
+
+while (1)
+    println("kPa: ", kPa(), ", PSI:", Psi())
+     
+    wait(1000)
 wend
