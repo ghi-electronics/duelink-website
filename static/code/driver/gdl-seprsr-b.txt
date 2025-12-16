@@ -1,5 +1,34 @@
 ##### Pressure Driver #####
 
-# Use standard library VRead(2) to read the voltage then convert to pressure level
+fn DVer()
+    return 1.0
+fend
+
+fn kPa()
+    # 0.145 is default volt, no pressure 
+    # 100 is max 100kpa
+    v = ReadVcc()
+    r = aread(2)
+    
+    s = (r / 4095) * v
+    
+    k = ((s - 0.145)/(v - 0.145))*100
+    
+    if k < 0
+        k = 0
+    end
+    
+    if k > 100
+        k = 100
+    end
+    
+    return k
+fend
+
+fn Psi()
+    k = kPa()
+    p = k * 0.1450377 # 1kPa = 0.1450377 PSI
+    return p
+fend
 
 ####################
