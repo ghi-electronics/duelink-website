@@ -1,31 +1,36 @@
+# This sample runs on QT-PY 2040 adafruit
 # In this sample:
 # Read temperature, humidity
 # Read Air Quality Index
 # Read Total Volatile Organic Compounds
 # Read Equivalent CO₂
 
-
 import time
-from DUELink.DUELinkController import DUELinkController
+import duelink 
 
-availablePort = DUELinkController.GetConnectionPort()
-duelink = DUELinkController(availablePort)
+from duelink import transport
 
-# Methods
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
 def ReadTemperature():
-    return duelink.Engine.ExecuteCommand("AhtTemp()")
+    return due.Engine.ExecuteCommand("AhtTemp()")
 
 def ReadHumidity():
-    return duelink.Engine.ExecuteCommand("AhtHumid()")
+    return due.Engine.ExecuteCommand("AhtHumid()")
 
 def AirQualityIndex():
-    return int(duelink.Engine.ExecuteCommand("EnsAqi()"))
+    return int(due.Engine.ExecuteCommand("EnsAqi()"))
 
 def TVOC():  # Total Volatile Organic Compounds
-    return int(duelink.Engine.ExecuteCommand("EnsTvoc()"))
+    return int(due.Engine.ExecuteCommand("EnsTvoc()"))
 
 def EquivalentCO2():  # Equivalent CO₂
-    return int(duelink.Engine.ExecuteCommand("EnsEco2()"))
+    return int(due.Engine.ExecuteCommand("EnsEco2()"))
 
 while True:
     print(f"Temp: {ReadTemperature()}, Humidity: {ReadHumidity()}")

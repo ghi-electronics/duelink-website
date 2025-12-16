@@ -1,13 +1,25 @@
-from DUELink.DUELinkController import DUELinkController
+# In this sample:
+# Reading X,Y,Z values
+
 import time
+from DUELink.DUELinkController import DUELinkController
+
 availablePort = DUELinkController.GetConnectionPort()
 duelink = DUELinkController(availablePort)
 
-while 1:
-    wait(1000)
-    
-    println("x = ", GetX())
-    println("y = ", GetY())
-    println("z = ", GetZ())
+# Methods
+def GetX():
+    return int(duelink.Engine.ExecuteCommand("getx()"))
 
-wend
+
+def GetY():
+    return int(duelink.Engine.ExecuteCommand("gety()"))
+
+
+def GetZ():
+    return int(duelink.Engine.ExecuteCommand("getz()"))
+
+
+while True:
+    print(f"X = {GetX()}, Y = {GetY()}, Z = {GetZ()}")
+    time.sleep(1)   # 1000 ms, correctly ported from Thread.Sleep(1000)

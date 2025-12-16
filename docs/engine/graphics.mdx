@@ -3,13 +3,11 @@ import TabItem from "@theme/TabItem";
 
 # Graphics
 
-
 The graphics support is versatile and supports drawing on displays and LEDs of many types.
 
 :::tip
 The graphics libraries do not include any device initialization. An application must initialize the device as necessary with `GfxCfg()` before using any drawing functions, like in the examples below.
 :::
-
 
 ## Configuration
 
@@ -163,7 +161,8 @@ Red and Green are 3 bits, giving you 8 levels each (7 levels plus off). Blue is 
 
 You can do 255 colors in 8BPP, but here are 16 common color examples:
 
-<table >
+
+<table>
   <tr>
     <th>Name</th>
     <th>Value</th>
@@ -246,6 +245,7 @@ You can do 255 colors in 8BPP, but here are 16 common color examples:
   </tr>
 </table>
 
+
 :::tip
 Color 1 is a special color that results in white 0xFFFFFF, useful for code samples that work on both color and B&W displays.
 :::
@@ -258,7 +258,9 @@ There are two ways to add images, with a "color" per pixel, or a single binary b
 
 ### Color
 
+<div style={{ textAlign: 'center'}}>
 ![Image Array](pathname:///img/image-array.webp)
+</div>
 
 The `Img()` function uses a color array bitmap to create an image. These arrays can sometimes be visualized when looking at the array.
 
@@ -278,7 +280,9 @@ Show()
 ```
 This example below creates the same sprite using colors set to different elements of the sprite. Note the use of `Alias()` to make the code more readable.
 
+<div style={{ textAlign: 'center'}}>
 ![Color Image Array](pathname:///img/image-array-color.webp)
+</div>
 
 ```py
 Alias(body=0x00ff00,hat=0xff00ff,legs=0x0000FF,back=0xFFFFFF)
@@ -311,7 +315,9 @@ ImgB([data],color,x,y,w,h)
 Users can take advantage of 0b0000000 to use binary numbers to create an image.
 :::
 
+<div style={{ textAlign: 'center'}}>
 ![Color Binary Array](pathname:///img/image-binary-array.webp)
+</div>
 
 ```py
 ImgB(b1,0x1377AB,20,30,24,8)
@@ -319,14 +325,18 @@ ImgB(b1,0x1377AB,20,30,24,8)
 
 Additional binary arrays can be added to create multi-color images.
 
+<div style={{ textAlign: 'center'}}>
 ![Color Binary Array](pathname:///img/image-binary-array-i.webp)
+</div>
 
 ```py 
 ImgB(b1,0xFAA957,20,30,24,8)
 ```
 Finally the `Show()` function is called to display the overlapping image arrays together. 
 
+<div style={{ textAlign: 'center'}}>
 ![Final Binary image](pathname:///img/binary-image.webp)
+</div>
 
 ```py
 Dim b1[] = [
@@ -360,7 +370,6 @@ Show()
 
 There is a special function the "show" a 5:6:5 16BPP image on SPI displays when used in direct mode.
 
-
 ```py
 # Show a 64x54 cat image
 # The display must be initialized and ready in direct mode
@@ -393,7 +402,6 @@ while 1
     end
     Show()
 wend
-
 
 fn Init()
 	DWrite(4,1)
@@ -448,7 +456,6 @@ for _i in Range(0, 255, 10) #5bit color in 5:6:5 format
     Line(_q<<16 | _c, 280, 80, 280-_i, 240)
 next
 
-
 while 1
     Circle(0xFF00ff, _x, 100, 8)
     Wait(10)
@@ -458,7 +465,6 @@ while 1
         _d = _d * -1
     end
 wend
-
 
 fn Init()
 	DWrite(4,1)
@@ -494,7 +500,6 @@ fn LcdCmd(c, b1)
     DWrite(_s, 1)#deselect
 fend
 ```
-
 ---
 
 ## I2C Display
@@ -508,7 +513,6 @@ Dim b1[2]
 _x = 50
 _d = -9
 Init()
-
 
 while 1
     clear(1)
@@ -527,7 +531,6 @@ fn Init()
     I2cCfg(400)
 	Wait(20)
     GfxCfg(1,{0x3C}, 128, 64, 1)# type 1, 128x64 pixels, buffered x1
-
 
 	LcdCmd(0xAE):LcdCmd(0x00):LcdCmd(0x10)
 	LcdCmd(0x40):LcdCmd(0x81):LcdCmd(0xCF)
@@ -560,11 +563,15 @@ NeoPixel supports buffered graphics only, with x1 multiplier.
 
 Pixels are usually connected inside a panel in a zigzag pattern. This zigzag can be horizontal or vertical.
 
+<div style={{ textAlign: 'center'}}>
 ![NeoPixel Horizontal and Vertical Zigzag](pathname:///img/neopixel-horizontal-vertical.webp)
+</div>
 
 With the vertical scanning, we only support a single panel, but this panel can be of any size. A good example here is the 32x8 pixel panels. Note that while we support only a single panel, you can set the width to double the panel to get 64x8 pixels.
 
+<div style={{ textAlign: 'center'}}>
 ![64x9 Matrix](pathname:///img/64x8-matrix.webp)
+</div>
 
 This is the easiest setup to make long LED display.
 
@@ -588,11 +595,12 @@ while 1
     end
     Wait(10)
 wend
-
 ```
 Things are quite different when using horizontal scanning as the system supports panels in different configurations. When connecting panels horizontally the panels need to be in order like the image below.
 
+<div style={{ textAlign: 'center'}}>
 ![Horizontal signal path](pathname:///img/neopixel-horizontal-signal.webp)
+</div>
 
 ```py
 # 3 horizontal 16x16 panels creating 48x16 display
@@ -614,12 +622,13 @@ while 1
     end
     Wait(10)
 wend
-
 ```
 
 When connecting panels in a matrix, to build up larger "panels", they need to be connected as follows:
 
+<div style={{ textAlign: 'center'}}>
 ![Horizontal signal path](pathname:///img/neopixel-vertical-signal.webp)
+</div>
 
 ```py
 # 4 panels placed as 2x2, where each one is 16x16 pixels, creating 48x48 pixel displays
@@ -641,7 +650,6 @@ while 1
     end
     Wait(100)
 wend
-
 ```
 
 It is also possible to connect panels vertically by simply ordering them exactly same as the matrix above, but only use the first left column.
@@ -666,14 +674,15 @@ while 1
     end
     Wait(100)
 wend
-
 ```
 
 It is possible to make your own panels using LED strips. For example, 5 strips of 50 LEDs each can be used to make a 50x5 LED panel. The strips need to be connected in a zigzag pattern. This makes it easier to run the connections any way.
 
 This is a partial image to demonstrate the connections.
 
+<div style={{ textAlign: 'center'}}>
 ![LED strip signal path](pathname:///img/ledtrip-signal.webp)
+</div>
 
 ```py
 Dim a1[]={1, # Pin used
@@ -694,7 +703,6 @@ while 1
     end
     Wait(100)
 wend
-
 ```
 
 A single strip of NeoPixel LEDs is nothing but a panel with a single row. This example assumes a strip of 50 pixels.
@@ -717,7 +725,6 @@ while 1
         Clear(0)
     end
 wend
-
 ```
 
 :::note
@@ -730,7 +737,9 @@ wend
 
 This is a perfect match for [CincoBit](../products/mccincobit-e) with its 5x5 LED matrix. This type supports buffered mode, with 1x multiplier only.
 
+<div style={{ textAlign: 'center'}}>
 ![CincoBit](pathname:///img/catalog/mccincobit-e-1.webp)
+</div>
 
 ```py
 Dim a1[11] = {0,11,19,18,21,22,7,5,0,8,6} # first number sets common-anode, second 5 for data, third 5 for scan
@@ -763,7 +772,6 @@ Clear(0)
 Pixel(1,2,0)
 Pixel(1,1,0)
 Show()
-
 ```
 
 ---
@@ -802,9 +810,6 @@ Dim a1[]={1,12,
     13,12, #24
     ## add the rest, to 96!
 
-
-    
-    
     }
     GfxCfg(5, a1, 12, 8, 1)# type 5, 12x8 leds, buffered x1
 
@@ -818,9 +823,7 @@ while 1
     end
     Wait(100)
 wend
-
 ```
-
 ---
 
 ## ePaper
@@ -833,8 +836,9 @@ Note that ePaper displays need several seconds to update, which completely block
 Once updated, ePaper retains the content without the need for power!
 :::
 
+<div style={{ textAlign: 'center'}}>
 ![ePaper M29](pathname:///img/catalog/dsepaprm29-a-1.webp)
-
+</div>
 ```py reference title="ePaper M29 Driver"
 https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/driver/gdl-dsepaprm29-a.txt
 ```

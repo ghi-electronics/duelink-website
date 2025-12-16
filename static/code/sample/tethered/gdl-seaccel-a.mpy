@@ -1,0 +1,35 @@
+# This sample runs on QT-PY 2040 adafruit
+# In this sample:
+# Reading X,Y,Z values
+
+
+import time
+import utime 
+import math
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+
+def GetX():
+    return int(due.Engine.ExecuteCommand("getx()"))
+
+
+def GetY():
+    return int(due.Engine.ExecuteCommand("gety()"))
+
+
+def GetZ():
+    return int(due.Engine.ExecuteCommand("getz()"))
+
+
+while True:
+    print(f"X = {GetX()}, Y = {GetY()}, Z = {GetZ()}")
+    time.sleep(1)  # 1000 ms, correctly ported from Thread.Sleep(1000)

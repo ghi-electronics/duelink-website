@@ -190,7 +190,7 @@
       "PID": "0x0C0002",
       "category": "Specialty",
       "tagline": "Tiny Robot-shaped Microcomputer",
-      "description": "Thinking about an exciting give-away for your next event customized with your logo?  This is Ghizzy Jr, quite possibly the smallest, cutest, and smartest keychain in the world! This mini robot-shaped pocket-sized microcomputer plugs right into a USB socket and is a programmable board with endless possibilities, thanks to its [Downlink](/docs/interface/downlink) connector. Start by controlling the full-color eyes and then start [daiylinking](/docs/engine/daisylink) any of the DUELink modules!\n\n Ghizzy can be commanded from one of the many supported [Coding Languages](/docs/language/intro), and it can run stand alone using [MicroBlocks](/docs/language/microblocks).\nGhizzy Jr is only available as a special order,  **customized with your artwork**. \n\n![custom logo](pathname:///img/ghizzy-jr-logo.webp)\n\nThe listed price is for an order of 500 pieces, with higher price for 250 pieces. Account for a 4-weeks lead-time. Please [Contact us](https://www.ghielectronics.com/contact/) for more information.\n\n:::note\n\n The \"legs\" are not a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
+      "description": "Thinking about an exciting give-away for your next event customized with your logo?  This is Ghizzy Jr, quite possibly the smallest, cutest, and smartest keychain in the world! This mini robot-shaped pocket-sized microcomputer plugs right into a USB socket and is a programmable board with endless possibilities, thanks to its [Downlink](/docs/interface/downlink) connector. Start by controlling the full-color eyes and then start [daiylinking](/docs/engine/daisylink) any of the DUELink modules!\n\n Ghizzy can be commanded from one of the many supported [Coding Languages](/docs/language/intro), and it can run stand alone using [MicroBlocks](/docs/language/microblocks).\nGhizzy Jr is only available as a special order,  **customized with your artwork**. \n\n<div style={{ textAlign: 'center'}}>![custom logo](pathname:///img/ghizzy-jr-logo.webp)</div>\n\nThe listed price is for an order of 500 pieces, with higher price for 250 pieces. Account for a 4-weeks lead-time. Please [Contact us](https://www.ghielectronics.com/contact/) for more information.\n\n:::note\n\n The \"legs\" are not a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
       "keyFeatures": [
         "2x RGB LEDs",
         "Downlink DUELink Connector",
@@ -251,7 +251,7 @@
       "PID": "0x0C0006",
       "category": "Specialty",
       "tagline": "LED Snowflake",
-      "description": "This LED snowflake is available with or without LEDs. This gives the user the option to soldier their own LEDs. We also offer w/LED option for plug-n-play no soldering required.\n ![Snowy Options](pathname:///img/catalog/spsnowy-a-options.webp)",
+      "description": "This LED snowflake is available with or without LEDs. This gives the user the option to soldier their own LEDs. We also offer w/LED option for plug-n-play no soldering required.\n <div style={{ textAlign: 'center'}}>![Snowy Options](pathname:///img/catalog/spsnowy-a-options.webp)</div>",
       "keyFeatures": [
         "Snowflake shaped PCB",
         "12x surface mounted LEDs optional",
@@ -278,7 +278,7 @@
       "PID": "0x0C0007",
       "category": "Specialty",
       "tagline": "8x8 Stackable LED Panel",
-      "description": "This LED panel is available with or without LEDs. This gives the user the option to soldier their own LEDs. We also offer w/LED option for plug-n-play no soldering required. Connect in a stack or mount flat to create unique LED projects.\n ![Cubicle Options](pathname:///img/catalog/spcubicle-a-options.webp)",
+      "description": "This LED panel is available with or without LEDs. This gives the user the option to soldier their own LEDs. We also offer w/LED option for plug-n-play no soldering required. Connect in a stack or mount flat to create unique LED projects.\n <div style={{ textAlign: 'center'}}>![Cubicle Options](pathname:///img/catalog/spcubicle-a-options.webp)</div>",
       "keyFeatures": [     
         "Stack or mount flat",
         "64x surface mounted LEDs optional",
@@ -770,7 +770,7 @@
       "category": "Communication",
       "price": 14.95,
       "tagline": "RS485 Serial Interface",
-      "description": "Connect and control any industrial-grade low-cost electrically-isolated RS485 Sensors and Actuators with ease. Here is an example analog input.\n\n![RS485 Analog Input](pathname:///img/rs485-ain.jpg)",
+      "description": "Connect and control any industrial-grade low-cost electrically-isolated RS485 Sensors and Actuators with ease. Here is an example analog input.\n\n<div style={{ textAlign: 'center'}}>![RS485 Analog Input](pathname:///img/rs485-ain.jpg)</div>",
       "keyFeatures": [
         "RS485 Transceiver",
         "Serial Communication",
@@ -802,7 +802,7 @@
       "category": "Communication",
       "price": 14.95,
       "tagline": "DMX512 Lighting Control",
-      "description": "Control hundreds of DMX stage motors and lights using this controller.\n\n![DMX Light](pathname:///img/dmx-light.jpg)\n\nNot only that, this module can also read DMX controllers. You can now have a commercial grade controller in your project.\n\n![DMX Controller](pathname:///img/dmx-controller.jpg)",
+      "description": "Control hundreds of DMX stage motors and lights using this controller.\n\n<div style={{ textAlign: 'center'}}>![DMX Light](pathname:///img/dmx-light.jpg)</div>\n\nNot only that, this module can also read DMX controllers. You can now have a commercial grade controller in your project.\n\n<div style={{ textAlign: 'center'}}>![DMX Controller](pathname:///img/dmx-controller.jpg)</div>",
       "keyFeatures": [
         "Light Control Module",
         "On-board Female XLR Connector",
@@ -1505,7 +1505,7 @@
       "PID": "0x050006",
       "category": "LED",
       "tagline": "0.28\" 4-Digit 7-Segment Display",
-      "description": "These 0.28\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.\n\n![Count and Time](/img/led-7seg-time-count.webp)",
+      "description": "These 0.28\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.\n\n<div style={{ textAlign: 'center'}}>![Count and Time](/img/led-7seg-time-count.webp)</div>",
       "keyFeatures": [
         "4-digit 7-segment LEDs",
         "Available in Red or Green",
@@ -1527,7 +1527,7 @@
       "PID": "0x050008",
       "category": "LED",
       "tagline": "0.40\" 4-Digit 7-Segment Display",
-      "description": "These 0.40\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.\n\n![Count and Time](/img/led-7seg-time-count.webp)",
+      "description": "These 0.40\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.\n\n<div style={{ textAlign: 'center'}}>![Count and Time](/img/led-7seg-time-count.webp)</div>",
       "keyFeatures": [
         "4 Digit 7 segment LEDs",
         "Available in Red or Green",
@@ -1549,7 +1549,7 @@
       "PID": "0x05000A",
       "category": "LED",
       "tagline": "0.56\" 4-Digit 7-Segment Display",
-      "description": "These 0.56\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.\n\n![Count and Time](/img/led-7seg-time-count.webp)",
+      "description": "These 0.56\" 4-digit 7-segment displays come in two types: a counter with decimal point, and timer with a colon in the middle.\n\n<div style={{ textAlign: 'center'}}>![Count and Time](/img/led-7seg-time-count.webp)</div>",
       "keyFeatures": [
         "4 Digit 7 segment LEDs",
         "Available in Red or Green",
@@ -1718,7 +1718,7 @@
       "category": "Adapter",
       "price": 14.95,
       "tagline": "Raspberry Pi HAT Adapter",
-      "description": "DuePi is the perfect adapter for all RPI (Raspberry Pi) models, including RPI Zero. The outer mounting holes are standard mounting holes for RPI. The bottom half of the board is a 5mm-pitched holes for mounting DUELink modules. This bottom side is breakable to make the board smaller to make it the right size for RPI Zero.\n\n**DuePi with Raspberry Pi Zero**\n\n![DuePi with Raspberry Pi Zero](/img/duepi-zero.webp)\n\nThe board includes several onboard peripherals, including buttons, buzzer, and a graphical display. The display is controlled using the DUELink native Graphics support. Simple commands are used to control the display instead of using Linux.\n\nThe onboard 800mA regulator is used to feed power to the Downlink connector, keeping any loads away from the RPI's 3.3V source.\n\nThe USB connector is conveniently there to help with loading/updating the DUELink processor's firmware/drivers. It should not be used when DuePi is used with a Raspberry Pi.\n\n:::note\nWith the USB connector and the onboard power regulator, this adapter can be used as a Microcomputer with full function\n:::",
+      "description": "DuePi is the perfect adapter for all RPI (Raspberry Pi) models, including RPI Zero. The outer mounting holes are standard mounting holes for RPI. The bottom half of the board is a 5mm-pitched holes for mounting DUELink modules. This bottom side is breakable to make the board smaller to make it the right size for RPI Zero.\n\n**DuePi with Raspberry Pi Zero**\n\n<div style={{ textAlign: 'center'}}>![DuePi with Raspberry Pi Zero](/img/duepi-zero.webp)</div>\n\nThe board includes several onboard peripherals, including buttons, buzzer, and a graphical display. The display is controlled using the DUELink native Graphics support. Simple commands are used to control the display instead of using Linux.\n\nThe onboard 800mA regulator is used to feed power to the Downlink connector, keeping any loads away from the RPI's 3.3V source.\n\nThe USB connector is conveniently there to help with loading/updating the DUELink processor's firmware/drivers. It should not be used when DuePi is used with a Raspberry Pi.\n\n:::note\nWith the USB connector and the onboard power regulator, this adapter can be used as a Microcomputer with full function\n:::",
       "keyFeatures": [
         "Attaches to Raspberry Pi or Pi Zero Header",
         "0.96\" OLED Display",
@@ -1753,7 +1753,7 @@
       "category": "Adapter",
       "price": 14.95,
       "tagline": "Raspberry Pi Pico Adapter",
-      "description": "DuePico is the perfect adapter for RPI (Raspberry Pi) Pico. It gracefully takes the RPI Pico on its back side and offers all RPI Pico connections on female headers, allowing to connect it as you wish.\n\n![DuePico with Raspberry Pi Pico](/img/duepico-pico.webp)\n\nOn the front side, the board includes several peripherals, including buttons, buzzer, and a graphical display. The display is controlled using the DUELink native [Graphics](/docs/engine/graphics) support. Simple commands are used to control the display instead of replying on RPI Pico.\n\nThe onboard 800mA regulator is used to feed power to the Downlink connector, keeping any loads away from the RPI Pico's 3.3V source.\n\nThe USB connector is conveniently there to help with loading/updating the DUELink processor's firmware/drivers. It should not be used when DuePico is used with a RPI Pico.\n\n:::note\nWith the USB connector and the onboard power regulator, this adapter can be used as a Microcomputer with full functionality without the need of any RPI!\n:::",
+      "description": "DuePico is the perfect adapter for RPI (Raspberry Pi) Pico. It gracefully takes the RPI Pico on its back side and offers all RPI Pico connections on female headers, allowing to connect it as you wish.\n\n<div style={{ textAlign: 'center'}}>![DuePico with Raspberry Pi Pico](/img/duepico-pico.webp)</div>\n\nOn the front side, the board includes several peripherals, including buttons, buzzer, and a graphical display. The display is controlled using the DUELink native [Graphics](/docs/engine/graphics) support. Simple commands are used to control the display instead of replying on RPI Pico.\n\nThe onboard 800mA regulator is used to feed power to the Downlink connector, keeping any loads away from the RPI Pico's 3.3V source.\n\nThe USB connector is conveniently there to help with loading/updating the DUELink processor's firmware/drivers. It should not be used when DuePico is used with a RPI Pico.\n\n:::note\nWith the USB connector and the onboard power regulator, this adapter can be used as a Microcomputer with full functionality without the need of any RPI!\n:::",
       "keyFeatures": [
         "Raspberry Pi Pico Headers",
         "0.96\" OLED Display",
@@ -1916,7 +1916,7 @@
       "category": "Adapter",
       "price": 2.95,
       "tagline": "Signals Breakout and Cable Extender",
-      "description": "This module can be used as a DUELink cable extender. It also exposes all DUELink cable signals on a female header. This is useful to wire a [Supported Hardware](/docs/hw/intro) that does not have a JST connector.\n\nThe DRP and CTN signals are a mix of [UART](/docs/interface/uart), [I2C](/docs/interface/i2c) and [USB](/docs/interface/usb) [Interfaces](/docs/interface/intro).\n\nHere is a UART example:\n![Arduino Breakout UART](pathname:///img/arduino-breakout-uart.webp)\n\nHere is an I2C example:\n![Arduino Breakout I2C](pathname:///img/arduino-breakout-i2c.webp)",
+      "description": "This module can be used as a DUELink cable extender. It also exposes all DUELink cable signals on a female header. This is useful to wire a [Supported Hardware](/docs/hw/intro) that does not have a JST connector.\n\nThe DRP and CTN signals are a mix of [UART](/docs/interface/uart), [I2C](/docs/interface/i2c) and [USB](/docs/interface/usb) [Interfaces](/docs/interface/intro).\n\nHere is a UART example:\n<div style={{ textAlign: 'center'}}>![Arduino Breakout UART](pathname:///img/arduino-breakout-uart.webp)</div>\n\nHere is an I2C example:\n<div style={{ textAlign: 'center'}}>![Arduino Breakout I2C](pathname:///img/arduino-breakout-i2c.webp)</div>",
       "keyFeatures": [
         "Access to DUELink Pins",
         "Female Header",

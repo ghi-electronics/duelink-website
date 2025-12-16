@@ -1,6 +1,7 @@
-
+# In this sample:
 # Show something on the screen
 # DL Commands are documented in the Bridgetek docs
+# Play 5 built-in notes
 
 DLClear()
 DLCmd(C_CLEAR_COLOR,{0,0,0})

@@ -1,9 +1,13 @@
 # Daisylink
 
+<div style={{ textAlign: 'center'}}>
 ![Uplink-Downlink](pathname:///img/uplink-downlink.webp)
+</div>
 
 In a DUELink setup, where there are more than one module, there will always be a connection between the Uplink and Downlink connector, creating a Daisylink. Each single module in a Daisylink is an active repeater of the signal. There will be no degradation of the signal quality. If necessary, add [Power Inject](../products/adpwrinj-a) to help in powering devices on its Downlink.
+<div style={{ textAlign: 'center'}}>
 ![daisylink](pathname:///img/daisylink.webp)
+</div>
 
 ---
 
@@ -13,8 +17,9 @@ The [Standard Library](./stdlib) offers the `Sel()` command to activate devices 
 
 Daisylinked devices on a stream are addressed from `1`. The fourth device on the bus is selected using 'Sel(4)'.
 
+<div style={{ textAlign: 'center'}}>
 ![Select](pathname:///img/select.webp)
-
+</div>
 
 ---
 
@@ -29,7 +34,9 @@ Sending `Sel(0)` followed by `StatLed(200,200,50)` will blink the status LED 50 
 
 While it is also possible to read from multiple devices, `Sel(0):Print("Hi")`, this is not recommended as responses  come back as out-of-order.
 
+<div style={{ textAlign: 'center'}}>
 ![Broadcast](pathname:///img/broadcast.webp)
+</div>
 
 :::tip
 Do not confuse the module address with [I2C](../interface/i2c) address. They are unrelated! The module address works the same no matter what [Interface](../interface/intro) is being used.
@@ -37,7 +44,9 @@ Do not confuse the module address with [I2C](../interface/i2c) address. They are
 
 It is also possible to select more than one device at once, multi-select. Here is how to select devices 1, 3 and 4 `Sel(1,3,4)`.
 
+<div style={{ textAlign: 'center'}}>
 ![Multiple Select](pathname:///img/multiple-select.webp)
+</div>
 
 Same as for `Sel(0)`, reading responses in a multi-select setup is not supported.
 
@@ -51,7 +60,9 @@ To initiate the daisylink and enumerate the modules connected on the [Downlink](
 
 Only smart modules receive an address. For example, both power modules in this daisylink do not have an address.
 
+<div style={{ textAlign: 'center'}}>
 ![Host Mode](pathname:///img/host-mode.webp)
+</div>
 
 Use `GetAddr()` to read the current address. If the current address is zero, then the module has not been enumerated yet.
 
@@ -65,30 +76,42 @@ Since devices get enumerated in order and each module needs 1ms to 2ms to be rea
 
 A host is used to command a stream of Daisylinked devices. There are several [Supported Hardware](../hw/intro) devices and many supported [Languages](../language/intro).
 
+<div style={{ textAlign: 'center'}}>
 ![Other Micros](pathname:///img/other-micros.webp)
+</div>
 
 DUELink modules can also run [Standalone](../language/standalone) and can also be the host of other Daisylinked modules, connected on the [Downlink](../interface/downlink) socket.
 
 
+<div style={{ textAlign: 'center'}}>
 ![Button Controlling LEDs](pathname:///img/button-led.gif)
+</div>
 
 Devices automatically receive an address, starting with 1. Note how power modules do not count. They are just power sources.
 
+<div style={{ textAlign: 'center'}}>
 ![Normal Addressing](pathname:///img/daisylink-normal.webp)
+</div>
 
 The host-module can be anywhere in the chain. Here is an example where the third module is configured as a host. Note how the host module is address 3 to its host, which is the Sparkfun micro. The other modules on its Downlink also have addresses starting at 1, but these are only visible to their host.
 
+<div style={{ textAlign: 'center'}}>
 ![Third Module Host](pathname:///img/daisylink-third-host.webp)
+</div>
 
 This host can also be anywhere else in the link, including the first device. Think of modules as always physically connected but logically separated and controlled by their own respective host.
 
+<div style={{ textAlign: 'center'}}>
 ![First Module Host](pathname:///img/daisylink-first-host.webp)
+</div>
 
 As documented on the [Downlink](../interface/downlink) interface page, `DLMode(2,0)` command is used to switch the module to host mode. This will automatically reset and re-enumerate thats host's clients.
 
 This is what addresses look like without a DUELink host. There is, however, an external non-DUELink host.
 
+<div style={{ textAlign: 'center'}}>
 ![Normal Addressing](pathname:///img/daisylink-normal.webp)
+</div>
 
 Load this code on the second device, which turns it into a host. It then sends a command to its client address 2 to blink its status LED. 
 
@@ -105,7 +128,9 @@ Cmd("StatLed(200,200,50)") # Blink the LED 50 times on the selected device
 
 This is what the link would look like.
 
+<div style={{ textAlign: 'center'}}>
 ![Blinking STAT LED from Host](pathname:///img/daisylink-host-blink.webp)
+</div>
 
 A device in "host" mode is still listening to commands coming from Uplink, but it does not forward the commands Downlink. This allows for programming and configuring the host, from DUELink [Console](../console) for example.
 
@@ -115,6 +140,8 @@ A device in "host" mode is still listening to commands coming from Uplink, but i
 
 It is also possible to use a wireless connection to daisylink!
 
+<div style={{ textAlign: 'center'}}>
 ![Wireless daisylink](pathname:///img/wireless-daisylink-addr-host.webp)
+</div>
 
 See [Wireless](../interface/wireless) interface page for more info.
