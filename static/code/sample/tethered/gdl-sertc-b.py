@@ -1,5 +1,5 @@
 # In this sample:
-# Set local date/time and read every second.)
+# Set local date/time and read every second.
 
 import time
 from datetime import datetime
