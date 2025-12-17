@@ -1,25 +1,31 @@
+# This sample runs on QT-PY 2040 adafruit
 # In this sample:
 # Warm up the sensor for 10 seconds, then read the analog value
 
 import time
-from DUELink.DUELinkController import DUELinkController
+import duelink 
 
-availablePort = DUELinkController.GetConnectionPort()
-duelink = DUELinkController(availablePort)
+from duelink import transport
 
-# method
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
 def Heater(value: bool):
     v = 1 if value else 0
-    duelink.Engine.ExecuteCommand(f"Heater({v})")
+    due.Engine.ExecuteCommand(f"Heater({v})")
 
 def SensorRead() -> float:
-    ret = duelink.Engine.ExecuteCommand("SenRead()")
+    ret = due.Engine.ExecuteCommand("SenRead()")
     return ret
 
 counter = 0
 
 while True:
-    time.sleep(1)  # Equivalent to Thread.Sleep(1000)
+    time.sleep(1)  # MicroPython sleep uses seconds
 
     # Wait for heat on for 10 seconds
     if counter == 0:
