@@ -1,6 +1,6 @@
 // In this sample:
 // Read temperature every 1.5 second
-// Issue: The reading temperature is about ~3 degrees Celsius higher than normal.
+// ±2°C Accuracy
 
 using System.Data.SqlTypes;
 using GHIElectronics.DUELink;

@@ -1,6 +1,6 @@
 // In this sample:
 // Read temperature and humidity every 1.5 second
-// Issue: The reading temperature is about ~3 degrees Celsius higher than normal.
+// ±2°C Accuracy
 
 import pkg_serialusb from 'dlserialusb';
 const {SerialUSB} = pkg_serialusb
