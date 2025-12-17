@@ -5,17 +5,11 @@ fn DVer()
 fend
 
 fn Current()
-    v = aRead(3)-(4096/2)
+    d =  aread(3) - 2058 #2058 at 0A
+   
+    d = d * 0.0147
     
-    # measuring at 1A, avarge is 75 for positive, and 65 for nagative, 25A chip
-    if v > 0
-        r = v / 75 
-    else
-        r = v / 60
-    end
-    
-    return r
-    
+    return d
 fend
 
 fn CurrAvg(t, l) # t: timeout in ms, l: 1: Positive, 0: Negative
@@ -24,7 +18,7 @@ fn CurrAvg(t, l) # t: timeout in ms, l: 1: Positive, 0: Negative
     r = 0
     e = TickMs() + t
     while (TickMs() < e)
-        v = Current()
+        v = Current()    
         
         if l > 0 # positive
             if v > 0

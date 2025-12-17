@@ -1,0 +1,27 @@
+# This sample runs on QT-PY 2040 adafruit
+# In this sample:
+# Display pressure in kPa and PSI units
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def ReadPSI():
+    return due.Engine.ExecuteCommand("PSI()")
+
+def ReadkPa():
+    return due.Engine.ExecuteCommand("kPa()")
+
+while True:
+    print("PSI:", ReadPSI())
+    print("kPa:", ReadkPa())
+    
+    time.sleep(1)  # Sleep for 1 second

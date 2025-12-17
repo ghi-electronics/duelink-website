@@ -1355,8 +1355,8 @@
         "Air and liquid pressure",
         "Measure pressure",
         "17x26mm overall dimension"
-      ],
-      "driverApi": ":::tip\nNo Driver! Use the [Standard Library API](/docs/engine/stdlib) VRead(2) directly.\n:::",
+      ],      
+      "driverApi": "Function | Description \n----------|-------------\n`kPa()` | Returns value in kPa \n`Psi()` | return value in PSI \n `DVer()` | This driver version.",
       "variations": [
         {
           "name": "100 bar",

@@ -9,7 +9,8 @@ fn Heater(s)
 fend
 
 fn SenRead()
-    VRead(3)
+    r = VRead(3)
+    return r
 fend
 
 ####################

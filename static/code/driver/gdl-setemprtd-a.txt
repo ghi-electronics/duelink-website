@@ -1,4 +1,3 @@
-##### Distance Driver #####
 ## Preliminary driver. Needs work!
 
 fn DVer()

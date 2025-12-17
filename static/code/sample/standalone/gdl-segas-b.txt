@@ -1,6 +1,10 @@
+# In this sample:
+# Warm up the sensor for 10 seconds, then read the analog value
+
 Heater(1)
+Wait(10*1000)
 
 while 1
     PrintLn("Level: ", SenRead(),"V")
-    Wait(200) 
+    Wait(1000) 
 wend

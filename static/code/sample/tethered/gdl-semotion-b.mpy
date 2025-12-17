@@ -1,0 +1,26 @@
+# This sample runs on QT-PY 2040 adafruit
+# In this sample:
+# Detect motion
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def Detect():
+    return due.Engine.ExecuteCommand("Detect()")
+
+while True:
+    detect = Detect()
+
+    if detect != 0:
+        print("Motion Detected")
+
+    time.sleep(1)  # sleep 1 second

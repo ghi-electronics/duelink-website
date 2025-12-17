@@ -1,2 +1,36 @@
-const { SerialUSB } = require("dlserialusb");
-const { DUELinkController } = require("duelink");
+// In this sample:
+// Read temperature and humidity every 1.5 second
+
+import pkg_serialusb from 'dlserialusb';
+const {SerialUSB} = pkg_serialusb
+
+import pkg_duelink from 'duelink';
+const {DUELinkController} = pkg_duelink
+
+let duelink = new DUELinkController(new SerialUSB());
+await duelink.Connect();
+
+// Sleep helper (ms)
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// Methods
+async function GetTemperature() {
+    return await duelink.Engine.ExecuteCommand("Temp(SenPin(), SenType())");
+}
+
+async function GetHumidity() {
+    return await duelink.Engine.ExecuteCommand("Humid(SenPin(), SenType())");
+}
+
+async function main() {
+    while (true) {
+        console.log(`Temperature: ${await GetTemperature()} `);
+        console.log(`Humidity: ${await GetHumidity()} `);
+
+        await sleep(1500); // 1500 ms
+    }
+}
+
+main();

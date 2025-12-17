@@ -1,8 +1,8 @@
+# In this sample:
+# Read X,Y,Z and Temperature on DOF9
+
 while (1)  
-    if (_h=0)
-        I2cCfg(100) # reset I2c if QMC5883L
-    end    
- 
+
     PrintLn("***********************")
     RAccel()
     PrintLn("accel XYZ: ",_x," ",_y," ",_z)
@@ -23,5 +23,5 @@ while (1)
     #    Wait(1)
     #wend
  
-    Wait(1000)    
+    Wait(2000)    
 wend

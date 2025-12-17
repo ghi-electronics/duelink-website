@@ -1,3 +1,5 @@
+# In this sample:
+# Print 'ALARM!!' when motion detected
 while 1
     if Detect()
         PrintLn("ALARM!!")

@@ -1,4 +1,6 @@
+# In this sample:
+# Read temperature and humidity every 1.5 second
 while 1
     PrintLn(Temp(SenPin(), SenType()),"c - ",Humid(SenPin(), SenType()),"%")
-    Wait(500)
+    Wait(1500)
 wend

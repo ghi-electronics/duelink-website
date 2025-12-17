@@ -1,0 +1,48 @@
+# This sample runs on QT-PY 2040 adafruit
+# In this sample:
+# Read X,Y,Z and Temperature on DOF9
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def GetX() -> int:
+    return int(due.Engine.ExecuteCommand("_x"))
+
+def GetY() -> int:
+    return int(due.Engine.ExecuteCommand("_y"))
+
+def GetZ() -> int:
+    return int(due.Engine.ExecuteCommand("_z"))
+
+def GetTemperature() -> float:
+    return due.Engine.ExecuteCommand("_t")
+
+def ActiveAccel():
+    due.Engine.ExecuteCommand("RAccel()")
+
+def ActiveGyro():
+    due.Engine.ExecuteCommand("RGyro()")
+
+def ActiveCompass():
+    due.Engine.ExecuteCommand("RCompass()")
+
+while True:
+    ActiveAccel()
+    print("Accel X = {}, Y = {}, Z = {}".format(GetX(), GetY(), GetZ()))
+
+    ActiveGyro()
+    print("Gyro X = {}, Y = {}, Z = {}, Temperature = {}".format(GetX(), GetY(), GetZ(), GetTemperature()))
+
+    ActiveCompass()
+    print("Compass X = {}, Y = {}, Z = {}".format(GetX(), GetY(), GetZ()))
+
+    time.sleep(2)  # 2 seconds

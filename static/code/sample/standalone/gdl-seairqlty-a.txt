@@ -1,3 +1,9 @@
+# In this sample:
+# Read temperature, humidity
+# Read Air Quality Index
+# Read Total Volatile Organic Compounds
+# Read Equivalent CO2
+
 while (1) 
     PrintLn("temp: ",AhtTemp(),"C - humidity: ",AhtHumid(),"%")
     PrintLn("AQI: ",EnsAqi()," - TVOC: ",EnsTvoc()," - eCO2: ",EnsEco2())

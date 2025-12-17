@@ -1,4 +1,7 @@
+# In this sample:
+# Display current (A)
+
 while 1
     PrintLn("Current: ", Current(),"A")
-    Wait(200) 
+    Wait(2000) 
 wend

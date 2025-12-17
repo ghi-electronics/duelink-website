@@ -1,0 +1,33 @@
+# This sample runs on QT-PY 2040 adafruit
+# In this sample:
+# Touch on pin 2, status LED turns on
+# Touch on pin 7, status LED turns off
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def SetStatLed(value: bool):
+    high = 1 if value else 0
+    low = 0 if value else 1
+    due.Engine.ExecuteCommand(f"Statled({high},{low},0)")
+
+def Touched(pin: int) -> bool:
+    ret = due.Engine.ExecuteCommand(f"PulseIn({pin},1000,0,100)")
+    return ret > 110
+
+while True:
+    if Touched(2):
+        SetStatLed(True)
+    if Touched(7):
+        SetStatLed(False)
+
+    time.sleep(0.05)  # 50 ms delay

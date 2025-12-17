@@ -1,0 +1,22 @@
+# This sample runs on QT-PY 2040 adafruit
+# In this sample:
+# Display current (A)
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def ReadCurrent():
+    return due.Engine.ExecuteCommand("Current()")
+
+while True:
+    print("Current: {} A".format(ReadCurrent()))
+    time.sleep(1)  # 1000 ms
