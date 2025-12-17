@@ -1,6 +1,5 @@
 // In this sample:
-// If current(A) >= 1, turn statled on
-// If current(A) < 1, turn statled off
+// Set local date/time and read every second.
 
 #include <Arduino.h>
 #include <Wire.h>
