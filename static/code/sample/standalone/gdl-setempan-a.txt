@@ -1,0 +1,8 @@
+# In this sample:
+# Read temperature every 1.5 second
+# ±2°C Accuracy
+
+while (1)
+    println("Temp: ", ReadTemp())
+    Wait(1500)
+wend
