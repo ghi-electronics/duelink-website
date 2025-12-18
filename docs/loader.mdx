@@ -33,13 +33,15 @@ Sadly, Windows does not automatically install the DFU drivers and it will not pr
 
 ## Entering DFU Mode
 
-DUELink modules automatically run their preloaded firmware. To load a new firmware, the module needs to be put in `DFU Mode`. To do so, there are 2 options: The first option to completely erase the module! Once erased, the module will find nothing to run and therefore will enter `DFU Mode`. This is an easier option because the the [Console](./console) includes this feature under the `Firmware` top-menu option. 
+DUELink modules automatically run their preloaded firmware. To load a new firmware, the module needs to be put in `DFU Mode`. To do so, there are 2 options: The first option to completely erase the module! Once erased, the module will find nothing to run and therefore will enter `DFU Mode`. This is an easier option because the [Console](./console) includes this feature under the `Firmware` top-menu option. 
 
 :::tip
 `Erase All` will erase everything, including firmware, drivers, and your application!
 :::
 
-(image)
+<div style={{ textAlign: 'center'}}>
+![Erase All](pathname:///img/firmware-eraseall.webp)
+</div>
 
 :::tip
 The console's `Erase All` feature automatically detects DUELink vs MicroBlocks firmware and then sends the appropriate command to self-erase, using `Reset(1)` command for example. `Erase All` will not work with your own custom firmware!
@@ -59,7 +61,10 @@ Beside `Erase All`, the second option to **force** `DFU Mode` using the `LDR pin
 
 Modules that do not have a button, they have 2 pads instead.
 
-(image)
+<div style={{ textAlign: 'center'}}>
+![Module Loader Pads](pathname:///img/module-loader-pads.webp)
+</div>
+
 
 :::tip
 This option "forces" the system into `DFU Mode`. It does not erase or modify the module's contents, till new firmware is sent.
