@@ -42,19 +42,19 @@ By adding a tiny JST connector, you will magically bring a whole level of expand
 ![downlink](pathname:///img/downlink.webp)
 </div>
 
-This one connector allows you to tether one, or several!
+This one connector allows you to tether to one or to a chain of modules.
 
 <div style={{ textAlign: 'center'}}>
 ![dueduino link](pathname:///img/dueduino-uplink.webp)
 </div>
 
-This is all possible using DUELink [daisylink](./engine/daisylink).
+Chaining modules is possible using [daisylink](./engine/daisylink).
 
 <div style={{ textAlign: 'center'}}>
 ![uplink downlink](pathname:///img/uplink-downlink.webp)
 </div>
 
-Your hardware can be tethered to DUELink modules using either [I2C](./interface/i2c) or [UART](./interface/uart).
+The [internal engine](./engine/intro) handles this daisylink. You only need to wire [I2C](./interface/i2c) or [UART](./interface/uart) to a compatible JST connector.
 
 ---
 

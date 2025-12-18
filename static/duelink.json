@@ -273,33 +273,6 @@
       ]
     },
     {
-      "name": "Cubicle",
-      "partNumber": "GDL-SPCUBICLE-A",
-      "PID": "0x0C0007",
-      "category": "Specialty",
-      "tagline": "8x8 Stackable LED Panel",
-      "description": "This LED panel is available with or without LEDs. This gives the user the option to soldier their own LEDs. We also offer w/LED option for plug-n-play no soldering required. Connect in a stack or mount flat to create unique LED projects.\n <div style={{ textAlign: 'center'}}>![Cubicle Options](pathname:///img/catalog/spcubicle-a-options.webp)</div>",
-      "keyFeatures": [     
-        "Stack or mount flat",
-        "64x surface mounted LEDs optional",
-        "Unpopulated option to add your LEDs",
-        "148x144mm overall dimension"
-      ],
-      "driverApi": "Function | Description\n---|---\n`DVer()` | This driver version.",
-      "variations": [
-        {
-          "name": "No LEDs",
-          "partCode": "NP",
-          "price": 9.95
-        },
-        {
-          "name": "Red",
-          "partCode": "R",
-          "price": 14.95
-        }
-      ]
-    },
-    {
       "name": "Chrono",
       "partNumber": "GDL-SPCHRONO-A",
       "PID": "0x0C0004",
@@ -512,6 +485,11 @@
           "name": "Yellow",
           "partCode": "Y",
           "price": 24.95
+        },
+        {
+          "name": "Blue",
+          "partCode": "B",
+          "price": 24.95
         }
       ]
     },
@@ -531,6 +509,11 @@
         {
           "name": "Yellow",
           "partCode": "Y",
+          "price": 19.95
+        },
+        {
+          "name": "Blue",
+          "partCode": "B",
           "price": 19.95
         }
       ]
@@ -1280,20 +1263,6 @@
         "37x27mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `AhtTemp()` | Returns ambient temperature in celsius. |\n| `AhtHumid()` | Returns relative humidity. |\n| `EnsAqi()` | Returns air quality index. |\n| `EnsTvoc()` | Returns Total Volatile Organic Compounds. |\n| `EnsEco2()` | Returns equivalent CO2. |\n| `DVer()` | This driver version. |"
-    },
-    {
-      "name": "Barometer",
-      "partNumber": "GDL-SEBARO-B",
-      "PID": "0x060003",
-      "category": "Sensor",
-      "price": 16.95,
-      "tagline": "Barometric Pressure Sensor",
-      "description": "This barometric pressure sensor also includes temperature and humidity measurements.",
-      "keyFeatures": [
-        "Reads pressure levels",
-        "Humidity and temperature",
-        "17x20mm overall dimension"
-      ]
     },
     {
       "name": "Current",

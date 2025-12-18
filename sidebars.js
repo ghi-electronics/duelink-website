@@ -38,6 +38,7 @@ const sidebars = {
       label: "Product Catalog",
       link: {type: 'doc', id: 'catalog/products'},
       items: [
+        "catalog/third-party",
         {
           type: "category",
           label: "Kits",
@@ -65,7 +66,6 @@ const sidebars = {
           items: [
             "products/spchrono-a",
             "products/spctrlr-b",
-            "products/spcubicle-a",
             "products/spghizzy-d",
             "products/spghizzyjr-b",
             "products/sptree-b",
@@ -118,7 +118,6 @@ const sidebars = {
           items: [
             "products/seaccel-a",
             "products/seairqlty-a",
-            "products/sebaro-b",
             "products/seclipsen-a",
             "products/securrent-a",
             "products/sedistance-b",
@@ -248,8 +247,7 @@ const sidebars = {
             "products/axmnt"
           ],
         },
-        "catalog/third-party",
-         {
+         /*{
           type: "category",
           label: "Our Lab!",
           link: { type: "doc", id: "catalog/lab" },
@@ -259,7 +257,7 @@ const sidebars = {
               dirName: "catalog/lab",
             },
           ],
-        },
+        },*/
       ],
     },
 
