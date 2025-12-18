@@ -31,7 +31,7 @@ Sadly, Windows does not automatically install the DFU drivers and it will not pr
 
 ---
 
-## Entering DFU Mode
+## Enter DFU Mode
 
 DUELink modules automatically run their preloaded firmware. To load a new firmware, the module needs to be put in `DFU Mode`. To do so, there are 2 options: The first option to completely erase the module! Once erased, the module will find nothing to run and therefore will enter `DFU Mode`. This is an easier option because the [Console](./console) includes this feature under the `Firmware` top-menu option. 
 
@@ -47,11 +47,11 @@ DUELink modules automatically run their preloaded firmware. To load a new firmwa
 The console's `Erase All` feature automatically detects DUELink vs MicroBlocks firmware and then sends the appropriate command to self-erase, using `Reset(1)` command for example. `Erase All` will not work with your own custom firmware!
 :::
 
-Upon successful erase, the module will present itself as a DFU device. If this is done on a PC for the first time, check the `Device Manager` to verify.
+Upon successful erase, the module will present itself as a DFU device. If this is done on a PC for the first time, check the `Device Manager` to verify the USB Driver is installed, as explained under the drivers section on this page.
 
-<div style={{ textAlign: 'center'}}>
-![Verify DFU mode](pathname:///img/device-manager-dfu.webp)
-</div>
+---
+
+## Force DFU Mode
 
 Beside `Erase All`, the second option to **force** `DFU Mode` using the `LDR pin`. On some modules, this pin is connected to a button labeled `LDR` or `A`.
 
@@ -78,6 +78,8 @@ If neither `LDR` nor `A` button is available, then bend and place a small metal 
 ![Setting Boot mode](pathname:///img/boot-mode.webp)
 </div>
 
+Upon forcing DFU Mode successfully, the module will present itself as a DFU device. If this is done on a PC for the first time, check the `Device Manager` to verify the USB Driver is installed, as explained under the drivers section on this page.
+
 :::info
 For power users: LDR pin is the name we use for STM32's BOOT0 pin. 
 :::
@@ -86,7 +88,7 @@ For power users: LDR pin is the name we use for STM32's BOOT0 pin.
 
 ## Firmware Update
 
-Once the device is in the loader mode and the system has detect a USB `DFU in FS Mode` device.
+Once the device is in the `DFU Mode`, with USB drivers loaded, the system will detect a USB `DFU in FS Mode` device. If you do not see it, try to `Force DFU Mode`.
 
 <div style={{ textAlign: 'center'}}>
 ![Verify DFU mode](pathname:///img/device-manager-dfu.webp)
@@ -101,7 +103,7 @@ From [https://console.duelink.com/](https://console.duelink.com/), click `Firmwa
 Follow the instructions to select and load the desired firmware.
 
 :::tip
-The firmware update will not load any [drivers](./engine/drivers). If you have performed `Erase All`, you have no drivers installed.
+The firmware update will not load any module's [driver](./engine/drivers) script. If you have performed `Erase All`, you have no driver script  installed.
 :::
 
 Another update option is using DUELink [Programmer](./programmer) tool, which requires installation and only works on Windows.
