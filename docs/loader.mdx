@@ -1,57 +1,87 @@
 # Loader
 
 
-The STM32C071 chip utilized on all DUELink modules includes an ST loader that we use for firmware updates using the `USB DFU` standard. 
+The STM32C071 chip utilized on all DUELink modules includes an ST loader that we use for firmware updates, using the `USB DFU` (Device Firmware Update) standard. 
 
-The loaded "firmware" can be the official DUELink or MicroBlocks firmware option. However, it can also be a custom firmware built using [C++](./language/cpp) language page, for example. The [Arduino](./hw/arduino) IDE can also be used to build custom firmware as well.
+This loader is used to loaded a firmware, which can be the official DUELink or MicroBlocks' firmware options. However, it can load a custom firmware built using [C++](./language/cpp), or [Arduino](./hw/arduino).
+
+Using the lader and performing firmware updates only works with a single module that is tethered to a PC. If you have a [daisylink](./engine/daisylink) of modules then you need to connect them one at a time to perform any updates. Of course, modules that do not have USB connection will need to be chained to an adapter, like USB Hook, but this is not a logical chain. The PC will only see a single module!
+
+<div style={{ textAlign: 'center'}}>
+![USB Hook servo](pathname:///img/usbhook-servo-x1.webp)
+</div>
+
+
 
 ---
 
-## Update Options
+## DFU USB Drivers
 
-Users have two options for firmware updates. We recommend using the [Console](./console) as a first choice.
+Since DFU is a standard USB class, it is automatically supported by all major operating systems. Windows supports DFU, but sadly it does not load the needed USB drivers automatically! It is necessary to install the USB drivers from the [downloads](./downloads) page.
 
-<div style={{ textAlign: 'center'}}>
-![DUELink Console Firmware Menu](pathname:///img/console-firmware.webp)
-</div>
-
-Advanced users can also use the [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) tool.
+When going through the later steps on this page, to enter DFU mode, make sure the `Device Manager` shows `DFU in FS Mode` with no errors.
 
 <div style={{ textAlign: 'center'}}>
-![Select USB](pathname:///img/stm-select-usb.webp)
+![Verify DFU mode](pathname:///img/device-manager-dfu.webp)
 </div>
 
-Either way, the first step is in placing the board in loader mode (Entering the Loader!).
+:::tip
+Sadly, Windows does not automatically install the DFU drivers and it will not prompt you to install them! If in doubt, just install the USB drivers mentioned earlier.
+:::
 
 ---
 
-## Entering the Loader
+## Entering DFU Mode
 
-The standard DUELink software includes `Reset(1)` that wipes out the chip completely and, therefore, forcing it in the loader mode. Since this is a critical command, `Reset(1)` MUST BE called twice. You can send this command over any interface. An easy way would be to use the [Console](./console) immediate window.
+DUELink modules automatically run their preloaded firmware. To load a new firmware, the module needs to be put in `DFU Mode`. To do so, there are 2 options: The first option to completely erase the module! Once erased, the module will find nothing to run and therefore will enter `DFU Mode`. This is an easier option because the the [Console](./console) includes this feature under the `Firmware` top-menu option. 
 
-The other option is done using hardware. Locate the `LDR` button on your module. On some boards, the `LDR` button is labeled with `A`.
+:::tip
+`Erase All` will erase everything, including firmware, drivers, and your application!
+:::
+
+(image)
+
+:::tip
+The console's `Erase All` feature automatically detects DUELink vs MicroBlocks firmware and then sends the appropriate command to self-erase, using `Reset(1)` command for example. `Erase All` will not work with your own custom firmware!
+:::
+
+Upon successful erase, the module will present itself as a DFU device. If this is done on a PC for the first time, check the `Device Manager` to verify.
+
+<div style={{ textAlign: 'center'}}>
+![Verify DFU mode](pathname:///img/device-manager-dfu.webp)
+</div>
+
+Beside `Erase All`, the second option to **force** `DFU Mode` using the `LDR pin`. On some modules, this pin is connected to a button labeled `LDR` or `A`.
 
 <div style={{ textAlign: 'center'}}>
 ![Setting Boot mode mode](pathname:///img/ldr-a-buttons.webp)
 </div>
 
-Press and **continue to hold** the button while resetting the board. If there is no reset button, then unplug the USB cable first, then hold the button down while inserting the USB cable. Wait one second after the cable is inserted then release the button.
+Modules that do not have a button, they have 2 pads instead.
 
-If neither `LDR` nor `A` button is available, then the LDR pads are found on small through-hole pads. Bend and place a small metal paper clip (or a wire) between these 2 pads, and reset/repower the board. You can remove the paper clip after the board is powered up.
+(image)
+
+:::tip
+This option "forces" the system into `DFU Mode`. It does not erase or modify the module's contents, till new firmware is sent.
+:::
+
+To force a module in `DFU Mode` press and **continue to hold** the `LDR` or `A` button while resetting the board. If there is no reset button, then unplug the USB cable first, then hold the `LDR` or `A` button down and **continue to hold** while inserting the USB cable in. Wait one second after the cable is inserted then release the button.
+
+If neither `LDR` nor `A` button is available, then bend and place a small metal paper clip (or a wire) between the 2 `LDR pads`, and reset/re-power the board. You can remove the paper clip after the board is powered up.
 
 <div style={{ textAlign: 'center'}}>
 ![Setting Boot mode](pathname:///img/boot-mode.webp)
 </div>
 
 :::info
-LDR is the name we use for STM32's BOOT0 pin, which is button A or LDR in some cases. 
+For power users: LDR pin is the name we use for STM32's BOOT0 pin. 
 :::
 
 ---
 
-## Console Update
+## Firmware Update
 
-Once the device is in the loader mode, the system will detect a USB `DFU in FS Mode` device.
+Once the device is in the loader mode and the system has detect a USB `DFU in FS Mode` device.
 
 <div style={{ textAlign: 'center'}}>
 ![Verify DFU mode](pathname:///img/device-manager-dfu.webp)
@@ -63,17 +93,19 @@ From [https://console.duelink.com/](https://console.duelink.com/), click `Firmwa
 ![DUELink Console Firmware Menu](pathname:///img/due-firmware.webp)
 </div>
 
-Follow the instructions to update the firmware, which is basically done by selecting the desired firmware file.
+Follow the instructions to select and load the desired firmware.
+
+:::tip
+The firmware update will not load any [drivers](./engine/drivers). If you have performed `Erase All`, you have no drivers installed.
+:::
+
+Another update option is using DUELink [Programmer](./programmer) tool, which requires installation and only works on Windows.
 
 ---
 
-## STM32 Tools Update
+## Advanced Options
 
-The [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) tool is good advanced option.
-
-First, download the desired firmware file from the [Downloads](./downloads) page. Connect the module and enter the loader mode, as explained before.
-
-STM32CubeProgrammer will now detect a USB DFU device, select `USB` from the drop down and click `Connect`.
+Any DFU tool can be used but advanced users will likely use the [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html). First, download the desired firmware file from the [Downloads](./downloads) page. Now connect the module to USB and enter `DFU Mode`, as explained before. STM32CubeProgrammer will now detect a USB DFU device, select `USB` from the drop down and click `Connect`.
 
 <div style={{ textAlign: 'center'}}>
 ![Select USB](pathname:///img/stm-select-usb.webp)
@@ -91,6 +123,6 @@ The board now has the desired file loaded!
 
 ## I2C Update
 
-This page focuses on firmware updates using USB DFU mode. We recommend to use USB DFU whenever possible; however, using I2C to send firmware updates over Uplink connectors is an unsupported option.
+This page focuses on firmware updates using `USB DFU mode`. We recommend to use USB DFU whenever possible; however, using I2C to send firmware updates over Uplink connectors is an unsupported option.
 
 The "[STM32 microcontroller system memory boot mode](https://www.st.com/resource/en/application_note/an2606-stm32-microcontroller-system-memory-boot-mode-stmicroelectronics.pdf)" application note covers all the needed details.
