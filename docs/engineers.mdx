@@ -12,11 +12,9 @@ DUELink serves electrical and embedded engineering in multiple ways, from initia
 ![Commercial Product](pathname:///img/commercial-product.webp)
 </div>
 
-
-
 ---
 
-## Prototyping
+## Rapid Prototyping
 
 Build prototypes and proof of concepts in minutes vs days, at an extremely low-cost. Let's say you have a quick need for a device that connect to a vehicle with these requirements:
 
@@ -38,25 +36,25 @@ On the software front, each module has a mini-computer with a built in engine! S
 
 ## Expandability
 
-By adding a tiny JST connector, you will magically bring a whole level of expandability to your designs. Just imagine how versatile designs will be when you are able to tether any [DUELink Catalog](./catalog/products) module to your design. 
+By adding a tiny JST connector, you will magically bring a whole level of expandability to your projects. Just imagine how versatile designs will be when you are able to tether any [DUELink Catalog](./catalog/products) module to your circuit. 
 
 <div style={{ textAlign: 'center'}}>
 ![downlink](pathname:///img/downlink.webp)
 </div>
 
-This one connector allows you to tether one, or several!
+This one connector allows you to tether to one or to a chain of modules.
 
 <div style={{ textAlign: 'center'}}>
 ![dueduino link](pathname:///img/dueduino-uplink.webp)
 </div>
 
-This is all possible using DUELink [daisylink](./engine/daisylink).
+Chaining modules is possible using [daisylink](./engine/daisylink).
 
 <div style={{ textAlign: 'center'}}>
 ![uplink downlink](pathname:///img/uplink-downlink.webp)
 </div>
 
-Your hardware can be tethered to DUELink modules using either [I2C](./interface/i2c) or [UART](./interface/uart).
+The [internal engine](./engine/intro) handles this daisylink. You only need to wire [I2C](./interface/i2c) or [UART](./interface/uart) to a compatible JST connector.
 
 ---
 
@@ -71,7 +69,7 @@ All modules, including the onces listed below, are controlled using ASCII comman
 <table>
  <tr>
 <td width='50%'>
-    <img alt="Back" src="/img/catalog/stusbhost-b-3.webp" />
+    <img alt="Back" src="/img/usbhost.webp" />
     The module already includes all FAT file system and USB Host software libraries internally. You simply send a file command, and the module will do the rest for you. There are also SD and Micro SD module options as well.
     <Button
         style={{ margin: "10px", color: "white" }}
@@ -80,7 +78,7 @@ All modules, including the onces listed below, are controlled using ASCII comman
     />
 </td>
 <td width='50%'>
-    <img alt="Size" src="/img/catalog/dsprtlcp70-b-3.webp" />
+    <img alt="Size" src="/img/portal-cp70.webp" />
     This full color 800x600 7" display has advanced Bridgetek graphics coprocessor  to handle image decoding,font rendering, and shape drawing. It also includes a capacitive touch screen.
 
     <Button
@@ -92,7 +90,7 @@ All modules, including the onces listed below, are controlled using ASCII comman
 </tr>
  <tr>
 <td width='50%'>
-    <img alt="Size" src="/img/catalog/dshdmi-b-3.webp" />
+    <img alt="Size" src="/img/hdmi.webp" />
     The same tine JST connector brings HDMI to your design! The onboard Bridgetek graphics coprocessor renders high-definition graphics. Yes, any design can have a 50" monitor now!
 
     <Button
@@ -102,7 +100,7 @@ All modules, including the onces listed below, are controlled using ASCII comman
     />
 </td>
 <td width='50%'>
-    <img alt="Back" src="/img/catalog/mcstick-a-3.webp" />
+    <img alt="Back" src="/img/stick.webp" />
     Want something else? Make your own module using this very small 13x13mm "stick"! It includes Uplink and Downlink connectors and all the IOs you need. Solder it directly on your board or use pin headers to plug into a breadboard.  
     <Button
         style={{ margin: "10px", color: "white" }}
