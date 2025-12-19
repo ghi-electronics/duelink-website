@@ -1,131 +1,15 @@
 # Console
 
-The DUELink Console provides many functionalities. It is a great start to verify the device is functioning properly. It is also a great place to learn about and use [DUELink Scripts](/docs/engine/scripting.mdx).
+The DUELink Console is an online tool with several functionalities:
+1. Firmware Update
+2. Driver Update
+3. Script `Recording` Mode access
+4. Script `Immediate`  Mode access
 
+<div style={{ textAlign: 'center'}}>
+![DUELink Console](pathname:///img/duelink-console.webp)
 [**console.duelink.com**](https://console.duelink.com/)
 
-<div style={{ textAlign: 'center'}}>
-![DUELink Console](pathname:///img/due-console.webp)
-</div>
-
----
-
-## Top Buttons
-
-### Connect
-
-Select the connect button to connect to the DUELink hardware.
-
-<div style={{ textAlign: 'center'}}>
-![Connect Button](pathname:///img/due-connect.webp)
-</div>
-
-### Immediate Window
-
-The immediate text box sends and runs the code immediately on the DUELink hardware as soon as the `Enter` key or `arrow` button is pressed.
-
-<div style={{ textAlign: 'center'}}>
-![DUELink immediate window](pathname:///img/immediate-window.webp)
-</div>
-
-Try `statled(200,200,50)` to blink the STAT LED 50 times.
-
-### Regions Panel
-The regions panel is where users can switch to and control different regions in the memory. See [Regions](./engine/regions.mdx) page for more details.
-
-<div style={{ textAlign: 'center'}}>
-![Regions Panel](pathname:///img/console-regions-panel.webp)
-</div>
-
-### Log & History Windows
-
-The DUELink Log window is where DUELink hardware will talk back to the console. `Print()` functions appear directly in this window. The History window provides a history of your DUELink session. The `eraser` button clears the windows.
-
-```py
-Print("This is where log outputs appear")
-```
-<div style={{ textAlign: 'center'}}>
-![DUELink console output](pathname:///img/console-output.webp)
-</div>
-
-### Record
-
-Sends the script in the editor window to the DUELink hardware's flash.
-
-<div style={{ textAlign: 'center'}}>
-![Record Button](pathname:///img/due-record.webp)
-</div>
-
-### Play
-
-Runs the code that is stored in flash.
-
-<div style={{ textAlign: 'center'}}>
-![Play Button](pathname:///img/due-play.webp)
-</div>
-
-### Stop
-
-Stops the program running on the DUELink hardware.
-
-<div style={{ textAlign: 'center'}}>
-![Stop Button](pathname:///img/due-stop.webp)
-</div>
-
-### List
-
-The List button loads the program currently stored in flash into the editor window.
-
-<div style={{ textAlign: 'center'}}>
-![List Button](pathname:///img/due-list.webp)
-</div>
-
-### Download
-
-Saves the code in the consoles editor window to a text file.
-
-<div style={{ textAlign: 'center'}}>
-![Save Button](pathname:///img/due-save.webp)
-</div>
-
-### Load
-
-Loads a saved program into the editor. You can also copy/paste code into the editor.
-
-<div style={{ textAlign: 'center'}}>
-![Load Button](pathname:///img/due-load.webp)
-</div>
-
-### Zoom
-
-Zooms the edit window in and out.
-
-<div style={{ textAlign: 'center'}}>
-![Zoom Button](pathname:///img/due-zoom.webp)
-</div>
-
-### Docs
-
-Links to the DUELink Script Documentation.
-
-<div style={{ textAlign: 'center'}}>
-![Docs](pathname:///img/due-docs.webp)
-</div>
-
-### Demos
-
-Select from pre-built DUELink Script Demos that load into the edit window.
-
-<div style={{ textAlign: 'center'}}>
-![Demos](pathname:///img/due-demos.webp)
-</div>
-
-### Theme
-
-Changes the consoles theme to Light or Dark.
-
-<div style={{ textAlign: 'center'}}>
-![Theme Button](pathname:///img/due-theme.webp)
 </div>
 
 ---
@@ -135,7 +19,101 @@ Changes the consoles theme to Light or Dark.
 Select and load the appropriate firmware to your device. While there are multiple ways to load a firmware onto DUELink modules, using the console is the easiest way.
 
 <div style={{ textAlign: 'center'}}>
-![Firmware](pathname:///img/due-firmware.webp)
+![Firmware](pathname:///img/console-firmware.webp)
 </div>
 
-Click on firmware and follow the steps. The [Loader](./loader) page has more details as well.
+Visit the [Loader](./loader) page for full details on firmware updates.
+
+---
+
+## Driver Update
+
+Drivers simplify the use of modules. The console can automatically fetch and load the latest module.
+
+<div style={{ textAlign: 'center'}}>
+![driver](pathname:///img/console-menu-driver.webp)
+</div>
+
+Visit the [Driver Script](./engine/drivers) page to learn more.
+
+Drivers are always loaded in `Region 0`, leaving `Region 1` for user code. Using regions is fully supported in the Console, under the `Regions` panel.
+
+<div style={{ textAlign: 'center'}}>
+![Regions Panel](pathname:///img/console-regions-panel.webp)
+</div>
+
+The [Regions](./engine/regions) page has more details.
+
+---
+
+## Recording Mode
+
+The console helps in recording, modifying and executing scripts. Connect your module to a PC and then click `Connect`button.
+
+<div style={{ textAlign: 'center'}}>
+![Connect Button](pathname:///img/console-connect.webp)
+</div>
+
+Select one of the built-in Demo scripts, found in the top menu.
+
+<div style={{ textAlign: 'center'}}>
+![Demos](pathname:///img/console-demos.webp)
+</div>
+
+Click the `Record` button to send the script to the module's memory.
+
+
+<div style={{ textAlign: 'center'}}>
+![Record Button](pathname:///img/console-record.webp)
+</div>
+
+You can now `Run` the code!
+
+<div style={{ textAlign: 'center'}}>
+![Play Button](pathname:///img/console-play.webp)
+</div>
+
+:::tip
+The module will automatically run a loaded script on power up.
+:::
+
+You can use the `Stop` button to terminate a running program.
+
+<div style={{ textAlign: 'center'}}>
+![Stop Button](pathname:///img/console-stop.webp)
+</div>
+
+It is possible to read back a script from a module, using the `List` button.
+
+<div style={{ textAlign: 'center'}}>
+![List Button](pathname:///img/console-list.webp)
+</div>
+
+---
+
+## Immediate Mode
+
+The immediate text box sends and runs the code immediately on the DUELink hardware.
+
+<div style={{ textAlign: 'center'}}>
+![DUELink immediate window](pathname:///img/immediate-window.webp)
+</div>
+
+Try `statled(200,200,50)` to blink the STAT LED 50 times.
+
+The DUELink Log Panel is where DUELink hardware will talk back to the console. For example, `Print()` function will output directly in this window.
+
+```py
+# Run this and observe the Log Panel
+Print("This is where log outputs appear")
+```
+
+The Log Panel will show the output.
+
+<div style={{ textAlign: 'center'}}>
+![DUELink console output](pathname:///img/console-output.webp)
+</div>
+
+
+
+
