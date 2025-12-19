@@ -352,8 +352,8 @@ const sidebars = {
     label: "Tools",
     items: [
         "console",
-        "programmer",
         "loader",
+        "programmer",
       ],
   },
     "specs",

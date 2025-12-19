@@ -5,7 +5,7 @@ The STM32C071 chip utilized on all DUELink modules includes an ST loader that we
 
 This loader is used to loaded a firmware, which can be the official DUELink or MicroBlocks' firmware options. However, it can load a custom firmware built using [C++](./language/cpp), or [Arduino](./hw/arduino).
 
-Using the lader and performing firmware updates only works with a single module that is tethered to a PC. If you have a [daisylink](./engine/daisylink) of modules then you need to connect them one at a time to perform any updates. Of course, modules that do not have USB connection will need to be chained to an adapter, like USB Hook, but this is not a logical chain. The PC will only see a single module!
+Using the loader and performing firmware updates only works with a single module that is tethered to a PC. If you have a [daisylink](./engine/daisylink) of modules then you need to connect them one at a time to perform any updates. Of course, modules that do not have USB connection will need to be chained to an adapter, like USB Hook, but this is not a logical chain. The PC will only see a single module!
 
 <div style={{ textAlign: 'center'}}>
 ![USB Hook servo](pathname:///img/usbhook-servo-x1.webp)
@@ -97,7 +97,7 @@ Once the device is in the `DFU Mode`, with USB drivers loaded, the system will d
 From [https://console.duelink.com/](https://console.duelink.com/), click `Firmware` on the top menu.
 
 <div style={{ textAlign: 'center'}}>
-![DUELink Console Firmware Menu](pathname:///img/due-firmware.webp)
+![DUELink Console Firmware Menu](pathname:///img/console-firmware.webp)
 </div>
 
 Follow the instructions to select and load the desired firmware.
@@ -107,6 +107,12 @@ The firmware update will not load any module's [driver](./engine/drivers) script
 :::
 
 Another update option is using DUELink [Programmer](./programmer) tool, which requires installation and only works on Windows.
+
+---
+
+## Driver Scripts
+
+Modules also include Driver Script to simplify the module's use. It is advisable to update/load driver after a firmware update. See the [Drivers](./engine/drivers) page for more details.
 
 ---
 

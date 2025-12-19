@@ -1,22 +1,62 @@
-# Drivers
+# Driver Script
 
 
-The DUELink [Standard Library](../engine/stdlib) include a long list of commonly used features. However, it does not include any module-specific code/drivers.
+The DUELink [Standard Library](../engine/stdlib) include a long list of commonly used features. However, it's not made to be module-specific. For example, an Accelerometer might use the SPI bus. The standard library includes SPI bus support, but it is unaware of the Accelerometer. This is where a modules' Driver Script comes in to play. In this setup, the driver will include a `ReadX()` function to read the acceleration on the X axis. This driver's `ReadX()` function uses the standard library's SPI bus facilities. Since these driver scripts are directly related to the module they are loaded on, `ReadX()` might also be a function provided by a joystick module to read the joystick position in the X axis!
 
-For example, an Accelerometer might use the SPI bus. The standard library includes SPI bus support, but it is unaware of the accelerometer. This is where the modules' drivers come in play. In this hybrid setup, the driver will include `ReadX()` function to read the acceleration in the X axis. This driver `ReadX()` function uses the standard library to access the SPI bus.
+Driver Scripts and their API docs are listed under the `Drivers` tab on each product's page. While not required, inspecting the driver's script helps with a deeper understanding of the module's internal functionality.
 
-Note that `ReadX()` might also be a function provided by a joystick module to read the joystick position in the X axis!
-
-Each module in the catalog shows each module's drivers and provided functionality.
-
-Drivers are loaded in [Region](./regions) 0 in memory. You may load your own user code on a module, but you probably do not want the drivers to be overwritten. Your code will be loaded on `Region 1`.
-
-To update or reload the drivers on a module, access the module from the [Console](../console), go to `0-Driver` region, then copy paste the drivers from the product catalog into the console. Click record, then switch to `1-User` region.
+:::tip
+Modules function just fine without drivers, just use the [standard library](./stdlib)! For example, use `statled()` to control the STAT LED. However, adding drivers greatly simplify the use of modules.
+:::
 
 ---
 
-## Check for Drivers
+## Loading Drivers
 
-To check if a module has drivers installed. Open the [Console](../console) and click on `0 - Drivers` region to see what is loaded there.
+The [Console's](../console) `Driver` top-menu option can automatically detect the connected module and load the appropriate driver script. This of course only work on modules that already have DUELink official firmware loaded.
 
-Every single driver has `DVer()` function that returns the driver version number. You can also call `DVer()` to check for an installed driver.
+<div style={{ textAlign: 'center'}}>
+![Driver Button](pathname:///img/console-menu-driver.webp)
+</div>
+
+:::tip
+It is advisable to always load/update the driver script after any firmware update.
+:::
+
+---
+
+## Regions
+
+We take advantage of the [Region](./regions) feature and load Driver Scripts in region 0. This allows the user to load their own application in region 1.
+
+You can use the console's script window to see and modify the driver in region 0. Select region 0 from the regions window.
+
+<div style={{ textAlign: 'center'}}>
+![Driver Button](pathname:///img/select-driver-region.webp)
+</div>
+
+The Console will now load and show region 0 content.
+
+---
+
+## Driver Version
+
+Driver scripts always include `DVer()` function that returns the driver's version number. If the function did not exist then the driver was not loaded!
+
+You can access `DVer()` similar to all other functions, like from the immediate window for example.
+
+<div style={{ textAlign: 'center'}}>
+![Driver Version](pathname:///img/get-driver-version.webp)
+</div>
+
+---
+
+## MicroBlocks Drivers
+
+Just like all other [coding languages](../language/intro), a board is tethered to DUELink module(s) can access the module's driver scripts. However, when using MicroBlocks standalone, you will need MicroBlocks specific drivers. We already provide specific drivers for [education](../educators)-focused boards. Needing drivers for other boards in stand alone mode is not a common use, but we do provide standalone samples to get you started. The driver script can also help in understanding the module's internals. See [MicroBlocks](../language/microblocks) for more details.
+
+---
+
+## Arduino
+
+The standalone samples found on each module's page is a great starting point. The driver script can then be used to expand the sample into your desired functionality. Note that this is not needed when modules are tethered to an Arduino-compatible board. That board will simply command the module's drivers over an [interface](../interface/intro). The [Arduino](../hw/arduino) page has more info.
