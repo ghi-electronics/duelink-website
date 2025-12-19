@@ -14,7 +14,6 @@ fn Init()
     BtnEn(BtnPin('L'), 1) # Btn Left
     BtnEn(BtnPin('R'), 1) # Btn Right
 
-
     DWrite(22,0) # reset pin
     DWrite(22,1) 
     Wait(10)
@@ -128,6 +127,8 @@ fn SetBulb(c) #c = Hex Value
     AWrite(11,r)
     AWrite(4,g)
 fend
+
+##### Light Sensor #####
 
 fn Light()
     return Trunc(VRead(17)/(ReadVCC() )*100)
