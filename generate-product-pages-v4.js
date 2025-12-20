@@ -425,7 +425,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/t
                 sampleTabs.push({label: 'MicroBlocks', value: 'microblocks'});
                 sampleTabItems.push(`<TabItem value="microblocks">
 
-                    This sample project runs on a MicroBlocks-enabled device that is controlling this module. Note that this tethered module continue to use the official DUELink firmware the its module driver. See [MicroBlocks](/docs/language/microblocks) page to learn more.
+                    This sample project runs on a MicroBlocks-enabled device that is tethered to this module. Note that this tethered module needs to have the official DUELink firmware and its module driver. See [MicroBlocks](/docs/language/microblocks) page to learn more.
 
                     Click the button below to open, edit, and run the project directly on MicroBlocks' website.
 
@@ -554,7 +554,7 @@ ${standaloneSampleTabItems.join('\n')}
         driverTabContent = `
 <TabItem value="driver">
 
-See [Drivers](/docs/engine/drivers) page for further details.
+Driver Scripts go hand-in-hand with DUELink official firmware. See the [Driver Scripts](/docs/engine/drivers) page for further details.
 
 ${driverTable ? driverTable + '\n' : ''}<details>
 <summary><strong>The Code!</strong></summary>
