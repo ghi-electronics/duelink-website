@@ -1774,7 +1774,7 @@ Script only functionality.
 Function | Description
 --- | ---
 `DLMode(mode, {cfg})` | Sets Downlink `mode`, see [Downlink](../interface/downlink) interface page.
-`DLI2cWr(address, [arrayWrite], [arrayRead])` | `address`: I2C slave address (7 bits) - `arrayWrite`: array to send, `arrayRead`: array to read. This only works with `DLMode(4,0)`.
+`DLI2cWr(address, [arrayWrite], [arrayRead])` | `address`: I2C slave address (7 bits) - `arrayWrite`: array to send, `arrayRead`: array to read. This only works with `DLMode(5,0)`.
 `Cmd("command")` | Sends a script command Downlink, only available in `DLMode(2,0)` mode, `Host` mode. You can only to read a float from a function or a variable: `_W = Cmd("GetW()")` or `_W = Cmd("_W")`. Setting a remote value is done using `cmd(fmt("_x=",_x))`. 
 `CmdTmot(t)` | Sets `t` timeout for `Cmd()` in milliseconds, default 1000ms. 
 `DLSerWr([array])` | Writes `array` to downlink.
@@ -1802,7 +1802,7 @@ Use `Info()` to read the current `DLMode()` state.
 <TabItem value="script">
 ```py
 # Switch Downlink to I2C mode
-DLMode(4,0)
+DLMode(5,0)
 Dim B1[]=[0x11,0x22]
 # Write 2 bytes to 0x44 and read nothing
 DLI2CWr(0x44,B1,[])
@@ -1811,35 +1811,35 @@ DLI2CWr(0x44,B1,[])
 <TabItem value="py">
 Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
 ```py
-duelink.Engine.ExecuteCommand("DLMode(4,0)")
+duelink.Engine.ExecuteCommand("DLMode(5,0)")
 duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []")
 ```
 </TabItem>
 <TabItem value="js">
 Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
 ```js
-await duelink.Engine.ExecuteCommand("DLMode(4,0)");
+await duelink.Engine.ExecuteCommand("DLMode(5,0)");
 await duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []");
 ```
 </TabItem>
 <TabItem value="arduino">
 Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
 ```cpp
-duelink.Engine.ExecuteCommand("DLMode(4,0)");
+duelink.Engine.ExecuteCommand("DLMode(5,0)");
 duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []");
 ```
 </TabItem>
 <TabItem value="micropy">
 Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
 ```py
-duelink.Engine.ExecuteCommand("DLMode(4,0)")
+duelink.Engine.ExecuteCommand("DLMode(5,0)")
 duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []")
 ```
 </TabItem>
 <TabItem value="dotnet">
 Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
 ```cs
-duelink.Engine.ExecuteCommand("DLMode(4,0)");
+duelink.Engine.ExecuteCommand("DLMode(5,0)");
 duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []");
 ```
 </TabItem>
