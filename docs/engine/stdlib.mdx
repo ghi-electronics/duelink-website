@@ -1850,7 +1850,7 @@ duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []");
 
 ## Device Addressing
 
-These functions are needed for helping with [daisylink](./daisylink) devices chained through [Downlink](../interface/downlink) connections.
+These functions are needed for helping with [Daisylink](./daisylink) devices chained through [Downlink](../interface/downlink) connections.
 
 Function | Description
 --- | ---
@@ -1858,9 +1858,9 @@ Function | Description
 `GetAdd()` | Returns the selected device(s) address.
 `SetAdd(add)` | `add` Sets the device's address. This command has chain reaction where each device sets the next one. ** Internal function, do not use**
 
-The `Sel(add)` command accepts multiple addresses. `Sel(3,7)` will activate the third and and seventh modules in [daisylink](./daisylink). Any command issue from that point forward are executed by both modules. Zero is broadcast address, where `Sel(0)` will activate all modules. Use `GetAdd()` to detect what modules are currently active.
+The `Sel(add)` command accepts multiple addresses. `Sel(3,7)` will activate the third and and seventh modules in [Daisylink](./daisylink). Any command issue from that point forward are executed by both modules. Zero is broadcast address, where `Sel(0)` will activate all modules. Use `GetAdd()` to detect what modules are currently active.
 
-Device addressing controls modules on a [daisylink](./daisylink), not a device itself. For that, `Sel()` can only be issued by the host. Of course, the host can be a third-party board or a DUELink module in host mode.
+Device addressing controls modules on a [Daisylink](./daisylink), not a device itself. For that, `Sel()` can only be issued by the host. Of course, the host can be a third-party board or a DUELink module in host mode.
 
 <details>
   <summary>Samples</summary>
@@ -2131,7 +2131,7 @@ mode | Description
 0 | System Reset (just like pressing reset button).
 1 | Wipe out the entire chip (factory reset!). This command must be executed twice for it to take effect.
 
-It is important to keep device addressing under consideration. To do so, `Reset(0)` will automatically reset all devices, regardless of what device was selected using `Sel()`. However, `Reset(1)` will only erase the selected device. We recommend `Reset(1):Reset(1)` on a singular connected device, or on the first connected device in a daisylink. If you really need, `Sel(0):Reset(1):Reset(1)` will wipe out every single device in a daisylink!
+It is important to keep device addressing under consideration. To do so, `Reset(0)` will automatically reset all devices, regardless of what device was selected using `Sel()`. However, `Reset(1)` will only erase the selected device. We recommend `Reset(1):Reset(1)` on a singular connected device, or on the first connected device in a Daisylink. If you really need, `Sel(0):Reset(1):Reset(1)` will wipe out every single device in a Daisylink!
 
 <details>
   <summary>Samples</summary>

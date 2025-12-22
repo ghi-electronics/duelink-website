@@ -21,7 +21,7 @@ function HomepageHeader() {
        <Heading as="h2" >
         Tether & Daisylink Hundreds of Modules!
         </Heading>
-        <p> DUELink revolutionizes innovation with a vast ecosystem of daisylink-able electronic modules.
+        <p> DUELink revolutionizes electronics innovation with a vast ecosystem of Daisylink-able electronic modules.
         <br/> 
         Each module is a mini-computer, that Tethers to your favorite hardware platform and coding language.
         </p>
