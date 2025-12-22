@@ -788,7 +788,7 @@ Access the I2C bus.
 Function | Description
 --- | ---
 `I2cCfg(baudrate)` | `baudrate`: Sets the I2C clock speed in khz, typically 100K or 400K, and 1M in some cases.
-`I2cWr(address, [arrayWrite], [arrayRead])` | `address`: I2C slave address (7 bits) - `arrayWrite`: array to send, `arrayRead`: array to read.
+`I2cWr(address, [arrayWrite], [arrayRead])` | `address`: I2C slave address (7 bits) - `arrayWrite`: array to send, `arrayRead`: array to read. Returns 1 succeeded.
 
 Pins used for I2C are 15-SCL and 16-SDA.
 
@@ -1774,7 +1774,7 @@ Script only functionality.
 Function | Description
 --- | ---
 `DLMode(mode, {cfg})` | Sets Downlink `mode`, see [Downlink](../interface/downlink) interface page.
-`DLI2cWr(address, [arrayWrite], [arrayRead])` | `address`: I2C slave address (7 bits) - `arrayWrite`: array to send, `arrayRead`: array to read. This only works with `DLMode(5,0)`.
+`DLI2cWr(address, [arrayWrite], [arrayRead])` | `address`: I2C slave address (7 bits) - `arrayWrite`: array to send, `arrayRead`: array to read. This only works with `DLMode(5,0)`. Returns 1 if succeeded.
 `Cmd("command")` | Sends a script command Downlink, only available in `DLMode(2,0)` mode, `Host` mode. You can only to read a float from a function or a variable: `_W = Cmd("GetW()")` or `_W = Cmd("_W")`. Setting a remote value is done using `cmd(fmt("_x=",_x))`. 
 `CmdTmot(t)` | Sets `t` timeout for `Cmd()` in milliseconds, default 1000ms. 
 `DLSerWr([array])` | Writes `array` to downlink.
