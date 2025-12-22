@@ -267,7 +267,7 @@ You can always find the pin numbers for a given board on its schematic.
 
 ## Tethering Modules
 
-MicroBlocks can control Tethered DUELink modules. It can be a single module, or a [daisylink](../engine/daisylink) of modules. When you do this, only the first module in the chain runs the MicroBlocks firmware. All other modules in the chain run the standard DUELink firmware and respond to commands from MicroBlocks.
+MicroBlocks can control Tethered DUELink modules. It can be a single module, or a [Daisylink](../engine/daisylink) of modules. When you do this, only the first module in the chain runs the MicroBlocks firmware. All other modules in the chain run the standard DUELink firmware and respond to commands from MicroBlocks.
 
 <div style={{ textAlign: 'center'}}>
 ![PixoBit Daisylinked](pathname:///img/pixobit-daisylinked.webp)
@@ -287,13 +287,13 @@ to the Uplink (**U**) connector of the next DUELink module.
 ![RGB3 uplink port](pathname:///img/rgb3-uplink.webp)
 </div>
 
-If you are running MicroBlocks on a non-DUELink board, connect the daisylink module chain to your board's I2C or UART pins. If you have a micro:bit, you can use a [LinkBit](../products/adlinkbit-a) to tether DUELink modules.
+If you are running MicroBlocks on a non-DUELink board, connect the Daisylink module chain to your board's I2C or UART pins. If you have a micro:bit, you can use a [LinkBit](../products/adlinkbit-a) to tether DUELink modules.
 
 <div style={{ textAlign: 'center'}}>
 ![Linkbit](pathname:///img/microbit-linkbit.webp)
 </div>
 
-When using multiple DUELink modules, modules are daisy-chained together by connecting the Downlink (**D**) connector of one module to the Uplink (**U**) connector of the next (see [daisylink](../engine/daisylink)).
+When using multiple DUELink modules, modules are daisy-chained together by connecting the Downlink (**D**) connector of one module to the Uplink (**U**) connector of the next (see [Daisylink](../engine/daisylink)).
 
 <div style={{ textAlign: 'center'}}>
 ![Uplink/Downlink Connections](pathname:///img/mb-uplink-downlink.webp)

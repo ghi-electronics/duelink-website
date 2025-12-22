@@ -134,7 +134,7 @@ const sidebars = {
             "products/sertc-b",
             "products/setemphmd-b",
             "products/setempan-a",
-            "products/setemprtd-a"
+            "products/sethermo-a"
           ],
         },
         {

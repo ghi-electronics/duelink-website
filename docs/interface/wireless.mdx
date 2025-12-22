@@ -20,7 +20,7 @@ This page is about using the wireless connection as the interface. It is how a B
 The other option is for [Wireless ESP32](../products/wlesp32-a) to be one of the modules. In this setup, this wireless connection is available to the other modules to the host. A host can be an Arduino or a micro:bit for example.
 
 <div style={{ textAlign: 'center'}}>
-![Wireless daisylink](pathname:///img/wireless-daisylink-addr-nohost.webp)
+![Wireless Daisylink](pathname:///img/wireless-daisylink-addr-nohost.webp)
 </div>
 
 See [Wireless ESP32](../products/wlesp32-a) product page to learn how to use wireless in a non-interface matter.
@@ -29,7 +29,7 @@ See [Wireless ESP32](../products/wlesp32-a) product page to learn how to use wir
 
 ## Bluetooth
 
-When using Bluetooth, The established connection creates a (SPP - Serial Port Profile) virtual serial connection. This is very similar to the virtual connection established when using the [USB interface](./usb). You can now, for example, use Python on a PC to access a [daisylink](../engine/daisylink) of modules. To power the modules you can use [Power Hook](../products/adpwrhook-a) or USB adapter, like [USB Host](../products/adusbhook-a), then use USB as a power source.
+When using Bluetooth, The established connection creates a (SPP - Serial Port Profile) virtual serial connection. This is very similar to the virtual connection established when using the [USB interface](./usb). You can now, for example, use Python on a PC to access a [Daisylink](../engine/daisylink) of modules. To power the modules you can use [Power Hook](../products/adpwrhook-a) or USB adapter, like [USB Host](../products/adusbhook-a), then use USB as a power source.
 
 <div style={{ textAlign: 'center'}}>
 ![Wireless power options](pathname:///img/wlesp32-power-options.webp)
@@ -42,7 +42,7 @@ This code assumes the module is loaded with [drivers](../engine/drivers).
 :::
 
 ```py
-# Connect a daisylink bridge using Bluetooth
+# Connect a Daisylink bridge using Bluetooth
 StartBT("DUELink BT")
 # Wait for Bluetooth connection and initiate the bridge
 Bridge()
@@ -67,14 +67,14 @@ This code assumes the module is loaded with [drivers](../engine/drivers).
 :::
 
 ```py
-# Connect a daisylink bridge using WiFi
+# Connect a Daisylink bridge using WiFi
 StartWiFi("MySSID", "MyPassword") 
 StartTcp("DUELink")
 # Wait for WiFi connection and initiate the bridge
 Bridge()
 ```
 
-You can now continue to use USB as a power source, or use something like [Power Hook](../products/adpwrhook-a). Note how the Wireless module is now a host to its [daisylink](../engine/daisylink).
+You can now continue to use USB as a power source, or use something like [Power Hook](../products/adpwrhook-a). Note how the Wireless module is now a host to its [Daisylink](../engine/daisylink).
 
 <div style={{ textAlign: 'center'}}>
 ![Wireless daisylink](pathname:///img/wireless-daisylink.webp)
@@ -84,9 +84,9 @@ Open TeraTerm and select `TCP/IP` then enter `DUELink` for the `Host` name. Sele
 
 Once the connections is established, you can type in commands to control modules. `Echo()` does not work properly as TeraTerm (and most terminals) will only send data when you hit enter. You can enable `local echo` to see what you type! Go ahead and enter `list` and hot enter to see the code listing.
 
-Note how the Wireless ESP32 module is now a host. See [daisylink](../engine/daisylink) for more info.
+Note how the Wireless ESP32 module is now a host. See [Daisylink](../engine/daisylink) for more info.
 
 <div style={{ textAlign: 'center'}}>
-![Wireless daisylink address](pathname:///img/wireless-daisylink-addr-host.webp)
+![Wireless Daisylink address](pathname:///img/wireless-daisylink-addr-host.webp)
 </div>
 

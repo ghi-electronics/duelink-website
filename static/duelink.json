@@ -1350,21 +1350,21 @@
       "driverApi": ":::tip\nUse the Standard Library API directly to read temp and humidity.\n:::\n\n| Function | Description |\n|----------|-------------|\n| `Temp()` | Returns temperature in celsius. |\n| `Humid()` | Returns relative humidity percentage. |\n| `SenPin()` | Returns the sensor's pin number. |\n| `SenType()` | Returns the sensor's type. |\n| `DVer()` | This driver version. |"
     },
     {
-      "name": "TempRTD",
-      "partNumber": "GDL-SETEMPRTD-A",
-      "PID": "0x060011",
+      "name": "Thermo",
+      "partNumber": "GDL-SETHERMO-A",
+      "PID": "0x060013",
       "category": "Sensor",
-      "tagline": "TempRTD Sensor",
-      "description": "This sensor uses the included RTD (Resistance Temperature Detector) to measure temperatures. It includes RTD PT100 probe",
+      "tagline": "Thermocouple Sensor",
+      "description": "This sensor uses the included K-Type Thermoster to measure extreme temperatures, with a max range of -454°F to 2300°F",
       "keyFeatures": [
-        "RTD Temperature Sensor",
-        "42x27 overall dimension"
+        "K-Type Thermostor Sensor",
+        "32x36 overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `ReadTemp()` | Reads the current temperature in celsius. |\n| `DVer()` | This driver version. |",
       "variations": [
         {
-          "name": "PT100",
-          "partCode": "100",
+          "name": "K-Type",
+          "partCode": "K",
           "price": 19.95
         }
       ]

@@ -6,14 +6,14 @@
 
 In a DUELink setup, where there are more than one module, there will always be a connection between the Uplink and Downlink connector, creating a Daisylink. Each single module in a Daisylink is an active repeater of the signal. There will be no degradation of the signal quality. If necessary, add [Power Inject](../products/adpwrinj-a) to help in powering devices on its Downlink.
 <div style={{ textAlign: 'center'}}>
-![daisylink](pathname:///img/daisylink.webp)
+![Daisylink](pathname:///img/daisylink.webp)
 </div>
 
 ---
 
 ## Device Selection
 
-The [Standard Library](./stdlib) offers the `Sel()` command to activate devices on the chain. To blink the status LED on the second device on the daisylink chain, use `Sel(2)` followed by `StatLed(200,200,50)`. The LED will blink 50 times on the second module in the stream.
+The [Standard Library](./stdlib) offers the `Sel()` command to activate devices on the chain. To blink the status LED on the second device on the Daisylink chain, use `Sel(2)` followed by `StatLed(200,200,50)`. The LED will blink 50 times on the second module in the stream.
 
 Daisylinked devices on a stream are addressed from `1`. The fourth device on the bus is selected using 'Sel(4)'.
 
@@ -56,9 +56,9 @@ Same as for `Sel(0)`, reading responses in a multi-select setup is not supported
 
 When modules power up, they have a NULL interface, and they have no set address yet. Once an [Interface](../interface/intro) is detected, such as [USB](../interface/usb), then the first device will set its own address to 1 and then command all Downlink devices to take a new address, 1, 2, 3, 4...etc.
 
-To initiate the daisylink and enumerate the modules connected on the [Downlink](../interface/downlink) interface, a command must be sent. This very first command is only seen by the first device. An empty command (just a carriage return) can also be used.
+To initiate the Daisylink and enumerate the modules connected on the [Downlink](../interface/downlink) interface, a command must be sent. This very first command is only seen by the first device. An empty command (just a carriage return) can also be used.
 
-Only smart modules receive an address. For example, both power modules in this daisylink do not have an address.
+Only smart modules receive an address. For example, both power modules in this Daisylink do not have an address.
 
 <div style={{ textAlign: 'center'}}>
 ![Host Mode](pathname:///img/host-mode.webp)
@@ -68,7 +68,7 @@ Use `GetAddr()` to read the current address. If the current address is zero, the
 
 There are 2 options for module to be enumerated, either by detecting an [Interface](../interface/intro) or by configuring a module in host mode as explained below.
 
-Since devices get enumerated in order and each module needs 1ms to 2ms to be ready, commands should not be sent to modules for 2ms for each module in the daisylink. For example, wait for 10ms before commanding a daisylink with 5 modules.
+Since devices get enumerated in order and each module needs 1ms to 2ms to be ready, commands should not be sent to modules for 2ms for each module in the Daisylink. For example, wait for 10ms before commanding a Daisylink with 5 modules.
 
 ---
 
@@ -138,10 +138,10 @@ A device in "host" mode is still listening to commands coming from Uplink, but i
 
 ## Wireless
 
-It is also possible to use a wireless connection to daisylink!
+It is also possible to use a wireless connection to Daisylink!
 
 <div style={{ textAlign: 'center'}}>
-![Wireless daisylink](pathname:///img/wireless-daisylink-addr-host.webp)
+![Wireless Daisylink](pathname:///img/wireless-daisylink-addr-host.webp)
 </div>
 
 See [Wireless](../interface/wireless) interface page for more info.
