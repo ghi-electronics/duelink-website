@@ -1363,8 +1363,8 @@
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `ReadTemp()` | Reads the current temperature in celsius. |\n| `DVer()` | This driver version. |",
       "variations": [
         {
-          "name": "PT100",
-          "partCode": "100",
+          "name": "K-Type",
+          "partCode": "K",
           "price": 19.95
         }
       ]
