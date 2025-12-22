@@ -416,7 +416,7 @@ const ProductCatalog = () => {
 
       {(!isMobile || !mobileFiltersOpen) && (
         <div className={styles.resultsCount}>
-          <span className={styles.countText}>Showing {filteredProducts.length} from {products.length} products</span>
+          <span className={styles.countText}>Showing {filteredProducts.length} from {products.length} products, ✢ has variations.</span>
           {selectedCategory !== 'all' && (
             <span className={styles.activeFilter}>
               <span className={styles.filterLabel}>Category: {selectedCategory}</span>

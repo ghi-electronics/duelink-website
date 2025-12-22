@@ -41,6 +41,10 @@ const sidebars = {
         "catalog/third-party",
         {
           type: "category",
+          label: "Products",
+          items: [
+        {
+          type: "category",
           label: "Kits",
           items: [
             "products/ktessen-a",
@@ -261,6 +265,8 @@ const sidebars = {
       ],
     },
 
+          ],
+        },
     {
       type: "category",
       label: "Supported Hardware",
