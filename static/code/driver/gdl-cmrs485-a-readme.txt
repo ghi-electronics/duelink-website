@@ -10,6 +10,7 @@ Note: Before testing, ensure the following proper connections:
 
 If you do not have a programmed RS485, use the script below to create one:
 
+Asio(1)
 _r = 5 # re pin
 _d = 6 # de pin
 SerCfg(9600, 128)
