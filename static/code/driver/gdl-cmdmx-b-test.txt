@@ -32,13 +32,13 @@ fn Test()
         SetBright(i)
         Flush()
         
-        i = i + 5
+        i = i + 10
         
         if (i > 60)
-            i = i + 5
+            i = i + 10
         end
         
-        if (i >= 200)
+        if (i >= 255)
             i = 0
             c = c + 1
         end
