@@ -7,6 +7,7 @@ fend
  
 fn Test() 
     println("Starting test...")
+    Dim b1[4]
     Init()
     Wait(1)
     dlmode(2,0)
