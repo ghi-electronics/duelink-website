@@ -1,0 +1,21 @@
+##### Stepper P1 ###
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+
+fn Test()
+    println("Starting test...")
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+   
+    while (1)
+    
+        step_m1(0, 200)
+        wait(500)
+        step_m1(1, 200)
+        wait(500)
+                               
+    wend
+fend 
