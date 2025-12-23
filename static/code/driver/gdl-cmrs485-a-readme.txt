@@ -8,7 +8,7 @@ Note: Before testing, ensure the following proper connections:
 - Socket U of the programmed RS485 to socket D of the DUT.
 - A to A, B to B, GND to GND
 
-If you do not have a programmed RS485, use the script below to create one:
+If programmed RS485 is not ready, use the script below to create one on any RS485:
 
 Asio(1)
 _r = 5 # re pin
