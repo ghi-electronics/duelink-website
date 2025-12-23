@@ -38,7 +38,6 @@ const sidebars = {
       label: "Product Catalog",
       link: {type: 'doc', id: 'catalog/products'},
       items: [
-        "catalog/third-party",
         {
           type: "category",
           label: "Products",
@@ -264,7 +263,8 @@ const sidebars = {
         },*/
       ],
     },
-
+    "catalog/third-party",
+        
           ],
         },
     {
