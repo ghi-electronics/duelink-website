@@ -1,7 +1,7 @@
 ##### RS485 #####
-
 fn Rset()
     cmd("reset(0)") # reset my client
+    wait(50)
     reset(0) # reset myself
 fend
 
@@ -11,36 +11,38 @@ _d = 6 # de pin
 fn Test()
     println("Starting test...")
     SerCfg(9600, 128)
-    Wait(1)
+    Wait(10)
     dlmode(2,0)
     Wait(10)
-
-    
+ 
     dwrite(_r, 0) # This pin can be low all the time 
     
+    cmd("EnTest()")
+    Wait(10)
+ 
     while (1)    
         dwrite(_d, 1)
         SerWr('a')
         dwrite(_d, 0)
-        
+ 
         n = tickms() + 1000
-        
+ 
         while (tickms() < n)
             if (SerB2R() > 0)
                 break
             end
             wait(1)
         wend
-                
+ 
         if (SerB2R() > 0)
             b = SerRd()
-            
+ 
             if (b = 'b')
                 println("Passed")
                 wait(1000)
             end
         end
-        
+ 
         wait(10)                
     wend
 fend 

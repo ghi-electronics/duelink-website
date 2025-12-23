@@ -10,26 +10,28 @@ Note: Before testing, ensure the following proper connections:
 
 If programmed RS485 is not ready, use the script below to create one on any RS485:
 
-Asio(1)
-_r = 5 # re pin
-_d = 6 # de pin
-SerCfg(9600, 128)
-dwrite(_r, 0) # This pin can be low all the time
-dwrite(_d, 0)
-    
-while (1)
-    if (SerB2R() > 0)
-        b = SerRd()
-        
-        if (b = 'a')
-            wait(10)
-            dwrite(_d, 1)
-            SerWr(b+1)
-            dwrite(_d, 0)
+fn EnTest() 
+    Asio(1)
+    _r = 5 # re pin
+    _d = 6 # de pin
+    SerCfg(9600, 128)
+    dwrite(_r, 0) # This pin can be low all the time
+    dwrite(_d, 0)
+ 
+    while (1)
+        if (SerB2R() > 0)
+            b = SerRd()
+ 
+            if (b = 'a')
+                wait(10)
+                dwrite(_d, 1)
+                SerWr('b')
+                dwrite(_d, 0)
+            end
         end
-    end
-    
-    wait(1)
+ 
+        wait(10)
+    wend
 wend
     
 
