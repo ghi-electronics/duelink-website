@@ -1,0 +1,69 @@
+##### DMX #####
+
+fn Rset()
+    cmd("reset(0)") # reset my client
+    reset(0) # reset myself
+fend
+ 
+fn Test() 
+    println("Starting test...")
+    Init()
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+    
+    i = 0
+    c = 0
+
+    while 1
+        if c % 3 = 0
+            SetColor(255,0,0)
+        end
+        
+        if c % 3 = 1
+            SetColor(0,255,0)
+        end
+        
+        if c % 3 = 2
+            SetColor(0,0,255)
+        end
+        
+        SetBright(i)
+        Flush()
+        
+        i = i + 5
+        
+        if (i > 60)
+            i = i + 5
+        end
+        
+        if (i >= 200)
+            i = 0
+            c = c + 1
+        end
+        
+        Wait(10) 
+    wend
+fend
+
+fn Init()
+
+    SerCfg(250000, 513)
+    DWrite(5, 1)
+    DWrite(6, 1)
+
+fend
+
+fn SetBright(v)
+    b1[0] = v #brightness
+fend
+
+fn SetColor(r,g,b)
+    b1[1] = r #red
+    b1[2] = g #red
+    b1[3] = b #red
+fend
+
+fn Flush()
+    DmxW(b1)
+fend 
