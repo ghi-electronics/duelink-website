@@ -10,11 +10,12 @@ _d = 6 # de pin
 
 fn Test()
     println("Starting test...")
+    SerCfg(9600, 128)
     Wait(1)
     dlmode(2,0)
     Wait(10)
 
-    SerCfg(9600, 128)
+    
     dwrite(_r, 0) # This pin can be low all the time 
     
     while (1)    
