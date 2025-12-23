@@ -638,7 +638,8 @@
         "3x stepper motor control",
         "Terminal Block Connectors",
         "77x42mm overall dimension"
-      ]
+      ],
+      "driverApi": "Function | Description \n----------|-------------\n `DVer()` | This driver version.\n `init(x)` | Init motors with resolution `x`: 0: 1/8 step, 1: 1/2 step (default), 2: 1/4 step, 3: 1/16 step.\n `step_m1(d,c)` | Set motor M1 with `d`: direction, `c`: steps.\n `step_m2(d,c)` | Set motor M2 with `d`: direction, `c`: steps.\n `step_m3(d,c)` | Set motor M3 with `d`: direction, `c`: steps.\n `set_m(m, d, c)` | Set motor in sync mode. `m`: 1->Motor M1, 2->Motor M2, 3->Motor M3.\n `sync_all()` | Run motors in synchronize mode.\n `run_all()` | Run motors in asynchronous mode."
     },
     {
       "name": "StepDrive P1",
@@ -653,7 +654,8 @@
         "30V @ 1A",
         "Terminal block connectors",
         "37x37mm overall dimension"
-      ]
+      ],
+      "driverApi": "Function | Description \n----------|-------------\n `DVer()` | This driver version.\n `init(x)` | Init motor with resolution `x`: 0: 1/8 step, 1: 1/2 step (default), 2: 1/4 step, 3: 1/16 step.\n `step_m1(d,c)` | Set motor M1 with `d`: direction, `c`: steps."
     },
     {
       "name": "StepPulse",
@@ -668,6 +670,7 @@
         "Terminal Block Connectors",
         "62x22mm overall dimension"
       ]
+      
     },
     {
       "name": "Relay P16",

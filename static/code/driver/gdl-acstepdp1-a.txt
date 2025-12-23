@@ -1,3 +1,164 @@
-##### Driver Code Starts Here ###
+##### Stepper P1 ###
 
-##### User Code Starts Here #####
+alias (s1_8=0,s1_2=1,s1_4=2,s1_16=3)
+ 
+dim a9[6]
+
+fn DVer()
+    return 1.0
+fend
+ 
+# initialize stepper controllers
+# s - speed
+fn init(s)
+  dwrite(7, 1)  # M1, M2, M3 Disable (high)
+ 
+  dwrite(17, s&1)
+  dwrite(8, s&2)
+ 
+  dwrite(6, 1)  # M1 RST
+  dwrite(13, 1) # M2 RST
+  dwrite(19, 1) # M3 RST
+ 
+  dwrite(7, 0)  # M1, M2, M3 Enable (low)
+fend
+ 
+# step motor 1
+# d - direction
+# c - steps
+fn step_m1(d, c)
+  dwrite(4,d)
+  while c>0
+    dwrite(5,1)
+    wait(1)
+    dwrite(5,0)
+    wait(1)
+    c=c-1
+  wend
+fend
+ 
+# step motor 2
+# d - direction
+# c - steps
+fn step_m2(d, c)
+  dwrite(12,d)
+  while c>0
+    dwrite(14,1)
+    wait(1)
+    dwrite(14,0)
+    wait(1)
+    c=c-1
+  wend
+fend
+ 
+# step motor 3
+# d - direction
+# c - steps
+fn step_m3(d, c)
+  dwrite(2,d)
+  while c>0
+    dwrite(1,1)
+    wait(1)
+    dwrite(1,0)
+    wait(1)
+    c=c-1
+  wend
+fend
+ 
+fn set_m(m, d, c)
+  m=m-1
+  a9[(m<<1)] = d
+  a9[(m<<1)+1] = c
+fend
+ 
+fn run_all()
+  a=a9[1]
+  b=a9[3]
+  c=a9[5]
+ 
+  dwrite(4, a9[0])
+  dwrite(12, a9[2])
+  dwrite(2, a9[4])
+ 
+  while a || b || c
+    if a
+      dwrite(5,1)
+      a=a-1
+    end
+    if b
+      dwrite(14,1)
+      b=b-1
+    end
+    if c
+      dwrite(1,1)
+      c=c-1
+    end
+    wait(1)
+    dwrite(5,0) 
+    dwrite(14,0) 
+    dwrite(1,0) 
+    wait(1)
+  wend
+fend
+
+
+fn sync_all()
+  a=a9[1]
+  b=a9[3]
+  c=a9[5]
+ 
+  dwrite(4, a9[0])
+  dwrite(12, a9[2])
+  dwrite(2, a9[4])
+  
+  m=a
+  if b>a
+    m=b
+  end
+  if c>m
+    m=c
+  end
+  
+  if m=0 then
+    return
+  end
+  
+  d=a/m
+  e=b/m
+  f=c/m
+  
+  g=0
+  h=0
+  i=0
+  
+  for t=1 to m
+    g=g+d
+    if g>=1 && a>0
+        g=g-1
+        a=a-1
+        dwrite(5,1) 
+    end
+    
+    h=h+e
+    if h>=1 && b>0
+        h=h-1
+        b=b-1
+        dwrite(14,1)
+    end
+    
+    i=i+f
+    if i>=1 && c>0
+        i=i-1
+        c=c-1
+        dwrite(1,1) 
+    end
+    wait(1)
+    dwrite(5,0) 
+    dwrite(14,0) 
+    dwrite(1,0) 
+    wait(1)
+  next
+fend
+ 
+# Init motors to half steps
+init(s1_2) 

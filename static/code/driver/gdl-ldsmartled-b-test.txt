@@ -6,17 +6,33 @@ fn Rset()
 fend
  
 fn Test() 
+    println("Starting test...")
     Wait(1)
     dlmode(2,0)
     Wait(10)
-    
-    println("Starting test...")
-    c = 0
-    
-    dwrite(12,1)
-    dwrite(14,1)
-    
+        
+    IntLPD(256)
+
+    for i = 0 to 256
+        SetLPD(i,0x000000)
+    next
+
+    ShwLPD()
+
+
     while (1)
-        wait(1000)
+        SetLPD(0,0xff0000)
+        SetLPD(1,0x00ff00)
+        SetLPD(2,0x0000ff)
+        SetLPD(3,0xffffff)
+        ShwLPD()
+        wait(500)
+        
+        SetLPD(0,0x000000)
+        SetLPD(1,0x000000)
+        SetLPD(2,0x000000)
+        SetLPD(3,0x000000)
+        ShwLPD()
+        wait(500)
     wend
 fend 

@@ -2,5 +2,7 @@
 
 # No need for a driver!
 # Use standard library Serial bus API.
+#_r = 5 # RE pin: Low: Enable receive
+#_d = 6 # DE pin: High: Enable transmit
 
 ####################
