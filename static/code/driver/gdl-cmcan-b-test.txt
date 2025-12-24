@@ -16,6 +16,7 @@ fn Test()
     dim b1[9] = [0,0,0,0,0,0,0,0,0] #rx
     
     cmd("EnTest()")
+    println("Please wait...")
     Wait(500)
     while (1 )
         TxReq(0x1,len(b0),b0)
@@ -32,8 +33,7 @@ fn Test()
  
             if (p = 1)
                 println("CAN Pass")
-            end
- 
+            end            
         end
     wend
  
