@@ -18,6 +18,7 @@ fn Test()
     dwrite(_r, 0) # This pin can be low all the time 
     
     cmd("EnTest()")
+    println("Please wait...")
     Wait(10)
  
     while (1)    

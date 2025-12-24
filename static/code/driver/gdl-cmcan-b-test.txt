@@ -1,0 +1,40 @@
+##### CAN #####
+fn Rset()
+    cmd("reset(0)") # reset my client
+    wait(50)
+    reset(0) # reset myself
+fend
+
+fn Test() 
+    println("Starting test...")
+    Wait(10)
+    dlmode(2,0)
+    Wait(500)
+    
+    # b0,b1,b2,b3 are free, b4,b5,b6,b7 are used.
+    dim b0[8]=[0x11,0x22,0x33,0x44,0x55,0x66,0x77,0x88]# tx
+    dim b1[9] = [0,0,0,0,0,0,0,0,0] #rx
+    
+    cmd("EnTest()")
+    println("Please wait...")
+    Wait(500)
+    while (1 )
+        TxReq(0x1,len(b0),b0)
+        wait(255)
+ 
+        if RxRd(b1) >=0 
+            p = 1
+            for i = 1 to 9
+                if (b1[i] != (b0[i-1]+1))
+                    p = 0
+                    break
+                end
+            next 
+ 
+            if (p = 1)
+                println("CAN Pass")
+            end            
+        end
+    wend
+ 
+fend 

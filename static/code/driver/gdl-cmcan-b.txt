@@ -1,5 +1,8 @@
 ##### CAN Driver #####
-
+fn DVer()
+    return 0.1
+fend
+ 
 fn RdReg(r)
     DWrite(15,0)
  
@@ -11,14 +14,14 @@ fn RdReg(r)
     return r
 fend
  
-fn RdRegs(r, b1, o,l)
+fn RdRegs(r, b5, o,l)
     DWrite(15,0)
  
     SpiWr(3)
     SpiWr(r)
  
     for i = o to (l + o)
-        b1[i]=SpiWr(0)
+        b5[i]=SpiWr(0)
     next
  
     DWrite(15,1)
@@ -74,31 +77,31 @@ fend
  
 fn SetBitrate(b)
     SetMode(0x80)
-    
+ 
     if b = 125000
         SetReg(0x2A,0x1)
         SetReg(0x29,0xb1)
         SetReg(0x28,0x85)
     end
-    
+ 
     if b = 250000
         SetReg(0x2A,0)
         SetReg(0x29,0xb1)
         SetReg(0x28,0x85)
     end
-    
+ 
     if b = 500000
         SetReg(0x2A,0)
         SetReg(0x29,0x90)
         SetReg(0x28,0x82)
     end
-    
+ 
     if b = 1000000
         SetReg(0x2A,0)
         SetReg(0x29,0x80)
         SetReg(0x28,0x50)
     end
-    
+ 
 fend
  
 fn getStat()
@@ -109,84 +112,84 @@ fn getStat()
  
     return r
 fend
-
+ 
 fn TxFree() # txbuf 0 only
     r=RdReg(0x30) # TXBnCTRL TX 
-    
+ 
     return !(r & 0x8) # bit 3 1: busy 0: free
 fend
-
-fn TxReq(i,l, b1)
+ 
+fn TxReq(i,l, b4)
     #i: id
     #l: Len
-    #b1: data
-    
+    #b4: data
+ 
     if TxFree() =0
         return 0
     end 
-    
+ 
     if l > 8
         return -1 #error
     end
-    
+ 
     dim b2[5+l] # max 13
-    
+ 
     c = i & 0x0FFFF 
-    
+ 
     b2[3] = (c & 0xFF) 
     b2[2] =  (c >> 8) 
     c = (i >> 16)
     b2[1] =  (c & 0x03) 
     b2[1] = b2[1] + ((c & 0x1C) << 3) 
-    b2[1] = b2[1] | 0x08 
+    #b2[1] = b2[1] | 0x08 #this is ExtID when enabled
     b2[0] =  (c >> 5) 
-   
+ 
     b2[4] = l #DLC
  
  
     #copy data
-    MemCpy(b2,5,b1,0, l)
-
+    MemCpy(b2,5,b4,0, l)
+ 
     # load data to register
     SetRegs(0x31,b2,5+l)
  
-
+ 
     # send command to RTS - Due Errate, send Send request will send message twice, we use RTS
     DWrite(15,0)
     SpiWr(0x81) 
     DWrite(15,1)
  
     r=RdReg(0x30)
-    
+ 
     if ((r & (0x40 | 0x20 | 0x10 )) != 0)
         return -2 # error
     end
-    
+ 
     if ((r & (0x08 )) != 0)
         return -3 # busy
     end
-    
+ 
     return 1 # success
-    
+ 
 fend
  
-fn RxRd(b1) # must be 9 element
+fn RxRd(b6) # must be 9 element
     r = getStat()
-    
+ 
     if (r & (1<<0) = 0)
         return -1 # no message available
     end
-    
-    if (Len(b1) != 9)
+ 
+    if (Len(b6) != 9)
         return -2 # Len must be 9 : DLC + 8 data
     end
  
     dim b7[13]
-    
+ 
     RdRegs(0x61, b7, 0, 5) 
  
  
-    
+ 
     d = (b7[0]<<3) + (b7[1]>>5)
  
     if ( (b7[1] & 0x8) =  0x8 ) 
@@ -210,25 +213,25 @@ fn RxRd(b1) # must be 9 element
         d = d | 0x40000000 # RTR
     end
  
-    
+ 
     RdRegs(0x66, b7, 5, l) 
-    
-    
-    b1[0] = l
-    MemCpy(b1,1,b7,5,l)
-
+ 
+ 
+    b6[0] = l
+    MemCpy(b6,1,b7,5,l)
+ 
     ModReg(0x2C, 0x1, 0) 
-    
+ 
     return d
 fend
  
 fn RxFull() 
     v = RdReg(0x2C) 
-    
+ 
     return (v & 0x1) # bit 1 is Rx0Buff: 1 full: 0 no full
 fend
-
-
+ 
+ 
 fn Init() 
     SpiCfg(0, 8000)
     DWrite(15,1)
@@ -243,13 +246,15 @@ fn Init()
     SetBitrate(500000)  # set baudrate must be before set mode normal
  
     # Enable RX full interrupt flag - need for RxFull() to check
-    ModReg(0x2B,1,1) 
+    ModReg(0x2B,1,1)
     
+    # Accept all standard IDs on both RX buffers
+    SetReg(0x60, 0x60)  # RXB0CTRL: RXM1=1 RXM0=1 → receive all
+    SetReg(0x70, 0x60)  # RXB1CTRL: RXM1=1 RXM0=1 → receive all
+ 
     #PrintLn("Set normal")
     SetMode(0)
-
+ 
 fend 
-
+ 
 Init() 
-
-####################
