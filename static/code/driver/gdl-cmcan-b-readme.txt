@@ -7,12 +7,13 @@ Note: Before testing, ensure the following proper connections:
 - This test requires a programmed CAN.
 - Socket U of the programmed CAN to socket D of the DUT.
 - H to H, L to L. 
-- A terminal jumper may be needed on DUT.
+- A terminal jumper is needed on programmed CAN.
 
 If programmed CAN is not ready, use the script below to create one on any CAN (with installed driver):
 
 # This is programmed CAN script
-fn EnTest()    
+fn EnTest() 
+    Asio(1)
     dim b0[8] # tx
     dim b1[9] # rx
     while (1 )
