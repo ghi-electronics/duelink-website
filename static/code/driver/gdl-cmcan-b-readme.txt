@@ -7,6 +7,7 @@ Note: Before testing, ensure the following proper connections:
 - This test requires a programmed CAN.
 - Socket U of the programmed CAN to socket D of the DUT.
 - H to H, L to L. 
+- A terminal jumper may be needed on DUT.
 
 If programmed CAN is not ready, use the script below to create one on any CAN (with installed driver):
 
