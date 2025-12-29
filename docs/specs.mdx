@@ -113,11 +113,11 @@ An example of circuits that may not work are smart LEDs, which expect 3.5V (VDD 
 ![Status LED](pathname:///img/statled-blink.gif)
 </div>
 
-Each DUELink module must include a STAT (Status) LED. This is used by the system automatically and also accessible using the `StatLed()` command. On boards that have parts on both sides, STAT LED must be on the front face of the module.
+Each DUELink module must include a STAT (Status) LED. This is used by the system automatically and also accessible using the `StatLed()` command. On boards that have parts on both sides, we recommend placing the STAT LED on the "face" of the module.
 
-On power up, the STAT LED turns on automatically. It stays on until the device is ready. A ready device means it has selected an [Interface](./interface/intro.mdx) and it has an address. At this point, the STAT LED becomes an activity-LED.
+On power up, the STAT LED turns on automatically. It stays on until the device is ready (enumerated). A ready device means it has selected an [Interface](./interface/intro.mdx) and it has an address. At this point, the STAT LED will turn off and become an activity-LED. Modules that are selected (using `Sel()`) will activate the STAT LED when processing commands.
 
-The status LED is also available to the user through the [`StatLed()`](./engine/stdlib.mdx) API. It is up to the user to control the LED manually or leave it as an activity-LED.
+You can also optionally take over and control the STAT LED through the [`StatLed()`](./engine/stdlib.mdx) API.
 
 ---
 
