@@ -37,14 +37,100 @@ PWM pins share internal timers. Changing the frequency on one will affect the ot
 
 ---
 
+## Device Addressing
+
+These functions are needed for helping with tethered DUELink modules, no matter if you have one module or a [Daisylink](./daisylink) of modules chained on the [Downlink](../interface/downlink) connector.
+
+Function | Description
+--- | ---
+`Sel(add, add, add ...)` | Select a devices at `add` in the chain.
+`GetAdd()` | Returns the selected device(s) address.
+`SetAdd(add)` | `add` Sets the device's address. This command has chain reaction where each device sets the next one. **Internal function, do not use**
+
+For **advanced uses only**, the `Sel(add)` command accepts multiple addresses. Using `Sel(3,7)` will activate the third and and seventh modules in [Daisylink](./daisylink). Any command issue from that point forward are executed by both modules. Zero is broadcast address, where `Sel(0)` will activate all modules. Note that responses will be received from all selected devices and in a random order.
+
+
+Use `GetAdd()` to detect what modules are currently active. Similarly, the STAT LED by default is the "activity" LED. It can be used to observe what modules are processing commands.
+
+:::tip
+Unless otherwise is stated, modules will only listen and process commands if selected. However, `Sel(1)` is automatically done by DUELink internally after bus enumeration. This for example will cause `PrintLn("DUELink")` to be automatically processed by the first device if no `Sel()` was issued.
+:::
+
+Device addressing controls modules on a [Daisylink](./daisylink), not a device itself. For that, `Sel()` can only be issued by the host, not self select! Of course, the host can be a third-party board or a DUELink module in host mode.
+
+<details>
+  <summary>Samples</summary>
+<Tabs groupid="language" queryString="show"
+  values={[
+    {label: 'Script', value: 'script'},
+    {label: 'Python', value: 'py'},
+    {label: 'MicroPython', value: 'micropy'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+
+]}>
+<TabItem value="script">
+```py
+# Select device 2
+Sel(2)
+# Blink the LED on selected device
+StatLed(200,200,10)
+```
+</TabItem>
+<TabItem value="py">
+```py
+# Select device 2
+duelink.Engine.Select(2)
+# Blink the LED on selected device
+duelink.System.StatLed(200, 200, 10)
+```
+</TabItem>
+<TabItem value="js">
+```js
+// Select device 2
+await duelink.Engine.Select(2);
+// Blink the LED on selected device
+await duelink.System.StatLed(200, 200, 10);
+```
+</TabItem>
+<TabItem value="arduino">
+```cpp
+// Select device 2
+duelink.Engine.Select(2);
+// Blink the LED on selected device
+duelink.System.StatLed(200, 200, 10);
+```
+</TabItem>
+<TabItem value="micropy">
+```py
+# Select device 2
+duelink.Engine.Select(2)
+# Blink the LED on selected device
+duelink.System.StatLed(200, 200, 10)
+```
+</TabItem>
+<TabItem value="dotnet">
+```cs
+// Select device 2
+duelink.Engine.Select(2);
+// Blink the LED on selected device
+duelink.System.StatLed(200, 200, 10);
+```
+</TabItem>
+</Tabs>
+</details>
+
+---
+
 ## Print
 
 Print to output.
 
-| Function                      | Description                                        |
-| ----------------------------- | -------------------------------------------------- |
-| `Print("text" or variable)`   | Print the value of its argument.                   |
-| `PrintLn("text" or variable)` | Print the value of its argument with line breaks.  |
+Function | Description
+--- | ---
+`Print("text" or variable)` | Print the value of its argument.
+`PrintLn("text" or variable)` | Print the value of its argument with line breaks.
 
 `Print()` accepts multiple arguments, separated by commas, `Print("Value is: ", _v)`.
 
@@ -178,10 +264,10 @@ Function | Description
 --- | ---
 `StatLed(high, low, count)` | Blink the status (STAT) LED with `high` duration on in milliseconds and `low` duration in milliseconds. Repeat `count`, use 0 to repeat forever.
 
-The status LED is automatically controlled by the engine by default, as explained on the [Specs](../specs.mdx) page. Calling `StatLed()` will take control over the LED. It is possible to release LED back to the engine by calling `StatLed(0,0,0)`.
+The status LED is controlled by the engine by default, as explained on the [Specs](../specs.mdx) page. Calling `StatLed()` will take control over the LED. It is possible to release LED back to the engine by calling `StatLed(0,0,0)`.
 
 :::tip
-Any write operation (`AWrite()`, `DWrite()`, or `Freq()`) to the STAT LED (Pin 0) will terminate any current operations to set it to the desired state.
+Any pin write operation (`AWrite()`, `DWrite()`, or `Freq()`) to the STAT LED (Pin 0) will take control over the LED.
 :::
 
 <details>
@@ -1841,85 +1927,6 @@ Script only functionality but mode #4 can be accomplished using `ExecuteCommand(
 ```cs
 duelink.Engine.ExecuteCommand("DLMode(5,0)");
 duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []");
-```
-</TabItem>
-</Tabs>
-</details>
-
----
-
-## Device Addressing
-
-These functions are needed for helping with [Daisylink](./daisylink) devices chained through [Downlink](../interface/downlink) connections.
-
-Function | Description
---- | ---
-`Sel(add, add, add ...)` | Select a devices at `add` in the chain.
-`GetAdd()` | Returns the selected device(s) address.
-`SetAdd(add)` | `add` Sets the device's address. This command has chain reaction where each device sets the next one. ** Internal function, do not use**
-
-The `Sel(add)` command accepts multiple addresses. `Sel(3,7)` will activate the third and and seventh modules in [Daisylink](./daisylink). Any command issue from that point forward are executed by both modules. Zero is broadcast address, where `Sel(0)` will activate all modules. Use `GetAdd()` to detect what modules are currently active.
-
-Device addressing controls modules on a [Daisylink](./daisylink), not a device itself. For that, `Sel()` can only be issued by the host. Of course, the host can be a third-party board or a DUELink module in host mode.
-
-<details>
-  <summary>Samples</summary>
-<Tabs groupid="language" queryString="show"
-  values={[
-    {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
-    {label: 'JavaScript', value: 'js'},
-    {label: '.NET', value: 'dotnet'},
-    {label: 'Arduino', value: 'arduino'},
-
-]}>
-<TabItem value="script">
-```py
-# Select device 2
-Sel(2)
-# Blink the LED on selected device
-StatLed(200,200,10)
-```
-</TabItem>
-<TabItem value="py">
-```py
-# Select device 2
-duelink.Engine.Select(1)
-# Blink the LED on selected device
-duelink.System.StatLed(200, 200, 10)
-```
-</TabItem>
-<TabItem value="js">
-```js
-// Select device 2
-await duelink.Engine.Select(1);
-// Blink the LED on selected device
-await duelink.System.StatLed(200, 200, 10);
-```
-</TabItem>
-<TabItem value="arduino">
-```cpp
-// Select device 2
-duelink.Engine.Select(1);
-// Blink the LED on selected device
-duelink.System.StatLed(200, 200, 10);
-```
-</TabItem>
-<TabItem value="micropy">
-```py
-# Select device 2
-duelink.Engine.Select(1)
-# Blink the LED on selected device
-duelink.System.StatLed(200, 200, 10)
-```
-</TabItem>
-<TabItem value="dotnet">
-```cs
-// Select device 2
-duelink.Engine.Select(1);
-// Blink the LED on selected device
-duelink.System.StatLed(200, 200, 10);
 ```
 </TabItem>
 </Tabs>
