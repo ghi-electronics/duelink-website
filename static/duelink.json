@@ -1361,7 +1361,7 @@
       "description": "This sensor uses the included K-Type Thermoster to measure extreme temperatures, with a max range of -454°F to 2300°F",
       "keyFeatures": [
         "K-Type Thermostor Sensor",
-        "32x36 overall dimension"
+        "32x36mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `ReadTemp()` | Reads the current temperature in celsius. |\n| `DVer()` | This driver version. |",
       "variations": [
