@@ -1,0 +1,23 @@
+module main
+author unknown
+version 1 0 
+description ''
+variables LEDS 
+
+script 242 90 {
+whenStarted
+comment 'LED Pin Numbers 1-8'
+LEDS = ('[data:makeList]' 9 7 8 13 17 15 14 12)
+forever {
+  for i (size LEDS) {
+    digitalWriteOp (at i LEDS) true
+    waitMillis 50
+    digitalWriteOp (at i LEDS) false
+    comment 'Push A for Strobe Effect'
+    if (not (digitalReadOp 1 'up')) {
+      waitMillis 50
+    }
+  }
+}
+}
+
