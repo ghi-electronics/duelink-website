@@ -235,7 +235,7 @@
       "category": "Specialty",
       "price": 24.95,
       "tagline": "Smart Holiday Tree with 26 LEDs",
-      "description": "This is arguably the smartest holiday tree in the world! Control the LEDs in Standalone mode or connect to a host and control the tree from one of the many supported languages and devices. The 2 boards (A and B) slide into each other, turning this into a 3D-ish module!\n\nEverything you need to get started is at: [holidaytree.duelink.com](https://holidaytree.duelink.com/)\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
+      "description": "This is arguably the smartest holiday tree in the world! Control the LEDs in Standalone mode or connect to a host and control the tree from one of the many supported languages and devices. The 2 boards (A and B) slide into each other, turning this into a 3D-ish module!\n\nWe are including a USB cable. You only need to connect it to a computer or a phone charger! Everything you need to get started is at: [holidaytree.duelink.com](https://holidaytree.duelink.com/)\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
       "keyFeatures": [
         "Stand-up Design",
         "26 Smart LEDs",
