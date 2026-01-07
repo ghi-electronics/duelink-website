@@ -45,6 +45,7 @@ Function | Description
 --- | ---
 `Sel(add, add, add ...)` | Select a devices at `add` in the chain.
 `GetAdd()` | Returns the selected device(s) address.
+`GetCnt()` | Returns the count of logically connected modules. If a modules is configured as a host, this module is considered the last one in the chain.
 `SetAdd(add)` | `add` Sets the device's address. This command has chain reaction where each device sets the next one. **Internal function, do not use**
 
 For **advanced uses only**, the `Sel(add)` command accepts multiple addresses. Using `Sel(3,7)` will activate the third and and seventh modules in [Daisylink](./daisylink). Any command issue from that point forward are executed by both modules. Zero is broadcast address, where `Sel(0)` will activate all modules. Note that responses will be received from all selected devices and in a random order.
