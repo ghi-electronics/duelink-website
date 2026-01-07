@@ -2,14 +2,14 @@
   "DUELink": {
     "name": "DUELink",
     "versions": [      		              
-      { "id": 1, "name": "v0.67 (Beta)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/fw/duelink-fw-v067.bin" },
-      { "id": 2, "name": "v0.68 (Beta)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/fw/duelink-fw-v068.bin" },
-      { "id": 3, "name": "v0.69 (Beta)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/fw/duelink-fw-v069.bin" },
-      { "id": 4, "name": "v0.70 (Beta)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/fw/duelink-fw-v070.bin" }
+      { "id": 1, "name": "v0.68 (Beta)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/fw/duelink-fw-v068.bin" },
+      { "id": 2, "name": "v0.69 (Beta)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/fw/duelink-fw-v069.bin" },
+      { "id": 3, "name": "v0.70 (Beta)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/fw/duelink-fw-v070.bin" },
+      { "id": 4, "name": "v0.71 (Beta)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/fw/duelink-fw-v071.bin" }
       
     ],
     "boards": [
-	  { "name": "Official", "id": "D",  "rtm-fw": "v070"}
+	  { "name": "Official", "id": "D",  "rtm-fw": "v071"}
     ]
   },
   "MicroBlock": {
