@@ -47,7 +47,8 @@ const sidebars = {
           label: "Kits",
           items: [
             "products/ktessen-a",
-            "products/ktgimme-a"
+            "products/ktgimme-a",
+            "products/ktcincobit-e"
           ],
         },
         {

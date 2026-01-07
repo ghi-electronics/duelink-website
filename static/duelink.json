@@ -42,12 +42,26 @@
       ]
     },
     {
+      "name": "Classroom CincoBit Kit",
+      "partNumber": "GDL-KTCINCOBIT-E",
+      "category": "Kit",
+      "price": 99.95,
+      "tagline": "A Low-Cost Entire Classroom STEM Kit",
+      "description": "[Educators](/docs/educators) are able to STEMify a entire classroom, where students double-up to use 14x [CincoBit](/docs/products/mccincobit-e) boards for under $100! This kit also includes 14x USB cables and storage boxes.\n\n:::tip\nBoards ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
+      "keyFeatures": [
+        "14x CincoBit Boards",
+        "14x USB Cables",
+        "2x Storage Boxes"
+      ]
+    },
+    {
       "name": "CincoBit",
       "partNumber": "GDL-MCCINCOBIT-E",
       "PID": "0x000001",
       "category": "Microcomputer",
+      "price": 7.95,
       "tagline": "A low-cost, micro:bit inspired, educational board",
-      "description": "[Educators](/docs/educators) will find great value in this low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.\n\nCincoBit is designed for classrooms on a budget. You get a set of 15 at under $100!\n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
+      "description": "[Educators](/docs/educators) will find great value in this low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.\n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::\n\n[Classroom CincoBit Kit](/docs/products/ktcincobit-e) is designed for classrooms on a budget, where an entire classroom of students can double-up and use a set of 14 for under $100!\n\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
       "keyFeatures": [
         "5x5 LED Matrix",
         "micro:bit inspired edge connector",
@@ -58,19 +72,7 @@
         "52x42mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 5. |\n| `GetH()` | Get display height: 5. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |\n\n:::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::",
-      "MfgNotes": "Check Menu->Help for connection before testing",
-      "variations": [
-        {
-          "name": "Single",
-          "partCode": "1X",
-          "price": 7.95
-        },
-        {
-          "name": "15x Set",
-          "partCode": "15X",
-          "price": 99.95
-        }
-      ]
+      "MfgNotes": "Check Menu->Help for connection before testing"
     },
     {
       "name": "PixoBit",
