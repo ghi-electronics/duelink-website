@@ -6,9 +6,7 @@ hide_table_of_contents: true
 
 STEM Educators can turn abstract coding concepts into tangible, interactive experiences. Students write code and instantly see it come alive—blinking LEDs, moving motors, sensing the environment. No soldering, no setup delays—just plug, code, and create.
 
-There are thousands of ways DUELink can be used with the standard [DUELink engine](./engine/intro) or with [MicroBlocks](./language/microblocks). However, we have hand selected a few DUELink boards for Educators or anyone who is just starting out with coding circuits.
-
-[DUELink engine](./products/mcduestem-b.mdx)
+While technically all DUELink boards can be used in education. However, we have **hand selected these DUELink boards** for STEM educators.
 
 :::tip
 These educator-focused boards ship preloaded with MicroBlocks. Users can always load, and reload, any DUELink module with any of the available software options.
@@ -49,74 +47,22 @@ These educator-focused boards ship preloaded with MicroBlocks. Users can always 
     />
 </td>
 </tr>
- <tr>
-<td width='50%'>
-    <img alt="Size" src="/img/catalog/spghizzy-d-1.webp" />
-    Pocket-size option with full-color LED eyes, 6x more controllable LEDs and a buzzer. Its "legs" plug right into USB!
-    <Button
-        style={{ margin: "10px", color: "white" }}
-        label="Product Page"
-        link="./products/spghizzy-d"
-    />
-    <br/>
-    <Button
-        style={{ margin: "10px", color: "white" }}
-        label="Demos: ghizzy.duelink.com"
-        link="https://ghizzy.duelink.com/"
-    />
-</td>
-<td width='50%'>
-    <img alt="Back" src="/img/catalog/sptree-b-1.webp" />
-    Excitement is leveled up with 26x full color LEDs, plus a buzzer to play melodies.
-    <Button
-        style={{ margin: "10px", color: "white" }}
-        label="Product Page"
-        link="./products/sptree-b"
-    />
-    <br/>
-    <Button
-        style={{ margin: "10px", color: "white" }}
-        label="Demos: holidaytree.duelink.com"
-        link="https://holidaytree.duelink.com/"
-    />
-</td>
-</tr>
- <tr>
-<td width='50%'>
-    <img alt="Size" src="/img/catalog/sppiano-b-1.webp" />
-    Play musical notes, or code the piano to do it for you. With 5 octave selector, you will not run out of notes!
-    <Button
-        style={{ margin: "10px", color: "white" }}
-        label="Product Page"
-        link="./products/sppiano-b"
-    />
-</td>
-<td width='50%'>
-    <img alt="Size" src="/img/catalog/spctrlr-b-1.webp" />
-    A very tine controller with an LED ring.
-    <Button
-        style={{ margin: "10px", color: "white" }}
-        label="Controller"
-        link="./products/spctrlr-b"
-    />
-</td>
-</tr>
 </table>
 </div>
 
-Educational-focused boards have these in common:
-1. Work out-the-box with a preloaded demo.
-1. Ship preloaded with [MicroBlocks](./language/microblocks) firmware.
-1. The `LDR` and `Reset` buttons are available for easier software updates.
-1. Include USB cable if required.
-1. Each has a dedicated page with easy instruction and several pre-made sample demos.
-1. Optionally expandable with any DUELink modules using their [Downlink](./interface/downlink) connector.
+When ready, use the [Downlink](./interface/downlink) connector for [daisylinking](./engine/daisylink) other DUELink modules.
 
 ---
 
 ## Edge Connector
 
-Feeling more adventurous? These boards offer an edge-connector similar to [micro:bit](./hw/microbit). With a little experience, these boards can work hundreds of micro:bit accessories, such as robots.
+Feeling more adventurous? These boards offer an edge-connector similar to [micro:bit](./hw/microbit). Everything on-board is fully supported by the [DUELink engine](./engine/intro) and [MicroBlocks](./language/microblocks). Also, with a little experience, users can utilize the edge connector and build extensions to control micro:bit robots and other accessories!
+
+:::tip
+These boards can be codded using [DUELink engine](./engine/intro) or using [MicroBlocks](./language/microblocks), and not using MakeCode.
+
+Using [MakeCode](./language/makecode) is possible when tethering [micro:bit](./hw/microbit) to DUELink modules.
+:::
 
 <div style={{textAlign: 'center'}}>
 
@@ -146,7 +92,9 @@ Feeling more adventurous? These boards offer an edge-connector similar to [micro
 
 ## Arduino
 
-We have designed DueDuino for all Arduino fans, with matching headers to help you experiment with circuits.
+We have designed DueDuino for all [Arduino](./hw/arduino) fans, with matching headers to help you experiment with "Shields".
+
+You can code DueDuino using the [DUELink engine](./engine/intro), or fully code it using the [Arduino](./hw/arduino) IDE, turning it into a low-cost Arduino-compatible board with [Downlink](./interface/downlink) connector.
 
 <div style={{textAlign: 'center'}}>
 ![DueDuino](pathname:///img/catalog/mcdueduino-a-3.webp)
@@ -232,7 +180,7 @@ Not sure which modules to use? Start with the [Essential Modules](./products/kte
 While you can use your favorite hardware and software to control DUELink modules, all modules also include a built in [scripting](./engine/scripting) engine. Students can utilize this Python-BASIC-like friendly language for a **type-coding** option. Coding is done on a [Console](./console) that runs in a web browser and requires no installations.
 
 <div style={{ textAlign: 'center'}}>
-![DUELink Console](pathname:///img/due-console.webp)
+![DUELink Console](pathname:///img/duelink-console.webp)
 </div>
 
 ---
