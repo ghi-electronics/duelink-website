@@ -603,7 +603,9 @@ ${product.description}
 
 ${(product.keyFeatures || []).map(f => `• ${f}<br/>`).join('\n')}
 </td><td width='50%'>
-${resourcesSection}${pidSection}
+${resourcesSection}${pidSection}<br/>
+<hr/>
+Our Cableless <a href="/docs/what-is">Green Initiative</a> 🌿
 </td></table>
 
 </TabItem>
