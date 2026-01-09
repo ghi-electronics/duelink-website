@@ -46,8 +46,8 @@
       "partNumber": "GDL-KTCINCOBIT-E",
       "category": "Kit",
       "price": 99.95,
-      "tagline": "A Low-Cost Entire Classroom STEM Kit",
-      "description": "[Educators](/docs/educators) are able to STEMify a entire classroom, where students double-up to use 14x [CincoBit](/docs/products/mccincobit-e) boards for under $100! This kit also includes 14x USB cables and storage boxes.\n\n:::tip\nBoards ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
+      "tagline": "A low-cost Classroom STEM kit with cables",
+      "description": "[Educators](/docs/educators) are able to STEMify an entire classroom, when students team-up to use 14x [CincoBit](/docs/products/mccincobit-e) boards for under $100! This kit also includes 14x USB cables and 2x storage boxes.\n\n:::tip\nBoards ship preloaded with [MicroBlocks'](/docs/language/microblocks) firmware.\n:::",
       "keyFeatures": [
         "14x CincoBit Boards",
         "14x USB Cables",
@@ -60,8 +60,8 @@
       "PID": "0x000001",
       "category": "Microcomputer",
       "price": 7.95,
-      "tagline": "A low-cost, micro:bit inspired, educational board",
-      "description": "[Educators](/docs/educators) will find great value in this low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.\n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::\n\n[Classroom CincoBit Kit](/docs/products/ktcincobit-e) is designed for classrooms on a budget, where an entire classroom of students can double-up and use a set of 14 for under $100!\n\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
+      "tagline": "A low-cost, micro:bit inspired educational board",
+      "description": "[Educators](/docs/educators) will find great value in this low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.\n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::\n\n[Classroom CincoBit Kit](/docs/products/ktcincobit-e) is designed for classrooms on a budget, where an entire classroom of students can double-up and use a set of 14 for under $100!\n\n:::tip\nThis board ships preloaded with [MicroBlocks'](/docs/language/microblocks) firmware.\n:::",
       "keyFeatures": [
         "5x5 LED Matrix",
         "micro:bit inspired edge connector",
