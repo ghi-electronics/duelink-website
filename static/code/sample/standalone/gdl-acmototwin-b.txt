@@ -1,11 +1,14 @@
+# In this sample:
+# Continuously turn the motor A,B forward at 50% speed, then backward at 50% speed, with a 2-second delay between each direction change
+
 while 1
 
     SMotorA(50) # Set Motor A half power
     SMotorB(50) # Set Motor B half power
-    Wait(10000)
+    Wait(2000)
 
-    SMotorA(-25, 10000, 1) # Set Motor A to 25% in reverse
-    SMotorB(25, 10000, 1) # Set Motor B to 25% in forward
-    Wait(10000)
+    SMotorA(-50) # Set Motor A to 50% in reverse
+    SMotorB(-50) # Set Motor B to 50% in reverse
+    Wait(2000)
 
 wend
