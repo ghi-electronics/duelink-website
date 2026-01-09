@@ -594,7 +594,7 @@
         "Screw terminal connections",
         "52x50mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SMotor(s)` | Sets the motor `s` speed and direction (-100 to 100). |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Set(s)` | Sets the motor `s` speed and direction (-100 to 100). |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "MotoTwin",
