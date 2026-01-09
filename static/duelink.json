@@ -720,7 +720,7 @@
         "Screw terminal",
         "32x37mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Sets(v)` | Activate the relay (1 on, 0 off). |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Set(v)` | Activate the relay (1 on, 0 off). |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Load",
