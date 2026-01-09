@@ -1,9 +1,10 @@
+# In this sample:
+# Continuously turn the motor forward at 50% speed, then backward at 50% speed, with a 2-second delay between each direction change
+
 while 1
+    Set(50)
+    Wait(2000)
 
-    SMotor(50)
-    Wait(10000)
-
-    SMotor(-80)
-    Wait(10000)
-
+    Set(-80)
+    Wait(2000)
 wend

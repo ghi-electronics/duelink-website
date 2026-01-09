@@ -1,9 +1,23 @@
-while 1
-    AWrite(1, 0.5) # L1 to half power
-    DWrite(2, 1) # L2 fully on
-    Wait(3000)
+# In this sample:
+# Continuously toggle P1 to P8, with a 10ms  delay for each pin
 
-    AWrite(1, 0) # L1 off
-    DWrite(2, 0) # L2 off
-    Wait(3000)
+_c = 0
+_v = 0
+while 1
+    dwrite((_c%8)+1, _v)
+    wait(10)
+    
+    _c = _c + 1
+    if (_c % 8 = 0)
+        if _v = 0
+            _v = 1
+        else
+            _v=0
+        end
+    end
 wend
+
+
+
+
+

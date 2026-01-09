@@ -1,45 +1,47 @@
 ##### Piano #####
-
-fn Rset()
-    cmd("reset(0)") # reset my client
-    reset(0) # reset myself
-fend
 fn Test()  
     println("Starting test...")
     Wait(1)
     dlmode(2,0)
     Wait(10)
  
-    dim a1[13] = {523,554,587,622,659,698,740,784,830,880,932,987,1047}
+    dim a0[13] = {523,554,587,622,659,698,740,784,830,880,932,987,1047}
     freq(3,1000,100, 0.5)
     while 1
         for i = 0 to len(b0)   # 13 pad
-
             if TPad(i)
-                freq(3,a1[i],0, 0.5)
+                freq(3,a0[i],0, 0.5)
+                c = 0
                 while (1)
-                    if (TPad(i)=0) 
-                        freq(3,a1[i],0, 1)
-                        break
+                    if (TPad(i)=1) 
+                        c = 0
+                    else
+                        c = c + 1
+ 
+                        if c > 2
+                            break
+                        end
                     end
                 wend
+                freq(3,a0[i],0, 0)
             end
         next
-        
-        if (TLArrow() )
-            SetLEDAll(0)
-            sweep(3, 1000,2000,50,255,250)
+ 
+        if 1
+            if (TLArrow() )
+                SetLEDAll(0)
+                sweep(3, 1000,2000,50,255,250)
+            end
+ 
+            if (TRArrow() )
+                SetLEDAll(1)
+                sweep(3, 2000,1000,255,50,250)
+            end
+ 
+            if dread(20, 2)
+                freq(3,1000,100, 0.5)
+            end
         end
-        
-        if (TRArrow() )
-            SetLEDAll(1)
-            sweep(3, 2000,1000,255,50,250)
-        end
-        
-        if dread(20, 2)
-            freq(3,1000,100, 0.5)
-        end
-        
         wait(1)
     wend
 fend

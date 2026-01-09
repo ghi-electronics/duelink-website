@@ -1,2 +1,9 @@
-# Append this code at the bottom of the script, right after the driver.
-# You MUST keep the driver code!!
+# In this sample:
+# Continuously set the stepper motor to 200 steps, alternating the direction between forward and backward
+ 
+while (1)
+    step_m1(0, 200)
+    wait(1000)
+    step_m1(1, 200)
+    wait(1000)
+wend

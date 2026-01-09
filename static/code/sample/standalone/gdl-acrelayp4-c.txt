@@ -1,16 +1,11 @@
+# In this sample:
+# Continuously switch relay 2 on/off every 2 seconds
+
 while 1
 
-## All off
-for _i in Range(4)
-    Set(_i+1,0)
-    wait(100)
-next
-
-
-## All on
-for _i in Range(4)
-    Set(_i+1,1)
-    wait(100)
-next
+    Set(2, 1) # turn on relay 2
+    wait(2000)
+    Set(2, 0) # turn off relay 2
+    wait(2000)
 
 wend

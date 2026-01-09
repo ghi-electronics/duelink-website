@@ -594,7 +594,7 @@
         "Screw terminal connections",
         "52x50mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SMotor(s)` | Sets the motor `s` speed and direction (-100 to 100). |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Set(s)` | Sets the motor `s` speed and direction (-100 to 100). |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "MotoTwin",
@@ -688,7 +688,7 @@
         "Screw terminal blocks",
         "187x90mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Sets(i, v)` | Sets a relay at `i` index to `v` value (1 on, 0 off). |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Set(i, v)` | Set a relay at `i` index to `v` value (1 on, 0 off). |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Relay P4",
@@ -704,7 +704,7 @@
         "External Power Barrel Jack",
         "87x52mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Sets(i, v)` | Sets a relay at `i` index to `v` value (1 on, 0 off). |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Set(i, v)` | Set a relay at `i` index to `v` value (1 on, 0 off). |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Relay X1",
@@ -720,7 +720,7 @@
         "Screw terminal",
         "32x37mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Sets(v)` | Activate the relay (1 on, 0 off). |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Set(v)` | Activate the relay (1 on, 0 off). |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "Load",

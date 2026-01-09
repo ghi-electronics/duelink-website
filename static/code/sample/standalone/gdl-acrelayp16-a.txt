@@ -1,7 +1,10 @@
+# In this sample:
+# Continuously switch relay 2 on/off every 2 seconds
+
 while 1
 
     Set(2, 1) # turn on relay 2
-    wait(1000)
+    wait(2000)
     Set(2, 0) # turn off relay 2
     wait(2000)
 
