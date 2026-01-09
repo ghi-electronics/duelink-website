@@ -1,0 +1,35 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# Continuously set the stepper motor 1 to 200 steps, alternating the direction between forward and backward
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def Set(stepdrive_index, direction, step_num):
+    if direction != 1:
+        direction = 0
+
+    if stepdrive_index == 1:
+        due.Engine.ExecuteCommand("step_m1({},{})".format(direction, step_num))
+
+    elif stepdrive_index == 2:  # available on StepDrive P3 only
+        due.Engine.ExecuteCommand("step_m2({},{})".format(direction, step_num))
+
+    elif stepdrive_index == 3:  # available on StepDrive P3 only
+        due.Engine.ExecuteCommand("step_m3({},{})".format(direction, step_num))
+
+
+while True:
+    Set(1, 1, 200)          # forward
+    time.sleep_ms(1000)     # 1000 ms
+    Set(1, -1, 200)         # backward
+    time.sleep_ms(1000)     # 1000 ms
