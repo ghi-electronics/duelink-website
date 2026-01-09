@@ -1,7 +1,21 @@
-## See Standard Library https://www.duelink.com/docs/engine/stdlib
+# In this sample:
+# Continuously toggle P1 to P12, with a 10ms  delay for each pin
 
-# Make pin5 high
-DWrite(5, 1)
+_c = 0
+_v = 0
+while 1
+    dwrite((_c%12)+1, _v)
+    wait(10)
+    
+    _c = _c + 1
+    if (_c % 12 = 0)
+        if _v = 0
+            _v = 1
+        else
+            _v=0
+        end
+    end
+wend
 
 
 
