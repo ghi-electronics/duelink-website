@@ -1,0 +1,32 @@
+# This sample runs on QT-PY 2040 adafruit, and needs i2c pullup module
+# In this sample:
+# Continuously toggle P1 to P12, with a 100 ms delay for each pin
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def SetPin(pin, value):
+    v = 1 if value else 0
+    due.Engine.ExecuteCommand(f"dwrite({pin+1},{v})")
+
+counter = 0
+value = False
+
+while True:
+    time.sleep_ms(10)  # 10 ms sleep, equivalent to Thread.Sleep(10)
+
+    SetPin(counter % 12, value)
+
+    counter += 1
+
+    if counter % 12 == 0:
+        value = not value
