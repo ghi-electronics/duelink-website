@@ -1,5 +1,5 @@
 // In this sample:
-// Continuously switch relay on/off every 2 seconds
+// Continuously switch relay 2 on/off every 2 seconds
 
 import pkg_serialusb from 'dlserialusb';
 const {SerialUSB} = pkg_serialusb
