@@ -1,5 +1,5 @@
 // In this sample:
-// Continuously toggle P1 to P12, with a 100 ms delay for each pin
+// Continuously toggle P1 to P12, with a 10ms  delay for each pin
 
 using GHIElectronics.DUELink;
 
