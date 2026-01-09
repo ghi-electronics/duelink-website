@@ -1,6 +1,9 @@
+# In this sample:
+# Continuously switch relay on/off every 2 seconds
+
 while 1
   Set(1)
-  wait(1000)
+  wait(2000)
   Set(0)
   wait(2000)
 wend
