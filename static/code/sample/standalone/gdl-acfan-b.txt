@@ -1,10 +1,10 @@
+# In this sample:
+# Continuously turn the fan forward at 50% speed, then backward at 50% speed, with a 2-second delay between each direction change
+
 while 1
-    Fan(40)
-    Wait(1000)
+    Fan(50)
+    wait(2000)
 
-    Fan(80)
-    Wait(2000)
-
-    Fan(-20)
-    Wait(2000)
+    Fan(-50)
+    wait(2000)
 wend
