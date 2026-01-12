@@ -671,7 +671,8 @@
         "X,Y,and Z axis control",
         "Terminal Block Connectors",
         "62x22mm overall dimension"
-      ]
+      ],
+      "driverApi": "Function | Description \n----------|-------------\n `DVer()` | This driver version.\n `SetX(s,d,t)` | Set axis X with `s`: steps, `d`: direction and `t`: delay in microsecond per.\n `SetY(s,d,t)` | Set axis Y. \n `SetZ(s,d,t)` | Set axis Z."
       
     },
     {
