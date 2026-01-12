@@ -4,6 +4,13 @@
 
 DUELink Engine includes a scheduler to help execute tasks repeatedly. Use `SStart` to start scheduling a function. The arguments are `SStart(func, time, count)`, where 'func' is the function to schedule, `time` is the delay between executions, and finally `count` is for the scheduler repeat count.
 
+:::tip
+Schedulers only run if there is a running program. Terminating the main program will automatically stop schedulers, and interrupts.
+
+SStart("func", timeout, count) Set count to -1 to run forever.
+
+:::
+
 You can check the current status of a scheduler using `SStat(func)`. The returned value shows remaining count for the scheduler.
 
 It is possible to abort a schedule at any time using `SAbort(func)`.
