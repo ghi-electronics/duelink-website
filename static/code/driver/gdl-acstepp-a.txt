@@ -18,7 +18,7 @@ fn init()
     dwrite(8,0) # Z dir
 fend
  
-# step motor 1
+# step motor Z
 # d - direction
 # c - steps
 fn StepZ(d, c)
@@ -32,7 +32,7 @@ fn StepZ(d, c)
   wend
 fend
  
-# step motor 2
+# step motor Y
 # d - direction
 # c - steps
 fn StepY(d, c)
@@ -46,7 +46,7 @@ fn StepY(d, c)
   wend
 fend
  
-# step motor 3
+# step motor X
 # d - direction
 # c - steps
 fn StepX(d, c)
