@@ -1,4 +1,2 @@
-from DUELink.DUELinkController import DUELinkController
-import time
-availablePort = DUELinkController.GetConnectionPort()
-duelink = DUELinkController(availablePort)
+const { SerialUSB } = require("dlserialusb");
+const { DUELinkController } = require("duelink");
