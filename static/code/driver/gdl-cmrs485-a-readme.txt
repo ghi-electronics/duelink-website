@@ -34,7 +34,6 @@ fn EnTest()
     wend
 fend
 
-EnTest() 
     
 
 
