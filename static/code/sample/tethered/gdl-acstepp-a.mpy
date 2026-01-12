@@ -1,1 +1,46 @@
-// Work in Progress
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# Tested on Bi-Polar Stepper Motor Driver-2M542
+# Continuously move axes X, Y, and Z forward and backward for 400 steps, with a 10 ms delay per step.
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def StepX(direction, stepnum):
+    due.Engine.ExecuteCommand("StepX({},{})".format(direction, stepnum))
+
+    # Blocking mode
+    time.sleep_ms(stepnum)
+
+def StepY(direction, stepnum):
+    due.Engine.ExecuteCommand("StepY({},{})".format(direction, stepnum))
+
+    # Blocking mode
+    time.sleep_ms(stepnum)
+
+def StepZ(direction, stepnum):
+    due.Engine.ExecuteCommand("StepZ({},{})".format(direction, stepnum))
+
+    # Blocking mode
+    time.sleep_ms(stepnum)
+
+while True:
+    StepX(1, 400)  # forward
+    StepY(1, 400)  # forward
+    StepZ(1, 400)  # forward
+    time.sleep_ms(1000)
+
+    StepX(0, 400)  # backward
+    StepY(0, 400)  # backward
+    StepZ(0, 400)  # backward
+    time.sleep_ms(1000)
+
