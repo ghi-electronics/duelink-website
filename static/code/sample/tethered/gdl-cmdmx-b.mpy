@@ -1,0 +1,70 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# Control a DMX light.
+# Set the color to red, green, or blue.
+# Set the brightness from 0 to 255.
+# Issue: The DMX light may stop working randomly.
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+data = bytearray(4)
+
+def Initialize():
+    due.Uart.Configuration(250000, 512 + 1)
+    EnableTransmit(1)
+
+def EnableTransmit(value):
+    # 5 # RE pin: Low: Enable receive
+    # 6 # DE pin: High: Enable transmit        
+    due.Digital.Write(5, value)
+    due.Digital.Write(6, value)
+
+def SetColor(red, green, blue):
+    data[1] = red
+    data[2] = green
+    data[3] = blue
+
+def SetBrightness(brightness):
+    data[0] = brightness
+
+def Flush():
+    due.DMX.Write(data)
+    time.sleep(0.1)  # Sleep 100ms
+
+Initialize()
+
+color = 0
+brightness = 0
+
+while True:
+    c = color % 4
+
+    if c == 0:  # red
+        SetColor(255, 0, 0)
+    elif c == 1:  # green
+        SetColor(0, 255, 0)
+    elif c == 2:  # blue
+        SetColor(0, 0, 255)
+    elif c == 3:  # white
+        SetColor(255, 255, 255)
+
+    SetBrightness(brightness)
+    Flush()
+
+    brightness += 25
+    if brightness >= 255:
+        brightness = 0
+        color += 1
+
+    time.sleep(0.01)  # Sleep 10ms
+

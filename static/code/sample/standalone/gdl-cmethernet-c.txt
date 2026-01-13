@@ -1,1 +1,28 @@
-# In progress https://github.com/ghi-electronics/duelink-website/issues/205
+# In this sample:
+# Initialize the network profile (IP, gateway, etc.).
+# Implement Listen, Accept, Send, Receive, and Available.
+# Send the message: "Hello, I am DUELink\r\n" to the PC.
+# Receive the message from the PC: "Hello, I am PC".
+# Check https://www.duelink.com/docs/products/cmethernet-c?show=tie-samples&lang=dotnet for reference on setting up the client on a PC.
+
+_s=0 #socket number
+println("Init")
+Init([192,168,0,50], [192,168,0,1], [255,255,255,0])
+
+println("Listen")
+Listen(_s,5000)
+println("Listening")
+Accept(_s)
+println("Connected")
+Send(_s,"Hello, I am DUELink\r\n")
+
+
+while(1)
+  wait(1)
+  n=Avail(_s)
+  if (n)
+    dim b9[n]
+    Recv(_s,b9)
+    print(b9)
+  end
+wend
