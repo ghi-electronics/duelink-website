@@ -1,0 +1,41 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# Receive a byte
+# Send back (byte + 1)
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def Initialize():
+    due.Uart.Configuration(9600, 128)
+
+def WriteByte(b):
+    due.Uart.WriteByte(b)
+
+def ReadByte():
+    data = due.Uart.ReadByte()
+    return data
+
+def ByteToRead():
+    count = due.Uart.BytesToRead()
+    return count
+
+Initialize()
+
+while True:
+    while ByteToRead() == 0:
+        time.sleep_ms(100)  # equivalent to Thread.Sleep(100)
+
+    b = ReadByte()
+    b += 1
+    WriteByte(b)
+

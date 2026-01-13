@@ -641,7 +641,7 @@
         "Terminal Block Connectors",
         "77x42mm overall dimension"
       ],
-      "driverApi": "Function | Description \n----------|-------------\n `DVer()` | This driver version.\n `init(x)` | Init motors with resolution `x`: 0: 1/8 step, 1: 1/2 step (default), 2: 1/4 step, 3: 1/16 step.\n `step_m1(d,c)` | Set motor M1 with `d`: direction, `c`: steps.\n `step_m2(d,c)` | Set motor M2 with `d`: direction, `c`: steps.\n `step_m3(d,c)` | Set motor M3 with `d`: direction, `c`: steps.\n `set_m(m, d, c)` | Set motor in sync mode. `m`: 1->Motor M1, 2->Motor M2, 3->Motor M3.\n `sync_all()` | Run motors in synchronize mode.\n `run_all()` | Run motors in asynchronous mode."
+      "driverApi": "Function | Description \n----------|-------------\n `DVer()` | This driver version.\n `init(x)` | Init motors with resolution `x`: 0: 1/8 step, 1: 1/2 step (default), 2: 1/4 step, 3: 1/16 step.\n `step_m1(d,c)` | Run motor M1 with `d`: direction, `c`: steps.\n `step_m2(d,c)` | Run motor M2 with `d`: direction, `c`: steps.\n `step_m3(d,c)` | Run motor M3 with `d`: direction, `c`: steps.\n `set_m(m, d, c)` | Set motor in sync mode. `m`: 1->Motor M1, 2->Motor M2, 3->Motor M3.\n `sync_all()` | Run motors in synchronize mode.\n `run_all()` | Run motors in asynchronous mode."
     },
     {
       "name": "StepDrive P1",
@@ -657,7 +657,7 @@
         "Terminal block connectors",
         "37x37mm overall dimension"
       ],
-      "driverApi": "Function | Description \n----------|-------------\n `DVer()` | This driver version.\n `init(x)` | Init motor with resolution `x`: 0: 1/8 step, 1: 1/2 step (default), 2: 1/4 step, 3: 1/16 step.\n `step_m1(d,c)` | Set motor M1 with `d`: direction, `c`: steps."
+      "driverApi": "Function | Description \n----------|-------------\n `DVer()` | This driver version.\n `init(x)` | Init motor with resolution `x`: 0: 1/8 step, 1: 1/2 step (default), 2: 1/4 step, 3: 1/16 step.\n `step_m1(d,c)` | Run motor M1 with `d`: direction, `c`: steps."
     },
     {
       "name": "StepPulse",
@@ -671,7 +671,8 @@
         "X,Y,and Z axis control",
         "Terminal Block Connectors",
         "62x22mm overall dimension"
-      ]
+      ],
+      "driverApi": "Function | Description \n----------|-------------\n `DVer()` | This driver version.\n `StepX(d,s)` | Run axis X with `d`: direction, `s`: steps.\n `StepY(d,s)` | Run axis Y with `d`: direction, `s`: steps. \n `StepZ(d,s)` | Run axis Z with `d`: direction, `s`: steps.\n `SetX(d,s)` | Set axis X in sync mode with `d`: direction, `s`: steps.\n `SetY(d,s)` | Set axis Y in sync mode with `d`: direction, `s`: steps.\n `SetZ(d,s)` | Set axis Z in sync mode with `d`: direction, `s`: steps.\n `sync_all()` | Run axis in synchronize mode.\n `run_all()` | Run axis in asynchronous mode."
       
     },
     {

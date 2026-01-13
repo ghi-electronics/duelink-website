@@ -1,1 +1,14 @@
-// Work in Progress
+# In this sample:
+# Tested on Bi-Polar Stepper Motor Driver-2M542
+# Continuously move axes X, Y, and Z forward and backward for 400 steps, with a 10 ms delay per step.
+
+while (1)
+    StepX(0, 400)
+    StepY(0, 400)
+    StepZ(0, 400)
+    wait(1000)
+    StepX(1, 400)
+    StepY(1, 400)
+    StepZ(1, 400)
+    wait(1000)
+wend
