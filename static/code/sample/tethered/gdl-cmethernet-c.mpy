@@ -2,9 +2,9 @@
 # In this sample:
 # Initialize the network profile (IP, gateway, etc.).
 # Implement Listen, Accept, Send, Receive, and Available.
-# Send the message: "Hello, I am DUELink\r\n" to the server.
-# Receive the message from the server: "Hello, I am Server".
-# At the end of the sample, C# code is provided to set up the server.
+# Send the message: "Hello, I am DUELink\r\n" to the PC.
+# Receive the message from the PC: "Hello, I am PC".
+# Check https://www.duelink.com/docs/products/cmethernet-c?show=tie-samples&lang=dotnet for reference on setting up the client on a PC.
 
 import time
 import duelink 

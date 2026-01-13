@@ -1,9 +1,9 @@
 // In this sample:
 // Initialize the network profile (IP, gateway, etc.).
 // Implement Listen, Accept, Send, Receive, and Available.
-// Send the message: "Hello, I am DUELink\r\n" to the server.
-// Receive the message from the server: "Hello, I am Server".
-// At the end of the sample, C# code is provided to set up the server.
+// Send the message: "Hello, I am DUELink\r\n" to the PC.
+// Receive the message from the PC: "Hello, I am PC".
+// At the end of the sample, C# code is provided to set up the PC.
 
 using System.Net;
 using System.Net.Sockets;
@@ -93,7 +93,7 @@ while (true) {
     }
 }
 
-//This is for setup the server side
+//This is for setup the PC, using C#
 // 
 //using System.Net.Sockets;
 //using System.Text;
@@ -104,7 +104,7 @@ while (true) {
 //    using (var client = new TcpClient(serverIp, port))
 //    using (var stream = client.GetStream()) {
 //        // Send "Hello World"
-//        var message = "Hello, I am Server";
+//        var message = "Hello, I am PC";
 //        var dataToSend = Encoding.UTF8.GetBytes(message);
 //        stream.Write(dataToSend, 0, dataToSend.Length);
 //        Console.WriteLine("Sent: " + message);
