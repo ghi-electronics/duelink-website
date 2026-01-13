@@ -1,0 +1,61 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# Detect if any button (Up, Down, Left, Right, Forward, Back) is pressed;
+# the LED corresponding to the button will turn on.
+# Detect if Enter is pressed and all leds turn to off
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def IsBtnPressed(button):
+    code = int(due.Engine.ExecuteCommand("BtnPin('%s')" % button))
+    return due.Button.Down(code)
+
+def SetLed(button, value):
+    v = 1 if value else 0
+    due.Engine.ExecuteCommand("SetLed('%s',%d)" % (button, v))
+
+while True:
+    if IsBtnPressed('U'):
+        print("Button Up Pressed")
+        SetLed('U', True)
+
+    if IsBtnPressed('D'):
+        print("Button Down Pressed")
+        SetLed('D', True)
+
+    if IsBtnPressed('L'):
+        print("Button Left Pressed")
+        SetLed('L', True)
+
+    if IsBtnPressed('R'):
+        print("Button Right Pressed")
+        SetLed('R', True)
+
+    if IsBtnPressed('F'):
+        print("Button Forward Pressed")
+        SetLed('F', True)
+
+    if IsBtnPressed('B'):
+        print("Button Back Pressed")
+        SetLed('B', True)
+
+    if IsBtnPressed('E'):
+        print("Button Enter Pressed")
+        SetLed('U', False)
+        SetLed('D', False)
+        SetLed('L', False)
+        SetLed('R', False)
+        SetLed('F', False)
+        SetLed('B', False)
+
+    time.sleep_ms(100)
