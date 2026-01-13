@@ -19,12 +19,12 @@ fn Test()
 
     while 1
         for i = 0 to 8
-            if(Touch(i+1, 10, 1, 100)>100)
+            if(PulseIn(i+1, 10, 1, 100)>110)
                 PrintLn("Touched on pin: ", i+1)
                 cmd("Clear(0)")
                 cmd(fmt("TextS(\"touched on pin: ",(i+1),"\", 1, 0, 20, 1,2)"))
                 cmd("Show()")
-                Wait(1000)
+                Wait(500)
             end
         next
         
