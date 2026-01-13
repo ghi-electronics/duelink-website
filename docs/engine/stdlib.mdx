@@ -1721,7 +1721,7 @@ See [Scheduler](./scheduler) for details.
 
 Function | Description
 --- | ---
-`SStart("func", timeout, count)` | Schedule `func` to run at every `timeout` (in milliseconds) for `count` times, or -1 to run forever.
+`SStart("func", timeout, count)` | Schedule `func` to run at every `timeout` (in milliseconds) for `count` times, or `0` to run forever.
 `SStat("func")` | `func`: Returns how many times the schedule will still need to run for, 0 is complete and -1 is forever.
 `SAbort("func")` | `func`: Abort `func` scheduler.
 

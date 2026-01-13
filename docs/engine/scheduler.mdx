@@ -7,11 +7,11 @@ DUELink Engine includes a scheduler to help execute tasks repeatedly. Use `SStar
 :::tip
 Schedulers only run if there is a running program. Terminating the main program will automatically stop schedulers, and interrupts.
 
-SStart("func", timeout, count) Set count to -1 to run forever.
+SStart("func", timeout, count) Set count to `0` to run forever.
 
 :::
 
-You can check the current status of a scheduler using `SStat(func)`. The returned value shows remaining count for the scheduler.
+You can check the current status of a scheduler using `SStat(func)`. The returned value shows remaining count for the scheduler, a value of `-1` means the scheduler is running forever.
 
 It is possible to abort a schedule at any time using `SAbort(func)`.
 
