@@ -1,3 +1,6 @@
+# In this sample:
+# STATLED is on if the button is pressed
+
 #define PIN_STAT_LED PB8
 #define PIN_BUTTON PA0
 

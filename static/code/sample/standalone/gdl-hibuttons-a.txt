@@ -1,0 +1,10 @@
+# In this sample:
+# Detect if the button is pressed
+
+while (1)
+    if btndown(1)
+        println("Button Pressed")
+    end
+    
+    wait(10)
+wend
