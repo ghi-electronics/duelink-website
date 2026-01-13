@@ -1,59 +1,65 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
 # In this sample:
 # Initialize the network profile (IP, gateway, etc.).
 # Implement Listen, Accept, Send, Receive, and Available.
 # Send the message: "Hello, I am DUELink\r\n" to the server.
 # Receive the message from the server: "Hello, I am Server".
 # At the end of the sample, C# code is provided to set up the server.
+
 import time
-from DUELink.DUELinkController import DUELinkController
+import duelink 
 
-availablePort = DUELinkController.GetConnectionPort()
-duelink = DUELinkController(availablePort)
+from duelink import transport
 
-# method
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
 def Initialize(ip_add, gw_add):
-    # Convert IP strings to byte arrays
     ip = bytearray(int(x) for x in ip_add.split('.'))
     gw = bytearray(int(x) for x in gw_add.split('.'))
 
     cmd = f"Init([{ip[0]},{ip[1]},{ip[2]},{ip[3]}],[{gw[0]},{gw[1]},{gw[2]},{gw[3]}],[255,255,255,0])"
-    ret = duelink.Engine.ExecuteCommand(cmd)
+    ret = due.Engine.ExecuteCommand(cmd)
     return int(ret)
 
 def Listen(socket, port):
     cmd = f"Listen({socket},{port})"
-    ret = duelink.Engine.ExecuteCommand(cmd)
+    ret = due.Engine.ExecuteCommand(cmd)
     return int(ret)
 
 def Accept(socket):
     cmd = f"Accept({socket})"
-    ret = duelink.Engine.ExecuteCommand(cmd)
+    ret = due.Engine.ExecuteCommand(cmd)
     return int(ret)
 
 def Send(socket, data):
     to_write = data.encode('utf-8')
-    duelink.Engine.ExecuteCommand(f"dim b6[{len(to_write)}]")
+    due.Engine.ExecuteCommand(f"dim b6[{len(to_write)}]")
 
     for i in range(len(to_write)):
-        duelink.Engine.ExecuteCommand(f"b6[{i}]={to_write[i]}")
+        due.Engine.ExecuteCommand(f"b6[{i}]={to_write[i]}")
 
     cmd = f"Send({socket},b6)"
-    ret = duelink.Engine.ExecuteCommand(cmd)
+    ret = due.Engine.ExecuteCommand(cmd)
     return int(ret)
 
 def Receive(socket, data):
-    duelink.Engine.ExecuteCommand(f"dim b7[{len(data)}]")
-    rev_len = int(duelink.Engine.ExecuteCommand(f"Recv({socket},b7)"))
+    due.Engine.ExecuteCommand(f"dim b7[{len(data)}]")
+    rev_len = int(due.Engine.ExecuteCommand(f"Recv({socket},b7)"))
 
     length = rev_len if rev_len < len(data) else len(data)
 
     for i in range(length):
-        data[i] = int(duelink.Engine.ExecuteCommand(f"b7[{i}]"))
+        data[i] = int(due.Engine.ExecuteCommand(f"b7[{i}]"))
 
     return length
 
 def Available(socket):
-    ret = int(duelink.Engine.ExecuteCommand(f"Avail({socket})"))
+    ret = int(due.Engine.ExecuteCommand(f"Avail({socket})"))
     return ret
 
 # -----------------------
@@ -83,3 +89,4 @@ while True:
             msg = data.decode('utf-8')
             if msg:
                 print(msg)
+
