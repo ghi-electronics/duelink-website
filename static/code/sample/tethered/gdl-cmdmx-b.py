@@ -8,6 +8,7 @@
 # ch3: green
 # ch4: blue
 # device add: d001 (our dmx light text)
+# Issue: The DMX light may stop working randomly.
 
 from DUELink.DUELinkController import DUELinkController
 import time
