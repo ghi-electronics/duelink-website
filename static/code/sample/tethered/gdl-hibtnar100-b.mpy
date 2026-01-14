@@ -1,0 +1,55 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# When button isn't pressed: Led0: red; led1: green; led2: blue; Led control: on
+# When button is pressed: All led off
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+button_pin = int(due.Engine.ExecuteCommand("BtnPin()"))
+
+def SetLedRing(index, red, green, blue):
+    due.Engine.ExecuteCommand("SetRing({},{},{},{})".format(
+        index, red, green, blue
+    ))
+
+def SetLedControl(value):
+    v = 1 if value else 0
+    due.Engine.ExecuteCommand("SetCtr({})".format(v))
+
+def IsButtonPressed():
+    return not due.Digital.Read(
+        button_pin,
+        1
+    )
+
+button_state1 = False
+button_state2 = True
+
+while True:
+    button_state1 = IsButtonPressed()
+
+    if button_state1 != button_state2:
+        button_state2 = button_state1
+
+        if button_state2:
+            SetLedControl(False)
+            SetLedRing(0, 0, 0, 0)
+            SetLedRing(1, 0, 0, 0)
+            SetLedRing(2, 0, 0, 0)
+        else:
+            SetLedRing(0, 255, 0, 0)
+            SetLedRing(1, 0, 255, 0)
+            SetLedRing(2, 0, 0, 255)
+            SetLedControl(True)
+
+    time.sleep_ms(100)  # equivalent to Thread.Sleep(100)
