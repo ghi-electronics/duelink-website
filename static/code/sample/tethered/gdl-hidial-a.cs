@@ -12,7 +12,7 @@ float Dial() {
 }
 
 while (true) {    
-    Console.WriteLine($"Vaue: {Dial()}");
+    Console.WriteLine($"Value: {Dial()}");
     Thread.Sleep(1000);
 }
 
