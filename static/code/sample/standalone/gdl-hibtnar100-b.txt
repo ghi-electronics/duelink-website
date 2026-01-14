@@ -1,0 +1,29 @@
+# In this sample:
+# When button isn't pressed: Led0: red; led1: green; led2: blue; Led control: on
+# When button is pressed: All led off
+
+_a = 1
+_b = 0
+while (1)
+    _a = Dread(BtnPin(),1) # 1: pullup
+    
+    if _a != _b
+        _b = _a
+        
+        if _b = 0
+            SetRing(0,0,0,0)
+            SetRing(1,0,0,0)
+            SetRing(2,0,0,0)
+            SetCtr(0)
+        else
+            SetRing(0,255,0,0)
+            SetRing(1,0,255,0)
+            SetRing(2,0,0,255)
+            SetCtr(1)
+        
+        end
+    end
+    
+    wait(10)
+    
+wend
