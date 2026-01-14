@@ -1,5 +1,5 @@
 // In this sample:
-// Set the STATLED dimming based on the dial value.
+// Scan all switches and statled is on if any switch is ON position
 
 #define STATLED_PIN 0
 const uint8_t pin_map[] = {PB8, PA0, PA1, PA4, PA5, PA6, PA7, PA8, PB1, PB0, PC15, PC6, PB3, PB4, PB5,PB6,PB7,PB2,PB9,PA15,PA14,PA9,PA10,PA13,PC14};
