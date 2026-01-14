@@ -1,15 +1,7 @@
-_p = 0
+# In this sample:
+# Update Dial value every second
 
-while 1
-    _c = Dial()
-
-    if _c < _p-1 || _c > _p+1
-        for i in Range(_c/3)
-        Print("*")
-        next
-        PrintLn("")
-    _p = _c
-    end
-    
-    Wait(10)
+while (1)
+    println("Dial value: ", Dial())
+    wait(1000)
 wend
