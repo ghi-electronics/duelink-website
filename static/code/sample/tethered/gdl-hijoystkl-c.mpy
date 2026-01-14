@@ -1,0 +1,38 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# Update X, Y and Button status every 100ms
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+button_pin = int(due.Engine.ExecuteCommand("BtnPin()"))
+
+def ReadX():
+    ret = due.Engine.ExecuteCommand("JoystickX()")
+    return int(ret)
+
+def ReadY():
+    ret = due.Engine.ExecuteCommand("JoystickY()")
+    return int(ret)
+
+def ReadButton():
+    ret = due.Digital.Read(button_pin, 1)
+    return 0 if ret == False else 1
+
+while True:
+    x = ReadX()
+    y = ReadY()
+    bt = ReadButton()
+
+    print("X = {}, Y = {}, Button status: {}".format(x, y, bt))
+
+    time.sleep_ms(100)
