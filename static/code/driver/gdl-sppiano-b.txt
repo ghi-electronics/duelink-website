@@ -1,10 +1,11 @@
-Asio(1)
+##### Piano #####
+
 _s = 1 # rc time
 _m = 150
 _n = 90
  
 ##### Piano #####
-dim b0[13] = [23,19,12,13,14,15,16,18,24,10,9,8,17]
+dim b0[15] = [23,19,12,13,14,15,16,18,24,10,9,8,17,7,11]
 dim a1[15] = {_m ,_m ,_m ,_m ,_m ,_m ,_m ,_m ,_m ,_m ,_m ,_m ,_m ,_m ,_m } # min start
 dim a2[15] = {_n ,_n ,_n ,_n ,_n ,_n ,_n ,_n ,_n ,_n ,_n ,_n ,_n ,_n ,_n} # max start
 fn DVer()
@@ -39,11 +40,6 @@ fn Calibrate(s)
  
     e = tickms() + t 
  
-    # calibration values of left and right arrow are stored in last two elements of a1 and a2
-    # right after pinao pads 
-    l = len(b0) # left 
-    r = l + 1 # right 
- 
     for i = 0 to len(a1) 
         a1[i] = _m
         a2[i] = _n
@@ -52,72 +48,33 @@ fn Calibrate(s)
     # calibrate piano pads
     while tickms() < e
         for i = 0 to len(b0) 
- 
- 
-                p = PulseIn(b0[i], _s, 1, 1)
- 
-                v = Floor(p*s)
- 
-                if v < 1
-                    v = 1
-                end
- 
-                #println(p)
- 
-                if 1
-                    if (p > _m || p < _n) 
-                        # Just in case of a bad range (e.g., if the user touches the pad during calibration).
-                        #println("Bad calibrate - Redo again")
-                        e = tickms() + t 
-                        i = 0
-                    else
-                        if p <= a1[i]
-                            a1[i] = p - v
-                        end
-                        if p >= a2[i]
-                            a2[i] = p + v 
-                        end
+            p = PulseIn(b0[i], _s, 1, 1)
+
+            v = Floor(p*s)
+
+            if v < 1
+                v = 1
+            end
+
+            if 1
+                if (p > _m || p < _n) 
+                    # Just in case of a bad range (e.g., if the user touches the pad during calibration).
+                    #println("Bad calibrate - Redo again")
+                    e = tickms() + t 
+                    i = 0
+                else
+                    if p <= a1[i]
+                        a1[i] = p - v
                     end
- 
- 
+                    if p >= a2[i]
+                        a2[i] = p + v 
+                    end
                 end
- 
+            end
         next
     wend
- 
-    # calibrate left arrow
-    p = PulseIn(11, _s, 1, 1)
- 
-    v = Floor(p*s)
- 
-    if v < 1
-        v = 1
-    end
- 
-    if p < a1[l]
-        a1[l] = p -  v 
-    end
-    if p > a2[l]
-        a2[l] = p +  v 
-    end
- 
-    # calibrate right arrow
-    p = PulseIn(7, _s, 1, 1)
- 
-    v = Floor(p*s)
- 
-    if v < 1
-        v = 1
-    end
- 
-    if p < a1[r]
-        a1[r] = p - v 
-    end
-    if p > a2[r]
-        a2[r] = p + v 
-    end
- 
 fend
+
 fn IsTouch(p,i) 
  
  
@@ -130,53 +87,14 @@ fn IsTouch(p,i)
     return 1
  
 fend
+
 fn TLArrow() # left arrow touch: 0: not touched, 1: touched
-    l = len(b0) # calibration value index
- 
-    x = -1
-    y = -2
- 
-    while x !=y 
-        p = PulseIn(11, _s, 1, 1)
-        x = IsTouch(p,l)
- 
-        y = -2
- 
-        if p >=a1[l]
-            p = PulseIn(11, _s, 1, 1)
-            y = IsTouch(p,l)
-        end
- 
-    wend
- 
-    #if x
-    #    println("i = left", l, ", yes p: ", p, ", min: ", a1[l], ", max: ", a2[l])
-    #end
-    return x
+    return TPad(14)
 fend
 fn TRArrow() # right arrow touch: 0: not touched, 1: touched
-    r = len(b0) + 1 # calibration value index
-    x = -1
-    y = -2
- 
-    while x !=y
-        p = PulseIn(7, _s, 1, 1)
-        x = IsTouch(p,r)
- 
-        y = -2
- 
-        if p >= a1[r]
-            p = PulseIn(7, _s, 1, 1)
-            y = IsTouch(p,r)
-        end
-    wend 
- 
-    #if x
-    #    println("i = right", r, ", yes p: ", p, ", min: ", a1[r], ", max: ", a2[r])
-    #end
-    return x
+    return TPad(13)
 fend
- 
+
 fn TPad(i) # pad touch: 0: not touched, 1: touched
  
     x = -1
@@ -203,5 +121,3 @@ fn TPad(i) # pad touch: 0: not touched, 1: touched
 fend
  
 Calibrate(0.1)
-
-##############################
