@@ -1,0 +1,7 @@
+# In this sample:
+# Update Slide value every second
+
+while (1)
+    println("Slide value: ", Slide())
+    wait(1000)
+wend
