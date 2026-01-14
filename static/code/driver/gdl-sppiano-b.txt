@@ -1,3 +1,5 @@
+##### Piano #####
+
 _s = 1 # rc time
 _m = 150
 _n = 90
@@ -86,6 +88,13 @@ fn IsTouch(p,i)
  
 fend
 
+fn TLArrow() # left arrow touch: 0: not touched, 1: touched
+    return TPad(14)
+fend
+fn TRArrow() # right arrow touch: 0: not touched, 1: touched
+    return TPad(13)
+fend
+
 fn TPad(i) # pad touch: 0: not touched, 1: touched
  
     x = -1
@@ -112,5 +121,3 @@ fn TPad(i) # pad touch: 0: not touched, 1: touched
 fend
  
 Calibrate(0.1)
-
-##############################
