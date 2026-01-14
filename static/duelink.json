@@ -1361,7 +1361,7 @@
       "PID": "0x060013",
       "category": "Sensor",
       "tagline": "Thermocouple Sensor",
-      "description": "This sensor uses the included K-Type Thermoster to measure extreme temperatures, with a max range of -454°F to 2300°F",
+      "description": "This sensor uses the included K-Type Thermoster to measure extreme temperatures, with a max range of -454°F to 2300°F\n\n:::tip\nConnect the black wire to the (+) side of the terminal block.\n:::",
       "keyFeatures": [
         "K-Type Thermostor Sensor",
         "32x36mm overall dimension"
