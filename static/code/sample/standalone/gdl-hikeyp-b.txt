@@ -1,9 +1,12 @@
+# In this sample:
+# Detect a pressed key
+
+SStart("Scan", 100, 0)
 while 1 
 
-if IsKeyChange()
+    if IsKeyChange()
+        PrintLn(chr(RdKey()))
+    end
 
-    PrintLn(chr(RdKey()))
-end
-
-wait(10)
+    wait(100)
 wend

@@ -1,3 +1,7 @@
+# In this sample:
+# Detect a fingerprint and store it in the system
+# Compare the detected fingerprint with the stored fingerprints
+
 PrintLn("Initialize.....")
 while Init() != 0
     Wait(1000)

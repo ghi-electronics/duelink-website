@@ -1,5 +1,5 @@
 // In this sample:
-// Scan all switches and show if any switch is ON position
+// Update Slide value every second
 
 import pkg_serialusb from 'dlserialusb';
 const {SerialUSB} = pkg_serialusb
@@ -16,19 +16,19 @@ function sleep(ms) {
 }
 
 // Methods
-async function Read(index) {
-    const ret = await duelink.Engine.ExecuteCommand(`Read(${index})`);
-    return ret !== 0;
+async function Slide() {
+    return await duelink.Engine.ExecuteCommand("Slide()");
 }
 
-(async () => {
+// Main loop
+async function mainLoop() {
     while (true) {
-        for (let i = 0; i < 10; i++) {
-            if (await Read(i + 1)) {
-                console.log(`Detected ON on switch index: ${i + 1}`);
-            }
-        }
-
-        await sleep(1000); 
+        console.log(`Value: ${await Slide()}`);
+        await sleep(1000); // Sleep for 1 second
     }
+}
+
+// Start the loop
+(async () => {
+    await mainLoop();
 })();
