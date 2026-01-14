@@ -1,0 +1,63 @@
+# In this sample:
+# When a button is pressed, set light to white color 100% brightness on that button.
+
+fn Test()
+ 
+    a = 1
+    b = 1
+    c = 1
+    d = 1
+ 
+    x = 1
+    y = 1
+    m = 1
+    n = 1
+  
+    while (1) 
+        a = dread(7,1) # 1: input pullup
+        b = dread(2,1) # 1: input pullup
+        c = dread(5,1) # 1: input pullup
+        d = dread(3,1) # 1: input pullup
+ 
+        if (a!=x)
+            x = a
+            if (a = 0)
+                SetClr(0,(1<<0) | (1<<1) | (1<<2), 100) # turn on  red, green, blue bit
+            else
+                SetClr(0,0, 100) # turn off red, green, blue bit
+            end
+        end
+ 
+        if (b!=y)
+            y = b
+            if (b = 0)
+                SetClr(1,(1<<0) | (1<<1) | (1<<2), 100) # turn on  red, green, blue bit
+            else
+                SetClr(1,0, 100) # turn off red, green, blue bit
+            end
+        end
+ 
+        if (c!=m)
+            m = c
+            if (c = 0)
+                SetClr(2,(1<<0) | (1<<1) | (1<<2), 100) # turn on  red, green, blue bit
+            else
+                SetClr(2,0, 100) # turn off red, green, blue bit
+            end
+        end
+ 
+        if (d!=n)
+            n = d
+            if (d = 0)
+                SetClr(3,(1<<0) | (1<<1) | (1<<2), 100) # turn on  red, green, blue bit
+            else
+                SetClr(3,0, 100) # turn off red, green, blue bit
+            end
+        end
+ 
+        wait(10)
+ 
+    wend
+fend 
+
+Test()

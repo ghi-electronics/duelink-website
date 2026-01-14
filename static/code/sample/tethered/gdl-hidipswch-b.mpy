@@ -1,0 +1,26 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# Scan all switches and show if any switch is ON position
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def Read(index):
+    ret = due.Engine.ExecuteCommand(f"Read({index})")
+    return ret != 0
+
+while True:
+    for i in range(10):
+        if Read(i + 1):
+            print(f"Detected ON on switch index: {i + 1}")
+    
+    time.sleep(1)  
