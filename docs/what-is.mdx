@@ -1,8 +1,3 @@
----
-hide_table_of_contents: true
-pagination_next: null
-pagination_prev: null
----
 
 # What is DUELink?
 
@@ -29,7 +24,7 @@ Whether you're designing, tinkering, or teaching, DUELink makes innovation modul
 ---
 
 <div style={{ textAlign: 'center'}}>
-## Engineers | Makers | Educators
+## Engineers, Makers, Educators
 </div>
 
 <table>
@@ -42,9 +37,9 @@ Whether you're designing, tinkering, or teaching, DUELink makes innovation modul
 </table>
 
 <details>
-  <summary>Flexible for engineers, friendly for makers and educators.</summary>
+  <summary>Flexible for engineers, friendly for makers, and helpful for educators.</summary>
 
-DUELink is designed by commercial [engineers](./engineers) who understand the need for rapid prototyping. The user-friendly system is designed to work for [makers](./makers) of every level, plus some STEM-tailored options to suit [educators](./educators).
+DUELink is designed by commercial [engineers](./engineers) who understand the need for rapid prototyping. The user-friendly system is designed to work for [makers](./makers) of every level. [Educators](./educators) will also benefit from the STEM-tailored options.
 
 </details>
 
@@ -68,7 +63,7 @@ DUELink is designed by commercial [engineers](./engineers) who understand the ne
 ---
 
 <div style={{ textAlign: 'center'}}>
-## Product Catalog
+## Complete Catalog
 ![Product Catalog](pathname:///img/duelink-modules.webp)
 </div>
 
@@ -117,7 +112,9 @@ Go ahead and tether your favorite board to one, or a hundred, DUELink modules. W
 <details>
   <summary>Users can select one of the coding languages, but they can also run programs standalone!</summary>
 
-Tether your favorite [hardware](./hw/intro) and use one of the supported [languages](./language/intro), including [Python](./language/python) and [JavaScript](./language/javascript). Moreover, modules can run [standalone](./language/standalone) using [Arduino](./hw/arduino), [MicroBlocks](./language/microblocks), and the internal [Scripting Language](./engine/scripting).
+Tether DUELink modules to your favorite [hardware](./hw/intro) and use one of the many supported [languages](./language/intro), including [Python](./language/python) and [JavaScript](./language/javascript).
+
+Moreover, modules can run [standalone](./language/standalone) using [Arduino](./hw/arduino), [MicroBlocks](./language/microblocks), and the internal [Scripting Language](./engine/scripting).
 
 If [Excel](./language/excel) can control a sensor, then anything can!
 
@@ -181,7 +178,7 @@ PrintLn("Hello World")
 
 The DUELink [engine](./engine/intro) is very powerful for its size! It lives on every single module and includes a [Scripting Language](./engine/scripting) with an extensive [Standard Library](./engine/stdlib) and support for [Graphics](./engine/graphics), [File System](./engine/filesystem), and beyond!
 
-Each module is a mini-computer allowing it to run [standalone](./language/standalone) using its [Scripting Engine](./engine/scripting). This engine can also be commanded by your favorite tethered [hardware](./hw/intro), such as [Raspberry Pi](./hw/raspberry-pi) or [Micro:bit](./hw/microbit) or even control the modules from a [PC](./hw/pc-laptop). 
+Each module is a mini-computer allowing it to run [standalone](./language/standalone) using its [Scripting Engine](./engine/scripting). This engine can also be commanded by your favorite tethered [hardware](./hw/intro), such as [Raspberry Pi](./hw/raspberry-pi), [Micro:bit](./hw/microbit), or even control the modules from a [PC](./hw/pc-laptop). 
 
 Still want more? Load the module with [MicroBlocks](./language/microblocks) and use an easy block coding interface, or use [Arduino](./hw/arduino) and take advantage of massive community resources.
 
@@ -205,18 +202,19 @@ Still want more? Load the module with [MicroBlocks](./language/microblocks) and 
 
 DUELink [specifications](./specs) are available to help you in making [your own modules](./catalog/third-party). For 3D-printed and laser-cut enclosures, a universal rule is in how holes are added to each module. This allows for universal mounting, like with the available [Holey boards](./products/axholey). We even give you some [mounting hardware](./products/axmnt) options!
 
+</details>
+
 <div style={{ textAlign: 'center'}}><Button
   style={{ color:'white' }}
   label="Specifications"
   link="./specs"
 /></div>
 
-</details>
 
 ---
 
 <div style={{ textAlign: 'center'}}>
-## DUELink with Qwiic, Stemma QT, and Modulino
+## Qwiic, STEMMA, Modulino
 ![DUELink STEM I2C qwiic stemmaQT modulino](pathname:///img/qwiic-stemma-modulino-i2c.webp)
 </div>
 
@@ -224,9 +222,22 @@ DUELink [specifications](./specs) are available to help you in making [your own 
 <details>
   <summary>Works with non-DUELink modules, such as SparkFun Qwiic, Adafruit STEMMA QT, and Arduino Modulino.</summary>
 
-Microcomputers that use JST connectors, like Sparkfun Qwiic, Adafruit STEMMA QT, or Arduino Modulino work directly with DUELink modules using [I2C](./interface/i2c) interface. Similarly, systems like Seeed Studio Grove will work, but you will need an adapter cable due to the different connector size.
+Circuits that use I2C JST connectors, like Sparkfun Qwiic, Adafruit STEMMA QT, or Arduino Modulino work directly with DUELink modules. Similarly, systems like Seeed Studio Grove will als work, but you will need an adapter cable due to the different connector size.
 
-Similarly, non-DUELink sensors and actuators can connect to a DUELink [downlink](./interface/downlink) connector. 
+There are 2 ways to connect third-party systems. Add DUELink modules to the [I2C](./interface/i2c) connection of a [Supported Hardware](./hw/intro), and optionally combined with other third-party modules as well.
+
+<div style={{ textAlign: 'center'}}>
+![QWIIC, STEMMA QT, and Modulino with DUELink modules](pathname:///img/qwiic-stemma-modulino-duelink.webp)
+</div>
+
+The other options is to wire third-party modules to the [downlink](./interface/downlink) connector of any DUELink circuit.
+
+<div style={{ textAlign: 'center'}}>
+![I2C non-DUELink](pathname:///img/i2c-nonduelink.webp)
+</div>
+
+You can even have a setup with both options!
+
 </details>
 
 <div style={{ textAlign: 'center'}}><Button
@@ -265,12 +276,13 @@ As a great starting point, DUELink Kits and Bundles will include everything you 
 <div style={{ textAlign: 'center'}}>
 
 ![Print](pathname:///img/getting-started.webp)
+## Getting Started
 
-Start in seconds with any of the modules using the online hosted demo. Then start coding in minutes using your favorite languages.
+Start in minutes and code using your favorite languages, on your favorite hardware.
 
 <Button
   style={{ color:'white' }}
-  label="Getting Started"
+  label="Start Now!"
   link="./start"
 /></div>
 
