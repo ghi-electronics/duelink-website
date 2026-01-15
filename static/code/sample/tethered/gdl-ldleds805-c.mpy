@@ -1,0 +1,67 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# Show characters, dots, and numbers.
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def DrawText(text):
+    due.Engine.ExecuteCommand(f'PrntStr("{text}")')
+
+def DrawDot(pos, value):
+    due.Engine.ExecuteCommand(f'Dot({pos},{value})')
+
+def DrawNumber(number):
+    due.Engine.ExecuteCommand(f'Digit({number})')
+
+def Clear():
+    due.Engine.ExecuteCommand("Clear(0)")
+
+def Show():
+    due.Engine.ExecuteCommand("Show()")
+
+
+DrawText("ABCDE")
+Show()
+time.sleep(1)
+
+DrawText("FGHIJ")
+Show()
+time.sleep(1)
+
+DrawText("KLMNO")
+Show()
+time.sleep(1)
+
+DrawText("PQRST")
+Show()
+time.sleep(1)
+
+DrawText("UVWXY")
+Show()
+time.sleep(1)
+
+DrawText("  Z  ")
+DrawDot(0, 1)
+DrawDot(1, 1)
+DrawDot(3, 1)
+DrawDot(4, 1)
+Show()
+time.sleep(1)
+
+n = 0
+while True:
+    Clear()
+    DrawNumber(n % 100000)
+    n += 1
+    Show()
+    time.sleep(0.1)
