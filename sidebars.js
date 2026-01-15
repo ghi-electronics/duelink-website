@@ -200,7 +200,6 @@ const sidebars = {
           label: "Wireless",
           items: [
             "products/wlgps-a",
-            "products/wlinfrared-a",
             "products/wlnrf24max-c",
             "products/wlnrf24min-c",
             "products/wlrfid-b",

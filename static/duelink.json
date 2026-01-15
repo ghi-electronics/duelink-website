@@ -1115,21 +1115,6 @@
       ]
     },
     {
-      "name": "Infrared",
-      "partNumber": "GDL-WLINFRARED-A",
-      "PID": "0x090006",
-      "category": "Wireless",
-      "price": 12.95,
-      "tagline": "Infrared Transmitter & Receiver",
-      "description": "Use light, infrared to be exact, to send and receive data. The data is transferred over a 38Khz frequency to filter out any other surrounding infrared light.",
-      "keyFeatures": [
-        "Infrared Connectivity",
-        "Transmitter and Receiver",
-        "38Khz carrier frequency",
-        "32x48mm overall dimension"
-      ]
-    },
-    {
       "name": "NRF24 Max",
       "partNumber": "GDL-WLNRF24MAX-C",
       "PID": "0x090003",
