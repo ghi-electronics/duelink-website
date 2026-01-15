@@ -526,7 +526,7 @@
       "PID": "0x010004",
       "category": "Display",
       "price": 14.95,
-      "tagline": "0.96\" - 128x64 OLED BW Display",
+      "tagline": "0.96\" - 128x64 OLED B&W Display",
       "description": "This small 0.96\" display is very sharp due to its OLED construction. It is B&W color, but with 128x64 pixels, it has enough resolution to show plenty of data and [graphics](/docs/engine/graphics).",
       "keyFeatures": [
         "0.96\" display",
@@ -1962,22 +1962,22 @@
       "variations": [
         {
           "name": "Stick",
-          "partCode": "S",
+          "partCode": "STK",
           "price": 1.95
         },
         {
           "name": "Smally",
-          "partCode": "M",
+          "partCode": "SML",
           "price": 2.95
         },
         {
           "name": "Standard",
-          "partCode": "L",
+          "partCode": "STD",
           "price": 4.95
         },
         {
           "name": "Moley",
-          "partCode": "XL",
+          "partCode": "MLY",
           "price": 9.95
         }
       ]
