@@ -1,3 +1,5 @@
+# In this sample:
+# Show characters, dot, numbers
 
 PrntStr("ABCDE")
 show()
