@@ -50,10 +50,10 @@ let sec = 0;
 
         await ShowColon(1);
         await Show();
-        await sleep(400); // LED on for 400ms
+        await sleep(400); // 
 
         await ShowColon(0);
         await Show();
-        await sleep(400); // LED off for 400ms
+        await sleep(400); // 
     }
 })();

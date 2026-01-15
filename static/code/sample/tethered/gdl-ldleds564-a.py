@@ -37,8 +37,8 @@ while True:
 
     ShowColon(1)
     Show()
-    time.sleep(0.4)  # LED on for 400ms
+    time.sleep(0.4)  # 
 
     ShowColon(0)
     Show()
-    time.sleep(0.4)  # LED off for 400ms
+    time.sleep(0.4)  # 
