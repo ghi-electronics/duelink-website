@@ -126,7 +126,6 @@ const sidebars = {
             "products/securrent-a",
             "products/sedistance-b",
             "products/sedof9-c",
-            "products/seekg-a",
             "products/segas-b",
             "products/selight-a",
             "products/semotion-b",
@@ -201,7 +200,6 @@ const sidebars = {
           label: "Wireless",
           items: [
             "products/wlgps-a",
-            "products/wlinfrared-a",
             "products/wlnrf24max-c",
             "products/wlnrf24min-c",
             "products/wlrfid-b",
