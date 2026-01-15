@@ -1,1 +1,9 @@
-// Work in Progress
+# In this sample:
+# Read temperature every 1.5 second
+
+fn Test() 
+    while 1
+        println("Temp: ", ReadTemp())
+        Wait(1500)
+    wend
+fend

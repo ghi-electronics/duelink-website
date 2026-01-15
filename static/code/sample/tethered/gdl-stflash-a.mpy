@@ -1,0 +1,99 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# Implement Erase, Write, Read, Busy, and GetId
+# Using Stream to write/read data at sector 1
+# Sector size is 4 KB
+# Flash size is 16 MB
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def GetId(id):
+    due.Engine.ExecuteCommand("dim b0[3]")
+    due.Engine.ExecuteCommand("SfGetid(b0)")
+    due.Stream.ReadBytes("b0", id)
+
+
+def Erase(blockAddress):
+    # Each sector is 4 KB
+    # Erase the starting sector only
+    address = (blockAddress >> 12) * (4 * 1024)
+    due.Engine.ExecuteCommand("SfErase({})".format(blockAddress))
+
+    # Wait for the process to complete
+    time.sleep_ms(100)
+    while IsBusy():
+        time.sleep_ms(100)
+
+
+def Write(address, data):
+    due.Engine.ExecuteCommand("dim b1[{}]".format(len(data)))
+    due.Stream.WriteBytes("b1", data)
+    due.Engine.ExecuteCommand("SfWrite({},b1)".format(address))
+
+    # Wait for the process to complete
+    time.sleep_ms(100)
+    while IsBusy():
+        time.sleep_ms(100)
+
+
+def Read(address, data):
+    due.Engine.ExecuteCommand("dim b2[{}]".format(len(data)))
+    due.Engine.ExecuteCommand("SfRead({},b2)".format(address))
+    due.Stream.ReadBytes("b2", data)
+
+    time.sleep_ms(100)
+    while IsBusy():
+        time.sleep_ms(100)
+
+
+def IsBusy():
+    ret = due.Engine.ExecuteCommand("SfIsBusy()")
+    return ret != 0
+
+
+print("Make sure the system is not busy before accessing data in flash")
+while IsBusy():
+    time.sleep_ms(1000)
+    print("Flash is busy!!!!")
+
+
+id = bytearray(3)
+GetId(id)
+
+# Show 3-byte ID
+for b in id:
+    print("0x{:02x}".format(b))
+
+
+test_address = 4 * 1024  # Test at sector 1
+
+# Erase sector 1
+Erase(test_address)
+
+# Write "1111 " at the test address
+data_write1 = b"Test "
+Write(test_address, data_write1)
+
+# Write "me" after data_write1
+data_write2 = b"me"
+Write(test_address + len(data_write1), data_write2)
+
+# Read back "1111 me"
+data_read = bytearray(len(data_write1) + len(data_write2))
+Read(test_address, data_read)
+
+# Convert to string
+read_str = data_read.decode("utf-8")
+
+# Show string
+print(read_str)

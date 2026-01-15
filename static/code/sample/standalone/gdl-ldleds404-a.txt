@@ -1,21 +1,32 @@
-# Common LED S284/S404/S564 Sample
+# In this sample:
+# Display the current minute and second on the LED (timer version).
+# Time start from 00:00
 
-_x=0
- 
+m = 0
+s = 0
 while 1 
-    Digit(_x)
+    Seg7(0, floor(s % 10))
+    Seg7(1, floor(s / 10))
+    Seg7(2, floor(m % 10))
+    Seg7(3, floor(m / 10))
     
-    #Colon(1)
-    
-    # "Rotate" the dot, or blink colon
-    Dot(0,0)
-    Dot(1,0)
-    Dot(2,0)
-    Dot(3,0)
-    Dot(_x%4,1)
-    
+    colon(1)
     Show()
-    _x=_x+1
- 
-    wait(30)
+    wait(500)
+    
+    colon(0)
+    Show()
+    wait(500)
+    
+    s = s + 1
+    
+    if (s = 60)
+        s = 0
+        m = m + 1
+        
+        if (m = 60)
+            m = 0
+        end
+    end
 wend
+ 

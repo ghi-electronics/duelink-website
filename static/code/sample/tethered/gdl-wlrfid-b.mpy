@@ -1,0 +1,43 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# Detect and display the RFID card number when the card is close enough
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def IsCard():
+    ret = due.Engine.ExecuteCommand("IsCard()")
+    return ret == 1
+
+
+def ReadCard(cardNumber):
+    due.Engine.ExecuteCommand("dim b1[16]")
+    due.Engine.ExecuteCommand("ReadCard(b1)")
+
+    due.Stream.ReadBytes("b1", cardNumber)
+
+
+while True:
+    if IsCard():
+        print("Card detected:")
+        num = bytearray(16)
+
+        ReadCard(num)
+
+        for i in range(16):
+            n = "{:02x}".format(num[i])
+            print(n, end="")
+            if i < 16 - 1:
+                print(":", end="")
+        print()
+
+    time.sleep_ms(500)

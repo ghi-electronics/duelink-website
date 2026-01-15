@@ -1,17 +1,43 @@
-PrintLn("Mount")
-_r = 0x01 # Read only
-FsMnt(2, 0, 0, 4)
- 
-# Read text file
-PrintLn("Open")
-h = FsOpen("/test.txt", _r)
+# In this sample:
+# - Mount a USB thumb drive formatted as FAT32.
+# - Open a handle for writing, write "Hello world", and close the write handle
+# - Open a handle for reading, read data (expected to be "Hello world"), and close the read handle
+# - Unmount the usb
+# Reference: https://www.duelink.com/docs/engine/filesystem
+# For more FileSystem APIs (Delete, Find, Directory, etc.)
 
-PrintLn("Read")
-Dim b2[13]
+Dim b1[] = "Hello World"
+
+# 2: USB thumb drive
+# 0: Ignore
+# 0: Ignore
+# 4: Max 4 handle can be open at run time
+PrintLn("Mound USB")
+fsmnt(2, 0, 0, 4)
+
+# Write b1 array to a file
+PrintLn("Open handle for writing...")
+# 0x02: Write only (no read)
+# 0x08: Create always. Forces creation of a new file.
+#       If the file already exists, it will be deleted.
+h = FsOpen("/test.txt", 0x02|0x08)
+PrintLn("Writing data: Hello world")
+FsWrite(h, b1)
+PrintLn("Close handle...")
+FSClose(h)
+
+
+PrintLn("Open handle for reading...")
+# Read from the same file to b2 array
+# 0x01: Read only (no write)
+h = FsOpen("/test.txt", 0x01)
+Dim b2[11]
+PrintLn("Read data...")
 FsRead(h, b2)
+Print("=>>>>>>> Read: ")
 PrintLn(b2)
+PrintLn("Close handle...")
+FSClose(h)
 
-PrintLn("Close")
-FsClose(h)
-FsUnmnt()
- 
+fsunmnt()
+PrintLn("Unmounted!")

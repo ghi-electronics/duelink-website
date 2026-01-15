@@ -1,3 +1,6 @@
+# In this sample:
+# Continuously change colors: white, red, green, and blue every second
+
 i = 0
 while 1
     

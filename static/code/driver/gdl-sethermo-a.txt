@@ -1,0 +1,47 @@
+##### Thermo #####
+
+fn Init() 
+    SpiCfg(0, 1000)    
+fend
+
+fn ReadReg()
+    dim b1[2] = [0, 0]
+    v = 0
+ 
+    dwrite(4,0) 
+    
+    WaitUs(1)
+    
+    SpiWrs([0,0],b1)
+ 
+    dwrite(4,1)
+
+    v = (b1[0] << 8) | (b1[1] << 0) 
+    
+    return v
+fend
+ 
+fn ReadTemp() 
+    v = ReadReg()
+    v = v >> 3
+    t = v * 0.25
+    
+    return t
+ 
+fend
+
+fn IsConnect()
+    v = ReadReg()
+    
+    if (v & 0x04) 
+        return 0
+    else    
+        return 1
+    end 
+fend
+
+fn DVer()
+    return 1.0
+fend
+
+Init()

@@ -4,7 +4,6 @@ fn DVer()
     return 1.0
 fend
 
-# https://github.com/lsongdev/RFID-RC522/blob/master/RFID.cpp#L118
 Dim b2[5] # serial number
 Alias(rst=3,cs=5)
 
