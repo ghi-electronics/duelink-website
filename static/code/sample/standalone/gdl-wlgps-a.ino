@@ -1,5 +1,5 @@
 // In this sample:
-// Receive GPS data from the module every second
+// Receive GPS data from the module
 // Parse and display the time, date, latitude, longitude, and speed
 
 #include <Arduino.h>
