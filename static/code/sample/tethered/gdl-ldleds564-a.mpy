@@ -1,0 +1,50 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# Display the current minute and second on the LED (timer version).
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def DrawNumber(led, number):
+    due.Engine.ExecuteCommand(f"Seg7({led},{number})")
+
+def ShowColon(value):
+    due.Engine.ExecuteCommand(f"Colon({value})")
+
+def Show():
+    due.Engine.ExecuteCommand("Show()")
+
+min = 0
+sec = 0
+
+while True:
+    now = time.gmtime()  # returns (year, month, mday, hour, minute, second, weekday, yearday)
+    minute = now[4]
+    second = now[5]
+
+    if sec != second or min != minute:
+        sec = second
+        min = minute
+
+        DrawNumber(0, sec % 10)
+        DrawNumber(1, sec // 10)
+
+        DrawNumber(2, min % 10)
+        DrawNumber(3, min // 10)
+
+    ShowColon(1)
+    Show()
+    time.sleep(0.4)  # LED on for 400ms
+
+    ShowColon(0)
+    Show()
+    time.sleep(0.4)  # LED off for 400ms
