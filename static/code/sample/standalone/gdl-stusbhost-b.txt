@@ -1,8 +1,8 @@
 # In this sample:
-# - Mount an SD/uSD card
+# - Mount a USB thumb drive formatted as FAT32.
 # - Open a handle for writing, write "Hello world", and close the write handle
 # - Open a handle for reading, read data (expected to be "Hello world"), and close the read handle
-# - Unmount the SD/uSD card
+# - Unmount the usb
 # Reference: https://www.duelink.com/docs/engine/filesystem
 # For more FileSystem APIs (Delete, Find, Directory, etc.)
 
@@ -12,7 +12,7 @@ Dim b1[] = "Hello World"
 # 0: Ignore
 # 0: Ignore
 # 4: Max 4 handle can be open at run time
-PrintLn("Mound SD/uSD")
+PrintLn("Mound USB")
 fsmnt(2, 0, 0, 4)
 
 # Write b1 array to a file
