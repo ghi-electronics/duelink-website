@@ -40,4 +40,8 @@ fn IsConnect()
     end 
 fend
 
+fn DVer()
+    return 1.0
+fend
+
 Init()
