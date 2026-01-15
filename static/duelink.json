@@ -1336,7 +1336,7 @@
         "K-Type Thermostor Sensor",
         "32x36mm overall dimension"
       ],
-      "driverApi": " Function | Description \n----------|-------------\n `ReadTemp()` | Reads the current temperature in celsius. \n `IsConnect()()` | Return 1 if the thermocouple is connected; return 0 if it is not connected.\n `DVer()` | This driver version. ",
+      "driverApi": " Function | Description \n----------|-------------\n `ReadTemp()` | Reads the current temperature in celsius. \n `IsConnect()` | Return 1 if the thermocouple is connected; return 0 if it is not connected.\n `DVer()` | This driver version. ",
       "variations": [
         {
           "name": "K-Type",
