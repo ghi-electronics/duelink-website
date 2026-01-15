@@ -126,7 +126,6 @@ const sidebars = {
             "products/securrent-a",
             "products/sedistance-b",
             "products/sedof9-c",
-            "products/seekg-a",
             "products/segas-b",
             "products/selight-a",
             "products/semotion-b",

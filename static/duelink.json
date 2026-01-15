@@ -1291,21 +1291,6 @@
       ]
     },
     {
-      "name": "EKG",
-      "partNumber": "GDL-SEEKG-A",
-      "PID": "0x060009",
-      "category": "Sensor",
-      "price": 19.95,
-      "tagline": "Heart EKG Sensor",
-      "description": "Use this module to experiment with heart EKG signals. This is NOT a medical device but an educational sensor for experimentation. The kit includes probes and sticker pads.",
-      "keyFeatures": [
-        "EKG (ECG)",
-        "Includes probes and pads",
-        "Electrocardiogram",
-        "52x32mm overall dimension"
-      ]
-    },
-    {
       "name": "Motion",
       "partNumber": "GDL-SEMOTION-B",
       "PID": "0x06000C",
@@ -1770,7 +1755,7 @@
       "category": "Adapter",
       "price": 14.95,
       "tagline": "BBC micro:bit Compatible Color Display Extender",
-      "description": "Impower your BBC micro:bit with a 160x128 1.8\" color display. Use Microsoft MakeCode to utilize the display. For example, use the DUELink connector to read a temperature sensor and show a graph on the display. The display works entirely in MakeCode independently from DUELink. It is an excellent upgrade over the 5x5 LED matrix.\n\n :::note\n\nmicro:bit mounts behind RaveBit giving the board some thickness. This thickness will prevent the board from plugging into some accessories. Select an accessory that has \"no back\". Using alligator clips to connect things works just fine.\n\n:::",
+      "description": "Impower your BBC micro:bit with a 160x128 1.8\" color display. Use Microsoft MakeCode to utilize the display. For example, use the DUELink connector to read a temperature sensor and show a graph on the display. The display works entirely in MakeCode independently from DUELink. It is an excellent upgrade over the 5x5 LED matrix.\n\n :::note\n\nmicro:bit mounts behind RaveBit giving the board some thickness. This thickness will prevent the board from plugging into some accessories. Select an accessory that has \"no back\". Using alligator clips to connect things works just fine.\n\n:::\n\n :::tip\n\nRaveBit is still under development and onyl available to select partners.\n\n:::",
       "keyFeatures": [
         "micro:bit female socket",
         "Color display",
