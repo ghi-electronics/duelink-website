@@ -1,3 +1,6 @@
+# In this sample:
+# Detect and display the RFID card number when the card is close enough
+
 dim b1[16]
 while (1)
     if (isCard() = 1)
