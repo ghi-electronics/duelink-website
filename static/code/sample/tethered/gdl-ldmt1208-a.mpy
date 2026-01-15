@@ -1,0 +1,27 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# Display "Hello World" and scroll the text across the screen
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+x = 12
+while True:
+    due.Graphics.Clear(0)
+    due.Graphics.Text("Hello world!", 1, x, 0)
+    x -= 1
+
+    if x < -70:
+        x = 12
+
+    due.Graphics.Show()
+    time.sleep_ms(30)  # 1 millisecond, equivalent to Thread.Sleep(1) in C#
