@@ -9,6 +9,10 @@ _y = 0 # year
 _h = 0 # hour
 _n = 0 # min
 _h = 0 # second
+
+fn DVer()
+    return 0.1
+fend
  
 fn ParseSig(b7) # return signal ready: 1 or 0
     c = 0
@@ -213,15 +217,16 @@ fn Restart(c) # 0: cold restart, other: hot restart
     wait(100)
 fend
 
-fn DVer()
-    return 0.1
+fn EnableRx(e)
+    # 0: Disable
+    # 1: Enable
+    dwrite(3,e)
 fend
+
 
 fn Init() 
     dwrite(3,1) # enable rx
     SerCfg(9600, 2048)  
 fend
  
-Init() 
-
-####################
+Init()
