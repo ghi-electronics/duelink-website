@@ -1,144 +1,98 @@
 // In this sample:
-// Receive GPS data from the module every second
-// Parse and display the time, date, latitude, longitude, and speed
+// Receive 512 bytes of GPS data from the module every second
+// Parse the GNRMC message from the buffer and display the time, date, latitude, longitude, and speed
 
-using System;
-using System.Diagnostics;
-using System.Globalization;
-using System.Text;
-using GHIElectronics.DUELink;
-
-var availablePort = DUELinkController.GetConnectionPort();
-var duelink = new DUELinkController(availablePort);
-
-void EnableReceive(bool en) {    
-    duelink.Digital.Write(3, en);
-}
-
-int DataToRead() {
-    var b2r = duelink.Uart.BytesToRead();
-    return b2r;
-}
-
-int ReadData(byte[] data) {
-    // Start receiving data
-    EnableReceive(true);
+fn ParseGNRMC() 
+    EnableRx(0)
+    SerCfg(9600, 2048)  
+    p = 0
+    c = 0
+    z = 0
+    g = 0
+    r = 0
     
-    while (DataToRead() < data.Length) {
-        Thread.Sleep(100);
-    }
+    while (1)
+        r = SerB2R()
+        if(r = 0)
+            EnableRx(1)
+            #println("Wait for data comming...")
+            while (SerB2R() = 0)
+                wait(2)
+            wend
+        end
+ 
+        if r > 0
+            for i = 0 to r
+ 
+                b = SerRd() 
+ 
+                if b = '$'
+                    c = 0
+                    # reset buf
+                    for x = 0 to 512
+                        b7[x] = 0
+                    next
+                end
+ 
+                if b < 127 # valid data
+                    b7[c] = b 
+     
+                    c = c + 1
+     
+                    if b = 10 # \n
+                        b7[c] = 0
+     
+                        if b7[0] = '$' && b7[1]= 'G' && b7[2]= 'N' && b7[3]= 'R' && b7[4]= 'M'&& b7[5]= 'C'
+                            EnableRx(0)
+                            p = 1
+                            
+                            SerDisc()
+                            c = 0
+                            break
+                        end
+     
+                        #println("Raw:", b7)
+                        #break
+                    end
+                end
+                
+                if c > 512
+                    # limited to 512
+                    c = 0
+                    for x = 0 to 512
+                        b7[x] = 0
+                    next
+                end
+                
+            next
+        end
+ 
+        if p = 1 # parse
+            println("***********************************")
+ 
+            p = 0 # reset flag
+            # 1: UTC Time
+            # 2: Latitude
+            # 3: Latitude
+            # 4: Longitude
+            # 5: Longitude
+            # 6: Fix Quality
+            # 7: Speed
+            if (ParseSig(b7) )
+                ParseTime(b7)
+                println("Time (UTC): ",_h, ":",_n, ":",_s)
+                ParseDate(b7)
+                println("Date (DD/MM/YY): ",_d, "/",_m, "/",_y)
+                l = ParseLat(b7)
+                println("Latitude: ",l )
+                l = ParseLon(b7)
+                println("Longitude: ",l )
+                s = Speed(b7) 
+                println("Speed: " , s, " km/h")
+            end
+        end
+        wait(1)
+    wend
+fend
 
-    // more than 512, disale receiving to save bus traffic
-    EnableReceive(false);
-    var total = duelink.Uart.ReadBytes(data, TimeSpan.FromSeconds(2));
-
-    //Discard all left
-    duelink.Uart.Discard();
-
-    return total;    
-}
-
-static void ParseGNRMC(byte[] buffer) {
-    // Convert bytes to ASCII string
-    var data = Encoding.ASCII.GetString(buffer);
-    // Split by line endings
-    var lines = data.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
-
-    foreach (var line in lines) {
-        if (line.StartsWith("$GNRMC")) {
-            var parts = line.Split(',');
-
-            if (parts.Length < 12) {
-                Console.WriteLine("Invalid GNRMC sentence.");
-                continue;
-            }
-
-            var timeStr = parts[1];
-            var status = parts[2];  // A = valid, V = invalid
-            var latStr = parts[3];
-            var latDir = parts[4];
-            var lonStr = parts[5];
-            var lonDir = parts[6];
-            var speedStr = parts[7]; // in knots
-            var dateStr = parts[9];
-
-            if (status != "A") {
-                Console.WriteLine("GPS data invalid.");
-                continue;
-            }
-
-            // Parse latitude
-            var latitude = ParseNMEACoordinate(latStr, latDir);
-            // Parse longitude
-            var longitude = ParseNMEACoordinate(lonStr, lonDir);
-            // Parse speed in knots to km/h
-            var speedKmh = double.TryParse(speedStr, NumberStyles.Float, CultureInfo.InvariantCulture, out var s) ? s * 1.852 : 0;
-
-            // Parse time
-            var timeFormatted = ParseNMEATime(timeStr);
-            // Parse date
-            var dateFormatted = ParseNMEADate(dateStr);
-
-            // Print results
-            Console.WriteLine("======================");
-            Console.WriteLine($"Time: {timeFormatted}");
-            Console.WriteLine($"Date: {dateFormatted}");
-            Console.WriteLine($"Latitude: {latitude:F6}");
-            Console.WriteLine($"Longitude: {longitude:F6}");
-            Console.WriteLine($"Speed: {speedKmh:F2} km/h");
-
-            break;
-        }
-    }
-}
-
-// Convert NMEA coordinate to decimal degrees
-static double ParseNMEACoordinate(string value, string direction) {
-    if (string.IsNullOrEmpty(value)) return 0;
-
-    // Latitude: ddmm.mmmm, Longitude: dddmm.mmmm
-    var dotIndex = value.IndexOf('.');
-    var degLength = (dotIndex == -1) ? 2 : (dotIndex > 4 ? 3 : 2);
-
-    var degStr = value.Substring(0, degLength);
-    var minStr = value.Substring(degLength);
-
-    var degrees = double.Parse(degStr, CultureInfo.InvariantCulture);
-    var minutes = double.Parse(minStr, CultureInfo.InvariantCulture);
-
-    var result = degrees + (minutes / 60.0);
-
-    if (direction == "S" || direction == "W")
-        result = -result;
-
-    return result;
-}
-
-// Parse NMEA time hhmmss.ss -> hh:mm:ss
-static string ParseNMEATime(string time) {
-    if (time.Length < 6) return time;
-    var hh = time.Substring(0, 2);
-    var mm = time.Substring(2, 2);
-    var ss = time.Substring(4, 2);
-    return $"{hh}:{mm}:{ss}";
-}
-
-// Parse NMEA date ddmmyy -> yyyy-mm-dd
-static string ParseNMEADate(string date) {
-    if (date.Length != 6) return date;
-    var dd = date.Substring(0, 2);
-    var mm = date.Substring(2, 2);
-    var yy = date.Substring(4, 2);
-    var year = 2000 + int.Parse(yy);
-    return $"{year}-{mm}-{dd}";
-}
-
-// Sample code
-var data_received = new byte[512];
-duelink.Uart.Configuration(9600, 2048);
-while (true) {
-    var total = ReadData(data_received);
-    ParseGNRMC(data_received);
-
-    Thread.Sleep(1000);
-}
+ParseGNRMC()
