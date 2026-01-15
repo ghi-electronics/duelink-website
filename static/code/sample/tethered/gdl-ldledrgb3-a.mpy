@@ -1,0 +1,40 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# Continuously change colors: white, red, green, and blue every second
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def Setled(led, color):
+    due.Engine.ExecuteCommand(f"SetLed({led},{color})")
+
+count = 0
+while True:
+    if count % 4 == 0:  # White
+        Setled(0, 0xFFFFFF)
+        Setled(1, 0xFFFFFF)
+        Setled(2, 0xFFFFFF)
+    elif count % 4 == 1:  # Red
+        Setled(0, 0xFF0000)
+        Setled(1, 0xFF0000)
+        Setled(2, 0xFF0000)
+    elif count % 4 == 2:  # Green
+        Setled(0, 0x00FF00)
+        Setled(1, 0x00FF00)
+        Setled(2, 0x00FF00)
+    elif count % 4 == 3:  # Blue
+        Setled(0, 0x0000FF)
+        Setled(1, 0x0000FF)
+        Setled(2, 0x0000FF)
+
+    count += 1
+    time.sleep(1)  # Sleep for 1 second
