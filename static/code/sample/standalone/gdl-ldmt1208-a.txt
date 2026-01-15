@@ -1,3 +1,6 @@
+# In this sample:
+# Display "DUELink" and scroll the text across the screen 
+
 _x = 12
 while 1
     clear(0)
