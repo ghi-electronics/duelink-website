@@ -1,18 +1,23 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
 # In this sample:
 # Using the DUELink graphics library
 # Configuration for two vertically scanned 32x8 panels creating a 64x8 LED display
 # Scrolling DUELink text on the panels with red, green, and blue colors
 # Visit https://www.duelink.com/docs/engine/graphics
-# for more DUELink graphics APIs: DrawLine, Text with scale, Rect, Image, etc.
-
+# for more DUELink graphics APIs: DrawLine, scaled text, Rect, Image, etc.
 
 import time
-from DUELink.DUELinkController import DUELinkController
+import duelink 
 
-availablePort = DUELinkController.GetConnectionPort()
-duelink = DUELinkController(availablePort)
+from duelink import transport
 
-# method
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
 SCREEN_WIDTH = 64   # Combined width of two panels (32 x 2)
 SCREEN_HEIGHT = 8   # Height
 
@@ -24,7 +29,7 @@ def Configuration():
         1               # Vertical scanning
     ]
 
-    duelink.Graphics.Configuration(
+    due.Graphics.Configuration(
         3,              # Type 3 - WS2812
         config_array,
         SCREEN_WIDTH,
@@ -33,15 +38,15 @@ def Configuration():
     )
 
 def Clear(color):
-    duelink.Graphics.Clear(color)
+    due.Graphics.Clear(color)
 
 def DrawText(text, color, x, y):
-    duelink.Graphics.Text(text, color, x, y)
+    due.Graphics.Text(text, color, x, y)
 
 def Show():
-    duelink.Graphics.Show()
+    due.Graphics.Show()
 
-posX = SCREEN_WIDTH  # Start from the right side
+posX = SCREEN_WIDTH   # Start from the right side
 count = 0
 
 Configuration()
@@ -61,4 +66,4 @@ while True:
         posX = SCREEN_WIDTH
         count += 1
 
-    time.sleep(0.01)  # 10 ms delay
+    time.sleep_ms(10)  # 10 ms delay

@@ -17,7 +17,7 @@ fn Test()
         cmd("Clear(0)")
         UpdBnd()
         for i = 0 to 7
-            v = 60 - a1[i] * 0.6
+            v = 60 - b1[i] * 0.6
             cmd(fmt("Line(1,", i*10 +30,",60,", i*10 +30,",",v,")"))
         next
         cmd("show()")

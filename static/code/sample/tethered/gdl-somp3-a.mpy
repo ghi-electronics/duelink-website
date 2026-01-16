@@ -1,3 +1,4 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
 # In this sample:
 # Wrapper functions: Reset, Set volume, Play, Stop, Check playing status, and set loop mode.
 # Reset the module
@@ -8,36 +9,38 @@
 # - Folder names must be in the format: 01, 02, 03, ..., 99
 # - File names (songs) must be in the format: 001.mp3, 002.mp3, ..., 999.mp3
 
-
 import time
-from DUELink.DUELinkController import DUELinkController
+import duelink 
 
-availablePort = DUELinkController.GetConnectionPort()
-duelink = DUELinkController(availablePort)
+from duelink import transport
 
-# method
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
 def Reset():
-    duelink.Engine.ExecuteCommand("Rst()")
+    due.Engine.ExecuteCommand("Rst()")
     time.sleep(1)  # 1000 ms
 
 def SetVolume(vol):
-    if 0 <= vol <= 100:
-        duelink.Engine.ExecuteCommand(f"SetVol({vol})")
+    if vol >= 0 and vol <= 100:
+        due.Engine.ExecuteCommand("SetVol({})".format(vol))
 
 def PlayFile(folder, file):
-    # Folder must be 1, 2, 3, 4, ...
-    # File must be 1, 2, 3, 4, ...
-    duelink.Engine.ExecuteCommand(f"PlayFile({folder},{file})")
+    due.Engine.ExecuteCommand("PlayFile({},{})".format(folder, file))
 
 def Loop(enable):
     v = 1 if enable else 0
-    duelink.Engine.ExecuteCommand(f"Loop({v})")
+    due.Engine.ExecuteCommand("Loop({})".format(v))
 
 def Stop():
-    duelink.Engine.ExecuteCommand("Stop()")
+    due.Engine.ExecuteCommand("Stop()")
 
 def IsBusy():  # Playing state is also considered busy
-    ret = duelink.Engine.ExecuteCommand("IsBusy()")
+    ret = due.Engine.ExecuteCommand("IsBusy()")
     return ret != 0
 
 
