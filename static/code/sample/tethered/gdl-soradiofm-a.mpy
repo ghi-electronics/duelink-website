@@ -1,0 +1,28 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# Allows setting volume and channel on the RadioFM module
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def SetVolume(volume: int):
+    """Set the volume on the RadioFM module (0-100)."""
+    if 0 <= volume <= 100:
+        due.Engine.ExecuteCommand(f"SetVol({volume})")
+
+def SetChannel(channel: float):
+    """Set the channel on the RadioFM module."""
+    due.Engine.ExecuteCommand(f"SetChan({channel})")
+
+# Example usage
+SetVolume(50)     # Set volume to 50%
+SetChannel(100.3) # Set channel to 100.3
