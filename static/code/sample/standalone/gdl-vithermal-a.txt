@@ -1,4 +1,12 @@
+# In this sample:
+# Read and display the temperature from pixel[0] to pixel[63]
+
 while 1
-    PrintLn(PixTemp(63) , " - ", PixTemp(0))
-    Wait(100)
+    # Check only one pixel
+    println("=================")
+    for _i = 0 to 64
+        println("value: ", PixTemp(_i))
+    next
+    
+    wait(100) # 10fps default
 wend

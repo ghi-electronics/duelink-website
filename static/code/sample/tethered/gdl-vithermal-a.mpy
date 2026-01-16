@@ -1,0 +1,25 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+
+# Read and display the temperature from pixel[0] to pixel[63]
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def GetTemperature(pixel):
+    return int(due.Engine.ExecuteCommand("PixTemp({})".format(pixel)))
+
+while True:
+    print("==============================")
+    for i in range(64):
+        print("Temperature at pixel {}: {}".format(i, GetTemperature(i)))
+
+    time.sleep_ms(100)
