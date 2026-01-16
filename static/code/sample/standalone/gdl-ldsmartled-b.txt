@@ -1,3 +1,10 @@
+# In this sample:
+# Using the DUELink graphics library
+# Included four samples
+# Visit https://www.duelink.com/docs/engine/graphics
+# for more DUELink graphics APIs: DrawLine, scaled text, Rect, Image, etc. 
+
+# Example 1:
 # WS2811 Sample - supports graphics
 # 3 horizontal 16x16 panels creating 48x16 display
 dim a1[]={WS2811(),# Pin used
@@ -19,6 +26,7 @@ while 1
     wait(10)
 wend
 
+# Example 2:
 # APA102 Sample - No graphics!
 IntAPA(6)
 SetAPA(0,0xff0000, 10)
@@ -28,6 +36,7 @@ SetAPA(2,0x0000ff, 10)
 ShwAPA()
 
 
+# Example 3:
 # LPD8806 Sample - No graphics!
 IntLPD(6)
 SetLPD(0,0xff0000)
@@ -35,3 +44,26 @@ SetLPD(1,0x00ff00)
 SetLPD(2,0x0000ff)
 
 ShwLPD()
+
+# Example 4:
+###### NeoPixel on 32x8x2 panel ####
+###### - vertical scanning #####
+Dim a1[]={14,# Pin used
+    64, # Individual panel width
+    8, # Individual panel height
+    1} # Vertical scanning
+    GfxCfg(3, a1, 64, 8, 1)# type 3, 48x16 leds, buffered x1
+ 
+_x = 32*2
+ 
+while 1
+    Clear(0)
+    Text("DUELink", 0xFF0000, _x, 0)
+    Show()
+    _x = _x - 1
+    if _x < -40
+        _x = 32*2
+    end
+    Wait(10)
+wend
+
