@@ -1,0 +1,47 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# Set the scanner to Continuous mode
+# Show the barcode when the barcode is close enough to the scanner
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def SetMode(mode):
+    # 1: Trigger mode
+    # 2: Continuous mode
+    due.Engine.ExecuteCommand("SetMode({})".format(mode))
+
+def ByteToRead():
+    return due.Uart.BytesToRead()
+
+def ReadByte():
+    return due.Uart.ReadByte()
+
+SetMode(2)  # Continuous mode
+
+while True:
+    available1 = ByteToRead()
+
+    time.sleep_ms(250)  # wait for 250 ms
+
+    available2 = ByteToRead()
+
+    if available2 > 0 and available1 == available2:
+        # After waiting 250 ms, if available2 equals available1,
+        # it means no more data is coming, so we can display the data.
+        print("Detected barcode:")
+        for _ in range(available1):
+            b = ReadByte()
+            print(chr(b), end="")
+        print("")
+
+    time.sleep_ms(250)

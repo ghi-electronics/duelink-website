@@ -1,4 +1,28 @@
-fn DoTest1()
+# In this sample:
+# Include Continuous and Trigger
+# In Continuous: Show the barcode when the barcode is close enough to the scanner
+# Trigger: Assuming press a button every 3 seconds
+
+fn ContExple()
+    SetMode(2) # Continuous mode
+    
+    dim b1[3] 
+    
+    while (1)
+        x = SerB2R()
+        Wait(2) # Wait 1ms
+        if (x = SerB2R()) && (x > 0) # x = SerB2R() mean no more data coming, show
+            for i = 0 to x
+                c = SerRd()
+                Print(Chr(c)) # show barcode text
+            next
+            PrintLn("")
+        end
+    wend
+ 
+fend
+
+fn TrigExple()
     SetMode(1) # Trigger mode
     
     while (1)
@@ -23,23 +47,5 @@ fn DoTest1()
     wend
 fend
 
-fn DoTest2()
-    SetMode(2) # Continuous mode
-    
-    dim b1[3] 
-    
-    while (1)
-        x = SerB2R()
-        Wait(2) # Wait 1ms
-        if (x = SerB2R()) && (x > 0) # x = SerB2R() mean no more data coming, show
-            for i = 0 to x
-                c = SerRd()
-                PrintLn(Chr(c)) # show barcode text
-            next
-        end
-    wend
- 
-fend
-
-#DoTest1()  # Test trigger mode
-#DoTest2()  # Test continuous mode
+ContExple()  # Continuous mode Sample
+#TrigExple()  # Trigger mode Sample
