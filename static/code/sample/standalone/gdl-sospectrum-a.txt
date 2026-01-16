@@ -1,5 +1,25 @@
-while (1)
-    UpdBnd()
-    PrintLn("63Hz: ", a1[0])
-    wait(1)
-wend
+# In this sample:
+# Get 7-channel data from Spectrum and display it as an equalizer on the OLED96 display.
+# The OLED96 display has device address 2, and the OLED96 driver is assumed to be installed.
+
+fn Equalizer() 
+    Wait(1)
+    dlmode(2,0)
+    Wait(10)
+       
+    v = 0
+    while 1
+        cmd("Clear(0)")
+        UpdBnd()
+        for i = 0 to 7
+            v = 60 - b1[i] * 0.6
+            cmd(fmt("Line(1,", i*10 +30,",60,", i*10 +30,",",v,")"))
+        next
+        cmd("show()")
+        
+        wait(1)
+          
+    wend
+fend
+ 
+Equalizer()
