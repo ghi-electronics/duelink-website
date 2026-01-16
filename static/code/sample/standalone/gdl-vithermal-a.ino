@@ -25,7 +25,7 @@ uint8_t b1[2];
 // Init()
 // --------------------------------------------------
 void Init() {
-    analogReadResolution(12);        // Enable 12-bit analog resolution (I2C-only requirement)
+    analogReadResolution(12);       
     i2c1Wire.begin();
     i2c1Wire.setClock(400000);        // I2cCfg(400) -> 400 kHz
 }
