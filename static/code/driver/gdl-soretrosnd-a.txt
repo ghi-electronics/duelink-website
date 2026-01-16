@@ -7,10 +7,26 @@ fend
 fn GetPin()
     return 1
 fend
+ 
+fn SetLVol(v)
+    if v >=100
+        dwrite(3,1)
+    else
+        freq(3,48000, 0, v/100)
+    end
+fend
+
+fn SetRVol(v)
+    if v >=100
+        dwrite(4,1)
+    else
+        freq(4,48000, 0, v/100)
+    end
+fend
 
 fn Init() 
-    dwrite(3,1)
-    dwrite(4,1)
+    SetLVol(100)
+    SetRVol(100)
 fend
 
 Init() 
