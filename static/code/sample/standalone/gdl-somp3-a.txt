@@ -1,3 +1,12 @@
+# In this sample:
+# Reset the module
+# Set volume to 30%
+# Play the MP3 file named 001.mp3 inside the folder named 01
+# Check if playback is active. If the file has been playing for more than 10 seconds, stop it.
+# SD card structure:
+# - Folder names must be in the format: 01, 02, 03, ..., 99
+# - File names (songs) must be in the format: 001.mp3, 002.mp3, ..., 999.mp3
+
 if (Rst()) # reset module
     SetVol(30) # set volume to max
     if (PlayFile(1, 1)) # play file 001.mp3 in folder 01        
