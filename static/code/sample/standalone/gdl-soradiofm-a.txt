@@ -1,2 +1,5 @@
-# Append this code at the bottom of the script, right after the driver.
-# You MUST keep the driver code!!
+# In this sample:
+# Allows setting volume and channel on the RadioFM module
+
+SetVol(10)
+SetChan(100.3)
