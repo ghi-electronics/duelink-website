@@ -1,0 +1,27 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# Get 7 channel data from Spectrum and show it on the console
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+while True:
+    data = bytearray(7)  # Equivalent to byte[7] in C#
+
+    due.Engine.ExecuteCommand("UpdBnd()")
+    due.Stream.ReadBytes("b1", data)
+
+    print("============================")
+    for i in range(7):
+        print(f"data {i}: {data[i]}")
+
+    time.sleep_ms(1)  # Sleep 1 millisecond
