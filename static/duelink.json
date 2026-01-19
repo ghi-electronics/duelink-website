@@ -260,7 +260,7 @@
         "Unpopulated option to add your LEDs",
         "44x49mm overall dimension"
       ],
-      "driverApi": "Function | Description\n---|---\n`SetLed(i,s)` | Set LED at index `i` to state`s`.\n`SelAll(b)` | Set all LEDs to `b` bitmap.\n`DVer()` | This driver version.",
+      "driverApi": "Function | Description\n---|---\n`SetLed(i,s)` | Set LED at index `i` to state`s`.\n`SetAll(b)` | Set all LEDs to `b` bitmap.\n`DVer()` | This driver version.",
       "variations": [
         {
           "name": "No LEDs",
