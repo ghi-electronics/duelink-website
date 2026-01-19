@@ -325,7 +325,7 @@ ${resourceLinks.join('<br/>\n')}<br/>`
     let sampleContent = '';
 
     if (hasSamples) {
-        tabs.push({label: 'Tethered', value: 'tie-samples'});
+        tabs.push({label: 'Tethered Samples', value: 'tie-samples'});
         
         // Build sample tabs for each available language
         // Order: Script, Python, MicroPython, JavaScript, .NET, Arduino
@@ -464,7 +464,7 @@ ${sampleTabItems.join('\n')}
     let standaloneSampleContent = '';
 
     if (hasStandaloneSamples) {
-        tabs.push({label: 'Standalone', value: 'sa-samples'});
+        tabs.push({label: 'Standalone Samples', value: 'sa-samples'});
 
         // Build sample tabs for each available language
         // Order: Script, Arduino
