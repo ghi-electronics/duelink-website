@@ -77,32 +77,36 @@ void setup() {
     duelink.Connect();
 }
 
+static int count = 0;
 void loop() {
-    // First screen: black and white background with white graphics
-    DrawOnBlackWhite();
-    Clear(0);
-    DrawText("DUELink", 1, 60, 70, 2, 3);
-    DrawCircle(1, 100, 65, 56);
-    DrawCircle(1, 100, 65, 57);
-    DrawCircle(1, 100, 65, 63);
-    DrawCircle(1, 100, 65, 64);
-    Fillrect(1, 53, 40, 95, 20);
-    Show();
+    if (count == 0) {
+        count = 1; // we set only once
+        // First screen: black and white background with white graphics
+        DrawOnBlackWhite();
+        Clear(0);
+        DrawText("DUELink", 1, 60, 70, 2, 3);
+        DrawCircle(1, 100, 65, 56);
+        DrawCircle(1, 100, 65, 57);
+        DrawCircle(1, 100, 65, 63);
+        DrawCircle(1, 100, 65, 64);
+        Fillrect(1, 53, 40, 95, 20);
+        Show();
 
-    // Wait for 20 seconds to flush the screen
-    delay(20 * 1000);
+        // Wait for 20 seconds to flush the screen
+        delay(20 * 1000);
 
-    // Second screen: red background with text and circles
-    DrawOnRed();
-    Clear(0);
-    DrawText("!Smart Modules!", 1, 55, 47, 1, 1);
-    DrawCircle(1, 100, 65, 58);
-    DrawCircle(1, 100, 65, 59);
-    DrawCircle(1, 100, 65, 60);
-    DrawCircle(1, 100, 65, 61);
-    DrawCircle(1, 100, 65, 62);
-    Show();
+        // Second screen: red background with text and circles
+        DrawOnRed();
+        Clear(0);
+        DrawText("!Smart Modules!", 1, 55, 47, 1, 1);
+        DrawCircle(1, 100, 65, 58);
+        DrawCircle(1, 100, 65, 59);
+        DrawCircle(1, 100, 65, 60);
+        DrawCircle(1, 100, 65, 61);
+        DrawCircle(1, 100, 65, 62);
+        Show();
 
-    // Wait for 20 seconds to flush the screen
-    delay(20 * 1000);
+        // Wait for 20 seconds to flush the screen
+        delay(20 * 1000);
+    }
 }
