@@ -10,10 +10,9 @@ TwoWireTransport transport(Wire1);
 DUELink duelink(transport);
 
 int GetTemperature(int pixel) {
-    char cmd[64];
+    char cmd[32];
     snprintf(cmd, sizeof(cmd), "PixTemp(%d)", pixel);
-    float __ec = duelink.Engine.ExecuteCommand(cmd);
-    return (int)__ec;
+    return (int)duelink.Engine.ExecuteCommand(cmd);
 }
 
 void setup() {
@@ -23,24 +22,15 @@ void setup() {
 }
 
 void loop() {
-    static bool initialized = false;
-    if (!initialized) {
-
-        initialized = true;
-    }
-
     Serial.println("==============================");
 
     for (int i = 0; i < 64; i++) {
+        int temp = GetTemperature(i);
 
-    char msg[64];
-    snprintf(msg, sizeof(msg), "Temperature at pixel %d: %d", i, GetTemperature(i));
-    Serial.println(msg);
-
+        char msg[64];
+        snprintf(msg, sizeof(msg), "Temperature at pixel %d: %d", i, temp);
+        Serial.println(msg);
     }
 
-    
-
     delay(100);
-
 }

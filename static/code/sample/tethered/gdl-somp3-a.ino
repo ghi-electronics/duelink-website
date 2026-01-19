@@ -16,82 +16,65 @@
 TwoWireTransport transport(Wire1);
 DUELink duelink(transport);
 
-void Reset() {
+void ResetModule() {
     duelink.Engine.ExecuteCommand("Rst()");
     delay(1000);
 }
 
 void SetVolume(int vol) {
     if (vol >= 0 && vol <= 100) {
-        char cmd[64];
+        char cmd[32];
         snprintf(cmd, sizeof(cmd), "SetVol(%d)", vol);
-        float __ec = duelink.Engine.ExecuteCommand(cmd);
-        __ec;
+        duelink.Engine.ExecuteCommand(cmd);
     }
 }
 
 void PlayFile(int folder, int file) {
-    char cmd[64];
+    char cmd[32];
     snprintf(cmd, sizeof(cmd), "PlayFile(%d,%d)", folder, file);
-    float __ec = duelink.Engine.ExecuteCommand(cmd);
-    __ec;
+    duelink.Engine.ExecuteCommand(cmd);
 }
 
-void Loop(bool enable) {
-    auto v = enable ? 1 : 0;
-    char cmd[64];
-    snprintf(cmd, sizeof(cmd), "Loop(%d)", v);
-    float __ec = duelink.Engine.ExecuteCommand(cmd);
-    __ec;
+void LoopMode(bool enable) {
+    char cmd[16];
+    snprintf(cmd, sizeof(cmd), "Loop(%d)", enable ? 1 : 0);
+    duelink.Engine.ExecuteCommand(cmd);
 }
-void Stop() {
+
+void StopPlay() {
     duelink.Engine.ExecuteCommand("Stop()");
 }
-bool IsBusy() { // # Playing state is also considered busy
-    auto ret = duelink.Engine.ExecuteCommand("IsBusy()");
+
+bool IsBusy() {
+    float ret = duelink.Engine.ExecuteCommand("IsBusy()");
     return ret != 0;
 }
 
-
-int count = 0;
+int counter = 0;
 
 void setup() {
     Serial.begin(9600);
     Wire1.begin();
     duelink.Connect();
+
+    ResetModule();
+    SetVolume(30);
+    PlayFile(1, 1);
 }
 
 void loop() {
-    static bool initialized = false;
-    if (!initialized) {
+    if (IsBusy()) {
+        delay(1000);
+        counter++;
 
-    Reset(); // reset the module
-
-    SetVolume(30);
-
-    PlayFile(1, 1); //  # Play file 001.mp3 in folder 01
-
-    while (IsBusy()) {
-
-    delay(1000);
-
-    count++;
-
-    if (count == 10) {
-
-    Serial.println("The song is longer than 10 seconds, forcing stop");
-
-    Stop();
-
-    break;
-
+        if (counter == 10) {
+            Serial.println("The song is longer than 10 seconds, forcing stop");
+            StopPlay();
+        }
+    } else {
+        Serial.println("The song ended.");
+        while (1) {
+            delay(1000);
+        }
     }
-
-    }
-
-    Serial.println("The song ended.");
-
-        initialized = true;
-    }
-
 }

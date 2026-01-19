@@ -10,25 +10,29 @@ TwoWireTransport transport(Wire1);
 DUELink duelink(transport);
 
 void DrawNumber(int led, int number) {
-    char cmd[64];
+    char cmd[32];
     snprintf(cmd, sizeof(cmd), "Seg7(%d,%d)", led, number);
-    float __ec = duelink.Engine.ExecuteCommand(cmd);
-    __ec;
+    duelink.Engine.ExecuteCommand(cmd);
 }
 
 void ShowColon(int value) {
-    char cmd[64];
+    char cmd[16];
     snprintf(cmd, sizeof(cmd), "Colon(%d)", value);
-    float __ec = duelink.Engine.ExecuteCommand(cmd);
-    __ec;
+    duelink.Engine.ExecuteCommand(cmd);
 }
 
 void Show() {
     duelink.Engine.ExecuteCommand("Show()");
 }
 
-int min = 0;
-int sec = 0;
+void ReadTime(int &minute, int &second) {
+    duelink.Engine.ExecuteCommand("ReadTime()");
+    minute = (int)duelink.Engine.ExecuteCommand("_m");
+    second = (int)duelink.Engine.ExecuteCommand("_s");
+}
+
+int last_min = -1;
+int last_sec = -1;
 
 void setup() {
     Serial.begin(9600);
@@ -37,44 +41,24 @@ void setup() {
 }
 
 void loop() {
-    static bool initialized = false;
-    if (!initialized) {
+    int minute, second;
+    ReadTime(minute, second);
 
-        initialized = true;
-    }
+    if (minute != last_min || second != last_sec) {
+        last_min = minute;
+        last_sec = second;
 
-    auto minute = DateTime.UtcNow.Minute;
-
-    auto second = DateTime.UtcNow.Second;
-
-    if (sec != second || min != minute) {
-
-    sec = second;
-
-    min = minute;
-
-    DrawNumber(0, sec % 10);
-
-    DrawNumber(1, sec / 10);
-
-    
-
-    DrawNumber(2, min % 10);
-
-    DrawNumber(3, min / 10);
-
+        DrawNumber(0, second % 10);
+        DrawNumber(1, second / 10);
+        DrawNumber(2, minute % 10);
+        DrawNumber(3, minute / 10);
     }
 
     ShowColon(1);
-
     Show();
-
-    delay(400); // off 100ms
+    delay(400);
 
     ShowColon(0);
-
     Show();
-
-    delay(400); // off 100ms
-
+    delay(400);
 }

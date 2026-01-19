@@ -12,17 +12,16 @@ TwoWireTransport transport(Wire1);
 DUELink duelink(transport);
 
 int GetLight() {
-    auto ret = duelink.Engine.ExecuteCommand("Light()");
+    float ret = duelink.Engine.ExecuteCommand("Light()");
     return (int)ret;
 }
+
 void SetStatLed(bool on) {
-    const char* cmd = "statled(1,0,0)";
-
-    if (!on) {
-        cmd = "statled(0,1,0)";
+    if (on) {
+        duelink.Engine.ExecuteCommand("statled(1,0,0)");
+    } else {
+        duelink.Engine.ExecuteCommand("statled(0,1,0)");
     }
-
-    duelink.Engine.ExecuteCommand(cmd);
 }
 
 void setup() {
@@ -32,34 +31,17 @@ void setup() {
 }
 
 void loop() {
-    static bool initialized = false;
-    if (!initialized) {
-
-        initialized = true;
-    }
-
-    auto light = GetLight();
-
-    
+    int light = GetLight();
 
     if (light < 25) {
-
-    SetStatLed(true);
-
+        SetStatLed(true);
+    } else {
+        SetStatLed(false);
     }
 
-    else {
-
-    SetStatLed(false);
-
-    }
-
-    char msg[64];
+    char msg[32];
     snprintf(msg, sizeof(msg), "Light value: %d", light);
     Serial.println(msg);
 
-    
-
     delay(1000);
-
 }

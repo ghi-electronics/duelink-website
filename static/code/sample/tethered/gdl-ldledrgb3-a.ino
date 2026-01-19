@@ -10,10 +10,9 @@ TwoWireTransport transport(Wire1);
 DUELink duelink(transport);
 
 void Setled(int led, uint32_t color) {
-    char cmd[64];
-    snprintf(cmd, sizeof(cmd), "SetLed(%d,%d)", led, color);
-    float __ec = duelink.Engine.ExecuteCommand(cmd);
-    __ec;
+    char cmd[32];
+    snprintf(cmd, sizeof(cmd), "SetLed(%d,%lu)", led, (unsigned long)color);
+    duelink.Engine.ExecuteCommand(cmd);
 }
 
 int count = 0;
@@ -25,58 +24,28 @@ void setup() {
 }
 
 void loop() {
-    static bool initialized = false;
-    if (!initialized) {
-
-        initialized = true;
+    switch (count % 4) {
+        case 0: // white
+            Setled(0, 0xFFFFFF);
+            Setled(1, 0xFFFFFF);
+            Setled(2, 0xFFFFFF);
+            break;
+        case 1: // red
+            Setled(0, 0xFF0000);
+            Setled(1, 0xFF0000);
+            Setled(2, 0xFF0000);
+            break;
+        case 2: // green
+            Setled(0, 0x00FF00);
+            Setled(1, 0x00FF00);
+            Setled(2, 0x00FF00);
+            break;
+        case 3: // blue
+            Setled(0, 0x0000FF);
+            Setled(1, 0x0000FF);
+            Setled(2, 0x0000FF);
+            break;
     }
-
-    switch (count%4) {
-
-    case 0: // white
-
-    Setled(0, 0xFFFFFF);
-
-    Setled(1, 0xFFFFFF);
-
-    Setled(2, 0xFFFFFF);
-
-    break;
-
-    case 1: // red
-
-    Setled(0, 0xFF0000);
-
-    Setled(1, 0xFF0000);
-
-    Setled(2, 0xFF0000);
-
-    break;
-
-    case 2: // green
-
-    Setled(0, 0x00FF00);
-
-    Setled(1, 0x00FF00);
-
-    Setled(2, 0x00FF00);
-
-    break;
-
-    case 3: // blue
-
-    Setled(0, 0x0000FF);
-
-    Setled(1, 0x0000FF);
-
-    Setled(2, 0x0000FF);
-
-    break;
-
-    }
-
     count++;
-
     delay(1000);
-
 }

@@ -10,15 +10,14 @@ TwoWireTransport transport(Wire1);
 DUELink duelink(transport);
 
 bool IsCard() {
-    auto ret = duelink.Engine.ExecuteCommand("IsCard()");
+    float ret = duelink.Engine.ExecuteCommand("IsCard()");
     return ret == 1;
 }
 
-void ReadCard(uint8_t* cardNumber, int cardNumberLen) {
+void ReadCard(uint8_t* cardNumber) {
     duelink.Engine.ExecuteCommand("dim b1[16]");
     duelink.Engine.ExecuteCommand("ReadCard(b1)");
-
-    duelink.Stream.ReadBytes("b1", cardNumber);
+    duelink.Stream.ReadBytes("b1", cardNumber, 16);
 }
 
 void setup() {
@@ -28,47 +27,23 @@ void setup() {
 }
 
 void loop() {
-    static bool initialized = false;
-    if (!initialized) {
-
-        initialized = true;
-    }
-
     if (IsCard()) {
+        Serial.println("Card detected:");
 
-    Serial.println("Card detected:");
+        uint8_t num[16];
+        ReadCard(num);
 
-    auto num = new uint8_t[16];
+        char msg[64];
+        int pos = 0;
 
-    
+        for (int i = 0; i < 16; i++) {
+            pos += snprintf(msg + pos, sizeof(msg) - pos,
+                            (i < 15) ? "%02X:" : "%02X",
+                            num[i]);
+        }
 
-    ReadCard(num);
-
-    
-
-    for (int i = 0; i < 16; i++) {
-
-    char n[3];
-    snprintf(n, sizeof(n), "%02X", (unsigned int)(num[i]));
-
-    char msg[64];
-    snprintf(msg, sizeof(msg), "%d", n);
-    Serial.print(msg);
-
-    if (i < 16-1) {
-
-    Serial.print(":");
-
+        Serial.println(msg);
     }
-
-    }
-
-    Serial.println();
-
-    }
-
-    
 
     delay(500);
-
 }

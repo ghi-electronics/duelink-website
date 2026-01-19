@@ -24,18 +24,16 @@ void setup() {
 }
 
 void loop() {
-    static bool initialized = false;
-    if (!initialized) {
+    float temp = GetTemperature();
+    float humid = GetHumidity();
 
-        initialized = true;
-    }
+    char msg1[32];
+    snprintf(msg1, sizeof(msg1), "Temperature: %.2f", temp);
+    Serial.println(msg1);
 
-// TODO: Manual conversion needed: Serial.println($"Temperature: {GetTemperature().ToString()} ");
-
-// TODO: Manual conversion needed: Serial.println($"Humidity: {GetHumidity().ToString()} ");
-
-    
+    char msg2[32];
+    snprintf(msg2, sizeof(msg2), "Humidity: %.2f", humid);
+    Serial.println(msg2);
 
     delay(1500);
-
 }

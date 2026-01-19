@@ -20,26 +20,11 @@ void setup() {
 }
 
 void loop() {
-    static bool initialized = false;
-    if (!initialized) {
-
-        initialized = true;
-    }
-
-    auto detect = Detect();
-
-    
+    int detect = Detect();
 
     if (detect != 0) {
-
-    Serial.println("Motion Detected");
-
-    
-
+        Serial.println("Motion Detected");
     }
 
-    
-
     delay(1000);
-
 }

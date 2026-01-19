@@ -10,11 +10,12 @@ TwoWireTransport transport(Wire1);
 DUELink duelink(transport);
 
 bool IsKeyChange() {
-    auto ret = duelink.Engine.ExecuteCommand("IsKeyChange()");
-    return ret > 0 ? true : false;
+    float ret = duelink.Engine.ExecuteCommand("IsKeyChange()");
+    return ret > 0;
 }
+
 int ReadKey() {
-    auto ret = duelink.Engine.ExecuteCommand("RdKey()");
+    float ret = duelink.Engine.ExecuteCommand("RdKey()");
     return (int)ret;
 }
 
@@ -25,42 +26,20 @@ void setup() {
 }
 
 void loop() {
-    static bool initialized = false;
-    if (!initialized) {
-
-        initialized = true;
-    }
-
-    duelink.Engine.ExecuteCommand("Scan()"); // use this then no need to call SStart("Scan", 100, 0) in script that require while(1) loop active
-
+    duelink.Engine.ExecuteCommand("Scan()");
     delay(10);
 
     if (IsKeyChange()) {
+        int key = ReadKey();
 
-    auto key = ReadKey();
-
-    
-
-    if (key == 0) {
-
-    char msg[64];
-    snprintf(msg, sizeof(msg), "Key released");
-    Serial.println(msg);
-
+        if (key == 0) {
+            Serial.println("Key released");
+        } else {
+            char msg[32];
+            snprintf(msg, sizeof(msg), "Key pressed: %c", (char)key);
+            Serial.println(msg);
+        }
     }
-
-    else {
-
-    char msg[64];
-    snprintf(msg, sizeof(msg), "Key pressed: %d", (char)ReadKey());
-    Serial.println(msg);
-
-    }
-
-    }
-
-    
 
     delay(100);
-
 }

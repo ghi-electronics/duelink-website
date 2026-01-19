@@ -11,34 +11,26 @@ DUELink duelink(transport);
 
 void SetVolume(int volume) {
     if (volume >= 0 && volume <= 100) {
-        char cmd[64];
+        char cmd[32];
         snprintf(cmd, sizeof(cmd), "SetVol(%d)", volume);
-        float __ec = duelink.Engine.ExecuteCommand(cmd);
-        __ec;
+        duelink.Engine.ExecuteCommand(cmd);
     }
 }
+
 void SetChannel(float channel) {
-    char cmd[64];
-    snprintf(cmd, sizeof(cmd), "SetChan(%d)", channel);
-    float __ec = duelink.Engine.ExecuteCommand(cmd);
-    __ec;
+    char cmd[32];
+    snprintf(cmd, sizeof(cmd), "SetChan(%.1f)", channel);
+    duelink.Engine.ExecuteCommand(cmd);
 }
 
 void setup() {
     Serial.begin(9600);
     Wire1.begin();
     duelink.Connect();
+
+    SetVolume(50);     // set 50%
+    SetChannel(100.3f); // set channel 100.3
 }
 
 void loop() {
-    static bool initialized = false;
-    if (!initialized) {
-
-    SetVolume(50); // set 50%
-
-    SetChannel(100.3f); // set channel 100.3
-
-        initialized = true;
-    }
-
 }

@@ -21,14 +21,11 @@ void setup() {
 }
 
 void loop() {
-    static bool initialized = false;
-    if (!initialized) {
+    float temp = GetTemperature();
 
-        initialized = true;
-    }
-
-// TODO: Manual conversion needed: Serial.println($"Temperature: {GetTemperature().ToString()} ");
+    char msg[32];
+    snprintf(msg, sizeof(msg), "Temperature: %.2f", temp);
+    Serial.println(msg);
 
     delay(1500);
-
 }

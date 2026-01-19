@@ -10,16 +10,13 @@ TwoWireTransport transport(Wire1);
 DUELink duelink(transport);
 
 void Heater(bool value) {
-    auto v = value ? 1 : 0;
-    char cmd[64];
-    snprintf(cmd, sizeof(cmd), "Heater(%d)", v);
-    float __ec = duelink.Engine.ExecuteCommand(cmd);
-    __ec;
+    char cmd[32];
+    snprintf(cmd, sizeof(cmd), "Heater(%d)", value ? 1 : 0);
+    duelink.Engine.ExecuteCommand(cmd);
 }
 
 float SensorRead() {
-    auto ret = duelink.Engine.ExecuteCommand("SenRead()");
-    return ret;
+    return duelink.Engine.ExecuteCommand("SenRead()");
 }
 
 int counter = 0;
@@ -31,46 +28,24 @@ void setup() {
 }
 
 void loop() {
-    static bool initialized = false;
-    if (!initialized) {
-
-        initialized = true;
-    }
-
     delay(1000);
 
-    
-
-    // Wait for heat on for 10 seconds
-
     if (counter == 0) {
-
-    Heater(true);
-
+        Heater(true);
     }
 
     counter++;
 
-    
-
     if (counter < 10) {
-
-    char msg[64];
-    snprintf(msg, sizeof(msg), "Wait for %d/10 seconds", counter);
-    Serial.println(msg);
-
-    continue;
-
+        char msg[32];
+        snprintf(msg, sizeof(msg), "Wait for %d/10 seconds", counter);
+        Serial.println(msg);
+        return;
     }
 
-    
+    float volt = SensorRead();
 
-    auto volt = SensorRead();
-
-    
-
-    char msg[64];
-    snprintf(msg, sizeof(msg), "Volt: %d", volt);
+    char msg[32];
+    snprintf(msg, sizeof(msg), "Volt: %.2f", volt);
     Serial.println(msg);
-
 }

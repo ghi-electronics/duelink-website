@@ -44,36 +44,26 @@ void setup() {
 }
 
 void loop() {
-    static bool initialized = false;
-    if (!initialized) {
-
-        initialized = true;
+    ActiveAccel();
+    {
+        char msg[64];
+        snprintf(msg, sizeof(msg), "Accel X = %d, Y = %d, Z = %d", GetX(), GetY(), GetZ());
+        Serial.println(msg);
     }
 
-    ActiveAccel();
-
-    char msg[64];
-    snprintf(msg, sizeof(msg), "Accel X = %d, Y = %d, Z = %d", GetX(), GetY(), GetZ());
-    Serial.println(msg);
-
-    
-
     ActiveGyro();
-
-    char msg[64];
-    snprintf(msg, sizeof(msg), "Gyro X = %d, Y = %d, Z = %d, Temperature = %d", GetX(), GetY(), GetZ(), GetTemperature());
-    Serial.println(msg);
-
-    
+    {
+        char msg[64];
+        snprintf(msg, sizeof(msg), "Gyro X = %d, Y = %d, Z = %d, Temperature = %.2f", GetX(), GetY(), GetZ(), GetTemperature());
+        Serial.println(msg);
+    }
 
     ActiveCompass();
-
-    char msg[64];
-    snprintf(msg, sizeof(msg), "Compass X = %d, Y = %d, Z = %d", GetX(), GetY(), GetZ());
-    Serial.println(msg);
-
-    
+    {
+        char msg[64];
+        snprintf(msg, sizeof(msg), "Compass X = %d, Y = %d, Z = %d", GetX(), GetY(), GetZ());
+        Serial.println(msg);
+    }
 
     delay(2000);
-
 }

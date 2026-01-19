@@ -11,32 +11,29 @@ DUELink duelink(transport);
 
 void DrawText(const char* text) {
     char cmd[64];
-    snprintf(cmd, sizeof(cmd), "PrntStr(\\"%d\", text);
-    float __ec = duelink.Engine.ExecuteCommand(cmd);
-    __ec");
+    snprintf(cmd, sizeof(cmd), "PrntStr(\"%s\")", text);
+    duelink.Engine.ExecuteCommand(cmd);
 }
 
 void DrawDot(int pos, int value) {
-    char cmd[64];
+    char cmd[32];
     snprintf(cmd, sizeof(cmd), "Dot(%d,%d)", pos, value);
-    float __ec = duelink.Engine.ExecuteCommand(cmd);
-    __ec;
+    duelink.Engine.ExecuteCommand(cmd);
 }
 
 void DrawNumber(int number) {
-    char cmd[64];
+    char cmd[32];
     snprintf(cmd, sizeof(cmd), "Digit(%d)", number);
-    float __ec = duelink.Engine.ExecuteCommand(cmd);
-    __ec;
+    duelink.Engine.ExecuteCommand(cmd);
 }
+
 void Clear() {
     duelink.Engine.ExecuteCommand("Clear(0)");
 }
+
 void Show() {
     duelink.Engine.ExecuteCommand("Show()");
 }
-
-
 
 int n = 0;
 
@@ -44,61 +41,40 @@ void setup() {
     Serial.begin(9600);
     Wire1.begin();
     duelink.Connect();
-}
-
-void loop() {
-    static bool initialized = false;
-    if (!initialized) {
 
     DrawText("ABCDE");
-
     Show();
-
     delay(1000);
 
     DrawText("FGHIJ");
-
     Show();
-
     delay(1000);
 
     DrawText("KLMNO");
-
     Show();
-
     delay(1000);
 
     DrawText("PQRST");
-
     Show();
-
     delay(1000);
 
     DrawText("UVWXY");
-
     Show();
-
     delay(1000);
 
     DrawText("  Z  ");
-
-    DrawDot(0, 1); DrawDot(1, 1); DrawDot(3, 1); DrawDot(4, 1);
-
+    DrawDot(0, 1);
+    DrawDot(1, 1);
+    DrawDot(3, 1);
+    DrawDot(4, 1);
     Show();
-
     delay(1000);
+}
 
-        initialized = true;
-    }
-
+void loop() {
     Clear();
-
-    DrawNumber(n%100000);
-
+    DrawNumber(n % 100000);
     n++;
-
     Show();
-
     delay(100);
-
 }

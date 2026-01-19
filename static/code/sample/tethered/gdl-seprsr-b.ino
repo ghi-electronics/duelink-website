@@ -24,22 +24,16 @@ void setup() {
 }
 
 void loop() {
-    static bool initialized = false;
-    if (!initialized) {
+    float psi = ReadPSI();
+    float kpa = ReadkPa();
 
-        initialized = true;
-    }
+    char msg1[32];
+    snprintf(msg1, sizeof(msg1), "PSI: %.2f", psi);
+    Serial.println(msg1);
 
-    char msg[64];
-    snprintf(msg, sizeof(msg), "PSI: %d", ReadPSI());
-    Serial.println(msg);
-
-    char msg[64];
-    snprintf(msg, sizeof(msg), "kPa: %d", ReadkPa());
-    Serial.println(msg);
-
-    
+    char msg2[32];
+    snprintf(msg2, sizeof(msg2), "kPa: %.2f", kpa);
+    Serial.println(msg2);
 
     delay(1000);
-
 }

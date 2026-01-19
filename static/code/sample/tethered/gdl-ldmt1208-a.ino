@@ -18,28 +18,14 @@ void setup() {
 }
 
 void loop() {
-    static bool initialized = false;
-    if (!initialized) {
-
-        initialized = true;
-    }
-
     duelink.Graphics.Clear(0);
-
     duelink.Graphics.Text("Hello world!", 1, x, 0);
-
     x--;
 
-    
-
     if (x < -70) {
-
-    x = 12;
-
+        x = 12;
     }
 
     duelink.Graphics.Show();
-
     delay(1);
-
 }
