@@ -1,3 +1,4 @@
+# This sample runs on QT-PY 2040 adafruit
 # In this sample:
 # Draw a red circle with white borders.
 # Display the text "DUELink" in white at the center of the circle.
@@ -6,44 +7,51 @@
 # Show() takes 20 seconds to flush the current buffer to the screen.
 
 import time
-from DUELink.DUELinkController import DUELinkController
+import utime 
+import math
+import duelink 
 
-availablePort = DUELinkController.GetConnectionPort()
-duelink = DUELinkController(availablePort)
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
 
 def DrawOnBlackWhite():
-    duelink.Engine.ExecuteCommand("DrawOnBW()")
+    due.Engine.ExecuteCommand("DrawOnBW()")
 
 
 def DrawOnRed():
-    duelink.Engine.ExecuteCommand("DrawOnRed()")
+    due.Engine.ExecuteCommand("DrawOnRed()")
 
 
 def DrawText(text, color, x, y, scalex, scaley):
     c = 1 if color > 0 else 0
-    cmd = f'texts("{text}",{c},{x},{y},{scalex},{scaley})'
-    duelink.Engine.ExecuteCommand(cmd)
+    cmd = 'texts("{}",{},{},{},{},{})'.format(text, c, x, y, scalex, scaley)
+    due.Engine.ExecuteCommand(cmd)
 
 
 def DrawCircle(color, x, y, radius):
     c = 1 if color > 0 else 0
-    cmd = f"circle({c},{x},{y},{radius})"
-    duelink.Engine.ExecuteCommand(cmd)
+    cmd = "circle({},{},{},{})".format(c, x, y, radius)
+    due.Engine.ExecuteCommand(cmd)
 
 
 def Fillrect(color, x, y, width, height):
     c = 1 if color > 0 else 0
-    cmd = f"Fill({c}, {x},{y},{width},{height})"
-    duelink.Engine.ExecuteCommand(cmd)
+    cmd = "Fill({}, {},{},{},{})".format(c, x, y, width, height)
+    due.Engine.ExecuteCommand(cmd)
 
 
 def Clear(color):
     c = 1 if color > 0 else 0
-    duelink.Engine.ExecuteCommand(f"Clear({c})")
+    due.Engine.ExecuteCommand("Clear({})".format(c))
 
 
 def Show():
-    duelink.Engine.ExecuteCommand("show()")
+    due.Engine.ExecuteCommand("show()")
 
 
 # --- Main sequence ---
