@@ -1,0 +1,19 @@
+module main
+author unknown
+version 1 0 
+description ''
+variables LEDS 
+
+script 242 90 {
+whenStarted
+comment 'LED Pin Numbers 1-16'
+LEDS = ('[data:makeList]' 1 2 3 4 6 7 8 9 10 11 12 13 14 15 16)
+forever {
+  for i (size LEDS) {
+    digitalWriteOp (at i LEDS) true
+    waitMillis 50
+    digitalWriteOp (at i LEDS) false
+  }
+}
+}
+
