@@ -12,13 +12,13 @@ fn Test()
     Wait(10)
     cmd("sel(1)")
     
-    Pos(1,7)
-    CPrnt('P')
-    CPrnt('A')
-    CPrnt('S')
-    CPrnt('S')
-    CPrnt('E')
-    CPrnt('D')
+    Pos(7,1)
+    CPrint('P')
+    CPrint('A')
+    CPrint('S')
+    CPrint('S')
+    CPrint('E')
+    CPrint('D')
   
 fend  
 

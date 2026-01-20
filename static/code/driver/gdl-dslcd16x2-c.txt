@@ -30,7 +30,7 @@ fn Command(c)
  
 fend
  
-fn Pos(r, c)
+fn CPos(c, r)
  
     if (c > 15 || c < 0) 
         return 
@@ -51,10 +51,16 @@ fn Clr()
     Command(1)
     wait(2)
 fend
- 
-fn CPrnt(c)
+
+fn CPrint(c)
     Nib(c>>4)
     Nib(c)
+fend
+ 
+fn CPrintS(b1)
+    for i = 0 to len(b1)
+        CPrint(b1[i])
+    next
 fend
  
 fn Init()
