@@ -4,22 +4,33 @@
 ![Uplink-Downlink](pathname:///img/uplink-downlink.webp)
 </div>
 
-In a DUELink setup, where there are more than one module, there will always be a connection between the Uplink and Downlink connector, creating a Daisylink. Each single module in a Daisylink is an active repeater of the signal. There will be no degradation of the signal quality. If necessary, add [Power Inject](../products/adpwrinj-a) to help in powering devices on its Downlink.
+DUELink allows multiple modules to be chained together, creating a Daisylink. Commands flow into a module via its Uplink connector (White) a then forward the command out on its Downlink connector (blue). Each module in a Daisylink is a signal repeater. There will be no degradation of the signal quality.
+
+If necessary, add [Power Inject](../products/adpwrinj-a) adaptor to help in powering devices on its Downlink. Adaptors usually have no intelligence and therefore do nto carry an address. They are usually red circuits. In this example, a host (PC/Arduino...etc.) is controlling a Daisylink of modules, starting with a button at address 1. Power inject will not have an address and the following module will be address 4.
+
 <div style={{ textAlign: 'center'}}>
-![Daisylink](pathname:///img/daisylink.webp)
+![Daisylink](pathname:///img/daisylink-normal.webp)
 </div>
 
 ---
 
 ## Device Selection
 
-The [Standard Library](./stdlib) offers the `Sel()` command to activate devices on the chain. To blink the status LED on the second device on the Daisylink chain, use `Sel(2)` followed by `StatLed(200,200,50)`. The LED will blink 50 times on the second module in the stream.
+The [Standard Library](./stdlib) offers the `Sel()` command to activate devices on the chain. To blink the status LED on the second device on the Daisylink chain, the host will issue `Sel(2)` followed by `StatLed(200,200,50)`. The LED will blink 50 times on the second module in the stream.
 
-Daisylinked devices on a stream are addressed from `1`. The fourth device on the bus is selected using 'Sel(4)'.
+:::tip
+The `Sel()` command is not like other functions found in the standard library as modules can't self select. Only the host can issue `Sel()`.
+
+In other words, do not add `Sel()` inside a script.
+:::
+
+Daisylinked devices on a stream are addressed by their count, starting with `1` as the first module connected to a host. The fourth device on the bus is selected using 'Sel(4)'.
 
 <div style={{ textAlign: 'center'}}>
 ![Select](pathname:///img/select.webp)
 </div>
+
+Any module can turn into a "Host", which is covered later on this page.
 
 ---
 
@@ -54,9 +65,9 @@ Same as for `Sel(0)`, reading responses in a multi-select setup is not supported
 
 ## Device Enumeration
 
-When modules power up, they have a NULL interface, and they have no set address yet. Once an [Interface](../interface/intro) is detected, such as [USB](../interface/usb), then the first device will set its own address to 1 and then command all Downlink devices to take a new address, 1, 2, 3, 4...etc.
+When modules power up, they have a NULL interface, and they have no set address yet. Once an [Interface](../interface/intro) is detected, such as [USB](../interface/usb), then the first device will set its own address to 1 and then command all Downlink devices to take a new address. This causes a chain reaction , 1, 2, 3, 4...etc.
 
-To initiate the Daisylink and enumerate the modules connected on the [Downlink](../interface/downlink) interface, a command must be sent. This very first command is only seen by the first device. An empty command (just a carriage return) can also be used.
+To initiate the Daisylink and enumerate the modules connected on the [Downlink](../interface/downlink) interface, a command must be sent. This very first command is only seen by the first device. An empty command (just a carriage return) can also be used, and is recommended.
 
 Only smart modules receive an address. For example, both power modules in this Daisylink do not have an address.
 
@@ -64,36 +75,35 @@ Only smart modules receive an address. For example, both power modules in this D
 ![Host Mode](pathname:///img/host-mode.webp)
 </div>
 
-Use `GetAddr()` to read the current address. If the current address is zero, then the module has not been enumerated yet.
+Use `GetAddr()` to read the current selected device address. If the current address is zero, then the module has not been enumerated yet. `GetCnt()` can be used to return the count of connected modules, seen the host. Note that when there is a module in the chain that is configured as "Host Mode" then main host will only see the modules up to that module in "Host Mode".
 
-There are 2 options for module to be enumerated, either by detecting an [Interface](../interface/intro) or by configuring a module in host mode as explained below.
-
-Since devices get enumerated in order and each module needs 1ms to 2ms to be ready, commands should not be sent to modules for 2ms for each module in the Daisylink. For example, wait for 10ms before commanding a Daisylink with 5 modules.
+Since devices get enumerated in a sequence plus each module needs about 2ms to be ready, commands should not be sent to modules for 2ms for each module in the Daisylink. For example, wait for 10ms before commanding a Daisylink with 5 modules.
 
 ---
 
 ## Host Mode
 
-A host is used to command a stream of Daisylinked devices. There are several [Supported Hardware](../hw/intro) devices and many supported [Languages](../language/intro).
+In most cases, DUELink modules connect to third-party [Supported Hardware](../hw/intro) device. This device is the Daisylink host.
 
 <div style={{ textAlign: 'center'}}>
 ![Other Micros](pathname:///img/other-micros.webp)
 </div>
 
-DUELink modules can also run [Standalone](../language/standalone) and can also be the host of other Daisylinked modules, connected on the [Downlink](../interface/downlink) socket.
+Addressing is simple normal use, starting with address 1. Adaptors, like Power Inject, do not have an address.
+
+<div style={{ textAlign: 'center'}}>
+![Normal Addressing](pathname:///img/daisylink-normal.webp)
+</div>
+
+DUELink modules can also run [Standalone](../language/standalone) and be in "Host Mode", hosting one or more Daisylinked modules, connected to its [Downlink](../interface/downlink) socket.
 
 
 <div style={{ textAlign: 'center'}}>
 ![Button Controlling LEDs](pathname:///img/button-led.gif)
 </div>
 
-Devices automatically receive an address, starting with 1. Note how power modules do not count. They are just power sources.
 
-<div style={{ textAlign: 'center'}}>
-![Normal Addressing](pathname:///img/daisylink-normal.webp)
-</div>
-
-The host-module can be anywhere in the chain. Here is an example where the third module is configured as a host. Note how the host module is address 3 to its host, which is the Sparkfun micro. The other modules on its Downlink also have addresses starting at 1, but these are only visible to their host.
+The host-mode-module can be anywhere in the chain. Here is an example where the third module is configured in "Host Mode". Note how the host module is address 3 to its host, which is the Sparkfun micro in this example. The other modules on its Downlink also have addresses starting at 1, but these are only visible to their host, which is the display.
 
 <div style={{ textAlign: 'center'}}>
 ![Third Module Host](pathname:///img/daisylink-third-host.webp)
@@ -107,16 +117,10 @@ This host can also be anywhere else in the link, including the first device. Thi
 
 As documented on the [Downlink](../interface/downlink) interface page, `DLMode(2,0)` command is used to switch the module to host mode. This will automatically reset and re-enumerate thats host's clients.
 
-This is what addresses look like without a DUELink host. There is, however, an external non-DUELink host.
-
-<div style={{ textAlign: 'center'}}>
-![Normal Addressing](pathname:///img/daisylink-normal.webp)
-</div>
-
-Load this code on the second device, which turns it into a host. It then sends a command to its client address 2 to blink its status LED. 
+For demonstration, use the [Console](../console) to load this code on the second module. This code will enable "Host Mode", which will break the chain at the second module. The code then sends a commands to its clients. It is important to note how the code sends `Sel(2)` using `Cmd()`. A Module can not self select or call `Sel()` in its script. Use `Cmd(Sel(2))` to select the second module. 
 
 :::tip
-You can only load code on the first device. To handle this example, connect device 2 directly to a PC, load the program, and then move it back to be device 2 in the stream.
+Loading scripts from a PC can be done on modules connected onto the main link. Remember, adding a host in the middle of a chain logically breaks it into multiple chains. 
 :::
 
 ```py
@@ -132,7 +136,9 @@ This is what the link would look like.
 ![Blinking STAT LED from Host](pathname:///img/daisylink-host-blink.webp)
 </div>
 
-A device in "host" mode is still listening to commands coming from Uplink, but it does not forward the commands Downlink. This allows for programming and configuring the host, from DUELink [Console](../console) for example.
+Note how there are 2 modules with address 2, each one visible only to its host.
+
+A module in "host" mode is still listening to commands coming from Uplink, from its host, but it does not forward the commands Downlink. This allows for programming and configuring the host, from DUELink [Console](../console) for example.
 
 ---
 

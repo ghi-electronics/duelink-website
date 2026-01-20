@@ -409,7 +409,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/t
                 sampleTabs.push({label: 'Arduino', value: 'arduino'});
                 sampleTabItems.push(`<TabItem value="arduino">
 
-\`\`\`ino reference title="Arduino Sample"
+\`\`\`cpp reference title="Arduino Sample"
 https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/tethered/${baseName}.ino
 \`\`\`
 
@@ -495,7 +495,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/s
 
                 See [Arduino](/docs/hw/arduino) page for more info.
 
-\`\`\`ino reference title="Standalone Arduino Sample"
+\`\`\`cpp reference title="Standalone Arduino Sample"
 https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/standalone/${baseName}.ino
 \`\`\`
 
