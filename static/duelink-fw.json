@@ -15,10 +15,10 @@
   "MicroBlock": {
     "name": "MicroBlocks",
     "versions": [                  
-      { "id": 1, "name": "v371 (Beta)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/microblocks/duelink-microblocks-v371.bin" },
-      { "id": 2, "name": "v372 (Beta)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/microblocks/duelink-microblocks-v372.bin" },
-      { "id": 3, "name": "v373 (Beta)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/microblocks/duelink-microblocks-v373.bin" },
-      { "id": 4, "name": "v375 (Beta)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/microblocks/duelink-microblocks-v375.bin" }
+      { "id": 1, "name": "v372 (Beta)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/microblocks/duelink-microblocks-v372.bin" },
+      { "id": 2, "name": "v373 (Beta)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/microblocks/duelink-microblocks-v373.bin" },
+      { "id": 3, "name": "v375 (Beta)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/microblocks/duelink-microblocks-v375.bin" },
+      { "id": 4, "name": "v376 (Beta)", "url": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/microblocks/duelink-microblocks-v376.bin" }
     ],
     "boards": [
 	  { "name": "microblocks.fun", "id": "D",  "rtm-fw": null }     
