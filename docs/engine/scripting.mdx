@@ -504,7 +504,7 @@ for _i=1 to 1000 step 10:PrintLn(_i):next
 
 Aliases allow for creating cleaner code. For example, the name `temp` can be an alias to `_t` variable holding temperature.
 
-`Alias()` is a special kind of function that adds new aliases to the system. It is not possible to remove an alias once it is added.
+`Alias()` is a special kind of function that adds new aliases to the system. An alias can't be removed or changed untill the program ends or resets.
 
 An alias can be used for variables, arrays, function names, and constants.
 
@@ -522,8 +522,8 @@ fn Test(a, b)
 fend
 ```
 
-Aliases are handled in flash and has no RAM usage implications; however, they degrade performance due to the need for searching available aliases.
+Aliases are fetched directly from the program space and have no RAM usage implications; however, they degrade performance due to the need for the system to search for available aliases. This performance hit is only applicable when the engine reaches an alias in the code. The rest of the program runs as usual. 
 
 :::tip
-Because Aliases are flash-dependant, they do not work in immediate mode. However, Aliases stored in flash using recorded mode are available to immediate commands. 
+Because Aliases are program-space-dependant, they do not work in immediate mode. However, Aliases stored in programs using recorded mode are available to immediate commands. 
 :::
