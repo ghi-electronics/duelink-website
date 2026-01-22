@@ -1,55 +1,36 @@
 module main
-author GHI Electronics
-version 1 0
+author GHI
+version 1 0 
 description ''
+variables counter 
 
-variables counter
-
-spec ' ' 'Heater' 'Heater _' 'auto'
-spec 'r' 'SensorRead' 'SensorRead'
-spec 'r' 'buildstr' 'addstring _ : with _ : _ : ...' 'str auto auto' 'output'
-spec ' ' 'Print' 'Print _' 'auto'
-
-script 120 80 {
-whenStarted
-comment 'In this sample:'
-comment 'Warm up the sensor for 10 seconds, then read the analog value'
-due_useI2C true
-due_select_device 1
-
-counter = 0
-
-forever {
-	waitMillis 1000
-
-	if (counter == 0) {
-		Heater 1
-	}
-
-	counter = (counter + 1)
-
-	if (counter < 10) {
-		Print (buildstr 'Wait for ' counter '/10 seconds')
-	} else {
-		local 'volt' (SensorRead)
-		Print (buildstr 'Volt: ' volt)
-	}
-}
-}
+  spec ' ' 'Heater' 'Heater _' 'auto'
+  spec 'r' 'SensorRead' 'SensorRead'
+  spec 'r' 'buildstr' 'addstring _ : with _ : _ : ...' 'str auto auto' 'output'
+  spec ' ' 'Print' 'Print _' 'auto'
 
 to Heater value {
-	local 'v' 0
-	if (value != 0) {
-		v = 1
-	} else {
-		v = 0
-	}
-	due_run (due_make_command 'Heater' v '')
+  local 'v' 0
+  if (value != 0) {
+    v = 1
+  } else {
+    v = 0
+  }
+  due_run (due_make_command 'Heater' v '')
+}
+
+to Print text {
+  local 'tmp' text
+  if (isType text 'number') {
+    tmp = ('[data:convertType]' text 'string')
+  }
+  tinyOLED_clear
+  tinyOLED_drawString tmp 0 0 true
 }
 
 to SensorRead {
-	local 'ret' (due_returnNum (due_make_command 'SenRead' ''))
-	return ret
+  local 'ret' (due_returnNum (due_make_command 'SenRead' ''))
+  return ret
 }
 
 to buildstr s optionalArgs {
@@ -65,32 +46,43 @@ to buildstr s optionalArgs {
   return ('[data:joinStrings]' result)
 }
 
-to Print text {
-	local 'tmp' text
-	if (isType text 'number') {
-		tmp = ('[data:convertType]' text 'string')
-	}
-	tinyOLED_clear
-	tinyOLED_drawString tmp 0 0 true
+script 120 40 {
+whenStarted
+comment 'In this sample:'
+comment 'Warm up the sensor for 10 seconds, then read the analog value'
+due_useI2C true
+due_select_device 1
+counter = 0
+forever {
+  waitMillis 1000
+  if (counter == 0) {
+    Heater 1
+  }
+  counter = (counter + 1)
+  if (counter < 10) {
+    Print (buildstr 'Wait for ' counter '/10 seconds')
+  } else {
+    local 'volt' (SensorRead)
+    Print (buildstr 'Volt: ' volt)
+  }
+}
 }
 
-script 120 1100 {
+script 120 787 {
 to Heater {}
 }
 
-script 120 1310 {
+script 118 1204 {
 to SensorRead {}
 }
 
-script 120 1485 {
+script 120 1445 {
 to buildstr {}
 }
 
-script 120 1975 {
+script 120 1935 {
 to Print {}
 }
-
-
 
 
 module 'DUELink Daisylink' Comm
