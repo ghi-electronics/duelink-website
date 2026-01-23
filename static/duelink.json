@@ -1909,12 +1909,12 @@
           "price": 6.95
         },
         {
-          "name": "Breadboard Jumper",
+          "name": "100mm Jumper 10pcs",
           "partCode": "JMPR",
           "price": 5.95
         },
         {
-          "name": "Variety Pack",
+          "name": "Variety Pack 10pcs",
           "partCode": "PACK",
           "price": 9.95
         }
@@ -1933,12 +1933,12 @@
       ],
       "variations": [
         {
-          "name": "Downlink 10pcs",
+          "name": "Downlink Blue 10pcs",
           "partCode": "DL",
           "price": 1.95
         },
         {
-          "name": "Uplink 10pcs",
+          "name": "Uplink White 10pcs",
           "partCode": "UL",
           "price": 1.95
         }
@@ -2019,7 +2019,7 @@
           "price": 2.95
         },
         {
-          "name": "Variety Pack",
+          "name": "Variety Pack 64pcs",
           "partCode": "PACK",
           "price": 14.95
         }
