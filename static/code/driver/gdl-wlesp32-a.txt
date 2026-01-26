@@ -433,22 +433,31 @@ fn Bridge()
 fend
 
  
-fn StartWiFi(b1, b2) # b1:SSID, b2: password, t: 0: only init, 1: start bridge,
+fn StartWiFi(b1, b2) # b1:SSID, b2: password
     _m = 1
     # Start AT - WiFi cmd
     if AtCmd("AT+CWMODE=1") != 0
         ATWaitRes(100)
     end
  
-    dim b5[9 + 1 + len(b1) + len(b2)]
-    dim b6[] = "AT+CWJAP="
+    dim b6[] = "AT+CWJAP=\""
+    dim b5[len(b6) + 4 + len(b1) + len(b2)]
+    
     memcpy(b5, 0, b6, 0, len(b6))
  
-    memcpy(b5, 9, b1, 0, len(b1))
-    b5[9 + len(b1)] = ','
-    memcpy(b5, 9 + len(b1) + 1 , b2, 0, len(b2))
+    memcpy(b5, len(b6), b1, 0, len(b1))
+    
+    b5[len(b6) + len(b1)+0] = '"'
+    b5[len(b6) + len(b1)+1] = ','
+    b5[len(b6) + len(b1)+2] = '"'
+    
+    memcpy(b5, len(b6) + len(b1) + 3 , b2, 0, len(b2))
+    
+    b5[len(b5)-1] = '"'
  
+    #println(b5)
     AtCmd(b5)   
+    #println(b0)
  
     c = 0
     while (dread(_d, 1) = 1)
@@ -466,13 +475,14 @@ fn StartWiFi(b1, b2) # b1:SSID, b2: password, t: 0: only init, 1: start bridge,
     ATWaitRes(1000)
 fend
 
+
 fn StartTcp(b1)
 
     AtCmd("AT+CIPSERVER=1,8080")
     ATWaitRes(1000)
     
-    dim b4[] = "AT+MDNS=1,"
-    dim b5[] = ",\"_tcp\",80"
+    dim b4[] = "AT+MDNS=1,\""
+    dim b5[] = "\",\"_tcp\",80"
     
     dim b6[len(b4) + len(b1) + len(b5)]
     
@@ -481,7 +491,7 @@ fn StartTcp(b1)
     
     memcpy(b6,len(b4) +len(b1) ,b5,0,len(b5))
     
-    
+    #println(b6)
     AtCmd(b6)
     ATWaitRes(1000)
 fend

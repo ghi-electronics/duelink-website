@@ -1,12 +1,17 @@
+# In this sample:
+# Enable Wi-Fi and set the multicast DNS name to "duelink".
+# A TCP client (for example, the TeraTerm application) can connect to
+# "duelink" on port 8080 to send and receive commands.
+
 _w = 0
 
 if _w = 0
     # Example Bluetooth
-    StartBT("\"bt_name\"")    
+    StartBT("bt_name")    
 else
     # Example WiFi
-    StartWiFi("\"ssid\"", "\"your_pwd\"") 
-    StartTcp("\"duelink\"") # optional. Without this: need to know IP address to connect to
+    StartWiFi("ssid", "your_pwd") 
+    StartTcp("duelink") # optional. Without this: need to know IP address to connect to
 end
 
 Bridge()
