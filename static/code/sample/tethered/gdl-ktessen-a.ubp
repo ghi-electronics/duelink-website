@@ -39,7 +39,8 @@ to GetDistance {
 
 to GetLight {
   SelectDevice 7
-  return (due_returnNum 'Light()')
+  local 'var' (due_returnNum 'Light()')
+  return var
 }
 
 to GetRotaryPress {
@@ -151,6 +152,7 @@ rotary_button_pressed = false
 light_val = 0
 counter = 0
 doUpdateScreen = false
+waitMillis 500
 forever {
   if ((counter % 10) == 0) {
     local 'cur_distance' (GetDistance)
@@ -174,11 +176,11 @@ forever {
   }
   if ((counter % 12) == 0) {
     local 'light_tmp' (GetLight)
-    if (light_val != light_tmp) {
+    if (light_tmp != light_val) {
       light_val = light_tmp
       doUpdateScreen = true
     }
-    if (light_val < 10) {
+    if (light_tmp < 5) {
       PlaySound
     }
   }
@@ -205,12 +207,16 @@ forever {
 }
 }
 
-script 755 1715 {
+script 932 1380 {
 to SelectDevice {}
 }
 
-script 484 1984 {
+script 924 1834 {
 to DrawText {}
+}
+
+script 376 2070 {
+to GetLight {}
 }
 
 script 128 2168 {
@@ -249,11 +255,7 @@ script 738 3426 {
 to SetServo {}
 }
 
-script 583 3720 {
-to GetLight {}
-}
-
-script 120 3860 {
+script 136 3584 {
 to PlaySound {}
 }
 
