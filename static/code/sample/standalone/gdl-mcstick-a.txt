@@ -1,0 +1,5 @@
+# In this sample:
+# Toggle the statled every 500ms 
+
+statled(500,500,0)
+
