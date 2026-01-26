@@ -8,6 +8,8 @@ const {SerialUSB} = pkg_serialusb
 import pkg_duelink from 'duelink';
 const {DUELinkController} = pkg_duelink
 
+// This example runs when connected to a PC.
+// If connected to an RPi, change `availablePort` to the serial port it is connected to, for example: "/dev/ttyAMA0".
 let duelink = new DUELinkController(new SerialUSB());
 await duelink.Connect();
 

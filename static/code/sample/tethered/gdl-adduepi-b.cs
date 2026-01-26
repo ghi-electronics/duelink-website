@@ -4,7 +4,9 @@
 using GHIElectronics.DUELink;
 using System;
 
-var availablePort = DUELinkController.GetConnectionPort();
+// This example runs when connected to a PC.
+// If connected to an RPi, change `availablePort` to the serial port it is connected to, for example: "/dev/ttyAMA0".
+var availablePort = DUELinkController.GetConnectionPort()
 var duelink = new DUELinkController(availablePort);
 
 // Default driver CP23 is directly mode, 320x240

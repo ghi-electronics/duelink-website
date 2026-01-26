@@ -6,6 +6,8 @@ import time
 from datetime import datetime
 from DUELink.DUELinkController import DUELinkController
 
+# This example runs when connected to a PC.
+# If connected to an RPi, change `availablePort` to the serial port it is connected to, for example: "/dev/ttyAMA0".
 availablePort = DUELinkController.GetConnectionPort()
 duelink = DUELinkController(availablePort)
 
