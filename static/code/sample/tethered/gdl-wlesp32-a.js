@@ -53,8 +53,8 @@ async function EnableBrigde() {
 await StartWiFi("ssid", "pwd");
 
 // The Wi-Fi connection can take up to 30 seconds.
-// For testing, sleep for 10 seconds first.
-await sleep(1000 * 10);
+// For testing, sleep for 1 seconds first.
+await sleep(1000 * 1);
 
 while ((await IsWiFiConnected()) === false) {
     await sleep(1000);

@@ -45,8 +45,8 @@ void EnableBrigde() {
 StartWiFi("ssid", "pwd");
 
 // The Wi-Fi connection can take up to 30 seconds.
-// For testing, sleep for 10 seconds first.
-Thread.Sleep(1000 * 10);
+// For testing, sleep for 1 seconds first.
+Thread.Sleep(1000 * 1);
 while (IsWiFiConnected() == false) {
     Thread.Sleep(1000);
     Console.WriteLine("Wait for WiFi connection...");

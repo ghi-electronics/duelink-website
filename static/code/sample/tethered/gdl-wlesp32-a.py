@@ -39,8 +39,8 @@ def EnableBrigde():
 StartWiFi("ssid", "pwd")
 
 # The Wi-Fi connection can take up to 30 seconds.
-# For testing, sleep for 10 seconds first.
-time.sleep(10)
+# For testing, sleep for 1 seconds first.
+time.sleep(1)
 
 while IsWiFiConnected() == False:
     time.sleep(1)
