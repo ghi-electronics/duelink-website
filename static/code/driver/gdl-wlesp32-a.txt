@@ -343,7 +343,7 @@ fn EnterLder() # Enter loader mode
     wend
 fend  
  
-fn StartBT(b1) # b1 is Bluetooth name, t: 0: only init, 1: start bridge,
+fn StartBT(b1) # b1 is Bluetooth name
     _m = 0
     # Start AT - Bluetooth cmd
  
@@ -379,8 +379,8 @@ fn Bridge()
  
     wait(10)
  
-    println("Waiting for connection...")
-    
+    #println("Waiting for connection...")
+ 
     b = 0 # backup state
     s = 0 # current state 
     i = 0 
@@ -406,14 +406,14 @@ fn Bridge()
             b = s
             if s = 1 # connected
  
-                println("Connected")
+                #println("Connected")
                 ATReadLn(100)
             else
  
-                println("Disconnected")
+                #println("Disconnected")
                 ATReadLn(100)
             end
-            println("Status: ", b0) 
+            #println("Status: ", b0) 
         end
  
         if s = 1
@@ -437,7 +437,11 @@ fn StartWiFi(b1, b2) # b1:SSID, b2: password
     _m = 1
     # Start AT - WiFi cmd
     if AtCmd("AT+CWMODE=1") != 0
-        ATWaitRes(100)
+        ATWaitRes(500)
+    end
+    
+    if AtCmd("AT+CWAUTOCONN=0") != 0
+        ATWaitRes(500)
     end
  
     dim b6[] = "AT+CWJAP=\""
@@ -463,7 +467,7 @@ fn StartWiFi(b1, b2) # b1:SSID, b2: password
     while (dread(_d, 1) = 1)
         wait(1000)
         c = c + 1
-        println("Wait for get IP: ", c)
+        #println("Wait for get IP: ", c)
     wend
  
     ATWaitRes(10000)
