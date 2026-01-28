@@ -2,9 +2,10 @@
 _d = 5 # WiFi, Bluetooth connection pin status. Low: Connected, High: Disconnected
 _s = 4 # Socket connection pin status. Low: Connected, High: Disconnected
 _m = 0 # _m: 0: Bluetooth, 1: WiFi
+_z = 128 # cmd size
  
-dim b0[128] # this buffer b0 is global used everywhere, do not touch
-dim b9[128] # this buffer b9 is global used everywhere, do not touch
+dim b0[_z] # this buffer b0 is global used everywhere, do not touch
+dim b9[_z] # this buffer b9 is global used everywhere, do not touch
  
 AsIo(1)  # optional, in case user wants to talk to device during initialize ESP 
  
@@ -28,14 +29,15 @@ fn AtCmd(b1)
  
     r = ATReadLn(100)
     #println(b0)
-    return r
+    return r 
 fend   
  
 # Check AT command response
 fn ATWaitRes(t)    
-    for i = 0 to len(b0)
-        b0[i] = 0
-    next
+    #for i = 0 to len(b0)
+    #    b0[i] = 0
+    #next
+    memcpy(b0,0,b9,0,_z)
  
     z = t
     i = 0
@@ -70,7 +72,7 @@ fn ATReadLn(t) # get line from AT
     #for i = 0 to len(b0)
     #    b0[i] = 0
     #next
-    memcpy(b0,0,b9,0,128)
+    memcpy(b0,0,b9,0,_z)
  
 
     i = 0
@@ -108,7 +110,7 @@ fn DLReadLn( t)
     #    b0[i] = 0
     #next
     #u = tickms()
-    memcpy(b0,0,b9,0,128)
+    memcpy(b0,0,b9,0,_z)
  
     z = t
     i = 0
@@ -150,7 +152,7 @@ fend
 fn Esp2Dwlk()
     if _m = 0 # parser for Bluetooth
         
-        ATReadLn(128) # get line include \r\n, timeout 128ms since max 128 character * 1ms (9600)
+        ATReadLn(_z) # get line include \r\n, timeout 128ms since max 128 character * 1ms (9600)
         #u = tickms()
  
         #println("readline take1: ", (tickms()-u))
@@ -368,8 +370,8 @@ fn Init()
     AtCmd("AT+BTINIT=1")    
     ATWaitRes(2000) 
     
-    AtCmd("ATE0") # disable echo   
-    ATWaitRes(1000)
+    AtCmd("ATE0")    
+    ATWaitRes(2000)
  
     #Depen on WiFi or Bluetooth, user need initialize WiFi or Bluetooth
 fend
@@ -550,10 +552,9 @@ fn StartTcp(b1)
 fend
  
 fn DVer()
-    return 1.1
+    return 1.0
 fend 
  
 Init() 
  
 ###################
-
