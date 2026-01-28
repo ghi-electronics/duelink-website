@@ -39,36 +39,36 @@ var duelink = new DUELinkController("COMx"); // Bluetooth COM port, change to us
 var current_dev = -1;
 
 void SelectDevice(int dev) {
-    var start = DateTime.Now;
+ 
     if (current_dev != dev) {
         duelink.Engine.Select(dev);
         current_dev = dev;
     }
 
-    var end = DateTime.Now - start;
+
 }
 int GetX() {
     SelectDevice(1);
-    var start = DateTime.Now;
+
     var x = (int)duelink.Engine.ExecuteCommand("GetX()");
-    var end = DateTime.Now - start;
-    Console.WriteLine("get X take : " + end.TotalMilliseconds);
+ 
+    
     return x;
 }
 int GetY() {
-    var start = DateTime.Now;
+
     SelectDevice(1);
     var y = (int)duelink.Engine.ExecuteCommand("GetY()");
-    var end = DateTime.Now - start;
-    Console.WriteLine("get Y take : " + end.TotalMilliseconds);
+
+    
     return y;
 }
 int GetZ() {
     SelectDevice(1);
-    var start = DateTime.Now;
+
     var z = (int)duelink.Engine.ExecuteCommand("GetZ()");
-    var end = DateTime.Now - start;
-    Console.WriteLine("get Y take : " + end.TotalMilliseconds);
+
+    
     return z;
 }
 
@@ -128,7 +128,7 @@ while (true) {
 
             if (diff > 3000) {
                 accel_y = GetY();
-                last_accel_read_x = DateTime.Now;
+                last_accel_read_y = DateTime.Now;
             }
             break;
         case 2:
@@ -137,8 +137,9 @@ while (true) {
             if (diff > 3000) {
                 accel_z = GetZ();
                 last_accel_read_z = DateTime.Now;
+                Console.WriteLine($"X = {accel_x}, Y = {accel_y}, Z = {accel_z}");
             }
-            Console.WriteLine($"X = {accel_x}, Y = {accel_y}, Z = {accel_z}");
+            
             break;
 
         case 3:

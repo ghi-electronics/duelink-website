@@ -135,7 +135,7 @@ while True:
             accel_z = GetZ()
             last_accel_read_z = datetime.now()
 
-        print(f"X = {accel_x}, Y = {accel_y}, Z = {accel_z}")
+            print(f"X = {accel_x}, Y = {accel_y}, Z = {accel_z}")
 
     elif count == 3:
         btnUp = IsButtonPressed('U')
