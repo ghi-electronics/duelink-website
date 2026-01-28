@@ -588,6 +588,16 @@ fn StdWrite(d)
         return -1
     end
     
+    if dread(5,1) = 1
+        return -1
+    end
+    
+    if _m = 1 # if wifi, check socket
+        if dread(4,1) = 1
+            return -1
+        end
+    end
+    
     _w = 1
     
     memcpy(b0,0,b9,0,_z)
