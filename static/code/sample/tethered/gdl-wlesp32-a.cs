@@ -38,7 +38,7 @@ void SetMulticastDns(string mdns_name) {
 }
 
 void EnableBrigde() {
-    duelink.Engine.ExecuteCommand("Bridge()");
+    duelink.Engine.ExecuteCommand("Bridge(1)");
 }
 
 

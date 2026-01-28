@@ -46,7 +46,7 @@ async function SetMulticastDns(mdns_name) {
 }
 
 async function EnableBrigde() {
-    await duelink.Engine.ExecuteCommand("Bridge()");
+    await duelink.Engine.ExecuteCommand("Bridge(1)");
 }
 
 // Start Wi-Fi connection

@@ -32,7 +32,7 @@ def SetMulticastDns(mdns_name):
     duelink.Engine.ExecuteCommand(f'StartTcp("{mdns_name}")')
 
 def EnableBrigde():
-    duelink.Engine.ExecuteCommand("Bridge()")
+    duelink.Engine.ExecuteCommand("Bridge(1)")
 
 
 

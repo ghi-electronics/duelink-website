@@ -14,7 +14,7 @@ description ''
   spec ' ' 'Print' 'Print _' 'auto'
 
 to EnableBrigde {
-  due_run 'Bridge()'
+  due_run 'Bridge(1)'
 }
 
 to IsBluetoothConnected {

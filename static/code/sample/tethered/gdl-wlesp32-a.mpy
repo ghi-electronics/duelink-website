@@ -37,7 +37,7 @@ def SetMulticastDns(mdns_name):
     due.Engine.ExecuteCommand('StartTcp("{}")'.format(mdns_name))
 
 def EnableBrigde():
-    due.Engine.ExecuteCommand("Bridge()")
+    due.Engine.ExecuteCommand("Bridge(1)")
 
 
 StartWiFi("ssid", "pwd")

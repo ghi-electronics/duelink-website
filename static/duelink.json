@@ -1099,7 +1099,7 @@
         "Program DUELink Modules Wirelessly",
         "27x37mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `DVer()` | This driver version. |\n| `ATCmd([cmd])` | Send AT command `cmd` to ESP. |\n| `ATWaitRes(t)` | Parse AT command response with timeout `t` milliseconds. return 1:OK, 0:Error (or no response - timeout). |\n| `StartBT([name])` | Start Bluetooth with `name`. |\n| `StartWiFi([ssid], [password])` | Connect to WiFi with `ssid` and `password`. |\n| `EnterLder()` | Enter ESP loader mode. |\n| `StartTcp([hostname])` | Start tcp with `hostname`. |\n| `Bridge()` | Enable communication between downlink and ESP.|"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `DVer()` | This driver version. |\n| `ATCmd([cmd])` | Send AT command `cmd` to ESP. |\n| `ATWaitRes(t)` | Parse AT command response with timeout `t` milliseconds. return 1:OK, 0:Error (or no response - timeout). |\n| `StartBT([name])` | Start Bluetooth with `name`. |\n| `StartWiFi([ssid], [password])` | Connect to WiFi with `ssid` and `password`. |\n| `EnterLder()` | Enter ESP loader mode. |\n| `StartTcp([hostname])` | Start tcp with `hostname`. |\n| `Bridge(x)` | x: 0-Standard mode, 1-Enable communication between downlink and ESP.|"
     },
      {
       "name": "GPS",

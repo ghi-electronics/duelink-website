@@ -12,9 +12,14 @@ else
     # Example WiFi
     StartWiFi("ssid", "pwd") 
     StartTcp("duelink") # optional. Without this: need to know IP address to connect to
+    
+    while (dread(4,1) = 1)
+        println("wait for tcp connection")
+        wait(1000)
+    wend
 end
 
-Bridge()
+Bridge(1) # Enable bridge mode
 
 
 

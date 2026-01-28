@@ -26,7 +26,7 @@
 #  end
 #wend
 #statled(1,0,0) # Statled stay on: Connect successful
-#Bridge() # Start bridge 
+#Bridge(1) # Start bridge 
 ### USRER CODE END #####
 import time
 from datetime import datetime
