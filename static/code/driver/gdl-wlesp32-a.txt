@@ -550,7 +550,7 @@ fn StartTcp(b1)
 fend
  
 fn DVer()
-    return 1.0
+    return 1.1
 fend 
  
 Init() 
