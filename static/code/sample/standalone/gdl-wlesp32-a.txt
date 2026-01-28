@@ -10,7 +10,7 @@ if _w = 0
     StartBT("bt_name")    
 else
     # Example WiFi
-    StartWiFi("ssid", "your_pwd") 
+    StartWiFi("ssid", "pwd") 
     StartTcp("duelink") # optional. Without this: need to know IP address to connect to
 end
 
