@@ -187,7 +187,7 @@ const ProjectCatalog = () => {
         {/* Languages & Tools Section */}
         <div className={styles.filterSection}>
           <span className={styles.filterSectionLabel}>
-            {data.tagGroups?.languages?.label || 'Languages & Tools'}
+            {data.tagGroups?.languages?.label || 'Language & Tools'}
           </span>
           <div className={styles.filterTags}>
             <button
