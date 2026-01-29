@@ -36,21 +36,27 @@ const YouTubeModal = ({ videoId, onClose }) => {
       aria-modal="true"
       aria-label="YouTube video player"
     >
-      <div className={styles.modalContent}>
+      <div className={styles.modalContainer}>
         <button
           className={styles.modalClose}
           onClick={onClose}
           aria-label="Close video"
         >
-          ×
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
-        <iframe
-          className={styles.youtubeIframe}
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
+        <div className={styles.modalContent}>
+          <iframe
+            className={styles.youtubeIframe}
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+        <p className={styles.modalHint}>Press ESC or click outside to close</p>
       </div>
     </div>
   );
