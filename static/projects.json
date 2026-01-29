@@ -10,7 +10,7 @@
         "cpp": { "displayName": "C++", "icon": "cplusplus.svg" },
         "standalone": { "displayName": "Standalone", "icon": "standalone.svg" },
         "script": { "displayName": "DUELink Script", "icon": "script.svg" },
-        "blocks": { "displayName": "Blocks", "icon": "blocks.svg" },
+        "blocks": { "displayName": "Block Coding", "icon": "blocks.svg" },
         "microblocks": { "displayName": "MicroBlocks", "icon": "microblocks.svg" },
         "makecode": { "displayName": "MakeCode", "icon": "makecode.svg" },
         "appinventor": { "displayName": "App Inventor", "icon": "appinventor.svg" }
@@ -31,10 +31,17 @@
     }
   },
   "projects": [
+        {
+      "name": "Ghizzy Jr Policeman",
+      "description": "Fade the eyes between red and blue",
+      "tags": ["blocks", "microblocks"],
+      "link": "https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/ghizzy-jr-police.ubp",
+      "image": "ghizzy-jr-policeman.webp"
+    },
     {
       "name": "Modulino Modules",
       "description": "Using Arduino Modulino Modules with DUELink",
-      "tags": ["script", "arduino", "microbit"],
+      "tags": ["script", "arduino"],
       "link": "https://forums.ghielectronics.com/t/arduino-modulino/26161",
       "video": "O7_PxzcBt7s",
       "image": "modulino.webp"
@@ -42,21 +49,7 @@
     {
       "name": "Sparkfun Qwiic",
       "description": "Adding Sparkfun Qwiic modules to your projects",
-      "tags": ["micropython", "javascript", "pc", "raspberrypi"],
-      "link": "https://forums.ghielectronics.com/t/using-microblocks-to-control-modulino-qwiic-and-stemma/26167",
-      "image": "qwiic.webp"
-    },
-    {
-      "name": "Test Project",
-      "description": "We are testing",
-      "tags": ["micropython", "javascript", "pc", "raspberrypi"],
-      "link": "https://forums.ghielectronics.com/t/using-microblocks-to-control-modulino-qwiic-and-stemma/26167",
-      "image": "qwiic.webp"
-    },
-     {
-      "name": "Test2 Project",
-      "description": "We are testing more!",
-      "tags": ["micropython", "javascript", "pc", "raspberrypi"],
+      "tags": ["script", "arduino"],
       "link": "https://forums.ghielectronics.com/t/using-microblocks-to-control-modulino-qwiic-and-stemma/26167",
       "image": "qwiic.webp"
     }
