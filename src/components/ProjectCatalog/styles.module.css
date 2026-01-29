@@ -492,13 +492,32 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(8px);
   z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: fadeIn 0.2s ease;
+  animation: modalFadeIn 0.25s ease-out;
+  cursor: pointer;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  cursor: default;
 }
 
 .modalContent {
@@ -506,33 +525,61 @@
   width: 90vw;
   max-width: 900px;
   aspect-ratio: 16 / 9;
-  background: black;
-  border-radius: var(--border-radius-lg);
+  background: #000;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: modalSlideUp 0.3s ease-out;
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .modalClose {
   position: absolute;
-  top: -40px;
+  top: -52px;
   right: 0;
-  width: 36px;
-  height: 36px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 44px;
+  height: 44px;
+  background: white;
+  border: none;
   border-radius: 50%;
-  color: white;
-  font-size: 20px;
-  line-height: 1;
+  color: #333;
   cursor: pointer;
-  transition: all var(--transition-base);
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.modalClose svg {
+  width: 20px;
+  height: 20px;
 }
 
 .modalClose:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: #f0f0f0;
   transform: scale(1.1);
+}
+
+.modalClose:active {
+  transform: scale(0.95);
+}
+
+.modalHint {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  text-align: center;
 }
 
 .youtubeIframe {
@@ -563,7 +610,18 @@
   }
 
   .modalContent {
-    width: 80vw;
+    width: 75vw;
+  }
+
+  .modalClose {
+    top: -56px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .modalClose svg {
+    width: 22px;
+    height: 22px;
   }
 }
 
