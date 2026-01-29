@@ -17,9 +17,15 @@ fn Fan(s)
         AWrite(3,s/100)
         DWrite(4,0)
     else
-        AWrite(4,s/100)
-        DWrite(3,0)
+        if s = 0
+            DWrite(3,0)
+            DWrite(4,0)
+        else
+            AWrite(4,s/100)
+            DWrite(3,0)
+        end
     end
 fend
+ 
 
 #########################

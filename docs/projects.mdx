@@ -1,0 +1,40 @@
+---
+pagination_next: null
+pagination_prev: null
+hide_table_of_contents: true
+---
+
+# Projects
+
+import ProjectCatalog from '/src/components/ProjectCatalog/index.js';
+
+<style>{`
+  .container {
+    max-width: none !important;
+    width: 100% !important;
+  }
+  [class*="docItemContainer"] {
+    max-width: none !important;
+  }
+  /* Align title with filter bar content */
+  .markdown h1:first-child {
+    margin-bottom: 0.25rem;
+    padding-left: 1.5rem;
+  }
+  @media (min-width: 769px) {
+    .markdown h1:first-child {
+      padding-left: 2rem;
+    }
+  }
+  @media (min-width: 1025px) {
+    .markdown h1:first-child {
+      padding-left: 3rem;
+    }
+  }
+`}</style>
+
+:::tip
+## === This page is under construction ===
+:::
+
+<ProjectCatalog />

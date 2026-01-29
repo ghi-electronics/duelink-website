@@ -1,6 +1,7 @@
 module 'DUELink Ghizzy Jr'
 author GHIElectronics
-version 0 6 
+version 0 7 
+depends 'DUELink Edu' 
 description 'DUELink Ghizzy Jr Library
 
 
@@ -8,10 +9,16 @@ description 'DUELink Ghizzy Jr Library
 '
 variables _due_ghizzyjr_enabled _due_ghizzyjr_oldver 
 
-  spec ' ' 'due_ghizzyjr_set_left_eye' 'set left eye red _ green _ blue _' 'num num num' 128 128 128
-  spec ' ' 'due_ghizzyjr_set_right_eye' 'set right eye red _ green _ blue _' 'num num num' 128 128 128
+  spec ' ' 'due_ghizzyjr_set_left_eye' 'set left eye red _ green _ blue _ (0-1000)' 'num num num' 100 100 100
+  spec ' ' 'due_ghizzyjr_set_right_eye' 'set right eye red _ green _ blue _ (0-1000)' 'num num num' 100 100 100
   space
   spec ' ' '_due_ghizzyjr_initialize' '_initialize'
+  spec ' ' 'set mouth' 'set mouth _' 'bool' true
+  spec 'r' 'LDR button' 'LDR button'
+
+to 'LDR button' {
+  return (dueSTEM_LDR_button)
+}
 
 to '_due_ghizzyjr_initialize' {
   if (_due_ghizzyjr_enabled != 1) {
@@ -23,18 +30,22 @@ to '_due_ghizzyjr_initialize' {
 
 to due_ghizzyjr_set_left_eye red green blue {
   '_due_ghizzyjr_initialize'
-  analogWriteOp 8 ('[misc:rescale]' red 0 255 0 1023)
-  analogWriteOp 7 ('[misc:rescale]' blue 0 255 0 1023)
+  analogWriteOp 8 red
+  analogWriteOp 7 blue
   if _due_ghizzyjr_oldver {
-    analogWriteOp 9 ('[misc:rescale]' green 0 255 0 1023)
+    analogWriteOp 9 green
   } else {
-    analogWriteOp 1 ('[misc:rescale]' green 0 255 0 1023)
+    analogWriteOp 1 green
   }
 }
 
 to due_ghizzyjr_set_right_eye red green blue {
-  analogWriteOp 5 ('[misc:rescale]' red 0 255 0 1023)
-  analogWriteOp 6 ('[misc:rescale]' green 0 255 0 1023)
-  analogWriteOp 4 ('[misc:rescale]' blue 0 255 0 1023)
+  analogWriteOp 5 red
+  analogWriteOp 6 green
+  analogWriteOp 4 blue
+}
+
+to 'set mouth' state {
+  setUserLED state
 }
 

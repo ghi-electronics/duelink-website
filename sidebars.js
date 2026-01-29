@@ -263,9 +263,11 @@ const sidebars = {
       ],
     },
     "catalog/third-party",
-        
+
           ],
         },
+    "projects",
+
     {
       type: "category",
       label: "Supported Hardware",

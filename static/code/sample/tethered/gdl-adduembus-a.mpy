@@ -1,0 +1,22 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+
+# Reading analog value from the pin AN
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def ReadAnalog():
+    return due.Engine.ExecuteCommand("vread(5)")
+
+while True:
+    print("Analog:", ReadAnalog())
+    time.sleep_ms(1000)

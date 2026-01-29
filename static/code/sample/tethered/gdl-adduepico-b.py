@@ -1,63 +1,78 @@
+# In this sample:
+# Create a watch using the built-in graphics library.
+
+import math
 import time
-import machine
-import duelink
+from datetime import datetime
+from DUELink.DUELinkController import DUELinkController
 
-from duelink import transport
-from duelink.graphics import GraphicsType
-from machine import Pin, Timer
+# This example runs when connected to a PC.
+# If connected to a Pico, you need to implement ExecuteCommand yourself.
 
-def LcdCmd(c):
-    due.I2c.Write(0x3c, [0,c])
-    
-uart = transport.UartTransportController(0)
-due = duelink.DUELinkController(uart)
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
 
-due.System.New() # Make sure all memory is available
+# Constants
+WIDTH = 64
+HEIGHT = 64
+CENTER_X = WIDTH
+CENTER_Y = HEIGHT // 2
+RADIUS = 26
 
-due.Digital.Write(9,1) # reset pin
-due.I2c.Configuration(1000)
-time.sleep(0.1)
-due.Graphics.Configuration(GraphicsType.I2c, [0x3c], 128, 64, 1)
-LcdCmd(0xAE);LcdCmd(0x00);LcdCmd(0x10)
-LcdCmd(0x40);LcdCmd(0x81);LcdCmd(0xCF)
-LcdCmd(0xA1);LcdCmd(0xA6);LcdCmd(0xA8)
-LcdCmd(0x3F);LcdCmd(0xD3);LcdCmd(0x00)
-LcdCmd(0xD5);LcdCmd(0x80);LcdCmd(0xD9)
-LcdCmd(0xF1);LcdCmd(0xDA);LcdCmd(0x12)
-LcdCmd(0xDB);LcdCmd(0x40);LcdCmd(0x8D)
-LcdCmd(0x14);LcdCmd(0xAF);LcdCmd(0xC8)
-LcdCmd(0x20);LcdCmd(0x00);LcdCmd(0x21)
-LcdCmd(0);LcdCmd(128-1)
-LcdCmd(0x22);LcdCmd(0);LcdCmd(7)
+# Functions
+def DrawText(text, color, x, y, scalex, scaley):
+    duelink.Engine.ExecuteCommand(f'textT("{text}", {color}, {x}, {y})')
 
-due.System.SetArrayValue("a1", [0,0,1,1,1,1,0,0,
-                                0,1,1,1,1,1,1,0,
-                                1,1,0,1,1,0,1,1,
-                                1,1,1,1,1,1,1,1,
-                                1,1,0,1,1,0,1,1,
-                                1,1,1,0,0,0,1,1,
-                                0,1,1,1,1,1,1,0,
-                                0,0,1,1,1,1,0,0])
+def DrawLine(x1, y1, x2, y2, color):
+    duelink.Engine.ExecuteCommand(f'line({color}, {x1}, {y1}, {x2}, {y2})')
 
-due.System.SetArrayValue("a2", [200,50,300,25])
+def DrawCircle(x, y, radius, color):
+    duelink.Engine.ExecuteCommand(f'circle({color}, {x}, {y}, {radius})')
 
-due.Frequency.Write(6,1000,1000)
-due.System.StatLed(100,100,10)
-due.Sound.MelodyPlay(11, [1000,100,2000,100,500,100])
+def ClearScreen(color):
+    duelink.Engine.ExecuteCommand(f'clear({color})')
 
-speed=3
-r=10;x=64;y=32;dx=speed;dy=speed
+def Show():
+    duelink.Engine.ExecuteCommand('show()')
+
+# RGB color conversion (24-bit)
+def RGB(r, g, b):
+    return (r << 16) | (g << 8) | b
+
+def DrawNumbers():
+    for h in range(1, 13):
+        angle = math.pi / 6 * (h - 3)  # 0 hour at right
+        x = CENTER_X + int((RADIUS - 0) * math.cos(angle))
+        y = CENTER_Y + int((RADIUS - 0) * math.sin(angle))
+
+        if h > 6:
+            x -= 2
+
+        DrawText(str(h), RGB(255, 255, 255), x - 4 if h >= 10 else x, y - 3, 1, 1)
+
+def DrawHand(angle, length, color):
+    x = CENTER_X + int(length * math.cos(angle))
+    y = CENTER_Y + int(length * math.sin(angle))
+    DrawLine(CENTER_X, CENTER_Y, x, y, color)
+
+# Draw once to initialize
+ClearScreen(RGB(0, 0, 0))
+
+# Main loop
 while True:
-    due.Graphics.Clear(0)
-    due.Graphics.Text("DUELink",1,43,0)
-    due.Graphics.DrawImage("a1",x-4,y-4,8,8,1)
-    due.Graphics.Circle(1,x,y,r)
-    due.Graphics.Show()
-    if x-speed <= r or x+speed >= 127-r:
-        dx=-dx
-        due.Sound.MelodyPlay(11, "a2")
-        due.transport.execute("print(a2)")
-    if y-speed <= r or y+speed >= 63-r:
-        dy=-dy
-        due.Sound.MelodyPlay(11, "a2")
-    x=x+dx;y=y+dy
+    # Clear the screen and update the watch
+    now = time.localtime()  # Get the current time
+    ClearScreen(RGB(0, 0, 0))
+    DrawCircle(CENTER_X, CENTER_Y - 1, 31, 1)  # Draw the background circle
+    DrawNumbers()
+
+    second_angle = math.pi / 30 * (now.tm_sec - 15)
+    minute_angle = math.pi / 30 * (now.tm_min - 15 + now.tm_sec / 60.0)
+    hour_angle = math.pi / 6 * (now.tm_hour % 12 - 3 + now.tm_min / 60.0)
+
+    DrawHand(second_angle, RADIUS - 0, RGB(0, 127, 255))  # Second hand: Light blue
+    DrawHand(minute_angle, RADIUS - 5, RGB(0, 255, 0))   # Minute hand: Green
+    DrawHand(hour_angle, RADIUS - 10, RGB(255, 0, 0))    # Hour hand: Red
+
+    Show()
+    time.sleep(0.01)  # Sleep for 10 milliseconds

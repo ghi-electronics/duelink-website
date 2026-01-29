@@ -1,2 +1,7 @@
-# Append this code at the bottom of the script, right after the driver.
-# You MUST keep the driver code!!
+# In this sample:
+# Read an analog value from pin AN
+
+while (1)
+    println("Analog value: ", vread(5))
+    wait(1000)
+wend

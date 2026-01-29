@@ -128,6 +128,11 @@ const config = {
             label: 'Product Catalog',
           },
           {
+            href: '/docs/projects',
+            position: 'right',
+            label: 'Projects',
+          },
+          {
             href: '/about',
             //type: 'docSidebar',
             //idebarId: 'tutorialSidebar',

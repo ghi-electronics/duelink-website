@@ -43,9 +43,14 @@ This code assumes the module is loaded with [drivers](../engine/drivers).
 
 ```py
 # Connect a Daisylink bridge using Bluetooth
-StartBT("DUELink BT")
+StartBT("DUELink_BT")
 # Wait for Bluetooth connection and initiate the bridge
-Bridge()
+while (dread(5,1)=1)
+    wait(100)
+wend
+
+# Initiate the bridge
+Bridge(1)
 ```
 
 ---
@@ -69,9 +74,14 @@ This code assumes the module is loaded with [drivers](../engine/drivers).
 ```py
 # Connect a Daisylink bridge using WiFi
 StartWiFi("MySSID", "MyPassword") 
+
+# Wait for multicast DNS connection
 StartTcp("DUELink")
-# Wait for WiFi connection and initiate the bridge
-Bridge()
+while (dread(4,1)=1)
+    wait(100)
+wend
+# Initiate the bridge
+Bridge(1)
 ```
 
 You can now continue to use USB as a power source, or use something like [Power Hook](../products/adpwrhook-a). Note how the Wireless module is now a host to its [Daisylink](../engine/daisylink).

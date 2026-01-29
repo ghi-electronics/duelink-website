@@ -1,0 +1,61 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
+# In this sample:
+# Enable Wi-Fi and set the multicast DNS name to "duelink".
+# A TCP client (for example, the Tera Term application) can connect to
+# "duelink" on port 8080 to send and receive commands.
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods
+def IsBluetoothConnected():
+    ret = due.Engine.ExecuteCommand("dread(5,1)")
+    return ret == 0
+
+def IsWiFiConnected():
+    ret = due.Engine.ExecuteCommand("dread(5,1)")
+    return ret == 0
+
+def IsSocketConnected():
+    ret = due.Engine.ExecuteCommand("dread(4,1)")
+    return ret == 0
+
+def StartBluetooth(name):
+    due.Engine.ExecuteCommand('StartBT("{}")'.format(name))
+
+def StartWiFi(ssid, pwd):
+    due.Engine.ExecuteCommand('StartWiFi("{}","{}")'.format(ssid, pwd))
+
+def SetMulticastDns(mdns_name):
+    due.Engine.ExecuteCommand('StartTcp("{}")'.format(mdns_name))
+
+def EnableBrigde():
+    due.Engine.ExecuteCommand("Bridge(1)")
+
+
+StartWiFi("ssid", "pwd")
+
+# The Wi-Fi connection can take up to 30 seconds.
+# For testing, sleep for 1 seconds first.
+time.sleep(1)
+
+while IsWiFiConnected() == False:
+    time.sleep(1)
+    print("Waiting for Wi-Fi connection...")
+
+SetMulticastDns("duelink")
+
+while IsSocketConnected() == False:
+    time.sleep(1)
+    print("Waiting for TCP connection...")
+
+EnableBrigde()
+
+print("The bridge is ready for sending and receiving commands from Tera Term")
