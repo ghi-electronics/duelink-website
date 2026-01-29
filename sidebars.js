@@ -263,9 +263,14 @@ const sidebars = {
       ],
     },
     "catalog/third-party",
-        
+
           ],
         },
+    {
+      type: "doc",
+      id: "catalog/projects",
+      label: "Community Projects",
+    },
     {
       type: "category",
       label: "Supported Hardware",

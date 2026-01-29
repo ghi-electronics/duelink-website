@@ -1,31 +1,49 @@
 {
-  
+  "tagGroups": {
+    "languages": {
+      "label": "Languages & Tools",
+      "tags": {
+        "python": { "displayName": "Python", "short": "PY", "icon": "python.svg" },
+        "script": { "displayName": "Script", "short": "SC", "icon": "script.svg" },
+        "blocks": { "displayName": "Blocks", "short": "BL", "icon": "blocks.svg" },
+        "javascript": { "displayName": "JavaScript", "short": "JS", "icon": "javascript.svg" },
+        "standalone": { "displayName": "Standalone", "short": "SA", "icon": "standalone.svg" },
+        "micropython": { "displayName": "MicroPython", "short": "MP", "icon": "micropython.svg" },
+        "dotnet": { "displayName": ".NET", "short": "CS", "icon": "dotnet.svg" },
+        "microblocks": { "displayName": "MicroBlocks", "short": "MB", "icon": "microblocks.svg" },
+        "makecode": { "displayName": "MakeCode", "short": "MC", "icon": "makecode.svg" },
+        "appinventor": { "displayName": "App Inventor", "short": "IN", "icon": "appinventor.svg" },
+        "cpp": { "displayName": "C++", "short": "CP", "icon": "cplusplus.svg" }
+      }
+    },
+    "platforms": {
+      "label": "Platforms",
+      "tags": {
+        "arduino": { "displayName": "Arduino", "short": "AR", "icon": "arduino.svg" },
+        "raspberrypi": { "displayName": "Raspberry Pi", "short": "RP", "icon": "raspberrypi.svg" },
+        "microbit": { "displayName": "micro:bit", "short": "BT", "icon": "microbit.svg" },
+        "arcade": { "displayName": "Arcade", "short": "AC", "icon": "arcade.svg" },
+        "beagleboard": { "displayName": "BeagleBoard", "short": "BB", "icon": "beagleboard.svg" },
+        "pc": { "displayName": "PC/Laptop", "short": "PC", "icon": "pc.svg" },
+        "phone": { "displayName": "Phone/Tablet", "short": "PH", "icon": "phone.svg" }
+      }
+    }
+  },
   "projects": [
     {
       "name": "Modulino Modules",
       "description": "Using Arduino Modulino Modules with DUELink",
-      "filters": [
-        "Script",
-        "Arduino",
-        "microbit",
-        "display"
-      ],
+      "tags": ["script", "arduino", "microbit"],
       "link": "https://forums.ghielectronics.com/t/arduino-modulino/26161",
       "video": "O7_PxzcBt7s",
       "image": "modulino.webp"
     },
     {
       "name": "Sparkfun Qwiic",
-      "description": "Adding Sparkfun Qwiic",
-      "filters": [
-        "MicroPython",
-        "JavaScript",
-        "PC/Laptop",
-        "Raspberry Pi"
-      ],
+      "description": "Adding Sparkfun Qwiic modules to your projects",
+      "tags": ["micropython", "javascript", "pc", "raspberrypi"],
       "link": "https://forums.ghielectronics.com/t/using-microblocks-to-control-modulino-qwiic-and-stemma/26167",
       "image": "qwiic.webp"
     }
   ]
 }
-
