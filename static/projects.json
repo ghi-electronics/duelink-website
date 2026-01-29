@@ -45,6 +45,20 @@
       "tags": ["micropython", "javascript", "pc", "raspberrypi"],
       "link": "https://forums.ghielectronics.com/t/using-microblocks-to-control-modulino-qwiic-and-stemma/26167",
       "image": "qwiic.webp"
+    },
+    {
+      "name": "Test Project",
+      "description": "We are testing",
+      "tags": ["micropython", "javascript", "pc", "raspberrypi"],
+      "link": "https://forums.ghielectronics.com/t/using-microblocks-to-control-modulino-qwiic-and-stemma/26167",
+      "image": "qwiic.webp"
+    },
+     {
+      "name": "Test2 Project",
+      "description": "We are testing more!",
+      "tags": ["micropython", "javascript", "pc", "raspberrypi"],
+      "link": "https://forums.ghielectronics.com/t/using-microblocks-to-control-modulino-qwiic-and-stemma/26167",
+      "image": "qwiic.webp"
     }
   ]
 }

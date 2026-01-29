@@ -266,6 +266,8 @@ const sidebars = {
 
           ],
         },
+    "projects",
+
     {
       type: "category",
       label: "Supported Hardware",
@@ -371,7 +373,6 @@ const sidebars = {
     "support",
     "legal",
     "safety",
-    "projects",
     /*
     {
         type: 'link',
