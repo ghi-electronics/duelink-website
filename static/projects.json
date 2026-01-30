@@ -53,12 +53,19 @@
       "image": "ghizzy-jr-color-selector.webp"
     },
     {
-      "name": "Modulino Modules",
-      "description": "Using Arduino Modulino Modules with DUELink",
+      "name": "DUELink > Modulino",
+      "description": "DUELink connected to Modulino Modules",
       "tags": ["script", "arduino"],
       "link": "https://forums.ghielectronics.com/t/arduino-modulino/26161",
       "video": "O7_PxzcBt7s",
       "image": "modulino.webp"
+    },
+      {
+      "name": "Arduino > DUELink",
+      "description": "Arduino Mainboard to Modulino & DUELink Modules",
+      "tags": ["script", "arduino"],
+      "link": "#",
+      "image": "arduino-modulino-duelink.webp"
     },
     {
       "name": "Sparkfun Qwiic",
