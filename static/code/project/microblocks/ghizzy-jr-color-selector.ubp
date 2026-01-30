@@ -2,28 +2,27 @@ module main
 author unknown
 version 1 0 
 description ''
+variables red green blue 
 
-script 116 50 {
+script 91 62 {
+whenCondition ('LDR button')
+red = ((random 0 3) * 100)
+green = ((random 0 3) * 100)
+blue = ((random 0 3) * 100)
+due_ghizzyjr_set_left_eye red green blue
+due_ghizzyjr_set_right_eye red green blue
+waitMillis 300
+}
+
+script 87 381 {
 whenStarted
 forever {
-  for i ('[data:range]' 1 1000 10) {
-    due_ghizzyjr_set_left_eye i 0 (1000 - i)
-    due_ghizzyjr_set_right_eye (1000 - i) 0 i
-    'set mouth' true
-    waitMillis 5
-  }
-  for i ('[data:range]' 1000 1 10) {
-    due_ghizzyjr_set_left_eye i 0 (1000 - i)
-    due_ghizzyjr_set_right_eye (1000 - i) 0 i
-    'set mouth' false
-    waitMillis 5
-  }
+  'set mouth' true
+  waitMillis 500
+  'set mouth' false
+  waitMillis 500
 }
 }
-
-script 527 1386 ('[misc:rescale]' 3 0 255 0 1023)
-
-script 388 1513 ('[misc:rescale]' 3 0 255 0 1023)
 
 
 module 'DUELink Edu'

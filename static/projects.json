@@ -31,12 +31,26 @@
     }
   },
   "projects": [
-        {
+    {
       "name": "Ghizzy Jr Policeman",
-      "description": "Fade the eyes between red and blue",
+      "description": "Fade Ghizzy Jr eyes between Red and Blue",
       "tags": ["blocks", "microblocks"],
       "link": "https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/ghizzy-jr-police.ubp",
       "image": "ghizzy-jr-policeman.webp"
+    },
+    {
+      "name": "Ghizzy Jr Color Selector",
+      "description": "Press the button to find your favorite color",
+      "tags": ["blocks", "microblocks"],
+      "link": "https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/ghizzy-jr-color-selector.ubp",
+      "image": "ghizzy-jr-color-selector.webp"
+    },
+    {
+      "name": "Ghizzy Jr Delay Finder",
+      "description": "Find your desired blinking speed using `timers`",
+      "tags": ["blocks", "microblocks"],
+      "link": "https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/ghizzy-jr-delay-finder.ubp",
+      "image": "ghizzy-jr-color-selector.webp"
     },
     {
       "name": "Modulino Modules",

@@ -2,28 +2,33 @@ module main
 author unknown
 version 1 0 
 description ''
+variables dalay 
 
-script 116 50 {
+script 75 62 {
 whenStarted
+'set mouth' true
+dalay = 200
 forever {
-  for i ('[data:range]' 1 1000 10) {
-    due_ghizzyjr_set_left_eye i 0 (1000 - i)
-    due_ghizzyjr_set_right_eye (1000 - i) 0 i
-    'set mouth' true
-    waitMillis 5
+  comment 'If button is pressed then reduce the dely untill the user can''t see'
+  if ('LDR button') {
+    if ((timer) > 1000) {
+      resetTimer
+      dalay += -10
+      if (dalay < 0) {
+        dalay = 200
+      }
+      sayIt 'The Delay Is: ' dalay
+      due_ghizzyjr_set_right_eye 100 0 0
+      waitMillis 50
+      due_ghizzyjr_set_right_eye 0 0 0
+    }
   }
-  for i ('[data:range]' 1000 1 10) {
-    due_ghizzyjr_set_left_eye i 0 (1000 - i)
-    due_ghizzyjr_set_right_eye (1000 - i) 0 i
-    'set mouth' false
-    waitMillis 5
-  }
+  due_ghizzyjr_set_left_eye 0 100 100
+  waitMillis dalay
+  due_ghizzyjr_set_left_eye 0 0 0
+  waitMillis dalay
 }
 }
-
-script 527 1386 ('[misc:rescale]' 3 0 255 0 1023)
-
-script 388 1513 ('[misc:rescale]' 3 0 255 0 1023)
 
 
 module 'DUELink Edu'

@@ -14,7 +14,7 @@ variables _due_ghizzyjr_enabled _due_ghizzyjr_oldver
   space
   spec ' ' '_due_ghizzyjr_initialize' '_initialize'
   spec ' ' 'set mouth' 'set mouth _' 'bool' true
-  spec 'r' 'LDR button' 'LDR button'
+  spec 'r' 'LDR button' 'LDR button pressed'
 
 to 'LDR button' {
   return (dueSTEM_LDR_button)
