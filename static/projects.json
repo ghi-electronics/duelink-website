@@ -8,7 +8,6 @@
         "micropython": { "displayName": "MicroPython", "icon": "micropython.svg" },
         "dotnet": { "displayName": ".NET", "icon": "dotnet.svg" },
         "cpp": { "displayName": "C++", "icon": "cplusplus.svg" },
-        "standalone": { "displayName": "Standalone", "icon": "standalone.svg" },
         "script": { "displayName": "DUELink Script", "icon": "script.svg" },
         "blocks": { "displayName": "Block Coding", "icon": "blocks.svg" },
         "microblocks": { "displayName": "MicroBlocks", "icon": "microblocks.svg" },
@@ -26,31 +25,19 @@
         "arcade": { "displayName": "Arcade", "icon": "arcade.svg" },
         "beagleboard": { "displayName": "BeagleBoard", "icon": "beagleboard.svg" },
         "pc": { "displayName": "PC/Laptop", "icon": "pc.svg" },
-        "phone": { "displayName": "Phone/Tablet", "icon": "phone.svg" }
+        "phone": { "displayName": "Phone/Tablet", "icon": "phone.svg" },
+        "standalone": { "displayName": "Standalone", "icon": "standalone.svg" },
+        "tethered": { "displayName": "Tethered", "icon": "tethered.svg" }
       }
     }
   },
   "projects": [
     {
-      "name": "Ghizzy Jr Policeman",
-      "description": "Fade Ghizzy Jr eyes between Red and Blue",
-      "tags": ["blocks", "microblocks"],
-      "link": "https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/ghizzy-jr-police.ubp",
-      "image": "ghizzy-jr-policeman.webp"
-    },
-    {
-      "name": "Ghizzy Jr Color Selector",
-      "description": "Press the button to find your favorite color",
-      "tags": ["blocks", "microblocks"],
-      "link": "https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/ghizzy-jr-color-selector.ubp",
-      "image": "ghizzy-jr-color-selector.webp"
-    },
-    {
-      "name": "Ghizzy Jr Delay Finder",
-      "description": "Find your desired blinking speed using `timers`",
-      "tags": ["blocks", "microblocks"],
-      "link": "https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/ghizzy-jr-delay-finder.ubp",
-      "image": "ghizzy-jr-color-selector.webp"
+      "name": "Ghizzy Jr MicroBlocks Starter",
+      "description": "A few projects to get you started with MicroBlocks",
+      "tags": ["blocks", "microblocks","standalone"],
+      "link": "https://forums.ghielectronics.com/t/ghizzy-jr-microblocks-getting-started/26202",
+      "image": "ghizzy-jr-microblocks-starter.webp"
     },
     {
       "name": "DUELink > Modulino",
@@ -73,6 +60,34 @@
       "tags": ["script", "arduino"],
       "link": "https://forums.ghielectronics.com/t/using-microblocks-to-control-modulino-qwiic-and-stemma/26167",
       "image": "qwiic.webp"
+    },
+    {
+      "name": "Fan Follow Me - PC!",
+      "description": "Use the distance sensor as sonar detect objects and move the fan",
+      "tags": ["pc", "python", "javascript","dotnet","tethered"],
+      "link": "https://forums.ghielectronics.com/t/using-microblocks-to-control-modulino-qwiic-and-stemma/26167",
+      "image": "fan.webp"
+    },
+    {
+      "name": "Fan Follow Me-MicroPython",
+      "description": "Use the distance sensor as sonar detect objects and move the fan",
+      "tags": ["micropython","tethered"],
+      "link": "https://forums.ghielectronics.com/t/using-microblocks-to-control-modulino-qwiic-and-stemma/26167",
+      "image": "fan.webp"
+    },
+    {
+      "name": "Fan Follow Me-Script",
+      "description": "Use the distance sensor as sonar detect objects and move the fan",
+      "tags": ["script","standalone"],
+      "link": "https://forums.ghielectronics.com/t/using-microblocks-to-control-modulino-qwiic-and-stemma/26167",
+      "image": "fan.webp"
+    },
+    {
+      "name": "Fan Follow Me-Arduino",
+      "description": "Use the distance sensor as sonar detect objects and move the fan",
+      "tags": ["arduino","tethered"],
+      "link": "https://forums.ghielectronics.com/t/using-microblocks-to-control-modulino-qwiic-and-stemma/26167",
+      "image": "fan.webp"
     }
   ]
 }
