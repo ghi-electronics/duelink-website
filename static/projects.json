@@ -8,7 +8,6 @@
         "micropython": { "displayName": "MicroPython", "icon": "micropython.svg" },
         "dotnet": { "displayName": ".NET", "icon": "dotnet.svg" },
         "cpp": { "displayName": "C++", "icon": "cplusplus.svg" },
-        "standalone": { "displayName": "Standalone", "icon": "standalone.svg" },
         "script": { "displayName": "DUELink Script", "icon": "script.svg" },
         "blocks": { "displayName": "Block Coding", "icon": "blocks.svg" },
         "microblocks": { "displayName": "MicroBlocks", "icon": "microblocks.svg" },
@@ -26,46 +25,69 @@
         "arcade": { "displayName": "Arcade", "icon": "arcade.svg" },
         "beagleboard": { "displayName": "BeagleBoard", "icon": "beagleboard.svg" },
         "pc": { "displayName": "PC/Laptop", "icon": "pc.svg" },
-        "phone": { "displayName": "Phone/Tablet", "icon": "phone.svg" }
+        "phone": { "displayName": "Phone/Tablet", "icon": "phone.svg" },
+        "standalone": { "displayName": "Standalone", "icon": "standalone.svg" },
+        "tethered": { "displayName": "Tethered", "icon": "tethered.svg" }
       }
     }
   },
   "projects": [
     {
-      "name": "Ghizzy Jr Policeman",
-      "description": "Fade Ghizzy Jr eyes between Red and Blue",
-      "tags": ["blocks", "microblocks"],
-      "link": "https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/ghizzy-jr-police.ubp",
-      "image": "ghizzy-jr-policeman.webp"
+      "name": "Ghizzy Jr MicroBlocks Starter",
+      "description": "A few projects to get you started with MicroBlocks",
+      "tags": ["blocks", "microblocks","standalone"],
+      "link": "https://forums.ghielectronics.com/t/ghizzy-jr-microblocks-getting-started/26202",
+      "video": "H8U8kysmDkA",
+      "image": "ghizzy-jr-microblocks-starter.webp"
     },
     {
-      "name": "Ghizzy Jr Color Selector",
-      "description": "Press the button to find your favorite color",
-      "tags": ["blocks", "microblocks"],
-      "link": "https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/ghizzy-jr-color-selector.ubp",
-      "image": "ghizzy-jr-color-selector.webp"
-    },
-    {
-      "name": "Ghizzy Jr Delay Finder",
-      "description": "Find your desired blinking speed using `timers`",
-      "tags": ["blocks", "microblocks"],
-      "link": "https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/ghizzy-jr-delay-finder.ubp",
-      "image": "ghizzy-jr-color-selector.webp"
-    },
-    {
-      "name": "Modulino Modules",
-      "description": "Using Arduino Modulino Modules with DUELink",
+      "name": "DUELink with Modulino",
+      "description": "How to utilize Arduino Modulino",
       "tags": ["script", "arduino"],
       "link": "https://forums.ghielectronics.com/t/arduino-modulino/26161",
-      "video": "O7_PxzcBt7s",
       "image": "modulino.webp"
     },
-    {
-      "name": "Sparkfun Qwiic",
-      "description": "Adding Sparkfun Qwiic modules to your projects",
+      {
+      "name": "Arduino boards with DUELink",
+      "description": "Connect Arduino boards to Modulino & DUELink Modules",
       "tags": ["script", "arduino"],
+      "link": "#",
+      "image": "arduino-modulino-duelink.webp"
+    },
+    {
+      "name": "MicroBlocks with Qwiic/STEMMA/Modulino",
+      "description": "Using MicroBlocks to control Modulino, Qwiic and STEMMA",
+      "tags": ["microblocks", "blocks"],
       "link": "https://forums.ghielectronics.com/t/using-microblocks-to-control-modulino-qwiic-and-stemma/26167",
       "image": "qwiic.webp"
+    },
+    {
+      "name": "Fan: Follow Me -PC!",
+      "description": "Create a PC `sonar` to detect objects and move the fan",
+      "tags": ["pc", "python", "javascript","dotnet","tethered"],
+      "link": "https://github.com/ghi-electronics/duelink-projects/tree/main/source/fan-follow-me",
+      "image": "fan-follow-me-pc.webp"
+    },
+    {
+      "name": "Fan: Follow Me -MicroPython",
+      "description": "Create a MicroPython `sonar` to detect objects and move the fan",
+      "tags": ["micropython","tethered"],
+      "link": "https://github.com/ghi-electronics/duelink-projects/blob/main/source/fan-follow-me/mpy/fan-follow-me.mpy",
+      "image": "fan-follow-me-mpy.webp"
+    },
+    {
+      "name": "Fan: Follow Me -Script",
+      "description": "Create a Script `sonar` to detect objects and move the fan",
+      "tags": ["script","standalone"],
+      "link": "https://github.com/ghi-electronics/duelink-projects/blob/main/source/fan-follow-me/script/fan-follow-me.txt",
+      "image": "fan-follow-me-script.webp"
+    },
+    {
+      "name": "Fan: Follow Me -Arduino",
+      "description": "Create an Arduino `sonar` to detect objects and move the fan",
+      "tags": ["arduino","tethered"],
+      "link": "https://github.com/ghi-electronics/duelink-projects/blob/main/source/fan-follow-me/arduino",
+      "image": "fan-follow-me-duino.webp"
     }
   ]
 }

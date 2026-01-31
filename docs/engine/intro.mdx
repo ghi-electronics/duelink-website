@@ -25,9 +25,9 @@ To test the inter-working of the engine manually, we will use a terminal softwar
 ![Tera Term](pathname:///img/teraterm-logo.webp)
 </div>
 
-The first thing you do is hit `enter`. This is required by the module on power up so it can detect the correct [Interface](../interface/intro). This will result with `>` prompt. It is possible that a module is running an internal script with an infinite loop and it does not respond to commands. In this case, pressing the `escape` key will terminate the running internal script.
+The first thing you do is hit `enter`. This is required by the module on power up so it can detect the correct [Interface](../interface/intro). This will result with `>` prompt. It is possible that a module is running an internal script with an infinite loop, causing it to not respond to commands. In this case, pressing the `escape` key will terminate the running internal script.
 
-To be safe, just hit `escape` then `enter`! You will for sure see `>` prompt coming back. The device is now ready to accept commands in `Immediate Mode`. 
+To be safe, just hit `enter` then `escape`! You will for sure see `>` prompt coming back. The device is now ready to accept commands in `Immediate Mode`. 
 
 By default, the device will not echo back what you enter. You can either enable echo from the device using `Echo(1)` command or by using local echo feature in the terminal software. 
 
