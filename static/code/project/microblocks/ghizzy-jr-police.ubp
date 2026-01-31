@@ -3,7 +3,7 @@ author unknown
 version 1 0 
 description ''
 
-script 116 50 {
+script 96 64 {
 whenStarted
 forever {
   for i ('[data:range]' 1 1000 10) {
@@ -20,10 +20,6 @@ forever {
   }
 }
 }
-
-script 527 1386 ('[misc:rescale]' 3 0 255 0 1023)
-
-script 388 1513 ('[misc:rescale]' 3 0 255 0 1023)
 
 
 module 'DUELink Edu'
@@ -357,7 +353,7 @@ variables _due_ghizzyjr_enabled _due_ghizzyjr_oldver
   space
   spec ' ' '_due_ghizzyjr_initialize' '_initialize'
   spec ' ' 'set mouth' 'set mouth _' 'bool' true
-  spec 'r' 'LDR button' 'LDR button pressed'
+  spec 'r' 'LDR button' 'LDR button'
 
 to 'LDR button' {
   return (dueSTEM_LDR_button)
