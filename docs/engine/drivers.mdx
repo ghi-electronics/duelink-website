@@ -13,14 +13,28 @@ Modules function just fine without drivers, just use the [standard library](./st
 
 ## Loading Drivers
 
-The [Console's](../console) `Driver` top-menu option can automatically detect the connected module and load the appropriate driver scripts. This of course only work on modules that already have DUELink official firmware loaded.
+The [Console's](../console) `Driver` top-menu option can automatically detect the connected module and load the appropriate driver scripts. Note that this only work on modules that have DUELink official firmware loaded.
 
 <div style={{ textAlign: 'center'}}>
 ![Driver Button](pathname:///img/console-menu-driver.webp)
 </div>
 
 :::tip
-It is advisable to always load/update the driver scripts after any firmware update.
+It is required to always load/update the driver scripts after any firmware update.
+:::
+
+If the desired module has a USB connection then it can simply plug in. If not, a module will require a USB adapter, like [USB Hook](../products/adusbhook-a) for example. Another option is to connect the module without USB connector to another module that has a USB connection. For example, we need to load the driver on [Snowy](../products/spsnowy-a) that is connected to a computer through [DueSTEM](../products/mcduestem-b).
+
+(image with duestem connected to snowy)
+
+You can now set the device address to 2 when selecting the driver update.
+
+<div style={{ textAlign: 'center'}}>
+![Driver update address 2](pathname:///img/driver-update-add2.webp)
+</div>
+
+:::tip
+Updating driver in a chain relies on having DUELink official firmware on all modules.
 :::
 
 ---
