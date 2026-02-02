@@ -59,7 +59,7 @@
       "description": "Using MicroBlocks to control Modulino, Qwiic and STEMMA",
       "tags": ["microblocks", "blocks"],
       "link": "https://forums.ghielectronics.com/t/using-microblocks-to-control-modulino-qwiic-and-stemma/26167",
-      "image": "qwiic.webp"
+      "image": "duelink-stemma-qwiic.webp"
     },
     {
       "name": "Fan: Follow Me -PC!",
@@ -88,6 +88,20 @@
       "tags": ["arduino","tethered"],
       "link": "https://github.com/ghi-electronics/duelink-projects/blob/main/source/fan-follow-me/arduino",
       "image": "fan-follow-me-duino.webp"
+    },
+    {
+      "name": "Scripting SparkFun Qwiic modules",
+      "description": "Use DUELink scripts/boards to utilize Sparkfun Qwiic modules",
+      "tags": ["script", "standalone"],
+      "link": "https://forums.ghielectronics.com/t/scripting-sparkfun-qwiic-modules/26204",
+      "image": "qwiic.webp"
+    },
+    {
+      "name": "Can Python Qwiic & STEMMA & Modulino Modules?",
+      "description": "Accessing Qwiic/STEMMA/Modulino from a PC using Python/JavaScript",
+      "tags": ["python","dotnet","javascript", "tethered"],
+      "link": "https://forums.ghielectronics.com/t/python-can-control-qwiic-stemma-modulino-modules/26205",
+      "image": "qwiic-python.webp"
     }
   ]
 }

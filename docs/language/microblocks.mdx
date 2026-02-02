@@ -358,6 +358,8 @@ From the `DUELink Daisylink` library palette click on the `DUELink connected?` b
 ![connected-test](pathname:///img/connected-test.webp)
 </div>
 
+If `DUELink connected?` returned red off button you may have to click the block again, or need power cycle the entire system and try again. Modules can't be connected/disconnected live, a power cycle is needed after chain changes. If you still don't get a positive response, check your wiring.
+
 In this Daisylink example, there is only one device, which is `LED RGB3`, and it is address 1. If you have another module connected downlink to `LED RGB3` it will become device address 2. You can use `select device` block to select the desired device, and then use the `DUELink connected?` block again to verify that the selected device is functional.
 
 :::tip
@@ -366,11 +368,11 @@ Device address 1 is automatically selected on power up. If you only need to use 
 
 ### Module Drivers
 
-Modules that are meant to be commanded in a Dasiylink, like `LED RGB3` ship preloaded with DUELink official firmware and[Driver Script](../engine/drivers). The driver gives you a set of functions that you can access externally, without needing to understand how the module work nor needing to look at schematics. Those functions are documented under the individual product pages, under the `Driver` tab.
+Modules that are meant to be commanded in a Daisylink, like `LED RGB3` ship preloaded with DUELink official firmware and[Driver Script](../engine/drivers). The driver gives you a set of functions that you can access externally, without needing to understand how the module works nor needing to look at schematics. Those functions are documented under the individual product pages, under the `Driver` tab.
 
-In this case, `LED RGB3` includes `SetLed(i, c)` function, which sets an LED at `i` index (0 to 3) to `c` color (RRGGBB color). 
+In this case, `LED RGB3` includes `SetLed(i, c)` function, which sets an LED at `i` index (0 to 2) to `c` a hexadecimal RRGGBB color (e.g. FF0000 is red).
 
-The `DUELink Daisylink` library includes helper blocks to build these function. Here is an example of a helper block `set RGB3 led` that takes teh 2 needed argument, the LED index and its color.
+The `DUELink Daisylink` library includes helper blocks to build these function. Here is an example of a helper block `set RGB3 led` that takes the 2 needed argument, the LED index and its color.
 
 <div style={{ textAlign: 'center'}}>
 ![RGB3 driver](pathname:///img/microblocks-rgb3-driver.png)
@@ -402,13 +404,13 @@ Since [LED RGB3](../products/ldledrgb3-a) does not have a USB connector, you wil
 ![USB Hook for LED RGB3](pathname:///img/usbhook-rgb3.webp)
 </div>
 
-Just like before, to install MicroBlocks firmware on a board, you need to set the board in DFU mode. You can do so using the `Erase All` feature explained earlier. The other option was to force DFU mode using the LDR button. These boards do nto have an LDR button but you can do accomplish the results by inserting a small paper clip in the 2 special small holes while powering up the board. See [Loader](/docs/loader) page for full details.
+Just like before, to install MicroBlocks firmware on a board, you need to set the board in DFU mode. You can do so using the `Erase All` feature explained earlier. The other option was to force DFU mode using the LDR button. These boards do not have an LDR button but you can accomplish the same results by inserting a small metal paper clip (or a wire) between 2 special small pads, while powering up the board. See the [Loader](/docs/loader) page for full details.
 
 <div style={{ textAlign: 'center'}}>
 ![LDR TH pads](pathname:///img/module-loader-pads.webp)
 </div>
 
-Please note, once once you have MicroBlocks firmware installed on the `RGB3` module, you no longer have the DUELink firmware and module Driver Script. Controlling the module's hardware must be done 100% with MicroBlocks code. For modules with simple hardware such as LEDs, buttons, and analog sensors, the MicroBlocks code is easy to write. However, more complex modules such as displays and SD card readers are best used as Daisylinked modules so one can take advantage of the hardware support built into the DUELink standard firmware. For example, instead of loading MicroBlocks directly on [SD Card](../products/stsdcard-b) module and worrying about file system and SD drivers, use MicroBlocks firmware on [CincoBit](../products/mccincobit-e), which is then connected to the [SD Card](../products/stsdcard-b) module that is running the DUELink standard firmware and Driver Script.
+Please note, once once you have MicroBlocks firmware installed on the `RGB3` module, you no longer have the DUELink firmware and module Driver Script. Controlling the module's hardware must be done 100% with MicroBlocks code. For modules with simple hardware such as LEDs, buttons, and analog sensors, the MicroBlocks code is easy to write. However, more complex modules such as displays and SD card readers are best used as Daisylinked modules so one can take advantage of the hardware support built into the DUELink standard firmware. For example, instead of loading MicroBlocks directly on the [SD Card](../products/stsdcard-b) module and worrying about file system and SD drivers, use MicroBlocks firmware on [CincoBit](../products/mccincobit-e), which is then connected to the [SD Card](../products/stsdcard-b) module that is running the DUELink standard firmware and Driver Script.
 
 <div style={{ textAlign: 'center'}}>
 ![Cincobit and SD Card](pathname:///img/cincobit-sdcard.webp)
@@ -455,7 +457,7 @@ echo "- After logging in again, you should have access to both serial and DFU mo
 
 echo "If you are unsure about how to log out, please simply restart your system."
 ```
-Save the above script into a `.sh` file and give it executable permissions `(chmod +x)`. Now, you can run the `.sh` file and then reset (or re-login) for the system to take effect.
+Save the above script into a `.sh` file and give it executable permissions `(chmod +x)`. Now, you can run the `.sh` file and then reboot (or re-login), for the system to take effect.
 
 ---
 
