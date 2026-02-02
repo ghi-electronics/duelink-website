@@ -1401,7 +1401,7 @@
         "3 RGB LEDs",
         "32x22mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLed(i, c)` | sets an LED at `i` (0 to 3) to `c` (RRGGBB color). |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLed(i, c)` | sets an LED at `i` (0 to 2) to `c` (RRGGBB color). |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "LED R16",
