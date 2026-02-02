@@ -358,6 +358,8 @@ From the `DUELink Daisylink` library palette click on the `DUELink connected?` b
 ![connected-test](pathname:///img/connected-test.webp)
 </div>
 
+If `DUELink connected?` returned red off button you may have to click the block again, or need power cycle the entire system and try again. Modules can't be connected/disconnected live, a power cycle is needed after chain changes. If you still don't get a positive response, check your wiring.
+
 In this Daisylink example, there is only one device, which is `LED RGB3`, and it is address 1. If you have another module connected downlink to `LED RGB3` it will become device address 2. You can use `select device` block to select the desired device, and then use the `DUELink connected?` block again to verify that the selected device is functional.
 
 :::tip
@@ -366,7 +368,7 @@ Device address 1 is automatically selected on power up. If you only need to use 
 
 ### Module Drivers
 
-Modules that are meant to be commanded in a Dasiylink, like `LED RGB3` ship preloaded with DUELink official firmware and[Driver Script](../engine/drivers). The driver gives you a set of functions that you can access externally, without needing to understand how the module works nor needing to look at schematics. Those functions are documented under the individual product pages, under the `Driver` tab.
+Modules that are meant to be commanded in a Daisylink, like `LED RGB3` ship preloaded with DUELink official firmware and[Driver Script](../engine/drivers). The driver gives you a set of functions that you can access externally, without needing to understand how the module works nor needing to look at schematics. Those functions are documented under the individual product pages, under the `Driver` tab.
 
 In this case, `LED RGB3` includes `SetLed(i, c)` function, which sets an LED at `i` index (0 to 2) to `c` a hexadecimal RRGGBB color (e.g. FF0000 is red).
 
