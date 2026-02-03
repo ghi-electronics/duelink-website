@@ -1,59 +1,55 @@
 # Loader
 
 
-The STM32C071 chip utilized on all DUELink modules includes an ST loader that we use for firmware updates, using the `USB DFU` (Device Firmware Update) standard. 
+The STM32C071 chip utilized on all DUELink modules include the ST loader that is used for `Firmware Updates` and `Firmware Cloning`.
 
-This loader is used to load a firmware, which can be the official DUELink or MicroBlocks' firmware options. However, it can load a custom firmware built using [C++](./language/cpp), or [Arduino](./hw/arduino).
 
-Using the loader and performing firmware updates only works with a single module that is tethered to a PC. If you have a [daisylink](./engine/daisylink) of modules then you need to connect them one at a time to perform any updates. Of course, modules that do not have USB connection will need to be chained to an adapter, like USB Hook, but this is not a logical chain. The PC will only see a single module!
+
+
+
+For firmware updateThis loader is used to load a firmware, which can be the official DUELink or MicroBlocks' firmware options. However, it can load a custom firmware built using [C++](./language/cpp), or [Arduino](./hw/arduino).
+
+---
+
+## Firmware Update
+
+Firmware updates are typically sent from a PC to a single module, or the first module in [Daisylink](./engine/daisylink). Start by connecting the module to a PC using a USB. Modules that do not have USB connection will need to be chained to an adapter, like USB Hook.
 
 <div style={{ textAlign: 'center'}}>
 ![USB Hook servo](pathname:///img/usbhook-servo-x1.webp)
 </div>
 
-
-
----
-
-## DFU USB Drivers
-
-Since DFU is a standard USB class, it is automatically supported by all major operating systems. Windows supports DFU, but sadly it does not load the needed USB drivers automatically! It is necessary to install the USB drivers from the [downloads](./downloads) page.
-
-When going through the later steps on this page, to enter DFU mode, make sure the `Device Manager` shows `DFU in FS Mode` with no errors.
-
-<div style={{ textAlign: 'center'}}>
-![Verify DFU mode](pathname:///img/device-manager-dfu.webp)
-</div>
+We recommend using the DUELink [Console](./console), which can load the official DUELink firmware or MicroBlocks firmware.
 
 :::tip
-Sadly, Windows does not automatically install the DFU drivers and it will not prompt you to install them! If in doubt, just install the USB drivers mentioned earlier.
+Loading custom firmware is covered on the [C++](./language/cpp) and [Arduino](./hw/arduino) pages.
 :::
 
----
-
-## Enter DFU Mode
-
-DUELink modules automatically run their preloaded firmware. To load a new firmware, the module needs to be put in `DFU Mode`. To do so, there are 2 options: The first option to completely erase the module! Once erased, the module will find nothing to run and therefore will enter `DFU Mode`. This is an easier option because the [Console](./console) includes this feature under the `Firmware` top-menu option. 
-
-:::tip
-`Erase All` will erase everything, including firmware, drivers, and your application!
-:::
+From [https://console.duelink.com/](https://console.duelink.com/), click `Firmware` on the top menu. You now have options to put the module in DFU mode: The first option to `Erase All`, which is hte easier and the recommended approach.
 
 <div style={{ textAlign: 'center'}}>
 ![Erase All](pathname:///img/firmware-eraseall.webp)
 </div>
 
 :::tip
-The console's `Erase All` feature automatically detects DUELink vs MicroBlocks firmware and then sends the appropriate command to self-erase, using `Reset(1)` command for example. `Erase All` will not work with your own custom firmware!
+The `Erase All` feature automatically detects DUELink vs MicroBlocks firmware and sends the appropriate command to self-erase. `Erase All` will not work with your own custom firmware!
 :::
 
-Upon successful erase, the module will present itself as a DFU device. If this is done on a PC for the first time, check the `Device Manager` to verify the USB Driver is installed, as explained under the drivers section on this page.
+Once the device is `Erased All`, it will automatically enter the `DFU Mode`. With USB drivers loaded, the system will detect a USB `DFU in FS Mode` device. On Windows, you can optionally verify `Device Manager`. If the device shows an error, you may need to [download](./downloads) and install the USB drivers.
 
----
+<div style={{ textAlign: 'center'}}>
+![Verify DFU mode](pathname:///img/device-manager-dfu.webp)
+</div>
 
-## Force DFU Mode
+You can now click the `Connect` button and select the desired firmware to load.
 
-Beside `Erase All`, the second option to **force** `DFU Mode` using the `LDR pin`. On some modules, this pin is connected to a button labeled `LDR` or `A`.
+:::tip
+[Driver scripts](./engine/drivers) update is required after a firmware update.
+:::
+
+### Force DFU Mode
+
+You can optionally force DFU mode, like if `Erase All` failed or if a custom firmware was loaded. This is simply done by connecting `LDR` pin to high-level on system reset or power up. On some modules, `LDR` pin is connected to a button labeled `LDR` or `A`.
 
 <div style={{ textAlign: 'center'}}>
 ![Setting Boot mode mode](pathname:///img/ldr-a-buttons.webp)
@@ -65,14 +61,11 @@ Modules that do not have a button, they have 2 pads instead.
 ![Module Loader Pads](pathname:///img/module-loader-pads.webp)
 </div>
 
-
-:::tip
-This option "forces" the system into `DFU Mode`. It does not erase or modify the module's contents, till new firmware is sent.
+:::info
+For power users: LDR pin is the name we use for STM32's BOOT0 pin. 
 :::
 
-To force a module in `DFU Mode` press and **continue to hold** the `LDR` or `A` button while resetting the board. If there is no reset button, then unplug the USB cable first, then hold the `LDR` or `A` button down and **continue to hold** while inserting the USB cable in. Wait one second after the cable is inserted then release the button.
-
-If neither `LDR` nor `A` button is available, then bend and place a small metal paper clip (or a wire) between the 2 `LDR pads`, and reset/re-power the board. You can remove the paper clip after the board is powered up.
+To force a module in DFU mode press and **continue to hold** the `LDR` or `A` button while resetting the board (clicking reset button or re-power). If neither `LDR` nor `A` button is available, then bend and place a small metal paper clip (or a wire) between the 2 `LDR Pads`, and reset/re-power the board. You can remove the paper clip after the board is powered up.
 
 <div style={{ textAlign: 'center'}}>
 ![Setting Boot mode](pathname:///img/boot-mode.webp)
@@ -80,57 +73,54 @@ If neither `LDR` nor `A` button is available, then bend and place a small metal 
 
 Upon forcing DFU Mode successfully, the module will present itself as a DFU device. If this is done on a PC for the first time, check the `Device Manager` to verify the USB Driver is installed, as explained under the drivers section on this page.
 
-:::info
-For power users: LDR pin is the name we use for STM32's BOOT0 pin. 
+:::tip
+This option "forces" the system into `DFU Mode`. It does not erase or modify the module's contents, till new firmware is sent.
+:::
+
+Once in DFU mode, go to [https://console.duelink.com/](https://console.duelink.com/), click `Firmware` on the top menu then `Connect`.
+
+---
+
+## Firmware Cloning
+
+This is a great feature that allows a module to clone its own firmware to the next module in a [Daisylink](./engine/daisylink). Cloning can be executed on any "selected module" using `Sel()`, which then will erase the "next module" in the chain, and then load "next module" with a clone of the firmware of the "current module".
+
+Note that the device getting written to will have a firmware clone but will not have any [Driver Script](./engine/drivers) after cloning is done. Loading the Driver Script will be necessary.
+
+
+The cloning feature can be used to update the firmware on a module (or a chain of modules) that does not have a USB connection, and without using USB Hook. In this example, PixoBit can be loaded with the latest firmware and then it can be cloned to the chained modules.
+
+<div style={{ textAlign: 'center'}}>
+![Verify DFU mode](pathname:///img/pixobit-daisylinked.webp)
+</div>
+
+```py
+Sel(3) # Select the third device
+println("Dev3: ", Info(1)) # Print the device 3 FW version
+Sel(2) # Select device 2
+println("Dev2: ", Info(1)) # Print the device 2 FW version
+Clone() # Clone the firmware from device 2 to device 3
+Sel(3) # Select device 3 again
+println("Dev3: ", Info(1)) # Print the device 3 FW version
+```
+
+:::tip
+Cloning can only be executed on chains of modules that are loaded with DUELink official firmware.
 :::
 
 ---
 
-## Firmware Update
+## DFU USB Drivers
 
-Once the device is in the `DFU Mode`, with USB drivers loaded, the system will detect a USB `DFU in FS Mode` device. If you do not see it, try to `Force DFU Mode`.
+DFU is a standard USB class that is supported by all major operating systems. 
+
+While Windows supports DFU, it sadly does not automatically install the DFU drivers, and it may not prompt you to install them! If in doubt, just install the USB drivers from the [downloads](./downloads) page. 
+
+With a properly installed driver, the `Device Manager` will show `DFU in FS Mode` with no errors.
 
 <div style={{ textAlign: 'center'}}>
 ![Verify DFU mode](pathname:///img/device-manager-dfu.webp)
 </div>
-
-From [https://console.duelink.com/](https://console.duelink.com/), click `Firmware` on the top menu.
-
-<div style={{ textAlign: 'center'}}>
-![DUELink Console Firmware Menu](pathname:///img/console-firmware.webp)
-</div>
-
-Follow the instructions to select and load the desired firmware.
-
-:::tip
-The firmware update will not load any module's [driver scripts](./engine/drivers) script. If you have performed `Erase All`, you have no driver scripts installed.
-:::
-
-Another update option is using DUELink [Programmer](./programmer) tool, which requires installation and only works on Windows.
-
----
-
-## Driver Scripts
-
-Modules also include Driver Scripts to simplify the module's use. It is advisable to update/load driver after a firmware update. See the [Drivers](./engine/drivers) page for more details.
-
----
-
-## Advanced Options
-
-Any DFU tool can be used but advanced users will likely use the [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html). First, download the desired firmware file from the [Downloads](./downloads) page. Now connect the module to USB and enter `DFU Mode`, as explained before. STM32CubeProgrammer will now detect a USB DFU device, select `USB` from the drop down and click `Connect`.
-
-<div style={{ textAlign: 'center'}}>
-![Select USB](pathname:///img/stm-select-usb.webp)
-</div>
-
-Click on the side tab then select the file you downloaded from the [Download](./downloads) page and then click `Start Programming`.
-
-<div style={{ textAlign: 'center'}}>
-![Select file](pathname:///img/stm-selectfile-program.webp)
-</div>
-
-The board now has the desired file loaded!
 
 ---
 
@@ -138,4 +128,8 @@ The board now has the desired file loaded!
 
 This page focuses on firmware updates using `USB DFU mode`. We recommend using USB DFU whenever possible; however, using UART to send firmware updates over Uplink connectors is an (unsupported) option.
 
-Consult the STM32 documentation for further details.
+:::info
+Firmware Cloning uses this UART update internally.
+:::
+
+Consult the STM32 documentation for further UART update details.
