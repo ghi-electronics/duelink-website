@@ -72,14 +72,14 @@
       "name": "Fan: Follow Me -MicroPython",
       "description": "Create a MicroPython `sonar` to detect objects and move the fan",
       "tags": ["micropython","tethered"],
-      "link": "https://github.com/ghi-electronics/duelink-projects/blob/main/source/fan-follow-me/mpy/fan-follow-me.mpy",
+      "link": "https://github.com/ghi-electronics/duelink-projects/blob/main/source/fan-follow-me/micropython",
       "image": "fan-follow-me-mpy.webp"
     },
     {
       "name": "Fan: Follow Me -Script",
       "description": "Create a Script `sonar` to detect objects and move the fan",
       "tags": ["script","standalone"],
-      "link": "https://github.com/ghi-electronics/duelink-projects/blob/main/source/fan-follow-me/script/fan-follow-me.txt",
+      "link": "https://github.com/ghi-electronics/duelink-projects/blob/main/source/fan-follow-me/script",
       "image": "fan-follow-me-script.webp"
     },
     {
