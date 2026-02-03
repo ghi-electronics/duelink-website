@@ -64,8 +64,7 @@ Device addressing controls modules on a [Daisylink](./daisylink), not a device i
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -103,14 +102,6 @@ duelink.Engine.Select(2);
 duelink.System.StatLed(200, 200, 10);
 ```
 </TabItem>
-<TabItem value="micropy">
-```py
-# Select device 2
-duelink.Engine.Select(2)
-# Blink the LED on selected device
-duelink.System.StatLed(200, 200, 10)
-```
-</TabItem>
 <TabItem value="dotnet">
 ```cs
 // Select device 2
@@ -144,8 +135,7 @@ Print is invoked automatically when a function returns a value that is not consu
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -168,9 +158,6 @@ Not needed. Use JavaScript native facilities.
 </TabItem>
 <TabItem value="arduino">
 Not needed. Use Arduino native facilities.
-</TabItem>
-<TabItem value="micropy">
-Not needed. Use MicroPython native facilities.
 </TabItem>
 <TabItem value="dotnet">
 Not needed. Use .NET native facilities.
@@ -198,8 +185,7 @@ Calling `WaitUs()` has a minimum of 160us, which is what the function needs to r
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -236,13 +222,6 @@ ms = duelink.System.GetTickMilliseconds();
 us = duelink.System.GetTickMicroseconds();
 ```
 </TabItem>
-<TabItem value="micropy">
-```py
-# Wait is not provided, use native facilities
-ms = duelink.System.GetTickMilliseconds()
-us = duelink.System.GetTickMicroseconds()
-```
-</TabItem>
 <TabItem value="dotnet">
 ```cs
 // Wait is not provided, use native facilities
@@ -276,8 +255,7 @@ Any pin write operation (`AWrite()`, `DWrite()`, or `Freq()`) to the STAT LED (P
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -323,16 +301,6 @@ delay(5000);
 duelink.System.StatLed(0, 0, 0);
 ```
 </TabItem>
-<TabItem value="micropy">
-```py
-#Blink the STAT LED on for 1000 milliseconds, off for 1000 milliseconds, 10 times. 
-duelink.System.StatLed(1000, 1000, 10)
-# Wait for 5 seconds
-time.sleep(5)
-# Release the Status LED back to the system
-duelink.System.StatLed(0, 0, 0)
-```
-</TabItem>
 <TabItem value="dotnet">
 ```cs
 // Blink the STAT LED on for 1000 milliseconds, off for 1000 milliseconds, 10 times. 
@@ -363,8 +331,7 @@ Function | Description
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -400,14 +367,6 @@ await duelink.Digital.Write(2,1);
 pinState = duelink.Digital.Read(1,2);
 // Set pin 2 to high (active) state
 duelink.Digital.Write(2,1);
-```
-</TabItem>
-<TabItem value="micropy">
-```py
-# Read the current level of pin 1, with pull-down resistor enabled
-pinState = duelink.Digital.Read(1,2)
-# Set pin 2 to high (active) state
-duelink.Digital.Write(2,1)
 ```
 </TabItem>
 <TabItem value="dotnet">
@@ -448,8 +407,7 @@ Function | Description
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -495,16 +453,6 @@ analog = duelink.Analog.Read(2);
 duelink.Analog.Write(4, 0.33);
 ```
 </TabItem>
-<TabItem value="micropy">
-```py
-# Read the voltage level at pin 3
-voltage = duelink.Analog.VoltRead(3)
-# Read the analog input on pin 2
-analog = duelink.Analog.Read(2)
-# Set power level (duty-cycle) of pin 4 to 33%
-duelink.Analog.Write(4, 0.33)
-```
-</TabItem>
 <TabItem value="dotnet">
 ```cs
 // Read the voltage level at pin 3
@@ -536,8 +484,7 @@ Function | Description
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -575,14 +522,6 @@ duelink.Button.Enable(1, False);
 state = duelink.Button.Read(1);
 ```
 </TabItem>
-<TabItem value="micropy">
-```py
-# Enable button on pin 1 with a low for pressed-state.
-duelink.Button.Enable(1, False)
-# Read the current button state, pressed or unpressed.
-state = duelink.Button.Read(1)
-```
-</TabItem>
 <TabItem value="dotnet">
 ```cs
 // Enable button on pin 1 with a low for pressed-state.
@@ -613,8 +552,7 @@ Function | Description
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -656,14 +594,6 @@ for (x=800; x<8000, x=x+50)
 }
 ```
 </TabItem>
-<TabItem value="micropy">
-```py
-for x in range(800,8000,50)
-  duelink.Frequency.Write(3, _x, 100, 0.5)
-  time.sleep(0.1)
-next
-```
-</TabItem>
 <TabItem value="dotnet">
 ```cs
 for (x=800; x<8000, x=x+50)
@@ -697,8 +627,7 @@ Set `charge` to 0 if charge is not needed. Using `charge` is needed for capaciti
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -728,11 +657,6 @@ console.log(await duelink.Pulse.Read(3,0,1,1000))
 Serial.print(duelink.Pulse.Read(3,0,1,1000));
 ```
 </TabItem>
-<TabItem value="micropy">
-```py
-print(duelink.Pulse.Read(3,0,1,1000))
-```
-</TabItem>
 <TabItem value="dotnet">
 ```cs
 Console.WriteLine(duelink.Pulse.Read(3,0,1,1000).ToString());
@@ -758,8 +682,7 @@ Function | Description
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -784,11 +707,6 @@ await distance = duelink.Distance.Read(2, 1);
 <TabItem value="arduino">
 ```cpp
 distance = duelink.Distance.Read(2, 1);
-```
-</TabItem>
-<TabItem value="micropy">
-```py
-distance = duelink.Distance.Read(2, 1)
 ```
 </TabItem>
 <TabItem value="dotnet">
@@ -820,8 +738,7 @@ Function | Description
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -851,12 +768,6 @@ await duelink.Servo.Set(1, 90);
 duelink.Servo.Set(1, 90);
 ```
 </TabItem>
-<TabItem value="micropy">
-```py
-# Servo on pin 1 to 90 degrees
-duelink.Servo.Set(1, 90)
-```
-</TabItem>
 <TabItem value="dotnet">
 ```cs
 // Servo on pin 1 to 90 degrees
@@ -884,8 +795,7 @@ Pins used for I2C are 15-SCL and 16-SDA.
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -921,13 +831,6 @@ duelink.I2C.Configuration(100)
 duelink.I2C.WriteRead(0x3c, b1, 2, 0, 0)
 ```
 </TabItem>
-<TabItem value="micropy">
-```py
-b1 = bytearray([0x01,0x02])
-duelink.I2C.Configuration(100)
-duelink.I2C.WriteRead(0x3c, b1, 0)
-```
-</TabItem>
 <TabItem value="dotnet">
 ```cs
 var b1 = new byte[]{0x01,0x02}
@@ -961,8 +864,7 @@ Pins used for SPI are 12-SCK, 13-MISO, 14-MOSI. Use any GPIO for manual use of C
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -1021,20 +923,6 @@ byte b2[2];
 duelink.Spi.WriteRead(b1,2,b2,2);
 ```
 </TabItem>
-<TabItem value="micropy">
-```py
-duelink.Spi.Configuration(0,8000)
-
-# Write/Read (exchange) a byte
-r = duelink.Spi.Write(0x55)
-
-# Write B1 array and read back B2
-b1 = bytearray([0x01,0x02])
-b2 = bytearray(2)
-
-duelink.Spi.WriteRead(b1,b2)
-```
-</TabItem>
 <TabItem value="dotnet">
 ```cs
 duelink.Spi.Configuration(0,8000);
@@ -1077,8 +965,7 @@ Serial is handled by software with special internal features. There is also basi
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -1129,16 +1016,6 @@ if (duelink.Uart.BytesToRead() > 0)
 }
 ```
 </TabItem>
-<TabItem value="micropy">
-```py
-duelink.Uart.Configuration(9600, 1024)
-
-# If there is data, read a byte and write it back
-if duelink.Uart.BytesToRead() > 0:
-  data = duelink.Uart.ReadByte()
-  duelink.Uart.WriteByte(data)
-```
-</TabItem>
 <TabItem value="dotnet">
 ```cs
 duelink.Uart.Configuration(9600, 1024);
@@ -1176,8 +1053,7 @@ This feature only supports DMX frames with `Start Code` zero.
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -1234,18 +1110,6 @@ int d = duelink.DMX.Read(3);
 
 ```
 </TabItem>
-<TabItem value="micropy">
-```py
-duelink.DMX.Update()
-
-# wait until ready
-while duelink.DMX.Ready() == 0:
-  time.sleep(0.2) 
-
-d = duelink.DMX.Read(3)
-
-```
-</TabItem>
 <TabItem value="dotnet">
 ```cs
 duelink.DMX.Update()
@@ -1279,8 +1143,7 @@ Function | Description
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -1318,14 +1181,6 @@ duelink.Infrared.Enable(3,-1);
 duelink.Infrared.Write(0x55);
 ```
 </TabItem>
-<TabItem value="micropy">
-```py
-# Enable Ir transmit feature on pin 3, no receiver
-duelink.Infrared.Enable(3,-1)
-
-duelink.Infrared.Write(0x55)
-```
-</TabItem>
 <TabItem value="dotnet">
 ```cs
 // Enable Ir transmit feature on pin 3, no receiver
@@ -1360,8 +1215,7 @@ ID  | Type
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -1389,12 +1243,6 @@ await duelink.Temperature.Read(5, 4)
 ```cpp
 // Read DH22 sensor on pin 5
 duelink.Temperature.Read(5, 4);
-```
-</TabItem>
-<TabItem value="micropy">
-```py
-# Read DH22 sensor on pin 5
-duelink.Temperature.Read(5, 4)
 ```
 </TabItem>
 <TabItem value="dotnet">
@@ -1429,8 +1277,7 @@ ID  | Type
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -1458,12 +1305,6 @@ await duelink.Humidity.Read(5, 4)
 ```cpp
 // Read DH22 sensor on pin 5
 duelink.Humidity.Read(5, 4);
-```
-</TabItem>
-<TabItem value="micropy">
-```py
-# Read DH22 sensor on pin 5
-duelink.Humidity.Read(5, 4)
 ```
 </TabItem>
 <TabItem value="dotnet">
@@ -1494,8 +1335,7 @@ See [USB](../interface/usb) interfsce for details.
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -1522,11 +1362,6 @@ Script only functionality.
 </TabItem>
 <TabItem value="arduino">
 ```cpp
-Script only functionality.
-```
-</TabItem>
-<TabItem value="micropy">
-```py
 Script only functionality.
 ```
 </TabItem>
@@ -1563,8 +1398,7 @@ Function | Description
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -1607,15 +1441,6 @@ delay(2000);
 duelink.Sound.MelodyStop(3);
 // Generate a frequency of 1KHz on pin 1 for 200ms
 duelink.Sound.Beep(1, 1000, 200);
-```
-</TabItem>
-<TabItem value="micropy">
-```py
-duelink.Sound.MelodyPlay(3, [500, 50, 1000, 100])
-time.sleep(2)
-duelink.Sound.MelodyStop(3)
-# Generate a frequency of 1KHz on pin 1 for 200ms
-duelink.Sound.Beep(1, 1000, 200)
 ```
 </TabItem>
 <TabItem value="dotnet">
@@ -1663,8 +1488,7 @@ It is important to note that `Reset(0)` will automatically reset all devices, re
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -1711,16 +1535,6 @@ duelink.Engine.Select(0);
 duelink.System.Reset(0);
 ```
 </TabItem>
-<TabItem value="micropy">
-```py
-# Read the firmware version
-_v = duelink.System.Info(1)
-# ...
-# Reset All devices
-duelink.Engine.Select(0)
-duelink.System.Reset(0)
-```
-</TabItem>
 <TabItem value="dotnet">
 ```cs
 // Read the firmware version
@@ -1763,8 +1577,7 @@ Function | Description
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -1804,11 +1617,6 @@ Script only functionality.
 Script only functionality.
 
 </TabItem>
-<TabItem value="micropy">
-
-Script only functionality.
-
-</TabItem>
 <TabItem value="dotnet">
 
 Script only functionality.
@@ -1835,8 +1643,7 @@ Function | Description
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -1874,11 +1681,6 @@ Script only functionality.
 Script only functionality.
 
 </TabItem>
-<TabItem value="micropy">
-
-Script only functionality.
-
-</TabItem>
 <TabItem value="dotnet">
 
 Script only functionality.
@@ -1912,8 +1714,7 @@ Use `Info()` to read the current `DLMode()` state.
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -1949,13 +1750,6 @@ duelink.Engine.ExecuteCommand("DLMode(5,0)");
 duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []");
 ```
 </TabItem>
-<TabItem value="micropy">
-Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
-```py
-duelink.Engine.ExecuteCommand("DLMode(5,0)")
-duelink.Engine.ExecuteCommand("DLI2cWr(0x44, [0x11,0x22], []")
-```
-</TabItem>
 <TabItem value="dotnet">
 Script only functionality but mode #4 can be accomplished using `ExecuteCommand()`
 ```cs
@@ -1989,8 +1783,7 @@ Function | Description
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -2015,11 +1808,6 @@ Use JavaScript native facilities.
 <TabItem value="arduino">
 
 Use Arduino native facilities.
-
-</TabItem>
-<TabItem value="micropy">
-
-Use MicroPython native facilities.
 
 </TabItem>
 <TabItem value="dotnet">
@@ -2054,8 +1842,7 @@ The scripting engine automatically handles array sizes and realocate small array
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -2084,11 +1871,6 @@ Use JavaScript native facilities.
 Use Arduino native facilities.
 
 </TabItem>
-<TabItem value="micropy">
-
-Use MicroPython native facilities.
-
-</TabItem>
 <TabItem value="dotnet">
 
 Use .NET native facilities.
@@ -2112,8 +1894,7 @@ Enable Asynchronous IO. Detailed on the [Engine](./intro.mdx) main page.
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -2140,11 +1921,6 @@ Script only functionality.
 
 </TabItem>
 <TabItem value="arduino">
-
-Script only functionality.
-
-</TabItem>
-<TabItem value="micropy">
 
 Script only functionality.
 
@@ -2190,8 +1966,7 @@ A module will exit any low power mode after system reset (using reset pin) or po
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -2214,11 +1989,6 @@ Script only functionality.
 
 </TabItem>
 <TabItem value="arduino">
-
-Script only functionality.
-
-</TabItem>
-<TabItem value="micropy">
 
 Script only functionality.
 
@@ -2251,8 +2021,7 @@ Use byte arrays. If float array is used then only the first byte of each element
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -2280,12 +2049,6 @@ await duelink.Otp.Read(12)
 ```cpp
 // Read a value from OTP address 12
 duelink.Otp.Read(12);
-```
-</TabItem>
-<TabItem value="micropy">
-```py
-# Read a value from OTP address 12
-duelink.Otp.Read(12)
 ```
 </TabItem>
 <TabItem value="dotnet">
@@ -2326,8 +2089,7 @@ Power loss will cause the internal RTC to lose its value. This is where [RTC Mod
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -2382,18 +2144,6 @@ byte[] b2 = byte[6];
 duelink.Rtc.Read(b2);
 ```
 </TabItem>
-<TabItem value="micropy">
-```py
-# Sets the current time to 18:10:00 27 Feb 2025
-b1 = bytearray([0,10,18,27,2,25])
-
-duelink.Rtc.Write(b1)
-
-# Read the time into array
-b2 = bytearray(6)
-duelink.Rtc.Read(b2)
-```
-</TabItem>
 <TabItem value="dotnet">
 ```cs
 // Sets the current time to 18:10:00 27 Feb 2025
@@ -2433,8 +2183,7 @@ Function | Description
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -2459,11 +2208,6 @@ let v = await duelink.Analog.ReadVcc()
 <TabItem value="arduino">
 ```cpp
 float v = duelink.Analog.ReadVcc();
-```
-</TabItem>
-<TabItem value="micropy">
-```py
-v = duelink.Analog.ReadVcc()
 ```
 </TabItem>
 <TabItem value="dotnet">
@@ -2492,8 +2236,7 @@ Also, there are other functions to help with accessing the module's internal arr
 <Tabs groupid="language" queryString="show"
   values={[
     {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
+    {label: 'Python/MicroPython', value: 'py'},
     {label: 'JavaScript', value: 'js'},
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
@@ -2534,17 +2277,6 @@ float v = Engine.ExecuteCommand("ReadVCC()")
 float x = Engine.ExecuteCommand("_X")
 // Set the value of the script's global variable _Y to 10
 float y = 10
-Engine.ExecuteCommand(f'_Y={y}')
-```
-</TabItem>
-<TabItem value="micropy">
-```py
-# Read the module's internal voltage
-v = Engine.ExecuteCommand("ReadVCC()")
-# Read the value of the script's global variable _X
-x = Engine.ExecuteCommand("_X")
-# Set the value of the script's global variable _Y to 10
-y = 10
 Engine.ExecuteCommand(f'_Y={y}')
 ```
 </TabItem>
