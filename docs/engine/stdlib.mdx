@@ -1630,25 +1630,33 @@ duelink.Sound.Beep(1, 1000, 200);
 </Tabs>
 </details>
 
-
-
-
 ---
 
-## System Info
-
-Read info about the system.
+## System
 
 Function      | Description
 --- | ---
 `Info(type)` | Returns the a specific `type` of info!
+`Reset(mode)` | Reset the system with `mode`.
+`Clone()` | Clone the firmware from the current selected module to the next module, see [loader](../loader).
 
-Type ID | Returned value
+These types are supportd by `Info()`.
+
+Info Type | Returned value
 ---|---
 0 | Product type
 1 | Firmware version
 2 | Interface (0: None, 1: I2C, 2: USB, 3: UART)
 3 | Downlink Mode, see [Downlink](../interface/downlink) Interface.
+
+These modes are supported in `Reset()`.
+
+Reset Mode | Description
+--- | ---
+0 | System Reset (just like pressing reset button).
+1 | Wipe out the entire chip (enter DFU mode!). This command must be executed twice for it to take effect.
+
+It is important to note that `Reset(0)` will automatically reset all devices, regardless of what device was selected using `Sel()`. However, `Reset(1)` will only erase the selected device.
 
 <details>
   <summary>Samples</summary>
@@ -1666,36 +1674,61 @@ Type ID | Returned value
 ```py
 # Read the firmware version
 _v = Info(1)
+# ...
+# Reset All devices
+Sel(0)
+Reset(0)
+
 ```
 </TabItem>
 <TabItem value="py">
 ```py
 # Read the firmware version
 _v = duelink.System.Info(1)
+# ...
+# Reset All devices
+duelink.Engine.Select(0)
+duelink.System.Reset(0)
 ```
 </TabItem>
 <TabItem value="js">
 ```js
 // Read the firmware version
 _v = duelink.System.Info(1)
+// ...
+// Reset All devices
+await duelink.Engine.Select(0)
+await duelink.System.Reset(0)
 ```
 </TabItem>
 <TabItem value="arduino">
 ```cpp
 // Read the firmware version
 int _v = duelink.System.Info(1);
+// ...
+// Reset All devices
+duelink.Engine.Select(0);
+duelink.System.Reset(0);
 ```
 </TabItem>
 <TabItem value="micropy">
 ```py
 # Read the firmware version
 _v = duelink.System.Info(1)
+# ...
+# Reset All devices
+duelink.Engine.Select(0)
+duelink.System.Reset(0)
 ```
 </TabItem>
 <TabItem value="dotnet">
 ```cs
 // Read the firmware version
 var _v = duelink.System.Info(1);
+// ...
+// Reset All devices
+duelink.Engine.Select(0);
+duelink.System.Reset(0);
 ```
 </TabItem>
 </Tabs>
@@ -2120,80 +2153,6 @@ Script only functionality.
 
 Script only functionality.
 
-</TabItem>
-</Tabs>
-</details>
-
----
-
-## System Reset
-
-Reset or clear the system.
-
-Function | Description
---- | ---
-`Reset(mode)` | Reset the system with `mode`.
-
-mode | Description
---- | ---
-0 | System Reset (just like pressing reset button).
-1 | Wipe out the entire chip (factory reset!). This command must be executed twice for it to take effect.
-
-It is important to keep device addressing under consideration. To do so, `Reset(0)` will automatically reset all devices, regardless of what device was selected using `Sel()`. However, `Reset(1)` will only erase the selected device. We recommend `Reset(1):Reset(1)` on a singular connected device, or on the first connected device in a Daisylink. If you really need, `Sel(0):Reset(1):Reset(1)` will wipe out every single device in a Daisylink!
-
-<details>
-  <summary>Samples</summary>
-<Tabs groupid="language" queryString="show"
-  values={[
-    {label: 'Script', value: 'script'},
-    {label: 'Python', value: 'py'},
-    {label: 'MicroPython', value: 'micropy'},
-    {label: 'JavaScript', value: 'js'},
-    {label: '.NET', value: 'dotnet'},
-    {label: 'Arduino', value: 'arduino'},
-
-]}>
-<TabItem value="script">
-```py
-# Reset All devices
-Sel(0)
-Reset(0)
-```
-</TabItem>
-<TabItem value="py">
-```py
-# Reset All devices
-duelink.Engine.Select(0)
-duelink.System.Reset(0)
-```
-</TabItem>
-<TabItem value="js">
-```js
-// Reset All devices
-await duelink.Engine.Select(0)
-await duelink.System.Reset(0)
-```
-</TabItem>
-<TabItem value="arduino">
-```cpp
-# Reset All devices
-duelink.Engine.Select(0);
-duelink.System.Reset(0);
-```
-</TabItem>
-<TabItem value="micropy">
-```py
-# Reset All devices
-duelink.Engine.Select(0)
-duelink.System.Reset(0)
-```
-</TabItem>
-<TabItem value="dotnet">
-```cs
-# Reset All devices
-duelink.Engine.Select(0);
-duelink.System.Reset(0);
-```
 </TabItem>
 </Tabs>
 </details>
