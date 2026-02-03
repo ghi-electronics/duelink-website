@@ -71,7 +71,7 @@
     {
       "name": "Fan: Follow Me -MicroPython",
       "description": "Create a MicroPython `sonar` to detect objects and move the fan",
-      "tags": ["micropython","tethered"],
+      "tags": ["micropython","raspberrypi","tethered"],
       "link": "https://github.com/ghi-electronics/duelink-projects/blob/main/source/fan-follow-me/micropython",
       "image": "fan-follow-me-mpy.webp"
     },
