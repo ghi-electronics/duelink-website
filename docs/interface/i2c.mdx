@@ -95,7 +95,7 @@ DUELink modules check their interface pins on power-up for high-level to configu
 
 This pull-up-rule applies when using [Power Inject](../products/adpwrinj-a) as well. The problem is that `Power Inject` may power up a module before the I2C host (master) was powered up causing the I2C pins to not be detected properly. To solve this, use `Power Inject` in the middle of any chain of module. The Daisylink bus does not use I2C, even if the first module is connected to an I2C host.
 
-In this example, the first module is a non-DUELink host that is using I2C bus and has built-in pull-up resistors. `Power Inject` will cause no issues in this setup. The I2C communication is only between the host and the first module. The rest of the wire will be non-I2C Daisylink bus.
+Here is an example where the first module is a non-DUELink host (I2C master) that is using I2C bus and has built-in pull-up resistors. `Power Inject` will cause no issues in this setup. The I2C communication is only between the host and the first module. The rest of the wire will be non-I2C Daisylink bus.
 
 <div style={{ textAlign: 'center'}}>
 ![daisylink with power inject](pathname:///img/daisylink-normal.webp)
