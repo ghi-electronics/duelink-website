@@ -105,10 +105,10 @@ const ProjectCatalog = () => {
         project.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
         project.description?.toLowerCase().includes(debouncedSearchTerm.toLowerCase());
 
-      // Tags filter - show projects with ANY selected tag
+      // Tags filter - show projects with ALL selected tags
       const matchesTags =
         selectedTags.size === 0 ||
-        project.tags?.some((tag) => selectedTags.has(tag));
+        Array.from(selectedTags).every((tag) => project.tags?.includes(tag));
 
       return matchesSearch && matchesTags;
     });
