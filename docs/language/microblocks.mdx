@@ -336,7 +336,7 @@ Once all connections have been made, power cycle the entire chain to reset all m
 
 ### Daisylink Library
 
-We maintain a set of libraries to simplify the use of MicroBlocks with DUELink. `DUELink Daisylink` is of these libraries and it is used to access and control Tethered modules, which can be one module or a Daisylink of modules. In either case, we need this `DUELink Daisylink` library.
+We maintain a set of libraries to simplify the use of MicroBlocks with DUELink. `DUELink Daisylink` is one of these libraries and it is used to access and control Tethered modules, which can be one module or a Daisylink of modules. In either case, we need this `DUELink Daisylink` library.
 
 In the MicroBlocks editor, click the **Add Library** button:
 
@@ -358,7 +358,7 @@ From the `DUELink Daisylink` library palette click on the `DUELink connected?` b
 ![connected-test](pathname:///img/connected-test.webp)
 </div>
 
-If `DUELink connected?` returned red off button you may have to click the block again, or need power cycle the entire system and try again. Modules can't be connected/disconnected live, a power cycle is needed after chain changes. If you still don't get a positive response, check your wiring.
+If `DUELink connected?` returned red off button you may have to click the block again, or power cycle the entire system and try again. Modules can't be connected/disconnected live, a power cycle is needed after chain changes. If you still don't get a positive response, check your wiring.
 
 In this Daisylink example, there is only one device, which is `LED RGB3`, and it is address 1. If you have another module connected downlink to `LED RGB3` it will become device address 2. You can use `select device` block to select the desired device, and then use the `DUELink connected?` block again to verify that the selected device is functional.
 
