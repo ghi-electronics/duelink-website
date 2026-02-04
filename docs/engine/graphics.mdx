@@ -28,7 +28,7 @@ Type | Description | Configuration `{cfg}`
 0 | None (default) | Graphics is not being used!
 1 | I2C Display | The I2C display's `{address}`. 
 2 | SPI Display | The SPI display's `{chipselect, control}` pins.
-3 | NeoPixel WS2812 | `{pin, pwidth, pheight, scan}`. Configure for LED matrix connected to `pin`, with individual panel width `pwidth` and height `pheight`,  with `scan` horizontal (0) or vertical (1).
+3 | NeoPixel WS2812 | `{pin, pwidth, pheight, scan}`. Configure for LED matrix connected to `pin`, with individual panel width `pwidth` and height `pheight`,  with `scan` horizontal (0) or vertical (1), mirrored horizontal (2).
 4 | LED Matrix Scanner | `{cfg}` the first element sets for common-cathode (1) or common-anode (0). Then followed by data pin then scan pins. The `width` and `height` are used to determine how many pins are used for data and scan, respectively.
 5 | LED Matrix List | `{cfg}` contains a 2D list of LEDs pins, with `width` and `height` layout.
 6 | ePaper (eInk) Display | Uses `{pixeldir, chipselect, control, busy}` where `pixeldir` is 0 for horizontal and 1 for vertical pixels. Then pins used with SPI bus.
