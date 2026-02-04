@@ -139,7 +139,7 @@ for i in range(1, GetDeviceCount()):
     # Clone can take up to 30 seconds
     duelink.ReadTimeout = 30
 
-    responsed = duelink.Engine.ExecuteCommand("Clone()")
+    responsed = int(duelink.Engine.ExecuteCommand("Clone()"))
 
     if responsed != (i + 1):
         print(f"Cloning from {i} to {i+1} failed")
