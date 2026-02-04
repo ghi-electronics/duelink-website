@@ -3,6 +3,13 @@
 
 ## DUELink Firmware
 
+**v0.74 (2026-02-03)**
+
+- Fix incorrect response format for sel(x)
+- Fix awrite(p, 0) causing the pin to go high when an external pull-up is present (for example, a fan module)
+- Known Issues:
+  - Matrix LED may flicker occasionally.
+
 **v0.73 (2026-02-03)**
 
 - Add `Clone()`.
