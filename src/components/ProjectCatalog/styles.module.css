@@ -606,7 +606,7 @@
   }
 
   .projectGrid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .modalContent {
@@ -632,14 +632,14 @@
   }
 
   .projectGrid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 /* Extra Large Desktop */
 @media (min-width: 1441px) {
   .projectGrid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
