@@ -45,11 +45,14 @@ Function | Description
 --- | ---
 `Sel(add, add, add ...)` | Select a devices at `add` in the chain.
 `GetAdd()` | Returns the selected device(s) address.
-`GetCnt()` | Ignores the `Sel()` command and returns the count from start to end or to another host-mode module in the daisylink.
+`GetCnt()` | Ignores the `Sel()` command and returns the count from start to end or to another host-mode module in the Daisylink.
 `SetAdd(add)` | `add` Sets the device's address. This command has chain reaction where each device sets the next one. **Internal function, do not use**
 
 For **advanced uses only**, the `Sel(add)` command accepts multiple addresses. Using `Sel(3,7)` will activate the third and and seventh modules in [Daisylink](./daisylink). Any command issue from that point forward are executed by both modules. Zero is broadcast address, where `Sel(0)` will activate all modules. Note that responses will be received from all selected devices and in a random order.
 
+:::tip
+`SetAdd()` is a **private command** used by the bus internally to enumerate modules. `SetAdd(0)` will un-enumerate causing all address to reset to 0 and all Downlink ports to switch to Null. A `SetAdd(non-zero)` is only accepted by a non-enumerated module, which will set the the `local address` and then open Downlink to send `SetAdd(localAddress+1)`. 
+:::
 
 Use `GetAdd()` to detect what modules are currently active. Similarly, the STAT LED by default is the "activity" LED. It can be used to observe what modules are processing commands.
 
