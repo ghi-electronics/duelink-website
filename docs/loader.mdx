@@ -97,22 +97,27 @@ The cloning feature can be used to update the firmware on a module (or a chain o
 ![Verify DFU mode](pathname:///img/pixobit-daisylinked.webp)
 </div>
 
-Here is a simple example to update a single device.
-
-```py
-Sel(3) # Select the third device
-println("Dev3: ", Info(1)) # Print the device 3 FW version
-Sel(2) # Select device 2
-println("Dev2: ", Info(1)) # Print the device 2 FW version
-Clone() # Clone the firmware from device 2 to device 3
-Sel(3) # Select device 3 again
-println("Dev3: ", Info(1)) # Print the device 3 FW version
-```
-
 Important notes:
 1. Cloning can **only** be executed on chains of modules that are loaded with DUELink official firmware.
 2. Cloning can not be done on blank modules, even if they are already in DFU mode, pre loading with DUELink official firmware is required.
 3. Cloning is disabled when Downlink port is not in the default Daisylink mode, including host mode.
+
+Cloning is meant to be sent to the device from its interface. But, here is a simple example to clone the current module to the next using a script! This can be ran in the Console.
+
+```py
+# wait for enumeration, blink meanwhile!
+while getadd() = 0
+    dwrite(0,1) # STAT LED is always pin 0
+    wait(100)
+    dwrite(0,0)
+    wait(100)
+wend
+
+# We are enumerated!
+r = clone()
+ 
+println("Cloned fw from: ", getadd(), " to: ", r)
+```
 
 It is also possible to `Clone()` the firmware to the entire chain. Here is Python example that clones the firmware found on device 1 to all modules in the chain, one by one.
 
