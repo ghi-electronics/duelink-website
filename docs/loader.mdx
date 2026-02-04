@@ -109,9 +109,10 @@ Sel(3) # Select device 3 again
 println("Dev3: ", Info(1)) # Print the device 3 FW version
 ```
 
-:::tip
-Cloning can **only** be executed on chains of modules that are loaded with DUELink official firmware. Even blank modules already in DFU mode will not work.
-:::
+Important notes:
+1. Cloning can **only** be executed on chains of modules that are loaded with DUELink official firmware.
+2. Cloning can not be done on blank modules, even if they are already in DFU mode, pre loading with DUELink official firmware is required.
+3. Cloning is disabled when Downlink port is not in the default Daisylink mode, including host mode.
 
 It is also possible to `Clone()` the firmware to the entire chain. Here is Python example that clones the firmware found on device 1 to all modules in the chain, one by one.
 
