@@ -87,12 +87,17 @@ This is a great feature that allows a module to clone its own firmware to the ne
 
 Note that the device getting written to will have a firmware clone but will not have any [Driver Script](./engine/drivers) after cloning is done. Loading the Driver Script will be necessary.
 
+:::tip
+The device getting updated will automatically get enumerated to the same address it previously had. The "cloner" will internally use the private `SetAdd()` command.  
+:::
 
 The cloning feature can be used to update the firmware on a module (or a chain of modules) that does not have a USB connection, and without using USB Hook. In this example, PixoBit can be loaded with the latest firmware and then it can be cloned to the chained modules.
 
 <div style={{ textAlign: 'center'}}>
 ![Verify DFU mode](pathname:///img/pixobit-daisylinked.webp)
 </div>
+
+Here is a simple example to update a single device.
 
 ```py
 Sel(3) # Select the third device
@@ -105,8 +110,40 @@ println("Dev3: ", Info(1)) # Print the device 3 FW version
 ```
 
 :::tip
-Cloning can only be executed on chains of modules that are loaded with DUELink official firmware.
+Cloning can **only** be executed on chains of modules that are loaded with DUELink official firmware. Even blank modules already in DFU mode will not work.
 :::
+
+It is also possible to `Clone()` the firmware to the entire chain. Here is Python example that clones the firmware found on device 1 to all modules in the chain, one by one.
+
+```py
+import time
+from DUELink.DUELinkController import DUELinkController
+
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+
+def GetDeviceCount():
+    return int(duelink.Engine.ExecuteCommand("GetCnt()"))
+
+for i in range(1, GetDeviceCount()):
+    duelink.Engine.Select(i)
+
+    timeout = duelink.ReadTimeout
+
+    # Clone can take up to 30 seconds
+    duelink.ReadTimeout = 30
+
+    responsed = duelink.Engine.ExecuteCommand("Clone()")
+
+    if responsed != (i + 1):
+        print(f"Cloning from {i} to {i+1} failed")
+        break
+    else:
+        print(f"Cloning from {i} to {i+1} succeeded")
+
+    # Restore the default timeout
+    duelink.ReadTimeout = timeout
+```
 
 ---
 

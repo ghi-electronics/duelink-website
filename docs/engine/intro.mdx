@@ -19,6 +19,8 @@ DUELink [Console](../console) handles both modes without the users needing to un
 
 It is possible to send multiple commands in a single `Immediate Mode` shot by adding `:` between commands. For example: `StatLed(200,200,50):Print("DUELink")`.
 
+While you can send multiple commands in a single line, the engine will ignore incoming data until it is done executing the current line and sends back the prompt.
+
 To test the inter-working of the engine manually, we will use a terminal software instead of using [Console](../console). Open terminal software and connect it to the serial port presented by the connected DUELink module. We like [Tera Term](https://teratermproject.github.io/index-en.html).
 
 <div style={{ textAlign: 'center'}}>
