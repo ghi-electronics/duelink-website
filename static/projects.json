@@ -116,6 +116,12 @@
       "tags": ["python","dotnet","javascript", "tethered"],
       "link": "https://forums.ghielectronics.com/t/python-can-control-qwiic-stemma-modulino-modules/26205",
       "image": "qwiic-python.webp"
+    },
+    {
+      "name": "Holey board, stacked, extended and beyond!",
+      "description": "Different ways Holey boards can be combined for building projects",
+      "link": "https://forums.ghielectronics.com/t/holey-board-stacked-extended-and-beyond/26212",
+      "image": "holey-boards.jpeg"
     }
   ]
 }
