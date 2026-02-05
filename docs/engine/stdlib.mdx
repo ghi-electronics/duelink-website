@@ -3,37 +3,11 @@ import TabItem from "@theme/TabItem";
 
 # Standard Library
 
-
-These standard library functions are built in natively into the firmware and are available on all systems. You will likely not use these directly, but use the simpler wrapper methods provided by the individual modules.
-
-:::tip
-These are particularly useful for using DUELink Microcomputers or for making custom modules.
-:::
-
----
+The standard library proved a long list of functionalities that are natively built-in the official DUELink firmware. These are used by the [Driver Scripts](./drivers) provided by the individual modules.
 
 :::caution
 Unless otherwise is stated, all Standard Libraries that calls for array require a byte array and not a float array. Use `b1` for example instead of `a1`.
 :::
-
-## Special Pins
-
-Pin P0 is always connected to STAT LED. In some rare cases the STAT LED becomes part of an LED matrix.
-
-Some functions only work on pins with specific features:
-
-- Analog capable pins: P1, P2, P3, P4, P5, P6, P7, P8, P9, P17.
-- Interrupt capable pins: P1, P2, P3, P4, P5, P6, P7, P12.
-- PWM capable pins: P0, P1, P2, P3, P4, P5, P6, P7, P8, P11.
-
-PWM pins share internal timers. Changing the frequency on one will affect the other. Changing duty-cycle is okay however! For example, using a servo motor on P1 and a buzzer on P2 will cause problems as both share the same timer.
-
-- P0: TIM16.
-- P1, P2: TIM1.
-- P3: TIM14.
-- P4, P11: TIM2.
-- P5, P6, P7, P8: TIM3.
-
 
 ---
 
@@ -395,14 +369,9 @@ Function | Description
 `VRead(pin)` | Read calibrated voltage level on `pin`.
 `AWrite(pin, power)` | Sets the power level on `pin` using PWM. Power level is 0 to 1, 0.33 is 33% for example.
 
-`VRead()` and `ARead()` only work with analog capable pins, see [Special Pins](#special-pins).
+`VRead()` and `ARead()` only work with analog capable pins, see [Pin Mapping](./pins).
 
-`AWrite()` only works on PWM pins, see [Special Pins](#special-pins).
-
-
-:::tip
-`AWrite()` changes the internal timer frequency to 1Khz, see Special Pins.
-:::
+`AWrite()` only works on PWM pins and changes its related timer to 1Khz, see [Pin Mapping](./pins).
 
 
 <details>
@@ -473,7 +442,7 @@ duelink.Analog.Write(4, 0.33);
 
 ### Button
 
-Use interrupts to keep track of pins. Only available on interrupt capable pins, see [Special Pins](#special-pins) above!
+Use interrupts to keep track of pins. Only available on interrupt capable pins, see [Pin Mapping](./pins).
 
 Function | Description                          
 --- | ---
@@ -543,7 +512,7 @@ state = duelink.Button.Read(1);
 Sets a frequency and duty-cycle parameters to a pin, using the internal PWM hardware. Only works on pins that support PWM.
 
 :::tip
-This changes the timer frequency, see Special Pins.
+This changes the timer frequency, see [Pin Mapping](./pins)
 :::
 
 Function | Description
@@ -727,14 +696,14 @@ distance = duelink.Distance.Read(2, 1);
 Control servo motors.
 
 :::tip
-This changes the timer frequency to 50Hz, see Special Pins.
+This changes the timer frequency to 50Hz, see [Pin Mapping](./pins).
 :::
 
 Function | Description
 --- | ---
 `ServoSt(pin, degree)` | Position a servo on `pin` to `degree`: 0 to 180
 
-`ServoSt()` only works with PWM pins, see [Special Pins](#special-pins).
+`ServoSt()` only works with PWM pins, see [Pin Mapping](./pins).
 
 <details>
   <summary>Samples</summary>

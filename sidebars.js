@@ -323,6 +323,7 @@ const sidebars = {
       items: [
         "engine/scripting",
         "engine/stdlib",
+        "engine/pins",
         "engine/drivers",
         "engine/graphics",
         "engine/filesystem",
