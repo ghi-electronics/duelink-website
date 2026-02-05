@@ -30,8 +30,8 @@
       "partNumber": "GDL-KTGIMME-A",
       "category": "Kit",
       "price": 79.95,
-      "tagline": "Never Enough! Gimme More Modules!",
-      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options. Build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters. The kit does not include a USB cable because the USB Stick has a Type A connector that can plug directly in, alternately, a USB extension cable can be used when needed. \n\nKit Content:\n\n* [Wireless ESP32 Connectivity Module](/docs/products/wlesp32-a)\n* [7x Tactile Button Module](/docs/products/hibuttons7-a)\n* [12x8 LED Matrix](/docs/products/ldmt1208-a)\n* [Fan Motor](/docs/products/acfan-b)\n* [3-Axis Accelerometer](/docs/products/seaccel-a)\n* [Retro Sound 3.5mm Audio Jack](/docs/products/soretrosnd-a)\n* [Holey Board for Mounting Modules](/docs/products/axholey)\n* [USB Stick for Connecting Modules Directly to USB](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n*  [Mounting Hardware Variety Pack](/docs/products/axmnt)\n* [Cables Variety](/docs/products/axcbl) (10 cables)\n* Storage Box \n\n<div style={{ width: '50%', margin: 'auto', textAlign: 'center'}}>![Storage Box](/img/catalog/ktgimme-a-6.webp)</div>\n\n Modules mounted on the Holey Board conveniently fit inside the included Storage Box.",
+      "tagline": "Gimme More Modules, with Wireless Options!",
+      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options, that also includes [wireless](/docs/interface/wireless) connectivity. Build physical computing projects that you access directly from a PC using USB or Bluetooth a and code with your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Use one of the adapters, such as [DuePi](/docs/products/adduepi-b), to expand your favorite [supported hardware](/docs/hw/intro) with new possibilities.\n\n The kit does not include a USB cable because the USB Stick has a Type A connector that can plug directly in. A USB extension cable can be used when needed. \n\nKit Content:\n\n* [Wireless ESP32 Connectivity Module](/docs/products/wlesp32-a)\n* [7x Tactile Button Module](/docs/products/hibuttons7-a)\n* [12x8 LED Matrix](/docs/products/ldmt1208-a)\n* [Fan Motor](/docs/products/acfan-b)\n* [3-Axis Accelerometer](/docs/products/seaccel-a)\n* [Retro Sound 3.5mm Audio Jack](/docs/products/soretrosnd-a)\n* [Holey Board for Mounting Modules](/docs/products/axholey)\n* [USB Stick for Connecting Modules Directly to USB](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n*  [Mounting Hardware Variety Pack](/docs/products/axmnt)\n* [Cables Variety](/docs/products/axcbl) (10 cables)\n* Storage Box \n\n<div style={{ width: '50%', margin: 'auto', textAlign: 'center'}}>![Storage Box](/img/catalog/ktgimme-a-6.webp)</div>\n\n Modules mounted on the Holey Board conveniently fit inside the included Storage Box.",
       "keyFeatures": [
         "More Common Modules",
         "USB Stick",
@@ -1909,7 +1909,7 @@
           "price": 6.95
         },
         {
-          "name": "100mm Jumper 10pcs",
+          "name": "100mm Jumper 5pcs",
           "partCode": "JMPR",
           "price": 5.95
         },

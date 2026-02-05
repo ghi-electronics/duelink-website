@@ -117,6 +117,10 @@ This host can also be anywhere else in the link, including the first device. Thi
 
 As documented on the [Downlink](../interface/downlink) interface page, `DLMode(2,0)` command is used to switch the module to host mode. This will automatically reset and re-enumerate thats host's clients.
 
+:::tip
+Internally, the module that is becoming a host will send `SetAdd(0)` for all its modules to release their addresses and close their downlink ports. It then send a "new line" to start the automatic enumeration process.
+:::
+
 For demonstration, use the [Console](../console) to load this code on the second module. This code will enable "Host Mode", which will break the chain at the second module. The code then sends a commands to its clients. It is important to note how the code sends `Sel(2)` using `Cmd()`. A Module can not self select or call `Sel()` in its script. Use `Cmd(Sel(2))` to select the second module. 
 
 :::tip

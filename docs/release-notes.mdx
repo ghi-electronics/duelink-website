@@ -3,24 +3,41 @@
 
 ## DUELink Firmware
 
-**v0.72 (2026-01-29)**
+**v0.74 (2026-02-03)**
 
-- Calling Sel(x) from itself is not allowed.
-- Known Issues:
-  - Matrix LED may flicker occasionally.
-
-**v0.71 (2026-01-07)**
-
-- Rename getAddl() to getCnt().
+- Fix incorrect response format for `Sel(x)`
+- Fix `awrite(p, 0)` causing the pin to go high when an external pull-up is present (for example, a fan module)
 - Known Issues:
   - Matrix LED may flicker occasionally.
 
 <details>
   <summary>Previous Versions!</summary>
-  
+
+
+**v0.73 (2026-02-03)**
+
+- Add `Clone()`.
+- Graphics NeoPixel supports flip x
+- USB friendly name changed from "DUELink" to "DUELink official"
+- Known Issues:
+  - FW before 0.73 requires a chain power cycle after `Clone()`. 
+  - Matrix LED may flicker occasionally.
+
+**v0.72 (2026-01-29)**
+
+- Calling `Sel(x)` from script is not allowed.
+- Known Issues:
+  - Matrix LED may flicker occasionally.
+
+**v0.71 (2026-01-07)**
+
+- Rename `getAddl()` to `getCnt()`.
+- Known Issues:
+  - Matrix LED may flicker occasionally.
+
 **v0.70 (2026-01-07)**
 
-- Add getAddl(): returns the total number of devices in the chain.
+- Add `getAddl()`: returns the total number of devices in the chain.
 - Known Issues:
   - Matrix LED may flicker occasionally.
 
