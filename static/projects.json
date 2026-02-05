@@ -32,8 +32,15 @@
     }
   },
   "projects": [
-     {
-      "name": "Squeezing tiny letters using scripts!",
+      {
+      "name": "Flappy Bird Style Game Script",
+      "description": "The simplest flappy-bird game you could make",
+      "tags": ["script","standalone"],
+      "link": "https://forums.ghielectronics.com/t/flappy-bird-style-game-using-scripts/26213",
+      "image": "flappy-bird-script-game.jpeg"
+    },
+    {
+      "name": "Squeezing Tiny Letters!",
       "description": "Push tiny font letters to get yet smaller footprint",
       "tags": ["script","standalone"],
       "link": "https://forums.ghielectronics.com/t/squeezing-tiny-letters-using-scripts/26211",
