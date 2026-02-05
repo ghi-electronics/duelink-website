@@ -24,9 +24,9 @@ Other modules ship with [Driver Script](./drivers). This eliminates the need for
 
 ## Alternate Functions
 
-All pins support digital input and output. However, some pins have alternate function.
+All pins support digital input and output. However, some pins have alternate functions.
 
-Pin P0 is always connected to STAT LED. In some rare cases the STAT LED becomes part of an LED matrix.
+Pin `P0` is always connected to STAT LED. In some rare cases the STAT LED becomes part of an LED matrix.
 
 Pins capable of other functions:
 
@@ -40,7 +40,7 @@ Pins capable of other functions:
 
 Internal timers are used by some of the standard library functions, for example when using `AWritre()`, `Servo()`, or `Freq()`.
 
-These internal timers share the same timer, but have independent duty-cycle. When we design module, we try to use different timers for different functionalities. The timers are listed here for a reference.
+These internal timers share the same timer, but have an independent duty-cycle. When we design module, we try to use different timers for different functionalities. The timers are listed here for a reference.
 
 Timer | Pins
 --- | ---
@@ -66,21 +66,21 @@ DUELink Pin | ST Micro Pin | Analog | PWM | Interrupt | Alternate Function
 5 | PA6 | ADC6 | T3C1 | ✓
 6 | PA7 | ADC7 | T3C2 | ✓
 7 | PA8 | ADC8 | T3C3 | ✓
-8 | PB1 | ADC18 | ✓
-9 | PB0 | ADC17 | | ✓
+8 | PB1 | ADC18 | T3C4
+9 | PB0 | ADC17
 10 | PC15
 11 | PC6 | | T2C3
-12 | PB3 | | | | SPI CLK
+12 | PB3 | | | ✓ | SPI CLK
 13 | PB4 | | | | SPI MISO
 14 | PB5 | | | | SPI MOSI 
 15 | PB6 | | | | I2C SCL
 16 | PB7 | | | | I2C SDA
-17 | PB2 | ADC19 | | ✓
+17 | PB2 | ADC19
 18 | PB9 |
 19 | PA15
 20 | PA14 | | | ✓ | LDR / SWDCLK
-21 | PA9 | | | | Uplink (UART RX)﹡
-22 | PA10 | | | | Uplink (UART TX)﹡
+21 | PA9 | | | | Uplink (UART TX)﹡
+22 | PA10 | | | | Uplink (UART RX)﹡
 23 | PA13| ADC13 | | | SWDIO
 24 | PC14
 25 | PA2 | | | | Downlink TX
