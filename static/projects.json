@@ -32,6 +32,13 @@
     }
   },
   "projects": [
+     {
+      "name": "Squeezing tiny letters using scripts!",
+      "description": "Push tiny font letters to get yet smaller footprint",
+      "tags": ["script","standalone"],
+      "link": "https://forums.ghielectronics.com/t/squeezing-tiny-letters-using-scripts/26211",
+      "image": "pixo-squeezed-font.png"
+    },
     {
       "name": "MicroBlocks Ping-Pong LEDs Matrix!",
       "description": "How to build and control custom LED matrix setup",
