@@ -1,0 +1,15 @@
+# In this sample:
+# Start Bluetooth name bt_name
+# Wait for bt_name connected
+# Start the bridge
+
+StartBT("bt_name")    
+
+while (dread(5,1) = 1)
+    println("wait for Bluetooth connection")
+    wait(1000)
+wend
+    
+Bridge(1) # Enable bridge mode
+
+

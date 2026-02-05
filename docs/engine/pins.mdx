@@ -1,0 +1,91 @@
+# Pin Mapping
+
+All DUELink modules share teh same pin mapping and any additional pin features and restrictions. Pin GPIO numbers are mapped to be easier to use and are not one-to-one with what underlying micro has. 
+
+---
+
+## Standard Lib Pins
+
+The system automatically knows what standard lib function is being used on a specific pin and handles mapping and configuration for that pin.
+
+For example, `Dwrite(1, level)` will automatically change the pin 1 to output write it to `level`. Similarly, `AWrite(1, 0.33)` will change pin 1 to its analog feature (PWM) and then set the duty-cycle to 33%.
+
+While all modules' schematics are provided, extra efforts are made so you do not need to look up any schematics. When using a module that exposes the pins directly, the pin numbers are listed right on the PCB, just like we have them on DueDuino.
+
+<div style={{ textAlign: 'center'}}>
+![DueDuino](pathname:///img/catalog/mcdueduino-a-1.webp)
+</div>
+
+The pin closest to reset button is `P1` can be set to analog write (PWM) with 66% duty-cycle using `AWrite(1, 0.66)`. Similarly, you can read the voltage on `P1` using `_v = VRead(1)`.
+
+Other modules ship with [Driver Script](./drivers). This eliminates the need for accessing pins directly. Samples on using the driver is found on individual modules product pages.
+
+---
+
+## Alternate Functions
+
+All pins support digital input and output. However, some pins have alternate function.
+
+Pin P0 is always connected to STAT LED. In some rare cases the STAT LED becomes part of an LED matrix.
+
+Pins capable of other functions:
+
+- Analog: P1, P2, P3, P4, P5, P6, P7, P8, P9, P17.
+- PWM: P0, P1, P2, P3, P4, P5, P6, P7, P8, P11.
+- Interrupt: P1, P2, P3, P4, P5, P6, P7, P12, P20.
+
+---
+
+## Internal System Timers
+
+Internal timers are used by some of the standard library functions, for example when using `AWritre()`, `Servo()`, or `Freq()`.
+
+These internal timers share the same timer, but have independent duty-cycle. When we design module, we try to use different timers for different functionalities. The timers are listed here for a reference.
+
+Timer | Pins
+--- | ---
+TIM1 | P1, P2
+TIM2 | P4, P11
+TIM3 | P5, P6, P7, P8
+TIM14 | P3
+TIM16 | P0 (STAT)
+
+---
+
+## Map Table
+
+This table shows how the official firmware maps the pins internally. This is all automated by the system and should not be used by you, unless you are building special firmware!
+
+DUELink Pin | ST Micro Pin | Analog | PWM | Interrupt | Alternate Function
+--- | --- | --- | --- | --- | ---
+0 | PB8 | | | | STAT LED
+1 | PA0 | ADC0 | T1C1 | ✓
+2 | PA1 | ADC1 | T1C2 | ✓
+3 | PA4 | ADC4 | T14C1 | ✓
+4 | PA5 | ADC5 | T2C1 | ✓
+5 | PA6 | ADC6 | T3C1 | ✓
+6 | PA7 | ADC7 | T3C2 | ✓
+7 | PA8 | ADC8 | T3C3 | ✓
+8 | PB1 | ADC18 | ✓
+9 | PB0 | ADC17 | | ✓
+10 | PC15
+11 | PC6 | | T2C3
+12 | PB3 | | | | SPI CLK
+13 | PB4 | | | | SPI MISO
+14 | PB5 | | | | SPI MOSI 
+15 | PB6 | | | | I2C SCL
+16 | PB7 | | | | I2C SDA
+17 | PB2 | ADC19 | | ✓
+18 | PB9 |
+19 | PA15
+20 | PA14 | | | ✓ | LDR / SWDCLK
+21 | PA9 | | | | Uplink (UART RX)﹡
+22 | PA10 | | | | Uplink (UART TX)﹡
+23 | PA13| ADC13 | | | SWDIO
+24 | PC14
+25 | PA2 | | | | Downlink TX
+26 | PA3 | | | | Downlink RX
+27 | PF2 | | | | Reset
+
+﹡These pins are only available for UART when the module has a USB connector and does not need a Uplink JST connector. 
+
