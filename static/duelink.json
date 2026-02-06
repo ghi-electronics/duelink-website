@@ -332,7 +332,9 @@
         "8x LEDs",
         "USB Type C",
         "71x37mm overall dimension"
-      ]
+      ],      
+      "driverApi": "| Function | Description |\n|----------|-------------|\n|`BtnPin(p)` | Returns pin number, based on `p` value ('U' = Up, 'D' = Down, 'L' = Left, 'R' = Right, 'A' = A, 'B' = B).  |\n|`Setled(l,v)` | Sets Led at `l` (1 to 8) to a `v` value (1 on, 0 off). |\n| `SetAllLed(v)` | Sets all Leds to `v` value (1 on, 0 off). |\n| `DVer()` | This driver version. |"
+
     },
     {
       "name": "Portal CP70",
