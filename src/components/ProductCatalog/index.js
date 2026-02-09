@@ -109,7 +109,6 @@ const ProductCatalog = () => {
       'Kit',
       'Microcomputer',
       'Specialty',
-      'Adapter',
       'Display',
       'Sensor',
       'Actuator',
@@ -120,6 +119,7 @@ const ProductCatalog = () => {
       'LED',
       'Sound',
       'Vision',
+      'Adapter',
       'Accessory'
     ];
     
@@ -171,7 +171,6 @@ const ProductCatalog = () => {
           'Kit',
           'Microcomputer',
           'Specialty',
-          'Adapter',
           'Display',
           'Sensor',
           'Actuator',
@@ -182,6 +181,7 @@ const ProductCatalog = () => {
           'LED',
           'Sound',
           'Vision',
+          'Adapter',
           'Accessory'
         ];
         
