@@ -79,28 +79,6 @@ const sidebars = {
         },
         {
           type: "category",
-          label: "Adapters",
-          items: [
-            "products/adbreakout-a",
-            "products/adduembus-a",
-            "products/adduepi-b",
-            "products/adduepico-b",
-            "products/addueshield-a",
-            "products/adlinkbit-a",
-            "products/admbuslink-a",
-            "products/adpwrhook-a",
-            "products/adpwrinj-a",
-            "products/adpwrswch-a",
-            "products/adpullup-a",
-            "products/adravebit-a",
-            "products/adrpilink-a",
-            "products/adsticker-c",
-            "products/adusbhook-a",
-            "products/adusbstick-a"
-          ],
-        },
-        {
-          type: "category",
           label: "Displays",
           items: [
             "products/dsepaprm29-a",
@@ -237,6 +215,28 @@ const sidebars = {
           items: [
             "products/vibcodel12-a",
             "products/vithermal-a"
+          ],
+        },
+        {
+          type: "category",
+          label: "Adapters",
+          items: [
+            "products/adbreakout-a",
+            "products/adduembus-a",
+            "products/adduepi-b",
+            "products/adduepico-b",
+            "products/addueshield-a",
+            "products/adlinkbit-a",
+            "products/admbuslink-a",
+            "products/adpwrhook-a",
+            "products/adpwrinj-a",
+            "products/adpwrswch-a",
+            "products/adpullup-a",
+            "products/adravebit-a",
+            "products/adrpilink-a",
+            "products/adsticker-c",
+            "products/adusbhook-a",
+            "products/adusbstick-a"
           ],
         },
         {

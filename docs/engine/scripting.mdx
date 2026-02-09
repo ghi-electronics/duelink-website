@@ -266,8 +266,8 @@ Here it is used by the same script.
 _x = Add(5,33)
 PrintLn(_x)
 ```
-:::caution
-The system is limited to 16 user created functions.
+:::info
+The system is limited to 16 user created functions. Also, each function is limited to 12 characters. 
 :::
 
 Variables inside functions are local. You can use any of the 26 letters as a variable name. The argument will automatically set the local variable with the matching name to the passed value. In the previous example, `a` and `b` local variables were automatically assigned with first and second argument values.
@@ -275,14 +275,14 @@ Variables inside functions are local. You can use any of the 26 letters as a var
 Function arguments can also be arrays. These arrays are passed as by reference.
 
 ```py
-fn PrintArray(b1, c) # Note how the function expects the array is b1
+fn PrintArray(b1, c) # Note how the function expects the array b1
 for _i in Range(c)
   PrintLn(b1[_i])
 next
 fend
 
 Dim b3[] = [1,2,3,4,5]
-PrintArray(b3, 3) # Note how we pass b3 array. The system will automatically reference b3 to b1, a1 used in the function.
+PrintArray(b3, 3) # Note how we pass b3 array. The system will automatically reference b3 to b1, b1 used in the function.
 ```
 
 Array initializer can also be used to call the function above.
@@ -462,6 +462,9 @@ Labels are needed to redirect the program. They are used by `Goto`.
 
 A Label is created by using the `@` symbol in front of the desired label. Labels are limited to 8 characters.
 
+:::info
+The system is limited to 5 labels. Also, each label is limited to 12 characters. 
+:::
 ---
 
 ## Goto
@@ -473,6 +476,10 @@ A Label is created by using the `@` symbol in front of the desired label. Labels
 # add code here that runs forever
 Goto Loop
 ```
+
+:::tip
+Using functions delivers clearer code. Labels and `goto` are good for complex situations.
+:::
 
 ---
 
