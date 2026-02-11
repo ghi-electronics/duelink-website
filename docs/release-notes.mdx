@@ -3,16 +3,22 @@
 
 ## DUELink Firmware
 
+**v0.75 (2026-02-11)**
+
+- Fixed graphics crash when switching from OLED96 to NeoPixel
+- Checked function and label lengths; return an error if they exceed the allowed limit.
+- Known Issues:
+  - Matrix LED may flicker occasionally.
+  
+<details>
+  <summary>Previous Versions!</summary>
+
 **v0.74 (2026-02-03)**
 
 - Fix incorrect response format for `Sel(x)`
 - Fix `awrite(p, 0)` causing the pin to go high when an external pull-up is present (for example, a fan module)
 - Known Issues:
   - Matrix LED may flicker occasionally.
-
-<details>
-  <summary>Previous Versions!</summary>
-
 
 **v0.73 (2026-02-03)**
 
