@@ -21,12 +21,15 @@ USB is also first choice with the [Console](../console) and [Demo Website](https
 
 ## HID Interface
 
-With the CDC (Virtual Serial) interface, USB also includes HID (Human Interface Device) Class. A USB connected computer/phone (any OS) will see Serial+Keyboard+Mouse devices on the same USB cable (composite device). The Serial interface is used to communicate with the [engine](../engine/intro). This works just like all other interfaces, such as [I2C](./i2c).
+The USB connection presents itself as CDC (Virtual Serial) Class, but it also includes HID (Human Interface Device) Class. A connected computer/phone will see Serial+Keyboard+Mouse devices on the same USB cable (composite device), no matter what OS is being used. 
 
-The connected OS will receive "keyboard keystrokes" and "mouse movements" using the `Hid(type, [data])` function. `type` is 1: Keyboard - 2: mouse. The `[data]` array depends on the device.
+The virtual serial interface is used to communicate with the [engine](../engine/intro). This works just like all other interfaces.
 
+Through the HID interface, a connected OS will receive "keyboard keystrokes" and "mouse movements, thanks to the `Hid(type, [data])` function. `type` is 1: Keyboard - 2: mouse. The `[data]` array depends on the device `type`.
 
-**Mouse** Data | Use
+**Type Mouse:**
+
+Data | Use
 --- | ---
 Byte 0 | Buttons (bitmask: Left=1, Right=2, Middle=4)
 Byte 1-2 | X movement (signed int16)
@@ -34,8 +37,9 @@ Byte 3-4 | Y movement (signed int16)
 Byte 5 | Wheel (signed int8)
 Byte 6 | Pan (signed int8)
  
+**Type Keyboard:**
  
-**Keyboard** Data | Use
+Data | Use
 --- | ---
 Byte 0 | Modifier keys (e.g., Ctrl, Shift)
 Byte 1 | Reserved (always 0)
@@ -93,3 +97,9 @@ while (1)
     _p = 0 # reset press status
 wend
 ```
+
+---
+
+## Linux Support
+
+USB presents itself as a virtual USB-Serial port. Linux requires permissions to allow access to these ports. Further notes and example script are on the [UART](./uart) interface page.
