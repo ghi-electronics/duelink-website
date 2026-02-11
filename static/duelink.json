@@ -1250,9 +1250,13 @@
       "category": "Sensor",
       "price": 19.95,
       "tagline": "Air Quality Sensor",
-      "description": "This multi-gas digital sensor is used to detect surrounding air quality.",
+      "description": "This multi-gas digital sensor is used to detect surrounding air quality. Capable of measuring temperature, humidity, air quality, organic compounds, and CO2 levels.",
       "keyFeatures": [
+        "Reads temperature",
+        "Reads humidity",
         "Reads air quality",
+        "Reads organic componds",
+        "Reads CO2 levels",
         "37x27mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `AhtTemp()` | Returns ambient temperature in celsius. |\n| `AhtHumid()` | Returns relative humidity. |\n| `EnsAqi()` | Returns air quality index. |\n| `EnsTvoc()` | Returns Total Volatile Organic Compounds. |\n| `EnsEco2()` | Returns equivalent CO2. |\n| `DVer()` | This driver version. |"
