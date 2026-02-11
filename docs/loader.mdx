@@ -6,7 +6,7 @@ The online loader tool found at [loader.duelink.com](https://loader.duelink.com/
 The online loader tool only works with Chrome or Edge browsers. However, it can be any operating system.
 :::
 
-The update steps are simple and clear. Visit [loader.duelink.com](https://loader.duelink.com/) and select which firmware you want to load, DUELink Official or DUELink MicroBlocks. 
+The update steps are simple and clear. Visit [loader.duelink.com](https://loader.duelink.com/) and select which firmware you want to load, `DUELink Official` or `DUELink MicroBlocks`. 
 
 ---
 
@@ -16,14 +16,17 @@ This section is useful should you have any issues with firmware/driver updates.
 
 In order for a module to accept a new firmware, it needs to be in a special mode called DFU (Device Firmware Update). This can be done using the "Erase All" feature found on the loader page. If that did not work then you can force DFU mode as outlined later on this page.
 
+:::tip
 **Windows OS:**  Windows users that have never used DFU before must download and install a required driver.
+:::
 
 Note that "Erase All" features needs an active firmware for it to work. Once the module is erased, it can't be erased again until it is loaded with the firmware first. So, if "Erase All" failed, your module might already be in DFU mode, and you can go on to the next step and load the firmware.
 
 Once a module is updated, it can be used to update the other modules in a chain. This uses the internal clone feature. For cloning to work, it needs a functional chain of modules, that are all preloaded with DUELink firmware. If cloning failed, then modules must be updated individually. Start by disconnecting modules from a chain, connect them one-by-one to a computer and re-run the update steps.
 
-**MicroBlock Note:** Updating the MicroBlocks firmware steps are the same. However, if there is a need for updating a chain of modules then you must start with the update as if MicroBlocks is not being used. Once all modules are updated, go back and reload MicroBlocks on the first module.
-
+:::info
+**MicroBlocks Note:** Updating the MicroBlocks firmware steps are the same. However, if there is a need for updating a chain of modules then you must start with the update as if MicroBlocks is not being used. Once all modules are updated, go back and reload MicroBlocks on the first module.
+::: 
 ---
 
 ## Force DFU Mode
