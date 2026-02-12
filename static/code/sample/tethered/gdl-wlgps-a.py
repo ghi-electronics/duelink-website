@@ -10,7 +10,8 @@ duelink = DUELinkController(availablePort)
 
 # method
 def EnableReceive(en: bool):
-    duelink.Digital.Write(3, en)
+    v = 1 if en else 0
+    duelink.Digital.Write(3, v)
 
 def DataToRead() -> int:
     return duelink.Uart.BytesToRead()
@@ -24,7 +25,7 @@ def ReadData(data: bytearray) -> int:
 
     # More than 512 bytes, disable receiving to save bus traffic
     EnableReceive(False)
-    total = duelink.Uart.ReadBytes(data, 2.0)  # Timeout 2 seconds
+    total = duelink.Uart.ReadBytes(data, 2)  # Timeout 2 seconds
 
     # Discard any remaining bytes
     duelink.Uart.Discard()
