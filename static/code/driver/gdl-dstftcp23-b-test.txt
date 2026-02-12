@@ -11,44 +11,59 @@ fn Test()
     Wait(1)
     dlmode(2,0)
     Wait(10)
-    cmd("sel(1)")
- 
-    cmd("Clear(0)")
-    cmd("TextS(\"Make sure\", 1, 0, 0, 2,2)")
-    cmd("TextS(\"colors are\", 1, 0, 20, 2,2)")
-    cmd("TextS(\"shown correctly\", 1, 0, 40, 1,2)")
-    cmd("Show()") 
+
         
             
     Clear(0)
-    TextS("This is red", 0xFF0000, 0, 0, 3, 3)
-    TextS("This is green", 0x00FF00, 0, 40, 3, 3)
-    TextS("This is blue", 0x0000FF, 0, 80, 3, 3)
-    TextS("This is white", 0xFFffff, 0,120, 3, 3)
+    TextS("This is red", 0xFF0000, 60, 20, 3, 3)
+    TextS("This is green", 0x00FF00, 60, 60, 3, 3)
+    TextS("This is blue", 0x0000FF, 60, 100, 3, 3)
+    TextS("This is white", 0xFFffff, 60,140, 3, 3)
+    TextS("Touch on (+), make sure it", 0xFFffff, 0,170, 2, 2)
+    TextS("disappeared after touched.", 0xFFffff, 0,190, 2, 2)
+    
+
+    TextS("+", 0xFFffff, 5,5, 3, 3)
+    TextS("+", 0xFFffff, 320-20,5, 3, 3)
+    TextS("+", 0xFFffff, 5,240-20, 3, 3)
+    TextS("+", 0xFFffff, 320-20,240-20, 3, 3)
+    
     
     show()
     
     x = TouchX()
     y = TouchY()
     f = 0
-    while 1
+    while 1 
 
         
         if (x != TouchX() || y != TouchY())
             x = TouchX()
             y = TouchY()
-            
-            if (f = 0)
-                f = 1
-                Clear(0)
+
+            if (x >= 0 && x <= 25 && y >= 0 && y < 25)
+                Fill(0,0,0,24,24)
+                show()
             end
             
-            Circle(0xFF0000,x,y,10)
-            show()
+            if (x >= 320-25 && x <= 320 && y >= 0 && y < 25)
+                Fill(0,320-25,0,24,24)
+                show()
+            end
+            
+            if (x >= 0 && x <= 25 && y >=240-25  && y < 240)
+                Fill(0,0,240-25,24,24)
+                show()
+            end
+            
+            if (x >= 320-25 && x <= 320 && y >= 240-25 && y < 240)
+                Fill(0,320-25,240-25,24,24)
+                show()
+            end
+            
+            println("X:", x, ", Y:",y)
         end
-        
-        
-        
+
         wait(10)
  
     wend
