@@ -10,8 +10,7 @@ duelink = DUELinkController(availablePort)
 
 # method
 def EnableReceive(en: bool):
-    v = 1 if en else 0
-    duelink.Digital.Write(3, v)
+    duelink.Digital.Write(3, en)
 
 def DataToRead() -> int:
     return duelink.Uart.BytesToRead()
