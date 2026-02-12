@@ -1,53 +1,35 @@
 # Loader
 
+The online loader tool found at [loader.duelink.com](https://loader.duelink.com/) is provided to help with firmware and driver updates. It also supports updating a chain of modules using the cloning feature.
 
-The STM32C071 chip utilized on all DUELink modules include the ST loader that is used for `Firmware Updates` and `Firmware Cloning`.
+:::tip
+The online loader tool only works with Chrome or Edge browsers. However, it can be any operating system.
+:::
 
-
-
-
-
-For firmware updateThis loader is used to load a firmware, which can be the official DUELink or MicroBlocks' firmware options. However, it can load a custom firmware built using [C++](./language/cpp), or [Arduino](./hw/arduino).
+The update steps are simple and clear. Visit [loader.duelink.com](https://loader.duelink.com/) and select which firmware you want to load, `DUELink Official` or `DUELink MicroBlocks`. 
 
 ---
 
-## Firmware Update
+## Troubleshooting
 
-Firmware updates are typically sent from a PC to a single module, or the first module in [Daisylink](./engine/daisylink). Start by connecting the module to a PC using a USB. Modules that do not have USB connection will need to be chained to an adapter, like USB Hook.
+This section is useful should you have any issues with firmware/driver updates.
 
-<div style={{ textAlign: 'center'}}>
-![USB Hook servo](pathname:///img/usbhook-servo-x1.webp)
-</div>
-
-We recommend using the DUELink [Console](./console), which can load the official DUELink firmware or MicroBlocks firmware.
+In order for a module to accept a new firmware, it needs to be in a special mode called DFU (Device Firmware Update). This can be done using the "Erase All" feature found on the loader page. If that did not work then you can force DFU mode as outlined later on this page.
 
 :::tip
-Loading custom firmware is covered on the [C++](./language/cpp) and [Arduino](./hw/arduino) pages.
+**Windows OS:**  Windows users that have never used DFU before must download and install a required driver.
 :::
 
-From [https://console.duelink.com/](https://console.duelink.com/), click `Firmware` on the top menu. You now have options to put the module in DFU mode: The first option to `Erase All`, which is hte easier and the recommended approach.
+Note that "Erase All" features needs an active firmware for it to work. Once the module is erased, it can't be erased again until it is loaded with the firmware first. So, if "Erase All" failed, your module might already be in DFU mode, and you can go on to the next step and load the firmware.
 
-<div style={{ textAlign: 'center'}}>
-![Erase All](pathname:///img/firmware-eraseall.webp)
-</div>
+Once a module is updated, it can be used to update the other modules in a chain. This uses the internal clone feature. For cloning to work, it needs a functional chain of modules, that are all preloaded with DUELink firmware. If cloning failed, then modules must be updated individually. Start by disconnecting modules from a chain, connect them one-by-one to a computer and re-run the update steps.
 
-:::tip
-The `Erase All` feature automatically detects DUELink vs MicroBlocks firmware and sends the appropriate command to self-erase. `Erase All` will not work with your own custom firmware!
-:::
+:::info
+**MicroBlocks Note:** Updating the MicroBlocks firmware steps are the same. However, if there is a need for updating a chain of modules then you must start with the update as if MicroBlocks is not being used. Once all modules are updated, go back and reload MicroBlocks on the first module.
+::: 
+---
 
-Once the device is `Erased All`, it will automatically enter the `DFU Mode`. With USB drivers loaded, the system will detect a USB `DFU in FS Mode` device. On Windows, you can optionally verify `Device Manager`. If the device shows an error, you may need to [download](./downloads) and install the USB drivers.
-
-<div style={{ textAlign: 'center'}}>
-![Verify DFU mode](pathname:///img/device-manager-dfu.webp)
-</div>
-
-You can now click the `Connect` button and select the desired firmware to load.
-
-:::tip
-[Driver scripts](./engine/drivers) update is required after a firmware update.
-:::
-
-### Force DFU Mode
+## Force DFU Mode
 
 You can optionally force DFU mode, like if `Erase All` failed or if a custom firmware was loaded. This is simply done by connecting `LDR` pin to high-level on system reset or power up. On some modules, `LDR` pin is connected to a button labeled `LDR` or `A`.
 
@@ -81,9 +63,15 @@ Once in DFU mode, go to [https://console.duelink.com/](https://console.duelink.c
 
 ---
 
-## Firmware Cloning
+## Clone Feature
 
-This is a great feature that allows a module to clone its own firmware to the next module in a [Daisylink](./engine/daisylink). Cloning can be executed on any "selected module" using `Sel()`, which then will erase the "next module" in the chain, and then load "next module" with a clone of the firmware of the "current module".
+This is a great feature that allows a module to clone its own firmware to the next module in a [Daisylink](./engine/daisylink). 
+
+:::tip
+While the provided online loader automatically handles Cloning, we adding more details here for advanced uses. 
+:::
+
+Cloning can be executed on any "selected module" using `Sel()`, which then will erase the "next module" in the chain, and load "next module" with a clone of the firmware of the "current module".
 
 Note that the device getting written to will have a firmware clone but will not have any [Driver Script](./engine/drivers) after cloning is done. Loading the Driver Script will be necessary.
 
@@ -91,15 +79,15 @@ Note that the device getting written to will have a firmware clone but will not 
 The device getting updated will automatically get enumerated to the same address it previously had. The "cloner" will internally use the private `SetAdd()` command.  
 :::
 
-The cloning feature can be used to update the firmware on a module (or a chain of modules) that does not have a USB connection, and without using USB Hook. In this example, PixoBit can be loaded with the latest firmware and then it can be cloned to the chained modules.
+The cloning feature can be used to update the firmware on a modules that do not have a USB connection, and without using USB Hook. In this example, PixoBit can be loaded with the latest firmware and then it can be cloned to the chained modules.
 
 <div style={{ textAlign: 'center'}}>
 ![Verify DFU mode](pathname:///img/pixobit-daisylinked.webp)
 </div>
 
 Important notes:
-1. Cloning can **only** be executed on chains of modules that are loaded with DUELink official firmware.
-2. Cloning can not be done on blank modules, even if they are already in DFU mode, pre loading with DUELink official firmware is required.
+1. Cloning can **only** be executed on chains of modules that are all loaded with DUELink official firmware.
+2. Cloning can not be done on blank modules, even if they are already in DFU mode, pre-loading with DUELink official firmware is required.
 3. Cloning is disabled when Downlink port is not in the default Daisylink mode, including host mode.
 
 Cloning is meant to be sent to the device from its interface. But, here is a simple example to clone the current module to the next using a script! This can be ran in the Console.
@@ -167,12 +155,10 @@ With a properly installed driver, the `Device Manager` will show `DFU in FS Mode
 
 ---
 
-## UART Update
+## Custom Firmware 
 
-This page focuses on firmware updates using `USB DFU mode`. We recommend using USB DFU whenever possible; however, using UART to send firmware updates over Uplink connectors is an (unsupported) option.
+The STM32C071 chip utilized on all DUELink modules can be loaded with any special firmware using any DFU tool, including the ones from ST Micro.
 
-:::info
-Firmware Cloning uses this UART update internally.
-:::
+Updates are typically sent to the chip over `USB DFU mode` connection. Using UART to send firmware updates via the Uplink connectors is another (unsupported) option.
 
-Consult the STM32 documentation for further UART update details.
+The [Arduino](./hw/arduino) page shows how to load a custom Arduino program.

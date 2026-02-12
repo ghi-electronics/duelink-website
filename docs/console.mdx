@@ -1,54 +1,22 @@
 # Console
 
-The DUELink Console is an online tool with several functionalities:
-1. Firmware Update
-2. Driver Update
-3. Script `Recording` Mode access
-4. Script `Immediate`  Mode access
+The DUELink online console [**console.duelink.com**](https://console.duelink.com/) is an online tool designed to help in writing scripts.
 
 <div style={{ textAlign: 'center'}}>
 ![DUELink Console](pathname:///img/duelink-console.webp)
-[**console.duelink.com**](https://console.duelink.com/)
-
 </div>
 
----
+The console can be used to store/modify scripts using the [internal engine's](./engine/intro) script `Recording` mode. It also has support for `Immediate` mode.
 
-## Firmware Update
-
-Select and load the appropriate firmware to your device. While there are multiple ways to load a firmware onto DUELink modules, using the console is the easiest way.
-
-<div style={{ textAlign: 'center'}}>
-![Firmware](pathname:///img/console-firmware.webp)
-</div>
-
-Visit the [Loader](./loader) page for full details on firmware updates.
-
----
-
-## Driver Update
-
-Drivers simplify the use of modules. The console can automatically fetch and load the latest module.
-
-<div style={{ textAlign: 'center'}}>
-![driver](pathname:///img/console-menu-driver.webp)
-</div>
-
-Visit the [Driver Scripts](./engine/drivers) page to learn more.
-
-Drivers are always loaded in `Region 0`, leaving `Region 1` for user code. Using regions is fully supported in the Console, under the `Regions` panel.
-
-<div style={{ textAlign: 'center'}}>
-![Regions Panel](pathname:///img/console-regions-panel.webp)
-</div>
-
-The [Regions](./engine/regions) page has more details.
+The [Regions](./engine/regions) page has details on using the console with Regions.
 
 ---
 
 ## Recording Mode
 
-The console helps in recording, modifying and executing scripts. Connect your module to a PC and then click `Connect`button.
+The console helps in recording, modifying, and executing scripts.
+
+For a quick test, connect your module to a PC and then click the `Connect` button.
 
 <div style={{ textAlign: 'center'}}>
 ![Connect Button](pathname:///img/console-connect.webp)
@@ -101,7 +69,11 @@ The immediate text box sends and runs the code immediately on the DUELink hardwa
 
 Try `statled(200,200,50)` to blink the STAT LED 50 times.
 
-The DUELink Log Panel is where DUELink hardware will talk back to the console. For example, `Print()` function will output directly in this window.
+:::tip
+A very powerful feature in DUELink is when a script is recorded that contains a function, and then that function can be called from the immediate window in the console. That same function can also be called from an interface, like from USB for example.
+:::
+
+To help with troubleshooting, any returned output from a module will be directed to the `Log Panel`. For example, `Print()` function will output directly in this panel.
 
 ```py
 # Run this and observe the Log Panel
