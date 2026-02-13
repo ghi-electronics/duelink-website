@@ -7,47 +7,39 @@ import TabItem from "@theme/TabItem";
 ![Getting Started](pathname:///img/getting-started.webp)
 </div>
 
-There are many ways to use DUELink, with its long list of supported [coding languages](./language/intro) and [supported hardware](./hw/intro) options. This page will focus on the bare minimum to get you started with **any** DUELink module!
+There are many ways to use DUELink. Visit the individual page of your desired [coding languages](./language/intro) and [supported hardware](./hw/intro) a quick starting point.
 
 ---
 
-## MicroBlocks Getting started
+## New to Coding
+
+If you are new to coding, or to coding circuits, and not sure what option to pick then we recommend MicroBlocks for a user-friendly block-coding option. As for the hardware, any of the products mentioned on the [Educators](./educators) page will do  great job but we recommend the ultra low-cost [CincoBit](./products/mccincobit-e). If you are an educator, consider the [CincoBit Classroom Kit](./products/ktcincobit-e), which includes everything your classroom needs to start coding circuits for under $100... you only need a Chromebook or Computer!!
 
 <div style={{ textAlign: 'center'}}>
-![MicroBlocks](pathname:///img/microblocks.webp)
+![CincoBit](pathname:///img/catalog/mccincobit-e-1.webp)
 </div>
-
-This page focuses on the DUELink firmware. Users (especially [Educators](./educators)) interested in block-coding can skip this page and start with [MicroBlocks](./language/microblocks).
-
-:::tip
-Education/Maker focused products ship preloaded with MicroBlocks firmware. You can always load the firmware you need. 
-:::
 
 ---
 
-## Online Demo
+## Starting with No Code!  
 
-The fastest way to try DUELink is though this [Online Demo](https://demo.duelink.com/), which uses [JavaScript](./language/javascript) through a web browser to run some of the DUELink [Standard Library](./engine/stdlib) commands.
+You can try out the module without needing to write any code, using the online demo. [demo.duelink.com](https://demo.duelink.com/) is an excellent [JavaScript](./language/javascript) demo but you can use it to verify modules functionality, without any coding!
 
-<div style={{ textAlign: 'center'}}>
-![DUELink Demo website](pathname:///img/demo-website.webp)
-</div>
-
-All DUELink modules support the [USB Interface](./interface/usb). While a few boards have a USB connector built-in, most will have an Uplink connector allowing for all USB/I2C/UART interfaces. [USB Hook](./products/adusbhook-a) can be used to bring out the USB connection.
-
-Here is a Microcomputer module example, which has a USB connector built-in, vs an LED module that is connected to USB through a USB Hook module.
+Connect your module to USB on your Computer. If your board does not have a USB connector then use an adapter, like USB Hook.
 
 <div style={{ textAlign: 'center'}}>
 ![DUELink Connection](pathname:///img/duelink-connection.webp)
 </div>
- 
-Start by plugging in your device to a USB port, open the [demo site](https://demo.duelink.com/) and connect the device.
+
+Go to the [loader page](https://loader.duelink.com/update) and make sure your board is loaded with the latest firmware and drivers.
+
+Open the [demo site](https://demo.duelink.com/) and click on the USB logo to connect your device.
 
 <div style={{ textAlign: 'center'}}>
 ![Demo Connect](pathname:///img/demo-connect.webp)
 </div>
 
-The first tab is for controlling the STAT LED. This is an LED that is found on all DUELink modules. Change the parameters and observe the STAT LED on the board.
+The first tab is for controlling the STAT LED. This is an LED that is found on all DUELink modules. Change the parameters and observe the STAT LED on the connected board.
 
 <div style={{ textAlign: 'center'}}>
 ![Demo LED tab](pathname:///img/demo-led-tab.webp)
@@ -67,71 +59,7 @@ By the way, when connected, the demo site shows the device ID (module type) and 
 
 ---
 
-## Firmware Update
+## Community Forum
 
-The DUELink Console is a useful online platform to handle many important tasks, such as firmware update and scripting. It is fully covered in details [here](./console).
+Get help from our professionals and from the community on our [DUELink Forum](https://forums.ghielectronics.com/c/duelink/31)!
 
-When you receive a new module, it is important that your board is using latest firmware. We will use the Console to check the firmware version and update if necessary. 
-
-Plug in your device and "connect" it.
-
-<div style={{ textAlign: 'center'}}>
-![Console Connect](pathname:///img/console-connect.webp)
-</div>
-
-The console will show the current version loaded on the module and also the latest available version.
-
-<div style={{ textAlign: 'center'}}>
-![Console About](pathname:///img/console-about.webp)
-</div>
-
-:::tip
-The [Release Notes](./release-notes) lists the changes.
-:::
-
-To update the firmware, open DUELink console [https://console.duelink.com/](https://console.duelink.com/) and click `Firmware`.
-
-<div style={{ textAlign: 'center'}}>
-![Firmware](pathname:///img/console-firmware.webp)
-</div>
-
-Follow the instructions and load the latest firmware. Full details are found on the [loader](./loader) page.
-
----
-
-## Demo Scripts
-
-The console includes a few simple scripts. Give some a try for an easy start with zero setup! These examples utilize the [Internal Engine's](./engine/intro) built-in [scripting language](./engine/scripting).
-
-<div style={{ textAlign: 'center'}}>
-![Demos](pathname:///img/console-demos.webp)
-</div>
-
-:::tip
-These are generic scripts. See the individual modules' pages for specific standalone scripts examples.
-::: 
-
-This example script controls the status LED (STAT LED). This LED is found on every single DUELink module.
-
-```py
-# Blinks Status LED High for 200ms, Low for 200ms, repeat 50 times
-StatLed(200,200,50)
-```
-
-`Record` and `run` your script then observe the LED. Try changing the numbers to change the LED behavior.
-
-<div style={{ textAlign: 'center'}}>
-![Status LED](pathname:///img/statled-blink.gif)
-</div>
-
-See the [Console](./console) page for full details.
-
----
-
-## Code Samples
-
-Now, you are ready to use one of the [languages](./language/intro), such as [Python](./language/python) or [JavaScript](./language/javascript). These are just some of the available [Coding Language](./language/intro) options. There are [standalone](./language/standalone) options as well. Use these pages to help you setup your system properly.
-
-Once you are setup with one of the coding language options and can control the status LED, go to your module's product page for code samples to get you started.
-
-Welcome to the world of DUELink `circuits` coding! We are waiting for you on our [DUELink Forum](https://forums.ghielectronics.com/c/duelink/31)!

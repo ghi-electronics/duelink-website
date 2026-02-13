@@ -7,7 +7,11 @@
 
 JavaScript is one of the core technologies used by the World Wide Web. 98% of all websites use JavaScript. Websites can now use the provided DUELink JavaScript library to access the physical world.
 
-Here is a website demo to demonstrate how JavaScript can control actuators and read sensors: [demo.duelink.com](https://demo.duelink.com/). It is covered in the [Getting Started](../start) page.
+Here is a website demo to demonstrate how JavaScript can control actuators and read sensors: [demo.duelink.com](https://demo.duelink.com/).
+
+<div style={{ textAlign: 'center'}}>
+![DUELink Demo website](pathname:///img/demo-website.webp)
+</div>
 
 :::tip
 Note that JavaScript will be executed on one of the [supported hardware](../hw/intro) options, which is tethered to DUELink modules. JavaScript does not run on the module itself!
@@ -16,6 +20,8 @@ Note that JavaScript will be executed on one of the [supported hardware](../hw/i
 ---
 
 ## Setup
+
+These steps are for using JavaScript locally. To see how it works inside a website, take a look at [demo.duelink.com](https://demo.duelink.com/).
 
 This page assumes the user is already familiar with JavaScript and there is a development machine that is already setup to build and run JavaScript programs. We'll be running our program on a local machine using `Node.js`.
 
@@ -32,7 +38,7 @@ npm install dlserialusb
 ```
 
 :::tip
-Make sure your hardware is updated with the latest firmware. The [Console](../console) can help with that!
+Make sure your hardware is updated with the latest firmware. The [Loader](../loader) can help with that!
 :::
 
 Start a new project with a simple line of code to test that the project is running.

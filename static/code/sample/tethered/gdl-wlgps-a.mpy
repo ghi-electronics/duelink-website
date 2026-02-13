@@ -18,7 +18,7 @@ due = duelink.DUELinkController(i2c)
 # methods
 def EnableReceive(en: bool):
     v = 1 if en else 0
-    due.Digital.Write(3, en)
+    due.Digital.Write(3, v)
 
 def DataToRead() -> int:
     b2r = due.Uart.BytesToRead()
@@ -34,10 +34,15 @@ def ReadData(data: bytearray) -> int:
     EnableReceive(False)
     # does not work if ReadBytes
     #total = due.Uart.ReadBytes(data, 2000)  # Timeout 2000 ms
-    total = 512
-    for i in range(0,total):
-        data[i] = due.Uart.ReadByte()
-
+    datatmp = bytearray(32)
+    idx = 0
+    for i in range(16):
+        due.Uart.ReadBytes(datatmp, 2000)
+        for x in range(0,32):
+            data[idx] = datatmp[x]
+            idx = idx + 1
+    total = idx
+  
     # Discard any remaining bytes
     due.Uart.Discard()
 
