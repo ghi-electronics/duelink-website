@@ -2201,9 +2201,13 @@ Function | Description
 `float duelink.Engine.ExecuteCommand("cmd")` | Writes a command to a module and returns a float.
 `string duelink.Engine.ExecuteCommandRaw("cmd")` | Writes a command to a module and returns a raw string.
 `void duelink.Engine.Run()` | Runs the installed script. Effective only on the selected device.
-`void duelink.Engine.StopAll()` | Stops running scripts on all devices. This internally sends ESC to the devices.
+`void duelink.Engine.StopAll()` | Stops running scripts on all devices. This internally sends ESC to all devices.
 `void duelink.Engine.Record(script, region)` | Records `script` to `region`.
 `string duelink.Engine.Read(script, region)` | Returns the installed script as a string.
+
+:::tip
+A host (PC for example) can't communicate with a module that is in a loop. `AsIo()` can help with that, or use `StopAll()`.
+:::
 
 Also, there are other functions to help with accessing the module's internal arrays, see [stream](./stream). 
 
