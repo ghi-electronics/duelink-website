@@ -33,10 +33,10 @@
   },
   "projects": [
     {
-      "name": "Handling float numbers with MicroBlocks",
+      "name": "Handling fractions with MicroBlocks",
       "description": "Use the scripting engine to 'cook' decimal points",
       "tags": ["microblocks","blocks"],
-      "link": "https://forums.ghielectronics.com/t/handling-float-numbers-with-microblocks/26224",
+      "link": "https://forums.ghielectronics.com/t/handling-fractions-with-microblocks/26224",
       "image": "floating-point-microblocks.jpeg"
     },
     {
