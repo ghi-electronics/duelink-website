@@ -12,7 +12,7 @@ fn Test()
     Wait(10)
     cmd("sel(1)")
     
-    Pos(5,0)
+    CPos(5,0)
     CPrint('P')
     CPrint('A')
     CPrint('S')
