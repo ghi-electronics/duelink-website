@@ -16,7 +16,7 @@ The [Regions](./engine/regions) page has details on using the console with Regio
 
 The console helps in recording, modifying, and executing scripts.
 
-For a quick test, connect your module to a PC and then click the `Connect` button.
+For a quick test, connect your module to a PC and then click the `Connect` button. By default the first module is selected as indicated by the number 1. If a different module in the chain is being used click the `Sel` to change. 
 
 <div style={{ textAlign: 'center'}}>
 ![Connect Button](pathname:///img/console-connect.webp)
@@ -35,10 +35,14 @@ Click the `Record` button to send the script to the module's memory.
 ![Record Button](pathname:///img/console-record.webp)
 </div>
 
-You can now `Run` the code!
+You can now run the code by pressing the `Play` button!
 
 <div style={{ textAlign: 'center'}}>
 ![Play Button](pathname:///img/console-play.webp)
+</div>
+
+<div style={{ textAlign: 'center'}}>
+![StatLED](pathname:///img/statled-blink.webp)
 </div>
 
 :::tip
@@ -67,10 +71,10 @@ The immediate text box sends and runs the code immediately on the DUELink hardwa
 ![DUELink immediate window](pathname:///img/immediate-window.webp)
 </div>
 
-Try `statled(200,200,50)` to blink the STAT LED 50 times.
+Try `StatLed(200,200,10)` here to blink the STAT LED 10 times.
 
 :::tip
-A very powerful feature in DUELink is when a script is recorded that contains a function, and then that function can be called from the immediate window in the console. That same function can also be called from an interface, like from USB for example.
+A very powerful feature in DUELink is when a script is recorded that contains a function. That function can be called from the immediate window in the console. That same function can also be called from an interface, like from USB for example.
 :::
 
 To help with troubleshooting, any returned output from a module will be directed to the `Log Panel`. For example, `Print()` function will output directly in this panel.
