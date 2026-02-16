@@ -273,15 +273,17 @@ then from `Libraries` select `Kits and Boards` and then `DUELink Daisylink` libr
 
 In this example setup, `CincoBit` is the board running Standalone and MicroBlocks is loaded and is running on it. The tethered `LED RGB3` is is running the official DUELink firmware and is controlled by commands coming from `CinoBit`.
 
-From the `DUELink Daisylink` library palette click on the `DUELink connected?` block to verify that your `LED RGB3` is connected and detected by `CincoBit`:
+From the `DUELink Daisylink` library palette click on the `connected?` block to verify that your `LED RGB3` is connected and detected by `CincoBit`:
 
 <div style={{ textAlign: 'center'}}>
 ![connected-test](pathname:///img/connected-test.webp)
 </div>
 
-If `DUELink connected?` returned red (off button) you may have to click the block again, or power cycle the entire system and try again. Modules can't be connected/disconnected live, a power cycle is needed after chain changes. If you still don't get a positive response, check your wiring.
+:::tip
+Modules can't be connected/disconnected live. If you don't get a positive response, check your wiring and power cycle the entire chian by unplugging and re-plugging the USB cable..
+:::
 
-In this Daisylink example, there is only one device, which is `LED RGB3`, and it is address 1. If you have another module connected downlink to `LED RGB3` it will become device address 2. You can use `select device` block to select the desired device, and then use the `DUELink connected?` block again to verify that the selected device is functional.
+In this Daisylink example, there is only one device, which is `LED RGB3`, and it is address 1. If you have another module connected downlink to `LED RGB3` it will become device address 2. You can use `select device` block to select the desired device, and then use the `connected?` block again to verify that the selected device is functional.
 
 :::tip
 Device address 1 is automatically selected on power up. If you only need to use device address 1, there will be no need to use the `select device` block.
