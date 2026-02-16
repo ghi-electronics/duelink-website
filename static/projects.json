@@ -33,7 +33,14 @@
   },
   "projects": [
     {
-      "name": "Handling fractions with MicroBlocks",
+      "name": "Powering up Using a Coin-cell Battery",
+      "description": "Some modules can easily be wired to a coin-cell",
+      "tags": [],
+      "link": "https://forums.ghielectronics.com/t/powering-up-modules-using-a-coin-cell-battery/26226",
+      "image": "coin-cell.jpeg"
+    },
+    {
+      "name": "Handling Fractions With MicroBlocks",
       "description": "Use the scripting engine to 'cook' decimal points",
       "tags": ["microblocks","blocks"],
       "link": "https://forums.ghielectronics.com/t/handling-fractions-with-microblocks/26224",
