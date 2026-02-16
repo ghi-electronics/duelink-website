@@ -3,85 +3,23 @@ author GHI
 version 1 0 
 description ''
 
-  spec 'r' 'GetLight' 'GetLight'
-  spec ' ' 'SetStatLed' 'SetStatLed _' 'auto'
-  spec 'r' 'buildstr' 'addstring _ : with _ : _ : ...' 'str auto auto' 'output'
-  spec ' ' 'Print' 'Print _' 'auto'
-
-to GetLight {
-  local 'ret' (due_returnNum (due_make_command 'Light' ''))
-  return ret
-}
-
-to Print text {
-  local 'tmp' text
-  if (isType text 'number') {
-    tmp = ('[data:convertType]' text 'string')
-  }
-  tinyOLED_clear
-  tinyOLED_drawString tmp 0 0 true
-}
-
-to SetStatLed on {
-  local 'r' 0
-  local 'g' 0
-  if (on != 0) {
-    r = 1
-    g = 0
-  } else {
-    r = 0
-    g = 1
-  }
-  due_run (due_make_command 'statled' r g 0 '')
-}
-
-to buildstr s optionalArgs {
-  local 'result' ('[data:makeList]')
-  '[data:addLast]' s result
-  for i 8 {
-    if (isType (argOrDefault (i + 1) '') 'string') {
-      '[data:addLast]' (argOrDefault (i + 1) '') result
-    } else {
-      '[data:addLast]' ('[data:convertType]' (argOrDefault (i + 1) '') 'string') result
-    }
-  }
-  return ('[data:joinStrings]' result)
-}
-
-script 120 40 {
+script 120 62 {
 whenStarted
-comment 'In this sample:'
-comment 'Pull light value every second'
-comment 'When light below 25, turn the statled on'
-comment 'When light higher 25, turn the statled off'
-due_useI2C true
-due_select_device 1
+comment 'use I2C with mirco:bit'
+due_useI2C false
+comment 'Assume on address 7'
+due_select_device 7
 forever {
   local 'light' (GetLight)
+  comment 'Observe on "graph"'
+  graphIt light
   if (light < 25) {
-    SetStatLed 1
+    setUserLED true
   } else {
-    SetStatLed 0
+    setUserLED false
   }
-  Print (buildstr 'Light value: ' light)
-  waitMillis 1000
+  waitMillis 10
 }
-}
-
-script 120 975 {
-to GetLight {}
-}
-
-script 120 1150 {
-to SetStatLed {}
-}
-
-script 120 1325 {
-to buildstr {}
-}
-
-script 120 1815 {
-to Print {}
 }
 
 
@@ -538,6 +476,19 @@ when one wants to force different behavior from the default
     comment 'If Uart we need to send 10 or 13 or 27 or ''s'' or ''S'''
     due_select_device 1
   }
+}
+
+
+module 'DUELink Light'
+author 'GHI Electronics'
+version 1 0 
+depends 'DUELink Daisylink' 
+description 'DUELink Light sensor module'
+
+  spec 'r' 'GetLight' 'light level'
+
+to GetLight {
+  return (due_returnNum 'light()')
 }
 
 

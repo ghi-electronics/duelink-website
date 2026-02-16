@@ -3,12 +3,12 @@ author GHI
 version 1 0 
 description ''
 
-script 120 62 {
+script 174 124 {
 whenStarted
-comment 'uses I2C On for micro:bit'
+comment 'uses I2C with micro:bit'
 due_useI2C false
-comment 'Spin through all LEDs'
-due_select_device 1
+comment 'Assuming LED ring is on address 4'
+due_select_device 4
 forever {
   for i ('[data:range]' 1 16) {
     LedOff
@@ -475,13 +475,13 @@ when one wants to force different behavior from the default
 }
 
 
-module 'LED R16'
+module 'DUELink LED R16'
 author 'GHI Electronics'
 version 1 0 
 depends 'DUELink Daisylink' 
 description 'Blocks for controlling LED R16 module'
 
-  spec ' ' 'SetLed' 'SetLed _ _' 'auto bool' 1 true
+  spec ' ' 'SetLed' 'SetLed _ _' 'num bool' 1 true
   spec ' ' 'LedOff' 'LedOff'
 
 to LedOff {
@@ -489,12 +489,6 @@ to LedOff {
 }
 
 to SetLed index value {
-  local 'val' value
-  if (val != 0) {
-    val = 1
-  } else {
-    val = 0
-  }
-  due_run (due_make_command 'SetLed' index val)
+  due_run (due_make_command 'SetLed' index value)
 }
 

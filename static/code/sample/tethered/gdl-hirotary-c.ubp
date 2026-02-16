@@ -1,98 +1,129 @@
 module main
-author GHI Electronics
-version 1 0
+author GHI
+version 1 0 
 description ''
 
-variables distance_bk button_status_bk
-
-spec 'r' 'GetValue' 'GetValue'
-spec 'r' 'Pressed' 'Pressed'
-spec 'r' 'buildstr' 'addstring _ : with _ : _ : ...' 'str auto auto' 'output'
-spec ' ' 'Print' 'Print _' 'auto'
-
-script 120 80 {
+script 192 62 {
 whenStarted
-comment 'In this sample:'
-comment 'Get the current rotary value'
-comment 'Detect if the rotary button is pressed'
-comment 'Note:'
-comment 'The rotary driver uses interrupts, so DUEScript user code must remain in a while-loop indefinitely.'
-comment 'Append the while-loop below to ensure the user code stays in a while-loop indefinitely if the device does not already have one.'
-due_useI2C true
-due_select_device 1
-distance_bk = 0
-button_status_bk = false
+comment 'use I2C on micro:bit'
+due_useI2C false
+comment 'Assume module on address 6'
+due_select_device 6
+comment 'Enable Scan'
+'start scan'
 forever {
-	local 'distance' (GetValue)
-	local 'button_status' (Pressed)
-
-	if (distance_bk != distance) {
-		distance_bk = distance
-		Print (buildstr 'Value: ' distance)
-	}
-
-	if (button_status_bk != button_status) {
-		button_status_bk = button_status
-		if button_status_bk {
-			Print 'Button pressed!'
-		} else {
-			Print 'Button released!'
-		}
-	}
-
-	waitMillis 10
-}
-}
-
-to GetValue {
-	local 'ret' (due_returnNum (due_make_command 'GetValue' ''))
-	return ret
-}
-
-to Pressed {
-	local 'ret' (due_returnNum (due_make_command 'Pressed' ''))
-	return (ret != 0)
-}
-
-to buildstr s optionalArgs {
-  local 'result' ('[data:makeList]')
-  '[data:addLast]' s result
-  for i 8 {
-    if (isType (argOrDefault (i + 1) '') 'string') {
-      '[data:addLast]' (argOrDefault (i + 1) '') result
-    } else {
-      '[data:addLast]' ('[data:convertType]' (argOrDefault (i + 1) '') 'string') result
+  sayIt (GetValue)
+  waitMillis 10
+  if (Pressed) {
+    sayIt 'Pressed'
+    repeatUntil (not (Pressed)) {
+      waitMillis 10
     }
   }
-  return ('[data:joinStrings]' result)
+}
 }
 
-to Print text {
-	local 'tmp' text
-	if (isType text 'number') {
-		tmp = ('[data:convertType]' text 'string')
-	}
-	tinyOLED_clear
-	tinyOLED_drawString tmp 0 0 true
+script 445 1256 {
+local 'ret' 0
 }
 
-script 120 1365 {
-to GetValue {}
+script 326 1528 (due_make_command 'GetValue' '')
+
+script 852 1552 (v ret)
+
+script 681 1557 (v ret)
+
+script 838 1647 {
+local 'ret' 0
 }
 
-script 120 1540 {
-to Pressed {}
+script 890 1757 (due_make_command 'Pressed' '')
+
+script 50 1893 {
+to '_dueSendRaw' {}
 }
 
-script 120 1715 {
-to buildstr {}
+script 50 2618 {
+to '_due_awaitResult' {}
 }
 
-script 120 2205 {
-to Print {}
+script 50 3456 {
+to '_due_awaitResultI2C' {}
 }
 
+script 50 4187 {
+to '_due_endsWithPrompt' {}
+}
 
+script 737 4340 {
+to '_due_init' {}
+}
+
+script 1181 4925 (due_connected)
+
+script 775 5193 {
+sayIt 123
+}
+
+script 50 5249 {
+to '_due_send' {}
+}
+
+script 50 6070 {
+to due_connected {}
+}
+
+script 50 6279 {
+to due_device_PID {}
+}
+
+script 50 6696 {
+to due_device_version {}
+}
+
+script 50 6785 {
+to due_exec {}
+}
+
+script 50 6869 {
+to due_make_command {}
+}
+
+script 50 9330 {
+to due_returnNum {}
+}
+
+script 50 9518 {
+to due_returnStr {}
+}
+
+script 50 9676 {
+to due_run {}
+}
+
+script 50 9809 {
+to due_select_device {}
+}
+
+script 50 9916 {
+to due_setReadTimeout {}
+}
+
+script 50 10039 {
+to due_set_statled {}
+}
+
+script 50 10194 {
+to due_stop {}
+}
+
+script 50 10366 {
+to due_stream_read_bytes {}
+}
+
+script 50 12462 {
+to due_useI2C {}
+}
 
 
 module 'DUELink Daisylink' Comm
@@ -269,6 +300,7 @@ to '_due_init' {
         comment 'Serial need first byte is 10, 13 or ''s'', ''S'''
       }
       comment 'Wait a bit because device will see multiple commands'
+      waitMillis 500
       return 0
     } else {
       comment 'Not a DUELink board; use I2C.'
@@ -548,6 +580,29 @@ when one wants to force different behavior from the default
     comment 'If Uart we need to send 10 or 13 or 27 or ''s'' or ''S'''
     due_select_device 1
   }
+}
+
+
+module 'DUELink Rotary'
+author 'GHI Electronics'
+version 1 0 
+depends 'DUELink Daisylink' 
+description 'Drivers for DUELink Rotary module'
+
+  spec 'r' 'Pressed' 'pressed'
+  spec 'r' 'GetValue' 'get value'
+  spec ' ' 'start scan' 'start scan'
+
+to GetValue {
+  return (due_returnNum 'GetValue()')
+}
+
+to Pressed {
+  return ((due_returnNum 'Pressed()') != 0)
+}
+
+to 'start scan' {
+  due_run 'scan()'
 }
 
 
