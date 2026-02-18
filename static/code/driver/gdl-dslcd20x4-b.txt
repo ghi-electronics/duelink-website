@@ -31,7 +31,7 @@ fend
  
 fn CPos(c, r)
  
-    if (c > 15 || c < 0) 
+    if (c > 19 || c < 0) 
         return 
     end
     if (r > 3 || r < 0) 
@@ -67,6 +67,12 @@ fn Init()
     Command(0x33)
     Command(0x32)
     Command(0x0C)#on
+    
+    #Command(0x28)  # 4-bit, 2-line, 5x8 font
+    #Command(0x0C)  # display on, cursor off
+    #Command(0x06)  # entry mode
+    
+    
     Clr()
     wait(3)
 fend

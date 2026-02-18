@@ -1583,7 +1583,7 @@
         "Standard 3.5mm audio connector",
         "27x22mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayBeep(f, d)` | Play beep, (f: frequency, d: duration in ms). |\n| `PlaySound(f, d, c)` | Play sound, (f: frequency, d: duration in ms, c: duty cycle). |\n| `PlayMelody(a1)` | Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration). |\n| `StopMelody()` | Stop melody. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetPin()()` | return pin used. |\n| `SetLVol(v)` | Set left volume |\n| `SetRVol(v)` | Set right volume |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "MP3",
