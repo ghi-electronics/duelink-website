@@ -22,6 +22,8 @@ fn Test()
     Fill(1,100,40,95,20)
     Show()
     
+    wait(1000) 
+    
     DrawOnRed() 
     Clear(0)
     Text("!Smart Modules!", 1, 103, 47)
