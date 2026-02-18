@@ -4,24 +4,19 @@ _x = 0
 _y = 0
 _z = 0
 _c = 0
+_b = 0
 
 Alias(PinA=6,PinB=5,timeb=_x,timeAS=_y,timeAE=_z,val=_c)
 
-IStart("IntA", PinA, 2, 0)
-IStart("IntB", PinB, 0, 0)
- 
 fn IntB()
     #Println("Detect B")
-    b = dread(PinB,0)
-    n = TickUs()
+    b = dread(PinB,0)    
     
     if b = 0
         timeb = TickUs()
     else
         timeb = 0
-    end
-    
-
+    end    
 fend
 
 fn IntA()
@@ -68,4 +63,26 @@ fn Pressed()
     return dread(2,1) = 0
 fend
 
+fn scan()    
+    if _b = 1
+        println("0\r\n>") # 0: already run - need to response
+        return 
+    end
+ 
+    _b = 1 # only run once
+ 
+    asio(1)
+    IStart("IntA", PinA, 2, 0)
+    IStart("IntB", PinB, 0, 0)
+    
+    println("1\r\n>") # 1: starting... - need to response
+    while(1)
+        wait(1)
+    wend
+
+fend 
+
+fn DVer()
+    return 1.1
+fend
 #########################
