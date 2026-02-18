@@ -6,7 +6,7 @@ fend
 
 Alias(CNote=262, CSharpNote=277, DNote=294, DSharpNote=311, ENote=330, FNote=349, FSharpNote=370, GNote=392, GSharpNote=415, ANote=440, ASharpNote=466, BNote=494)
 
-fn PlayNote(n,d)
+fn PlayBeep(n,d)
     Beep(7, n, d)
 fend
 
