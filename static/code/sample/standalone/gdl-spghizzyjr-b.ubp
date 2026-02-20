@@ -25,7 +25,7 @@ forever {
 
 module 'DUELink Ghizzy Jr'
 author GHIElectronics
-version 0 5 
+version 1 0 
 choices ghizzyjr_eye Left Right Both 
 description 'DUELink Ghizzy Jr Library
 
