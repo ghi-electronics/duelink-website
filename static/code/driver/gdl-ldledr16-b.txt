@@ -1,11 +1,11 @@
 ##### LED R16 Driver #####
  
 fn DVer()
-  return 1.0
+  return 1.1
 fend
  
 fn SetLed(l, v) 
-    if l > 16
+    if l > 16 || l<1
         return
     end
  

@@ -5,33 +5,37 @@
 
 **v0.77 (2026-02-18)**
 
-- Fixed continue not working in a for-loop.
-- Fixed devices in the chain skipping global commands when multiple commands are coming.
+- Fixed `continue` not working inside a `for-loop`.
+- Fixed devices in a chain losing commands when multiple commands are received.
 - Known Issues:
   - Matrix LED may flicker occasionally.
 
 <details>
   <summary>Previous Versions!</summary>
   
+**v0.76 (2026-02-17)**
+
+- Internal release!
+
 **v0.75 (2026-02-11)**
 
-- Fixed graphics crash when switching from OLED96 to NeoPixel
+- Fixed graphics crash when switching from OLED96 to NeoPixel.
 - Checked function and label lengths; return an error if they exceed the allowed limit.
 - Known Issues:
   - Matrix LED may flicker occasionally.  
 
 **v0.74 (2026-02-03)**
 
-- Fix incorrect response format for `Sel(x)`
-- Fix `awrite(p, 0)` causing the pin to go high when an external pull-up is present (for example, a fan module)
+- Fix incorrect response format for `Sel(x)`.
+- Fix `awrite(p, 0)` causing the pin to go high when an external pull-up is present (for example, a fan module).
 - Known Issues:
   - Matrix LED may flicker occasionally.
 
 **v0.73 (2026-02-03)**
 
 - Add `Clone()`.
-- Graphics NeoPixel supports flip x
-- USB friendly name changed from "DUELink" to "DUELink official"
+- Graphics NeoPixel supports flip x.
+- USB friendly name changed from "DUELink" to "DUELink Official".
 - Known Issues:
   - FW before 0.73 requires a chain power cycle after `Clone()`. 
   - Matrix LED may flicker occasionally.

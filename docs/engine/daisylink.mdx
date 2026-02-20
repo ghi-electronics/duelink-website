@@ -124,7 +124,7 @@ Internally, the module that is becoming a host will send `SetAdd(0)` for all it
 For demonstration, use the [Console](../console) to load this code on the second module. This code will enable "Host Mode", which will break the chain at the second module. The code then sends a commands to its clients. It is important to note how the code sends `Sel(2)` using `Cmd()`. A Module can not self select or call `Sel()` in its script. Use `Cmd(Sel(2))` to select the second module. 
 
 :::tip
-Loading scripts from a PC can be done on modules connected onto the main link. Remember, adding a host in the middle of a chain logically breaks it into multiple chains. 
+Loading scripts from a PC can be done on modules connected onto the main link only, up to the in-line host. Remember, adding a host in the middle of a chain logically breaks it into multiple chains. 
 :::
 
 ```py
@@ -143,6 +143,8 @@ This is what the link would look like.
 Note how there are 2 modules with address 2, each one visible only to its host.
 
 A module in "host" mode is still listening to commands coming from Uplink, from its host, but it does not forward the commands Downlink. This allows for programming and configuring the host, from DUELink [Console](../console) for example.
+
+Using more than one host in a Daisylink is possible but not recommended. If multiple hosts can't activate host-mode at once, for example on power up. This causes module addressing clash. To work around this, each host needs a different delay on power up before it switches itself into a host. 200ms delay between each host should work in most cases.
 
 ---
 

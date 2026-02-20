@@ -19,7 +19,7 @@ const FeatureList = [
     Svg: require('@site/static/img/makers.svg').default,
     description: (
       <>
-        Beginners to experts will turn their dream projects into a reality.<br/>
+        Use a dynamic system that elevates with your existing knowledge.<br/>
         <br/>
         <a class="button button--primary" href="/docs/makers">Makers</a>
       </>
@@ -58,9 +58,19 @@ export default function HomepageFeatures() {
     <section className={styles.features}>
       
       <div className="container" style={{textAlign: 'center'}}>
+        <img src="/img/home-standalone.webp" width="600px" alt="DUELink" />
         <Heading as="h2" >
-          DUELink is for Everyone!
+          Each Module is a Microcomputer!
         </Heading>
+        <p>Run Standalone using MicroBlocks, Arduino, and beyond!
+        </p>
+        <a class="button button--primary" href="/docs/language/standalone">Standalone</a>
+        <hr/>
+        <Heading as="h2" >
+          Beginners to Experts
+        </Heading>
+        <p>From simple "Hello World" lessons to industrial prototypes.
+        </p>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />

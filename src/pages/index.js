@@ -16,14 +16,12 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
 
-        <img src="/img/duelink-intro.webp" alt="DUELink" />
+        <img src="/img/duelink-intro.webp"  alt="DUELink" />
   
        <Heading as="h2" >
-        Tether & Daisylink Hundreds of Modules!
+        Tether and Daisylink Hundreds of Modules
         </Heading>
-        <p> DUELink revolutionizes electronics innovation with a vast ecosystem of Daisylink-able electronic modules.
-        <br/> 
-        Each module is a mini-computer, that Tethers to your favorite hardware platform and coding language.
+        <p>Continue using your existing hardware and favorite coding language.
         </p>
          <div className={styles.buttons}>
           <Link
@@ -31,7 +29,7 @@ function HomepageHeader() {
             to="/docs/what-is">
             What's DUELink?
           </Link>
-           &nbsp; &nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;
           <Link
             className="button button--secondary"
             to="/docs/catalog/products">
