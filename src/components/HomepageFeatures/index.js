@@ -58,7 +58,7 @@ export default function HomepageFeatures() {
     <section className={styles.features}>
       
       <div className="container" style={{textAlign: 'center'}}>
-        <img src="/img/home-standalone.webp" alt="DUELink" />
+        <img src="/img/home-standalone.webp" width="600px" alt="DUELink" />
         <Heading as="h2" >
           Each Module is a Microcomputer!
         </Heading>
