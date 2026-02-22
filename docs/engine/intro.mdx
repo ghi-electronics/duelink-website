@@ -1,15 +1,19 @@
 # Internal Engine
 
-
 DUELink modules run an Internal Engine that is used to handle commands over multiple [Interfaces](../interface/intro). It also manages and handles [DaisyLink](./daisylink) modules on the [Downlink](../interface/downlink) socket.
 
-The engine also allows the module to run [Standalone](../language/standalone).
-
-All above is possible via the built-in DUELink [Scripting Engine](./scripting).
+This engine allows DUELink modules to run [Standalone](../language/standalone) using the built-in [Scripting Engine](./scripting). Or modules can be Tethered to a [Supported Hardware](../hw/intro) and coded using several [coding languages](../language/intro), including [Python](../language/python), [MicroPython](../language/micropython), [JavaScript](../language/javascript), and [.NET](../language/dotnet.mdx). 
 
 The DUELink Engine has two modes `Immediate Mode`, where commands are executed immediately, and `Record Mode` where commands are stored internally in the module.
 
-DUELink [Console](../console) handles both modes without the users needing to understand any details. This section helps in understanding the engine internals.
+DUELink [Console](../console) handles both modes, plus many other tasks, such as [Regions](./regions) and [Drivers](./drivers).
+
+
+<div style={{ textAlign: 'center'}}>
+![DUELink Console](pathname:///img/duelink-console.webp)
+</div>
+
+Any further details on this page are optionally provided for a deeper understanding of the engine's internals.
 
 ---
 
@@ -21,7 +25,7 @@ It is possible to send multiple commands in a single `Immediate Mode` shot by ad
 
 While you can send multiple commands in a single line, the engine will ignore incoming data until it is done executing the current line and sends back the prompt.
 
-To test the inter-working of the engine manually, we will use a terminal software instead of using [Console](../console). Open terminal software and connect it to the serial port presented by the connected DUELink module. We like [Tera Term](https://teratermproject.github.io/index-en.html).
+To test the inter-working of the engine manually, we will use a terminal software instead of using [Console](../console). Open terminal software and connect it to the serial port presented by the connected DUELink module. We are using [Tera Term](https://teratermproject.github.io/index-en.html).
 
 <div style={{ textAlign: 'center'}}>
 ![Tera Term](pathname:///img/teraterm-logo.webp)
@@ -120,7 +124,7 @@ Recording programs are either used to run the module [Standalone](../language/st
 
 ## Hybrid Mode
 
-There is no `Hybrid Mode` exactly, but you can combine both `Immediate Mode` and `Record Mode` to extend the system with additional commands. Say we want to extend the system with a `Hello()` function. We can `record` this extension that can be executed `immediately`.
+`Hybrid Mode` is achieved when combining `Immediate Mode` and `Record Mode` to extend the system with additional commands. Say we want to extend the system with a `Hello()` function. We can `record` this function that can be executed `immediately`.
 
 Enter recoding mode then start a `new` program. Then enter this program:
 
@@ -143,7 +147,7 @@ Switch to `Immediate Mode`  and enter `Hello("John Due")`.
 ![Tera Term Function Print](pathname:///img/teraterm-function-print.webp)
 </div>
 
-This is exactly how hundreds of modules provide user-friendly [drivers](./drivers). They all have a recorded script that handles module-specific tasks. Then these drivers commands can be executed from a [Supported Hardware](../hw/intro) over one of the [Interfaces](../interface/intro).
+This is exactly how hundreds of modules provide user-friendly [drivers](./drivers). They all have a recorded script that handles module-specific tasks. Then these drivers commands can be executed from a tethered [Supported Hardware](../hw/intro), over one of the [Interfaces](../interface/intro), using your favorite [Coding Language](../language/intro).
 
 ---
 
