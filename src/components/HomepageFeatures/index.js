@@ -19,7 +19,7 @@ const FeatureList = [
     Svg: require('@site/static/img/makers.svg').default,
     description: (
       <>
-        Use a dynamic system that elevates with your existing knowledge.<br/>
+        Use a dynamic system that elevates your existing knowledge.<br/>
         <br/>
         <a class="button button--primary" href="/docs/makers">Makers</a>
       </>
