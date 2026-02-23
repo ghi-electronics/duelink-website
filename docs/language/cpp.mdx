@@ -1,10 +1,28 @@
-# C++/Arduino
+# C++ & Arduino
 
 <div style={{ textAlign: 'center'}}>
 ![C++ Logo](pathname:///img/cplusplus.webp)
 </div>
 
-There are two ways to use C++ with DUELink, tethered or [Standalone](./standalone).
+There are two ways to use C++ with DUELink, [Standalone](./standalone) or Tethered.
+
+---
+
+## Standalone
+
+We recommend using [Arduino](../hw/arduino), which is C++ at its core, but presents an easier setup.
+
+You can also use any other C++ compiler with an STM32C071 microcontroller support, including the free [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html). Another option is ARM Keil MDK, which is what we use internally. This is a paid professional IDE but [ST Micro offers a free licensed for any STM32 Cortex-M0 micro](https://developer.arm.com/documentation/kan344/latest/?lang=en).
+
+:::tip
+These options use low-level versatile libraries. They are powerful but not user friendly! [Arduino](../hw/arduino) is a user-friendly alternative, and we provide many samples on individual product pages.
+:::
+
+Any DFU update tool can be used to load your compiled program onto a DUELink module. We recommend the [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html). This is not necessary when using Arduino as DFU upload is built into the Arduino IDE.
+
+:::tip
+For advanced users: 99.9% of modules include SWD pins for connecting debuggers, such as ST-Link. SWCLK is found on the through hole "boot pads" or LDR button. SWDIO is found on a tiny SMT pad. This is a non-supported feature.
+:::
 
 ---
 
@@ -12,26 +30,6 @@ There are two ways to use C++ with DUELink, tethered or [Standalone](./standalon
 
 With this option, you can can tether a device, such as [PC & Laptop](../hw/pc-laptop) or [Phone & Tablets](../hw/phone-tablet.mdx) to DUELink modules, which you can be used to run the C++ program to command DUELink modules through [USB](../interface/usb) or [UART Serial](../interface/uart) interfaces.
 
-We do not provide a library for C++ as most of DUELink users enjoy the high-level supported languages, such as [.NET C#](./dotnet) and [Python](./python).
+We do not provide a library for C++ and instead support other high-level languages, such as C++ cousin [.NET C#](./dotnet)!
 
-Note that the [Arduino](../hw/arduino) library is C++ and will work with some changes. However, this is not an officially supported option.
-
----
-
-## Standalone
-
-We recommend using [Arduino](../hw/arduino), which is C++ at its core, but presents itself in a easier setup.
-
-You can also use any other C++ compiler with an STM32C071 microcontroller support, including the free [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html). Another option is ARM Keil MDK, which is what we use internally. This is a paid professional IDE but [ST Micro offers a free licensed for any STM32 Cortex-M0 micro](https://developer.arm.com/documentation/kan344/latest/?lang=en).
-
-:::tip
-These options use low-level versatile libraries. They are powerful but not user friendly! [Arduino](../hw/arduino) is a user-friendly alternative.
-:::
-
-Any DFU update tool can be used to load your compiled program onto a DUELink module. We recommend the [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html).
-
-:::tip
-99.9% of modules include SWD pins for connecting debuggers, such as ST-Link. SWCLK is found on the through hole "boot pads" or LDR button. SWDIO is found on a tiny SMT pad. This is a non-supported feature.
-:::
-
-
+Note that the [Arduino](../hw/arduino) library is C++ and can be adopted to work on any [PC & Laptop](../hw/pc-laptop). However, this is not an officially supported option.
