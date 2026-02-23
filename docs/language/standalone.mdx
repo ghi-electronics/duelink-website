@@ -1,32 +1,34 @@
 # Standalone
 
-DUELink is designed from the ground up to tether with your favorite [hardware](../hw/intro), using your favorite [coding language](./intro). For example, you can use a phone to control a [Daisylink](../engine/daisylink) of DUELink modules.
+DUELink modules can be Tethered to your [hardware](../hw/intro) or can run Standalone.
 
-<div style={{ textAlign: 'center'}}>
-![Daisylink with Phone](pathname:///img/android-usbhook.webp)
-</div>
-Tethered modules are controlled by programs running on the "host", which will be codded with one of the provided software libraries, like [Python](./python) and [JavaScript](./javascript) for example. This "host" can but a powerful [PC](../hw/pc-laptop) or simple [Arduino](../hw/arduino) board.
+
+ For example, you can Tethere one or more DUELink modules to an [Arduino](../hw/arduino) board.
 
 <div style={{ textAlign: 'center'}}>
 ![Daisylink with Arduino](pathname:///img/arduino-uno-r4-daisylinked.webp)
 </div>
 
-Additionally, DUELink modules are self-contained mini-computers that can also run standalone. Not only that, any standalone DUELink module can be a tethered to other DUELink modules!
+Or code the module to run Standalone. After all, each DUELink module is a self-contained mini-computer!
 
 <div style={{ textAlign: 'center'}}>
 ![Ghizzy Eyes](pathname:///img/ghizzy-eyes.gif)
 </div>
 
-There are multiple options for running **standalone**:
+There are multiple options for running **standalone**.
 
-* DUELink Scripts
+* Scripts Engine
 * MicroBlocks
 * Arduino
 * C++
 
+:::tip
+Product pages include many samples for Tethered adn Standalone modes.
+:::
+
 ---
 
-## DUELink Scripting Engine
+## Scripting Engine
 
 <div style={{ textAlign: 'center'}}>
 ![DUELink Logo](pathname:///img/duelinklogo.webp)
@@ -34,7 +36,12 @@ There are multiple options for running **standalone**:
 
 DUELink firmware includes an [Internal Engine](../engine/intro) that has a [Scripting](../engine/scripting) language. It is easy to learn, making it a great choice for [educators](../educators), yet it is flexible enough to run complete applications for [Makers](../makers) and [Engineers](../engineers).
 
-Visit the [Internal Engine](../engine/intro) and [Scripting](../engine/scripting) language pages for more details.
+
+<div style={{ textAlign: 'center'}}><Button 
+style={{ margin: "10px", color: "white"}}
+label="Scripting"
+link="../engine/scripting"
+/></div>
 
 ---
 
@@ -44,9 +51,13 @@ Visit the [Internal Engine](../engine/intro) and [Scripting](../engine/scripting
 ![MicroBlocks](pathname:///img/microblocks.webp)
 </div>
 
-This is a block-based coding option, a great choice for educators, young learners, or anyone interested in coding but without "typing" the code!
+This is a block-based coding option, a great choice for educators, new learners, or anyone interested in coding but without "typing" the code!
 
-Visit [MicroBlocks](./microblocks) language page to get started.
+<div style={{ textAlign: 'center'}}><Button 
+style={{ margin: "10px", color: "white"}}
+label="MicroBlocks"
+link="./microblocks"
+/></div>
 
 ---
 
@@ -56,9 +67,13 @@ Visit [MicroBlocks](./microblocks) language page to get started.
 ![Arduino logo](pathname:///img/arduino-logo.webp)
 </div>
 
-Arduino is essentially C++ wrapped in a nice setup, with user-friendly libraries and a very large community.
+Arduino is essentially C++ wrapped in a nice setup, with user-friendly libraries, and a very large community. It can be used in 2 different ways: Tether Arduino any compatible board to DUELink module(s), or load and run the Arduino software on any DUELink module to run Standalone!
 
-The [Arduino](../hw/arduino) page shows how it can be used in 2 different ways: Tether Arduino compatible board to DUELink modules or load and run the Arduino software on any DUELink module!
+<div style={{ textAlign: 'center'}}><Button 
+style={{ margin: "10px", color: "white"}}
+label="Arduino"
+link="../hw/arduino"
+/></div>
 
 ---
 
@@ -72,4 +87,8 @@ ST Micro offers STMCubeIDE as a complete solution to program STM micros. It is f
 
 Another option is [Keil MDK](https://www.keil.com/), which is what we use at GHI Electronics. This is a paid-software but ST Micro has licensed it to be used for free on its Cortex-M0 micros, such as the STM32C071 used on DUELink modules.
 
-Visit the [C++](./cpp) page to learn more.
+<div style={{ textAlign: 'center'}}><Button 
+style={{ margin: "10px", color: "white"}}
+label="C++"
+link="./cpp"
+/></div>

@@ -3,15 +3,21 @@
 
 ## DUELink Firmware
 
+**v0.78 (2026-02-23)**
+
+- Fixed UART upstream continuously firing TX interrupt even when TX count is 0.
+- Known Issues:
+  - Matrix LED may flicker occasionally.
+
+<details>
+  <summary>Previous Versions!</summary>
+
 **v0.77 (2026-02-18)**
 
 - Fixed `continue` not working inside a `for-loop`.
 - Fixed devices in a chain losing commands when multiple commands are received.
 - Known Issues:
   - Matrix LED may flicker occasionally.
-
-<details>
-  <summary>Previous Versions!</summary>
   
 **v0.76 (2026-02-17)**
 
