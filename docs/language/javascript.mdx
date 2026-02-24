@@ -76,6 +76,15 @@ Blinky();
 The JavaScript library is open source: [DUELink Libraries Repo](https://github.com/ghi-electronics/duelink-libraries).
 :::
 
+The `new SerialUSB()` code block returns a serial port with DUELink devices only. It is possible to connect to any arbitrary COM port number. This is useful when connecting to Bluetooth serial COM port for example.
+
+```js
+//...
+let duelink = new DUELinkController(new SerialUSB("COM12"));
+await duelink.Connect();
+//...
+```
+
 ---
 
 ## Daisylinking
