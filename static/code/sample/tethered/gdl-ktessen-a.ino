@@ -1,3 +1,5 @@
+// This sample runs on Arduino UNO 4 WIFI
+
 // In this sample:
 // 1. Read the distance and display it on the TFT N18
 // 2. Continuously scan LEDs from D1 to D16 (play LEDs in a circular - circle mode)

@@ -1,0 +1,165 @@
+# In this sample:
+# The wireless ESP32 turns on Bluetooth as a wireless bridge, allowing a PC to read
+# acceleration data (X, Y, Z) through a Bluetooth serial port.
+#
+# - Press the Up button: increases the fan speed (starts at 50%); displays "Up" on the MT1208.
+# - Press the Down button: decreases the fan speed; displays "Dn" on the MT1208.
+# - Press the Enter button: turns the fan off; displays "En" on the MT1208.
+# - A beep plays when any of the Up / Down / Enter buttons is pressed.
+#
+# Devices must be connected in the following order:
+# - Wireless ESP32 first
+# - Fan: device 2
+# - MT1208: device 3
+# - Retro Sound: device 4
+# - Button S7: device 5
+# - Accel: device 6
+
+import time
+import duelink 
+
+from duelink import transport
+
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# methods & variable
+
+current_dev = -1
+
+def SelectDevice(dev):
+    global current_dev
+    if current_dev != dev:
+        due.Engine.Select(dev)
+        current_dev = dev
+
+
+def GetX():
+    SelectDevice(6)
+    x = int(due.Engine.ExecuteCommand("GetX()"))
+    return x
+
+
+def GetY():
+    SelectDevice(6)
+    y = int(due.Engine.ExecuteCommand("GetY()"))
+    return y
+
+
+def GetZ():
+    SelectDevice(6)
+    z = int(due.Engine.ExecuteCommand("GetZ()"))
+    return z
+
+
+def IsButtonPressed(button):
+    SelectDevice(5)
+    pin = int(due.Engine.ExecuteCommand("BtnPin('{}')".format(button)))
+    r = int(due.Engine.ExecuteCommand("btndown({})".format(pin)))
+    return r == 1
+
+
+def SetFan(speed):
+    SelectDevice(2)
+    due.Engine.ExecuteCommand("Fan({})".format(speed))
+
+
+def SetText(c):
+    SelectDevice(3)
+    due.Engine.ExecuteCommand("Clear(0)")
+    due.Engine.ExecuteCommand('Text("{}",1,0,0)'.format(c))
+    due.Engine.ExecuteCommand("show()")
+
+
+def PlayBeep():
+    SelectDevice(4)
+    # Use freq for non-blocking response
+    due.Engine.ExecuteCommand("freq(1,1000,100,0.5)")
+
+
+counter = 0
+accel_x = 0
+accel_y = 0
+accel_z = 0
+fan_speed = 0.0
+
+btnUp = False
+btnDown = False
+btnEnter = False
+
+last_accel_read_x = time.ticks_ms()
+last_accel_read_y = time.ticks_ms()
+last_accel_read_z = time.ticks_ms()
+
+while True:
+
+    count = counter % 7
+
+    if count == 0:
+        diff = time.ticks_diff(time.ticks_ms(), last_accel_read_x)
+        if diff > 3000:
+            accel_x = GetX()
+            last_accel_read_x = time.ticks_ms()
+
+    elif count == 1:
+        diff = time.ticks_diff(time.ticks_ms(), last_accel_read_y)
+        if diff > 3000:
+            accel_y = GetY()
+            last_accel_read_y = time.ticks_ms()
+
+    elif count == 2:
+        diff = time.ticks_diff(time.ticks_ms(), last_accel_read_z)
+        if diff > 3000:
+            accel_z = GetZ()
+            last_accel_read_z = time.ticks_ms()
+            print("X = {}, Y = {}, Z = {}".format(accel_x, accel_y, accel_z))
+
+    elif count == 3:
+        btnUp = IsButtonPressed('U')
+
+    elif count == 4:
+        btnDown = IsButtonPressed('D')
+
+    elif count == 5:
+        btnEnter = IsButtonPressed('E')
+
+    if btnUp:
+        btnUp = False
+        fan_speed += 10
+
+        if fan_speed < 50:
+            fan_speed = 50
+        if fan_speed > 100:
+            fan_speed = 100
+
+        SetFan(fan_speed)
+        PlayBeep()
+        SetText("Up")
+
+    if btnDown:
+        btnDown = False
+        fan_speed -= 10
+
+        if fan_speed < 50:
+            fan_speed = 1  # Original logic preserved
+
+        SetFan(fan_speed)
+        PlayBeep()
+        SetText("Dn")
+
+    if btnEnter:
+        btnEnter = False
+        fan_speed = 1
+        SetFan(fan_speed)
+        PlayBeep()
+        SetText("En")
+
+    counter += 1
+
+    # C# Thread.Sleep(1) = 1 millisecond
+    time.sleep_ms(1)
+
+
