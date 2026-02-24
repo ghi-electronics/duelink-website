@@ -1,8 +1,7 @@
 // This sample runs on Arduino UNO 4 WIFI
 
 // In this sample:
-// The wireless ESP32 turns on Bluetooth as a wireless bridge, allowing a PC to read
-// acceleration data (X, Y, Z) through a Bluetooth serial port.
+// Read acceleration data (X, Y, Z)
 //
 // - Press the Up button: increases the fan speed (starts at 50%); displays "Up" on the MT1208.
 // - Press the Down button: decreases the fan speed; displays "Dn" on the MT1208.
