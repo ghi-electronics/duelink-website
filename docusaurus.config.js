@@ -133,6 +133,11 @@ const config = {
             label: 'Projects',
           },
           {
+            href: '/buy',
+            position: 'right',
+            label: 'Buy',
+          },
+          {
             href: '/about',
             //type: 'docSidebar',
             //idebarId: 'tutorialSidebar',
