@@ -37,6 +37,11 @@ If you are new to coding, or to coding circuits, we recommend using [MicroBlocks
 
 The online demo allows you to test any DUELink module without needing to write any code! [demo.duelink.com](https://demo.duelink.com/) is an excellent [JavaScript](./language/javascript) demo but you can use it to access DUELink moudles, without any coding!
 
+
+<div style={{ textAlign: 'center'}}>
+![DUELink Demo website](pathname:///img/demo-website.webp)
+</div>
+
 Connect your module to USB on your Computer. If your board does not have a USB connector then use an adapter, like USB Hook.
 
 <div style={{ textAlign: 'center'}}>
@@ -45,33 +50,32 @@ Connect your module to USB on your Computer. If your board does not have a USB c
 
 Go to the [loader page](https://loader.duelink.com/update) and make sure your board is loaded with the latest firmware and drivers.
 
-Open the [demo site](https://demo.duelink.com/) and click on the USB logo to connect your device.
+Open the [demo site](https://demo.duelink.com/) and click the `Connect` button.
 
 <div style={{ textAlign: 'center'}}>
 ![Demo Connect](pathname:///img/demo-connect.webp)
 </div>
 
-The first tab is for controlling the STAT LED. This is an LED that is found on all DUELink modules. Change the parameters and observe the STAT LED on the connected board.
+Select `DUELink Official` in the pop-up window. The site should detect the connected device and show some relevant info.
 
 <div style={{ textAlign: 'center'}}>
-![Demo LED tab](pathname:///img/demo-led-tab.webp)
+![Demo LED tab](pathname:///img/demo-connected-info.webp)
 </div>
 
-If you are using a board with `A` or `LDR` buttons, you can also try Digital read on these buttons. These buttons are connected to pin `20`. You will need to set `Pull` to `Down`. You can now hold the button up or down while clicking `Read`.
+You can now enter any commands and click `Send` button to execute. An example is `StatLed(200,200,10)` that controls the STAT LED found on all modules. Commands can be any DUELink [Script](./engine/scripting) code in but must be in a single line. For example, we can have a loop that counts to 0 to 9: `for _x in range(10): Print(_x," "):Next`. Note how multi-statements are separated by a `:` symbol.
 
-<div style={{ textAlign: 'center'}}>
-![Read Button](pathname:///img/demo-digital-read.webp)
-</div>
+The response box will show the command that was just sent and the response.
 
-By the way, when connected, the demo site shows the device ID (module type) and its firmware version.
+```
+Sent: for _x in range(10): Print(_x," "):Next
+Response: 0123456789
+```
 
-<div style={{ textAlign: 'center'}}>
-![Device Firmware](pathname:///img/demo-firmware-version.webp)
-</div>
+You can now access any of the [driver scripts](./engine/drivers) provided by modules. The info already have links to the drivers tab on the product's page.
 
 ---
 
 ## Community Forum
 
-Get help from our professionals and from the community on our [DUELink Forum](https://forums.ghielectronics.com/c/duelink/31)!
+The examples above show different ways to start with DUELink. Join us at the [DUELink Forum](https://forums.ghielectronics.com/c/duelink/31) to discuss other options and share what you are working on.
 
