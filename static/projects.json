@@ -7,7 +7,7 @@
         "javascript": { "displayName": "JavaScript", "icon": "javascript.svg" },
         "micropython": { "displayName": "MicroPython", "icon": "micropython.svg" },
         "dotnet": { "displayName": ".NET", "icon": "dotnet.svg" },
-        "cpp": { "displayName": "C++", "icon": "cplusplus.svg" },
+        "arduino-ide": { "displayName": "Arduino IDE", "icon": "arduino-ide.svg" },
         "script": { "displayName": "DUELink Script", "icon": "script.svg" },
         "blocks": { "displayName": "Block Coding", "icon": "blocks.svg" },
         "microblocks": { "displayName": "MicroBlocks", "icon": "microblocks.svg" },
@@ -19,15 +19,14 @@
       "label": "Supported Hardware",
       "tags": {
         "raspberrypi": { "displayName": "Raspberry Pi", "icon": "raspberrypi.svg" },
-        "arduino": { "displayName": "Arduino", "icon": "arduino.svg" },
+        "arduino-hw": { "displayName": "Arduino HW", "icon": "arduino.svg" },
         "Espressif": { "displayName": "Espressif", "icon": "espressif.svg" },
         "microbit": { "displayName": "micro:bit", "icon": "microbit.svg" },
         "arcade": { "displayName": "Arcade", "icon": "arcade.svg" },
         "beagleboard": { "displayName": "BeagleBoard", "icon": "beagleboard.svg" },
         "pc": { "displayName": "PC/Laptop", "icon": "pc.svg" },
         "phone": { "displayName": "Phone/Tablet", "icon": "phone.svg" },
-        "standalone": { "displayName": "Standalone", "icon": "standalone.svg" },
-        "tethered": { "displayName": "Tethered", "icon": "tethered.svg" }
+        "mechanics": { "displayName": "Mechanics", "icon": "wrench.svg" }
       }
     }
   },
@@ -35,7 +34,7 @@
     {
       "name": "Powering up Using a Coin-cell Battery",
       "description": "Some modules can easily be wired to a coin-cell",
-      "tags": [],
+      "tags": ["mechanics"],
       "link": "https://forums.ghielectronics.com/t/powering-up-modules-using-a-coin-cell-battery/26226",
       "image": "coin-cell.jpeg"
     },
@@ -49,28 +48,28 @@
     {
       "name": "Flappy Bird Style Game Script",
       "description": "The simplest flappy-bird game you could make",
-      "tags": ["script","standalone"],
+      "tags": ["script"],
       "link": "https://forums.ghielectronics.com/t/flappy-bird-style-game-using-scripts/26213",
       "image": "flappy-bird-script-game.jpeg"
     },
     {
       "name": "Squeezing Tiny Letters!",
       "description": "Push tiny font letters to get yet smaller footprint",
-      "tags": ["script","standalone"],
+      "tags": ["script"],
       "link": "https://forums.ghielectronics.com/t/squeezing-tiny-letters-using-scripts/26211",
       "image": "pixo-squeezed-font.png"
     },
     {
       "name": "MicroBlocks Ping-Pong LEDs Matrix!",
       "description": "How to build and control custom LED matrix setup",
-      "tags": ["blocks", "microblocks","standalone"],
+      "tags": ["blocks", "microblocks"],
       "link": "https://forums.ghielectronics.com/t/custom-ping-pong-module-with-microblocks/26207",
       "image": "mp-pingpong-led-matrix.jpeg"
     },
     {
       "name": "Ghizzy Jr MicroBlocks Starter",
       "description": "A few projects to get you started with MicroBlocks",
-      "tags": ["blocks", "microblocks","standalone"],
+      "tags": ["blocks", "microblocks"],
       "link": "https://forums.ghielectronics.com/t/ghizzy-jr-microblocks-getting-started/26202",
       "video": "H8U8kysmDkA",
       "image": "ghizzy-jr-microblocks-starter.webp"
@@ -78,14 +77,14 @@
     {
       "name": "DUELink with Modulino",
       "description": "How to utilize Arduino Modulino",
-      "tags": ["script"],
+      "tags": ["script", "arduino-hw"],
       "link": "https://forums.ghielectronics.com/t/arduino-modulino/26161",
       "image": "modulino.webp"
     },
       {
       "name": "Arduino boards with DUELink",
       "description": "Connect Arduino boards to Modulino & DUELink Modules",
-      "tags": ["arduino"],
+      "tags": ["arduino-hw", "arduino-ide"],
       "link": "#",
       "image": "arduino-modulino-duelink.webp"
     },
@@ -99,48 +98,49 @@
     {
       "name": "Fan: Follow Me -PC!",
       "description": "Create a PC `sonar` to detect objects and move the fan",
-      "tags": ["pc", "python", "javascript","dotnet","tethered"],
+      "tags": ["pc", "python", "javascript","dotnet"],
       "link": "https://github.com/ghi-electronics/duelink-projects/tree/main/source/fan-follow-me",
       "image": "fan-follow-me-pc.webp"
     },
     {
       "name": "Fan: Follow Me -MicroPython",
       "description": "Create a MicroPython `sonar` to detect objects and move the fan",
-      "tags": ["micropython","raspberrypi","tethered"],
+      "tags": ["micropython","raspberrypi"],
       "link": "https://github.com/ghi-electronics/duelink-projects/blob/main/source/fan-follow-me/micropython",
       "image": "fan-follow-me-mpy.webp"
     },
     {
       "name": "Fan: Follow Me -Script",
       "description": "Create a Script `sonar` to detect objects and move the fan",
-      "tags": ["script","standalone"],
+      "tags": ["script"],
       "link": "https://github.com/ghi-electronics/duelink-projects/blob/main/source/fan-follow-me/script",
       "image": "fan-follow-me-script.webp"
     },
     {
       "name": "Fan: Follow Me -Arduino",
       "description": "Create an Arduino `sonar` to detect objects and move the fan",
-      "tags": ["arduino","tethered"],
+      "tags": ["arduino-hw"],
       "link": "https://github.com/ghi-electronics/duelink-projects/blob/main/source/fan-follow-me/arduino",
       "image": "fan-follow-me-duino.webp"
     },
     {
       "name": "Scripting SparkFun Qwiic modules",
       "description": "Use DUELink scripts/boards to utilize Sparkfun Qwiic modules",
-      "tags": ["script", "standalone"],
+      "tags": ["script"],
       "link": "https://forums.ghielectronics.com/t/scripting-sparkfun-qwiic-modules/26204",
       "image": "qwiic.webp"
     },
     {
-      "name": "Can Python Qwiic & STEMMA & Modulino Modules?",
+      "name": "Can Python control Qwiic, STEMMA & Modulino Modules?",
       "description": "Accessing Qwiic/STEMMA/Modulino from a PC using Python/JavaScript",
-      "tags": ["python","dotnet","javascript", "tethered"],
+      "tags": ["python","dotnet","javascript"],
       "link": "https://forums.ghielectronics.com/t/python-can-control-qwiic-stemma-modulino-modules/26205",
       "image": "qwiic-python.webp"
     },
     {
       "name": "Holey board, stacked, extended and beyond!",
       "description": "Different ways Holey boards can be combined for building projects",
+      "tags": ["mechanics"],
       "link": "https://forums.ghielectronics.com/t/holey-board-stacked-extended-and-beyond/26212",
       "image": "holey-boards.jpeg"
     }
