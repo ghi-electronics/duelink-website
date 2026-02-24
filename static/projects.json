@@ -78,14 +78,14 @@
     {
       "name": "DUELink with Modulino",
       "description": "How to utilize Arduino Modulino",
-      "tags": ["script", "arduino"],
+      "tags": ["script"],
       "link": "https://forums.ghielectronics.com/t/arduino-modulino/26161",
       "image": "modulino.webp"
     },
       {
       "name": "Arduino boards with DUELink",
       "description": "Connect Arduino boards to Modulino & DUELink Modules",
-      "tags": ["script", "arduino"],
+      "tags": ["arduino"],
       "link": "#",
       "image": "arduino-modulino-duelink.webp"
     },
