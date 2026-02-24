@@ -9,11 +9,12 @@
 //
 // Devices need to be connected in the following order:
 // - Wrireless ESP32 at first
-// - Accel: device 1
-// - Button S7: device 2
-// - Retro Sound: device 3
-// - MT1208: device 4
-// - Fan: device 5
+// - Fan: device H1-1
+// - MT1208: device H1-2
+// - Retro Sound: device H1-3
+// - Button S7: device H1-4
+// - Accel: device H1-5
+
 // The wireless ESP32 need script to initialize as Bluetooth bridge, use DUEScipt below:
 //### USRER CODE START #####
 //statled(0, 1, 0)  # turn the statled off
@@ -35,45 +36,43 @@ using System.Net;
 using System.Xml.Linq;
 using GHIElectronics.DUELink;
 
-var duelink = new DUELinkController("COMx"); // Bluetooth COM port, change to user comport
+var duelink = new DUELinkController("COM75"); // Bluetooth COM port, change to user comport
 var current_dev = -1;
 
 void SelectDevice(int dev) {
- 
+
     if (current_dev != dev) {
         duelink.Engine.Select(dev);
         current_dev = dev;
     }
-
-
 }
 int GetX() {
-    SelectDevice(1);
+    SelectDevice(5);
 
     var x = (int)duelink.Engine.ExecuteCommand("GetX()");
- 
-    
+
+
     return x;
 }
 int GetY() {
 
-    SelectDevice(1);
+    SelectDevice(5);
     var y = (int)duelink.Engine.ExecuteCommand("GetY()");
 
-    
+
     return y;
 }
 int GetZ() {
-    SelectDevice(1);
+    SelectDevice(5);
 
     var z = (int)duelink.Engine.ExecuteCommand("GetZ()");
 
-    
+
     return z;
 }
 
 bool IsButtonPressed(char button) {
-    SelectDevice(2);
+    SelectDevice(4);
     var pin = (int)duelink.Engine.ExecuteCommand($"BtnPin('{button}')");
     var r = (int)duelink.Engine.ExecuteCommand($"btndown({pin})");
 
@@ -81,12 +80,12 @@ bool IsButtonPressed(char button) {
 }
 
 void SetFan(float speed) {
-    SelectDevice(5);
+    SelectDevice(1);
     duelink.Engine.ExecuteCommand($"Fan({speed})");
 }
 
 void SetText(string c) {
-    SelectDevice(4);
+    SelectDevice(2);
     duelink.Engine.ExecuteCommand("Clear(0)");
     duelink.Engine.ExecuteCommand($"Text(\"{c}\",1,0,0)");
     duelink.Engine.ExecuteCommand("show()");
@@ -139,7 +138,7 @@ while (true) {
                 last_accel_read_z = DateTime.Now;
                 Console.WriteLine($"X = {accel_x}, Y = {accel_y}, Z = {accel_z}");
             }
-            
+
             break;
 
         case 3:
@@ -154,7 +153,7 @@ while (true) {
             break;
     }
 
-    
+
     if (btnUp) {
         btnUp = false;
         fan_speed += 10;
@@ -195,6 +194,4 @@ while (true) {
 
     Thread.Sleep(1);
 }
-
-
 

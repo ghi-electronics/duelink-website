@@ -7,13 +7,13 @@
 # - Press the Enter button: turns the fan off; displays "En" on the MT1208.
 # - A beep plays when any of the Up / Down / Enter buttons is pressed.
 #
-# Devices need to be connected in the following order:
-# - Wrireless ESP32 at first
-# - Accel: device 1
-# - Button S7: device 2
-# - Retro Sound: device 3
-# - MT1208: device 4
-# - Fan: device 5
+# Devices must be connected in the following order:
+# - Wireless ESP32 first
+# - Fan: device H1-1
+# - MT1208: device H1-2
+# - Retro Sound: device H1-3
+# - Button S7: device H1-4
+# - Accel: device H1-5
 # The wireless ESP32 need script to initialize as Bluetooth bridge, use DUEScipt below:
 ### USRER CODE START #####
 #statled(0, 1, 0)  # turn the statled off
@@ -40,53 +40,43 @@ current_dev = -1
 # methods
 def SelectDevice(dev):
     global current_dev
-    start = datetime.now()
-
     if current_dev != dev:
         duelink.Engine.Select(dev)
         current_dev = dev
 
-    end = datetime.now() - start
-
 
 def GetX():
-    SelectDevice(1)
-    start = datetime.now()
+    SelectDevice(5)
     x = int(duelink.Engine.ExecuteCommand("GetX()"))
-    end = datetime.now() - start
     return x
 
 
 def GetY():
-    SelectDevice(1)
-    start = datetime.now()
+    SelectDevice(5)
     y = int(duelink.Engine.ExecuteCommand("GetY()"))
-    end = datetime.now() - start
     return y
 
 
 def GetZ():
-    SelectDevice(1)
-    start = datetime.now()
+    SelectDevice(5)
     z = int(duelink.Engine.ExecuteCommand("GetZ()"))
-    end = datetime.now() - start
     return z
 
 
 def IsButtonPressed(button):
-    SelectDevice(2)
+    SelectDevice(4)
     pin = int(duelink.Engine.ExecuteCommand(f"BtnPin('{button}')"))
     r = int(duelink.Engine.ExecuteCommand(f"btndown({pin})"))
     return r == 1
 
 
 def SetFan(speed):
-    SelectDevice(5)
+    SelectDevice(1)
     duelink.Engine.ExecuteCommand(f"Fan({speed})")
 
 
 def SetText(c):
-    SelectDevice(4)
+    SelectDevice(2)
     duelink.Engine.ExecuteCommand("Clear(0)")
     duelink.Engine.ExecuteCommand(f'Text("{c}",1,0,0)')
     duelink.Engine.ExecuteCommand("show()")
@@ -94,7 +84,7 @@ def SetText(c):
 
 def PlayBeep():
     SelectDevice(3)
-    # Use freq for a non-blocking response
+    # Use freq for non-blocking response
     duelink.Engine.ExecuteCommand("freq(1,1000,100,0.5)")
 
 
@@ -112,10 +102,9 @@ last_accel_read_x = datetime.now()
 last_accel_read_y = datetime.now()
 last_accel_read_z = datetime.now()
 
-
 while True:
     count = counter % 7
-    diff = 0.0
+    diff = 0
 
     if count == 0:
         diff = (datetime.now() - last_accel_read_x).total_seconds() * 1000
@@ -134,7 +123,6 @@ while True:
         if diff > 3000:
             accel_z = GetZ()
             last_accel_read_z = datetime.now()
-
             print(f"X = {accel_x}, Y = {accel_y}, Z = {accel_z}")
 
     elif count == 3:
@@ -164,7 +152,7 @@ while True:
         fan_speed -= 10
 
         if fan_speed < 50:
-            fan_speed = 1
+            fan_speed = 1  # Original logic preserved
 
         SetFan(fan_speed)
         PlayBeep()
@@ -179,5 +167,5 @@ while True:
 
     counter += 1
 
-    # Thread.Sleep(1) → sleep for 1 ms
+    # C# Thread.Sleep(1) = 1 millisecond
     time.sleep(0.001)
