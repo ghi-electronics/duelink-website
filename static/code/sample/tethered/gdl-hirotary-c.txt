@@ -9,7 +9,7 @@ cmd("sel(1)")
 cmd("scan()")
  
 fn GetValue()
-    cmd("GetValue()")
+    return cmd("GetValue()")
 fend
  
 fn SetValue(v)
@@ -17,7 +17,7 @@ fn SetValue(v)
 fend
 
 fn Pressed()
-    cmd("Pressed()")
+    return cmd("Pressed()")
 fend
 
 _a = 0
