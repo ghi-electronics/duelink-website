@@ -62,7 +62,7 @@ export default function HomepageFeatures() {
         <Heading as="h2" >
           Tether one or Daisylink them all
         </Heading>
-        <p>Using a single common connector</p>
+        <p>Using standardized common connector and mounting options</p>
         <img src="/img/daisylink.webp" alt="DUELink" />
         <hr/>
         <Heading as="h2" >
