@@ -4,7 +4,7 @@
 cmd("sel(1)")
 
 fn SetLed(l,v)
-    cmd(fmt("setled(",l,",",v")"))
+    cmd(fmt("setled(",l,",",v,")"))
 fend
 
 _i = 0
