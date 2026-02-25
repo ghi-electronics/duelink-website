@@ -332,7 +332,7 @@ ${resourceLinks.join('<br/>\n')}<br/>`
         let sampleTabs = [];
         let sampleTabItems = [];
         
-       /* if (availableSamples.script) {
+        if (availableSamples.script) {
             const scriptCode = loadSampleContent(availableSamples.script);
             if (scriptCode) {
                 sampleTabs.push({label: 'Script', value: 'script'});
@@ -344,7 +344,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/t
 
 </TabItem>`);
             }
-        }*/
+        }
         
         if (availableSamples.python) {
             const pythonCode = loadSampleContent(availableSamples.python);
