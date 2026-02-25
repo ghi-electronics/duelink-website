@@ -918,7 +918,7 @@
         "360 degree rotation",
         "27x22mm overall dimension"
       ],
-      "driverApi": "Function | Description \n---|---\n`GetValue()` | Returns the current rotary reading. \n`SetValue(v)` | Set rotary to `v`. \nScan() | Start scanning loop. Only call it with tethered mode. \n `DVer()` | This driver version. "
+      "driverApi": "Function | Description \n---|---\n`GetValue()` | Returns the current rotary reading. \n`SetValue(v)` | Set rotary to `v`. \n`Pressed()` | Returns 1 if the rotary knob was pressed.\nScan() | Start scanning loop. Only call it with tethered mode. \n `DVer()` | This driver version. "
     },
     {
       "name": "Dial",
