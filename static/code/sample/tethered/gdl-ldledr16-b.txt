@@ -1,0 +1,25 @@
+# In this sample:
+# Scan from led D1 to led D16
+
+DLMode(2,0) # Switch Downlink to host mode
+Wait(100) # This delay is more than enough for 50x modules.
+cmd("sel(1)")
+
+fn SetLed(l,v)
+    cmd(fmt("setled(",l,",",v,")"))
+fend
+
+_i = 0
+while 1
+ 
+    if (trunc(_i / 16) % 2 = 0)
+        SetLed(_i%16+1, 1)
+    else
+        SetLed(_i%16+1, 0)
+    end
+ 
+    _i = (_i + 1)
+    
+    wait(100)
+
+wend

@@ -2,22 +2,20 @@
 #Play One Octave using Array of frequencies
 
 Alias(CNote=262, CSharpNote=277, DNote=294, DSharpNote=311, ENote=330, FNote=349, FSharpNote=370, GNote=392, GSharpNote=415, ANote=440, ASharpNote=466, BNote=494)
+
+DLMode(2,0) # Switch Downlink to host mode
+Wait(100) # This delay is more than enough for 50x modules
  
-Dim a1[10*2]= {262,200,
-               294,200,
-               311,200,
-               349,200,
-               370,200,
-               392,200,
-               415,200,
-               440,200,
-               466,200,
-               494,200}
- 
-PlayMelody(a1)
-Wait(2000)
-StopMelody()
- 
+cmd("sel(1)")
+
+fn PlayBeep(f,d)
+    cmd(fmt("PlayBeep(",f,",",d,")"))
+fend
+
+fn PlaySound(f,d,c)
+    cmd(fmt("PlaySound(",f,",",d,",",c,")"))
+fend
+
 #Play One Octave using Note
 PlayBeep(CNote,200)
 PlayBeep(CSharpNote,200)
