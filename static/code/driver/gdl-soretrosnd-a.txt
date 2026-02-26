@@ -1,9 +1,9 @@
-##### Retro Sound #####
-
+ ##### Retro Sound Driver #####
+ 
 fn DVer()
     return 1.0
 fend
-
+ 
 fn GetPin()
     return 1
 fend
@@ -15,7 +15,7 @@ fn SetLVol(v)
         freq(3,48000, 0, v/100)
     end
 fend
-
+ 
 fn SetRVol(v)
     if v >=100
         dwrite(4,1)
@@ -23,11 +23,16 @@ fn SetRVol(v)
         freq(4,48000, 0, v/100)
     end
 fend
-
+ 
 fn Init() 
     SetLVol(100)
     SetRVol(100)
 fend
-
+ 
+fn LaserSfx()
+   Sweep(1,5000,100,100,100,200)
+fend
+ 
 Init() 
+
 #######################

@@ -8,6 +8,8 @@ The .NET DUELink library allows full .NET programs to access physical sensors an
 
 :::tip
 Note that .NET will be executed on one of the [supported hardware](../hw/intro) options, which is tethered to DUELink modules. .NET does not run on the module itself!
+
+For .NET on circuits, see GHI Electronics [website](https://www.ghielectronics.com/).
 :::
 
 Note that the provided library is implemented in C#, but the user can use any .NET system, such as Visual Basic.
@@ -16,26 +18,22 @@ Note that the provided library is implemented in C#, but the user can use any .N
 
 ## Setup
 
-This page assumes the user is already familiar with .NET C# and there is a development machine that is already setup to build and run .NET programs.
+For the module, visit [loader.duelink.com](https://loader.duelink.com/) to make sure your hardware has the latest `DUElink Official` firmware and related module drivers.
 
-:::tip
-Make sure your hardware is updated with the latest firmware. The [Loader](../loader) is handy for that.
-:::
+We assume that you are already familiar with .NET C# and there is a development machine that is already setup to build and run .NET programs.
 
-Start a new project with a simple line of code to test that the project is running.
 
 :::info
 C# Top-level-statements feature is being utilized in these examples.
 :::
 
+Start a new project with a simple line of code to test that the project is running.
+
 ```cs
 Console.WriteLine("Hello, World!");
 ```
----
 
-## Libraries
-
-Download and install the latest `GHIElectronics.DUELink` library from NuGet.org.
+We now need install the latest `GHIElectronics.DUELink` library from NuGet.org.
 
 ---
 
@@ -55,22 +53,20 @@ duelink.System.Statled(200, 800, 20);
 Console.WriteLine("Bye DUE!");
 ```
 
-:::tip
-The .NET library is open source: [DUELink Libraries Repo](https://github.com/ghi-electronics/duelink-libraries).
-:::
-
 ---
 
 ## Daisylinking
 
-In the example below, we'll use .NET to control an OLED 0.96 Display, a Button, and a Buzzer module Daisylinked together.
+DUELink modules can be [Daisylinked](../engine/daisylink) together. The `duelink.Engine.Select()` function is used to select the module to be listening to incoming commands.
+
+In the example below, we'll use .NET to control an OLED Display, a Button, and a Buzzer.
 
 <div style={{ textAlign: 'center'}}>
 ![Daisylinked Modules](pathname:///img/usbhook-daisylinked.webp)
 </div>
 
 :::tip
-Make sure these modules are loaded with [Drivers](../engine/drivers).
+Visit [loader.duelink.com](https://loader.duelink.com/) to "discover" modules and load the latest firmware and drivers.
 :::
 
 ```cs
@@ -104,4 +100,10 @@ while (true) {
 }
 ```
 
-The earlier samples were generic and run on any module. The individual module's product pages. include specific samples.
+---
+
+## Code Samples
+
+Individual product pages include specific code samples that utilize the module's [Driver Script](../engine/drivers).
+
+See `Tethered Samples` under individual module pages.

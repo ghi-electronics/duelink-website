@@ -1,5 +1,5 @@
 # In this sample:
-# Reading X,Y,Z values
+# Reading X,Y,Z values every second
 
 while 1
     PrintLn("x = ", GetX())

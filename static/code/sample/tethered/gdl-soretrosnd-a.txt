@@ -1,0 +1,31 @@
+# In this sample:
+# Set right and left channel to max 100%
+# Play Laser SoundFx 5 times
+
+DLMode(2,0) # Switch Downlink to host mode
+Wait(100) # This delay is more than enough for 50x modules
+cmd("sel(1)")#Select First Module
+
+fn GetPin()
+    return cmd("GetPin()")
+fend
+
+fn SetLVol(v)
+    cmd(fmt("SetLVol(",v,")"))
+fend
+
+fn SetRVol(v)
+    cmd(fmt("SetRVol(",v,")"))
+fend
+
+fn LaserSfx()
+    cmd("LaserSfx()")
+fend
+
+SetLVol(100) # set the left channel to max
+SetRVol(100) # set the right channel to max
+
+for _i=1 to 5
+  LaserSfx()
+  wait(100)
+next
