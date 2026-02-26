@@ -17,7 +17,7 @@ fn Test()
     while (1)
         x = SerB2R()
         Wait(3) # Wait 1ms
-        if (x = SerB2R()) && (x > 0) # x = SerB2R() mean no more data coming, show
+        if (x > 0) # x = SerB2R() mean no more data coming, show
            
             dim b1[x] 
             for i = 0 to x
