@@ -1,0 +1,30 @@
+# In this sample:
+# Detect if button Up is pressed and turn the corresponding led on
+# Turn off when released
+ 
+DLMode(2,0) # Switch Downlink to host mode
+Wait(100) # This delay is more than enough for 50x modules
+cmd("sel(1)")#Select First Module
+
+
+fn BtnPin(a)
+    return cmd(fmt("BtnPin(",a,")"))
+fend
+ 
+fn SetLed(a,v)
+    cmd(fmt("setled(",a,",",v,")"))
+fend
+
+fn BtnS7Rd(a)
+    return cmd(fmt("BtnS7Rd(",a,")"))
+fend 
+
+while 1    
+    if BtnS7Rd('U')
+        SetLED('U', _i)
+    end
+    
+    _i= ! _i
+
+    Wait(200)
+wend 

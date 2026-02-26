@@ -1,14 +1,14 @@
 # In this sample:
-# Detect if button Up is pressed and turn the corresponding led on
+# Press Up button to turn on
+# Press Up again to turn off
 
-_i=0
+i=0
 
 while 1    
     if BtnRead(BtnPin('U'))
-        SetLED('U', _i)
+        SetLED('U', i)
+        i = ! i
     end
-    
-    _i= ! _i
 
     Wait(200)
 wend
