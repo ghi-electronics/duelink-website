@@ -21,17 +21,17 @@ variables currentAddress distance_val rotary_button_pressed light_val counter do
   spec ' ' 'Print' 'Print _' 'auto'
 
 to ClearScreen color {
-  SelectDevice 2
+  SelectDevice 1
   due_run (buildstr 'clear(' color ')')
 }
 
 to DrawText text color x y scalex scaley {
-  SelectDevice 2
+  SelectDevice 1
   due_run (buildstr 'textS("' text '",' color ',' x ',' y ',' scalex ',' scaley ')')
 }
 
 to GetDistance {
-  SelectDevice 1
+  SelectDevice 2
   local 'ret' (due_returnNum 'Distance()')
   local 'ret1' (ret * 10)
   return (ret1 / 10)
@@ -74,7 +74,7 @@ to SelectDevice deviceAddress {
   if (currentAddress != deviceAddress) {
     currentAddress = deviceAddress
     due_run (buildstr 'sel(' currentAddress ')')
-    waitMillis 2
+    waitMillis 5
   }
 }
 
@@ -106,7 +106,7 @@ to SetServo position {
 }
 
 to Show {
-  SelectDevice 2
+  SelectDevice 1
   due_run 'show()'
 }
 
@@ -142,7 +142,7 @@ to buildstr s optionalArgs {
 
 script 120 40 {
 whenStarted
-comment 'This sample runs on CincoBit'
+comment 'This sample runs on CincoBit/PixoBit'
 comment 'In this sample:'
 comment 'Multi-device demo with distance, display, LEDs, servo, buzzer, rotary and light'
 comment 'Press button A to start the sample'
@@ -213,7 +213,7 @@ forever {
 }
 }
 
-script 932 1380 {
+script 128 1496 {
 to SelectDevice {}
 }
 
