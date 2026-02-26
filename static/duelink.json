@@ -564,7 +564,8 @@
         "9G micro servo included",
         "Self-powered",
         "37x31mm overall dimension"
-      ]
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `ServoX1(a)` |Sets servo to `a` angle. |\n|"
     },
     {
       "name": "Servo P8",

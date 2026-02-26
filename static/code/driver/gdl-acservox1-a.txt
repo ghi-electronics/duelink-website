@@ -1,5 +1,11 @@
-##### Servo X1 Driver #####
+##### ServoX1 Driver #####
 
-# No need for a driver, use ServoSt() standard library with pin 1
+fn DVer()
+    return 1.0
+fend
 
-####################
+fn ServoX1(a)
+    servost(1,a)    
+fend
+
+##########################
