@@ -192,7 +192,7 @@
       "PID": "0x0C0002",
       "category": "Specialty",
       "tagline": "Tiny Robot-shaped Microcomputer",
-      "description": "Thinking about an exciting give-away for your next event customized with your logo?  This is Ghizzy Jr, quite possibly the smallest, cutest, and smartest keychain in the world! This mini robot-shaped pocket-sized microcomputer plugs right into a USB socket and is a programmable board with endless possibilities, thanks to its [Downlink](/docs/interface/downlink) connector. Start by controlling the full-color eyes and then start [daiylinking](/docs/engine/daisylink) any of the DUELink modules!\n\n Ghizzy can be commanded from one of the many supported [Coding Languages](/docs/language/intro), and it can run stand alone using [MicroBlocks](/docs/language/microblocks).\nGhizzy Jr is only available as a special order,  **customized with your artwork**. \n\nThe listed price is for an order of 500 pieces, with higher price for 250 pieces. Account for a 4-weeks lead-time. Please [Contact us](https://www.ghielectronics.com/contact/) for more information.\n\n:::note\n\n The \"legs\" are not a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
+      "description": "Thinking about an exciting give-away for your next event, that is customized with your logo?  This is Ghizzy Jr, quite possibly the smallest, cutest, and smartest keychain in the world! This mini robot-shaped pocket-sized microcomputer plugs right into a USB socket and is a programmable board with endless possibilities, thanks to its [Downlink](/docs/interface/downlink) connector. Start by controlling the full-color eyes and then start [daiylinking](/docs/engine/daisylink) any of the DUELink modules!\n\n Ghizzy can be commanded from one of the many supported [Coding Languages](/docs/language/intro), and it can run stand alone using [MicroBlocks](/docs/language/microblocks).\nGhizzy Jr is only available as a special order,  **customized with your artwork**. \n\nThe listed price is for an order of 500 pieces, with higher price for 250 pieces. Account for a 4-weeks lead-time. Please [Contact us](https://www.ghielectronics.com/contact/) for more information.\n\n:::note\n\n The \"legs\" are not a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::",
       "keyFeatures": [
         "2x RGB LEDs",
         "Downlink DUELink Connector",
@@ -216,7 +216,7 @@
       "category": "Specialty",
       "price": 9.95,
       "tagline": "Robot-shaped Microcomputer",
-      "description": "Tiny robot-shaped circuits with LEDs, buzzer, and buttons.\n\nEverything you need to get started is found at: [ghizzy.duelink.com](https://ghizzy.duelink.com/)\n\n:::note\n\n The \"legs\" are not a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
+      "description": "Tiny robot-shaped circuits with LEDs, buzzer, and buttons.\n\nEverything you need to get started is found at: [ghizzy.duelink.com](https://ghizzy.duelink.com/)\n\n:::note\n\n The \"legs\" are not a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::",
       "keyFeatures": [
         "2x RGB LEDs",
         "2x ear & 3x mouth LEDs",
@@ -574,7 +574,7 @@
       "category": "Actuator",
       "price": 14.95,
       "tagline": "8x Servo Motor Controller",
-      "description": "Control up to 8x servo motors. Daisylink multiple Servo-P8 for controlling hundreds of servo motors!",
+      "description": "Control up to 8x servo motors. Power is provided to servos via a terminal block. Use a votage source that is compatible with used servos. Daisylink multiple Servo-P8 for controlling hundreds of servo motors!",
       "keyFeatures": [
         "8x servo motor connections",
         "Eight 3-pin male headers",
@@ -1039,7 +1039,7 @@
       "category": "Storage",
       "price": 19.95,
       "tagline": "USB Host Controller",
-      "description": "USB host controller for connecting USB peripherals",
+      "description": "USB host controller for connecting USB peripherals. Full file system facilities are provided, see [File System](/docs/engine/filesystem).",
       "keyFeatures": [
         "USB Host interface",
         "MSC Class",
@@ -1171,7 +1171,7 @@
       "category": "Sensor",
       "price": 6.95,
       "tagline": "Ambient Light Sensor",
-      "description": "A good sensor for detecting daytime or when lights are turned on. This is not an accurate light level sensor, but provides overall ambient light levels.",
+      "description": "A good sensor for measuring overall ambient light levels.",
       "keyFeatures": [
         "Light sensor",
         "17x19mm overall dimension"
@@ -1185,7 +1185,7 @@
       "category": "Sensor",
       "price": 19.95,
       "tagline": "9DoF MEMS Sensor",
-      "description": "This 9DoF (Degrees of Freedom) MEMS (Micro Electro Mechanical System) sensor includes 3axis accelerometer, 3axis gyro, & 3axis magnetometer. The combination of these inputs can be used to get exact tilt and orientation.",
+      "description": "This 9 DoF (Degrees of Freedom) sensor includes 3-axis accelerometer, 3-axis gyro, & 3-axis magnetometer. The combination of these inputs can be used to calculte tilt and orientation.",
       "keyFeatures": [
         "3axis Accelerometer",
         "3axis Gyro",
@@ -1291,7 +1291,7 @@
       "category": "Sensor",
       "price": 11.95,
       "tagline": "PIR Motion Sensor",
-      "description": "PIR (Passive Infrared) motion sensors use light in its view to detect motion.",
+      "description": "PIR (Passive Infrared) motion sensors use insisible infrared light to detect motion.",
       "keyFeatures": [
         "Digital motion sensing",
         "27x22mm overall dimension"
@@ -1304,7 +1304,7 @@
       "PID": "0x06000D",
       "category": "Sensor",
       "tagline": "Air and Liquid Pressure Sensor",
-      "description": "Connect this sensor to your instrument using a tiny pipe to measure water/liquid pressure. Different ranges are available.",
+      "description": "Connect this sensor to your instrument using a tiny pipe to measure air and liquid pressure.",
       "keyFeatures": [
         "Air and liquid pressure",
         "Measure pressure",
