@@ -2,267 +2,135 @@ module main
 author GHI
 version 1 0 
 description ''
-variables currentAddress distance_val rotary_button_pressed light_val counter doUpdateScreen 
+variables current_dev counter fan_speed btnUp btnDown btnEnter count pin r 
 
   spec ' ' 'SelectDevice' 'SelectDevice _' 'auto'
-  spec ' ' 'DrawText' 'DrawText _ _ _ _ _ _' 'auto auto auto auto auto auto'
-  spec ' ' 'ClearScreen' 'ClearScreen _' 'auto'
-  spec ' ' 'Show' 'Show'
-  spec 'r' 'RGB' 'RGB _ _ _' 'auto auto auto'
-  spec ' ' 'UpdateScreen' 'UpdateScreen _' 'auto'
-  spec 'r' 'GetDistance' 'GetDistance'
-  spec 'r' 'GetRotaryPress' 'GetRotaryPress'
-  spec ' ' 'SetLedR16' 'SetLedR16 _ _' 'auto auto'
-  spec ' ' 'SetLedR16All' 'SetLedR16All _' 'auto'
-  spec ' ' 'SetServo' 'SetServo _' 'auto'
-  spec 'r' 'GetLight' 'GetLight'
-  spec ' ' 'PlaySound' 'PlaySound'
-  spec 'r' 'buildstr' 'addstring _ : with _ : _ : ...' 'str auto auto' 'output'
-  spec ' ' 'Print' 'Print _' 'auto'
+  spec 'r' 'IsButtonPressed' 'IsButtonPressed _' 'auto'
+  spec ' ' 'SetFan' 'SetFan _' 'auto'
+  spec ' ' 'SetText' 'SetText _' 'auto'
+  spec ' ' 'PlayBeep' 'PlayBeep'
 
-to ClearScreen color {
-  SelectDevice 2
-  due_run (buildstr 'clear(' color ')')
-}
-
-to DrawText text color x y scalex scaley {
-  SelectDevice 2
-  due_run (buildstr 'textS("' text '",' color ',' x ',' y ',' scalex ',' scaley ')')
-}
-
-to GetDistance {
-  SelectDevice 1
-  local 'ret' (due_returnNum 'Distance()')
-  local 'ret1' (ret * 10)
-  return (ret1 / 10)
-}
-
-to GetLight {
-  SelectDevice 7
-  local 'var' (due_returnNum 'Light()')
-  return var
-}
-
-to GetRotaryPress {
-  SelectDevice 6
-  local 'ret' (due_returnNum 'Pressed()')
-  return (ret != 0)
-}
-
-to PlaySound {
+to IsButtonPressed button {
   SelectDevice 5
-  due_run 'freq(7, 1000, 250, 0.5)'
+  pin = (due_returnNum (due_make_command 'BtnPin' button ''))
+  r = (due_returnNum (due_make_command 'btndown' pin ''))
+  return (r == 1)
 }
 
-to Print text {
-  local 'tmp' text
-  if (isType text 'number') {
-    tmp = ('[data:convertType]' text 'string')
-  }
-  tinyOLED_clear
-  tinyOLED_drawString tmp 0 0 true
-}
-
-to RGB r g b {
-  local 'color' (r << 16)
-  color = (color | (g << 8))
-  color = (color | b)
-  return color
-}
-
-to SelectDevice deviceAddress {
-  if (currentAddress != deviceAddress) {
-    currentAddress = deviceAddress
-    due_run (buildstr 'sel(' currentAddress ')')
-    waitMillis 2
-  }
-}
-
-to SetLedR16 led value {
+to PlayBeep {
   SelectDevice 4
-  local 'v' 0
-  if value {
-    v = 1
-  }
-  due_run (buildstr 'SetLed(' led ',' v ')')
+  due_run 'dwrite(3,1)'
+  due_run 'dwrite(4,1)'
+  due_run 'freq(1,1000,100,0.5)'
 }
 
-to SetLedR16All value {
-  SelectDevice 4
-  local 'v' 0
-  if value {
-    v = 1
-    for i 16 {
-      due_run (buildstr 'SetLed(' (i + 1) ',' v ')')
-    }
-  } else {
-    due_run 'LedOff()'
+to SelectDevice dev {
+  if (current_dev != dev) {
+    due_select_device dev
+    current_dev = dev
   }
 }
 
-to SetServo position {
-  SelectDevice 3
-  due_run (buildstr 'ServoSt(1,' position ')')
-}
-
-to Show {
+to SetFan speed {
   SelectDevice 2
-  due_run 'show()'
+  due_run (due_make_command 'Fan' speed '')
 }
 
-to UpdateScreen update {
-  if update {
-    ClearScreen 0
-    DrawText 'Distance:' (RGB 255 255 255) 0 0 1 1
-    DrawText (buildstr '' distance_val ' cm') (RGB 0 255 0) 5 10 1 1
-    DrawText 'Rotary button:' (RGB 255 255 255) 0 20 1 1
-    if rotary_button_pressed {
-      DrawText 'Pressed' (RGB 0 255 0) 5 30 1 1
-    } else {
-      DrawText 'Released' (RGB 0 255 0) 5 30 1 1
-    }
-    DrawText 'Light:' (RGB 255 255 255) 0 40 1 1
-    DrawText (buildstr '' light_val '%') (RGB 0 255 0) 5 50 1 1
-    Show
-  }
+to SetText c {
+  SelectDevice 3
+  due_run (due_make_command 'Clear' 0 '')
+  due_run (due_make_command 'Text' c 1 0 0 '')
+  due_run (due_make_command 'show' '')
 }
 
-to buildstr s optionalArgs {
-  local 'result' ('[data:makeList]')
-  '[data:addLast]' s result
-  for i 14 {
-    if (isType (argOrDefault (i + 1) '') 'string') {
-      '[data:addLast]' (argOrDefault (i + 1) '') result
-    } else {
-      '[data:addLast]' ('[data:convertType]' (argOrDefault (i + 1) '') 'string') result
-    }
-  }
-  return ('[data:joinStrings]' result)
-}
-
-script 120 40 {
+script 924 49 {
 whenStarted
-comment 'This sample runs on CincoBit'
-comment 'In this sample:'
-comment 'Multi-device demo with distance, display, LEDs, servo, buzzer, rotary and light'
-comment 'Press button A to start the sample'
-}
-
-script 668 49 {
-whenButtonPressed 'A'
+comment 'This sample runs on PixoBit'
+comment ' In this sample:'
+comment ' - Press the Up button: increases the fan speed (starts at 50%); displays "Up" on the MT1208.'
+comment ' - Press the Down button: decreases the fan speed; displays "Dn" on the MT1208.'
+comment ' - Press the Enter button: turns the fan off; displays "En" on the MT1208.'
+comment ' - A beep plays when any of the Up / Down / Enter buttons is pressed.'
+comment ''
+comment ' Devices need to be connected in the following order:'
+comment ' - Wrireless ESP32 at first'
+comment ' - Fan: device H1-1'
+comment ' - MT1208: device H1-2'
+comment ' - Retro Sound: device H1-3'
+comment ' - Button S7: device H1-4'
+comment ' - Accel: device H1-5'
 due_useI2C false
 due_select_device 1
-currentAddress = -1
-distance_val = -1
-rotary_button_pressed = false
-light_val = 0
+current_dev = -1
 counter = 0
-doUpdateScreen = false
-waitMillis 500
+fan_speed = 0
+btnUp = 0
+btnDown = 0
+btnEnter = 0
 forever {
-  if ((counter % 10) == 0) {
-    local 'cur_distance' (GetDistance)
-    if (cur_distance != distance_val) {
-      distance_val = cur_distance
-      doUpdateScreen = true
-    }
+  count = (counter % 7)
+  if (count == 3) {
+    btnUp = (IsButtonPressed 85)
   }
-  if ((counter % 11) == 0) {
-    local 'pressed' (GetRotaryPress)
-    if (pressed != rotary_button_pressed) {
-      rotary_button_pressed = pressed
-      if rotary_button_pressed {
-        SetLedR16All true
-        SetServo 180
-      } else {
-        SetLedR16All false
-        SetServo 0
-      }
-    }
+  if (count == 4) {
+    btnDown = (IsButtonPressed 68)
   }
-  if ((counter % 12) == 0) {
-    local 'light_tmp' (GetLight)
-    if (light_tmp != light_val) {
-      light_val = light_tmp
-      doUpdateScreen = true
-    }
-    if (light_tmp < 5) {
-      PlaySound
-    }
+  if (count == 5) {
+    btnEnter = (IsButtonPressed 69)
   }
-  if (not rotary_button_pressed) {
-    if (((counter / 16) % 2) == 0) {
-      SetLedR16 ((counter % 16) + 1) true
-    } else {
-      SetLedR16 ((counter % 16) + 1) false
+  if btnUp {
+    btnUp = 0
+    fan_speed = (fan_speed + 10)
+    if (fan_speed < 50) {
+      fan_speed = 50
     }
+    if (fan_speed > 100) {
+      fan_speed = 100
+    }
+    SetFan fan_speed
+    PlayBeep
+    SetText 'Up'
   }
-  if ((counter % 16) == 0) {
-    UpdateScreen doUpdateScreen
-    doUpdateScreen = false
+  if btnDown {
+    btnDown = 0
+    fan_speed = (fan_speed - 10)
+    if (fan_speed < 50) {
+      fan_speed = 1
+    }
+    SetFan fan_speed
+    PlayBeep
+    SetText 'Dn'
+  }
+  if btnEnter {
+    btnEnter = 0
+    fan_speed = 1
+    SetFan fan_speed
+    PlayBeep
+    SetText 'En'
   }
   counter = (counter + 1)
-  local 'delay' distance_val
-  if (delay < 5) {
-    delay = 5
-  }
-  if (delay > 100) {
-    delay = 100
-  }
-  waitMillis delay
+  waitMillis 1
 }
 }
 
-script 932 1380 {
+script 146 358 {
+to PlayBeep {}
+}
+
+script 204 1656 {
 to SelectDevice {}
 }
 
-script 924 1834 {
-to DrawText {}
+script 132 2162 {
+to SetText {}
 }
 
-script 376 2070 {
-to GetLight {}
+script 145 2477 {
+to SetFan {}
 }
 
-script 128 2168 {
-to Show {}
-}
-
-script 887 2192 {
-to ClearScreen {}
-}
-
-script 543 2284 {
-to UpdateScreen {}
-}
-
-script 136 2319 {
-to RGB {}
-}
-
-script 145 2628 {
-to GetDistance {}
-}
-
-script 147 2910 {
-to GetRotaryPress {}
-}
-
-script 768 2919 {
-to SetLedR16All {}
-}
-
-script 120 3160 {
-to SetLedR16 {}
-}
-
-script 738 3426 {
-to SetServo {}
-}
-
-script 136 3584 {
-to PlaySound {}
+script 128 2649 {
+to IsButtonPressed {}
 }
 
 
