@@ -61,7 +61,7 @@
       "category": "Microcomputer",
       "price": 7.95,
       "tagline": "A low-cost, micro:bit inspired educational board",
-      "description": "[Educators](/docs/educators) will find great value in this low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.\n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::\n\n<div style={{ width: '50%', margin: 'auto', textAlign: 'center'}}>![Classroom Kit](/img/catalog/ktcincobit-e-1.webp)</div>\n\n[Classroom CincoBit Kit](/docs/products/ktcincobit-e) is designed for classrooms on a budget, where an entire classroom of students can double-up and use a set of 14 for under $100!",
+      "description": "[Educators](/docs/educators) will find great value in this low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip pads and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.\n\nCincoBit can sense light and temperature, it has 2 user buttons, and can output visual feedback on the 5x5 LED matrix plus generate sounds using the on-board buzzer.\n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::\n\n<div style={{ width: '50%', margin: 'auto', textAlign: 'center'}}>![Classroom Kit](/img/catalog/ktcincobit-e-1.webp)</div>\n\n[Classroom CincoBit Kit](/docs/products/ktcincobit-e) is designed for classrooms on a budget, where an entire classroom of students can double-up and use a set of 14 for under $100!",
       "keyFeatures": [
         "5x5 LED Matrix",
         "micro:bit inspired edge connector",
@@ -81,7 +81,7 @@
       "category": "Microcomputer",
       "price": 16.95,
       "tagline": "micro:bit Form Factor with 128x64 OLED 0.96\" Display",
-      "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. You can now show sensor data right on the display! \n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
+      "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. [Educators](/docs/educators) can now show sensor data right on the display! \n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::\n\nPixoBit can sense light and temperature, it has 2 user buttons, and can output visual feedback on the OLED display plus generate sounds using the on-board buzzer.\n\n",
       "keyFeatures": [
         "128x64 OLED 0.96\" display",
         "Light Sensor",
@@ -121,7 +121,7 @@
       "category": "Microcomputer",
       "price": 9.95,
       "tagline": "Arduino form factor inspired DUELink mainboard",
-      "description": "Use the official DUELink engine firmware or use the [Arduino](/docs/hw/arduino) software IDE to program DueDuino.\n\nOf course, this is a DUELink board and [Downlink](/docs/interface/downlink) connector is ready for [Daisylinking](/docs/engine/daisylink) all of your modules.",
+      "description": "DueDuino is an Arduino compatible board. It can be codded using [Arduino](/docs/hw/arduino) IDE, or using any of the other supported [Coding Languages](/docs/language/intro).\n\nOf course, this is a DUELink board and [Downlink](/docs/interface/downlink) connector is ready for [Daisylinking](/docs/engine/daisylink) all of your modules.",
       "keyFeatures": [
         "Arduino form factor",
         "USB-C connector",
@@ -139,7 +139,7 @@
       "category": "Microcomputer",
       "price": 24.95,
       "tagline": "Complete All-in-One STEM Solution",
-      "description": "`Input -> Process -> Output` is how DueSTEM brings everything [educators](/docs/educators) need to demonstrate physical computing. There are 4 inputs and 4 outputs. The graphical display can be used to show sensor levels or for building games!\n\nExtend the board with sensors and actuators on the female pin-header and the [Downlink](/docs/interface/downlink) connector.\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
+      "description": "`Input -> Process -> Output` is how DueSTEM brings all [educators](/docs/educators) need to demonstrate physical computing. There are 4 inputs and 4 outputs. The graphical display can be used to show sensor levels or for building games!\n\nExtend the board with sensors and actuators on the female pin-header and the [Downlink](/docs/interface/downlink) connector.\n",
       "keyFeatures": [
         "128x64 OLED 0.96\" Display",
         "Temperature Sensor",
@@ -178,7 +178,7 @@
       "category": "Microcomputer",
       "price": 6.95,
       "tagline": "DIP24 Form Factor SMT DUELink SoM",
-      "description": "Start making your own DUELink modules using this Surface-Mountable DUELink SoM that is also DIP24 form-factor.\n\nBoth U and D connectors are included. The USB connections are also exposed if you want to add a USB connector, such as Stamp (for tiny board with USB).",
+      "description": "Start making your own DUELink modules and products using this Surface-Mountable DUELink SoM that is also DIP24 form-factor.\n\nBoth U and D connectors are included. The USB connections are also exposed if you want to wire a USB.",
       "keyFeatures": [
         "Uplink & Downlink DUELink connectors",
         "DIP24 form factor",
@@ -890,7 +890,7 @@
         "6x LEDs",
         "52x67mm overall dimension"
       ],
-      "driverApi": "Function | Description \n---|---\n`BtnPin(a)` | Read button `a` as U,D,L,R,B,F,E and returns 1-7 respectively. \n`SetLed(a,v)` | Sets button led `a` as U,D,L,R,B,F,E, `v` 0=off 1=on \n `DVer()` | This driver version."
+      "driverApi": "Function | Description \n---|---\n`BtnPin(a)` | Read button `a` as U,D,L,R,B,F,E and returns 1-7 respectively. \n`SetLed(a,v)` | Sets button led `a` as U,D,L,R,B,F,E, `v` 0=off 1=on \n `DVer()` | This driver version. "
     },
     {
       "name": "Joystick L",
