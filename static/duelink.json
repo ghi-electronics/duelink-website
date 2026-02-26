@@ -1584,7 +1584,7 @@
         "Standard 3.5mm audio connector",
         "27x22mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetPin()()` | return pin used. |\n| `SetLVol(v)` | Set left volume |\n| `SetRVol(v)` | Set right volume |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetPin()` | returns pin, to be used with standard library sound functions. |\n| `SetLVol(v)` | Set left volume |\n| `SetRVol(v)` | Set right volume |\n| `LaserSfx(v)` | Laser Sound Effect |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "MP3",
