@@ -9,8 +9,6 @@ variables current_dev counter fan_speed btnUp btnDown btnEnter count pin r
   spec ' ' 'SetFan' 'SetFan _' 'auto'
   spec ' ' 'SetText' 'SetText _' 'auto'
   spec ' ' 'PlayBeep' 'PlayBeep'
-  spec 'r' 'buildstr' 'addstring _ : with _ : _ : ...' 'str auto auto' 'output'
-  spec ' ' 'Print' 'Print _' 'auto'
 
 to IsButtonPressed button {
   SelectDevice 5
@@ -24,15 +22,6 @@ to PlayBeep {
   due_run 'dwrite(3,1)'
   due_run 'dwrite(4,1)'
   due_run 'freq(1,1000,100,0.5)'
-}
-
-to Print text {
-  local 'tmp' text
-  if (isType text 'number') {
-    tmp = ('[data:convertType]' text 'string')
-  }
-  tinyOLED_clear
-  tinyOLED_drawString tmp 0 0 1
 }
 
 to SelectDevice dev {
@@ -54,20 +43,7 @@ to SetText c {
   due_run (due_make_command 'show' '')
 }
 
-to buildstr s optionalArgs {
-  local 'result' ('[data:makeList]')
-  '[data:addLast]' s result
-  for i 14 {
-    if (isType (argOrDefault (i + 1) '') 'string') {
-      '[data:addLast]' (argOrDefault (i + 1) '') result
-    } else {
-      '[data:addLast]' ('[data:convertType]' (argOrDefault (i + 1) '') 'string') result
-    }
-  }
-  return ('[data:joinStrings]' result)
-}
-
-script 545 78 {
+script 924 49 {
 whenStarted
 comment 'This sample runs on PixoBit'
 comment ' In this sample:'
@@ -137,23 +113,23 @@ forever {
 }
 }
 
-script 676 1234 {
+script 146 358 {
 to PlayBeep {}
 }
 
-script 238 1899 {
+script 204 1656 {
 to SelectDevice {}
 }
 
-script 132 2145 {
+script 132 2162 {
 to SetText {}
 }
 
-script 145 2460 {
+script 145 2477 {
 to SetFan {}
 }
 
-script 128 2632 {
+script 128 2649 {
 to IsButtonPressed {}
 }
 
