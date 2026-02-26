@@ -23,21 +23,15 @@ Note that Python will be executed on one of the [supported hardware](../hw/intro
 
 ## Setup
 
-This page assumes the user is already familiar with Python and there is a development machine that is already setup to build and run Python programs.
+For the module, visit [loader.duelink.com](https://loader.duelink.com/) to make sure your hardware has the latest `DUElink Official` firmware and related module drivers.
 
-
-:::tip
-Make sure your hardware is updated with the latest firmware. The [Loader](../loader) can help with that!
-:::
+We assume that you are already familiar with Python and your development machine is already setup to build and run Python programs. 
 
 Start a new project with a simple line of code to test that the project is running.
 
 ```py
 print("Hello DUELink!")
 ```
----
-
-## Libraries
 
 We now need to install the DUELink Python library using `pip install DUELink` (or `python -m pip install duelink`). You may also upgrade the libraries using `pip install --upgrade DUELink`. The DUELink package will also install all required dependencies.
 
@@ -62,21 +56,20 @@ duelink.System.StatLed(200,800,20)
 print("Bye DUELink!")
 ```
 
-:::tip
-The Python library is open source: [DUELink Libraries Repo](https://github.com/ghi-electronics/duelink-libraries).
-:::
-
 ---
 
 ## Daisylinking
 
-In the example below, we'll use Python to control an OLED 0.96 Display, a Button, and a Buzzer module Daisylinked together.
+DUELink modules can be [Daisylinked](../engine/daisylink) together. The `duelink.Engine.Select()` function is used to select the module to be listening to incoming commands.
+
+In the example below, we'll use Python to control an OLED Display, a Button, and a Buzzer.
 
 <div style={{ textAlign: 'center'}}>
 ![Daisylinked Modules](pathname:///img/usbhook-daisylinked.webp)
 </div>
+
 :::tip
-Make sure these modules are pre-loaded with [Drivers](../engine/drivers).
+Visit [loader.duelink.com](https://loader.duelink.com/) to "discover" modules and load the latest firmware and drivers.
 :::
 
 ```python
@@ -111,4 +104,10 @@ while True:
 
 ```
 
-The earlier samples were generic and run on any module. The individual module's product pages. include specific samples.
+---
+
+## Code Samples
+
+Individual product pages include specific code samples that utilize the module's [Driver Script](../engine/drivers).
+
+See `Tethered Samples` under individual module pages.
