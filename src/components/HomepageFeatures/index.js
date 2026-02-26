@@ -58,19 +58,25 @@ export default function HomepageFeatures() {
     <section className={styles.features}>
       
       <div className="container" style={{textAlign: 'center'}}>
-        <img src="/img/home-standalone.webp" width="600px" alt="DUELink" />
+        
         <Heading as="h2" >
-          Each Module is a Microcomputer!
+          Tether one or Daisylink them all
         </Heading>
-        <p>Run Standalone using MicroBlocks, Arduino, and beyond!
-        </p>
-        <a class="button button--primary" href="/docs/language/standalone">Standalone</a>
+        <p>Using standardized common connector and mounting options</p>
+        <img src="/img/daisylink.webp" alt="DUELink" />
         <hr/>
         <Heading as="h2" >
-          Beginners to Experts
+          Each Module is a Microcomputer
         </Heading>
-        <p>From simple "Hello World" lessons to industrial prototypes.
-        </p>
+        <p>Code modules independently or control them over USB, I2C or UART</p>
+        <img src="/img/button-led.gif" width ="400px" alt="DUELink" />
+        <hr/>
+        <Heading as="h2" >
+          Versatile Catalog of Options
+        </Heading>
+        <p>Sensors, actuators, displays, and everything in between</p>
+        <img src="/img/duelink-modules.webp" alt="DUELink" />
+        <hr/>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />

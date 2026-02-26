@@ -1,0 +1,48 @@
+# In this sample:
+# Get the current rotary value
+# Detect if the rotary button is pressed
+ 
+DLMode(2,0) # Switch Downlink to host mode
+Wait(100) # This delay is more than enough for 50x modules
+ 
+cmd("sel(1)")
+cmd("scan()")
+ 
+fn GetValue()
+    return cmd("GetValue()")
+fend
+ 
+fn SetValue(v)
+    cmd(fmt("SetValue(",v,")"))
+fend
+
+fn Pressed()
+    return cmd("Pressed()")
+fend
+
+_a = 0
+_b = 0
+ 
+_m = 0
+_n = 0
+ 
+while (1)
+    _a = GetValue()
+    _m = Pressed()
+ 
+    if _b != _a
+        _b = _a
+        println(_b)
+    end
+ 
+    if (_n != _m)
+        _n = _m
+        if (_n)
+            println("Pressed")
+        else
+            println("Released")
+        end        
+    end
+ 
+    Wait(10)  
+wend

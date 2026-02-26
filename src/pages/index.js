@@ -19,9 +19,9 @@ function HomepageHeader() {
         <img src="/img/duelink-intro.webp"  alt="DUELink" />
   
        <Heading as="h2" >
-        Tether and Daisylink Hundreds of Modules
+        Works with Most Hardware Platforms and Coding Languages
         </Heading>
-        <p>Continue using your existing hardware and favorite coding language.
+        <p>Computer, Raspberry Pi, Arduino, micro:bit ⟺ Python, JavaScript, .NET, Scripts, MicroBlocks
         </p>
          <div className={styles.buttons}>
           <Link
