@@ -13,11 +13,13 @@ BeagleBoard has many open-source offerings and they all work with the DUELink ec
 
 Any of the [Coding Language](../language/intro) options can be use on these boards. Depending on the boards, there might be an easier way to connect DUELink modules.
 
+We recommend using [Python](../language/python), which works with serial and USB (virtual serial) ports. Using I2C will require changes to the DUELink library. Using UART/USB is recommended.
+
 ---
 
 ## BeaglePlay
 
-This board has a built in JST connector with [I2C](../interface/i2c) signals, I2C5 to be exact! Their [Qwicc Example](https://docs.beagleboard.org/boards/beagleplay/demos-and-tutorials/using-qwiic.html#beagleplay-qwiic) is a good starting point on how to access the I2C bus, which is where you can tether DUELink modules.
+This board has a built in JST connector with [I2C](../interface/i2c) signals, I2C5 to be exact! UART can easily be added using MBUSLink. We recommend using Python with UART or USB.
 
 <div style={{ textAlign: 'center'}}>
 ![BeagleBoard](pathname:///img/beagleplay-jst.webp)
@@ -64,8 +66,7 @@ def get_ip_address():
 myip = get_ip_address()
 
 # DUELink connection
-availablePort = DUELinkController.GetConnectionPort()
-duelink = DUELinkController("/dev/ttyAMA0")  # uart port define
+duelink = DUELinkController("/dev/?????")  # Change this to your own serial connection, UART or USB.
 
 # DUELink graphics
 # Show IP address on screen
@@ -84,7 +85,7 @@ while True:
 
 # Other Beagles!
 
-You can use the [Breakout](../products/adbreakout-a) module to wire [UART Interface](../interface/uart) or [I2C Interface](../interface/i2c)from any BeagleBoard.
+You can use the [Breakout](../products/adbreakout-a) module to wire [UART Interface](../interface/uart) or [I2C Interface](../interface/i2c) from any BeagleBoard.
 
 <div style={{ textAlign: 'center'}}>
 ![BeagleBone Black Breakout UART](pathname:///img/beaglebone-breakout-uart.webp)
