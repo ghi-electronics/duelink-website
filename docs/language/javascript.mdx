@@ -61,16 +61,8 @@ async function Blinky() {
 
 Blinky();
 ```
-The Python library only supports serial ports, which can be either UART or USB.
 
-Note that `SerialUSB()` returns a serial port with DUELink devices only. It is possible to connect to an arbitrary COM port number. This is useful when using to Bluetooth serial COM port for example.
-
-```js
-//...
-let duelink = new DUELinkController(new SerialUSB("COM12"));
-await duelink.Connect();
-//...
-```
+The JavaScript library only supports serial ports, which can be either [UART](../interface/uart) or [USB](../interface/usb). The `SerialUSB()` function scans for a USB-connected DUELink module. The returned value can be used to start `DUElinkController()`. If a serial port is desired then use the actual port number, for example `SerialUSB("COM6")`. Using serial is useful with [wireless](../interface/wireless) Bluetooth connections.
 
 ---
 

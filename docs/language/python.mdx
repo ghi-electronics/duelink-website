@@ -4,7 +4,13 @@
 ![Python Logo](pathname:///img/python.webp)
 </div>
 
-Python is the main language used with AI and data science. The provided DUELink Python library allows a full standard Python program to access the physical world. For example, an AI vision facial recognition can now control a door lock.
+Python is the main language used with AI and data science.
+
+<div style={{ textAlign: 'center'}}>
+![Python AI](pathname:///img/python-ai.gif)
+</div>
+
+The provided DUELink Python library allows a full standard Python program to access the physical world. For example, an AI vision facial recognition can now control a door lock.
 
 
 <div style={{ textAlign: 'center'}}>
@@ -56,7 +62,7 @@ duelink.System.StatLed(200,800,20)
 print("Bye DUELink!")
 ```
 
-The Python library only supports serial ports, which can be either UART or USB.
+The Python library only supports serial ports, which can be either [UART](../interface/uart) or [USB](../interface/usb). The `GetConnectionPort()` function scans for a USB-connected DUELink module. The returned value can be used to start `DUElinkController()`. If serial port is used then use the actual port number, which for example can be `DUELinkController("COM6")` on Windows and `DUELinkController("/dev/ttyAMA0")` on Linux. Using serial is useful with [wireless](../interface/wireless) Bluetooth connections.
 
 ---
 
