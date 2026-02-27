@@ -24,7 +24,6 @@ fn Init()
 fend
  
 fn BtnPin(a)
- 
     if a = 'U'
         return 1
     end
@@ -48,7 +47,6 @@ fn BtnPin(a)
     end
  
     return 0
- 
 fend
  
 fn BtnS7Rd(a)

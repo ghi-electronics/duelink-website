@@ -890,7 +890,7 @@
         "6x LEDs",
         "52x67mm overall dimension"
       ],
-      "driverApi": "Function | Description \n---|---\n`BtnPin(a)` | Read button `a` as U,D,L,R,B,F,E and returns 1-7 respectively. \n`SetLed(a,v)` | Sets button led `a` as U,D,L,R,B,F,E, `v` 0=off 1=on \n `DVer()` | This driver version. "
+      "driverApi": "Function | Description \n---|---\n`BtnS7Rd(a)` | Read button `a` as U,D,L,R,B,F,E and returns button status. \n\n`BtnPin(a)` | Read button `a` as U,D,L,R,B,F,E and returns 1-7 pin number. \n`SetLed(a,v)` | Sets button led `a` as U,D,L,R,B,F,E, `v` 0=off 1=on \n `DVer()` | This driver version."
     },
     {
       "name": "Joystick L",

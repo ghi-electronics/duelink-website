@@ -1,7 +1,7 @@
 # In this sample:
 # Detect if button Up is pressed and turn the corresponding led on
 # Press again to turn off
-
+ 
 DLMode(2,0) # Switch Downlink to host mode
 Wait(100) # This delay is more than enough for 50x modules
 cmd("sel(1)")#Select First Module
@@ -19,7 +19,7 @@ fn BtnS7Rd(a)
 fend 
 
 while 1    
-    if BtnS7Rd('U')
+    if BtnL7Rd('U')
         SetLED('U', _i)
     end
     
