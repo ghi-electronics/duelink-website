@@ -13,6 +13,8 @@ Here is a website demo to demonstrate how JavaScript can control actuators and r
 ![DUELink Demo website](pathname:///img/demo-website.webp)
 </div>
 
+Use this demo website to see how DUELink modules work with JavaScript inside a website. This page shows how DUELink modules work with JavaScript on a local machine.
+
 :::tip
 Note that JavaScript will be executed on one of the [supported hardware](../hw/intro) options, which is tethered to DUELink modules. JavaScript does not run on the module itself!
 :::
@@ -21,36 +23,24 @@ Note that JavaScript will be executed on one of the [supported hardware](../hw/i
 
 ## Setup
 
-These steps are for using JavaScript locally. To see how it works inside a website, take a look at [demo.duelink.com](https://demo.duelink.com/).
+For the module, visit [loader.duelink.com](https://loader.duelink.com/) to make sure your hardware has the latest `DUElink Official` firmware and related module drivers.
 
-This page assumes the user is already familiar with JavaScript and there is a development machine that is already setup to build and run JavaScript programs. We'll be running our program on a local machine using `Node.js`.
-
-Install the `duelink` package:
-
-```js
-npm install duelink
-```
-
-If using serialport, `dlserialusb` package is needed:
-
-```js
-npm install dlserialusb
-```
-
-:::tip
-Make sure your hardware is updated with the latest firmware. The [Loader](../loader) can help with that!
-:::
+We assume that you are already familiar with JavaScript and your development machine is already setup to build and run JavaScript programs using `Node.js`. 
 
 Start a new project with a simple line of code to test that the project is running.
+
 
 ```js
 console.log("Hello World");
 ```
+
+We now need to install the `duelink` package using `npm install duelink`. We also need the serialport `dlserialusb` package using `npm install dlserialusb`.
+
 ---
 
 ## Blinky!
 
-Our program will blink the on-board status LED on a tethered module, on for 200ms then it shuts off for 800ms, and does this 20 times. We will be using SerialUSB() here. If running on a website, use WebSerial() instead.
+Our first program will blink the on-board status LED on a tethered module, on for 200ms then it shuts off for 800ms, and does this 20 times. We will be using SerialUSB() here. If running on a website, use WebSerial() instead.
 
 Note that using `await` is very critical because JavaScript is designed to run tasks asynchronously. DUELink is accesses hardware live, in real-time. Things must run in order and using `await` is required with anything DUElink!
 
@@ -72,31 +62,22 @@ async function Blinky() {
 Blinky();
 ```
 
-:::tip
-The JavaScript library is open source: [DUELink Libraries Repo](https://github.com/ghi-electronics/duelink-libraries).
-:::
-
-The `new SerialUSB()` code block returns a serial port with DUELink devices only. It is possible to connect to any arbitrary COM port number. This is useful when connecting to Bluetooth serial COM port for example.
-
-```js
-//...
-let duelink = new DUELinkController(new SerialUSB("COM12"));
-await duelink.Connect();
-//...
-```
+The JavaScript library only supports serial ports, which can be either [UART](../interface/uart) or [USB](../interface/usb). The `SerialUSB()` function scans for a USB-connected DUELink module. The returned value can be used to start `DUElinkController()`. If a serial port is desired then use the actual port number, for example `SerialUSB("COM6")`. Using serial is useful with [wireless](../interface/wireless) Bluetooth connections.
 
 ---
 
 ## Daisylinking
 
-In the example below, we'll use JavaScript to control an OLED 0.96 Display, a Button, and a Buzzer module Daisylinked together.
+DUELink modules can be [Daisylinked](../engine/daisylink) together. The `duelink.Engine.Select()` function is used to select the module to be listening to incoming commands.
+
+In the example below, we'll access an OLED Display, a Button, and a Buzzer.
 
 <div style={{ textAlign: 'center'}}>
 ![Daisylinked Modules](pathname:///img/usbhook-daisylinked.webp)
 </div>
 
 :::tip
-Make sure these modules are loaded with [Drivers](../engine/drivers).
+Visit [loader.duelink.com](https://loader.duelink.com/) to "discover" modules and load the latest firmware and drivers.
 :::
 
 ```js
@@ -144,4 +125,10 @@ async function main() {
 main();
 ```
 
-The earlier sample were generic and run on any module. The individual module's product pages. include specific samples.
+---
+
+## Code Samples
+
+Individual product pages include specific code samples that utilize the module's [Driver Script](../engine/drivers).
+
+See `Tethered Samples` under individual module pages.

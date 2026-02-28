@@ -1,5 +1,6 @@
 # In this sample:
-# Continuously turn the fan forward at 50% speed, then backward at 50% speed, with a 2-second delay between each direction change
+# Continuously turn the fan forward at 50% speed, then backward at 50% speed, 
+# with a 2-second delay between each direction change.
 
 while 1
     Fan(50)

@@ -1,10 +1,18 @@
 # In this sample:
 # Repeatedly set the servo position to 0, 45, 90, 135, and 180, then reset it to 0.
 # There is a one-second delay after each change.
-
+ 
+DLMode(2,0) # Switch Downlink to host mode
+Wait(100) # This delay is more than enough for 50x modules
+cmd("sel(1)")#Select First Module
+ 
+fn ServoX1(a)
+    cmd(fmt("ServoX1(",a,")"))
+fend
+ 
 while 1
     for a = 0 to 181 step 45
         ServoX1(a)    
         wait(1000)
     next
-wend  
+wend   

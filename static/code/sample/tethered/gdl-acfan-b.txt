@@ -1,0 +1,19 @@
+# In this sample:
+# Continuously turn the fan forward at 50% speed, then backward at 50% speed, 
+# with a 2-second delay between each direction change
+
+DLMode(2,0) # Switch Downlink to host mode
+Wait(100) # This delay is more than enough for 50x modules
+cmd("sel(1)")#Select First Module
+
+fn Fan(s)
+    cmd(fmt("Fan(",s,")"))
+fend
+
+while 1
+    Fan(50)
+    wait(2000)
+
+    Fan(-50)
+    wait(2000)
+wend

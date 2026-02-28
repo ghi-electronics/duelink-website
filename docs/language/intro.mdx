@@ -4,33 +4,37 @@ hide_table_of_contents: true
 
 # Languages
 
-DUELink modules are self-contained minicomputers, allowing modules to work in two different ways: You can program modules directly to run [Standalone](./standalone). Or you can Tether module(s) to a [Supported Hardware](../hw/intro) and code it one of the several coding languages, including [Python](./python), [MicroPython](./micropython), [JavaScript](./javascript), and [.NET](./dotnet.mdx). 
+DUELink modules are self-contained microcomputers, allowing them to work in two distinct ways. First, module(s) can be remotely controlled by commands coming from a Tethered [Supported Hardware](../hw/intro). 
 
-<div style={{ textAlign: 'center'}}>
-![languages](pathname:///img/languages.webp)
-</div>
-
-
-Block coding is also possible using [MicroBlocks](./microblocks), [MakeCode](./makecode), and [App Inventor](./app-inventor).
-
-<div style={{ textAlign: 'center'}}>
-![MicroBlocks](pathname:///img/microblocks-sample.webp)
-</div>
-
-DUELink modules work with a [supported hardware](../hw/intro).
 
 <div style={{ textAlign: 'center'}}>
 ![Supported Hardware](pathname:///img/duelink-supported-hardware.webp)
 </div>
 
-Each DUELink module is also a self-contained mini-computer that can run [standalone](./standalone). Modules can also be daisylinked togther.
+The Supported Hardware can Tether to DUELink modules using USB, I2C, or UART. We provide libraries for many coding languages, including [Python](./python), [MicroPython](./micropython), [JavaScript](./javascript), and [.NET](./dotnet.mdx). 
+
+
+<div style={{ textAlign: 'center'}}>
+![languages](pathname:///img/languages.webp)
+</div>
+
+The other option is by loading code can on modules directly to run [Standalone](./standalone). This for example, can be using [Arduino](../hw/arduino).
+
+<div style={{ textAlign: 'center'}}>
+![MicroBlocks](pathname:///img/arduino-logo.webp)
+</div>
+
+Similar to Arduino, [MicroBlocks](./microblocks) can also be used to directly program modules to run Standalone, but this time using blocks!
+
+<div style={{ textAlign: 'center'}}>
+![MicroBlocks](pathname:///img/microblocks-sample.webp)
+</div>
+
+
+
+
+Modules can also be daisylinked together. Learn about how DUELink [Daisylink](../engine/daisylink) work.
 
 <div style={{ textAlign: 'center'}}>
 ![Daisylink](pathname:///img/daisylink-normal.webp)
-</div>
-
-Learn about how DUELink [Daisylink](../engine/daisylink) work.
-
-<div style={{ textAlign: 'center'}}>
-![Daisylink with Power](pathname:///img/host-mode.webp)
 </div>

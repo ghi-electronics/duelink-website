@@ -1,8 +1,9 @@
-# This script will work with https://www.waveshare.com/wiki/Modbus_RTU_Analog_Output_8CH
 
+# This script will work with https://www.waveshare.com/wiki/Modbus_RTU_Analog_Output_8CH
+ 
 # There are two kind of Modbus_RTU_Analog_Output_8CH, current and volt.
 # This is set output volt, 8 channels
-
+ 
 Dim b1[] = [
   0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0, 0x80, 0x41, 0x00, 0xC1, 0x81,
   0x40, 0x01, 0xC0, 0x80, 0x41, 0x00, 0xC1, 0x81, 0x40, 0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0,
@@ -22,8 +23,8 @@ Dim b1[] = [
   0xC0, 0x80, 0x41, 0x00, 0xC1, 0x81, 0x40, 0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41,
   0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0, 0x80, 0x41, 0x00, 0xC1, 0x81,
   0x40]
-
-
+ 
+ 
 Dim b2[] = [
   0x00, 0xC0, 0xC1, 0x01, 0xC3, 0x03, 0x02, 0xC2, 0xC6, 0x06, 0x07, 0xC7, 0x05, 0xC5, 0xC4,
   0x04, 0xCC, 0x0C, 0x0D, 0xCD, 0x0F, 0xCF, 0xCE, 0x0E, 0x0A, 0xCA, 0xCB, 0x0B, 0xC9, 0x09,
@@ -43,38 +44,46 @@ Dim b2[] = [
   0x48, 0x49, 0x89, 0x4B, 0x8B, 0x8A, 0x4A, 0x4E, 0x8E, 0x8F, 0x4F, 0x8D, 0x4D, 0x4C, 0x8C,
   0x44, 0x84, 0x85, 0x45, 0x87, 0x47, 0x46, 0x86, 0x82, 0x42, 0x43, 0x83, 0x41, 0x81, 0x80,
   0x40]
-
-Dim b3[] = [
-  0x0000, 0xCC01, 0xD801, 0x1400, 0xF001, 0x3C00, 0x2800, 0xE401, 
-  0xA001, 0x6C00, 0x7800, 0xB401, 0x5000, 0x9C01, 0x8801, 0x4400 ]
-
+ 
 fn CalCrc(b4, s)
     h = 0xff
     l = 0xff
     i = 0
-    
+ 
     for x = 0 to s
         i = l ^ b4[x]
         l = h ^ b1[i]
         h = b2[i]
     next
-    
+ 
     return (h << 8) | l
 fend
-
+ 
 _r = 5 # re pin
 _d = 6 # de pin
 
+fn sendCmd(b5)
+    SerDisc()
+    DWrite(_r, 1) # disable RX
+    DWrite(_d, 1) # Enable TX
+    SerWrs(b5) # send new command
+    DWrite(_d, 0) # disable TX
+    DWrite(_r, 0) # Enable RX
+    
+    
+
+fend
+ 
 fn Init() 
     SerCfg(9600, 128)
     DWrite(_r, 0) # This pin can be low all the time
 fend
-
-
+ 
+ 
 fn GetDevId() 
     Dim b5[8]
     Dim b4[7] = [0,0,0,0,0,0,0]
-    
+ 
     b5[0] = 0x00
     b5[1] = 0x03
     b5[2] = 0x40
@@ -83,116 +92,89 @@ fn GetDevId()
     b5[5] = 1
     b5[6] = 0x90
     b5[7] = 0x1B
-    
+ 
     SerDisc() # Clear all received data in buffer
+ 
+    sendCmd(b5)
     
-    DWrite(_d, 1)
-    SerWrs(b5) # send new command
-    DWrite(_d, 0)
-
     # Wait for response  around 5ms
     while SerB2R() = 0
         Wait(5)
     wend
-    
+ 
     #Wait for full response
     while SerB2R() < 7
         Wait(5)
     wend
-    
+ 
     # read and calculate device id
     SerRds(b4, 1000)
-     
+    
     # Clear all response, we just want to set channel by writting
     SerDisc()
-    
+ 
     c = CalCrc(b4, 5)
-    
+ 
     if ((c & 0xFF) = b4[5] && ((c>>8) & 0xFF) = b4[6]) 
          # device id 16 bit
         d = (b4[3] << 8) | (b4[4] << 0)
         PrintLn("good crc, dev = ", d)
-        
+ 
         return 1
     else
         PrintLn("bad crc")
-        
+ 
         return 0
     end
-    
-    
+ 
+ 
 fend
-
+ 
 fn SetCh(n, v) 
+    if n < 0
+        return
+    end
+    n= n-1
     Dim b5[8]
     Dim b4[6]
-    
+ 
     b5[0] = 0x01
     b5[1] = 0x06
     b5[2] = n >> 8
     b5[3] = n & 0xFF
     b5[4] = v >> 8
     b5[5] = v & 0xFF
-    
+ 
     # copy b5 to b4, 6 element for calculation crc
     Memcpy(b4, 0, b5, 0, 6)
     c =  CalCrc(b4,6)
-    
+ 
     b5[6] = c & 0xFF
     b5[7] = c >> 8
-    
+ 
     SerDisc() # Clear all received data in buffer
-    
-    DWrite(_d, 1)
-    SerWrs(b5) # send new command
-    DWrite(_d, 0)
-     
+ 
+    sendCmd(b5)
+ 
     # Wait for response
     while SerB2R() = 0
         Wait(5)
     wend
-    
+ 
     #Wait for full response
     while SerB2R() < 8
         Wait(5)
     wend
-    
+ 
     # Clear all response, we just want to set channel by writting
     SerDisc() 
 fend
-
-fn ReadTest()  
-    Dim b5[8] = [0x01, 0x03, 0x00, 0x00, 0x00, 0x08, 0x44, 0x0C]
-    Dim b4[21]
-
-    DWrite(_d, 1)
-    SerWrs(b5) 
-    DWrite(_d, 0)
  
-    while (dread(_d,0) = 1)
-        PrintLn("_d high")
-    wend
-    
-    SerRds(b4, 1000)
-    
-    c = CalCrc(b4, 19)
-    
-    if ((c & 0xFF) = b4[19] && ((c>>8) & 0xFF) = b4[20]) 
-        PrintLn("good crc")     
-        return 1
-    else
-        PrintLn("bad crc")     
-        return 0
-    end
-    
-fend
-     
 Init()
 
-ReadTest()
+GetDevId()
 
-GetDevId() 
-SetCh(2, 1500) # set channel (2+1) 1.5V
+SetCh(2, 1500) # set channel (2) 1.5V 
 
 #############################
-
+ 

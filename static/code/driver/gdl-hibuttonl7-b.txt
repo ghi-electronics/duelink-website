@@ -51,6 +51,10 @@ fn BtnPin(a)
     wend
 fend
 
+fn BtnL7Rd(a)
+    return BtnRead(BtnPin(a))
+fend
+
 fn SetLed(a, v)
     if a = 'U'
         DWrite(9,v)

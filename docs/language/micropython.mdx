@@ -19,11 +19,14 @@ We also offer [DuePico](../products/adduepico-b), the perfect Raspberry Pi Pico 
 ![DuePico](pathname:///img/duepico-rgbled.webp)
 </div>
 
-As for IDE options, you can use whatever you prefer. In the following examples, we'll use [Thonny](https://thonny.org/) IDE to program the RaspberryPi that is plugged into a [DuePico's](../products/adduepico-b).
+As for IDE options, you can use whatever you prefer. In the following examples, we'll use [Thonny](https://thonny.org/) IDE to program the RaspberryPi that is plugged into a [DuePico](../products/adduepico-b).
 
 ---
 
 ## Setup
+
+
+The [DuePico](../products/adduepico-b) used in this example is a smart adaptor, where it is a functional module itself. Plug it directly to a PC using a USB cable then visit [loader.duelink.com](https://loader.duelink.com/) to make sure it has the latest `DUElink Official` firmware and related module drivers.
 
 First make sure your board is set up for MicroPython. Follow the steps found at [MicroPython.org](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html) to load the firmware for your specific hardware.
 
@@ -48,11 +51,7 @@ while True:
     time.sleep(1)  
 ```
 
----
-
-## Libraries
-
-Users have two options for loading the DUELink MicroPython library into Thonny. They can either download the [duelink-stdlib-mp](https://pypi.org/project/duelink-stdlib-mp/#files) file found at `pypi.org` to their computer, and `Install from local file` found under `Tools/Manage packages`. 
+We now need to load the DUELink libraries, either download the [duelink-stdlib-mp](https://pypi.org/project/duelink-stdlib-mp/#files) file found at `pypi.org` to your computer and `Install from local file` found under `Tools/Manage packages`. 
 
 <div style={{ textAlign: 'center'}}>
 ![DUELink library from local file](pathname:///img/download-mp-library.webp)
@@ -68,7 +67,9 @@ Alternatively, users can type `duelink-stdlib-mp` into the search window and `In
 
 ## Blinky!
 
-We can now access the complete DUELink [standard library](../engine/stdlib) from inside Thonny. We need to use [UART Interface](../interface/uart) to communicate to the modules when using Raspberry Pi Pico. Let's blink the `STAT` led on a connected DUELink module. 
+Our first program will blink the on-board status LED on a tethered module, on for 200ms then it shuts off for 800ms, and does this 20 times.
+
+DuePi uses [UART Interface](../interface/uart) to communicate with Raspberry Pi Pico.
 
 ```py
 import time
@@ -83,11 +84,13 @@ due = duelink.DUELinkController(uart)
 due.System.StatLed(50,50,0)
 ```
 
-You can also use boards that already have a JST connector, like [Adafruit QT Py RP2040](https://www.adafruit.com/product/4900) or [Sparkfun Pro Micro RP2350](https://www.sparkfun.com/sparkfun-pro-micro-rp2350.html). However, note that these boards use the [I2C Interface](../interface/i2c).
+You can also use boards that already have a JST connector, like [Adafruit QT Py RP2040](https://www.adafruit.com/product/4900) or [Sparkfun Pro Micro RP2350](https://www.sparkfun.com/sparkfun-pro-micro-rp2350.html).
 
 <div style={{ textAlign: 'center'}}>
 ![Other boards](pathname:///img/rp2040-rp2350.webp)
 </div>
+
+However, note that these boards use the [I2C Interface](../interface/i2c).
 
 ```python
 import time
@@ -107,7 +110,7 @@ due.System.StatLed(50,50,0)
 ```
 
 :::tip
-Some third-party boards are not properly equipped with the proper I2C pull up resistors. The DUEink pull-up board can be used to solve this problem. See [I2C Interface](../interface/i2c) page for more details. 
+Some third-party boards are not equipped with the proper I2C pull up resistors. The DUEink pull-up board can be used to solve this problem. See [I2C Interface](../interface/i2c) page for more details. 
 :::
 
 <div style={{ textAlign: 'center'}}>
@@ -118,10 +121,12 @@ Some third-party boards are not properly equipped with the proper I2C pull up re
 
 ## Daisylinking
 
-In the example below, we'll use the DuePico connected to an OLED 0.96 Display, Button, and Buzzer modules. 
+DUELink modules can be [Daisylinked](../engine/daisylink) together. The `duelink.Engine.Select()` function is used to select the module to be listening to incoming commands.
+
+In the example below, we'll use Python to control an OLED Display, a Button, and a Buzzer.
 
 :::tip
-Make sure these modules are loaded with [Drivers](../engine/drivers).
+Visit [loader.duelink.com](https://loader.duelink.com/) to "discover" modules and load the latest firmware and drivers.
 :::
 
 Note how the DuePico itself is a module, which is `Device 1`.
@@ -177,8 +182,10 @@ while True:
     time.sleep(0.1)
 ```
 
-:::tip
-With DUELink we can control multiple modules of the same type. For example, we can show information on both displays.
-:::
+---
 
-The earlier samples were generic and run on any module. The individual module's product pages. include specific samples.
+## Code Samples
+
+Individual product pages include specific code samples that utilize the module's [Driver Script](../engine/drivers).
+
+See `Tethered Samples` under individual module pages.

@@ -15,7 +15,7 @@
       "category": "Kit",
       "price": 79.95,
       "tagline": "Essentials Kit With Most Common Modules!",
-      "description": "Several essential modules are included in this kit to build physical computing projects that you access directly from a PC using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Expand your favorite [supported hardware](/docs/hw/intro). For example, [DuePi](/docs/products/adduepi-b) is just one of the many supported adapters.\n\nKit Content:\n\n* [TFT N18 1.8\" Color Display](/docs/products/dstftn18-b)\n* [LED R16 Ring](/docs/products/ldledr16-b)\n* [Rotary Encoder Input](/docs/products/hirotary-c)\n* [Distance Sensor](/docs/products/sedistance-b)\n* [Servo X1 Motor](/docs/products/acservox1-a)\n* [Buzzer for Generating Sounds & Melodies](/docs/products/sobuzzer-b)\n* [Light Sensor](/docs/products/selight-a)\n* [USB Hook for Connecting Modules Directly to USB](/docs/products/adusbhook-a)\n* Temperature Sensor - Part of the core chip on all modules. \n* [Holey Board for Mounting Modules](/docs/products/axholey)\n* [Mounting Hardware Variety Pack](/docs/products/axmnt)\n* [Cables Variety Pack](/docs/products/axcbl) (10 cables)\n* USB C Cable\n* Storage Box\n\n<div style={{ width: '50%', margin: 'auto', textAlign: 'center'}}>![Storage Box](/img/catalog/ktessen-a-6.webp)</div>\n\n Modules mounted on the Holey Board conveniently fit inside the included Storage Box.",
+      "description": "Access these essential modules using your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Connect them to a [computer](/docs/hw/pc-laptop) using the included `USB Hook` module, or use them with your favorite [supported hardware](/docs/hw/intro).\n\nKit Content:\n\n* [TFT N18 1.8\" Color Display](/docs/products/dstftn18-b)\n* [LED R16 Ring](/docs/products/ldledr16-b)\n* [Rotary Encoder Input](/docs/products/hirotary-c)\n* [Distance Sensor](/docs/products/sedistance-b)\n* [Servo X1 Motor](/docs/products/acservox1-a)\n* [Buzzer for Generating Sounds & Melodies](/docs/products/sobuzzer-b)\n* [Light Sensor](/docs/products/selight-a)\n* [USB Hook](/docs/products/adusbhook-a) for Connecting Modules Directly to USB\n* Temperature Sensor - Part of the core chip on all modules. \n* [Holey Board for Mounting Modules](/docs/products/axholey)\n* [Mounting Hardware Variety Pack](/docs/products/axmnt)\n* [Cables Variety Pack](/docs/products/axcbl) (10 cables)\n* USB C Cable\n* Storage Box\n\n<div style={{ width: '50%', margin: 'auto', textAlign: 'center'}}>![Storage Box](/img/catalog/ktessen-a-6.webp)</div>\n\n Modules mounted on the Holey Board conveniently fit inside the included Storage Box.",
       "keyFeatures": [
         "Most Common Modules",
         "USB Hook + Cable",
@@ -31,7 +31,7 @@
       "category": "Kit",
       "price": 79.95,
       "tagline": "Gimme More Modules, with Wireless Options!",
-      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have an amazing set of module options, that also includes [wireless](/docs/interface/wireless) connectivity. Build physical computing projects that you access directly from a PC using USB or Bluetooth a and code with your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). Use one of the adapters, such as [DuePi](/docs/products/adduepi-b), to expand your favorite [supported hardware](/docs/hw/intro) with new possibilities.\n\n The kit does not include a USB cable because the USB Stick has a Type A connector that can plug directly in. A USB extension cable can be used when needed. \n\nKit Content:\n\n* [Wireless ESP32 Connectivity Module](/docs/products/wlesp32-a)\n* [7x Tactile Button Module](/docs/products/hibuttons7-a)\n* [12x8 LED Matrix](/docs/products/ldmt1208-a)\n* [Fan Motor](/docs/products/acfan-b)\n* [3-Axis Accelerometer](/docs/products/seaccel-a)\n* [Retro Sound 3.5mm Audio Jack](/docs/products/soretrosnd-a)\n* [Holey Board for Mounting Modules](/docs/products/axholey)\n* [USB Stick for Connecting Modules Directly to USB](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n*  [Mounting Hardware Variety Pack](/docs/products/axmnt)\n* [Cables Variety](/docs/products/axcbl) (10 cables)\n* Storage Box \n\n<div style={{ width: '50%', margin: 'auto', textAlign: 'center'}}>![Storage Box](/img/catalog/ktgimme-a-6.webp)</div>\n\n Modules mounted on the Holey Board conveniently fit inside the included Storage Box.",
+      "description": "Use this kit alone or add it to the [Essential Module](/docs/products/ktessen-a) Kit! Either way, you have a versatile set of modules, including [wireless](/docs/interface/wireless) connectivity. Access from a [computer](/docs/hw/pc-laptop) using USB or Bluetooth and code with your favorite [coding language](/docs/language/intro), such as [Python](/docs/language/python). DUELink modules are compatible a long list of [supported hardware](/docs/hw/intro) options.\n\n No USB cable is not included as `USB Stick` can plug directly into a USB connector. A standard USB extension cable can be used when needed. \n\nKit Content:\n\n* [Wireless ESP32 Connectivity Module](/docs/products/wlesp32-a)\n* [7x Tactile Button Module](/docs/products/hibuttons7-a)\n* [12x8 LED Matrix](/docs/products/ldmt1208-a)\n* [Fan Motor](/docs/products/acfan-b)\n* [3-Axis Accelerometer](/docs/products/seaccel-a)\n* [Retro Sound 3.5mm Audio Jack](/docs/products/soretrosnd-a)\n* [Holey Board for Mounting Modules](/docs/products/axholey)\n* [USB Stick for Connecting Modules Directly to USB](/docs/products/adusbstick-a)\n* Temperature Sensor - Part of the core chip on all modules. \n*  [Mounting Hardware Variety Pack](/docs/products/axmnt)\n* [Cables Variety](/docs/products/axcbl) (10 cables)\n* Storage Box \n\n<div style={{ width: '50%', margin: 'auto', textAlign: 'center'}}>![Storage Box](/img/catalog/ktgimme-a-6.webp)</div>\n\n Modules mounted on the Holey Board conveniently fit inside the included Storage Box.",
       "keyFeatures": [
         "More Common Modules",
         "USB Stick",
@@ -47,7 +47,7 @@
       "category": "Kit",
       "price": 99.95,
       "tagline": "A low-cost Classroom STEM kit with cables",
-      "description": "[Educators](/docs/educators) are able to STEMify an entire classroom, when students team-up to use 14x [CincoBit](/docs/products/mccincobit-e) boards for under $100! This kit also includes 14x USB cables and 2x storage boxes.\n\n:::tip\nBoards ship preloaded with [MicroBlocks'](/docs/language/microblocks) firmware.\n:::",
+      "description": "[Educators](/docs/educators) are able to STEMify an entire classroom, when students team-up to use 14x [CincoBit](/docs/products/mccincobit-e) boards for under $100! This kit also includes 14x USB cables and 2x storage boxes.",
       "keyFeatures": [
         "14x CincoBit Boards",
         "14x USB Cables",
@@ -61,7 +61,7 @@
       "category": "Microcomputer",
       "price": 7.95,
       "tagline": "A low-cost, micro:bit inspired educational board",
-      "description": "[Educators](/docs/educators) will find great value in this low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip connections and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.\n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::\n\n<div style={{ width: '50%', margin: 'auto', textAlign: 'center'}}>![Classroom Kit](/img/catalog/ktcincobit-e-1.webp)</div>\n\n[Classroom CincoBit Kit](/docs/products/ktcincobit-e) is designed for classrooms on a budget, where an entire classroom of students can double-up and use a set of 14 for under $100!\n\n:::tip\nThis board ships preloaded with [MicroBlocks'](/docs/language/microblocks) firmware.\n:::",
+      "description": "[Educators](/docs/educators) will find great value in this low-cost board. This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip pads and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.\n\nCincoBit can sense light and temperature, it has 2 user buttons, and can output visual feedback on the 5x5 LED matrix plus generate sounds using the on-board buzzer.\n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::\n\n<div style={{ width: '50%', margin: 'auto', textAlign: 'center'}}>![Classroom Kit](/img/catalog/ktcincobit-e-1.webp)</div>\n\n[Classroom CincoBit Kit](/docs/products/ktcincobit-e) is designed for classrooms on a budget, where an entire classroom of students can double-up and use a set of 14 for under $100!",
       "keyFeatures": [
         "5x5 LED Matrix",
         "micro:bit inspired edge connector",
@@ -81,7 +81,7 @@
       "category": "Microcomputer",
       "price": 16.95,
       "tagline": "micro:bit Form Factor with 128x64 OLED 0.96\" Display",
-      "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. You can now show sensor data right on the display! \n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
+      "description": "PixoBit upgrades [CincoBit](/docs/products/mccincobit-e) with a graphical display. [Educators](/docs/educators) can now show sensor data right on the display! \n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::\n\nPixoBit can sense light and temperature, it has 2 user buttons, and can output visual feedback on the OLED display plus generate sounds using the on-board buzzer.\n\n",
       "keyFeatures": [
         "128x64 OLED 0.96\" display",
         "Light Sensor",
@@ -121,7 +121,7 @@
       "category": "Microcomputer",
       "price": 9.95,
       "tagline": "Arduino form factor inspired DUELink mainboard",
-      "description": "Use the official DUELink engine firmware or use the [Arduino](/docs/hw/arduino) software IDE to program DueDuino.\n\nOf course, this is a DUELink board and [Downlink](/docs/interface/downlink) connector is ready for [Daisylinking](/docs/engine/daisylink) all of your modules.",
+      "description": "DueDuino is an Arduino compatible board. It can be codded using [Arduino](/docs/hw/arduino) IDE, or using any of the other supported [Coding Languages](/docs/language/intro).\n\nOf course, this is a DUELink board and [Downlink](/docs/interface/downlink) connector is ready for [Daisylinking](/docs/engine/daisylink) all of your modules.",
       "keyFeatures": [
         "Arduino form factor",
         "USB-C connector",
@@ -139,7 +139,7 @@
       "category": "Microcomputer",
       "price": 24.95,
       "tagline": "Complete All-in-One STEM Solution",
-      "description": "`Input -> Process -> Output` is how DueSTEM brings everything [educators](/docs/educators) need to demonstrate physical computing. There are 4 inputs and 4 outputs. The graphical display can be used to show sensor levels or for building games!\n\nExtend the board with sensors and actuators on the female pin-header and the [Downlink](/docs/interface/downlink) connector.\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
+      "description": "`Input -> Process -> Output` is how DueSTEM brings all [educators](/docs/educators) need to demonstrate physical computing. There are 4 inputs and 4 outputs. The graphical display can be used to show sensor levels or for building games!\n\nExtend the board with sensors and actuators on the female pin-header and the [Downlink](/docs/interface/downlink) connector.\n",
       "keyFeatures": [
         "128x64 OLED 0.96\" Display",
         "Temperature Sensor",
@@ -178,7 +178,7 @@
       "category": "Microcomputer",
       "price": 6.95,
       "tagline": "DIP24 Form Factor SMT DUELink SoM",
-      "description": "Start making your own DUELink modules using this Surface-Mountable DUELink SoM that is also DIP24 form-factor.\n\nBoth U and D connectors are included. The USB connections are also exposed if you want to add a USB connector, such as Stamp (for tiny board with USB).",
+      "description": "Start making your own DUELink modules and products using this Surface-Mountable DUELink SoM that is also DIP24 form-factor.\n\nBoth U and D connectors are included. The USB connections are also exposed if you want to wire a USB.",
       "keyFeatures": [
         "Uplink & Downlink DUELink connectors",
         "DIP24 form factor",
@@ -192,7 +192,7 @@
       "PID": "0x0C0002",
       "category": "Specialty",
       "tagline": "Tiny Robot-shaped Microcomputer",
-      "description": "Thinking about an exciting give-away for your next event customized with your logo?  This is Ghizzy Jr, quite possibly the smallest, cutest, and smartest keychain in the world! This mini robot-shaped pocket-sized microcomputer plugs right into a USB socket and is a programmable board with endless possibilities, thanks to its [Downlink](/docs/interface/downlink) connector. Start by controlling the full-color eyes and then start [daiylinking](/docs/engine/daisylink) any of the DUELink modules!\n\n Ghizzy can be commanded from one of the many supported [Coding Languages](/docs/language/intro), and it can run stand alone using [MicroBlocks](/docs/language/microblocks).\nGhizzy Jr is only available as a special order,  **customized with your artwork**. \n\nThe listed price is for an order of 500 pieces, with higher price for 250 pieces. Account for a 4-weeks lead-time. Please [Contact us](https://www.ghielectronics.com/contact/) for more information.\n\n:::note\n\n The \"legs\" are not a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
+      "description": "Thinking about an exciting give-away for your next event, that is customized with your logo?  This is Ghizzy Jr, quite possibly the smallest, cutest, and smartest keychain in the world! This mini robot-shaped pocket-sized microcomputer plugs right into a USB socket and is a programmable board with endless possibilities, thanks to its [Downlink](/docs/interface/downlink) connector. Start by controlling the full-color eyes and then start [daiylinking](/docs/engine/daisylink) any of the DUELink modules!\n\n Ghizzy can be commanded from one of the many supported [Coding Languages](/docs/language/intro), and it can run stand alone using [MicroBlocks](/docs/language/microblocks).\nGhizzy Jr is only available as a special order,  **customized with your artwork**. \n\nThe listed price is for an order of 500 pieces, with higher price for 250 pieces. Account for a 4-weeks lead-time. Please [Contact us](https://www.ghielectronics.com/contact/) for more information.\n\n:::note\n\n The \"legs\" are not a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::",
       "keyFeatures": [
         "2x RGB LEDs",
         "Downlink DUELink Connector",
@@ -216,7 +216,7 @@
       "category": "Specialty",
       "price": 9.95,
       "tagline": "Robot-shaped Microcomputer",
-      "description": "Tiny robot-shaped circuits with LEDs, buzzer, and buttons.\n\nEverything you need to get started is found at: [ghizzy.duelink.com](https://ghizzy.duelink.com/)\n\n:::note\n\n The \"legs\" are not a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
+      "description": "Tiny robot-shaped circuits with LEDs, buzzer, and buttons.\n\nEverything you need to get started is found at: [ghizzy.duelink.com](https://ghizzy.duelink.com/)\n\n:::note\n\n The \"legs\" are not a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::",
       "keyFeatures": [
         "2x RGB LEDs",
         "2x ear & 3x mouth LEDs",
@@ -564,7 +564,8 @@
         "9G micro servo included",
         "Self-powered",
         "37x31mm overall dimension"
-      ]
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `ServoX1(a)` |Sets servo to `a` angle."
     },
     {
       "name": "Servo P8",
@@ -573,7 +574,7 @@
       "category": "Actuator",
       "price": 14.95,
       "tagline": "8x Servo Motor Controller",
-      "description": "Control up to 8x servo motors. Daisylink multiple Servo-P8 for controlling hundreds of servo motors!",
+      "description": "Control up to 8x servo motors. Power is provided to servos via a terminal block. Use a votage source that is compatible with used servos. Daisylink multiple Servo-P8 for controlling hundreds of servo motors!",
       "keyFeatures": [
         "8x servo motor connections",
         "Eight 3-pin male headers",
@@ -859,7 +860,8 @@
         "7x 5x5mm buttons",
         "6x LEDs",
         "32x42mm overall dimension"
-      ]
+      ],
+      "driverApi": "Function | Description \n---|---\n`BtnS7Rd(a)` | Read button `a` as U,D,L,R,B,F,E and returns button status. \n\n`BtnPin(a)` | Read button `a` as U,D,L,R,B,F,E and returns 1-7 pin number. \n`SetLed(a,v)` | Sets button led `a` as U,D,L,R,B,F,E, `v` 0=off 1=on \n `DVer()` | This driver version."
     },
     {
       "name": "Button L",
@@ -887,7 +889,8 @@
         "7x 10x10mm buttons",
         "6x LEDs",
         "52x67mm overall dimension"
-      ]
+      ],
+      "driverApi": "Function | Description \n---|---\n`BtnS7Rd(a)` | Read button `a` as U,D,L,R,B,F,E and returns button status. \n\n`BtnPin(a)` | Read button `a` as U,D,L,R,B,F,E and returns 1-7 pin number. \n`SetLed(a,v)` | Sets button led `a` as U,D,L,R,B,F,E, `v` 0=off 1=on \n `DVer()` | This driver version."
     },
     {
       "name": "Joystick L",
@@ -1036,7 +1039,7 @@
       "category": "Storage",
       "price": 19.95,
       "tagline": "USB Host Controller",
-      "description": "USB host controller for connecting USB peripherals",
+      "description": "USB host controller for connecting USB peripherals. Full file system facilities are provided, see [File System](/docs/engine/filesystem).",
       "keyFeatures": [
         "USB Host interface",
         "MSC Class",
@@ -1168,7 +1171,7 @@
       "category": "Sensor",
       "price": 6.95,
       "tagline": "Ambient Light Sensor",
-      "description": "A good sensor for detecting daytime or when lights are turned on. This is not an accurate light level sensor, but provides overall ambient light levels.",
+      "description": "A good sensor for measuring overall ambient light levels.",
       "keyFeatures": [
         "Light sensor",
         "17x19mm overall dimension"
@@ -1182,7 +1185,7 @@
       "category": "Sensor",
       "price": 19.95,
       "tagline": "9DoF MEMS Sensor",
-      "description": "This 9DoF (Degrees of Freedom) MEMS (Micro Electro Mechanical System) sensor includes 3axis accelerometer, 3axis gyro, & 3axis magnetometer. The combination of these inputs can be used to get exact tilt and orientation.",
+      "description": "This 9 DoF (Degrees of Freedom) sensor includes 3-axis accelerometer, 3-axis gyro, & 3-axis magnetometer. The combination of these inputs can be used to calculte tilt and orientation.",
       "keyFeatures": [
         "3axis Accelerometer",
         "3axis Gyro",
@@ -1288,7 +1291,7 @@
       "category": "Sensor",
       "price": 11.95,
       "tagline": "PIR Motion Sensor",
-      "description": "PIR (Passive Infrared) motion sensors use light in its view to detect motion.",
+      "description": "PIR (Passive Infrared) motion sensors use insisible infrared light to detect motion.",
       "keyFeatures": [
         "Digital motion sensing",
         "27x22mm overall dimension"
@@ -1301,7 +1304,7 @@
       "PID": "0x06000D",
       "category": "Sensor",
       "tagline": "Air and Liquid Pressure Sensor",
-      "description": "Connect this sensor to your instrument using a tiny pipe to measure water/liquid pressure. Different ranges are available.",
+      "description": "Connect this sensor to your instrument using a tiny pipe to measure air and liquid pressure.",
       "keyFeatures": [
         "Air and liquid pressure",
         "Measure pressure",
@@ -1583,7 +1586,7 @@
         "Standard 3.5mm audio connector",
         "27x22mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetPin()()` | return pin used. |\n| `SetLVol(v)` | Set left volume |\n| `SetRVol(v)` | Set right volume |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetPin()` | returns pin, to be used with standard library sound functions. |\n| `SetLVol(v)` | Set left volume |\n| `SetRVol(v)` | Set right volume |\n| `LaserSfx(v)` | Laser Sound Effect |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "MP3",
