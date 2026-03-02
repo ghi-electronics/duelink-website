@@ -41,6 +41,8 @@ Not all types support both direct and buffered modes. See individual modes for s
 
 ## Drawing
 
+Depending on the graphics configuration, these drawing functions can either draw directly to the display, or draw to an internal buffer than can then be shown using the `Show()` method.
+
 Function | Description
 --- | --- |
 `Clear(color)` | Clear the buffer to `color`.
@@ -55,8 +57,16 @@ Function | Description
 `Img({image}, x, y, w, h, transform)`  | Draw an `image` at `x`,`y` with `transform`: 0 = none, 1 = 90 deg, 2 = 180 deg, 3 = 270 deg, 4 = Flip horz, 5 = Flip vert.
 `ImgS({image}, x, y, w, h, transform, scaleWidth, scaleHeight)` | Same as `Img()` but adds `scaleWidth` and `scaleHeight`.
 `ImgB([image], color, x, y, w, h)` | Send binary array `image`data, with `color`, starting at `x`,`y` with `width` and `height`.
-`Show()` | Show graphics buffer on the configured device.
 `Show565([image], x, y, w, h, hscale, vscale)` | Shows a 5:6:5 color `image` that has a `w` width and `h` height at `x` and `y`, with scaling. This function only works on SPI displays in direct mode.
+`Show()` | Transfer and show the graphics buffer onto the configured device.
+
+Scripts running on a module itself can access these functions directly, using `Text("DUELink",1,5,5)`. Supported coding languages libraries include wrappers for accessing the graphics functions, like `duelink.Graphics.Text("DUELink",1,5,5)`. The module itself can also run in host mode and send the commands to other daisylinked modules `Cmd("Text(\"DUELink\",1,5,5)")`
+
+:::tip
+In direct mode, drawing goes directly on the display, where `Show()` doesn't do anything.
+:::
+
+These are a few samples showing how to use graphics in multiple languages. The samples assume the module was loaded with the [Driver Script](./drivers) which has the graphics configuration.
 
 <details>
   <summary>Samples</summary>
@@ -73,10 +83,10 @@ Function | Description
 <TabItem value="script">
 ```py
 # Clear screen with black color
-Clear(1)
+Clear(0)
 
-# draw text white color, at x = 5, y = 5, scale width = 1, scale height = 1
-TextS("DUELink", 0, 5,5,1,1)
+# draw text white color, at x = 5, y = 5
+Text("DUELink",1,5,5)
 
 # flush to screen
 Show()
@@ -85,10 +95,10 @@ Show()
 <TabItem value="py">
 ```py
 # Clear screen with black color
-duelink.Graphics.Clear(1)
+duelink.Graphics.Clear(0)
 
-# draw text white color, at x = 5, y = 5, scale width = 1, scale height = 1
-duelink.Graphics.Texts("DUELink", 0, 5,5,1,1)
+# draw text white color, at x = 5, y = 5
+duelink.Graphics.Text("DUELink",1,5,5,1,1)
 
 # flush to screen
 duelink.Graphics.Show()
@@ -97,10 +107,10 @@ duelink.Graphics.Show()
 <TabItem value="js">
 ```js
 // Clear screen with black color
-await duelink.Graphics.Clear(1)
+await duelink.Graphics.Clear(0)
 
-// draw text white color, at x = 5, y = 5, scale width = 1, scale height = 1
-await duelink.Graphics.Texts("DUELink", 0, 5,5,1,1)
+// draw text white color, at x = 5, y = 5
+await duelink.Graphics.Text("DUELink",1,5,5)
 
 //flush to screen
 await duelink.Graphics.Show()
@@ -109,10 +119,10 @@ await duelink.Graphics.Show()
 <TabItem value="arduino">
 ```cpp
 // Clear screen with black color
-duelink.Graphics.Clear(1);
+duelink.Graphics.Clear(0);
 
-// draw text white color, at x = 5, y = 5, scale width = 1, scale height = 1
-duelink.Graphics.Texts("DUELink", 0, 5,5,1,1);
+// draw text white color, at x = 5, y = 5
+duelink.Graphics.Text("DUELink",1,5,5,1,1);
 
 // flush to screen
 duelink.Graphics.Show();
@@ -121,10 +131,10 @@ duelink.Graphics.Show();
 <TabItem value="micropy">
 ```py
 # Clear screen with black color
-duelink.Graphics.Clear(1)
+duelink.Graphics.Clear(0)
 
-# draw text white color, at x = 5, y = 5, scale width = 1, scale height = 1
-duelink.Graphics.Texts("DUELink", 0, 5,5,1,1)
+# draw text white color, at x = 5, y = 5
+duelink.Graphics.Text("DUELink",1,5,5,1,1)
 
 # flush to screen
 duelink.Graphics.Show()
@@ -133,10 +143,10 @@ duelink.Graphics.Show()
 <TabItem value="dotnet">
 ```cs
 // Clear screen with black color
-duelink.Graphics.Clear(1);
+duelink.Graphics.Clear(0);
 
-// draw text white color, at x = 5, y = 5, scale width = 1, scale height = 1
-duelink.Graphics.Texts("DUELink", 0, 5,5,1,1);
+// draw text white color, at x = 5, y = 5
+duelink.Graphics.Text("DUELink",1,5,5,1,1);
 
 // flush to screen
 duelink.Graphics.Show();
@@ -145,21 +155,32 @@ duelink.Graphics.Show();
 </Tabs>
 </details>
 
+
+---
+
+## Smart Displays!
+
+Some applications require several graphics updates every second. In this case, it is best to to load a display with a script that updates the graphics internally, to build the user interface. For example, a thermostat smart display demo can use the screen get the user's desired temperature. The desired temperature can then for example be stored in `_t` variable. You now can read the `_t` variable, from Python for example `temperature = Engine.ExecuteCommand("_t")`.
+
+This is also the case when needing to draw images, as sending buffers over the Daisylink connection may not be desired. In this case, the image data is stored and drawn within the display module itself.
+
 ---
 
 ## Color
 
-All color arguments take 24BPP format RRGGBB, similar to what is used on the web. When using direct mode, the full color is used. 
+All color arguments take 24BPP format RRGGBB, similar to what is used on the web. 
+
+When using direct mode, the full color is used and drawn on the display directly. However, in buffered graphics mode, the system reduces the color depth from 24BPP to 8BPP 3R3G2B (256 colors). Those pixels are then stored (bufferd) in memory. Calling `Show()` transfers the graphics memory to the display.
+
+Neopixel graphics mode is an exception here as it always buffers/draws in full 24BPP color depth.
+
+To simplify working with black and white displays, color 1 is a special color that results in white 0xFFFFFF. `Clear(1)` and `Clear(0xFFFFFF)` do the exact same thing, clearing the display to full white.
 
 :::tip
-In direct mode, drawing goes directly on the display, where `Show()` doesn't do anything.
+With  8BPP 3R3G2B, Red and Green are 3 bits, giving you 8 levels each (7 levels plus off). Blue is 2 bits, giving you 4 levels (3 levels plus off). 256/7= 36 => Red and Green change every 36 steps. 256/3=85 => Blue color changes every 85 steps.
 :::
 
-In buffered graphics mode, the system stores pixels as 8BPP 3R3G2B (256 colors). The 8BPP is scaled from 24BPP RRGGBB. Color pallette is not supported. The exception to this is Neopixel, which is always buffered and full 24BPP color.
-
-Red and Green are 3 bits, giving you 8 levels each (7 levels plus off). Blue is 2 bits, giving you 4 levels (3 levels plus off). 256/7= 36 => Red and Green change every 36 steps. 256/3=85 => Blue color changes every 85 steps.
-
-You can do 255 colors in 8BPP, but here are 16 common color examples:
+While you can do 255 colors in 8BPP, here are 16 common color examples:
 
 
 <table>
@@ -245,10 +266,6 @@ You can do 255 colors in 8BPP, but here are 16 common color examples:
   </tr>
 </table>
 
-
-:::tip
-Color 1 is a special color that results in white 0xFFFFFF, useful for code samples that work on both color and B&W displays.
-:::
 
 ---
 
