@@ -13,7 +13,7 @@ fn Init()
 fend
 
 fn Mode(m)
-    SpiCfg(0, 12000)
+    SpiCfg(0, 24000)
     _m=m
 
     If m = 0 # buffered
