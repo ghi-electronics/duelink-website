@@ -12,7 +12,7 @@ fn Init(m)
     DWrite(17,0)
     Wait(10)
     DWrite(17,1)
-    SpiCfg(0, 8000)
+    SpiCfg(0, 24000)
  
     _m=m
  
