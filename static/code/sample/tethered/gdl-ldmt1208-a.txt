@@ -1,0 +1,34 @@
+# In this sample:
+# Display "DUELink" and scroll the text across the screen 
+
+DLMode(2,0) # Switch Downlink to host mode
+Wait(100) # This delay is more than enough for 50x modules
+cmd("sel(1)")#Select First Module
+    
+fn _clear(c)
+    cmd(fmt("clear(",c,")"))
+fend
+
+fn _show()
+    cmd("show()")
+fend
+
+fn _text(b1,c,x,y)
+    dim b0[100]
+    
+    sprintf(b0, "text(\"%s\",%d,%d,%d)", b1, c, x, y)
+    cmd(b0)
+fend
+
+_x = 12
+while 1
+    _clear(0)
+    _text("DUELink", 1, _x, 0)
+    _show()
+
+    _x=_x-1 
+    if(_x < -42)
+        _x = 12
+    end
+    wait(30)
+wend
