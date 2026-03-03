@@ -1,0 +1,43 @@
+# In this sample:
+# Set background to WHITE color
+# Draw text and circle
+
+DLMode(2,0) # Switch Downlink to host mode
+Wait(100) # This delay is more than enough for 50x modules
+cmd("sel(1)")#Select First Module
+    
+fn _Clear(c)
+    cmd(fmt("clear(",c,")"))
+fend
+
+fn _Circle(c,x,y,r)
+    cmd(fmt("circle(",c,",",x,",",y,",",r,")"))
+fend
+
+fn _TextS(b1,c,x,y,w,h)
+    dim b0[100]
+    sprintf(b0, "textS(\"%s\",%d,%d,%d,%d,%d)", b1, c, x, y,w,h)
+    cmd(b0)
+fend
+
+fn _Show()
+    cmd("show()")
+fend
+ 
+_x = 0
+_d = -9
+
+dim b1[50]
+
+while 1
+    _Clear(1) 
+    _TextS("DUELink", 0, 25, 5, 2, 2)
+    sprintf(b1,"x = %d",_x)
+    _TextS(b1, 0, 30, 25, 2, 2)
+    _Circle(0, _x, 50, 5)
+    _x=_x+_d
+    if(_x < 0 || _x > 128)
+        _d = _d * -1
+    end
+    _Show()
+wend
