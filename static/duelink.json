@@ -418,7 +418,7 @@
         "240x240",
         "47x47mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(m)` | Initialize the display. Automatically called on power up `m`mode to (1-direct, 0-buffered (default)). |\n| `GetW()` | Get display width: 80 in buffered, 240 in direct. |\n| `GetH()` | Get display height: 80 in buffered, 240 in direct. |\n| `IsColor()` | Returns 1. |\n| `TouchX()` | Returns touch x. |\n| `TouchY()` | Returns touch y. |\n| `DVer()` | This driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(m)` | Initialize the display. Automatically called on power up `m`mode to (1-direct, 0-buffered (default)). |\n| `GetW()` | Get display width: 80 in buffered, 240 in direct. |\n| `GetH()` | Get display height: 80 in buffered, 240 in direct. |\n| `IsColor()` | Returns 1. |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "ePaper M42",
@@ -465,8 +465,7 @@
         "HDMI interface",
         "BT817Q graphics processor",
         "Dedicated graphics processor and memory",
-        "90\" TV screen support",
-        "Graphics coprocessor drawing (not internal graphics engine)",
+        "Graphics coprocessor drawing",
         "57x77mm overall dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start. |\n| `DLClear()` | Clear the commands. |\n| `DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments. |\n| `DLSwap()` | Execute the graphics commands and swap working buffers. |\n| `DVer()` | This driver version. |",

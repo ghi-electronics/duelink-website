@@ -605,7 +605,8 @@ ${(product.keyFeatures || []).map(f => `• ${f}<br/>`).join('\n')}
 </td><td width='50%'>
 ${resourcesSection}${pidSection}<br/>
 </td></table>
-Our <a href="/docs/what-is">Cableless Green Initiative</a> 🌿
+
+Cables are not always included, see our <a href="/docs/what-is">Cableless Green Initiative</a> 🌿
 
 </TabItem>
 ${driverTabContent}
