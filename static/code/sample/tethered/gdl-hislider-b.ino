@@ -27,7 +27,7 @@ void loop() {
     }
 
     char msg[64];
-    snprintf(msg, sizeof(msg), "Value: %d", Slide());
+    snprintf(msg, sizeof(msg), "Value: %f", Slide());
     Serial.println(msg);
 
     delay(1000);
