@@ -29,12 +29,6 @@ function HomepageHeader() {
             to="/docs/what-is">
             What's DUELink?
           </Link>
-           &nbsp;&nbsp;&nbsp;
-          <Link
-            className="button button--secondary"
-            to="/docs/catalog/products">
-            Product Catalog
-          </Link>
         </div>
       </div>
     </header>

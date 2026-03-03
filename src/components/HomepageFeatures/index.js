@@ -76,6 +76,7 @@ export default function HomepageFeatures() {
         </Heading>
         <p>Sensors, actuators, displays, and everything in between</p>
         <img src="/img/duelink-modules.webp" alt="DUELink" />
+        <a class="button button--primary" href="/docs/catalog/products">Product Catalog</a>
         <hr/>
         <div className="row">
           {FeatureList.map((props, idx) => (

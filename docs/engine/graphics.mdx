@@ -170,7 +170,7 @@ This is also the case when needing to draw images, as sending buffers over the D
 
 All color arguments take 24BPP format RRGGBB, similar to what is used on the web. 
 
-When using direct mode, the full color is used and drawn on the display directly. However, in buffered graphics mode, the system reduces the color depth from 24BPP to 8BPP 3R3G2B (256 colors). Those pixels are then stored (bufferd) in memory. Calling `Show()` transfers the graphics memory to the display.
+When using direct mode, the full color is used and drawn on the display directly. However, in buffered graphics mode, the system reduces the color depth from 24BPP to 8BPP 3R3G2B (256 colors). Those pixels are then stored (buffered) in memory. Calling `Show()` transfers the graphics memory to the display.
 
 Neopixel graphics mode is an exception here as it always buffers/draws in full 24BPP color depth.
 
