@@ -32,6 +32,13 @@
   },
   "projects": [
     {
+      "name": "Adding Industrial Modbus Adaptors",
+      "description": "A fast way to add measure and control",
+      "tags": ["python", "javascript", "micropython", "dotnet", "script" ],
+      "link": "https://forums.ghielectronics.com/t/adding-industrial-modbus-adaptors/26237",
+      "image": "modbus.jpg"
+    },
+    {
       "name": "Powering up Using a Coin-cell Battery",
       "description": "Some modules can easily be wired to a coin-cell",
       "tags": ["mechanics"],
