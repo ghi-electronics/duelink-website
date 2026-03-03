@@ -103,32 +103,11 @@
       "image": "duelink-stemma-qwiic.webp"
     },
     {
-      "name": "Fan: Follow Me -PC!",
-      "description": "Create a PC `sonar` to detect objects and move the fan",
-      "tags": ["pc", "python", "javascript","dotnet"],
+      "name": "Multilingual Sonar Detection System",
+      "description": "Create a multilingual `sonar` to detect objects and move a fan",
+      "tags": ["script", "arduino-hw", "pc", "python", "javascript","dotnet"],
       "link": "https://github.com/ghi-electronics/duelink-projects/tree/main/source/fan-follow-me",
-      "image": "fan-follow-me-pc.webp"
-    },
-    {
-      "name": "Fan: Follow Me -MicroPython",
-      "description": "Create a MicroPython `sonar` to detect objects and move the fan",
-      "tags": ["micropython","raspberrypi"],
-      "link": "https://github.com/ghi-electronics/duelink-projects/blob/main/source/fan-follow-me/micropython",
-      "image": "fan-follow-me-mpy.webp"
-    },
-    {
-      "name": "Fan: Follow Me -Script",
-      "description": "Create a Script `sonar` to detect objects and move the fan",
-      "tags": ["script"],
-      "link": "https://github.com/ghi-electronics/duelink-projects/blob/main/source/fan-follow-me/script",
-      "image": "fan-follow-me-script.webp"
-    },
-    {
-      "name": "Fan: Follow Me -Arduino",
-      "description": "Create an Arduino `sonar` to detect objects and move the fan",
-      "tags": ["arduino-hw"],
-      "link": "https://github.com/ghi-electronics/duelink-projects/blob/main/source/fan-follow-me/arduino",
-      "image": "fan-follow-me-duino.webp"
+      "image": "fan-follow-me.webp"
     },
     {
       "name": "Scripting SparkFun Qwiic modules",
