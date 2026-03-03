@@ -92,7 +92,7 @@
       "name": "Arduino boards with DUELink",
       "description": "Connect Arduino boards to Modulino & DUELink Modules",
       "tags": ["arduino-hw", "arduino-ide"],
-      "link": "#",
+      "link": "https://forums.ghielectronics.com/t/arduino-boards-with-duelink/26238",
       "image": "arduino-modulino-duelink.webp"
     },
     {
