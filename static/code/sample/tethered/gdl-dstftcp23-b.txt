@@ -1,0 +1,50 @@
+# In this sample:
+# _t = 0: Draw different circles on the screen in various colors.
+# _t = 1: For touch version only. Draw a red circle at the detected touch coordinates (x, y).
+
+DLMode(2,0) # Switch Downlink to host mode
+Wait(100) # This delay is more than enough for 50x modules
+cmd("sel(1)")
+
+fn Init(m,o)
+    return cmd(fmt("Init(",m,",",o,")"))
+fend
+
+fn _Clear(c)
+    cmd(fmt("clear(",c,")"))
+fend
+
+fn _Circle(c,x,y,r)
+    cmd(fmt("circle(",c,",",x,",",y,",",r,")"))
+fend
+
+fn _Show()
+    cmd("show()")
+fend
+
+fn GetH()
+   return cmd("getH()")
+fend
+
+fn GetW()
+   return cmd("getW()")
+fend
+
+_Clear(0)
+_i = 50
+_d = 10
+_w = GetW()
+
+while 1
+    _Circle(0xFF0000,_i,GetH()/2-40,10)
+    _Circle(0x00ff00,_i,GetH()/2-20,10)
+    _Circle(0x0000ff,_i,GetH()/2,10)
+    _Circle(0xFFffff,_i,GetH()/2+20,10)
+    _Show()
+    _i=_i+_d
+    if (_i > _w || _i <0)
+        _d = _d * -1
+        _Clear(0)
+    end
+    Wait(1)
+wend
