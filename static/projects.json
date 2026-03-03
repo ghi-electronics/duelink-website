@@ -106,7 +106,7 @@
       "name": "Multilingual Sonar Detection System",
       "description": "Create a multilingual `sonar` to detect objects and move a fan",
       "tags": ["script", "arduino-hw", "pc", "python", "javascript","dotnet"],
-      "link": "https://github.com/ghi-electronics/duelink-projects/tree/main/source/fan-follow-me",
+      "link": "https://forums.ghielectronics.com/t/multilingual-sonar-detection-system/26239",
       "image": "fan-follow-me.webp"
     },
     {
