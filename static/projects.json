@@ -23,7 +23,6 @@
         "Espressif": { "displayName": "Espressif", "icon": "espressif.svg" },
         "microbit": { "displayName": "micro:bit", "icon": "microbit.svg" },
         "arcade": { "displayName": "Arcade", "icon": "arcade.svg" },
-        "beagleboard": { "displayName": "BeagleBoard", "icon": "beagleboard.svg" },
         "pc": { "displayName": "PC/Laptop", "icon": "pc.svg" },
         "phone": { "displayName": "Phone/Tablet", "icon": "phone.svg" },
         "mechanics": { "displayName": "Mechanics", "icon": "wrench.svg" }
