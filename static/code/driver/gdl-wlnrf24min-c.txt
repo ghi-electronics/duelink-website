@@ -142,12 +142,12 @@ fn ReadPl(b1)
  
 fend
  
-fn SetMode(m, b1, a, p)
+fn SetMode(m, b1, a, p, b)
     # m: 1 = RX, 0 = TX
     # b1: address array
     # a: auto-ack (0/1)
     # p: RX pipe number (0–5)
-
+    # b: baudrate (0=250k, 1=1M, 2=2M)
     dwrite(ce, 0)
 
     # Address width
@@ -162,6 +162,24 @@ fn SetMode(m, b1, a, p)
 
     # Clear IRQ flags
     WriteReg(0x07, 0x70)
+    
+    # Set data rate
+    r = ReadReg(0x06)
+
+    # clear rate bits (RF_DR_LOW + RF_DR_HIGH)
+    r = r & (~0x28)
+
+    if (b = 0)
+        # 250 kbps
+        r = r | 0x20
+    elseif (b = 2)
+        # 2 Mbps
+        r = r | 0x08
+    else
+        # default 1 Mbps
+    end
+
+    WriteReg(0x06, r)
 
     # -------------------------------------------------
     # VERY IMPORTANT: Always configure TX path
@@ -398,5 +416,3 @@ fend
 fn DVer()
     return 1.0
 fend
-
-Init()
