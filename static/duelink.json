@@ -477,7 +477,7 @@
       "PID": "0x010003",
       "category": "Display",
       "tagline": "20x4 Character Display",
-      "description": "Print up to 20 characters over 4 rows on this character display.",
+      "description": "Print up to 20 characters over 4 rows on this character display, available in different color options.\n\n<div style={{ textAlign: 'center'}}>![Count and Time](/img/lcd-20x4-options.webp)</div>",
       "keyFeatures": [
         "20 Characters by 4 Rows",
         "112x62mm overall dimension"
