@@ -278,7 +278,6 @@ const sidebars = {
         "hw/espressif",
         "hw/microbit",
         "hw/arcade",
-        "hw/beagleboard",
         "hw/pc-laptop",
         "hw/phone-tablet",
         "hw/beyond",

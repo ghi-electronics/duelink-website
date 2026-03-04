@@ -502,12 +502,12 @@
       "PID": "0x010002",
       "category": "Display",
       "tagline": "16x2 Character Display",
-      "description": "Print up to 16 characters over 2 rows on this character display.",
+      "description": "Print up to 16 characters over 2 rows on this character display, available in different color options.\n\n<div style={{ textAlign: 'center'}}>![Count and Time](/img/lcd-16x2-options.webp)</div>",
       "keyFeatures": [
         "16 Characters by 2 rows",
         "97x37mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |\n\n<div style={{ textAlign: 'center'}}>![Count and Time](/img/lcd-16x2-options.webp)</div>",
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version.|",
       "variations": [
         {
           "name": "Yellow",
