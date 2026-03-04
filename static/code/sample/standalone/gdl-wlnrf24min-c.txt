@@ -15,7 +15,7 @@ fn DoHost()
     # [1,2,3,4,5] : 5 bytes address 0x12345
     # 1: Ack enable
     # 0: This ignored. ACK on TX always use pipe0
-    # 0: 250Kps
+    # 0: 250kps
     SetMode(0, [1,2,3,4,5], 1, 0,0)
 
     dim b1[] = "I am Host"   # TX buffer
@@ -63,8 +63,8 @@ fn DoClient()
     # [1,2,3,4,5] : 5 bytes address 0x12345
     # 1: Ack enable
     # 1: use pipe 1 for rx
-    # 0: 250Kps
-    SetMode(1, [1,2,3,4,5], 1, 1,0) 
+    # 0: 250kps
+    SetMode(1, [1,2,3,4,5], 1, 1,0)
 
     dim b1[] = "I am Client"   # TX buffer
     dim b2[32]                 # RX buffer

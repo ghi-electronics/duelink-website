@@ -148,100 +148,102 @@ fn SetMode(m, b1, a, p, b)
     # a: auto-ack (0/1)
     # p: RX pipe number (0–5)
     # b: baudrate (0=250k, 1=1M, 2=2M)
+
     dwrite(ce, 0)
 
     # Address width
     WriteReg(0x03, len(b1) - 2)
 
-    # Auto-ACK configuration
+    # Auto ACK configuration
     if a = 1
-        WriteReg(0x01, 0x3F)     # enable AA on all pipes
+        WriteReg(0x01, 0x3F)
     else
-        WriteReg(0x01, 0x00)     # disable AA
+        WriteReg(0x01, 0x00)
     end
 
     # Clear IRQ flags
     WriteReg(0x07, 0x70)
-    
-    # Set data rate
+
+    # -------------------------------------------------
+    # Configure RF_SETUP (rate + power)
+    # -------------------------------------------------
+
     r = ReadReg(0x06)
 
-    # clear rate bits (RF_DR_LOW + RF_DR_HIGH)
+    # clear rate bits
     r = r & (~0x28)
 
+    # clear power bits
+    r = r & (~0x06)
+
+    # set max TX power
+    r = r | 0x06
+
     if (b = 0)
-        # 250 kbps
-        r = r | 0x20
+        r = r | 0x20     # 250 kbps
     elseif (b = 2)
-        # 2 Mbps
-        r = r | 0x08
-    else
-        # default 1 Mbps
+        r = r | 0x08     # 2 Mbps
     end
 
     WriteReg(0x06, r)
 
     # -------------------------------------------------
-    # VERY IMPORTANT: Always configure TX path
+    # Configure addresses
     # -------------------------------------------------
 
-    # TX_ADDR
-    setAddress(0x06, b1)
-
-    # RX_ADDR_P0 must equal TX_ADDR for ACK to work
-    setAddress(0x00, b1)
+    setAddress(0x06, b1)  # TX_ADDR
+    setAddress(0x00, b1)  # RX_ADDR_P0 (needed for ACK)
 
     # -------------------------------------------------
+    # RX MODE
+    # -------------------------------------------------
 
-    if (m = 1)        # ================= RX MODE =================
+    if (m = 1)
 
         if (p < 0 || p > 5)
             println("Invalid pipe")
             return
         end
 
-        # Enable selected RX pipe + pipe0 (ACK engine requires pipe0)
+        # Enable selected pipe + pipe0 for ACK
         WriteReg(0x02, (1 << p) | 0x01)
 
-        # Set RX address for selected pipe
+        # RX address for selected pipe
         setAddress(p, b1)
 
-        # Build CONFIG register
         r = 0
         r = r | (1 << 3)   # EN_CRC
-        r = r | (1 << 2)   # CRCO (2-byte CRC)
+        r = r | (1 << 2)   # CRCO
         r = r | (1 << 1)   # PWR_UP
-        r = r | (1 << 0)   # PRIM_RX = 1
+        r = r | (1 << 0)   # PRIM_RX
+
         WriteReg(0x00, r)
 
         Wait(5)
 
-        dwrite(ce, 1)      # Enter RX mode
+        dwrite(ce, 1)
 
-    else                  # ================= TX MODE =================
+    else
 
-        # Retry setup (1500us delay, 10 retries)
+    # -------------------------------------------------
+    # TX MODE
+    # -------------------------------------------------
+
+        # Retry setup
         WriteReg(0x04, (0x05 << 4) | 10)
 
-        # Enable pipe0 only (needed for ACK)
         if a = 1
-            WriteReg(0x02, 0x01)
+            WriteReg(0x02, 0x01)   # pipe0 for ACK
         else
             WriteReg(0x02, 0x00)
         end
 
-        # Max TX power
-        r = ReadReg(0x06)
-        r = r & (~0x06)
-        r = r | 0x06
-        WriteReg(0x06, r)
-
-        # Build CONFIG register
         r = 0
         r = r | (1 << 3)   # EN_CRC
         r = r | (1 << 2)
         r = r | (1 << 1)   # PWR_UP
         # PRIM_RX = 0
+
         WriteReg(0x00, r)
 
         Wait(5)
@@ -265,90 +267,61 @@ fend
 fn Init() 
     spicfg(0, 4000)
     Wait(100) # nRF24 ready after 100ms
-    # Check
- 
+
     dwrite(ce, 0)
- 
-    dim b2[3] = "GHI" # test online
+
+    # Check SPI communication
+    dim b2[3] = "GHI"
     dim b3[3]
-    WriteRegs(0x20 | 0x10, b2, 3) # nRF24_CMD_W_REGISTER | nRF24_REG_TX_ADDR
-    ReadRegs(0 | 0x10, b3, 3)
- 
-    for i = 0 to 3 
+
+    WriteRegs(0x20 | 0x10, b2, 3)   # write TX_ADDR
+    ReadRegs(0x10, b3, 3)
+
+    for i = 0 to 3
         if b2[i] != b3[i]
- 
             return 0
         end
     next
- 
-    # Init
-    WriteReg(0, 0x08)
-    WriteReg(1, 0x3F)
-    WriteReg(2, 0x03)
-    WriteReg(3, 0x03)
-    WriteReg(4, 0x03)
-    WriteReg(5, 0x02)
-    WriteReg(6, 0x0E)
-    WriteReg(7, 0x00)
-    WriteReg(0x11, 0x00) # no need if dynamic, but keep won't hurt
-    WriteReg(0x12, 0x00) # no need if dynamic, but keep won't hurt
-    WriteReg(0x13, 0x00) # no need if dynamic, but keep won't hurt
-    WriteReg(0x14, 0x00) # no need if dynamic, but keep won't hurt
-    WriteReg(0x15, 0x00) # no need if dynamic, but keep won't hurt
-    WriteReg(0x16, 0x00) # no need if dynamic, but keep won't hurt
-    # if fixed payload mode
-    #WriteReg(0x1C, 0x00)
-    #WriteReg(0x1D, 0x00)
-    # else
- 
-    # --- Start Enable Dynamic Payload Feature ---
+
+    # Basic register defaults
+    WriteReg(0x00, 0x08)  # CONFIG
+    WriteReg(0x01, 0x3F)  # EN_AA
+    WriteReg(0x02, 0x03)  # EN_RXADDR
+    WriteReg(0x03, 0x03)  # SETUP_AW (5 byte address)
+    WriteReg(0x04, 0x03)  # SETUP_RETR
+    WriteReg(0x05, 115)   # RF_CH
+    WriteReg(0x06, 0x0E)  # RF_SETUP (temporary default)
+    WriteReg(0x07, 0x00)  # STATUS
+
+    # Payload width registers (not used with dynamic payload but harmless)
+    WriteReg(0x11, 0)
+    WriteReg(0x12, 0)
+    WriteReg(0x13, 0)
+    WriteReg(0x14, 0)
+    WriteReg(0x15, 0)
+    WriteReg(0x16, 0)
+
+    # Enable dynamic payload feature
     dwrite(csn,0)
-    spiwr(0x50)       # ACTIVATE command
+    spiwr(0x50)       # ACTIVATE
     spiwr(0x73)
     dwrite(csn,1)
- 
+
     WriteReg(0x1D, 0x04)   # FEATURE: EN_DPL
-    #WriteReg(0x1C, 0x03)   # DYNPD: enable DPL on pipe 1 - If later you use pipe 0 instead, change 0x02 to 01.
-    WriteReg(0x1C, 0x3F)   # DYNPD: enable DPL on all pipes
-    # --- End Enable Dynamic Payload Feature --- 
- 
-    #nRF24_FlushRX
-    WriteReg(0xE2, 0xFF)
- 
-    #nRF24_FlushTX
-    WriteReg(0xE1, 0xFF)
- 
-    #ClrIrq() 
+    WriteReg(0x1C, 0x3F)   # DYNPD: enable dynamic payload on all pipes
+
+    # Flush FIFOs
+    WriteReg(0xE2, 0xFF)   # FLUSH_RX
+    WriteReg(0xE1, 0xFF)   # FLUSH_TX
+
+    # Clear IRQ flags
     r = ReadReg(0x07)
     r = r | 0x70
     WriteReg(0x07, r)
- 
-    # Release CSN
-    dwrite(csn, 1)
- 
-    #Disable ShockBurst for all RX pipes
-    # DisableAA(0xFF)
- 
-    #Set RF channel
-    WriteReg(0x05, 115)
- 
-    #Set data rate
-    #SetDrate(0) #nRF24_DR_1Mbps
-    r = ReadReg(0x06)
-    r = r & (~0x28)
-    r = r | 0
-    WriteReg(0x06, r)
- 
-    #Set CRC scheme
-    #setCrc(0xC) # 2 bytes
-    r = ReadReg(0)
-    r = r & (~0x0C)
-    r = r | (0xC & 0xC)
-    WriteReg(0, r)  
-    
-    # Init interrupt pin Input-PullUP
+
+    # interrupt pin input
     dread(intPin,1)
- 
+
     return 1
 fend
 
@@ -416,3 +389,5 @@ fend
 fn DVer()
     return 1.0
 fend
+
+Init()
