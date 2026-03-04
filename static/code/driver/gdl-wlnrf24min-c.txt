@@ -334,7 +334,7 @@ fn Init()
     return 1
 fend
 
-fn EnableRx(p)
+fn EnableRx(p, a)   # p = pipe, a = auto-ack (0/1)
 
     if (p < 0 || p > 5)
         println("Invalid pipe")
@@ -343,12 +343,21 @@ fn EnableRx(p)
 
     dwrite(ce, 0)
 
+    # Clear IRQ flags
     WriteReg(0x07, 0x70)
+
+    # Flush RX FIFO
     WriteReg(0xE2, 0xFF)
 
-    # Enable selected pipe AND pipe0 for ACK
-    WriteReg(0x02, (1 << p) | 0x01)
+    if (a = 1)
+        # enable selected pipe + pipe0 (needed for ACK return)
+        WriteReg(0x02, (1 << p) | 0x01)
+    else
+        # enable only selected pipe
+        WriteReg(0x02, (1 << p))
+    end
 
+    # PRIM_RX = 1 (RX mode)
     r = ReadReg(0x00)
     r = r | 1
     WriteReg(0x00, r)

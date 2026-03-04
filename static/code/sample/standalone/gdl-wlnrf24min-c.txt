@@ -10,7 +10,7 @@
 #DoHost()   
 #DoClient()
 
-fn DoHost() # TX first
+fn DoHost() 
     # 0: TX - Send
     # [1,2,3,4,5] : 5 bytes address 0x12345
     # 1: Ack enable
@@ -25,13 +25,13 @@ fn DoHost() # TX first
 
         println("HOST: Sending...")
 
-        EnableTx()
+        EnableTx(1) # enable ack
 
         if Transmit(b1, len(b1), 2000)
 
             println("HOST: TX OK, waiting reply")
 
-            EnableRx(1)
+            EnableRx(1,1) # Enable RX pipe 1, enable ack
 
             while (1)
                 if RxReady()
@@ -40,7 +40,7 @@ fn DoHost() # TX first
                 wait(1)
             wend
 
-            l = ReadPl(b2, 1)
+            l = ReadPl(b2)
             if l > 0
                 print("HOST RX: ")
                 for i = 0 to l
@@ -70,7 +70,7 @@ fn DoClient()
 
     while (1)
 
-        EnableRx(1)
+        EnableRx(1,1) # Enable RX pipe 1, enable ack
 
         println("CLIENT: Waiting for host...")
 
@@ -81,7 +81,7 @@ fn DoClient()
             wait(1)
         wend
 
-        l = ReadPl(b2, 1)
+        l = ReadPl(b2)
         if l > 0
             print("CLIENT RX: ")
             for i = 0 to l
@@ -92,7 +92,7 @@ fn DoClient()
 
         println("CLIENT: Replying...")
 
-        EnableTx()
+        EnableTx(1) # enable ack
 
         if Transmit(b1, len(b1), 2000)
             println("CLIENT: Reply OK")
