@@ -502,7 +502,7 @@
       "PID": "0x010002",
       "category": "Display",
       "tagline": "16x2 Character Display",
-      "description": "Print up to 16 characters over 2 rows on this character display. These displays come in two available color options, yellow or blue.\n\n<div style={{ textAlign: 'center'}}>![Count and Time](/img/lcd-16x2-options.webp)</div>",
+      "description": "Print up to 16 characters over 2 rows on this character display, available in different color options.\n\n<div style={{ textAlign: 'center'}}>![Count and Time](/img/lcd-16x2-options.webp)</div>",
       "keyFeatures": [
         "16 Characters by 2 rows",
         "97x37mm overall dimension"
