@@ -22,7 +22,6 @@
         "arduino-hw": { "displayName": "Arduino HW", "icon": "arduino.svg" },
         "Espressif": { "displayName": "Espressif", "icon": "espressif.svg" },
         "microbit": { "displayName": "micro:bit", "icon": "microbit.svg" },
-        "arcade": { "displayName": "Arcade", "icon": "arcade.svg" },
         "pc": { "displayName": "PC/Laptop", "icon": "pc.svg" },
         "phone": { "displayName": "Phone/Tablet", "icon": "phone.svg" },
         "mechanics": { "displayName": "Mechanics", "icon": "wrench.svg" }
@@ -30,6 +29,13 @@
     }
   },
   "projects": [
+     {
+      "name": "micro:bit Color Digital Tape Measure",
+      "description": "Use MakeCode to read the distance and show on a color display",
+      "tags": ["microbit", "makecode", "blocks" ],
+      "link": "https://forums.ghielectronics.com/t/micro-bit-color-digital-tapemeasure/26241",
+      "image": "microbit-tapemeasure.jpeg"
+    },
     {
       "name": "Adding Industrial Modbus Adaptors",
       "description": "A fast way to add measure and control",
