@@ -38,7 +38,7 @@ fn CPos(c, r)
         return 
     end
  
-    Command(0x80 | b0[r] | c)
+    Command(0x80 + b0[r] + c)
 fend
  
 fn Home()
@@ -66,20 +66,19 @@ fn Init()
     dwrite(5,1)
     Command(0x33)
     Command(0x32)
-    Command(0x0C)#on
-    
-    #Command(0x28)  # 4-bit, 2-line, 5x8 font
-    #Command(0x0C)  # display on, cursor off
-    #Command(0x06)  # entry mode
-    
-    
+
+ 
+    Command(0x28)  # 4-bit, 2-line, 5x8 font
+    Command(0x0C)  # display on, cursor off
+    Command(0x06)  # entry mode 
+ 
+ 
     Clr()
     wait(3)
 fend
  
 fn DVer()
-    return 1.0
+    return 1.1
 fend
  
 Init()
- 
