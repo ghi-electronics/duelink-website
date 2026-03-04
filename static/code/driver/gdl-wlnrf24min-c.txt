@@ -1,4 +1,3 @@
-##### Driver Code Starts Here ###
 Alias(ce=19,csn=16,intPin=1)
  
 fn WriteReg(r, v)
@@ -108,10 +107,11 @@ fn Transmit(b1, l,t) # b1: data array. l: length. t: timeout in ms
     return 0
 fend
  
-fn ReadPl(b1, d)
+fn ReadPl(b1)
     #Extract a payload pipe number from the STATUS register
     p = (ReadReg(0x07) & 0x0E) >> 1 # p is the pipe number that received the packet.
     l = 0
+    d = 1 # alway dynamic payload
     if (p < 6) 
         if (d) # dynamic payload
             # Read actual payload width
@@ -142,10 +142,9 @@ fn ReadPl(b1, d)
  
 fend
  
-fn SetMode(m, b1, s, a, p)
+fn SetMode(m, b1, a, p)
     # m: 1 = RX, 0 = TX
     # b1: address array
-    # s: payload length (ignored if dynamic payload)
     # a: auto-ack (0/1)
     # p: RX pipe number (0–5)
 
@@ -273,12 +272,12 @@ fn Init()
     WriteReg(5, 0x02)
     WriteReg(6, 0x0E)
     WriteReg(7, 0x00)
-    WriteReg(0x11, 0x00)
-    WriteReg(0x12, 0x00)
-    WriteReg(0x13, 0x00)
-    WriteReg(0x14, 0x00)
-    WriteReg(0x15, 0x00)
-    WriteReg(0x16, 0x00)
+    WriteReg(0x11, 0x00) # no need if dynamic, but keep won't hurt
+    WriteReg(0x12, 0x00) # no need if dynamic, but keep won't hurt
+    WriteReg(0x13, 0x00) # no need if dynamic, but keep won't hurt
+    WriteReg(0x14, 0x00) # no need if dynamic, but keep won't hurt
+    WriteReg(0x15, 0x00) # no need if dynamic, but keep won't hurt
+    WriteReg(0x16, 0x00) # no need if dynamic, but keep won't hurt
     # if fixed payload mode
     #WriteReg(0x1C, 0x00)
     #WriteReg(0x1D, 0x00)
@@ -392,4 +391,3 @@ fn DVer()
 fend
 
 Init()
-##### User Code Starts Here #####
