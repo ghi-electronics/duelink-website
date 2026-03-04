@@ -1146,7 +1146,8 @@
         "125 channels",
         "PCB antenna",
         "[Max Version Available](./wlnrf24max-c)"
-      ]
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetMode(m, b1, s, a, p)` | m: 1 = RX, 0 = TX, b1: address array, s: payload length (ignored if dynamic payload), a: auto-ack (0/1), p: RX pipe number (0–5) |\n| `RxReady() ` | return 1 if data is ready to read. |\n| `ReadPl(b1, d)` | Read payload to array b1, d: dynamic payload (0/1). |\n| `Transmit(b1,l,t)` | Transmit b1 array, l: Length of data <= len(b1), t: timeout in milliseconds  |\n| `EnableRx(p)` | Enable RX on pipe 0 to 5. |\n| `EnableTx(a)` | Enable Tx with ack a (0/1). |\n| `DVer()` | This driver version. |"
     },
     {
       "name": "RFID",

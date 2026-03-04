@@ -1,3 +1,395 @@
 ##### Driver Code Starts Here ###
+Alias(ce=19,csn=16,intPin=1)
+ 
+fn WriteReg(r, v)
+    dwrite(csn, 0)
+ 
+    if r < 0x20
+        spiwr(0x20 | (r & 0x1F))
+        spiwr(v)
+    else
+        spiwr(r)
+ 
+        if ((r != 0xE1) && (r != 0xE2) && (r != 0xE3) && (r != 0xFF))
+            spiwr(v)
+        end
+    end
+ 
+    dwrite(csn, 1)
+fend
+ 
+fn ReadReg(r)
+    dwrite(csn, 0)
+ 
+    spiwr(r & 0x1F)
+ 
+    v =  spiwr(0xFF)
+ 
+    dwrite(csn, 1)
+ 
+    return v
+fend
+ 
+fn WriteRegs(r, b1, c)
+    dwrite(csn, 0)
+ 
+    spiwr(r)
+    for i = 0 to c
+        spiwr(b1[i])
+    next
+ 
+    dwrite(csn, 1)
+fend
+ 
+fn ReadRegs(r, b1, c)
+    dwrite(csn, 0)
+ 
+    spiwr(r)
+    for i = 0 to c
+        b1[i] = spiwr(0xFF)
+    next
+ 
+    dwrite(csn, 1)
+fend
+ 
+fn setAddress(p, b1)
+    dwrite(csn, 0)
+    
+    # This hits 0x0A (RX0) through 0x10 (TX)
+    spiwr(0x20 | (0x0A + p)) 
+    
+    # Loop exactly through the array size you provided
+    for i = 0 to len(b1)
+        spiwr(b1[i])
+    next
+    
+    dwrite(csn, 1)
+fend
 
+fn Transmit(b1, l,t) # b1: data array. l: length. t: timeout in ms
+    dwrite(ce, 0)
+ 
+    # Clear old IRQ flags
+    WriteReg(0x07, 0x70)
+ 
+    # Load payload
+    WriteRegs(0xA0, b1, l)
+ 
+    # Start TX
+    dwrite(ce, 1)
+ 
+    e = tickms() + t
+ 
+    while tickms() < e
+        if dread(intPin,1) = 0
+            break
+        end
+        wait(1)
+    wend
+ 
+    s = ReadReg(0x07)
+ 
+    # Stop CE
+    dwrite(ce, 0)
+ 
+    # If MAX_RT → flush TX FIFO
+    if (s & 0x10)
+        WriteReg(0xE1, 0xFF)
+    end
+ 
+    # Clear IRQ flags
+    WriteReg(0x07, 0x70)
+ 
+    # Return success only if TX_DS set
+    if (s & 0x20)
+        return 1
+    end
+ 
+    return 0
+fend
+ 
+fn ReadPl(b1, d)
+    #Extract a payload pipe number from the STATUS register
+    p = (ReadReg(0x07) & 0x0E) >> 1 # p is the pipe number that received the packet.
+    l = 0
+    if (p < 6) 
+        if (d) # dynamic payload
+            # Read actual payload width
+            dwrite(csn,0)
+            spiwr(0x60)            # R_RX_PL_WID
+            l = spiwr(0xFF)
+            dwrite(csn,1)
+ 
+            # If corrupted length (>32), flush RX
+            if l > 32
+                WriteReg(0xE2, 0xFF)   # FLUSH_RX
+                return -1
+            end
+        else 
+            l = ReadReg(0x11 + p) #nRF24_RX_PW_PIPE[pipe]
+        end
+ 
+        if l > 0
+            ReadRegs(0x61, b1, l)
+            # CLEAR RX_DR HERE
+            r = ReadReg(0x07)
+            r = r | 0x40
+            WriteReg(0x07, r)
+        end
+    end
+ 
+    return l
+ 
+fend
+ 
+fn SetMode(m, b1, s, a, p)
+    # m: 1 = RX, 0 = TX
+    # b1: address array
+    # s: payload length (ignored if dynamic payload)
+    # a: auto-ack (0/1)
+    # p: RX pipe number (0–5)
+
+    dwrite(ce, 0)
+
+    # Address width
+    WriteReg(0x03, len(b1) - 2)
+
+    # Auto-ACK configuration
+    if a = 1
+        WriteReg(0x01, 0x3F)     # enable AA on all pipes
+    else
+        WriteReg(0x01, 0x00)     # disable AA
+    end
+
+    # Clear IRQ flags
+    WriteReg(0x07, 0x70)
+
+    # -------------------------------------------------
+    # VERY IMPORTANT: Always configure TX path
+    # -------------------------------------------------
+
+    # TX_ADDR
+    setAddress(0x06, b1)
+
+    # RX_ADDR_P0 must equal TX_ADDR for ACK to work
+    setAddress(0x00, b1)
+
+    # -------------------------------------------------
+
+    if (m = 1)        # ================= RX MODE =================
+
+        if (p < 0 || p > 5)
+            println("Invalid pipe")
+            return
+        end
+
+        # Enable selected RX pipe + pipe0 (ACK engine requires pipe0)
+        WriteReg(0x02, (1 << p) | 0x01)
+
+        # Set RX address for selected pipe
+        setAddress(p, b1)
+
+        # Build CONFIG register
+        r = 0
+        r = r | (1 << 3)   # EN_CRC
+        r = r | (1 << 2)   # CRCO (2-byte CRC)
+        r = r | (1 << 1)   # PWR_UP
+        r = r | (1 << 0)   # PRIM_RX = 1
+        WriteReg(0x00, r)
+
+        Wait(5)
+
+        dwrite(ce, 1)      # Enter RX mode
+
+    else                  # ================= TX MODE =================
+
+        # Retry setup (1500us delay, 10 retries)
+        WriteReg(0x04, (0x05 << 4) | 10)
+
+        # Enable pipe0 only (needed for ACK)
+        if a = 1
+            WriteReg(0x02, 0x01)
+        else
+            WriteReg(0x02, 0x00)
+        end
+
+        # Max TX power
+        r = ReadReg(0x06)
+        r = r & (~0x06)
+        r = r | 0x06
+        WriteReg(0x06, r)
+
+        # Build CONFIG register
+        r = 0
+        r = r | (1 << 3)   # EN_CRC
+        r = r | (1 << 2)
+        r = r | (1 << 1)   # PWR_UP
+        # PRIM_RX = 0
+        WriteReg(0x00, r)
+
+        Wait(5)
+
+    end
+
+fend
+ 
+fn RxReady() 
+    if (dread(intPin,1) = 0)
+        s = ReadReg(0x17) & 0x03
+        if (s!=1)
+            return 1
+        end
+    end
+ 
+    return 0
+ 
+fend
+ 
+fn Init() 
+    spicfg(0, 4000)
+    Wait(100) # nRF24 ready after 100ms
+    # Check
+ 
+    dwrite(ce, 0)
+ 
+    dim b2[3] = "GHI" # test online
+    dim b3[3]
+    WriteRegs(0x20 | 0x10, b2, 3) # nRF24_CMD_W_REGISTER | nRF24_REG_TX_ADDR
+    ReadRegs(0 | 0x10, b3, 3)
+ 
+    for i = 0 to 3 
+        if b2[i] != b3[i]
+ 
+            return 0
+        end
+    next
+ 
+    # Init
+    WriteReg(0, 0x08)
+    WriteReg(1, 0x3F)
+    WriteReg(2, 0x03)
+    WriteReg(3, 0x03)
+    WriteReg(4, 0x03)
+    WriteReg(5, 0x02)
+    WriteReg(6, 0x0E)
+    WriteReg(7, 0x00)
+    WriteReg(0x11, 0x00)
+    WriteReg(0x12, 0x00)
+    WriteReg(0x13, 0x00)
+    WriteReg(0x14, 0x00)
+    WriteReg(0x15, 0x00)
+    WriteReg(0x16, 0x00)
+    # if fixed payload mode
+    #WriteReg(0x1C, 0x00)
+    #WriteReg(0x1D, 0x00)
+    # else
+ 
+    # --- Start Enable Dynamic Payload Feature ---
+    dwrite(csn,0)
+    spiwr(0x50)       # ACTIVATE command
+    spiwr(0x73)
+    dwrite(csn,1)
+ 
+    WriteReg(0x1D, 0x04)   # FEATURE: EN_DPL
+    #WriteReg(0x1C, 0x03)   # DYNPD: enable DPL on pipe 1 - If later you use pipe 0 instead, change 0x02 to 01.
+    WriteReg(0x1C, 0x3F)   # DYNPD: enable DPL on all pipes
+    # --- End Enable Dynamic Payload Feature --- 
+ 
+    #nRF24_FlushRX
+    WriteReg(0xE2, 0xFF)
+ 
+    #nRF24_FlushTX
+    WriteReg(0xE1, 0xFF)
+ 
+    #ClrIrq() 
+    r = ReadReg(0x07)
+    r = r | 0x70
+    WriteReg(0x07, r)
+ 
+    # Release CSN
+    dwrite(csn, 1)
+ 
+    #Disable ShockBurst for all RX pipes
+    # DisableAA(0xFF)
+ 
+    #Set RF channel
+    WriteReg(0x05, 115)
+ 
+    #Set data rate
+    #SetDrate(0) #nRF24_DR_1Mbps
+    r = ReadReg(0x06)
+    r = r & (~0x28)
+    r = r | 0
+    WriteReg(0x06, r)
+ 
+    #Set CRC scheme
+    #setCrc(0xC) # 2 bytes
+    r = ReadReg(0)
+    r = r & (~0x0C)
+    r = r | (0xC & 0xC)
+    WriteReg(0, r)  
+    
+    # Init interrupt pin Input-PullUP
+    dread(intPin,1)
+ 
+    return 1
+fend
+
+fn EnableRx(p)
+
+    if (p < 0 || p > 5)
+        println("Invalid pipe")
+        return
+    end
+
+    dwrite(ce, 0)
+
+    WriteReg(0x07, 0x70)
+    WriteReg(0xE2, 0xFF)
+
+    # Enable selected pipe AND pipe0 for ACK
+    WriteReg(0x02, (1 << p) | 0x01)
+
+    r = ReadReg(0x00)
+    r = r | 1
+    WriteReg(0x00, r)
+
+    Wait(2)
+
+    dwrite(ce, 1)
+
+fend
+
+fn EnableTx(a)   # a = 1 use ACK, a = 0 no ACK
+
+    dwrite(ce, 0)
+
+    # Clear IRQ flags
+    WriteReg(0x07, 0x70)
+
+    # Flush TX FIFO
+    WriteReg(0xE1, 0xFF)
+
+    if (a = 1)
+        # Enable pipe0 for ACK
+        WriteReg(0x02, 0x01)
+    else
+        # Disable all RX pipes
+        WriteReg(0x02, 0x00)
+    end
+
+    # PRIM_RX = 0 (TX mode)
+    r = ReadReg(0x00)
+    r = r & (~1)
+    WriteReg(0x00, r)
+
+    Wait(2)
+
+fend
+
+fn DVer()
+    return 1.0
+fend
+
+Init()
 ##### User Code Starts Here #####
