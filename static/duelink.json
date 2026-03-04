@@ -1147,7 +1147,7 @@
         "PCB antenna",
         "[Max Version Available](./wlnrf24max-c)"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetMode(m, b1, a, p,b)` | m: 1 = RX, 0 = TX, b1: address array, a: auto-ack (0/1), p: RX pipe number (0–5), b: baudrate (0=250k, 1=1M, 2=2M) |\n| `RxReady() ` | return 1 if data is ready to read, 0: Rx empty |\n| `ReadPl(b1)` | Read payload to array b1, return total byte read |\n| `Transmit(b1,l,t)` | Transmit b1 array, l: length to transmit, t: timeout in milliseconds. Return 0: failed, 1: Success  |\n| `EnableRx(p,a)` | Enable RX on pipe p:0 to 5, a: auto-ack (0/1) |\n| `EnableTx(a)` | Enable Tx with ack a (0/1). |\n| `DVer()` | This driver version. |"	
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetMode(m, b1, a, p,b)` | m: 0 = TX, 1 = RX, b1: address array, a: auto-ack (0/1), p: RX pipe number (0–5), b: baudrate (0=250k, 1=1M, 2=2M) |\n| `RxReady() ` | return 1 if data is ready to read, 0: Rx empty |\n| `ReadPl(b1)` | Read payload to array b1, return total byte read |\n| `Transmit(b1,l,t)` | Transmit b1 array, l: length to transmit, t: timeout in milliseconds. Return 0: failed, 1: Success  |\n| `EnableRx(p,a)` | Enable RX on pipe p:0 to 5, a: auto-ack (0/1) |\n| `EnableTx(a)` | Enable Tx with ack a (0/1). |\n| `DVer()` | This driver version. |"	
     },
     {
       "name": "RFID",
