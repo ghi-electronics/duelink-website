@@ -1119,33 +1119,16 @@
       ]
     },
     {
-      "name": "NRF24 Max",
-      "partNumber": "GDL-WLNRF24MAX-C",
-      "PID": "0x090003",
-      "category": "Wireless",
-      "price": 14.95,
-      "tagline": "Wireless NRF24 Transceiver with Amplified Antenna",
-      "description": "Send and receive data wirelessly using SMA 2.4Ghz. The PA+LNA gives this module a coverage of up to a 1000 meters!. Min version [available](./wlnrf24min-c).",
-      "keyFeatures": [
-        "2.4Ghz SMA signal",
-        "125 channels",
-        "Amplified signal with external antenna",
-        "32x48mm overall dimension"
-      ]
-    },
-    {
       "name": "NRF24 Min",
       "partNumber": "GDL-WLNRF24MIN-C",
       "PID": "0x090004",
       "category": "Wireless",
       "price": 9.95,
       "tagline": "Wireless NRF24 Transceiver",
-      "description": "Send and receive data wirelessly using SMA 2.4Ghz. This module uses a simple PCB antenna. Consider [NRF24 Max](./wlnrf24max-c) for a higher coverage.!",
+      "description": "Send and receive data wirelessly using SMA 2.4Ghz.",
       "keyFeatures": [
         "2.4Ghz SMA signal",
-        "125 channels",
-        "PCB antenna",
-        "[Max Version Available](./wlnrf24max-c)"
+        "125 channels"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetMode(m, b1, a, p,b)` | m: 0 = TX, 1 = RX, b1: address array, a: auto-ack (0/1), p: RX pipe number (0–5), b: baudrate (0=250k, 1=1M, 2=2M) |\n| `RxReady() ` | return 1 if data is ready to read, 0: Rx empty |\n| `ReadPl(b1)` | Read payload data to array b1, return total bytes read |\n| `Transmit(b1,l,t)` | Transmit b1 array, l: length to transmit, t: timeout in milliseconds. Return 0: failed, 1: Success  |\n| `EnableRx(p,a)` | Enable RX on pipe p:0 to 5, a: auto-ack (0/1) |\n| `EnableTx(a)` | Enable Tx with ack a (0/1). |\n| `DVer()` | This driver version. |"	
     },
@@ -1741,20 +1724,6 @@
         "micro:bit female socket",
         "Downlink connector",
         "57.5x28.5mm overall dimension"
-      ]
-    },
-    {
-      "name": "RaveBit",
-      "partNumber": "GDL-ADRAVEBIT-A",
-      "category": "Adapter",
-      "price": 14.95,
-      "tagline": "BBC micro:bit Compatible Color Display Extender",
-      "description": "Impower your BBC micro:bit with a 160x128 1.8\" color display. Use Microsoft MakeCode to utilize the display. For example, use the DUELink connector to read a temperature sensor and show a graph on the display. The display works entirely in MakeCode independently from DUELink. It is an excellent upgrade over the 5x5 LED matrix.\n\n :::note\n\nmicro:bit mounts behind RaveBit giving the board some thickness. This thickness will prevent the board from plugging into some accessories. Select an accessory that has \"no back\". Using alligator clips to connect things works just fine.\n\n:::\n\n :::tip\n\nRaveBit is still under development and onyl available to select partners.\n\n:::",
-      "keyFeatures": [
-        "micro:bit female socket",
-        "Color display",
-        "Downlink connector",
-        "57.5x62mm overall dimension"
       ]
     },
     {
