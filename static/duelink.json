@@ -948,7 +948,7 @@
         "Slider Potentiometer",
         "77x27mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Slider()` | Returns value from 0 to 100. |\n| `DVer()` | Returns driver version. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Slide()` | Returns value from 0 to 100. |\n| `DVer()` | Returns driver version. |"
     },
     {
       "name": "Fingerprint",
