@@ -1,14 +1,13 @@
 # Pin Mapping
 
-All DUELink modules share the same pin mapping and any additional pin features and restrictions. Pin GPIO numbers are mapped to be easier to use and are not one-to-one with what underlying micro has. 
-
+Every DUELink module utilizes a unified pin mapping system, sharing identical features and hardware limitations. To simplify development, the GPIO numbering is abstracted, meaning the pin numbers you use in code do not correspond one-to-one with the physical pins on the underlying microcontroller.
 ---
 
 ## Standard Lib Pins
 
-The system automatically knows what standard lib function is being used on a specific pin and handles mapping and configuration for that pin.
+The DUELink system features automatic pin configuration. It intelligently detects which standard library function is being called and automatically handles the necessary mapping and configuration for that specific pin behind the scenes.
 
-For example, `Dwrite(1, level)` will automatically change the pin 1 to output write it to `level`. Similarly, `AWrite(1, 0.33)` will change pin 1 to its analog feature (PWM) and then set the duty-cycle to 33%.
+For example, `Dwrite(1, level)` will automatically change pin 1 to output and write it to `level`. Similarly, `AWrite(1, 0.33)` will change pin 1 to its analog feature (PWM) and then set the duty-cycle to 33%.
 
 While all modules' schematics are provided, extra efforts are made so you do not need to look up any schematics. When using a module that exposes the pins directly, the pin numbers are listed right on the PCB, just like we have them on DueDuino.
 
@@ -16,9 +15,9 @@ While all modules' schematics are provided, extra efforts are made so you do not
 ![DueDuino](pathname:///img/catalog/mcdueduino-a-1.webp)
 </div>
 
-The pin closest to reset button is `P1` can be set to analog write (PWM) with 66% duty-cycle using `AWrite(1, 0.66)`. Similarly, you can read the voltage on `P1` using `_v = VRead(1)`.
-
-Other modules ship with [Driver Script](./drivers). This eliminates the need for accessing pins directly. Samples on using the driver is found on individual modules product pages.
+:::tip
+Modules ship with [Driver Script](./drivers). This eliminates the need for accessing pins directly. Samples on using the driver is found on individual modules product pages.
+:::
 
 ---
 
@@ -28,7 +27,7 @@ All pins support digital input and output. However, some pins have alternate fun
 
 Pin `P0` is always connected to STAT LED. In some rare cases the STAT LED becomes part of an LED matrix.
 
-Pins capable of other functions:
+Pins equipped with alternate functions:
 
 - Analog: P1, P2, P3, P4, P5, P6, P7, P8, P9, P17.
 - PWM: P0, P1, P2, P3, P4, P5, P6, P7, P8, P11.
@@ -36,11 +35,11 @@ Pins capable of other functions:
 
 ---
 
-## Internal System Timers
+## System Timers
 
-Internal timers are used by some of the standard library functions, for example when using `AWritre()`, `Servo()`, or `Freq()`.
+System timers are used by some of the standard library functions plus for generating PWM signals, for example when using `AWritre()`, `Servo()`, or `Freq()`.
 
-These internal timers share the same timer, but have an independent duty-cycle. When we design module, we try to use different timers for different functionalities. The timers are listed here for a reference.
+Timers can control more than one pin. They are listed here with their used pins:
 
 Timer | Pins
 --- | ---
@@ -50,11 +49,16 @@ TIM3 | P5, P6, P7, P8
 TIM14 | P3
 TIM16 | P0 (STAT)
 
+Pins that share the same timer will share the same frequency, but will always have an independent duty-cycle. For example, changing the frequency on P2 will also change the frequency on P1. This is not an issue of both pins are used to dim LEDs, but will be an issue of P1 is used ot dim an LED but P2 is connected to a buzzer.
+
+When designing a module, we use different timers for different functionalities.
+
+
 ---
 
 ## Map Table
 
-This table shows how the official firmware maps the pins internally. This is all automated by the system and should not be used by you, unless you are building special firmware!
+This table shows how the official firmware maps the pins internally. This is all automated by the system and should not be used by you, unless you are building a special firmware!
 
 DUELink Pin | ST Micro Pin | Analog | PWM | Interrupt | Alternate Function
 --- | --- | --- | --- | --- | ---
