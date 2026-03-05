@@ -178,7 +178,6 @@ const sidebars = {
           label: "Wireless",
           items: [
             "products/wlgps-a",
-            "products/wlnrf24max-c",
             "products/wlnrf24min-c",
             "products/wlrfid-b",
             "products/wlesp32-a"
@@ -232,7 +231,6 @@ const sidebars = {
             "products/adpwrinj-a",
             "products/adpwrswch-a",
             "products/adpullup-a",
-            "products/adravebit-a",
             "products/adrpilink-a",
             "products/adsticker-c",
             "products/adusbhook-a",

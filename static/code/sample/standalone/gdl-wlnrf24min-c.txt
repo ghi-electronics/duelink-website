@@ -1,2 +1,107 @@
-# Append this code at the bottom of the script, right after the driver.
-# You MUST keep the driver code!!
+# In this sample:
+# Configure one module as Host and the other as Client.
+# The Host sends "I am Host", then switches to RX mode and listens for a response from the Client.
+# The Client receives "I am Host", switches to TX mode, sends back "I am Client", then switches back to RX mode to wait for the next message.
+# The Host receives "I am Client" from the Client, switches back to TX mode, and repeats the process.
+
+# if want to setup Host, call DoHost()
+# if want to setup Client, call DoClient()
+ 
+#DoHost()   
+#DoClient()
+
+fn DoHost() 
+    # 0: TX - Send
+    # [1,2,3,4,5] : 5 bytes address 0x12345
+    # 1: Ack enable
+    # 0: This ignored. ACK on TX always use pipe0
+    # 0: 250kps
+    SetMode(0, [1,2,3,4,5], 1, 0,0)
+
+    dim b1[] = "I am Host"   # TX buffer
+    dim b2[32]               # RX buffer
+
+    while (1)
+
+        println("HOST: Sending...")
+
+        EnableTx(1) # enable ack
+
+        if Transmit(b1, len(b1), 2000)
+
+            println("HOST: TX OK, waiting reply")
+
+            EnableRx(1,1) # Enable RX pipe 1, enable ack
+
+            while (1)
+                if RxReady()
+                    break
+                end
+                wait(1)
+            wend
+
+            l = ReadPl(b2)
+            if l > 0
+                print("HOST RX: ")
+                for i = 0 to l
+                    print(chr(b2[i]))
+                next
+                println("")
+            end
+
+        else
+            println("HOST: TX FAILED")
+        end
+
+        wait(2000)
+
+    wend
+fend
+
+fn DoClient() 
+    # 1: RX - Listen
+    # [1,2,3,4,5] : 5 bytes address 0x12345
+    # 1: Ack enable
+    # 1: use pipe 1 for rx
+    # 0: 250kps
+    SetMode(1, [1,2,3,4,5], 1, 1,0)
+
+    dim b1[] = "I am Client"   # TX buffer
+    dim b2[32]                 # RX buffer
+
+    while (1)
+
+        EnableRx(1,1) # Enable RX pipe 1, enable ack
+
+        println("CLIENT: Waiting for host...")
+
+        while (1)
+            if RxReady()
+                break
+            end
+            wait(1)
+        wend
+
+        l = ReadPl(b2)
+        if l > 0
+            print("CLIENT RX: ")
+            for i = 0 to l
+                print(chr(b2[i]))
+            next
+            println("")
+        end
+
+        println("CLIENT: Replying...")
+
+        EnableTx(1) # enable ack
+
+        if Transmit(b1, len(b1), 2000)
+            println("CLIENT: Reply OK")
+        else
+            println("CLIENT: Reply FAILED")
+        end
+
+        wait(10)
+
+    wend
+fend

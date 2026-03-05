@@ -11,8 +11,7 @@
         "script": { "displayName": "DUELink Script", "icon": "script.svg" },
         "blocks": { "displayName": "Block Coding", "icon": "blocks.svg" },
         "microblocks": { "displayName": "MicroBlocks", "icon": "microblocks.svg" },
-        "makecode": { "displayName": "MakeCode", "icon": "makecode.svg" },
-        "appinventor": { "displayName": "App Inventor", "icon": "appinventor.svg" }
+        "makecode": { "displayName": "MakeCode", "icon": "makecode.svg" }
       }
     },
     "platforms": {
@@ -20,16 +19,27 @@
       "tags": {
         "raspberrypi": { "displayName": "Raspberry Pi", "icon": "raspberrypi.svg" },
         "arduino-hw": { "displayName": "Arduino HW", "icon": "arduino.svg" },
-        "Espressif": { "displayName": "Espressif", "icon": "espressif.svg" },
         "microbit": { "displayName": "micro:bit", "icon": "microbit.svg" },
-        "arcade": { "displayName": "Arcade", "icon": "arcade.svg" },
         "pc": { "displayName": "PC/Laptop", "icon": "pc.svg" },
-        "phone": { "displayName": "Phone/Tablet", "icon": "phone.svg" },
         "mechanics": { "displayName": "Mechanics", "icon": "wrench.svg" }
       }
     }
   },
   "projects": [
+     {
+      "name": "Creating Smart Displays",
+      "description": "Build the user interface in display that can be used by anything, including MakeCode",
+      "tags": ["microbit", "makecode", "blocks", "script"],
+      "link": "https://forums.ghielectronics.com/t/creating-smart-displays/26242",
+      "image": "smart-display.jpeg"
+    },
+    {
+      "name": "micro:bit Color Digital Tape Measure",
+      "description": "Use MakeCode to read the distance and show on a color display",
+      "tags": ["microbit", "makecode", "blocks" ],
+      "link": "https://forums.ghielectronics.com/t/micro-bit-color-digital-tapemeasure/26241",
+      "image": "microbit-tapemeasure.jpeg"
+    },
     {
       "name": "Adding Industrial Modbus Adaptors",
       "description": "A fast way to add measure and control",
