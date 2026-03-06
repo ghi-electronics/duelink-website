@@ -27,6 +27,13 @@
   },
   "projects": [
      {
+      "name": "To Pi or not to Pi? That is a DuePi",
+      "description": "So many ways to use DuePi, not just with Raspberry Pi",
+      "tags": ["raspberrypi", "pc", "python", "dotnet"],
+      "link": "https://forums.ghielectronics.com/t/to-pi-or-not-to-pi-that-is-a-duepi/26246",
+      "image": "duEpi-analog.jpEg"
+    },
+    {
       "name": "Creating Smart Displays",
       "description": "Build the user interface in display that can be used by anything, including MakeCode",
       "tags": ["microbit", "makecode", "blocks", "script"],
