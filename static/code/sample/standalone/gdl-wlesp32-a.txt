@@ -1,4 +1,249 @@
 # In this sample:
+# Use AT command, connect to WiFi and read temperature from the site:api.open-meteo.com
+
+fn JsonParser(b1,d,b2,e,b3) # Parse result from the size
+    # b1 = json text
+    # d  = depth
+    # b2 = key
+    # e  = element index
+    # b3 = value output
+ 
+    l = strlen(b1)
+    p = strlen(b2)
+ 
+    a = 0      # current depth
+    c = 0      # match counter
+ 
+    for i = 0 to l-1
+ 
+        x = b1[i]
+ 
+        if x = '{' || x = '['
+            a = a + 1
+        end
+ 
+        if x = '}' || x = ']'
+            a = a - 1
+        end
+ 
+        if a = d + 1 && x = '"'
+ 
+            j = 0
+            t = i + 1
+ 
+            while 1
+ 
+                if t = l
+                    break
+                end
+ 
+                if j = p
+                    break
+                end
+ 
+                if b1[t] != b2[j]
+                    break
+                end
+ 
+                t = t + 1
+                j = j + 1
+ 
+            wend
+ 
+            if j = p
+ 
+                if t = l
+                    break
+                end
+ 
+                if b1[t] = '"'
+ 
+                    if c = e
+ 
+                        while 1
+                            if t = l
+                                break
+                            end
+ 
+                            if b1[t] = ':'
+                                break
+                            end
+ 
+                            t = t + 1
+                        wend
+ 
+                        t = t + 1
+ 
+                        while 1
+                            if t = l
+                                break
+                            end
+ 
+                            if b1[t] != ' '
+                                break
+                            end
+ 
+                            t = t + 1
+                        wend
+ 
+                        n = 0
+ 
+                        while 1
+ 
+                            if t = l
+                                break
+                            end
+ 
+                            if b1[t] = 0
+                                break
+                            end
+ 
+                            if b1[t] = ',' || b1[t] = '}' || b1[t] = ']' || b1[t] = 13 || b1[t] = 10
+                                break
+                            end
+ 
+                            if b1[t] != '"'
+                                b3[n] = b1[t]
+                                n = n + 1
+                            end
+ 
+                            t = t + 1
+ 
+                        wend
+ 
+                        b3[n] = 0
+                        return n
+                    end
+ 
+                    c = c + 1
+                end
+            end
+        end
+ 
+    next
+ 
+    b3[0] = 0
+    return -1
+fend
+ 
+
+######USE########### 
+ 
+fn DoTest() 
+    # Init ESP32    
+    Init()
+    
+    # Sets the ESP Wi-Fi mode to Station mode.
+    AtCmd("AT+CWMODE=1")
+    # Wait for OK
+    ATWaitResp(2000)
+    
+    # Assign SSID, PWD
+    AtCmd("AT+CWJAP=\"abcd\",\"1234\"")
+    # Wait for OK, upto 10 seconds, depend on WiFi router
+    ATWaitResp(10000)
+    
+    # Enable multiple TCP/UDP connections
+    AtCmd("AT+CIPMUX=1") 
+    # Wait for OK
+    ATWaitResp(1000)
+    
+    while 1
+        # Use connection 0
+        AtCmd("AT+CIPSTART=0,\"TCP\",\"api.open-meteo.com\",80")
+        # Wait for OK # up to 4seconds, depend on the TCP connection
+        ATWaitResp(4000)
+        
+        # This string to request weather
+        dim b1[] = "GET /v1/forecast?latitude=42.1&longitude=-83.3&current_weather=true HTTP/1.1\r\nHost: api.open-meteo.com\r\nConnection: close\r\n\r\n"
+    
+        # Calculate size of the string, assign to b2
+        dim b2[50]
+        SprintF(b2,"AT+CIPSEND=0,%d",len(b1))
+        
+        # Let ESP know this size will come
+        AtCmd(b2)
+        ATWaitResp(1000)
+        
+        # AT+CIPSEND also send \r\n>
+        while (1)
+            if SerB2R() = 0
+                wait(1)
+            else
+                if SerRd() = '>'
+                    break
+                end
+            end
+        wend
+        
+        # send raw with actual size
+        SerWrs(b1)
+        
+        # Wait for OK, up to 10 second
+        ATWaitResp(10000)
+        
+        # after OK\r\n from ESP, next will be date from TCP
+        # Wait for Read data from TCP
+        while (SerB2R() < 1)
+            wait(1000)
+        wend
+        
+        # Parse socket response
+        # Data will send with format: ""\r\n+IPD,0,643:HTTP/1.1 200 OK\r\n...raw socket data\r\n0\r\n\r\n" 
+        # 643: actual size
+        # 0: socket number
+        
+        ATWaitResp(10000)
+        # Now parse actual size
+        x = 9 # Looking for 643, always start from 9 if socket < 10: "\r\n+IPD,0,643:...."
+         
+        l = strlen(b0)
+        n = 0
+        for i = x to l
+            if b0[i] = 0x3A # :
+                i = i + 1
+                break
+            else
+                n = (n * 10) + (b0[i] - 48)   
+            end 
+        next
+        
+        # update n because 643 include :"HTTP/1.1 200 OK\r\n", we need to exclude it to read the rest
+        n = n - (l-i)
+    
+        if b0[2] = '+' && n > 0   # make sure "\r\n+IPD...""
+            # Clear all b0
+            memset(b0,0,len(b0))
+            
+            # Read raw TCP to b0
+            i = 0
+            while (i < n)
+                if (SerB2R() > 0)
+                    b0[i] = SerRd() 
+                    i = i + 1
+                end
+                wait(1)
+            wend
+        
+            # parse Json
+            dim b3[50]
+            JsonParser(b0, 1, "temperature", 1, b3) 
+            
+            println("Temperature:" , b3)
+            
+            # Discard all if any
+            SerDisc() 
+        end
+        
+        AtCmd("AT+CIPCLOSE=0")
+        ATWaitResp(1000)
+        wait(500)
+    wend
+        
+fend
+
+
+# In this sample:
 # Enable Wi-Fi and set the multicast DNS name to "duelink".
 # A TCP client (for example, the TeraTerm application) can connect to
 # "duelink" on port 8080 to send and receive commands.
