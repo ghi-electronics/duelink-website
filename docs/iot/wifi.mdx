@@ -5,12 +5,75 @@ hide_table_of_contents: true
 
 # WiFi
 
+Having an internet connection is essential in many projects. Some of the [supported hardware](../hw/intro) options already have WiFi. This can be a [PC](../hw/pc-laptop) or a [Raspberry Pi](../hw/raspberry-pi) connected to a [Cloud](./cloud) like Azure.
+
 <div style={{ textAlign: 'center'}}>
-![IoT Cloud Services](pathname:///img/iot-cloud.webp)
+![Azure Cloud](pathname:///img/azure-cloud.webp)
 </div>
 
-There are many ways to utilize IoT cloud services. Collect sensor data and send to the "cloud", or use the cloud to control devices remotely.
+DUELink also includes the [Wireless ESP32](../products/wlesp32-a) module, which serves two different use cases.
 
-DUELink modules can be IoT Cloud accessed via one of the [Supported Hardware](/docs/hw/intro) devices, or directly using a [Wireless Interface](../interface/wireless).  
+<div style={{ textAlign: 'center'}}>
+![Wireless ESP32](pathname:///img/catalog/wlesp32-a-1.webp)
+</div>
 
-[AWS](./aws) and [Azure](./azure) are great examples.
+First, this module can be used to wirelessly control a daisylink of modules, by becoming the [Wireless Interface](../interface/wireless).
+
+<div style={{ textAlign: 'center'}}>
+![Wireless daisylink](pathname:///img/wireless-daisylink.webp)
+</div>
+
+The other option is to give the user control over the wireless functionality. For example, an [Arduino](../hw/arduino) or a [micro:bit](../hw/microbit) can connect a daisylink of modules, where one of the modules is the Wireless ESP32 module.
+
+<div style={{ textAlign: 'center'}}>
+![Wireless ESP32 no host](pathname:///img/wireless-daisylink-addr-nohost.webp)
+</div>
+
+The [Wireless ESP32](../products/wlesp32-a) driver is designed to expose the internal ESP32 AT commands, giving the user full control. You can send these commands from a tethered hardware or you could also run the DUELink Wireless ESP32 module standalone, just like all other modules.
+
+This partial code shows some of the code needed to read the weather forecast.
+
+```py
+# Sets the ESP Wi-Fi mode to Station mode.
+AtCmd("AT+CWMODE=1")
+# Wait for OK
+ATWaitResp(2000)
+
+# Assign SSID, PWD
+AtCmd("AT+CWJAP=\"abcd\",\"1234\"")
+# Wait for OK, upto 10 seconds, depend on WiFi router
+ATWaitResp(10000)
+
+# Enable multiple TCP/UDP connections
+AtCmd("AT+CIPMUX=1") 
+# Wait for OK
+ATWaitResp(1000)
+
+# Use connection 0
+AtCmd("AT+CIPSTART=0,\"TCP\",\"api.open-meteo.com\",80")
+# Wait for OK # up to 4seconds, depend on the TCP connection
+ATWaitResp(4000)
+
+# This string to request weather
+dim b1[] = "GET /v1/forecast?latitude=42.1&longitude=-83.3&current_weather=true HTTP/1.1\r\nHost: api.open-meteo.com\r\n\r\n"
+
+# Calculate size of the string, assign to b2
+dim b2[50]
+SprintF(b2,"AT+CIPSEND=0,%d",len(b1))
+
+# Let ESP know this size will come
+AtCmd(b2)
+ATWaitResp(1000)
+
+#...
+#... read response ...
+#...
+```
+
+The ideal use of [Wireless ESP32](../products/wlesp32-a) is when you load it with code to handle specific task, like read the forecast, and then provide a function to just provide the final results, like today high temp. Any hardware now, like a micro:bit, can easily read today's high temp using `HighTemp()` for example. 
+
+Since JSON is an essential part of the internet, we have implemented a script to handle [JSON parsing](https://github.com/ghi-electronics/duelink-projects/tree/main/source/json-parser) for you.
+
+:::tip
+The firmware we preload on the ESP32 module is a special build that slightly changes Espressif default to add flow-control pins, fix to 9600 baud, and add Classic Bluetooth SPP profile. The changes are found on [GitHub](https://github.com/ghi-electronics/duelink-esp-at) if you are curious!
+:::
