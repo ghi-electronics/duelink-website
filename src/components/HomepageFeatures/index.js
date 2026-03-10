@@ -68,7 +68,7 @@ export default function HomepageFeatures() {
         <Heading as="h2" >
           Each Module is a Microcomputer
         </Heading>
-        <p>Code modules independently or control them over USB, I2C or UART</p>
+        <p>Run modules independently using scripts, or control them using friendly text-commands over USB, I2C or UART</p>
         <img src="/img/button-led.gif" width ="400px" alt="DUELink" />
         <hr/>
         <Heading as="h2" >

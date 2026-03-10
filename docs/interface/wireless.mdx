@@ -1,45 +1,51 @@
+---
+hide_table_of_contents: true
+---
+
 # Wireless
 
 
-Cut the wire and use DUELink modules wirelessly! This **wireless interface** is accomplished by turning [Wireless ESP32](../products/wlesp32-a) module into a host gateway. 
+Cut the wire and use DUELink modules wirelessly! This **wireless interface** is done using the [Wireless ESP32](../products/wlesp32-a) module. 
 
 <div style={{ textAlign: 'center'}}>
 ![Wireless daisylink](pathname:///img/catalog/wlesp32-a-1.webp)
 </div>
 
----
+:::tip
+Wireless ESP32 module can also be used as a standard module with Wireless connection, without becoming an interface, see [IoT WiFi](../iot/wifi) page.
+:::
 
-## Non-interface
-
-This page is about using the wireless connection as the interface. It is how a Bluetooth/WiFi connection can be used to control modules wirelessly.
-
-<div style={{ textAlign: 'center'}}>
-![Wireless daisylink address](pathname:///img/wireless-daisylink-addr-host.webp)
-</div>
-
-The other option is for [Wireless ESP32](../products/wlesp32-a) to be one of the modules. In this setup, this wireless connection is available to the other modules to the host. A host can be an Arduino or a micro:bit for example.
+Either WiFi or Bluetooth can be used to enable the Wireless Interface to access the Daisylink wirelessly.
 
 <div style={{ textAlign: 'center'}}>
-![Wireless Daisylink](pathname:///img/wireless-daisylink-addr-nohost.webp)
+![Wireless daisylink](pathname:///img/wireless-daisylink.webp)
 </div>
 
-See [Wireless ESP32](../products/wlesp32-a) product page to learn how to use wireless in a non-interface matter.
+In either way, the Wireless ESP32 module needs to be loaded with a special `Wireless Bridge` script.
 
----
-
-## Bluetooth
-
-When using Bluetooth, The established connection creates a (SPP - Serial Port Profile) virtual serial connection. This is very similar to the virtual connection established when using the [USB interface](./usb). You can now, for example, use Python on a PC to access a [Daisylink](../engine/daisylink) of modules. To power the modules you can use [Power Hook](../products/adpwrhook-a) or USB adapter, like [USB Host](../products/adusbhook-a), then use USB as a power source.
+1. Connect the modules to a PC using any USB adaptor, such as [Power Hook](../products/adpwrhook-a) [USB Host](../products/adusbhook-a).
 
 <div style={{ textAlign: 'center'}}>
 ![Wireless power options](pathname:///img/wlesp32-power-options.webp)
 </div>
 
-The module is configured by default for bluetooth connections. No need to configure it. This is the code needed if it was modified.
+2. Open [console.duelink.com](https://console.duelink.com/) and click the `Connect` button and then on the right side, click `Erase All`. The erase all step is needed to remove all regions.
 
-:::tip
-This code assumes the module is loaded with [drivers](../engine/drivers).
-:::
+<div style={{ textAlign: 'center'}}>
+![Wireless power options](pathname:///img/erase-all.webp)
+</div>
+
+3. Copy/paste this [Wireless Bridge script](https://github.com/ghi-electronics/duelink-projects/blob/main/source/wireless-bridge/standalone/wireless-bridge.txt) into the console.
+4. Modify the configuration as explained below.
+5. Click record and cycle power.
+
+Note how Wireless ESP32 is a wireless bridge connecting wireless to the chain and therefore its DUELink address 1 is only visible on the USB connection. All other modules are no longer accessible from USB as they are now accessible from Wireless.
+
+<div style={{ textAlign: 'center'}}>
+![Wireless daisylink address](pathname:///img/wireless-daisylink-addr-host.webp)
+</div>
+
+The bridge script configuration allows you to select between WiFi and Bluetooth. The default option is Bluetooth, which is recommended. This will turn the module into a virtual serial port connection using the Bluetooth SPP profile. This allows a PC running one of the languages, such as [Python](../language/python), to access the connected modules wirelessly. Everything works exactly the same as if you were using a USB virtual serial connection.
 
 ```py
 # Connect a Daisylink bridge using Bluetooth
@@ -53,23 +59,7 @@ wend
 Bridge(1)
 ```
 
----
-
-## WiFi
-
-When using WiFi, the [Wireless ESP32](../products/wlesp32-a) module starts a TCP Server. The easiest way to try this server is using a terminal software, such as TeraTerm.
-
-First, we need to load the configuration. For this, we need to connect [Wireless ESP32](../products/wlesp32-a) to USB. You can use one of the many adapters, including [USB Hook](../products/adusbhook-a).
-
-<div style={{ textAlign: 'center'}}>
-![wlesp32 with usbhook](pathname:///img/wlesp32-usbhook.webp)
-</div>
-
-Then use the console to load this config. You will overwrite the default Bluetooth config.
-
-:::tip
-This code assumes the module is loaded with [drivers](../engine/drivers).
-:::
+WiFi works similarly. It connects to a WiFi network and start a TCP server at port 22.
 
 ```py
 # Connect a Daisylink bridge using WiFi
@@ -84,19 +74,9 @@ wend
 Bridge(1)
 ```
 
-You can now continue to use USB as a power source, or use something like [Power Hook](../products/adpwrhook-a). Note how the Wireless module is now a host to its [Daisylink](../engine/daisylink).
+Note that provided libraries only work with serial ports. The easiest way to try this server is using a terminal software, such as TeraTerm. Open TeraTerm and select `TCP/IP` then enter `DUELink` for the `Host` name. Select `Other` from the `Service` options. Set `TCP Port#` to `22`. Once the connections is established, you can type in commands to control modules. Go ahead and enter `list` and hit enter to see the code listing.
 
-<div style={{ textAlign: 'center'}}>
-![Wireless daisylink](pathname:///img/wireless-daisylink.webp)
-</div>
-
-Open TeraTerm and select `TCP/IP` then enter `DUELink` for the `Host` name. Select `Other` from the `Service` options. Set `TCP Port#` to `22`.
-
-Once the connections is established, you can type in commands to control modules. `Echo()` does not work properly as TeraTerm (and most terminals) will only send data when you hit enter. You can enable `local echo` to see what you type! Go ahead and enter `list` and hot enter to see the code listing.
-
-Note how the Wireless ESP32 module is now a host. See [Daisylink](../engine/daisylink) for more info.
-
-<div style={{ textAlign: 'center'}}>
-![Wireless Daisylink address](pathname:///img/wireless-daisylink-addr-host.webp)
-</div>
+:::tip
+`Echo()` does not work properly as TeraTerm (and most terminals) will only send data when you hit enter when used in TCP mode. You can enable `local echo` to see what you type!
+:::
 

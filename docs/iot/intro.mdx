@@ -2,17 +2,18 @@
 hide_table_of_contents: true
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+# Internet of Things
 
-# IoT Cloud
+DUELink offers multiple ways to connect modules (things) to the internet. The easiest way is using a [supported hardware](../hw/intro) with an internet connection. This for example can be a [PC](../hw/pc-laptop) or a [Raspberry Pi](../hw/raspberry-pi) that is bridging Azure or AWS cloud to any connected DUELink modules. You can now collect DUELink sensor data and send to the cloud, or use the cloud to control DUELink modules remotely. See the [Cloud](./cloud) for more info.
 
 <div style={{ textAlign: 'center'}}>
 ![IoT Cloud Services](pathname:///img/iot-cloud.webp)
 </div>
 
-There are many ways to utilize IoT cloud services. Collect sensor data and send to the "cloud", or use the cloud to control devices remotely.
+Additionally, a daisylink of DUELink modules can have a direct WiFi connection, see [WiFi](./wifi).
 
-DUELink modules can be IoT Cloud accessed via one of the [Supported Hardware](/docs/hw/intro) devices, or directly using a [Wireless Interface](../interface/wireless).  
+<div style={{ textAlign: 'center'}}>
+![IoT Cloud Services](pathname:///img/wireless-daisylink-addr-nohost.webp)
+</div>
 
-[AWS](./aws) and [Azure](./azure) are great examples.
+Finally, one of the DUELink system [interfaces](../interface/intro) allows a Daisylink of DUELink modules to receive commands wirelessly via Bluetooth or WiFi. See [Wireless Interface](../interface/wireless) page.

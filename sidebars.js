@@ -345,11 +345,11 @@ const sidebars = {
     },
     {
       type: "category",
-      label: "IoT Cloud",
+      label: "Internet of Things",
       link: { type: "doc", id: "iot/intro" },
       items: [
-        "iot/aws",
-        "iot/azure",
+        "iot/wifi",
+        "iot/cloud",
       ],
     },
     {
