@@ -243,34 +243,5 @@ fn DoTest()
 fend
 
 
-# In this sample:
-# Enable Wi-Fi and set the multicast DNS name to "duelink".
-# A TCP client (for example, the TeraTerm application) can connect to
-# "duelink" on port 8080 to send and receive commands.
-
-fn DoTest()
-   
-    m = 1 # 0: Bluetooth mode, 1: WiFi
-    b = 0 # 0: Disable bridge (standard mode, no host), 1: Enable bridge (bridge mode, require host)
-    
-    if (m =0)
-        StartBT("bt_name")  
-
-    else
-        StartWiFi("GHI-G", "ghi888WaiFai0&ItoNET3", 10000)
-    
-        StartTcp("duelink") # optional. Without this: need to know IP address to connect to
-        
-        while (dread(4,1) = 1)
-            println("wait for tcp connection")
-            wait(1000)
-        wend
-        
-    end
-    
-    Bridge(b) # bridge mode 
-    
-fend
-
 
 
