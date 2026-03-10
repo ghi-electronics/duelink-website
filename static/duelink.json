@@ -1103,7 +1103,7 @@
         "Program DUELink Modules Wirelessly",
         "27x37mm overall dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `DVer()` | This driver version. |\n| `ATCmd([cmd])` | Send AT command `cmd` to ESP. |\n| `ATWaitResp(t)` | Parse AT command response with timeout `t` milliseconds. return 1:OK, 0:Error (or no response - timeout). |\n| `ReadLine(g,t)` | Read line from g: direction - 1: From ESP. 0: From Downlink (used only on brigde project). t: timeout |\n| `EnterLder()` | Enter ESP loader mode. |"
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `DVer()` | This driver version. |\n| `ATCmd([cmd])` | Send AT command `cmd` to ESP. |\n| `ATWaitResp(t)` | Parse AT command response with timeout `t` milliseconds. return 1:OK, 0:Error (or no response - timeout). The response will be saved to b0. |\n| `ReadLine(g,t)` | Read line from g: direction - 1: From ESP. 0: From Downlink (used only on brigde project). t: timeout. The response will be saved to b0. |\n| `EnterLder()` | Enter ESP loader mode. |"
     },
      {
       "name": "GPS",
