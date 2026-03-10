@@ -4,8 +4,7 @@
 # "duelink" on port 8080 to send and receive commands.
 
 fn DoTest()
-    Init()
-    
+   
     m = 1 # 0: Bluetooth mode, 1: WiFi
     b = 0 # 0: Disable bridge (standard mode, no host), 1: Enable bridge (bridge mode, require host)
     
