@@ -1,8 +1,7 @@
-# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
 # In this sample:
-# Enable Wi-Fi and set the multicast DNS name to "duelink".
-# A TCP client (for example, the Tera Term application) can connect to
-# "duelink" on port 8080 to send and receive commands.
+# Send the AT command AT+GMR
+# Read responses (multiple lines)
+
 import time
 import duelink 
 
@@ -15,47 +14,28 @@ i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
 due = duelink.DUELinkController(i2c)
 
 # methods
-def IsBluetoothConnected():
-    ret = due.Engine.ExecuteCommand("dread(5,1)")
-    return ret == 0
+def ATCmdSend(cmd):
+    due.Engine.ExecuteCommand('ATCmd("{}")'.format(cmd))
 
-def IsWiFiConnected():
-    ret = due.Engine.ExecuteCommand("dread(5,1)")
-    return ret == 0
+def ATCmdReadLine(timeout):
+    due.Engine.ExecuteCommand("ReadLine(1, {})".format(timeout))
 
-def IsSocketConnected():
-    ret = due.Engine.ExecuteCommand("dread(4,1)")
-    return ret == 0
+    data = bytearray(1024)
+    due.Stream.ReadBytes("b0", data)
+    s = data.decode("utf-8")
+    return s
 
-def StartBluetooth(name):
-    due.Engine.ExecuteCommand('StartBT("{}")'.format(name))
+while True:
+    ATCmdSend("AT+GMR")
 
-def StartWiFi(ssid, pwd):
-    due.Engine.ExecuteCommand('StartWiFi("{}","{}")'.format(ssid, pwd))
+    line = ATCmdReadLine(1000)
 
-def SetMulticastDns(mdns_name):
-    due.Engine.ExecuteCommand('StartTcp("{}")'.format(mdns_name))
+    while True:
+        # The version response returns multiple lines, keep reading until the end
+        if line is not None and len(line) != 0:
+            print(line)
+            line = ATCmdReadLine(1000)
 
-def EnableBrigde():
-    due.Engine.ExecuteCommand("Bridge(1)")
-
-
-StartWiFi("ssid", "pwd")
-
-# The Wi-Fi connection can take up to 30 seconds.
-# For testing, sleep for 1 seconds first.
-time.sleep(1)
-
-while IsWiFiConnected() == False:
-    time.sleep(1)
-    print("Waiting for Wi-Fi connection...")
-
-SetMulticastDns("duelink")
-
-while IsSocketConnected() == False:
-    time.sleep(1)
-    print("Waiting for TCP connection...")
-
-EnableBrigde()
-
-print("The bridge is ready for sending and receiving commands from Tera Term")
+            time.sleep_ms(1000)
+        else:
+            break

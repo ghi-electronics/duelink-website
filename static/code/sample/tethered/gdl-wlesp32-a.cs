@@ -1,64 +1,43 @@
 // In this sample:
-// Enable Wi-Fi and set the multicast DNS name to "duelink".
-// A TCP client (for example, the TeraTerm application) can connect to
-// "duelink" on port 8080 to send and receive commands.
+// Send AT command AT+GMR
+// Read responses (multiple lines)
 
-using System;
-using System.Net;
-using System.Xml.Linq;
+using System.Text;
 using GHIElectronics.DUELink;
+
 
 var availablePort = DUELinkController.GetConnectionPort();
 var duelink = new DUELinkController(availablePort);
-
-bool IsBluetoothConnected() {    
-    var ret = duelink.Engine.ExecuteCommand("dread(5,1)");
-
-    return ret == 0;
-}
-bool IsWiFiConnected() {
-    var ret = duelink.Engine.ExecuteCommand("dread(5,1)");
-    return ret == 0;
+void ATCmdSend(string cmd) {
+    duelink.Engine.ExecuteCommand($"ATCmd(\"{cmd}\")");
 }
 
-bool IsSocketConnected() {
-    var ret = duelink.Engine.ExecuteCommand("dread(4,1)");
-    return ret == 0;
+string ATCmdReadLine(int timeout) {
+    duelink.Engine.ExecuteCommand($"ReadLine(1, {timeout})");
+
+    var data = new byte[1024];
+    duelink.Stream.ReadBytes("b0", data);
+    var str = UTF8Encoding.UTF8.GetString(data);
+    return str;
 }
 
-void StartBluetooth(string name) {
-    duelink.Engine.ExecuteCommand($"StartBT(\"{name}\")");
+while (true) {
+    ATCmdSend("AT+GMR");
+
+    var line = ATCmdReadLine(1000);
+    
+    while (true) {
+        // read version return multiple lines, read still end
+        if (line != null && line.Length != 0) {
+            Console.WriteLine(line);
+            line = ATCmdReadLine(1000);
+
+            Thread.Sleep(1000);
+        }
+        else {
+            break;
+        }
+
+    }
 }
-void StartWiFi(string ssid, string pwd) {
-    duelink.Engine.ExecuteCommand($"StartWiFi(\"{ssid}\",\"{pwd}\")");    
-}
-
-void SetMulticastDns(string mdns_name) {
-    duelink.Engine.ExecuteCommand($"StartTcp(\"{mdns_name}\")");
-}
-
-void EnableBrigde() {
-    duelink.Engine.ExecuteCommand("Bridge(1)");
-}
-
-
-StartWiFi("ssid", "pwd");
-
-// The Wi-Fi connection can take up to 30 seconds.
-// For testing, sleep for 1 seconds first.
-Thread.Sleep(1000 * 1);
-while (IsWiFiConnected() == false) {
-    Thread.Sleep(1000);
-    Console.WriteLine("Wait for WiFi connection...");
-}
-
-SetMulticastDns("duelink");
-while (IsSocketConnected() == false) {
-    Thread.Sleep(1000);
-    Console.WriteLine("Wait for tcp connection...");
-}
-
-EnableBrigde();
-
-Console.WriteLine("The brigde is ready for sending/receiving command from TeraTerm");
 

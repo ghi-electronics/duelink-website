@@ -1,7 +1,6 @@
 // In this sample:
-// Enable Wi-Fi and set the multicast DNS name to "duelink".
-// A TCP client (for example, the Tera Term application) can connect to
-// "duelink" on port 8080 to send and receive commands.
+// Send AT command AT+GMR
+// Read responses (multiple lines)
 
 import pkg_serialusb from 'dlserialusb';
 const {SerialUSB} = pkg_serialusb
@@ -17,57 +16,41 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// Methods
-async function IsBluetoothConnected() {
-    const ret = await duelink.Engine.ExecuteCommand("dread(5,1)");
-    return ret === 0;
+async function ATCmdSend(cmd) {
+    await duelink.Engine.ExecuteCommand(`ATCmd("${cmd}")`);
 }
 
-async function IsWiFiConnected() {
-    const ret = await duelink.Engine.ExecuteCommand("dread(5,1)");
-    return ret === 0;
+async function ATCmdReadLine(timeout) {
+    await duelink.Engine.ExecuteCommand(`ReadLine(1, ${timeout})`);
+
+    var data = new Uint8Array(1024);
+    await duelink.Stream.ReadBytes("b0", data);
+
+    var decoder = new TextDecoder("utf-8");
+    var str = decoder.decode(data);
+
+    return str;
 }
 
-async function IsSocketConnected() {
-    const ret = await duelink.Engine.ExecuteCommand("dread(4,1)");
-    return ret === 0;
+async function main() {
+    while (true) {
+        await ATCmdSend("AT+GMR");
+
+        var line = await ATCmdReadLine(1000);
+
+        while (true) {
+            // The version response returns multiple lines, keep reading until the end
+            if (line != null && line.length != 0) {
+                console.log(line);
+                line = await ATCmdReadLine(1000);
+
+                await sleep(1000);
+            }
+            else {
+                break;
+            }
+        }
+    }
 }
 
-async function StartBluetooth(name) {
-    await duelink.Engine.ExecuteCommand(`StartBT("${name}")`);
-}
-
-async function StartWiFi(ssid, pwd) {
-    await duelink.Engine.ExecuteCommand(`StartWiFi("${ssid}","${pwd}")`);
-}
-
-async function SetMulticastDns(mdns_name) {
-    await duelink.Engine.ExecuteCommand(`StartTcp("${mdns_name}")`);
-}
-
-async function EnableBrigde() {
-    await duelink.Engine.ExecuteCommand("Bridge(1)");
-}
-
-// Start Wi-Fi connection
-await StartWiFi("ssid", "pwd");
-
-// The Wi-Fi connection can take up to 30 seconds.
-// For testing, sleep for 1 seconds first.
-await sleep(1000 * 1);
-
-while ((await IsWiFiConnected()) === false) {
-    await sleep(1000);
-    console.log("Waiting for Wi-Fi connection...");
-}
-
-await SetMulticastDns("duelink");
-
-while ((await IsSocketConnected()) === false) {
-    await sleep(1000);
-    console.log("Waiting for TCP connection...");
-}
-
-await EnableBrigde();
-
-console.log("The bridge is ready for sending and receiving commands from TeraTerm");
+main();
