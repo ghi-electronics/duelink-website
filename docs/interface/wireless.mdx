@@ -58,7 +58,7 @@ Println("Failed to connect to WiFi")
 StatLed(0,0,1) # LED off
 ```
 
-WiFi starts a TCP server that is listens to port 22. The easiest way to try this server is using a terminal software, such as TeraTerm. Open TeraTerm and select `TCP/IP` then enter `DUELink` for the `Host` name. Select `Other` from the `Service` options. Set `TCP Port#` to `22`. Once the connections is established, you can type in commands manually to control modules. Go ahead and enter `statled(200,200,10)` and hit enter to see the STAT LED blinking 10 times on the device 1 module.
+WiFi starts a TCP server that is listens to port 8080. The easiest way to try this server is using a terminal software, such as TeraTerm. Open TeraTerm and select `TCP/IP` then enter `DUELink` for the `Host` name. Select `Other` from the `Service` options. Set `TCP Port#` to `8080`. Once the connections is established, you can type in commands manually to control modules. Go ahead and enter `statled(200,200,10)` and hit enter to see the STAT LED blinking 10 times on the device 1 module.
 
 :::tip
 `Echo()` does not work properly as TeraTerm (and most terminals) will only send data when you hit enter when used in TCP mode. You can enable `local echo` to see what you type!
