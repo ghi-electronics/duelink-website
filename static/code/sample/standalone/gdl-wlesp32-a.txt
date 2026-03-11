@@ -8,8 +8,15 @@ fn JsonParser(b1,d,b2,e,b3) # Parse result from the size
     # e  = element index
     # b3 = value output
  
-    l = strlen(b1)
-    p = strlen(b2)
+    l = idxof(b1,0)
+    if l < 0
+        l = len(b1)
+    end
+    
+    p = idxof(b2,0)
+    if p < 0
+        p = len(b2)
+    end
  
     a = 0      # current depth
     c = 0      # match counter
@@ -197,7 +204,11 @@ fn DoTest()
         # Now parse actual size
         x = 9 # Looking for 643, always start from 9 if socket < 10: "\r\n+IPD,0,643:...."
          
-        l = strlen(b0)
+        l = idxof(b0,0)
+        
+        if l < 0
+            l = len(b0)
+        end
         n = 0
         for i = x to l
             if b0[i] = 0x3A # :
@@ -242,6 +253,7 @@ fn DoTest()
         
 fend
 
+DoTest() 
 
 
 
