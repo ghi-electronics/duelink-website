@@ -117,7 +117,7 @@ This mode gives you direct access to the `Espressif AT Commands`, with full cont
 This partial code shows some of the code needed to read the weather forecast.
 
 ```py
-s = StartWiFi("MySSID", "MyPassword", "DUELink", 1, 0, 30000) # SSID, PWD, DNS, AT mode, no bridge, timeout ms
+s = StartWiFi("MySSID", "MyPassword", [], 1, 0, 30000) # SSID, PWD, DNS (empty), AT mode, no bridge, timeout ms
 if s < 0
     Println("Failed to connect to WiFi")
     StatLed(0,1,0) # LED off means timed out!
