@@ -13,7 +13,7 @@ fn Test()
     
     AtCmd("AT+GMR") # Get version     
     
-    Wait(250)
+    ReadLine(1,1000)
      
     cmd("sel(1)")
     cmd("Clear(0)")
