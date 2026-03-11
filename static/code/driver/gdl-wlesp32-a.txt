@@ -521,7 +521,7 @@ fn StartWiFi(b1, b2, b3, a, b, t) # WiFi
     AtCmd("AT+CIPMUX=1") 
     ATWaitResp(1000)
     
-    if len(b3) > 0
+    if a=0 && len(b3) > 0
         AtCmd("AT+CIPSERVER=1,8080") # 1: start TCP. 0: Stop
         ATWaitResp(1000)
         
