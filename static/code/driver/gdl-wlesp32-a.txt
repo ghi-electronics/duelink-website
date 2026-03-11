@@ -526,7 +526,7 @@ fn StartWiFi(b1, b2, b3, a, b, t) # WiFi
         ATWaitResp(1000)
         
         dim b2[128]
-        sprintf(b2,"AT+MDNS=1,\"%s\",\"_tcp\",80", b3)
+        sprintf(b2,"AT+MDNS=1,\"%s\",\"_tcp\",8080", b3)
     
         AtCmd(b2)
         ATWaitResp(1000)
