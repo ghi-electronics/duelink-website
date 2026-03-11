@@ -40,7 +40,7 @@ to WirelessWrite data {
   due_run (due_make_command 'wlWrite' data)
 }
 
-script 120 49 {
+script 120 40 {
 whenStarted
 comment 'In this sample:'
 comment 'Read data from wireless'
@@ -48,49 +48,53 @@ comment 'If data = ''0'' (unicode 48) then set led off. Otherwise set led ON'
 comment 'Also write back that data +1. Example if data is 48 then send back 49'
 comment 'Setup requirements:'
 comment 'Wireless ESP32 must be configured for WiFi (or Bluetooth) with AT disabled and Bridge mode disabled.'
-comment 'Tested on PixoBit that can show text on the screen'
 due_useI2C false
 due_select_device 1
 forever {
-  if (IsWiFiConnected) {if (IsTcpConnected) {
-    if ((WirelessReadCount) > 0) {
-      d = (WirelessRead)
-      WirelessWrite (d + 1)
-      tinyOLED_clear
-      if (('[data:unicodeString]' d) != ('[data:unicodeString]' 48)) {
-        tinyOLED_drawString 'Led ON' 48 52 true
-        setUserLED true
-      } else {
-        tinyOLED_drawString 'Led OFF' 48 52 true
-        setUserLED false
+  if (IsWiFiConnected) {
+    if (IsTcpConnected) {
+      if ((WirelessReadCount) > 0) {
+        d = (WirelessRead)
+        WirelessWrite (d + 1)
+        if (('[data:unicodeString]' d) == ('[data:unicodeString]' 48)) {
+          setUserLED false
+          sayIt 'Led OFF'
+        }
+        if (('[data:unicodeString]' d) == ('[data:unicodeString]' 49)) {
+          setUserLED true
+          sayIt 'Led ON'
+        }
       }
+    } else {
+      waitMillis 1000
     }
-  }}
-  waitMillis 50
+  } else {
+    waitMillis 1000
+  }
 }
 }
 
-script 904 73 {
+script 904 64 {
 to IsBluetoothConnected {}
 }
 
-script 902 306 {
+script 902 297 {
 to IsWiFiConnected {}
 }
 
-script 904 525 {
+script 904 516 {
 to IsTcpConnected {}
 }
 
-script 913 751 {
+script 913 742 {
 to WirelessRead {}
 }
 
-script 912 892 {
+script 912 883 {
 to WirelessWrite {}
 }
 
-script 912 1014 {
+script 912 1005 {
 to WirelessReadCount {}
 }
 
