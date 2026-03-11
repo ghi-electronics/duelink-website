@@ -6,6 +6,8 @@ _c = 0 # fifo count
 _i = 0 # in
 _o = 0 # out
 _w = 0 # write flag
+_b = -1 # bridge mode
+_a = -1 # AT mode
 
 AsIo(1)
 dim b0[1024] # this buffer b0 is used for receiving data, do not touch
@@ -413,7 +415,10 @@ fend
 
 # standard mode, read, write
 fn WlWrite(d)
-
+    if _a = 1 || _b = 1
+        return -1
+    end
+    
     if (_w = 1)
         return -1
     end
@@ -437,6 +442,9 @@ fn WlWrite(d)
 fend
 
 fn WlRead()
+    if _a = 1 || _b = 1
+        return -1
+    end
     if (_c > 0)
         d = b5[_o]
         _o = _o + 1
@@ -454,6 +462,10 @@ fn WlRead()
 fend
 
 fn WlReadCnt()
+    if _a = 1 || _b = 1
+        return 0
+    end
+    
     return _c
 fend
 
@@ -473,6 +485,9 @@ fn StartWiFi(b1, b2, b3, a, b, t) # WiFi
     end
     
     _m = 1
+    _a = a
+    _b = b
+    
     if AtCmd("AT+CWMODE=1") != 0
         ATWaitResp(500)
     end
@@ -540,6 +555,9 @@ fn StartBT(b1,a, b) # Bluetooth
         return -2
     end
     
+    _a = a
+    _b = b
+    
     # a: AT mode, 0: disable, 1: enable
     # b: Bridge mode: 0: disable, 1: enable
     
@@ -574,3 +592,4 @@ fn StartBT(b1,a, b) # Bluetooth
 fend  
 
 Init()
+#############

@@ -1,63 +1,71 @@
-// This sample runs on Arduino UNO 4 WIFI
+// This sample runs on DueDuino
+
 // In this sample:
-// Send AT command AT+GMR
-// Read responses (multiple lines)
+// Using TeraTerm, connect to the device using TCP/IP (if WiFi is used) or Serial (if Bluetooth is used).
+// From TeraTerm, send 1 byte and receive that byte +1. Example: press '1', TeraTerm shows '2'.
+// Setup requirements:
+// Wireless ESP32 must be configured for WiFi (or Bluetooth) with AT disabled and Bridge mode disabled.
 
 #include <Arduino.h>
-#include <Wire.h>
 #include <DUELink.h>
 
-TwoWireTransport transport(Wire1);
+SerialTransport transport(Serial2);
 DUELink duelink(transport);
 
-void ATCmdSend(const char* cmd) {
-    char cmdBuffer[64];
-    snprintf(cmdBuffer, sizeof(cmdBuffer), "ATCmd(\"%s\")", cmd);
-    duelink.Engine.ExecuteCommand(cmdBuffer);
+bool IsBluetoothConnected() {
+    // Pin 5 goes low when Bluetooth is connected
+    float ret = duelink.Engine.ExecuteCommand("dread(5,1)");
+    return ((int)ret) == 0;
 }
 
-void ATCmdReadLine(int timeout, char* outBuffer, int outBufferSize) {
-    char cmdBuffer[64];
-    snprintf(cmdBuffer, sizeof(cmdBuffer), "ReadLine(1, %d)", timeout);
-    duelink.Engine.ExecuteCommand(cmdBuffer);
+bool IsWiFiConnected() {
+    // Pin 5 goes low when WiFi is connected
+    float ret = duelink.Engine.ExecuteCommand("dread(5,1)");
+    return ((int)ret) == 0;
+}
 
-    uint8_t data[1024];
-    duelink.Stream.ReadBytes("b0", data);
+bool IsTcpConnected() {
+    // Pin 4 goes low when a TCP connection occurs (on mDNS "duelink", port 8080 if default)
+    float ret = duelink.Engine.ExecuteCommand("dread(4,1)");
+    return ((int)ret) == 0;
+}
 
-    int i = 0;
-    for (; i < outBufferSize - 1 && i < 1024; i++) {
-        if (data[i] == 0) break;
-        outBuffer[i] = (char)data[i];
-    }
-    outBuffer[i] = '\0';
+int WirelessRead() {
+    float ret = duelink.Engine.ExecuteCommand("wlRead()");
+    return (int)ret;
+}
+
+int WirelessReadCount() {
+    float ret = duelink.Engine.ExecuteCommand("wlReadcnt()");
+    return (int)ret;
+}
+
+void WirelessWrite(uint8_t data) {
+    char cmd[64];
+    snprintf(cmd, sizeof(cmd), "wlWrite(%u)", data);
+    duelink.Engine.ExecuteCommand(cmd);
 }
 
 void setup() {
-    Serial.begin(9600);
-    Wire1.begin();
+    Serial2.begin(115200);
     duelink.Connect();
-
-    
 }
 
 void loop() {
-
-   ATCmdSend("AT+GMR");
-
-    char line[1024];
-    ATCmdReadLine(1000, line, sizeof(line));
-
-    while (true) {
-        // The version response returns multiple lines; keep reading until the end
-        if (line[0] != '\0') {
-            Serial.println(line);
-            ATCmdReadLine(1000, line, sizeof(line));
-
-            delay(1000);
-        }
-        else {
-            break;
-        }
+    if (!IsWiFiConnected()) {        
+        delay(1000);
+        return;
     }
 
+    if (!IsTcpConnected()) {        
+        delay(1000);
+        return;
+    }
+
+    if (WirelessReadCount() > 0) {
+        int d = WirelessRead();
+        WirelessWrite((uint8_t)(d + 1));       
+    }
+
+    delay(1000);
 }
