@@ -1,36 +1,64 @@
+
 # In this sample:
-# Send the AT command AT+GMR
-# Read responses (multiple lines)
+# Using TeraTerm, connect to the device using TCP/IP (if WiFi is used) or Serial (if Bluetooth is used).
+# From TeraTerm, send 1 byte and receive that byte +1. Example: press '1', TeraTerm shows '2'.
+# Setup requirements:
+# Wireless ESP32 must be configured for WiFi (or Bluetooth) with AT disabled and Bridge mode disabled.
 
 import time
-import codecs
-from GHIElectronics.DUELink import *
+from datetime import datetime
+from DUELink.DUELinkController import DUELinkController
+
 
 availablePort = DUELinkController.GetConnectionPort()
-duelink = DUELinkController(availablePort)
+duelink = DUELinkController(availablePort) #Bluetooth COM port, change to user comport
 
-def ATCmdSend(cmd):
-    duelink.Engine.ExecuteCommand(f'ATCmd("{cmd}")')
+# duelink = DUELinkController("/dev/ttyAMA0")
 
-def ATCmdReadLine(timeout):
-    duelink.Engine.ExecuteCommand(f"ReadLine(1, {timeout})")
+#variable
+def IsBluetoothConnected():
+    # Pin 5 goes low when Bluetooth is connected
+    ret = duelink.Engine.ExecuteCommand("dread(5,1)")
+    return int(ret) == 0
 
-    data = bytearray(1024)
-    duelink.Stream.ReadBytes("b0", data)
-    s = data.decode("utf-8")
-    return s
+def IsWiFiConnected():
+    # Pin 5 goes low when WiFi is connected
+    ret = duelink.Engine.ExecuteCommand("dread(5,1)")
+    return int(ret) == 0
+
+def IsTcpConnected():
+    # Pin 4 goes low when a TCP connection occurs (on mDNS "duelink", port 8080 if default)
+    ret = duelink.Engine.ExecuteCommand("dread(4,1)")
+    return int(ret) == 0
+
+def WirelessRead():
+    ret = duelink.Engine.ExecuteCommand("wlRead()")
+    return int(ret)
+
+def WirelessReadCount():
+    ret = duelink.Engine.ExecuteCommand("wlReadcnt()")
+    return int(ret)
+
+def WirelessWrite(data):
+    duelink.Engine.ExecuteCommand(f"wlWrite({data})")
 
 while True:
-    ATCmdSend("AT+GMR")
 
-    line = ATCmdReadLine(1000)
+    if not IsWiFiConnected():
+        print("Wait for WiFi connection...")
+        time.sleep(1)
+        continue
 
-    while True:
-        # The version response returns multiple lines, keep reading until the end
-        if line is not None and len(line) != 0:
-            print(line)
-            line = ATCmdReadLine(1000)
+    if not IsTcpConnected():
+        print("Wait for TCP connection...")
+        time.sleep(1)
+        continue
 
-            time.sleep(1)
-        else:
-            break
+    if WirelessReadCount() > 0:
+        d = WirelessRead()
+
+        print(f"Received: {chr(d)}")
+        WirelessWrite(d + 1)
+        print(f"Sent: {chr(d + 1)}")
+
+    time.sleep(1)

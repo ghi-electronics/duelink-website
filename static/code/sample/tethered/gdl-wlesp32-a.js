@@ -1,6 +1,8 @@
 // In this sample:
-// Send AT command AT+GMR
-// Read responses (multiple lines)
+// Using TeraTerm, connect to the device using TCP/IP (if WiFi is used) or Serial (if Bluetooth is used).
+// From TeraTerm, send 1 byte and receive that byte +1. Example: press '1', TeraTerm shows '2'.
+// Setup requirements:
+// Wireless ESP32 must be configured for WiFi (or Bluetooth) with AT disabled and Bridge mode disabled.
 
 import pkg_serialusb from 'dlserialusb';
 const {SerialUSB} = pkg_serialusb
@@ -16,40 +18,63 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function ATCmdSend(cmd) {
-    await duelink.Engine.ExecuteCommand(`ATCmd("${cmd}")`);
+// Methods
+async function IsBluetoothConnected() {
+    // Pin 5 goes low when Bluetooth is connected
+    var ret = await duelink.Engine.ExecuteCommand("dread(5,1)");
+    return Number(ret) === 0;
 }
 
-async function ATCmdReadLine(timeout) {
-    await duelink.Engine.ExecuteCommand(`ReadLine(1, ${timeout})`);
+async function IsWiFiConnected() {
+    // Pin 5 goes low when WiFi is connected
+    var ret = await duelink.Engine.ExecuteCommand("dread(5,1)");
+    return Number(ret) === 0;
+}
 
-    var data = new Uint8Array(1024);
-    await duelink.Stream.ReadBytes("b0", data);
+async function IsTcpConnected() {
+    // Pin 4 goes low when a TCP connection occurs (on mDNS "duelink", port 8080 if default)
+    var ret = await duelink.Engine.ExecuteCommand("dread(4,1)");
+    return Number(ret) === 0;
+}
 
-    var decoder = new TextDecoder("utf-8");
-    var str = decoder.decode(data);
+async function WirelessRead() {
+    var ret = await duelink.Engine.ExecuteCommand("wlRead()");
+    return Number(ret);
+}
 
-    return str;
+async function WirelessReadCount() {
+    var ret = await duelink.Engine.ExecuteCommand("wlReadcnt()");
+    return Number(ret);
+}
+
+async function WirelessWrite(data) {
+    await duelink.Engine.ExecuteCommand(`wlWrite(${data})`);
 }
 
 async function main() {
     while (true) {
-        await ATCmdSend("AT+GMR");
 
-        var line = await ATCmdReadLine(1000);
-
-        while (true) {
-            // The version response returns multiple lines, keep reading until the end
-            if (line != null && line.length != 0) {
-                console.log(line);
-                line = await ATCmdReadLine(1000);
-
-                await sleep(1000);
-            }
-            else {
-                break;
-            }
+        if (!(await IsWiFiConnected())) {
+            console.log("Wait for WiFi connection...");
+            await sleep(1000);
+            continue;
         }
+
+        if (!(await IsTcpConnected())) {
+            console.log("Wait for tcp connection...");
+            await sleep(1000);
+            continue;
+        }
+
+        if ((await WirelessReadCount()) > 0) {
+            var d = await WirelessRead();
+
+            console.log(`Received: ${String.fromCharCode(d)}`);
+            await WirelessWrite(d + 1);
+            console.log(`Sent: ${String.fromCharCode(d + 1)}`);
+        }
+
+        await sleep(1000);
     }
 }
 

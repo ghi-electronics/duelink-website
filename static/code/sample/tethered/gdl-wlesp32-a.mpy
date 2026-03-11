@@ -1,6 +1,10 @@
+# This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
 # In this sample:
-# Send the AT command AT+GMR
-# Read responses (multiple lines)
+# Using TeraTerm, connect to the device using TCP/IP (if WiFi is used) or Serial (if Bluetooth is used).
+# From TeraTerm, send 1 byte and receive that byte +1. Example: press '1', TeraTerm shows '2'.
+# Setup requirements:
+# Wireless ESP32 must be configured for WiFi (or Bluetooth) with AT disabled and Bridge mode disabled.
+
 
 import time
 import duelink 
@@ -13,29 +17,54 @@ sdaPIN = machine.Pin(22)
 i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
 due = duelink.DUELinkController(i2c)
 
-# methods
-def ATCmdSend(cmd):
-    due.Engine.ExecuteCommand('ATCmd("{}")'.format(cmd))
+# methods & variable
 
-def ATCmdReadLine(timeout):
-    due.Engine.ExecuteCommand("ReadLine(1, {})".format(timeout))
+def IsBluetoothConnected():
+    # Pin 5 goes low when Bluetooth is connected
+    ret = due.Engine.ExecuteCommand("dread(5,1)")
+    return int(ret) == 0
 
-    data = bytearray(1024)
-    due.Stream.ReadBytes("b0", data)
-    s = data.decode("utf-8")
-    return s
+def IsWiFiConnected():
+    # Pin 5 goes low when WiFi is connected
+    ret = due.Engine.ExecuteCommand("dread(5,1)")
+    return int(ret) == 0
+
+def IsTcpConnected():
+    # Pin 4 goes low when a TCP connection occurs (on mDNS "duelink", port 8080 if default)
+    ret = due.Engine.ExecuteCommand("dread(4,1)")
+    return int(ret) == 0
+
+def WirelessRead():
+    ret = due.Engine.ExecuteCommand("wlRead()")
+    return int(ret)
+
+def WirelessReadCount():
+    ret = due.Engine.ExecuteCommand("wlReadcnt()")
+    return int(ret)
+
+def WirelessWrite(data):
+    due.Engine.ExecuteCommand("wlWrite({})".format(data))
+
 
 while True:
-    ATCmdSend("AT+GMR")
 
-    line = ATCmdReadLine(1000)
+    if not IsWiFiConnected():
+        print("Wait for WiFi connection...")
+        time.sleep_ms(1000)
+        continue
 
-    while True:
-        # The version response returns multiple lines, keep reading until the end
-        if line is not None and len(line) != 0:
-            print(line)
-            line = ATCmdReadLine(1000)
+    if not IsTcpConnected():
+        print("Wait for TCP connection...")
+        time.sleep_ms(1000)
+        continue
 
-            time.sleep_ms(1000)
-        else:
-            break
+    if WirelessReadCount() > 0:
+        d = WirelessRead()
+
+        print("Received:", chr(d))
+        WirelessWrite(d + 1)
+        print("Sent:", chr(d + 1))
+
+    time.sleep_ms(1000)
+
+
