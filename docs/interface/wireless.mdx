@@ -12,66 +12,48 @@ Cut the wire and use DUELink modules wirelessly! This **wireless interface** is 
 </div>
 
 :::tip
-Wireless ESP32 module can also be used as a standard module with Wireless connection, without becoming an interface, see [IoT WiFi](../iot/wifi) page.
+Wireless ESP32 module can also be used as a wireless connection, without becoming an interface, see [IoT WiFi](../iot/wifi) page.
 :::
 
-Either WiFi or Bluetooth can be used to enable the Wireless Interface to access the Daisylink wirelessly.
+Either WiFi or Bluetooth can be used to Daisylink modules wirelessly.
 
 <div style={{ textAlign: 'center'}}>
 ![Wireless daisylink](pathname:///img/wireless-daisylink.webp)
 </div>
 
-In either way, the Wireless ESP32 module needs to be loaded with a special `Wireless Bridge` script.
+In case of Bluetooth, a virtual serial port is made available (SPP profile). Commands can then be carried out wirelessly using this virtual serial port, just like if commands were sent over UART or USB. Available Language libraries, such as [Python](../language/python), simply work with this virtual serial connection.
 
-1. Connect the modules to a PC using any USB adaptor, such as [Power Hook](../products/adpwrhook-a) [USB Host](../products/adusbhook-a).
+To enable Bluetooth interface on a module, Wireless ESP32 needs to be loaded with a small script. Similar to other modules, connect the module to a PC using a USB adapter, such as [Power Hook](../products/adpwrhook-a) [USB Host](../products/adusbhook-a).
 
 <div style={{ textAlign: 'center'}}>
 ![Wireless power options](pathname:///img/wlesp32-power-options.webp)
 </div>
 
-2. Open [console.duelink.com](https://console.duelink.com/) and click the `Connect` button and then on the right side, click `Erase All`. The erase all step is needed to remove all regions.
+:::tip
+Make sure the latest firmware and driver script are installed. If not sure, update using [loader.duelink.com](https://loader.duelink.com/)
+:::
 
-<div style={{ textAlign: 'center'}}>
-![Wireless power options](pathname:///img/erase-all.webp)
-</div>
-
-3. Copy/paste this [Wireless Bridge script](https://github.com/ghi-electronics/duelink-projects/blob/main/source/wireless-bridge/standalone/wireless-bridge.txt) into the console.
-4. Modify the configuration as explained below.
-5. Click record and cycle power.
-
-Note how Wireless ESP32 is a wireless bridge connecting wireless to the chain and therefore its DUELink address 1 is only visible on the USB connection. All other modules are no longer accessible from USB as they are now accessible from Wireless.
-
-<div style={{ textAlign: 'center'}}>
-![Wireless daisylink address](pathname:///img/wireless-daisylink-addr-host.webp)
-</div>
-
-The bridge script configuration allows you to select between WiFi and Bluetooth. The default option is Bluetooth, which is recommended. This will turn the module into a virtual serial port connection using the Bluetooth SPP profile. This allows a PC running one of the languages, such as [Python](../language/python), to access the connected modules wirelessly. Everything works exactly the same as if you were using a USB virtual serial connection.
+Open [console.duelink.com](https://console.duelink.com/) and click the `Connect` button then copy/paste the code below.
 
 ```py
 # Connect a Daisylink bridge using Bluetooth
-StartBT("DUELink_BT")
-# Wait for Bluetooth connection and initiate the bridge
-while (dread(5,1)=1)
-    wait(100)
-wend
+StartBT(1, "DUELink_BT", 0, 1) # enable, name, AT mode, enable bridge
 
-# Initiate the bridge
-Bridge(1)
+# StartBT() does not return!
 ```
 
-WiFi works similarly. It connects to a WiFi network and start a TCP server at port 22.
+Click `Record` button and power cycle the module. The Wireless ESP32 module is now a "Wireless Interface"! The module will indefinitely wait for a Bluetooth connection. While waiting, the STAT LED will turn the LED for a short time every second. When a connection is established, the STAT LED will blink normally.
+
+In the case of WiFi, we need a slightly different script. It starts listening on a TCP server at port 22.
 
 ```py
 # Connect a Daisylink bridge using WiFi
-StartWiFi("MySSID", "MyPassword") 
+StartWiFi("MySSID", "MyPassword", "DUELink", 0, 1, 1000) # en, SSID, PWD, DNS, AT mode, bridge, timeout ms
 
-# Wait for multicast DNS connection
-StartTcp("DUELink")
-while (dread(4,1)=1)
-    wait(100)
-wend
-# Initiate the bridge
-Bridge(1)
+#StartWiFi() does not return, unless failed to connect to WiFi.
+
+Println("Failed to connect to WiFi")
+StatLed(0,0,1) # LED off
 ```
 
 Note that provided libraries only work with serial ports. The easiest way to try this server is using a terminal software, such as TeraTerm. Open TeraTerm and select `TCP/IP` then enter `DUELink` for the `Host` name. Select `Other` from the `Service` options. Set `TCP Port#` to `22`. Once the connections is established, you can type in commands to control modules. Go ahead and enter `list` and hit enter to see the code listing.
@@ -80,3 +62,12 @@ Note that provided libraries only work with serial ports. The easiest way to try
 `Echo()` does not work properly as TeraTerm (and most terminals) will only send data when you hit enter when used in TCP mode. You can enable `local echo` to see what you type!
 :::
 
+---
+
+## Device Addressing
+
+Regardless of using Bluetooth or WiFi, the `Wireless ESP32` module acts as "wireless to Daisylink bridge" and is not part of the chain. This is accomplished using Host Mode explained on the [Disylink](../engine/daisylink) page. To USB, `Wireless ESP32` is device address 1 but the other modules are "bridged" to the wireless chain and are no longer accessible from USB, as they are now accessible from Wireless. The first module is address 1 to the wireless connection, and is not accessible by USB.
+
+<div style={{ textAlign: 'center'}}>
+![Wireless daisylink address](pathname:///img/wireless-daisylink-addr-host.webp)
+</div>
