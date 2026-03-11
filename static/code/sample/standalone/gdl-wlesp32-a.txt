@@ -136,24 +136,9 @@ fend
 
 ######USE########### 
  
-fn DoTest() 
-    # Init ESP32    
-    Init()
-    
-    # Sets the ESP Wi-Fi mode to Station mode.
-    AtCmd("AT+CWMODE=1")
-    # Wait for OK
-    ATWaitResp(2000)
-    
-    # Assign SSID, PWD
-    AtCmd("AT+CWJAP=\"abcd\",\"1234\"")
-    # Wait for OK, upto 10 seconds, depend on WiFi router
-    ATWaitResp(10000)
-    
-    # Enable multiple TCP/UDP connections
-    AtCmd("AT+CIPMUX=1") 
-    # Wait for OK
-    ATWaitResp(1000)
+fn UpdtWeather()     
+    # Start WiFi, AT mode, no bridge
+    StartWiFi("abcd","1234",[],1,0, 30000) 
     
     while 1
         # Use connection 0
@@ -253,7 +238,7 @@ fn DoTest()
         
 fend
 
-DoTest() 
+UpdtWeather() 
 
 
 
