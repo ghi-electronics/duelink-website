@@ -229,11 +229,7 @@ fn UpdtWeather()
             
             # Discard all if any
             SerDisc() 
-        end
-        
-        AtCmd("AT+CIPCLOSE=0")
-        ATWaitResp(1000)
-        wait(500)
+        end        
     wend
         
 fend
