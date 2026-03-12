@@ -69,7 +69,7 @@
         "Buzzer",
         "Light Sensor",
         "2x User Buttons",
-        "52x42mm overall dimension"
+        "52x42mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 5. |\n| `GetH()` | Get display height: 5. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |\n\n:::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::",
       "MfgNotes": "Check Menu->Help for connection before testing"
@@ -89,7 +89,7 @@
         "2x User Buttons",
         "micro:bit inspired edge connector",
         "USB-C connector",
-        "52x42mm overall dimension"
+        "52x42mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |",
       "MfgNotes": "Check Menu->Help for connection before testing"
@@ -109,7 +109,7 @@
         "5x5 LED Matrix",
         "Buzzer",
         "Light Sensor",
-        "120x60mm overall dimension"
+        "120x60mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `TouchA()` | Returns 1 if A pad is touched. |\n| `TouchB()` | Returns 1 if B pad is touched. |\n| `TouchUp()` | Returns 1 if Up pad is touched. |\n| `TouchDown()` | Returns 1 if Down pad is touched. |\n| `TouchLeft()` | Returns 1 if Left pad is touched. |\n| `TouchRight()` | Returns 1 if Right pad is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage level from light sensor. |\n| `DVer()` | This driver version. |",
       "MfgNotes": "Check Menu->Help for connection before testing"  
@@ -127,7 +127,7 @@
         "USB-C connector",
         "PowerJack",
         "Downlink connector for Daisylinking modules",
-        "69x56mm overall dimension"
+        "69x56mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `DVer()` | This driver version. |",
       "MfgNotes": "Check Menu->Help for USB connection before testing"
@@ -149,7 +149,7 @@
         "2 Servo Ports",
         "RGB LED",
         "Tunes Buzzer",
-        "107x57mm overall dimension"
+        "107x57mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnPin(a)` | Returns button's pin number, based on `a` alias ('U' = Up, 'D' = Down, 'L' = Left, 'R' = Right) |\n| `GetX()` | Returns the X axis of the Accelerometer. |\n| `GetY()` | Returns the Y axis of the Accelerometer. |\n| `GetZ()` | Returns the Z axis of the Accelerometer. |\n| `SetBulb(c)` | Sets Lightbulb `c` color with 24bit RGB color (RRGGBB). |\n| `Tunes(f,d)` | Plays Tunes buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage level from Light sensor. |\n| `ReadTemp()` | Returns voltage level from Temperature sensor. |\n| `DVer()` | This driver version. |",
       "MfgNotes": "Check Menu->Help for connection before testing"  
@@ -167,7 +167,7 @@
         "Downlink DUELink connector",
         "USB-C connector",
         "Surface mountable",
-        "24x18mm overall dimension"
+        "24x18mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `DVer()` | This driver version. |"
     },
@@ -183,7 +183,7 @@
         "Uplink & Downlink DUELink connectors",
         "DIP24 form factor",
         "Surface mountable SoM",
-        "30.48x12.7mm overall dimension"
+        "30.48x12.7mm Overall Dimension"
       ]      
     },
     {
@@ -197,7 +197,7 @@
         "2x RGB LEDs",
         "Downlink DUELink Connector",
         "PCB USB-A",
-        "20x47mm overall dimension"
+        "20x47mm Overall Dimension"
       ],
       "driverApi": "Function | Description\n---|---\n`LEye(r,g,b)` | Sets the left eye with `r` for red, `g` for green and `b` for blue color.\n`REye(r,g,b)` | Sets the right eye with `r` for red, `g` for green and `b` for blue color. \n`BtnLdr()` | Returns 1 if LDR button is pressed.\n`DVer()` | This driver version.",
       "MfgNotes": "Connect Ghizzy Jr leg to USB port directly",
@@ -224,7 +224,7 @@
         "Uplink & Downlink DUELink Connectors",
         "2x user buttons",
         "PCB USB-A",
-        "27x61mm overall dimension"
+        "27x61mm Overall Dimension"
       ],
       "driverApi": "Function | Description\n----------|-------------\n`LEye(r,g,b)` | Sets the left eye with `r` for red, `g` for green and `b` for blue color.\n`REye(r,g,b)` | Sets the right eye with `r` for red, `g` for green and `b` for blue color.\n`Ear(l,r)` | Activate the `l` left and `r` \"ears\" LEDs (1 on, 0 off).\n`Mouth(l,c,r)` | Activate the `m` \"mouth\" with `l` for left, `c` for center and `r` is right leds.\n`BtnLdr()` | Returns 1 if LDR button is pressed.\n`PlyBeep()` | Plays buzzer. \n`DVer()` | This driver version.",
       "video": "D4073veneWI",
@@ -242,7 +242,7 @@
         "Stand-up Design",
         "26 Smart LEDs",
         "Buzzer",
-        "140x110mm overall dimension"
+        "140x110mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayLED(enable)` | `PlayLED(1)` will make the LED constantly blink, default. Use `PlayLED(0)` to disable playback and manually control the LEDs. |\n| `SetLED(i, c, l)` | Sets a specific LED, `i` index (index start from 1), to a `c` color (hex value), `l` brightness (0 off, max 31). |\n| `SetAll(color)` | Sets all LEDs to a specific color, use 0 to turn off. |\n| `ShowLed()` | Flush Leds, and show. |\n| `RndLed()` | Show random color on random leds. |\n| `Buzzer(f,d)` | Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function. |\n| `DVer()` | This driver version. |",
       "video": "2INa95NzI_o"
@@ -258,7 +258,7 @@
         "Snowflake shaped PCB",
         "12x surface mounted LEDs optional",
         "Unpopulated option to add your LEDs",
-        "44x49mm overall dimension"
+        "44x49mm Overall Dimension"
       ],
       "driverApi": "Function | Description\n---|---\n`SetLed(i,s)` | Set LED at index `i` to state`s`.\n`SetAll(b)` | Set all LEDs to `b` bitmap.\n`DVer()` | This driver version.",
       "variations": [
@@ -287,7 +287,7 @@
         "3V CR2032 Battery compatible",
         "3.7V Lithium Battery Compatible",
         "Slotted ends for wristband or mounting",
-        "31x37mm overall dimension"
+        "31x37mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 5. |\n| `GetH()` | Get display height: 5. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `DVer()` | This driver version. |\n\n:::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::",
       "variations": [
@@ -314,7 +314,7 @@
         "Holey section",
         "On-board buzzer",
         "USB Type C",
-        "111.5x75.5mm overall dimension"
+        "111.5x75.5mm Overall Dimension"
       ],
     
       "driverApi": "Function | Description \n----------|-------------\n`DVer()` | This driver version.\n`SetLED(i,s)` | Set specific LED to on or off.\n`SetLedAll(o)` | Set all leds 1,2,3,4,5 to on(1) or off(0).\n`TLArrow()` | return 1 if touched on left arrow.\n`TRArrow()` | return 1 if touched on right arrow.\n`TPad(i)` | return 1 if touched on pad `i`."
@@ -331,7 +331,7 @@
         "7x buttons",
         "8x LEDs",
         "USB Type C",
-        "71x37mm overall dimension"
+        "71x37mm Overall Dimension"
       ],      
       "driverApi": "| Function | Description |\n|----------|-------------|\n|`BtnPin(p)` | Returns pin number, based on `p` value ('U' = Up, 'D' = Down, 'L' = Left, 'R' = Right, 'A' = A, 'B' = B).  |\n|`Setled(l,v)` | Sets Led at `l` (1 to 8) to a `v` value (1 on, 0 off). |\n| `SetAllLed(v)` | Sets all Leds to `v` value (1 on, 0 off). |\n| `DVer()` | This driver version. |"
 
@@ -400,7 +400,7 @@
       "keyFeatures": [
         "1.8\" display",
         "160x128 pixels",
-        "62x37mm overall dimension"
+        "62x37mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(m,o)` | Initialize display `m` mode (buffered = 0 , direct = 1). `o` orientation (landscape = 0, portrait = 1). Init(0, 0) automatically called on power-up. |\n| `GetW()` | Get display width: 64 in buffered, 128 in direct. |\n| `GetH()` | Get display height: 80 in buffered, 160 in direct. |\n| `IsColor()` | Returns 1. |\n| `SetDACtrl(s,r,c,b)` | Data access control `s` swapRowCol, `r` invertRow, `c` invertCol, `b` swapBGRSet data access control. |\n| `SetWindow(x,y,w,h)` | Sets draw window `x` display's x value, `y` display's y value., `w` display's width value, `h` display's height value. |\n| `DVer()` | This driver version. |"
     },
@@ -416,7 +416,7 @@
       "keyFeatures": [
         "1.28\" Round Display",
         "240x240",
-        "47x47mm overall dimension"
+        "47x47mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(m)` | Initialize the display. Automatically called on power up `m`mode to (1-direct, 0-buffered (default)). |\n| `GetW()` | Get display width: 80 in buffered, 240 in direct. |\n| `GetH()` | Get display height: 80 in buffered, 240 in direct. |\n| `IsColor()` | Returns 1. |\n| `DVer()` | This driver version. |"
     },
@@ -433,7 +433,7 @@
         "400x300 resolution",
         "200x150 actual res",
         "Red/White/Black color",
-        "107x87mm overall dimension"
+        "107x87mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Width()` | Display width. |\n| `Height()` | Display Height. |\n| `DrawOnBW()` | Next drawing functions will go on B&W. |\n| `DrawOnRed()` | Next drawing functions will go on Red. |\n| `DVer()` | This driver version. |"
     },
@@ -449,7 +449,7 @@
         "2.9\" e-Ink display",
         "296x128 resolution",
         "Red/White/Black Color",
-        "102x37mm overall dimension"
+        "102x37mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Width()` | Display width. |\n| `Height()` | Display Height. |\n| `DrawOnBW()` | Next drawing functions will go on B&W. |\n| `DrawOnRed()` | Next drawing functions will go on Red. |\n| `DVer()` | This driver version. |"
     },
@@ -466,7 +466,7 @@
         "BT817Q graphics processor",
         "Dedicated graphics processor and memory",
         "Graphics coprocessor drawing",
-        "57x77mm overall dimension"
+        "57x77mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start. |\n| `DLClear()` | Clear the commands. |\n| `DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments. |\n| `DLSwap()` | Execute the graphics commands and swap working buffers. |\n| `DVer()` | This driver version. |",
       "MfgNotes": "Need monitor and speaker for testing" 
@@ -480,7 +480,7 @@
       "description": "Print up to 20 characters over 4 rows on this character display, available in different color options.\n\n<div style={{ textAlign: 'center'}}>![Count and Time](/img/lcd-20x4-options.webp)</div>",
       "keyFeatures": [
         "20 Characters by 4 Rows",
-        "112x62mm overall dimension"
+        "112x62mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |",
       "variations": [
@@ -505,7 +505,7 @@
       "description": "Print up to 16 characters over 2 rows on this character display, available in different color options.\n\n<div style={{ textAlign: 'center'}}>![Count and Time](/img/lcd-16x2-options.webp)</div>",
       "keyFeatures": [
         "16 Characters by 2 rows",
-        "97x37mm overall dimension"
+        "97x37mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version.|",
       "variations": [
@@ -532,7 +532,7 @@
       "keyFeatures": [
         "0.96\" display",
         "128x64",
-        "40x27mm overall dimension"
+        "40x27mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `DVer()` | This driver version. |"
     },
@@ -546,7 +546,7 @@
       "description": "Vacuum fluorescent displays are visually pleasing. This 8x character display looks great at any time, but it will look especially amazing in the dark!",
       "keyFeatures": [
         "Monochrome Vacuum Fluorescent Display",
-        "107x22mm overall dimension"
+        "107x22mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `CPrint(x, c)` | Print an ASCII `c` character at `x` pos. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |"
     },
@@ -562,7 +562,7 @@
         "Single positional 180 degree servo",
         "9G micro servo included",
         "Self-powered",
-        "37x31mm overall dimension"
+        "37x31mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `ServoX1(a)` |Sets servo to `a` angle."
     },
@@ -578,7 +578,7 @@
         "8x servo motor connections",
         "Eight 3-pin male headers",
         "Power terminal block",
-        "37x27mm overall dimension"
+        "37x27mm Overall Dimension"
       ],
       "MfgNotes": "An external 5V power supply is required"  
     },
@@ -594,7 +594,7 @@
         "43A H-Bridge",
         "6 to 27V",
         "Screw terminal connections",
-        "52x50mm overall dimension"
+        "52x50mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Set(s)` | Sets the motor `s` speed and direction (-100 to 100). |\n| `DVer()` | This driver version. |"
     },
@@ -611,7 +611,7 @@
         "2A (1A for each motor)",
         "Screw terminal connections",
         "External power terminal block",
-        "37x37mm overall dimension"
+        "37x37mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SMotorA(s)` | Sets Motor A `s` speed and direction (-100 to 100). |\n| `SMotorB(s)` | Sets Motor B `s` speed and direction (-100 to 100). |\n| `DVer()` | This driver version. |"
     },
@@ -626,7 +626,7 @@
       "keyFeatures": [
         "On-board motor",
         "2 blade fan",
-        "42x42mm overall dimension"
+        "42x42mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Fan(s)` | Sets fan `s` speed (-100 to 100). |\n| `DVer()` | This driver version. |"
     },
@@ -641,7 +641,7 @@
       "keyFeatures": [
         "3x stepper motor control",
         "Terminal Block Connectors",
-        "77x42mm overall dimension"
+        "77x42mm Overall Dimension"
       ],
       "driverApi": "Function | Description \n----------|-------------\n `DVer()` | This driver version.\n `init(x)` | Init motors with resolution `x`: 0: 1/8 step, 1: 1/2 step (default), 2: 1/4 step, 3: 1/16 step.\n `step_m1(d,c)` | Run motor M1 with `d`: direction, `c`: steps.\n `step_m2(d,c)` | Run motor M2 with `d`: direction, `c`: steps.\n `step_m3(d,c)` | Run motor M3 with `d`: direction, `c`: steps.\n `set_m(m, d, c)` | Set motor in sync mode. `m`: 1->Motor M1, 2->Motor M2, 3->Motor M3.\n `sync_all()` | Run motors in synchronize mode.\n `run_all()` | Run motors in asynchronous mode."
     },
@@ -657,7 +657,7 @@
         "Single stepper motor control",
         "30V @ 1A",
         "Terminal block connectors",
-        "37x37mm overall dimension"
+        "37x37mm Overall Dimension"
       ],
       "driverApi": "Function | Description \n----------|-------------\n `DVer()` | This driver version.\n `init(x)` | Init motor with resolution `x`: 0: 1/8 step, 1: 1/2 step (default), 2: 1/4 step, 3: 1/16 step.\n `step_m1(d,c)` | Run motor M1 with `d`: direction, `c`: steps."
     },
@@ -672,7 +672,7 @@
       "keyFeatures": [
         "X,Y,and Z axis control",
         "Terminal Block Connectors",
-        "62x22mm overall dimension"
+        "62x22mm Overall Dimension"
       ],
       "driverApi": "Function | Description \n----------|-------------\n `DVer()` | This driver version.\n `StepX(d,s)` | Run axis X with `d`: direction, `s`: steps.\n `StepY(d,s)` | Run axis Y with `d`: direction, `s`: steps. \n `StepZ(d,s)` | Run axis Z with `d`: direction, `s`: steps.\n `SetX(d,s)` | Set axis X in sync mode with `d`: direction, `s`: steps.\n `SetY(d,s)` | Set axis Y in sync mode with `d`: direction, `s`: steps.\n `SetZ(d,s)` | Set axis Z in sync mode with `d`: direction, `s`: steps.\n `sync_all()` | Run axis in synchronize mode.\n `run_all()` | Run axis in asynchronous mode."
       
@@ -689,7 +689,7 @@
         "16x optically-isolated",
         "10A @ 250V",
         "Screw terminal blocks",
-        "187x90mm overall dimension"
+        "187x90mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Set(i, v)` | Set a relay at `i` index to `v` value (1 on, 0 off). |\n| `DVer()` | This driver version. |"
     },
@@ -705,7 +705,7 @@
         "10A at 250V",
         "Screw terminal blocks",
         "External Power Barrel Jack",
-        "87x52mm overall dimension"
+        "87x52mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Set(i, v)` | Set a relay at `i` index to `v` value (1 on, 0 off). |\n| `DVer()` | This driver version. |"
     },
@@ -721,7 +721,7 @@
         "Self-powered relay",
         "10A @ 250V",
         "Screw terminal",
-        "32x37mm overall dimension"
+        "32x37mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Set(v)` | Activate the relay (1 on, 0 off). |\n| `DVer()` | This driver version. |"
     },
@@ -736,7 +736,7 @@
       "keyFeatures": [
         "8x Load Screw Terminal Connections",
         "80V 1.5A Max",
-        "82x32mm overall dimension"
+        "82x32mm Overall Dimension"
       ]
     },
     {
@@ -750,7 +750,7 @@
       "keyFeatures": [
         "12x inputs & outputs",
         "Terminal Block Header",
-        "27x18mm overall dimension"
+        "27x18mm Overall Dimension"
       ],
       "driverApi": ":::tip\nDio X12 module uses the [Standard Library API](/docs/engine/stdlib) directly. No other drivers are needed.\n:::"
     },
@@ -766,7 +766,7 @@
         "RS485 Transceiver",
         "Serial Communication",
         "Terminal Block Connector",
-        "32x22mm overall dimension"
+        "32x22mm Overall Dimension"
       ]
     },
     {
@@ -782,7 +782,7 @@
         "Standard and extended ArbID",
         "Remote frames",
         "Terminal Block Connector",
-        "42x42mm overall dimension"
+        "42x42mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Bitrate(b)` | Sets the `b` bitrate (125K, 250K, 500K, 1M) |\n| `RxFull()` | Returns 1 if there is a received CAN message. |\n| `RxRd()` | Reads a received message. Returns the ArbID of the message or -1 if none. `b9` is a 9-byte array contains the message body, with first element containing DLC followed by 0 to 8 bytes of data. |\n| `TxFree()` | Returns 1 if ready for new data, or previous transmit request succeeded. |\n| `TxReq(i,l,b9)` | Request to send a message with `i` EID and `l` length of the `b9` data array. Returns 1 if a message was posted or 0 if busy to take a new one. |\n| `DVer()` | This driver version. |"
     },
@@ -797,7 +797,7 @@
       "keyFeatures": [
         "Light Control Module",
         "On-board Female XLR Connector",
-        "42x32mm overall dimension"
+        "42x32mm Overall Dimension"
       ],
       "driverApi": ":::tip\nDMX module uses the [Standard Library](../engine/stdlib) DMX bus. No other drivers are needed.\n:::"
 
@@ -815,7 +815,7 @@
         "TCP and UDP support",
         "10/100 Base",
         "On-board LAN Connector",
-        "37x27mm overall dimension"
+        "37x27mm Overall Dimension"
       ]
     },
     {
@@ -830,7 +830,7 @@
         "USB Serial",
         "Virtual Serial Port",
         "USB-C connector",
-        "32x27mm overall dimension"
+        "32x27mm Overall Dimension"
       ]
     },
     {
@@ -844,7 +844,7 @@
       "keyFeatures": [
         "Single 5x5mm tactile button",
         "Soft touch",
-        "22x22mm overall dimension"
+        "22x22mm Overall Dimension"
       ]
     },
     {
@@ -858,7 +858,7 @@
       "keyFeatures": [
         "7x 5x5mm buttons",
         "6x LEDs",
-        "32x42mm overall dimension"
+        "32x42mm Overall Dimension"
       ],
       "driverApi": "Function | Description \n---|---\n`BtnS7Rd(a)` | Read button `a` as U,D,L,R,B,F,E and returns button status. \n\n`BtnPin(a)` | Read button `a` as U,D,L,R,B,F,E and returns 1-7 pin number. \n`SetLed(a,v)` | Sets button led `a` as U,D,L,R,B,F,E, `v` 0=off 1=on \n `DVer()` | This driver version."
     },
@@ -872,7 +872,7 @@
       "description": "Add a 10x10mm button to any project!",
       "keyFeatures": [
         "Single 10x10mm Button",
-        "27x22mm overall dimension"
+        "27x22mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `BtnPin()` | Returns button's pin number. |\n| `DVer()` | This driver version. |"
     },
@@ -887,7 +887,7 @@
       "keyFeatures": [
         "7x 10x10mm buttons",
         "6x LEDs",
-        "52x67mm overall dimension"
+        "52x67mm Overall Dimension"
       ],
       "driverApi": "Function | Description \n---|---\n`BtnS7Rd(a)` | Read button `a` as U,D,L,R,B,F,E and returns button status. \n\n`BtnPin(a)` | Read button `a` as U,D,L,R,B,F,E and returns 1-7 pin number. \n`SetLed(a,v)` | Sets button led `a` as U,D,L,R,B,F,E, `v` 0=off 1=on \n `DVer()` | This driver version."
     },
@@ -903,7 +903,7 @@
         "Analog Output",
         "X/Y Axis",
         "Push Button",
-        "32x32mm overall dimension"
+        "32x32mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `JoystickX()` | Returns X value from 0 to 100. |\n| `JoystickY()` | Returns Y value from 0 to 100. |\n| `BtnPin()` | Returns button's pin number. |\n| `DVer()` | Returns the driver version. |"
     },
@@ -918,7 +918,7 @@
       "keyFeatures": [
         "Encoder",
         "360 degree rotation",
-        "27x22mm overall dimension"
+        "27x22mm Overall Dimension"
       ],
       "driverApi": "Function | Description \n---|---\n`GetValue()` | Returns the current rotary reading. \n`SetValue(v)` | Set rotary to `v`. \n`Pressed()` | Returns 1 if the rotary knob was pressed.\nScan() | Start scanning loop. Only call it with tethered mode. \n `DVer()` | This driver version. "
     },
@@ -933,7 +933,7 @@
       "keyFeatures": [
         "Dial (pot) measurement",
         "300 degree rotation",
-        "27x22mm overall dimension"
+        "27x22mm Overall Dimension"
       ]
     },
     {
@@ -946,7 +946,7 @@
       "description": "Slider Module with Potentiometer",
       "keyFeatures": [
         "Slider Potentiometer",
-        "77x27mm overall dimension"
+        "77x27mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Slide()` | Returns value from 0 to 100. |\n| `DVer()` | Returns driver version. |"
     },
@@ -961,7 +961,7 @@
       "keyFeatures": [
         "Fingerprint detector",
         "Biometric sensor",
-        "47x42mm overall dimension"
+        "47x42mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetSavedCnt()` | Returns how many fingerprint model are saved. |\n| `DelModel(l)` | Deletes model at `l` location. |\n| `StoreModel(l)` | Stores a converted model at `l` location. |\n| `TakeImg()` | Captures a fingerprint image. Returns 0 if succeeded. |\n| `ConvertImg(s)` | Converts captured image and stores it in `s` slot (1 or 2). |\n| `FastSearch()` | Searches the internal database for a converted image. |\n| `SetLed(c,b,k)` | Sets the LED to `c` color (1 red, 2 blue, 3 purple), with `b` blink(0 always on, 1 blink), with `k` count (0 is forever!). |\n| `DVer()` | This driver version. |"
     },
@@ -975,7 +975,7 @@
       "keyFeatures": [
         "4x4 numerical keypad",
         "16 buttons",
-        "65x87mm overall dimension"
+        "65x87mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `IsKeyChange()` | Returns true if a a change happened, press or unpress. |\n| `RdKey()` | Read the current key state, in ASCII. Zero for no press. |\n| `DVer()` | This driver version. |",
       "variations": [
@@ -997,7 +997,7 @@
       "keyFeatures": [
         "Light Up 100mm Red button",
         "3x RGB LEDs",
-        "107x107mm overall dimension"
+        "107x107mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetRing(i,r,g,b)` | Sets LED at `i` index to `r`, `g`, `b` color (0 to 100). |\n| `SetCtr(v)` | Sets the large button LED to `v` value(1 on, 0 off). |\n| `BtnPin()` | Returns the button pin number. |\n| `DVer()` | This driver version. |"
     },
@@ -1012,7 +1012,7 @@
       "keyFeatures": [
         "4x 28mm buttons",
         "Backlit RGB LEDs",
-        "92x92 overall dimension"
+        "92x92 Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetClr(i,c,l)` | Sets a button at `i` index to `c` color with `l` luminance. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `BtnC()` | Returns 1 if button C is pressed. |\n| `BtnD()` | Returns 1 if button D is pressed. |\n| `DVer()` | This driver version. |"
     },
@@ -1026,7 +1026,7 @@
       "description": "Use these 10x DIP switches as you wish, usually for config, in your project.",
       "keyFeatures": [
         "10 switch selector",
-        "32x22mm overall dimension"
+        "32x22mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Read(i)` | read `i` index value from switch returns 0=Off, 1=On. |\n| `DVer()` | This driver version. |"
     },
@@ -1044,7 +1044,7 @@
         "MSC Class",
         "FAT16/FAT32 with LFN support",
         "USB-A Host Connector",
-        "32x27mm overall dimension"
+        "32x27mm Overall Dimension"
       ]
     },
     {
@@ -1058,7 +1058,7 @@
       "keyFeatures": [
         "SD card slot",
         "FAT file system",
-        "47x32mm overall dimension"
+        "47x32mm Overall Dimension"
       ]
     },
     {
@@ -1072,7 +1072,7 @@
       "keyFeatures": [
         "Micro SD card slot",
         "FAT file system",
-        "32x17mm overall dimension"
+        "32x17mm Overall Dimension"
       ]
     },
     {
@@ -1085,7 +1085,7 @@
       "description": "Add 16MB of flash storage to any project. Create your own file management system or use the provided sector read/write methods.",
       "keyFeatures": [
         "16MB Flash Storage",
-        "22x22mm overall dimension"
+        "22x22mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SfGetid(b9)` | Returns 3 bytes in `b9` |\n| `SfErase(a)` | Erases a block at `a` address. |\n| `SfWrite(a,b9)` | Writes a byte array `b9` at `a` address. |\n| `SfRead(a,b9)` | Reads a byte array from flash at `a` address. |\n| `DVer()` | This driver version. |"
     },
@@ -1097,11 +1097,12 @@
       "Esp32fwVer": "001",
       "price": 19.95,
       "tagline": "Connects DUELink Modules Wirelessly",
-      "description": "This module adds wireless connectivity, allowing for wireless control of DUELink modules. It can be used in 2 ways: Use it as a [Wireless Interface](/docs/interface/wireless) Host, controling a [daisylink](/docs/engine/daisylink) of modules. You will be able to program and command modules over a wireless connection! The other option is to use this module within a daisylink, to provide a wireless access to the host and other connected modules.",
+      "description": "This module adds Bluetooth and WiFi wireless connectivity option. It can be used to program and command modules over a wireless connection! The other option is to use this module within a Daisylink, to provide a wireless access to the supported hardware and other connected modules. See the [Wireless Interface](/docs/interface/wireless) page for details.",
       "keyFeatures": [
         "Bluetooth or WiFi Connectivity",
         "Program DUELink Modules Wirelessly",
-        "27x37mm overall dimension"
+        "Give any Daisylink a Wireless Access",
+        "27x37mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `DVer()` | Returns the driver version. |\n| `Init()` | Initializes and resets the ESP32. |\n| `ATCmd([cmd])` | Sends the AT command `cmd` to the ESP. |\n| `ATWaitResp(t)` | Parses the AT command response with a timeout of `t` milliseconds. Returns 1: OK, 0: Error (or no response - timeout). The response is stored in `b0`. |\n| `ReadLine(g,t)` | Reads a line from `g`: direction — 1: from ESP, 0: from Downlink (used only in bridge projects). `t`: timeout. The response is stored in `b0`. |\n| `EnterLder()` | Enters ESP loader mode. |\n| `WlWrite(d)` | Writes data `d` to the ESP32. |\n| `WlRead()` | Returns data from the FIFO buffer. Returns -1 if no data is available. |\n| `WlReadCnt()` | Returns the number of bytes available in the FIFO buffer. |\n| `StartWiFi(b1, b2, b3, a, b, t)` | Starts WiFi with `b1`: SSID, `b2`: password, `b3`: mDNS (Multicast Domain Name System) host name, `a`: 0/1 enable/disable AT mode, `b`: 0/1 enable/disable bridge, `t`: timeout in milliseconds. |\n| `StartBT(b1,a, b)` | Starts Bluetooth with `b1`: Bluetooth name, `a`: 0/1 enable/disable AT mode, `b`: 0/1 enable/disable bridge. |"
     },
@@ -1115,7 +1116,7 @@
       "description": "Compact GPS reciever designed for positioning and navigation applications in DUELink projects",
       "keyFeatures": [
         "GPS positioninig",
-        "32x27mm overall dimension"
+        "32x27mm Overall Dimension"
       ]
     },
     {
@@ -1143,7 +1144,7 @@
       "keyFeatures": [
         "RFID reader",
         "Tags and Cards",
-        "57x63mm overall dimension"
+        "57x63mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `isCard()` | Returns 1 if a new card is detected. |\n| `ReadCard(a1)` | read the new card in a 16byte array. |\n| `DVer()` | This driver version. |"
     },
@@ -1157,7 +1158,7 @@
       "description": "A good sensor for measuring overall ambient light levels.",
       "keyFeatures": [
         "Light sensor",
-        "17x19mm overall dimension"
+        "17x19mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Light()` | Returns value from 0 to 100. |\n| `DVer()` | This driver version. |"
     },
@@ -1173,7 +1174,7 @@
         "3axis Accelerometer",
         "3axis Gyro",
         "3axis Magnetometer",
-        "22x25mm overall dimension"
+        "22x25mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `RAccel()` | Reads the acceleration XYZ in `_x`, `_y`, `_Z` variables. |\n| `RCompass()` | Reads the compass XYZ in `_x`, `_y`, `_Z` variables. |\n| `RGyro()` | Reads the gyro XYZ and its internal temp in `_x`, `_y`, `_Z`, `_T` variables. |\n| `DVer()` | This driver version. |"
     },
@@ -1187,7 +1188,7 @@
       "description": "This 3-axis accelerometer can be used to detect motion, tilt, and acceleration just to name a few.",
       "keyFeatures": [
         "Detect motion, tilt and acceleration",
-        "22x20mm overall dimension"
+        "22x20mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetX()` | Returns X value. |\n| `GetY()` | Returns Y value. |\n| `GetZ()` | Returns Z value. |\n| `DVer()` | This driver version. |"
     },
@@ -1203,7 +1204,7 @@
         "Ultrasonic Type",
         "15° range",
         "40mm to 4meter",
-        "47x30mm overall dimension"
+        "47x30mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Distance()` | Reads the current distance in cm. |\n| `DVer()` | This driver version. |"
     },
@@ -1218,7 +1219,7 @@
         "Gas Sensing",
         "Sensor Socket",
         "Heating control circuit",
-        "27x42mm overall dimension"
+        "27x42mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Heater(s)` | Sets the heater `s` state (1 on, 0 off). |\n| `Read()` | Reads the current voltage level in Volts. |\n| `DVer()` | This driver version. |",
       "variations": [
@@ -1243,7 +1244,7 @@
         "Reads air quality",
         "Reads organic componds",
         "Reads CO2 levels",
-        "37x27mm overall dimension"
+        "37x27mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `AhtTemp()` | Returns ambient temperature in celsius. |\n| `AhtHumid()` | Returns relative humidity. |\n| `EnsAqi()` | Returns air quality index. |\n| `EnsTvoc()` | Returns Total Volatile Organic Compounds. |\n| `EnsEco2()` | Returns equivalent CO2. |\n| `DVer()` | This driver version. |"
     },
@@ -1256,7 +1257,7 @@
       "description": "Connect the terminal block inline of AC or DC power to measure its current. The sensor has an internal resistance of 1.2 milli-ohm. It is capable of measuring up to 12.5A.",
       "keyFeatures": [
         "Current sensor",
-        "27x22mm overall dimension"
+        "27x22mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Current()` | Reads the current flow level in Amps. |\n| `DVer()` | This driver version. |",
       "variations": [
@@ -1277,7 +1278,7 @@
       "description": "PIR (Passive Infrared) motion sensors use insisible infrared light to detect motion.",
       "keyFeatures": [
         "Digital motion sensing",
-        "27x22mm overall dimension"
+        "27x22mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Detect()` | Returns 1 if motion is detected. |\n| `DVer()` | This driver version. |"
     },
@@ -1291,7 +1292,7 @@
       "keyFeatures": [
         "Air and liquid pressure",
         "Measure pressure",
-        "17x26mm overall dimension"
+        "17x26mm Overall Dimension"
       ],      
       "driverApi": "Function | Description \n----------|-------------\n`kPa()` | Returns value in kPa \n`Psi()` | return value in PSI \n `DVer()` | This driver version.",
       "variations": [
@@ -1313,7 +1314,7 @@
       "keyFeatures": [
         "DHT22 Digital Sensor",
         "Temperature and Humidity",
-        "27x33mm overall dimension"
+        "27x33mm Overall Dimension"
       ],
       "driverApi": ":::tip\nUse the Standard Library API directly to read temp and humidity.\n:::\n\n| Function | Description |\n|----------|-------------|\n| `Temp()` | Returns temperature in celsius. |\n| `Humid()` | Returns relative humidity percentage. |\n| `SenPin()` | Returns the sensor's pin number. |\n| `SenType()` | Returns the sensor's type. |\n| `DVer()` | This driver version. |"
     },
@@ -1326,7 +1327,7 @@
       "description": "This sensor uses the included K-Type Thermoster to measure extreme temperatures, with a max range of -454°F to 2300°F\n\n:::tip\nConnect the black wire to the (+) side of the terminal block.\n:::",
       "keyFeatures": [
         "K-Type Thermostor Sensor",
-        "32x36mm overall dimension"
+        "32x36mm Overall Dimension"
       ],
       "driverApi": " Function | Description \n----------|-------------\n `ReadTemp()` | Reads the current temperature in celsius. \n `IsConnect()` | Return 1 if the thermocouple is connected; return 0 if it is not connected.\n `DVer()` | This driver version. ",
       "variations": [
@@ -1346,7 +1347,7 @@
       "tagline": "Analog to Digital Temperature Sensor",
       "description": "Measure ambient temperature with ease!",
       "keyFeatures": [
-        "17x19mm overall dimension"
+        "17x19mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `ReadTemp()` | Returns temperature in celsius. |\n| `DVer()` | This driver version. |"
     },
@@ -1361,7 +1362,7 @@
       "keyFeatures": [
         "Real Time Clock",
         "Button Battery Holder",
-        "37x22mm overall dimension"
+        "37x22mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetTime(y,n,d,h,m,s)` | Sets date/time to `y` year, `n` month, `d` day, `h` hour, `m` minute, and `s` second. |\n| `GetTime()` | Returns current time in \\_y, \\_n, \\_d, \\_h, \\_m, \\_s variables. |\n| `DVer()` | This driver version. |"
     },
@@ -1378,7 +1379,7 @@
         "8x Analog inputs",
         "8x Digital outputs",
         "8x Capacitive touch",
-        "37x34mm overall dimension"
+        "37x34mm Overall Dimension"
       ]
     },
     {
@@ -1391,7 +1392,7 @@
       "description": "A visual LED with 3x RGB LEDs. These lights can be set to any of 7 colors or can be turned off.",
       "keyFeatures": [
         "3 RGB LEDs",
-        "32x22mm overall dimension"
+        "32x22mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLed(i, c)` | sets an LED at `i` (0 to 2) to `c` (RRGGBB color). |\n| `DVer()` | This driver version. |"
     },
@@ -1404,7 +1405,7 @@
       "description": "A ring with 16 LEDs.",
       "keyFeatures": [
         "16 LED Ring",
-        "32x32mm overall dimension"
+        "32x32mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLed(l, v)` | Sets Led at `l` (1 to 16) to a `v` value (1 on, 0 off). |\n| `LedOff()` | Resets all leds to off. |\n| `DVer()` | This driver version. |",
       "variations": [
@@ -1425,7 +1426,7 @@
       "keyFeatures": [
         "12x8 LED Matrix",
         "96 Total LEDs",
-        "42x32mm overall dimension"
+        "42x32mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `DVer()` | This driver version. |",
       "variations": [
@@ -1447,7 +1448,7 @@
         "4-digit 7-segment LEDs",
         "Available in Red or Green",
         "Counter or Timer formatted",
-        "47x17mm overall dimension"
+        "47x17mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `Digit(n)` | Draw `n` number to LEDs. |\n| `Seg7(i, s)` | Draw a single `s` digit (0 to 9) on `i` digit. |\n| `Dot(i, v)` | Draw a dot at `i` index with `v` value (0 off 1 on) on count-type LED. |\n| `Colon(n)` | Show colon on time-type LED. |\n| `DVer()` | This driver version. |",
       "variations": [
@@ -1469,7 +1470,7 @@
         "4 Digit 7 segment LEDs",
         "Available in Red or Green",
         "Counter or Timer formatted",
-        "57x17mm overall dimension"
+        "57x17mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `Digit(n)` | Draw `n` number to LEDs. |\n| `Seg7(i, s)` | Draw a single `s` digit (0 to 9) on `i` digit. |\n| `Dot(i, v)` | Draw a dot at `i` index with `v` value (0 off 1 on) on count-type LED. |\n| `Colon(n)` | Show colon on time-type LED. |\n| `DVer()` | This driver version. |",
       "variations": [
@@ -1491,7 +1492,7 @@
         "4 Digit 7 segment LEDs",
         "Available in Red or Green",
         "Counter or Timer formatted",
-        "67x22mm overall dimension"
+        "67x22mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `Digit(n)` | Draw `n` number to LEDs. |\n| `Seg7(i, s)` | Draw a single `s` digit (0 to 9) on `i` digit. |\n| `Dot(i, v)` | Draw a dot at `i` index with `v` value (0 off 1 on) on count-type LED. |\n| `Colon(n)` | Show colon on time-type LED. |\n| `DVer()` | This driver version. |",
       "variations": [
@@ -1513,7 +1514,7 @@
         "5-Digit 16-segment LEDs",
         "Available in Red or Green",
         "Counter or Timer formatted",
-        "117x32mm overall dimension"
+        "117x32mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `Seg16(i, s)` | Draw a single `s` character (0 to 9) on `i` digit (from the right). |\n| `Digit(n)` | Draw 'n' number to LEDs. |\n| `PrntChr(i, c)` | Print an ascii `c` character (A to Z and 0 to 9) at `i` index (from the left). |\n| `PrntStr(b1)` | Print a string of ascii characters. |\n| `Dot(i, v)` | Draw dot at `i` index with `v` value (0 off, 1 on). |\n| `DVer()` | This driver version. |",
       "variations": [
@@ -1538,7 +1539,7 @@
         "5V Control Signal Option",
         "Support for DAT/CLK type",
         "Terminal Block Connection",
-        "32x22mm overall dimension"
+        "32x22mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `WS2811()` | Returns the pin number used for DAT pin to be used with `WS2811` Smart LED [Graphics](/docs/engine/graphics). |\n| `IntAPA(c)` | Get the system ready for `APA102C`. |\n| `SetAPA(i, c, l)` | Sets the color at `i` index to `c` color (RRGGBB) and `l` luminance (0 to 31). |\n| `ShwAPA()` | Show/update the actual LEDs with preassigned colors. |\n| `IntLPD(c)` | Get the system ready for `LPD8806`. |\n| `SetLPD(i, c)` | Sets the color at `i` index to `c` color (RRGGBB) |\n| `ShwLPD()` | Show/update the actual LEDs with preassigned colors. |\n| `DVer()` | This driver version. |"
     },
@@ -1552,7 +1553,7 @@
       "description": "Use this peizo buzzer to generate tones and simple melodies. Sound an alarm, play a melody when a task is finished or even generate noises!",
       "keyFeatures": [
         "Frequency Range 200Hz to 10Khz",
-        "22x20mm overall dimension"
+        "22x20mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayBeep(f, d)` | Play beep, (f: frequency, d: duration in ms). |\n| `PlaySound(f, d, c)` | Play sound, (f: frequency, d: duration in ms, c: duty cycle). |\n| `PlayMelody(a1)` | Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration). |\n| `StopMelody()` | Stop melody. |\n| `DVer()` | This driver version. |"
     },
@@ -1567,7 +1568,7 @@
       "keyFeatures": [
         "Frequency Range 200Hz to 10Khz",
         "Standard 3.5mm audio connector",
-        "27x22mm overall dimension"
+        "27x22mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetPin()` | returns pin, to be used with standard library sound functions. |\n| `SetLVol(v)` | Set left volume |\n| `SetRVol(v)` | Set right volume |\n| `LaserSfx(v)` | Laser Sound Effect |\n| `DVer()` | This driver version. |"
     },
@@ -1599,7 +1600,7 @@
         "FM Radio Receiver",
         "Sets channel and audio level",
         "3.5mm stereo audio connector",
-        "47x27mm overall dimension"
+        "47x27mm Overall Dimension"
       ]
     },
     {
@@ -1613,7 +1614,7 @@
       "keyFeatures": [
         "Frequency Analyzer",
         "7 individual frequency filters",
-        "37x22mm overall dimension"
+        "37x22mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `UpdBnd()` | Update all 7 bands. Values are stored in `a1[]` array (0 to 100). |\n| `DVer()` | This driver version. |"
     },
@@ -1628,7 +1629,7 @@
       "keyFeatures": [
         "Barcode scanner",
         "1D and 2D formats",
-        "47x42mm overall dimension"
+        "47x42mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetMode(m)` | Set scanning mode (1: Trigger, 2: Continuous) |\n| `Trigger()` | Manually trigger barcode reading when in trigger mode |\n| `DVer()` | Check driver version |"
     },
@@ -1644,7 +1645,7 @@
         "Thermal camera",
         "8x8 pixels",
         "0° to 80° celsius",
-        "22x24mm overall dimension"
+        "22x24mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `PixTemp(p)` | Read one of the `p` pixels' temp. There are 64 pixels (0 to 63). |\n| `DVer()` | This driver version. |"
     },
@@ -1663,7 +1664,7 @@
         "Piezo Buzzer",
         "Breakaway \"Holey\" Section",
         "Terminal Block for Additional Connectivity",
-        "65x56.5mm overall dimension"
+        "65x56.5mm Overall Dimension"
       ],
       "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `DVer()` | This driver version. |",
       "MfgNotes": "Check Menu->Help for connection before testing"
@@ -1680,7 +1681,7 @@
         "UART and I2C Downlink connectors",
         "Breakaway \"Holey\" Section",
         "RPI pinout pads",
-        "65x37mm overall dimension"
+        "65x37mm Overall Dimension"
       ]
     },
     {
@@ -1697,7 +1698,7 @@
         "2x User Buttons",
         "8 Pin Header",
         "Piezo Buzzer",
-        "65x37mm overall dimension"
+        "65x37mm Overall Dimension"
       ],
       "MfgNotes": "Check Menu->Help for connection before testing"
     },
@@ -1710,7 +1711,7 @@
       "description": "Basic Arduino Shield with I2C Downlink connector. The holes are on a 5mm pitch, allowing for an easy mounting of other DUELink modules.",
       "keyFeatures": [
         "I2C Downlink connectors",
-        "69.5x54mm overall dimension"
+        "69.5x54mm Overall Dimension"
       ]
     },
     {
@@ -1723,7 +1724,7 @@
       "keyFeatures": [
         "micro:bit female socket",
         "Downlink connector",
-        "57.5x28.5mm overall dimension"
+        "57.5x28.5mm Overall Dimension"
       ]
     },
     {
@@ -1736,7 +1737,7 @@
       "description": "Take advantage of the thousands of available [MikroBus Click modules](https://www.mikroe.com/click).\n\nThe module can also be used as a basic female header IO connection module.",
       "keyFeatures": [
         "MikroBus headers",
-        "42x27mm overall dimension"
+        "42x27mm Overall Dimension"
       ]
     },
     {
@@ -1748,7 +1749,7 @@
       "description": "Add [Downlink](/docs/interface/downlink) connector to any SBC that has a [mikro BUS](https://www.mikroe.com/mikrobus) socket. You get two options, UART or I2C.",
       "keyFeatures": [
         "Two options: I2C & UART",
-        "25x28mm overall dimension"
+        "25x28mm Overall Dimension"
       ]
     },
     {
@@ -1762,7 +1763,7 @@
         "Additional Power Downlink",
         "USB Type C for Power Only",
         "Terminal Block Power Connector",
-        "47x27mm overall dimension"
+        "47x27mm Overall Dimension"
       ]
     },
     {
@@ -1775,7 +1776,7 @@
       "keyFeatures": [
         "Toggle switch",
         "On/Off indicator LED",
-        "22x22mm overall dimension"
+        "22x22mm Overall Dimension"
       ]
     },
     {
@@ -1787,7 +1788,7 @@
       "description": "The Power Hook works just like the USB Hook, but then it also includes a recharging circuit for 3.7V 10440 battery, which is required but not included. Note that the required 10440 battery is the same size as standard AAA batteries, but they are NOT compatible. NEVER install a AAA battery on this module!",
       "keyFeatures": [
         "3.7v 10440 Battery Module",
-        "77x27mm overall dimension"
+        "77x27mm Overall Dimension"
       ]
     },
     {
@@ -1802,7 +1803,7 @@
         "800mA power source",
         "Power LED",
         "DUELink USB interface",
-        "27x27mm overall dimension"
+        "27x27mm Overall Dimension"
       ]
     },
     {
@@ -1817,7 +1818,7 @@
         "800mA power source",
         "Power LED",
         "DUELink USB Type A interface",
-        "17.5x22mm overall dimension"
+        "17.5x22mm Overall Dimension"
       ]
     },
     {
@@ -1830,7 +1831,7 @@
       "keyFeatures": [
         "RST/LDR buttons",
         "Pin headers",
-        "52x37mm overall dimension"
+        "52x37mm Overall Dimension"
       ]
     },
     {
@@ -1843,7 +1844,7 @@
       "keyFeatures": [
         "Access to DUELink Pins",
         "Female Header",
-        "27x18mm overall dimension"
+        "27x18mm Overall Dimension"
       ]
     },
     {
@@ -1855,7 +1856,7 @@
       "description": "If the I2C was chosen and the system does not have the proper I2C pull up resistors, then these PullUp modules come in very handy.",
       "keyFeatures": [
         "2.2k pull-up to I2C",
-        "8x18mm overall dimension"
+        "8x18mm Overall Dimension"
       ]
     },
     {
