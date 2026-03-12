@@ -2,7 +2,7 @@
 // Using TeraTerm, connect to the device using TCP/IP (if WiFi is used) or Serial (if Bluetooth is used).
 // From TeraTerm, send 1 byte and receive that byte +1. Example: press '1', TeraTerm shows '2'.
 // Setup requirements:
-// Wireless ESP32 must be configured for WiFi (or Bluetooth) with AT disabled and Bridge mode disabled.
+// Wireless ESP32 must be configured for WiFi (or Bluetooth) as Data Gateway (AT disabled and Bridge mode disabled).
 
 import pkg_serialusb from 'dlserialusb';
 const {SerialUSB} = pkg_serialusb
@@ -74,7 +74,7 @@ async function main() {
             console.log(`Sent: ${String.fromCharCode(d + 1)}`);
         }
 
-        await sleep(1000);
+        await sleep(10);
     }
 }
 
