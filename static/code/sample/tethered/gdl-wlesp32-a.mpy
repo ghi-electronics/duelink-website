@@ -1,8 +1,11 @@
 # This sample runs on QT-PY 2040 adafruit, and may need i2c pullup module
 # In this sample:
-# Enable Wi-Fi and set the multicast DNS name to "duelink".
-# A TCP client (for example, the Tera Term application) can connect to
-# "duelink" on port 8080 to send and receive commands.
+# Using TeraTerm, connect to the device using TCP/IP (if WiFi is used) or Serial (if Bluetooth is used).
+# From TeraTerm, send 1 byte and receive that byte +1. Example: press '1', TeraTerm shows '2'.
+# Setup requirements:
+# Wireless ESP32 must be configured for WiFi (or Bluetooth) as Data Gateway (AT disabled and Bridge mode disabled).
+
+
 import time
 import duelink 
 
@@ -14,48 +17,54 @@ sdaPIN = machine.Pin(22)
 i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
 due = duelink.DUELinkController(i2c)
 
-# methods
+# methods & variable
+
 def IsBluetoothConnected():
+    # Pin 5 goes low when Bluetooth is connected
     ret = due.Engine.ExecuteCommand("dread(5,1)")
-    return ret == 0
+    return int(ret) == 0
 
 def IsWiFiConnected():
+    # Pin 5 goes low when WiFi is connected
     ret = due.Engine.ExecuteCommand("dread(5,1)")
-    return ret == 0
+    return int(ret) == 0
 
-def IsSocketConnected():
+def IsTcpConnected():
+    # Pin 4 goes low when a TCP connection occurs (on mDNS "duelink", port 8080 if default)
     ret = due.Engine.ExecuteCommand("dread(4,1)")
-    return ret == 0
+    return int(ret) == 0
 
-def StartBluetooth(name):
-    due.Engine.ExecuteCommand('StartBT("{}")'.format(name))
+def WirelessRead():
+    ret = due.Engine.ExecuteCommand("wlRead()")
+    return int(ret)
 
-def StartWiFi(ssid, pwd):
-    due.Engine.ExecuteCommand('StartWiFi("{}","{}")'.format(ssid, pwd))
+def WirelessReadCount():
+    ret = due.Engine.ExecuteCommand("wlReadcnt()")
+    return int(ret)
 
-def SetMulticastDns(mdns_name):
-    due.Engine.ExecuteCommand('StartTcp("{}")'.format(mdns_name))
-
-def EnableBrigde():
-    due.Engine.ExecuteCommand("Bridge(1)")
+def WirelessWrite(data):
+    due.Engine.ExecuteCommand("wlWrite({})".format(data))
 
 
-StartWiFi("ssid", "pwd")
+while True:
 
-# The Wi-Fi connection can take up to 30 seconds.
-# For testing, sleep for 1 seconds first.
-time.sleep(1)
+    if not IsWiFiConnected():
+        print("Wait for WiFi connection...")
+        time.sleep_ms(1000)
+        continue
 
-while IsWiFiConnected() == False:
-    time.sleep(1)
-    print("Waiting for Wi-Fi connection...")
+    if not IsTcpConnected():
+        print("Wait for TCP connection...")
+        time.sleep_ms(1000)
+        continue
 
-SetMulticastDns("duelink")
+    if WirelessReadCount() > 0:
+        d = WirelessRead()
 
-while IsSocketConnected() == False:
-    time.sleep(1)
-    print("Waiting for TCP connection...")
+        print("Received:", chr(d))
+        WirelessWrite(d + 1)
+        print("Sent:", chr(d + 1))
 
-EnableBrigde()
+    time.sleep_ms(10)
 
-print("The bridge is ready for sending and receiving commands from Tera Term")
+

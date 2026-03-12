@@ -1,57 +1,64 @@
+
 # In this sample:
-# Enable Wi-Fi and set the multicast DNS name to "duelink".
-# A TCP client (for example, the Tera Term application) can connect to
-# "duelink" on port 8080 to send and receive commands.
+# Using TeraTerm, connect to the device using TCP/IP (if WiFi is used) or Serial (if Bluetooth is used).
+# From TeraTerm, send 1 byte and receive that byte +1. Example: press '1', TeraTerm shows '2'.
+# Setup requirements:
+# Wireless ESP32 must be configured for WiFi (or Bluetooth) as Data Gateway (AT disabled and Bridge mode disabled).
+
 import time
+from datetime import datetime
 from DUELink.DUELinkController import DUELinkController
 
+
 availablePort = DUELinkController.GetConnectionPort()
-duelink = DUELinkController(availablePort)
+duelink = DUELinkController(availablePort) #Bluetooth COM port, change to user comport
 
+# duelink = DUELinkController("/dev/ttyAMA0")
 
-# methods
+#variable
 def IsBluetoothConnected():
+    # Pin 5 goes low when Bluetooth is connected
     ret = duelink.Engine.ExecuteCommand("dread(5,1)")
-    return ret == 0
+    return int(ret) == 0
 
 def IsWiFiConnected():
+    # Pin 5 goes low when WiFi is connected
     ret = duelink.Engine.ExecuteCommand("dread(5,1)")
-    return ret == 0
+    return int(ret) == 0
 
-def IsSocketConnected():
+def IsTcpConnected():
+    # Pin 4 goes low when a TCP connection occurs (on mDNS "duelink", port 8080 if default)
     ret = duelink.Engine.ExecuteCommand("dread(4,1)")
-    return ret == 0
+    return int(ret) == 0
 
-def StartBluetooth(name):
-    duelink.Engine.ExecuteCommand(f'StartBT("{name}")')
+def WirelessRead():
+    ret = duelink.Engine.ExecuteCommand("wlRead()")
+    return int(ret)
 
-def StartWiFi(ssid, pwd):
-    duelink.Engine.ExecuteCommand(f'StartWiFi("{ssid}","{pwd}")')
+def WirelessReadCount():
+    ret = duelink.Engine.ExecuteCommand("wlReadcnt()")
+    return int(ret)
 
-def SetMulticastDns(mdns_name):
-    duelink.Engine.ExecuteCommand(f'StartTcp("{mdns_name}")')
+def WirelessWrite(data):
+    duelink.Engine.ExecuteCommand(f"wlWrite({data})")
 
-def EnableBrigde():
-    duelink.Engine.ExecuteCommand("Bridge(1)")
+while True:
 
+    if not IsWiFiConnected():
+        print("Wait for WiFi connection...")
+        time.sleep(1)
+        continue
 
+    if not IsTcpConnected():
+        print("Wait for TCP connection...")
+        time.sleep(1)
+        continue
 
-StartWiFi("ssid", "pwd")
+    if WirelessReadCount() > 0:
+        d = WirelessRead()
 
-# The Wi-Fi connection can take up to 30 seconds.
-# For testing, sleep for 1 seconds first.
-time.sleep(1)
+        print(f"Received: {chr(d)}")
+        WirelessWrite(d + 1)
+        print(f"Sent: {chr(d + 1)}")
 
-while IsWiFiConnected() == False:
-    time.sleep(1)
-    print("Waiting for Wi-Fi connection...")
-
-SetMulticastDns("duelink")
-
-while IsSocketConnected() == False:
-    time.sleep(1)
-    print("Waiting for TCP connection...")
-
-EnableBrigde()
-
-print("The bridge is ready for sending and receiving commands from TeraTerm")
+    time.sleep(0.01)

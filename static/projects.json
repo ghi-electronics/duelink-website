@@ -26,12 +26,33 @@
     }
   },
   "projects": [
-     {
+      {
+      "name": "Analog-ing a Digital Clock",
+      "description": "Use the built-in script trig function to show an analog clock.",
+      "tags": ["script"],
+      "link": "https://forums.ghielectronics.com/t/analoging-a-digital-clock/26250",
+      "image": "analog-clock.png"
+    },
+    {
+      "name": "Vision and AI with Physical Computing",
+      "description": "How can big machines that handle vision and AI have access to the physical world?",
+      "tags": ["python", "pc"],
+      "link": "https://forums.ghielectronics.com/t/vision-and-ai-with-physical-computing/26249",
+      "image": "vision.png"
+    },
+    {
+      "name": "Connecting Azure & AWS to Circuits",
+      "description": "Cloud developers can control hardware from existing projects with about 10 lines of code!",
+      "tags": ["python", "dotnet", "pc"],
+      "link": "https://forums.ghielectronics.com/t/connecting-azure-aws-to-circuits/26248",
+      "image": "azure-iothub.png"
+    },
+    {
       "name": "To Pi or not to Pi? That is a DuePi",
       "description": "So many ways to use DuePi, not just with Raspberry Pi",
-      "tags": ["raspberrypi", "pc", "python", "dotnet"],
+      "tags": ["python", "dotnet", "raspberrypi", "pc"],
       "link": "https://forums.ghielectronics.com/t/to-pi-or-not-to-pi-that-is-a-duepi/26246",
-      "image": "duEpi-analog.jpEg"
+      "image": "duepi-analog.jpeg"
     },
     {
       "name": "Creating Smart Displays",

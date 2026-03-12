@@ -1,7 +1,8 @@
 // In this sample:
-// Enable Wi-Fi and set the multicast DNS name to "duelink".
-// A TCP client (for example, the Tera Term application) can connect to
-// "duelink" on port 8080 to send and receive commands.
+// Using TeraTerm, connect to the device using TCP/IP (if WiFi is used) or Serial (if Bluetooth is used).
+// From TeraTerm, send 1 byte and receive that byte +1. Example: press '1', TeraTerm shows '2'.
+// Setup requirements:
+// Wireless ESP32 must be configured for WiFi (or Bluetooth) as Data Gateway (AT disabled and Bridge mode disabled).
 
 import pkg_serialusb from 'dlserialusb';
 const {SerialUSB} = pkg_serialusb
@@ -19,55 +20,62 @@ function sleep(ms) {
 
 // Methods
 async function IsBluetoothConnected() {
-    const ret = await duelink.Engine.ExecuteCommand("dread(5,1)");
-    return ret === 0;
+    // Pin 5 goes low when Bluetooth is connected
+    var ret = await duelink.Engine.ExecuteCommand("dread(5,1)");
+    return Number(ret) === 0;
 }
 
 async function IsWiFiConnected() {
-    const ret = await duelink.Engine.ExecuteCommand("dread(5,1)");
-    return ret === 0;
+    // Pin 5 goes low when WiFi is connected
+    var ret = await duelink.Engine.ExecuteCommand("dread(5,1)");
+    return Number(ret) === 0;
 }
 
-async function IsSocketConnected() {
-    const ret = await duelink.Engine.ExecuteCommand("dread(4,1)");
-    return ret === 0;
+async function IsTcpConnected() {
+    // Pin 4 goes low when a TCP connection occurs (on mDNS "duelink", port 8080 if default)
+    var ret = await duelink.Engine.ExecuteCommand("dread(4,1)");
+    return Number(ret) === 0;
 }
 
-async function StartBluetooth(name) {
-    await duelink.Engine.ExecuteCommand(`StartBT("${name}")`);
+async function WirelessRead() {
+    var ret = await duelink.Engine.ExecuteCommand("wlRead()");
+    return Number(ret);
 }
 
-async function StartWiFi(ssid, pwd) {
-    await duelink.Engine.ExecuteCommand(`StartWiFi("${ssid}","${pwd}")`);
+async function WirelessReadCount() {
+    var ret = await duelink.Engine.ExecuteCommand("wlReadcnt()");
+    return Number(ret);
 }
 
-async function SetMulticastDns(mdns_name) {
-    await duelink.Engine.ExecuteCommand(`StartTcp("${mdns_name}")`);
+async function WirelessWrite(data) {
+    await duelink.Engine.ExecuteCommand(`wlWrite(${data})`);
 }
 
-async function EnableBrigde() {
-    await duelink.Engine.ExecuteCommand("Bridge(1)");
+async function main() {
+    while (true) {
+
+        if (!(await IsWiFiConnected())) {
+            console.log("Wait for WiFi connection...");
+            await sleep(1000);
+            continue;
+        }
+
+        if (!(await IsTcpConnected())) {
+            console.log("Wait for tcp connection...");
+            await sleep(1000);
+            continue;
+        }
+
+        if ((await WirelessReadCount()) > 0) {
+            var d = await WirelessRead();
+
+            console.log(`Received: ${String.fromCharCode(d)}`);
+            await WirelessWrite(d + 1);
+            console.log(`Sent: ${String.fromCharCode(d + 1)}`);
+        }
+
+        await sleep(10);
+    }
 }
 
-// Start Wi-Fi connection
-await StartWiFi("ssid", "pwd");
-
-// The Wi-Fi connection can take up to 30 seconds.
-// For testing, sleep for 1 seconds first.
-await sleep(1000 * 1);
-
-while ((await IsWiFiConnected()) === false) {
-    await sleep(1000);
-    console.log("Waiting for Wi-Fi connection...");
-}
-
-await SetMulticastDns("duelink");
-
-while ((await IsSocketConnected()) === false) {
-    await sleep(1000);
-    console.log("Waiting for TCP connection...");
-}
-
-await EnableBrigde();
-
-console.log("The bridge is ready for sending and receiving commands from TeraTerm");
+main();

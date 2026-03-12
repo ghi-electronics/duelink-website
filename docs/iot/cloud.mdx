@@ -1,0 +1,50 @@
+---
+hide_table_of_contents: true
+---
+
+# Cloud
+
+Cloud services, such as AWS (Amazon Web Services) or Azure, bring massive amount of computing option over an internet connection.
+
+<div style={{ textAlign: 'center'}}>
+![Azure Logo](pathname:///img/iot-cloud.webp)
+</div>
+
+Connecting to a could is rather easily accomplished using a [Supported Hardware](../hw/intro) such as a [PC](../hw/pc-laptop) or a [Raspberry Pi](../hw/raspberry-pi). AWS can now simply access any DUELink module.
+
+<div style={{ textAlign: 'center'}}>
+![AWS Cloud](pathname:///img/aws-cloud.webp)
+</div>
+
+This physical-world connection works similarly on any cloud.
+
+<div style={{ textAlign: 'center'}}>
+![Azure Cloud](pathname:///img/azure-cloud.webp)
+</div>
+
+In the case of using a [PC](../hw/pc-laptop), we recommend starting with a DUELink Microcomputer, such as [DueSTEM](../products/mcduestem-b). It includes several sensors inputs and several outputs. The [Downlink](../interface/downlink) connector is available to add any desired modules.
+
+<div style={{ textAlign: 'center'}}>
+![DueSTEM](pathname:///img/catalog/mcduestem-b-1.webp)
+</div>
+
+With the [Raspberry Pi](../hw/raspberry-pi) example, we recommend [DuePi](../products/adduepi-b), which has much to offer on its own, but also includes a [Downlink](../interface/downlink) connector for wiring your favorite modules.
+
+<div style={{ textAlign: 'center'}}>
+![DuePi](pathname:///img/duepi-daisylinked.webp)
+</div>
+
+There is no need to do any coding on the modules. For example, a PC is loaded with tha Azure SDK and codded in .NET C#. Then the DUELink .NET C# library can be added to access all DUELink modules. Cloud .NET developers do not need to know any embedded microcontroller coding, thanks to DUELink!
+
+---
+
+## Module to Internet
+
+
+It is also possible to use [Wireless ESP32](../products/wlesp32-a) module for a direct [WiFi](./wifi) connection.
+
+<div style={{ textAlign: 'center'}}>
+![Wireless ESP32](pathname:///img/catalog/wlesp32-a-1.webp)
+</div>
+
+See [WiFi](./wifi) page.

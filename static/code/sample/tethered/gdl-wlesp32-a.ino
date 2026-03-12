@@ -1,81 +1,71 @@
+// This sample runs on DueDuino
+
 // In this sample:
-// Enable Wi-Fi and set the multicast DNS name to "duelink".
-// A TCP client (for example, the TeraTerm application) can connect to
-// "duelink" on port 8080 to send and receive commands.
-// This sample runs on Arduino UNO 4 WIFI
+// Using TeraTerm, connect to the device using TCP/IP (if WiFi is used) or Serial (if Bluetooth is used).
+// From TeraTerm, send 1 byte and receive that byte +1. Example: press '1', TeraTerm shows '2'.
+// Setup requirements:
+// Wireless ESP32 must be configured for WiFi (or Bluetooth) as Data Gateway (AT disabled and Bridge mode disabled).
 
 #include <Arduino.h>
-#include <Wire.h>
 #include <DUELink.h>
 
-TwoWireTransport transport(Wire1);
+SerialTransport transport(Serial2);
 DUELink duelink(transport);
 
 bool IsBluetoothConnected() {
+    // Pin 5 goes low when Bluetooth is connected
     float ret = duelink.Engine.ExecuteCommand("dread(5,1)");
-    return ret == 0;
+    return ((int)ret) == 0;
 }
 
 bool IsWiFiConnected() {
+    // Pin 5 goes low when WiFi is connected
     float ret = duelink.Engine.ExecuteCommand("dread(5,1)");
-    return ret == 0;
+    return ((int)ret) == 0;
 }
 
-bool IsSocketConnected() {
+bool IsTcpConnected() {
+    // Pin 4 goes low when a TCP connection occurs (on mDNS "duelink", port 8080 if default)
     float ret = duelink.Engine.ExecuteCommand("dread(4,1)");
-    return ret == 0;
+    return ((int)ret) == 0;
 }
 
-void StartBluetooth(const char* name) {
+int WirelessRead() {
+    float ret = duelink.Engine.ExecuteCommand("wlRead()");
+    return (int)ret;
+}
+
+int WirelessReadCount() {
+    float ret = duelink.Engine.ExecuteCommand("wlReadcnt()");
+    return (int)ret;
+}
+
+void WirelessWrite(uint8_t data) {
     char cmd[64];
-    snprintf(cmd, sizeof(cmd), "StartBT(\"%s\")", name);
+    snprintf(cmd, sizeof(cmd), "wlWrite(%u)", data);
     duelink.Engine.ExecuteCommand(cmd);
-}
-
-void StartWiFi(const char* ssid, const char* pwd) {
-    char cmd[96];
-    snprintf(cmd, sizeof(cmd), "StartWiFi(\"%s\",\"%s\")", ssid, pwd);
-    duelink.Engine.ExecuteCommand(cmd);
-}
-
-void SetMulticastDns(const char* mdns_name) {
-    char cmd[64];
-    snprintf(cmd, sizeof(cmd), "StartTcp(\"%s\")", mdns_name);
-    duelink.Engine.ExecuteCommand(cmd);
-}
-
-void EnableBridge() {
-    duelink.Engine.ExecuteCommand("Bridge(1)");
 }
 
 void setup() {
-    Serial.begin(9600);
-    Wire1.begin();
+    Serial2.begin(115200);
     duelink.Connect();
-
-    delay(2000);
-
-    StartWiFi("ssid", "pwd");
-
-    delay(1000);
-    while (!IsWiFiConnected()) {
-        delay(1000);
-        Serial.println("Wait for WiFi connection...");
-    }
-
-    SetMulticastDns("duelink");
-    
-    while (!IsSocketConnected()) {
-        delay(1000);
-        Serial.println("Wait for tcp connection...");
-    }
-
-    EnableBridge();
-    Serial.println("The bridge is ready for sending/receiving command from TeraTerm");
 }
 
 void loop() {
+    if (!IsWiFiConnected()) {        
+        delay(1000);
+        return;
+    }
 
-   
+    if (!IsTcpConnected()) {        
+        delay(1000);
+        return;
+    }
 
+    if (WirelessReadCount() > 0) {
+        int d = WirelessRead();
+        WirelessWrite((uint8_t)(d + 1));       
+    }
+
+    delay(10);
 }

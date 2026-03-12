@@ -1,64 +1,65 @@
 // In this sample:
-// Enable Wi-Fi and set the multicast DNS name to "duelink".
-// A TCP client (for example, the TeraTerm application) can connect to
-// "duelink" on port 8080 to send and receive commands.
+// Using TeraTerm, connect to the device using TCP/IP (if WiFi is used) or Serial (if Bluetooth is used).
+// From TeraTerm, send 1 byte and receive that byte +1. Example: press '1', TeraTerm shows '2'.
+// Setup requirements:
+// Wireless ESP32 must be configured for WiFi (or Bluetooth) as Data Gateway (AT disabled and Bridge mode disabled).
 
-using System;
-using System.Net;
-using System.Xml.Linq;
+using System.Text;
 using GHIElectronics.DUELink;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 var availablePort = DUELinkController.GetConnectionPort();
 var duelink = new DUELinkController(availablePort);
 
-bool IsBluetoothConnected() {    
+bool IsBluetoothConnected() {
+    // Pin 5 goes low when Bluetooth is connected
     var ret = duelink.Engine.ExecuteCommand("dread(5,1)");
-
-    return ret == 0;
+    return (int)ret==0;
 }
 bool IsWiFiConnected() {
+    // Pin 5 goes low when WiFi is connected
     var ret = duelink.Engine.ExecuteCommand("dread(5,1)");
-    return ret == 0;
+    return (int)ret == 0;
 }
-
-bool IsSocketConnected() {
+bool IsTcpConnected() {
+    // Pin 4 goes low when a TCP connection occurs (on mDNS "duelink", port 8080 if default)
     var ret = duelink.Engine.ExecuteCommand("dread(4,1)");
-    return ret == 0;
+    return (int)ret == 0;
+}
+int WirelessRead() {
+    var ret = duelink.Engine.ExecuteCommand("wlRead()");
+    return (int)ret;
+}
+int WirelessReadCount() {
+    var ret = duelink.Engine.ExecuteCommand("wlReadcnt()");
+    return (int)ret;
+}
+void WirelessWrite(byte data) {
+    duelink.Engine.ExecuteCommand($"wlWrite({data})");
 }
 
-void StartBluetooth(string name) {
-    duelink.Engine.ExecuteCommand($"StartBT(\"{name}\")");
-}
-void StartWiFi(string ssid, string pwd) {
-    duelink.Engine.ExecuteCommand($"StartWiFi(\"{ssid}\",\"{pwd}\")");    
-}
+while (true) {
+    if (!IsWiFiConnected()) {
+        Console.WriteLine("Wait for FiFi connection...");
+        Thread.Sleep(1000);
+        continue;
+    }
 
-void SetMulticastDns(string mdns_name) {
-    duelink.Engine.ExecuteCommand($"StartTcp(\"{mdns_name}\")");
-}
+    if (!IsTcpConnected()) {
+        Console.WriteLine("Wait for tcp connection...");
+        Thread.Sleep(1000);
+        continue;
+    }
 
-void EnableBrigde() {
-    duelink.Engine.ExecuteCommand("Bridge(1)");
-}
+    if (WirelessReadCount() > 0) {
+        var d = WirelessRead();
 
+        Console.WriteLine($"Received: {(char)d}");
+        WirelessWrite((byte)(d + 1));
+        Console.WriteLine($"Sent: {(char)(d+1)}");
+    }
 
-StartWiFi("ssid", "pwd");
-
-// The Wi-Fi connection can take up to 30 seconds.
-// For testing, sleep for 1 seconds first.
-Thread.Sleep(1000 * 1);
-while (IsWiFiConnected() == false) {
-    Thread.Sleep(1000);
-    Console.WriteLine("Wait for WiFi connection...");
+    Thread.Sleep(10);
 }
 
-SetMulticastDns("duelink");
-while (IsSocketConnected() == false) {
-    Thread.Sleep(1000);
-    Console.WriteLine("Wait for tcp connection...");
-}
-
-EnableBrigde();
-
-Console.WriteLine("The brigde is ready for sending/receiving command from TeraTerm");
 
