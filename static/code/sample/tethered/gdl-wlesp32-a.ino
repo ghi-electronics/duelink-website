@@ -4,7 +4,7 @@
 // Using TeraTerm, connect to the device using TCP/IP (if WiFi is used) or Serial (if Bluetooth is used).
 // From TeraTerm, send 1 byte and receive that byte +1. Example: press '1', TeraTerm shows '2'.
 // Setup requirements:
-// Wireless ESP32 must be configured for WiFi (or Bluetooth) with AT disabled and Bridge mode disabled.
+// Wireless ESP32 must be configured for WiFi (or Bluetooth) as Data Gateway (AT disabled and Bridge mode disabled).
 
 #include <Arduino.h>
 #include <DUELink.h>
@@ -67,5 +67,5 @@ void loop() {
         WirelessWrite((uint8_t)(d + 1));       
     }
 
-    delay(1000);
+    delay(10);
 }

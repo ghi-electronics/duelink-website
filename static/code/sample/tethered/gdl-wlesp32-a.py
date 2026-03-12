@@ -3,7 +3,7 @@
 # Using TeraTerm, connect to the device using TCP/IP (if WiFi is used) or Serial (if Bluetooth is used).
 # From TeraTerm, send 1 byte and receive that byte +1. Example: press '1', TeraTerm shows '2'.
 # Setup requirements:
-# Wireless ESP32 must be configured for WiFi (or Bluetooth) with AT disabled and Bridge mode disabled.
+# Wireless ESP32 must be configured for WiFi (or Bluetooth) as Data Gateway (AT disabled and Bridge mode disabled).
 
 import time
 from datetime import datetime
@@ -61,4 +61,4 @@ while True:
         WirelessWrite(d + 1)
         print(f"Sent: {chr(d + 1)}")
 
-    time.sleep(1)
+    time.sleep(0.01)
