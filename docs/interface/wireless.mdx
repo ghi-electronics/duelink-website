@@ -76,8 +76,7 @@ It is important to remember that the `Wireless ESP32` module acts as wireless-to
 
 ## Data Gateway
 
-
-The second option gives you `WlReadCnt()`, `WlRead()` and `WlWrite()` to read and write bytes from the wireless connection. This does not require any additional knowledge, but it is limited and slow due to handling single bytes individually! Note that these functions can't be used directly in the same script. Instead, they can be accessed from a tethered device. For example, an [Arduino](../hw/arduino) or a [micro:bit](../hw/microbit) can send a byte wirelessly using `WlWrite()`.
+This mode handles everything internally to give you a way to read and write bytes, using Bluetooth or WiFi. You will be using `WlReadCnt()`, `WlRead()` and `WlWrite()` to read and write bytes from the wireless connection. Note that these functions can't be used directly in the same script. Instead, they can be accessed from a tethered device. For example, an [Arduino](../hw/arduino) or a [micro:bit](../hw/microbit) can send a byte wirelessly using `WlWrite()`. You can even tether another DUELink module and use it to send these commands.
 
 <div style={{ textAlign: 'center'}}>
 ![Wireless ESP32 no host](pathname:///img/wireless-daisylink-addr-nohost.webp)
@@ -91,7 +90,7 @@ StartBT("DUELink_BT", 0, 0) # name, no AT mode, no bridge
 # StartBT() does not return in gateway mode!
 ```
 
-Using WiFi is almost identical. This starts a TCP server listening to port 22.
+Using WiFi is almost identical. This starts a TCP server listening to port 8080.
 
 ```py
 StartWiFi("MySSID", "MyPassword", "DUELink", 0, 0, 30000) # SSID, PWD, DNS, no AT mode, no bridge, timeout ms
@@ -106,6 +105,16 @@ You can now use a tethered device to send `WlRead()` to read data from WiFi, whe
 
 ```c
 incoming = duelink.Engine.ExecuteCommand("WlRead()");// read a byte from the wireless connection
+```
+
+If using another DUELink module, then we can also send commands using `Host Mode`. For example, we can give [DueSTEM](../products/mcduestem-b) a wireless connection.
+
+```py
+DLMode(2,0) # Switch Downlink to host mode
+Wait(100) # This delay is more than enough for 50x modules.
+cmd("sel(1)")
+
+_b = cmd("WlRead()")
 ```
 
 ---
@@ -185,12 +194,14 @@ For example, use `DRead(5,1)` to determine if the you have a connected wireless 
 
 The firmware we preload on the ESP32 module is a special build that slightly changes Espressif default to add flow-control pins, fix to 9600 baud, and add Classic Bluetooth SPP profile. The changes are found on [GitHub](https://github.com/ghi-electronics/duelink-esp-at) if you are curious!
 
-Updating the ESP32 firmware is automated via our internal [DUELink Programmer](../programmer) tool. Do not confuse the DUELink micro firmware with the ESP32 firmware.
+Updating the ESP32 firmware is automated via our internal [DUELink Programmer](../programmer) tool. Do not confuse the DUELink micro's firmware with the ESP32 firmware.
 
 ---
 
 ## Custom Scripts
 
-Thanks to DUELink Scripts, the [Wireless ESP32](../products/wlesp32-a) can be loaded with custom scripts to handle specific task, like read the forecast, and then provide a function to just provide the final results, like today `highTemp()`. Any hardware now, like a micro:bit, can easily read today's high temp using `HighTemp()` for example. 
+Thanks to DUELink Scripts, the [Wireless ESP32](../products/wlesp32-a) can be loaded with custom scripts to handle specific task, like read the forecast to provide today's `highTemp()` for example. Any hardware can now easily read today's high temp: `duelink.Engine.ExecuteCommand("HighTemp()")`.
 
 Since JSON is an essential part of the internet, we have implemented a basic [JSON parsing](https://github.com/ghi-electronics/duelink-projects/tree/main/source/json-parser) for you.
+
+Here is a [complete project](https://github.com/ghi-electronics/duelink-projects/tree/main/source/wireless-weather-hightemp) with a script that provides `HighTemp()` plus multi-language samples on how to use it. Start by loading "hightemp-script" onto Wireless ESP32 module and then use any of the samples with a [Supported Hardware](../hw/intro) to access `HighTemp()`. 
