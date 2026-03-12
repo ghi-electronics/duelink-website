@@ -27,11 +27,18 @@
   },
   "projects": [
      {
+      "name": "Connecting Azure & AWS to Circuits",
+      "description": "Cloud developers can control hardware from existing projects with about 10 lines of code!",
+      "tags": ["python", "dotnet", "pc"],
+      "link": "https://forums.ghielectronics.com/t/connecting-azure-aws-to-circuits/26248",
+      "image": "azure-iothub.png"
+    },
+    {
       "name": "To Pi or not to Pi? That is a DuePi",
       "description": "So many ways to use DuePi, not just with Raspberry Pi",
-      "tags": ["raspberrypi", "pc", "python", "dotnet"],
+      "tags": ["python", "dotnet", "raspberrypi", "pc"],
       "link": "https://forums.ghielectronics.com/t/to-pi-or-not-to-pi-that-is-a-duepi/26246",
-      "image": "duEpi-analog.jpEg"
+      "image": "duepi-analog.jpeg"
     },
     {
       "name": "Creating Smart Displays",
