@@ -684,7 +684,7 @@
       "category": "Actuator",
       "price": 49.95,
       "tagline": "16x Isolated Relays",
-      "description": "When it comes to power isolation, this module comes in perfectly handy. The relays are optically-isolated from the rest of the circuit. The 16x relays are capable of up to 10A @ 250V each. The relays are powered from a **required** 12V barrel-jack power source.",
+      "description": "When it comes to power isolation, this module comes in perfectly handy. The relays are optically-isolated from the rest of the circuit. The 16x relays are capable of up to 10A @ 250V each. The relays are powered from a **required** 12V terminal-block power source.",
       "keyFeatures": [
         "16x optically-isolated",
         "10A @ 250V",
