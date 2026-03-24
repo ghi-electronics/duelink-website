@@ -33,14 +33,14 @@ fn RegWrRd(r, v, w)
 fend
 
 
-fn SetReg(a,b9)
+fn SetReg(a,b6)
   for i=0 to 4
-    RegWrRd((a+i)<<8, b9[i],1)
+    RegWrRd((a+i)<<8, b6[i],1)
   next
 fend
 
 # IP, GW, Subnet
-fn Init(b7, b8, b9)
+fn Init(b4, b5, b6)
     spicfg(0, 8000)
     
     dread(_i, 0)
@@ -54,9 +54,9 @@ fn Init(b7, b8, b9)
     
     wait(3000)
     
-    SetReg(0x000f, b7)
-    SetReg(0x0001, b8)
-    SetReg(0x0005, b9)
+    SetReg(0x000f, b4)
+    SetReg(0x0001, b5)
+    SetReg(0x0005, b6)
 fend
 
 
@@ -82,7 +82,7 @@ fn s_rr16(s,r)
   return (h<<8)|l
 fend
 
-fn Send(s,b9)
+fn Send(s,b6)
   t=(s<<5)|16
   a=s_rr16(s,0x24)
   b2[0] = (a>>8) & 0xFF
@@ -91,18 +91,18 @@ fn Send(s,b9)
   
   dwrite(_c,0)
   spiwrs(b2,0)
-  spiwrs(b9,0)
+  spiwrs(b6,0)
   dwrite(_c,1)
   
-  s_wr16(s,0x24,a+len(b9))
+  s_wr16(s,0x24,a+len(b6))
   
   s_wr(s,1,0x20)
 fend
 
-fn Recv(s,b9)
+fn Recv(s,b6)
   t=(s<<5)|24
   r=s_rr16(s,0x26)
-  l=len(b9)
+  l=len(b6)
   if (r=0 || l=0)
     return 0
   end
@@ -114,13 +114,13 @@ fn Recv(s,b9)
   
   dwrite(_c,0)
   spiwrs(b2,0)
-  spiwrs(0,b9)
+  spiwrs(0,b6)
   dwrite(_c,1)
   
   s_wr16(s,0x28,a+l)
   s_wr(s,1,0x40)
   
-  return len(b9)
+  return len(b6)
 fend
 
 fn Close(s)
@@ -128,13 +128,13 @@ fn Close(s)
   s_wr(s,1,0x10)
 fend
 
-# s-socket, l-local port, b9-ip address, p-remote port
-fn Connect(s,l,b9,p)
+# s-socket, l-local port, b6-ip address, p-remote port
+fn Connect(s,l,b6,p)
   s_wr(s,0,1)
   s_wr16(s,4,l)
   
   for i=0 to 4
-    s_wr(s,0x0c+i,b9[i])
+    s_wr(s,0x0c+i,b6[i])
   next
   
   s_wr16(s,0x10,p)
