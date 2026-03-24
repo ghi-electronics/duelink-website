@@ -137,7 +137,7 @@ fend
 ##### Temperature #####
 
 fn ReadTemp()
-    return Trunc(VRead(9)/(ReadVCC() )*100)
+    return (VRead(9)/(ReadVCC() )*100)
 fend
 
 ##### Tunes #####
