@@ -345,6 +345,18 @@ DUELink Scripting supports the following operators.
 | `<<` | Shift Left  |
 | `>>` | Shift Right |
 
+:::tip
+The interpreter will always evaluate all expressions and not "short-circuit". Using `if (len(b0) > 0 && b0[1] = 123)` is not safe as `b0[1]` will be executed even if `len(b0)` is zero. Manually break the code to how you expect it to work.
+
+```py
+if len(b0):
+  if b0[1] = 123:
+  # ...
+  end
+end
+```
+:::
+
 ---
 
 ## While-loop
@@ -358,6 +370,8 @@ while _x>5
   _x=_x-1
 wend
 ```
+
+---
 
 ## For-Loop
 
