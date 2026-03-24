@@ -23,10 +23,12 @@ void setup() {
     Serial.begin(9600);
     Wire1.begin();
     duelink.Connect();
+    
+    duelink.Engine.ExecuteCommand("Scan()");
 }
 
 void loop() {
-    duelink.Engine.ExecuteCommand("Scan()");
+    
     delay(10);
 
     if (IsKeyChange()) {
@@ -41,5 +43,4 @@ void loop() {
         }
     }
 
-    delay(100);
 }

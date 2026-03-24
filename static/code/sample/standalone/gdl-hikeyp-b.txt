@@ -1,7 +1,7 @@
 # In this sample:
 # Detect a pressed key
 
-SStart("Scan", 100, 0)
+Scan()
 while 1 
 
     if IsKeyChange()

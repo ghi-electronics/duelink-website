@@ -1,11 +1,11 @@
-_x = 0
-Ear(1,1) # Turn on ears
-Buzzer(2000,100)
-StatLed(100, 100, 0) # blink led forever
+StatLed(100, 100, 0) # blink STAT LED forever
 
 while (1)
-    Eye(_x&1,_x&2) # eye
-    Mouth(_x&1) # mouth
-    _x = _x + 1
+    LEye(200,0,200)
+    REye(200,200,00)
     Wait(100)
+    REye(200,0,200)
+    LEye(200,200,00)
+    Wait(100)
+    PlyBeep()
 wend

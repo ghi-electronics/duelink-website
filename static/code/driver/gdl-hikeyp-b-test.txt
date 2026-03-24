@@ -11,7 +11,7 @@ fn Test()
     Wait(10)
     cmd("sel(1)")
  
-    SStart("Scan", 100, 0)
+    Scan()
     p = 0
     s = 0
     while 1 

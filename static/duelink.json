@@ -816,7 +816,8 @@
         "10/100 Base",
         "On-board LAN Connector",
         "37x27mm Overall Dimension"
-      ]
+      ],
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(b4,b5,b6)` | Network configuration b4:IP, b5:GW, b6:Subnet. |\n| `Connect(s,l,b6,p)` | Connect to socket s, l:local port, b6:ip address, p:port. |\n| `Close(s)` | Close socket s. |\n| `Listen(s,p)` | Listen socket s, p:port. |\n| `Accept(s)` | Accept socket s. |\n| `Avail(s)` | Returns available size on socket s. |\n| `Send(s,b6)` | Write to socket s, b6: data. |\n| `Recv(s,b6)` | Read data from socket s to b6. |\n| `DVer()` | Returns driver version. |"
     },
     {
       "name": "Serial USB",

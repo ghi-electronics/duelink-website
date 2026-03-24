@@ -2,6 +2,9 @@
 # Get the current rotary value
 # Detect if the rotary button is pressed
 
+IStart("IntA", PinA, 2, 0)
+IStart("IntB", PinB, 0, 0)
+    
 _a = 0
 _b = 0
 

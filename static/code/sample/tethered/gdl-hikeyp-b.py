@@ -17,12 +17,12 @@ def ReadKey():
     ret = duelink.Engine.ExecuteCommand("RdKey()")
     return int(ret)
 
-
-while True:
-    # use this then no need to call SStart("Scan", 100, 0)
-    # in script that require while(1) loop active
+def Init():
     duelink.Engine.ExecuteCommand("Scan()")
 
+Init()
+
+while True:
     time.sleep(0.01)  # Thread.Sleep(10)
 
     if IsKeyChange():
@@ -32,5 +32,3 @@ while True:
             print("Key released")
         else:
             print(f"Key pressed: {chr(ReadKey())}")
-
-    time.sleep(0.1)  # Thread.Sleep(100)
