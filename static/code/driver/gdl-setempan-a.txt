@@ -3,10 +3,10 @@
 fn ReadTemp()
     # Adjust to DueSTEM
     # TempAn ReadVCC() is 3.0V, DueSTEM: 3.29V
-    # VRead() return 3.6% higher than DueSTEM
+    # VRead() return 3.7% higher than DueSTEM
  
     v = VRead(1)
-    v = v - (v*3.7/100) # adjust 3.6%
+    v = v - (v*3.7/100) # adjust 3.7%
  
     # Fixed to 3.29
     return v/(3.29 )*100
