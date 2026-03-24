@@ -1,44 +1,30 @@
 module main
-author GHI Electronics
-version 1 0
+author GHI
+version 1 0 
 description ''
 
-variables
-
-spec 'r' 'IsKeyChange' 'IsKeyChange'
-spec 'r' 'ReadKey' 'ReadKey'
-spec 'r' 'buildstr' 'addstring _ : with _ : _ : ...' 'str auto auto' 'output'
-spec ' ' 'Print' 'Print _' 'auto'
-
-script 120 80 {
-whenStarted
-comment 'In this sample:'
-comment 'Detect a pressed key'
-due_useI2C true
-due_select_device 1
-forever {
-	due_run 'Scan()'
-	waitMillis 10
-	if ((IsKeyChange)) {
-		local 'key' (ReadKey)
-		if (key == 0) {
-			Print 'Key released'
-		} else {
-			Print (buildstr 'Key pressed: ' (ReadKey))
-		}
-	}
-	waitMillis 100
-}
-}
+  spec 'r' 'IsKeyChange' 'IsKeyChange'
+  spec 'r' 'ReadKey' 'ReadKey'
+  spec 'r' 'buildstr' 'addstring _ : with _ : _ : ...' 'str auto auto' 'output'
+  spec ' ' 'Print' 'Print _' 'auto'
 
 to IsKeyChange {
-	local 'ret' (due_returnNum 'IsKeyChange()')
-	return (ret != 0)
+  local 'ret' (due_returnNum 'IsKeyChange()')
+  return (ret != 0)
+}
+
+to Print text {
+  local 'tmp' text
+  if (isType text 'number') {
+    tmp = ('[data:convertType]' text 'string')
+  }
+  tinyOLED_clear
+  tinyOLED_drawString tmp 0 0 true
 }
 
 to ReadKey {
-	local 'ret' (due_returnNum 'RdKey()')
-	return ret
+  local 'ret' (due_returnNum 'RdKey()')
+  return ret
 }
 
 to buildstr s optionalArgs {
@@ -54,13 +40,24 @@ to buildstr s optionalArgs {
   return ('[data:joinStrings]' result)
 }
 
-to Print text {
-	local 'tmp' text
-	if (isType text 'number') {
-		tmp = ('[data:convertType]' text 'string')
-	}
-	tinyOLED_clear
-	tinyOLED_drawString tmp 0 0 true
+script 120 80 {
+whenStarted
+comment 'In this sample:'
+comment 'Detect a pressed key'
+due_useI2C true
+due_select_device 1
+due_run 'Scan()'
+forever {
+  waitMillis 10
+  if (IsKeyChange) {
+    local 'key' (ReadKey)
+    if (key == 0) {
+      Print 'Key released'
+    } else {
+      Print (buildstr 'Key pressed: ' (ReadKey))
+    }
+  }
+}
 }
 
 script 120 1015 {
@@ -80,55 +77,15 @@ to Print {}
 }
 
 
-
-
 module 'DUELink Daisylink' Comm
 author 'GHI Electronics'
-version 0 13 
+version 0 17 
 choices due_combx b0 b1 b2 b3 b4 b5 b6 b7 
-description 'DUELink base library used by all other DUELink libraries.
-
-
-
-Handles daisylink communications via I2C or serial (UART).
-
-
-
-
-
-
+description 'Handles tethered communications via I2C or serial (UART) to DUELink Daisylink module(s).
 
 By default, this library uses serial over the Downlink port on DUELink boards and I2C on other boards but that can be changed by using the advanced "use I2C" block.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-See https://www.duelink.com/docs/engine/stdlib
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+See https://www.duelink.com/docs/language/microblocks on how tethering works.
 
 '
 variables _dueUseI2C _dueReadTimeout 
@@ -154,16 +111,19 @@ variables _dueUseI2C _dueReadTimeout
   spec 'r' 'due_stream_read_bytes' 'stream read from _ count _' 'menu.due_combx auto' 'b1' 3
   space
   space
-  spec ' ' 'due_stop' 'stop'
   spec ' ' 'due_exec' 'run'
+  spec ' ' 'due_stop' 'stopall'
   space
   space
   spec ' ' '_due_init' '_due_init'
+  spec 'r' '_due_isDUELink' '_due_isDUELink'
   spec ' ' '_due_send' '_due send _' 'str'
   spec ' ' '_dueSendRaw' '_due send raw _' 'auto' '10'
   spec 'r' '_due_awaitResult' '_due await result'
   spec 'r' '_due_awaitResultI2C' '_due await result (I2C)'
   spec 'r' '_due_endsWithPrompt' '_due byte array ends with prompt _' 'str'
+  spec 'r' '_due_isFloat' '_due string is float _' 'auto' '2.3'
+  spec 'r' '_due_textGfxCmd' '_due_textGfxCmd _' 'auto' 'textT'
 
 to '_dueSendRaw' s {
   '_due_init'
@@ -249,19 +209,45 @@ to '_due_init' {
   if (_dueReadTimeout == 0) {_dueReadTimeout = 1000}
   if (not (isType _dueUseI2C 'boolean')) {
     comment 'Not yet initialized, set _dueUseI2C.'
-    if (('[misc:dueLinkPID]') > 0) {
+    if ('_due_isDUELink') {
       comment 'This is a DUELink board; use serial.'
       _dueUseI2C = (booleanConstant false)
       if ('[serial:dueSend]' ('[data:unicodeString]' 10) 1) {
         comment 'Serial need first byte is 10, 13 or ''s'', ''S'''
       }
-      comment 'Wait a bit because device will see multiple commands'
-      return 0
     } else {
       comment 'Not a DUELink board; use I2C.'
       _dueUseI2C = (booleanConstant true)
     }
+    comment 'Wait a bit because device will see multiple commands'
+    waitMillis 300
   }
+}
+
+to '_due_isDUELink' {
+  return ('[serial:isDUELink]')
+}
+
+to '_due_isFloat' str {
+  if (isType str 'number') {return (booleanConstant true)}
+  local 'num' (booleanConstant true)
+  local 'length' (size str)
+  local 'pos' -1
+  for i ('[data:range]' 1 length) {
+    if (or (('[data:unicodeAt]' i str) < 46) (('[data:unicodeAt]' i str) > 57)) {num = (booleanConstant false)}
+  }
+  for i ('[data:range]' 1 length) {
+    if (or (('[data:unicodeAt]' i str) == 46) (('[data:unicodeAt]' i str) == 47)) {pos = i}
+  }
+  if (pos >= 0) {
+    for i ('[data:range]' (pos + 1) length) {
+      if (or (('[data:unicodeAt]' i str) < 48) (('[data:unicodeAt]' i str) > 57)) {num = (booleanConstant false)}
+    }
+    for i ('[data:range]' 1 (pos - 1)) {
+      if (or (('[data:unicodeAt]' i str) < 48) (('[data:unicodeAt]' i str) > 57)) {num = (booleanConstant false)}
+    }
+  }
+  return num
 }
 
 to '_due_send' s {
@@ -288,8 +274,21 @@ to '_due_send' s {
   }
 }
 
+to '_due_textGfxCmd' str {
+  if (isType str 'string') {
+    comment 'If this is Text command, force first argument to be "string"'
+    if ((size str) >= 4) {
+      if (or (('[data:unicodeAt]' 1 str) == 84) (('[data:unicodeAt]' 1 str) == 116)) {if (or (('[data:unicodeAt]' 2 str) == 69) (('[data:unicodeAt]' 2 str) == 101)) {
+        if (or (('[data:unicodeAt]' 3 str) == 88) (('[data:unicodeAt]' 3 str) == 120)) {if (or (('[data:unicodeAt]' 4 str) == 84) (('[data:unicodeAt]' 4 str) == 116)) {
+          return (booleanConstant true)
+        }}
+      }}
+    }
+  }
+  return (booleanConstant false)
+}
+
 to due_connected {
-  '_due_send' ('[data:unicodeString]' 27)
   local 'n' ('[data:convertType]' (random 1 9) 'string')
   return ((due_returnStr n) == n)
 }
@@ -316,6 +315,7 @@ to due_make_command s optionalArgs {
   local 'result' ('[data:makeList]')
   local 'str' (booleanConstant false)
   local 'arr' (booleanConstant false)
+  local 'drawtext_cmd' ('_due_textGfxCmd' s)
   '[data:addLast]' s result
   '[data:addLast]' '(' result
   for i 8 {
@@ -329,7 +329,12 @@ to due_make_command s optionalArgs {
           comment 'Dont add "'
           arr = (booleanConstant true)
         } else {
-          '[data:addLast]' '"' result
+          comment 'add " open'
+          if (('_due_isFloat' (argOrDefault (i + 1) '')) == (booleanConstant false)) {
+            '[data:addLast]' '"' result
+          } else {
+            if (and (drawtext_cmd == (booleanConstant true)) (i == 1)) {'[data:addLast]' '"' result}
+          }
         }
       } else {
         comment 'check if array and ['
@@ -339,6 +344,11 @@ to due_make_command s optionalArgs {
           comment 'check if list and {'
           if (isType (argOrDefault (i + 1) '') 'list') {
             '[data:addLast]' '{' result
+          } else {
+            comment 'add " open'
+            if (and (drawtext_cmd == (booleanConstant true)) (i == 1)) {
+              '[data:addLast]' '"' result
+            }
           }
         }
       }
@@ -354,11 +364,19 @@ to due_make_command s optionalArgs {
         '[data:addLast]' (argOrDefault (i + 1) '') result
       }
       comment 'if this is a string then add "'
-      if str {
-        if arr {
+      if (str == (booleanConstant true)) {
+        if (arr == (booleanConstant true)) {
           comment 'Dont add "'
         } else {
-          '[data:addLast]' '"' result
+          comment 'add " close'
+          if (and (drawtext_cmd == (booleanConstant true)) (i == 1)) {
+            '[data:addLast]' '"' result
+          } else {
+            if (('_due_isFloat' (argOrDefault (i + 1) '')) == (booleanConstant false)) {
+              '[data:addLast]' '"' result
+            } else {
+            }
+          }
         }
       } else {
         comment 'check if array and ['
@@ -368,6 +386,11 @@ to due_make_command s optionalArgs {
           comment 'check if list and {'
           if (isType (argOrDefault (i + 1) '') 'list') {
             '[data:addLast]' '}' result
+          } else {
+            comment 'add " close'
+            if (and (drawtext_cmd == (booleanConstant true)) (i == 1)) {
+              '[data:addLast]' '"' result
+            }
           }
         }
       }
@@ -481,78 +504,37 @@ to due_stream_read_bytes 'array name' count {
 
 to due_useI2C useI2C {
   comment 'DUELink defaults to using the serial Downlink port on DUELink boards
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 and I2C on non-DUELink board. This advanced block is only needed
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 when one wants to force different behavior from the default
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 (e.g. to use I2C edge connector pins on a DUE CincoBit or PixoBit).'
   _dueUseI2C = useI2C
   if _dueUseI2C {
+    comment 'Send new line for enumeration'
+    '[sensors:i2cRead]' 82 ('[data:newByteArray]' 64)
+    '[sensors:i2cWrite]' 82 ('[data:unicodeString]' 10)
   } else {
-    comment 'If Uart we need to send 10 or 13 or 27 or ''s'' or ''S'''
+    comment 'Serial need first byte is 10, 13 or ''s'', ''S'''
+    if ('[serial:dueSend]' ('[data:unicodeString]' 10) 1) {
+    }
+    waitMillis 255
+    comment 'Device 1 is selected as default enumeration'
     due_select_device 1
   }
+  waitMillis 100
 }
 
 
 module 'Tiny OLED' Output
 author MicroBlocks
-version 1 6 
-description 'Tiny graphics library for a 128x64 pixel monochrome OLED display with a SSD1306 controller.
-
-
-
+version 1 7 
+description 'Tiny graphics library for a 128x64 pixel monochrome OLED display with a SSD1306 controller
+or a 128x128 pixel monochrome OLED display with a SH1107 controller.
 Useful on boards with very limited code store space such as the DUELink PixoBit and DueSTEM.
-
-
-
 '
-variables _tinyOLED_buffer _tinyOLED_hideUpdates 
+variables _tinyOLED_addr _tinyOLED_buffer _tinyOLED_height _tinyOLED_hideUpdates 
 
   spec ' ' 'tinyOLED_clear' 'clear tiny OLED display'
+  space
   spec ' ' 'tinyOLED_drawString' 'draw string _ x _ y _ white _' 'str num num bool' 'Hello!' 48 52 true
   spec ' ' 'tinyOLED_drawStringBig' 'draw big string _ x _ y _ white _' 'str num num bool' 'Hello!' 36 0 true
   space
@@ -563,25 +545,13 @@ variables _tinyOLED_buffer _tinyOLED_hideUpdates
   space
   spec ' ' 'tinyOLED_drawImage' 'draw image _ x _ y _ : scale _' 'str num num num' '' 0 0 1
   spec 'r' 'tinyOLED_image' 'image _' 'str' '00000
-
-
-
 01010
-
-
-
 00000
-
-
-
 10001
-
-
-
 01110'
   space
   spec ' ' 'tinyOLED_setBrightness' 'set tiny OLED brightness _' 'menu.range:1-5' 4
-  space
+  advanced
   spec ' ' 'tinyOLED_hideUpdates' 'defer tiny OLED display updates'
   spec ' ' 'tinyOLED_showUpdates' 'show tiny OLED display updates'
   space
@@ -597,9 +567,13 @@ variables _tinyOLED_buffer _tinyOLED_hideUpdates
 
 to '_tinyOLED_cmd' cmdString {
   comment 'Input is a comma separated string of hex values.'
-  local 'i2cAddr' 60
+  comment 'Some useful commands:
+  Display off/on: AE/AF
+  Flip horizontal: A0/A1
+  Flip vertical: C0/C8
+  Invert video: A6/A7'
   for cmd ('[data:split]' ('[data:convertType]' cmdString 'string') ',') {
-    '[sensors:i2cWrite]' i2cAddr ('[data:makeList]' (hexToInt '80') (hexToInt cmd))
+    '[sensors:i2cWrite]' _tinyOLED_addr ('[data:makeList]' (hexToInt '80') (hexToInt cmd))
   }
 }
 
@@ -618,7 +592,7 @@ to '_tinyOLED_drawChar' ch x y {
   if (columns == 0) {
     return 0
   }
-  if (or (y < -7) (y > 63)) {
+  if (or (y < -7) (y >= _tinyOLED_height)) {
     return 0
   }
   local 'firstCol' (ifExpression (x < 0) (1 - x) 1)
@@ -646,7 +620,7 @@ to '_tinyOLED_drawChar' ch x y {
 
 to '_tinyOLED_hline' startX endX y white {
   '_tinyOLED_init'
-  if (or (y < 0) (y > 63)) {
+  if (or (y < 0) (y >= _tinyOLED_height)) {
     return 0
   }
   if (or (endX < 0) (startX > 127)) {
@@ -669,42 +643,31 @@ to '_tinyOLED_hline' startX endX y white {
 }
 
 to '_tinyOLED_init' {
-  if (_tinyOLED_buffer != 0) {return 0}
-  comment 'Use default reset pin 22 for PixoBit and ClipIt boards.'
-  tinyOLED_setResetPin 22
+  if (_tinyOLED_buffer != 0) {
+    comment 'Already initialized'
+    return 0
+  }
+  if (or ((boardType) == 'PixoBit') ((boardType) == 'DueSTEM')) {
+    comment 'Use reset pin 22 for PixoBit and ClipIt boards.'
+    tinyOLED_setResetPin 22
+  } else {
+    tinyOLED_setResetPin -1
+  }
 }
 
 to '_tinyOLED_setPixel' x y white {
   comment 'Set the value of pixel at x,y.
-
-
-
 Ranges:
-
-
-
   x: 0-127
-
-
-
-  y: 0-63
-
-
-
-  byteIndex: 1-1024
-
-
-
+  y: 0-_tinyOLED_height
+  byteIndex: 1-1024 (or 1-2048 for 128x128 display)
   bitIndex: 0-7
-
-
-
 '
   comment 'Check ranges'
   if (or (x < 0) (x > 127)) {
     return
   }
-  if (or (y < 0) (y > 63)) {
+  if (or (y < 0) (y >= _tinyOLED_height)) {
     return
   }
   local 'byteIndex' ((x + ((y / 8) * 128)) + 1)
@@ -726,14 +689,13 @@ to '_tinyOLED_updateDisplay' {
   '_tinyOLED_init'
   local '_dataPrefix' ('[data:newByteArray]' 1 (hexToInt '40'))
   local 'idx' 1
-  for j 8 {
-    '_tinyOLED_cmd' '0x10'
+  for j (_tinyOLED_height / 8) {
     comment 'Column offset:'
-    '_tinyOLED_cmd' '0x00'
-    '[sensors:i2cWrite]' 60 ('[data:makeList]' (hexToInt '80') ((hexToInt 'B0') + (j - 1)))
-    '[sensors:i2cWrite]' 60 ('[data:join]' _dataPrefix ('[data:copyFromTo]' _tinyOLED_buffer idx (idx + 63)))
+    '_tinyOLED_cmd' '10,0'
+    '[sensors:i2cWrite]' _tinyOLED_addr ('[data:makeList]' (hexToInt '80') ((hexToInt 'B0') + (j - 1)))
+    '[sensors:i2cWrite]' _tinyOLED_addr ('[data:join]' _dataPrefix ('[data:copyFromTo]' _tinyOLED_buffer idx (idx + 63)))
     idx += 64
-    '[sensors:i2cWrite]' 60 ('[data:join]' _dataPrefix ('[data:copyFromTo]' _tinyOLED_buffer idx (idx + 63)))
+    '[sensors:i2cWrite]' _tinyOLED_addr ('[data:join]' _dataPrefix ('[data:copyFromTo]' _tinyOLED_buffer idx (idx + 63)))
     idx += 64
   }
 }
@@ -775,9 +737,6 @@ to tinyOLED_drawCircle cx cy r fill white {
 
 to tinyOLED_drawImage imageString x y optionalScale {
   comment 'Draw an image at the given position. An image is represented by a multi-line string
-
-
-
 of 0 and 1 characters where each line is one row of the image. 1 means that pixel on (lit).'
   '_tinyOLED_init'
   local 'scale' (argOrDefault 4 1)
@@ -837,7 +796,7 @@ to tinyOLED_drawPixel x y white {
 to tinyOLED_drawRect x y w h fill white {
   '_tinyOLED_init'
   x = (maximum 0 (minimum x 127))
-  y = (maximum 0 (minimum y 63))
+  y = (maximum 0 (minimum y (_tinyOLED_height - 1)))
   local 'right' (x + w)
   local 'bottom' (y + h)
   if fill {
@@ -908,7 +867,6 @@ to tinyOLED_setBrightness level {
 }
 
 to tinyOLED_setResetPin resetPin {
-  _tinyOLED_buffer = ('[data:newByteArray]' 1024)
   if (resetPin >= 0) {
     comment 'Toggle OLED reset pin (skip this if resetPin < 0)'
     digitalWriteOp resetPin false
@@ -916,24 +874,31 @@ to tinyOLED_setResetPin resetPin {
     digitalWriteOp resetPin true
     waitMillis 1
   }
-  comment 'Minimal initialization commands:
-
-
-
+  _tinyOLED_addr = 60
+  if (not ('[sensors:i2cExists]' _tinyOLED_addr)) {
+    _tinyOLED_addr = 61
+  }
+  if (((i2cGet _tinyOLED_addr 0) & 15) == 7) {
+    _tinyOLED_height = 128
+    _tinyOLED_buffer = ('[data:newByteArray]' 2048)
+    comment 'Minimal initialization commands
+AE    - display off
+A0    - flip horizontal A0/A1
+C0    - flip vertical C0/C8'
+    '_tinyOLED_cmd' 'AE,A0,C0'
+  } else {
+    _tinyOLED_height = 64
+    _tinyOLED_buffer = ('[data:newByteArray]' 1024)
+    comment 'Minimal initialization commands:
+AE     - Display off
 A1     - Horizontal flip (A0 or A1)
-
-
-
 C8     - Vertical flip (C0 or C8)
-
-
-
-8D,14  - Enable charge pump
-
-
-
-AF     - Display on'
-  '_tinyOLED_cmd' 'A1,C8,8D,14,AF'
+8D,14  - Enable charge pump'
+    '_tinyOLED_cmd' 'AE,A1,C8,8D,14'
+  }
+  waitMillis 10
+  comment 'Turn display on (AF)'
+  '_tinyOLED_cmd' 'AF'
 }
 
 to tinyOLED_showUpdates {

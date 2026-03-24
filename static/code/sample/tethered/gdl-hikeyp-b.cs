@@ -15,9 +15,14 @@ int ReadKey() {
     var ret = duelink.Engine.ExecuteCommand("RdKey()");
     return (int)ret;
 }
+void Init() {
+    duelink.Engine.ExecuteCommand("Scan()");
+}
+
+Init();
 
 while (true) {
-    duelink.Engine.ExecuteCommand("Scan()"); // use this then no need to call SStart("Scan", 100, 0) in script that require while(1) loop active
+    
     Thread.Sleep(10);
     if (IsKeyChange()) {
         var key = ReadKey();
@@ -29,7 +34,4 @@ while (true) {
             Console.WriteLine($"Key pressed: {(char)ReadKey()}");
         }
     }
-
-    Thread.Sleep(100);
 }
-

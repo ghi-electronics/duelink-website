@@ -26,23 +26,30 @@ async function ReadKey() {
     return ret | 0;
 }
 
-
-while (true) {
-    // use this then no need to call SStart("Scan", 100, 0)
-    // in script that require while(1) loop active
+async function Init() {
     await duelink.Engine.ExecuteCommand("Scan()");
-
-    await sleep(10); // Thread.Sleep(10)
-
-    if (await IsKeyChange()) {
-        const key = await ReadKey();
-
-        if (key === 0) {
-            console.log("Key released");
-        } else {
-            console.log(`Key pressed: ${String.fromCharCode(await ReadKey())}`);
-        }
-    }
-
-    await sleep(100); // Thread.Sleep(100)
 }
+
+
+async function main() {
+
+    await Init();
+
+    while (true) {
+
+        await sleep(10);
+        if (await IsKeyChange()) {
+            var key = await ReadKey();
+
+            if (key == 0) {
+                console.log("Key released");
+            }
+            else {
+                console.log(`Key pressed: ${String.fromCharCode(await ReadKey())}`);
+            }
+        }
+
+    }
+}
+
+main();
