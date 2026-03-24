@@ -1,14 +1,6 @@
 // In this sample:
 // Get the current rotary value
 // Detect if the rotary button is pressed
-// Note:
-// The rotary driver uses interrupts, so DUEScript user code must remain in a while-loop indefinitely.
-// Append the while-loop below to ensure the user code stays in a while-loop indefinitely if the device does not already have one.
-// /////// User code //////
-// Asio(1) # Allow communication between host and device
-// while (1) # while loop indefinitely 
-//    Wait(1000)
-// wend
 
 using GHIElectronics.DUELink;
 using System;
@@ -25,8 +17,15 @@ bool Pressed() {
     return ret != 0;
 }
 
+void Init() {
+    duelink.Engine.ExecuteCommand("Scan()");
+}
+
 var distance_bk = 0;
 var button_status_bk = false;
+
+Init();
+
 while (true) {
     var distance = GetValue();
     var button_status = Pressed();
@@ -35,7 +34,7 @@ while (true) {
         distance_bk = distance;
         Console.WriteLine($"Value: {distance}");
     }
-    
+
     if (button_status_bk != button_status) {
         button_status_bk = button_status;
         if (button_status_bk)
@@ -46,4 +45,3 @@ while (true) {
 
     Thread.Sleep(10);
 }
-

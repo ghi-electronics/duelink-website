@@ -35,6 +35,8 @@ void setup() {
     Serial.begin(9600);
     Wire1.begin();
     duelink.Connect();
+    
+    duelink.Engine.ExecuteCommand("scan()");
 }
 
 void loop() {
