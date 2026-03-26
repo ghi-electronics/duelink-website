@@ -196,8 +196,10 @@ fn Init(w, h, b)
     # w: width
     # h: height
     # b: brightness 0 to 100
+    _w = w
+    _h = h
     
-    SpiCfg(0,4000)
+    SpiCfg(0,24000)
 
     DWrite(cs,1)
 
@@ -307,8 +309,10 @@ fn Init(w, h, b)
 
 fend
 
-fn CPImage(a, b0, w, h, x, y, c, i, t)
+fn DrawImage(a, b0, w, h, x, y, c, i, t)
     # a = addr
+    # b0: Image data. When image is already loaded (cached), can use the handle only for fast draw then set b0 to null []
+    # example: DrawImage(0, [],x,y.....) : reuse whatever in handle i 
     # w = width
     # h = height
     # x = x
@@ -317,75 +321,75 @@ fn CPImage(a, b0, w, h, x, y, c, i, t)
     # i = handle. max is 16 handles. if handle is already cached then just draw
     # t = tint color: 0: No tint, 1: enable tint
     
-    if t = 0 # no tint
+    
+    if t = 0
         DLCmd(C_COLOR,{255,255,255})
     end
-    
+
     n = len(b0)
-    # Upload image to RAM
-    if n > 0 # not cached to RAM yet
+
+    if n > 0
         DWrite(cs,0)
         SetAddr(a,0)
-    
         SpiWrs(b0,[])
-    
         DWrite(cs,1)
     end
-    
-    if c = 0 #RGB565
-        # Start command
-        # Ensure bitmap handle = 0
-        DLCmd(5,{i})   # BITMAP_HANDLE = i
-        
-        if n > 0 # not cached to RAM yet
-            # --- BITMAP_SOURCE ---
-            f = (1 << 24) | (a & 0xFFFFFF)
-        
-            b3[0]=(f>>24)&0xff
-            b3[1]=(f>>16)&0xff
-            b3[2]=(f>>8)&0xff
-            b3[3]=f&0xff
-            MemWrRd(dladd,b3,bit32, 0)
-            dladd = dladd + 4
-        
-            # --- BITMAP_LAYOUT ---
+
+    DLCmd(5,{i})
+
+    if n > 0
+
+        # --- BITMAP_SOURCE ---
+        f = (1 << 24) | (a & 0xFFFFFF)
+
+        b3[0]=(f>>24)&0xff
+        b3[1]=(f>>16)&0xff
+        b3[2]=(f>>8)&0xff
+        b3[3]=f&0xff
+        MemWrRd(dladd,b3,bit32,0)
+        dladd = dladd + 4
+
+        # --- BITMAP_LAYOUT ---
+        if c = 0
             s = w * 2
             f = (7 << 24) | (7 << 19) | (s << 9) | h
-        
-            b3[0]=(f>>24)&0xff
-            b3[1]=(f>>16)&0xff
-            b3[2]=(f>>8)&0xff
-            b3[3]=f&0xff
-            MemWrRd(dladd,b3,bit32, 0)
-            dladd = dladd + 4
-        
-            # --- BITMAP_SIZE ---
-            f = (8 << 24) | (0 << 20) | (0 << 19) | (0 << 18) | (w << 9) | h
-        
-            b3[0]=(f>>24)&0xff
-            b3[1]=(f>>16)&0xff
-            b3[2]=(f>>8)&0xff
-            b3[3]=f&0xff
-            MemWrRd(dladd,b3,bit32, 0)
-            dladd = dladd + 4
         end
-        
-        # --- DRAW ---
-        DLCmd(C_BEGIN,{BITMAPS})
-        DLCmd(C_VERTEX2F,{x<<4,y<<4})
-        DLCmd(C_END,{})
+
+        if c = 1
+            s = w >> 3
+            f = (7 << 24) | (1 << 19) | (s << 9) | h
+        end
+
+        if c = 2
+            s = w
+            f = (7 << 24) | (3 << 19) | (s << 9) | h
+        end
+
+        b3[0]=(f>>24)&0xff
+        b3[1]=(f>>16)&0xff
+        b3[2]=(f>>8)&0xff
+        b3[3]=f&0xff
+        MemWrRd(dladd,b3,bit32,0)
+        dladd = dladd + 4
+
+        # --- BITMAP_SIZE (same for all) ---
+        f = (8 << 24) | (0 << 20) | (0 << 19) | (0 << 18) | (w << 9) | h
+
+        b3[0]=(f>>24)&0xff
+        b3[1]=(f>>16)&0xff
+        b3[2]=(f>>8)&0xff
+        b3[3]=f&0xff
+        MemWrRd(dladd,b3,bit32,0)
+        dladd = dladd + 4
+
     end
-    
-    if c = 1 # 1bpp
-        # other type, do later
-    end
-    
-    if c = 2 # 8bpp
-        # other type, do later
-    end
+
+    DLCmd(C_BEGIN,{BITMAPS})
+    DLCmd(C_VERTEX2F,{x<<4,y<<4})
+    DLCmd(C_END,{})
 fend
 
-fn CPPixel(c, x, y)
+fn DrawPixel(c, x, y)
 
     DLCmd(C_COLOR,{c>>16,(c>>8)&0xff,c&0xff})
 
@@ -396,7 +400,7 @@ fn CPPixel(c, x, y)
 
 fend
 
-fn CPLine(c, x, y, m, n)
+fn DrawLine(c, x, y, m, n)
 
     DLCmd(C_COLOR,{c>>16,(c>>8)&0xff,c&0xff})
 
@@ -407,7 +411,7 @@ fn CPLine(c, x, y, m, n)
 
 fend
 
-fn CPCircle(c, x, y, r, f)
+fn DrawCircle(c, x, y, r, f)
 
     DLCmd(C_COLOR,{c>>16,(c>>8)&0xff,c&0xff})
 
@@ -455,7 +459,7 @@ fn CPCircle(c, x, y, r, f)
 
 fend
 
-fn CPString(b0, c, x, y, f, w)
+fn DrawString(b0, c, x, y, f, w)
 
     DLCmd(C_COLOR,{c>>16,(c>>8)&0xff,c&0xff})
 
@@ -463,61 +467,61 @@ fn CPString(b0, c, x, y, f, w)
 
     n = len(b0)
     for i = 0 to n
-        DLCmd(C_VERTEX2II,{x+(i*w),y,f,b0[i]})
+        if (b0[i] > 0)
+            DLCmd(C_VERTEX2II,{x+(i*w),y,f,b0[i]})
+        end
     next
 
     DLCmd(C_END,{})
 
 fend
 
-fn CPRect(c, x, y, w, h, f)
+fn DrawRect(c, x, y, w, h, f)
 
-    if x = 0 && y = 0 && w = _w && h = _h && f = 1
-        # this ask to fill whole screen with specal color
-        dladd = 0x00300000
-    
-        DLCmd(C_CLEAR_COLOR,{c>>16,(c>>8)&0xff,c&0xff})
-        DLCmd(C_CLEAR,{})
-        
-    return
-    
+
+    DLCmd(C_COLOR,{c>>16,(c>>8)&0xff,c&0xff})
+
+    if f = 1
+        # Filled rectangle (hardware accelerated)
+        DLCmd(C_BEGIN,{RECTS})
+        DLCmd(C_VERTEX2F,{x<<4,y<<4})
+        DLCmd(C_VERTEX2F,{(x+w)<<4,(y+h)<<4})
+        DLCmd(C_END,{})
     else
-        DLCmd(C_COLOR,{c>>16,(c>>8)&0xff,c&0xff})
-    
-        if f = 1
-            # Filled rectangle (hardware accelerated)
-            DLCmd(C_BEGIN,{RECTS})
-            DLCmd(C_VERTEX2F,{x<<4,y<<4})
-            DLCmd(C_VERTEX2F,{(x+w)<<4,(y+h)<<4})
-            DLCmd(C_END,{})
-        else
-            # Outline rectangle (4 lines)
-    
-            DLCmd(C_BEGIN,{LINES})
-    
-            # Top
-            DLCmd(C_VERTEX2F,{x<<4,y<<4})
-            DLCmd(C_VERTEX2F,{(x+w)<<4,y<<4})
-    
-            # Right
-            DLCmd(C_VERTEX2F,{(x+w)<<4,y<<4})
-            DLCmd(C_VERTEX2F,{(x+w)<<4,(y+h)<<4})
-    
-            # Bottom
-            DLCmd(C_VERTEX2F,{(x+w)<<4,(y+h)<<4})
-            DLCmd(C_VERTEX2F,{x<<4,(y+h)<<4})
-    
-            # Left
-            DLCmd(C_VERTEX2F,{x<<4,(y+h)<<4})
-            DLCmd(C_VERTEX2F,{x<<4,y<<4})
-    
-            DLCmd(C_END,{})
-        end
+        # Outline rectangle (4 lines)
+
+        DLCmd(C_BEGIN,{LINES})
+
+        # Top
+        DLCmd(C_VERTEX2F,{x<<4,y<<4})
+        DLCmd(C_VERTEX2F,{(x+w)<<4,y<<4})
+
+        # Right
+        DLCmd(C_VERTEX2F,{(x+w)<<4,y<<4})
+        DLCmd(C_VERTEX2F,{(x+w)<<4,(y+h)<<4})
+
+        # Bottom
+        DLCmd(C_VERTEX2F,{(x+w)<<4,(y+h)<<4})
+        DLCmd(C_VERTEX2F,{x<<4,(y+h)<<4})
+
+        # Left
+        DLCmd(C_VERTEX2F,{x<<4,(y+h)<<4})
+        DLCmd(C_VERTEX2F,{x<<4,y<<4})
+
+        DLCmd(C_END,{})
     end
+    
 
 fend
 
-fn CPShow()
+fn ClearScreen(c)
+    dladd = 0x00300000
+    
+    DLCmd(C_CLEAR_COLOR,{c>>16,(c>>8)&0xff,c&0xff})
+    DLCmd(C_CLEAR,{})
+fend
+
+fn FlushScreen()
     DLCmd(C_DISPLAY,{})
     MemWrRd(0x00302054,  [0x02], bit8, 0)
 fend
@@ -526,4 +530,4 @@ fn DVer()
     return 0.3
 fend
 
-Init(800,480,100) 
+Init(800,480, 100) 
