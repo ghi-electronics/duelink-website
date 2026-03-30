@@ -7,25 +7,40 @@
 
 JavaScript is one of the core technologies used by the World Wide Web. 98% of all websites use JavaScript. Websites can now use the provided DUELink JavaScript library to access the physical world.
 
-Here is a website demo to demonstrate how JavaScript can control actuators and read sensors: [demo.duelink.com](https://demo.duelink.com/).
+There are two ways to utilize JavaScript with DUELink, using a website or run locally using `Node.js`.
+
+---
+
+## Getting Started
+
+Visit [loader.duelink.com](https://loader.duelink.com/) to make sure your hardware is USB connected and has the latest `DUElink Official` firmware and related module drivers.
+
+You can now quickly see JavaScript in action using [demo.duelink.com](https://demo.duelink.com/). The page sources are found [here](https://github.com/ghi-electronics/duelink-libraries/blob/main/docs/index.html).
 
 <div style={{ textAlign: 'center'}}>
 ![DUELink Demo website](pathname:///img/demo-website.webp)
 </div>
 
-Use this demo website to see how DUELink modules work with JavaScript inside a website. This page shows how DUELink modules work with JavaScript on a local machine.
+This JavaScript website demonstrates how to send DUELink script commands to DUELink modules from your local machine. Click `Connect` then select `DUELink Official` option. If you do not see that option, then you need to load the `DUELink Official` firmware from [loader.duelink.com/update](https://loader.duelink.com/update).
+
+Once connected, you can enter any commands and click `Send` button to execute. An example is `StatLed(200,200,10)` that controls the STAT LED found on all modules. Commands can be any DUELink [Script](./engine/scripting), but must be in a single line. For example, we can have a loop that counts to 0 to 9: `for _x in range(10): Print(_x," "):Next`. Note how multi-statements are separated by a `:` symbol.
+
+The response box will show the command that was just sent and the response.
+
+```
+Sent: for _x in range(10): Print(_x," "):Next
+Response: 0 1 2 3 4 5 6 7 8 9 
+```
 
 :::tip
-Note that JavaScript will be executed on a compatible [supported hardware](../hw/intro) option, which is tethered to DUELink modules. JavaScript does not run on the module itself! The [Standalone](./standalone) page shows some options that run on modules directly.
+Note that JavaScript is executing on a compatible [supported hardware](../hw/intro), which is the PC in this case. JavaScript does not run on the module itself! The [Standalone](./standalone) page shows some options that run on modules directly.
 :::
 
 ---
 
-## Setup
+## Node.js
 
-For the module, visit [loader.duelink.com](https://loader.duelink.com/) to make sure your hardware has the latest `DUElink Official` firmware and related module drivers.
-
-We assume that you are already familiar with JavaScript and your development machine is already setup to build and run JavaScript programs using `Node.js`. 
+Similar to the demo website, you can also access modules from JavaScript programs using `Node.js`. If you did the earlier step, then you already have a module connected and ready. 
 
 Start a new project with a simple line of code to test that the project is running.
 
@@ -36,13 +51,9 @@ console.log("Hello World");
 
 We now need to install the `duelink` package using `npm install duelink`. We also need the serialport `dlserialusb` package using `npm install dlserialusb`.
 
----
+Our first program will blink the on-board status LED on a tethered module, on for 200ms then it shuts off for 800ms, and does this 20 times. We will be using `SerialUSB()` here, vs `WebSerial()` when running inside a website.
 
-## Blinky!
-
-Our first program will blink the on-board status LED on a tethered module, on for 200ms then it shuts off for 800ms, and does this 20 times. We will be using SerialUSB() here. If running on a website, use WebSerial() instead.
-
-Note that using `await` is very critical because JavaScript is designed to run tasks asynchronously. DUELink is accesses hardware live, in real-time. Things must run in order and using `await` is required with anything DUElink!
+Note that using `await` is very critical because JavaScript is designed to run tasks asynchronously. DUELink accesses hardware live, in real-time, and things must run in order. Using `await` is required with anything DUElink!
 
 ```js
 import pkg_serialusb from 'dlserialusb';
@@ -62,7 +73,7 @@ async function Blinky() {
 Blinky();
 ```
 
-The JavaScript library only supports serial ports, which can be either [UART](../interface/uart) or [USB](../interface/usb). The `SerialUSB()` function scans for a USB-connected DUELink module. The returned value can be used to start `DUElinkController()`. If a serial port is desired then use the actual port number, for example `SerialUSB("COM6")`. Using serial is useful with [wireless](../interface/wireless) Bluetooth connections.
+The JavaScript library supports serial ports, which can be either [UART](../interface/uart) or [USB](../interface/usb). The `SerialUSB()` function scans for a USB-connected DUELink module. You can also use a specific serial port number, for example `SerialUSB("COM6")`. This is useful with [wireless](../interface/wireless) Bluetooth connections.
 
 ---
 
@@ -129,6 +140,6 @@ main();
 
 ## Code Samples
 
-Individual product pages include specific code samples that utilize the module's [Driver Script](../engine/drivers).
+Individual product pages include specific JavaScript code samples, under `Tethered Samples`.
 
-See `Tethered Samples` under individual module pages.
+Don't forget to visit the [projects](../projects) section as well.
