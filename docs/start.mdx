@@ -11,67 +11,160 @@ import TabItem from "@theme/TabItem";
 ![Getting Started](pathname:///img/getting-started.webp)
 </div>
 
-No matter of you are and [Engineer](./engineers), a [Maker](./makers), or an [Educator](./educators), there are several ways to get started with DUELink, depending on your experience. This page will direct you to where you can get started.
+No matter of you are and [Engineer](./engineers), a [Maker](./makers), or an [Educator](./educators), there are several ways to get started with DUELink.
 
-## Expand Your Setup
+Starting out with all DUElink modules is very similar; however, we recommend using one of the Microcomputer or Specialty boards, like DueSTEM or Ghizzy.
+<div style={{textAlign: 'center'}}>
 
-<div style={{ textAlign: 'center'}}>
-![CincoBit](pathname:///img/duelink-intro.webp)
+<table>
+<td width='50%'>
+    <img alt="Back" src="/img/catalog/mcduestem-b-1.webp" />
+    <Button
+        style={{ margin: "10px", color: "white" }}
+        label="DueSTEM"
+        link="./products/mcduestem-b"
+    />
+</td>
+<td width='50%'>
+    <img alt="Size" src="/img/catalog/spghizzy-d-1.webp" />
+    <Button
+        style={{ margin: "10px", color: "white" }}
+        label="Ghizzy"
+        link="./products/spghizzy-d"
+    />
+</td>
+</table>
 </div>
 
-If you already use one of the [supported hardware](./hw/intro) devices or [coding languages](./language/intro) then you already know how to use DUELink. Those pages have everything you need to expand on what you already know.
+The Essentials Kits is a good starting point as well.
+
+<div style={{textAlign: 'center'}}>
+<img alt="Size" src="/img/catalog/ktessen-a-1.webp" />
+    <Button
+        style={{ margin: "10px", color: "white" }}
+        label="Essentials Kit"
+        link="./products/ktessen-a"
+    />
+</div>
+---
+
+## MicroBlocks
+
+If you are interested in block-coding, then skip this page and go to [MicroBlocks](./language/microblocks) directly.
+
+<div style={{ textAlign: 'center'}}>
+![MicroBlocks](pathname:///img/microblocks-sample.webp)
+</div>
+
+This option uses a special firmware allowing any DUELink module to work with MicroBlocks.
+
+<div style={{textAlign: 'center'}}>
+    <Button
+        style={{ margin: "10px", color: "white" }}
+        label="MicroBlocks"
+        link="./language/microblocks"
+    />
+</div>
 
 ---
 
-## New to Coding
+## Modules Discovery
 
-<div style={{ textAlign: 'center'}}>
-![CincoBit](pathname:///img/catalog/mcduestem-b-1.webp)
-</div>
-
-If you are new to coding, or to coding circuits, we recommend using [MicroBlocks](./language/microblocks) with any of the boards recommended by the [Educators](./educators) page. These hardware options also work great if you are are new but have basic understanding of one of the languages, like [Python](./language/python).
-
----
-
-## Starting With No Code!  
-
-The online demo allows you to test any DUELink module without needing to write any code! [demo.duelink.com](https://demo.duelink.com/) is an excellent [JavaScript](./language/javascript) demo but you can use it to access DUELink moudles, without any coding!
-
-
-<div style={{ textAlign: 'center'}}>
-![DUELink Demo website](pathname:///img/demo-website.webp)
-</div>
-
-Connect your module to USB on your Computer. If your board does not have a USB connector then use an adapter, like USB Hook.
+It is a good idea to discover information about the connected modules. Start by USB-connecting your module(s) to a PC. If your board does not have a USB connector then use an adapter, like USB Hook.
 
 <div style={{ textAlign: 'center'}}>
 ![DUELink Connection](pathname:///img/duelink-connection.webp)
 </div>
 
-Go to the [loader page](https://loader.duelink.com/update) and make sure your board is loaded with the latest firmware and drivers.
+Visit [loader.duelink.com](https://loader.duelink.com/) and use the `Discover` option. Here is an example showing a connected Ghizzy. 
 
-Open the [demo site](https://demo.duelink.com/) and click the `Connect` button.
-
-<div style={{ textAlign: 'center'}}>
-![Demo Connect](pathname:///img/demo-connect.webp)
-</div>
-
-Select `DUELink Official` in the pop-up window. The site should detect the connected device and show some relevant info.
+:::tip 
+You can click `View Product Details` to go directly to the product's dedicated page.
+:::
 
 <div style={{ textAlign: 'center'}}>
-![Demo LED tab](pathname:///img/demo-connected-info.webp)
+![CincoBit](pathname:///img/discover-ghizzy.webp)
 </div>
 
-You can now enter any commands and click `Send` button to execute. An example is `StatLed(200,200,10)` that controls the STAT LED found on all modules. Commands can be any DUELink [Script](./engine/scripting) code in but must be in a single line. For example, we can have a loop that counts to 0 to 9: `for _x in range(10): Print(_x," "):Next`. Note how multi-statements are separated by a `:` symbol.
+If the "discover" feature failed complaining about a MicroBlocks firmware, then you need to [load the DUELink Official](https://loader.duelink.com/update) firmware.
 
-The response box will show the command that was just sent and the response.
+:::tip
+This is a good time to update the firmware if necessary.
+:::
 
-```
-Sent: for _x in range(10): Print(_x," "):Next
-Response: 0123456789
-```
+---
 
-You can now access any of the [driver scripts](./engine/drivers) provided by modules. The info already have links to the drivers tab on the product's page.
+## Commanding Modules
+
+DUELink modules understand and execute text commands that are received over [USB](./interface/usb), [I2C](./interface/i2c), or [UART](./interface/uart). To help in processing these commands, we provide helper libraries, with specific "Getting Started", for many [Coding Languages](./language/intro).
+
+<div style={{ textAlign: 'center'}}>
+![Python Logo](pathname:///img/python.webp)
+</div>
+
+A good starting point can be via programming a PC using Python.
+
+
+<div style={{textAlign: 'center'}}>
+    <Button
+        style={{ margin: "10px", color: "white" }}
+        label="Python"
+        link="./language/python"
+    />
+</div>
+
+---
+
+## Scripts
+
+All DUELink modules can be loaded with [DUELink Scripts](./engine/scripting). To loading or modify a script, visit [console.duelink.com](https://console.duelink.com/). Click 
+
+<div style={{ textAlign: 'center'}}>
+![DUELink Console](pathname:///img/duelink-console.webp)
+</div>
+
+
+Click the `Connect` button. This will access to the first module by default.
+
+<div style={{ textAlign: 'center'}}>
+![Connect Button](pathname:///img/console-connect.webp)
+</div>
+
+Type `statled(200,200,50)` and click the `Record` button to send the script to the module's memory. This is one of the many available [Standard Library](./engine/stdlib) functions.
+
+
+<div style={{ textAlign: 'center'}}>
+![Record Button](pathname:///img/console-record.webp)
+</div>
+
+Click `Play` and the STAT LED will blink 50 times.
+
+<div style={{ textAlign: 'center'}}>
+![StatLED](pathname:///img/statled-blink.webp)
+</div>
+
+---
+
+## Arduino
+
+You can load DUELink modules with Arduino programs, directly from the Arduino IDE! This turns the entire DUELink Catalog into Arduino-compatible boards.
+
+You can also connect modules to your Arduino board using I2C, just like you would with Sparkfun Qwiic, Adfruit STEMMA, and Arduino Modulino. The advantage here is that DUELink modules have higher intelligence and execute text commands.
+
+
+<div style={{ textAlign: 'center'}}>
+![Arduino logo](pathname:///img/arduino-logo.webp)
+</div>
+
+The Arduino page has all of the details.
+
+<div style={{textAlign: 'center'}}>
+    <Button
+        style={{ margin: "10px", color: "white" }}
+        label="Arduino"
+        link="./hw/arduino"
+    />
+</div>
 
 ---
 

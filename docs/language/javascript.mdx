@@ -15,15 +15,30 @@ There are two ways to utilize JavaScript with DUELink, using a website or run lo
 
 Visit [loader.duelink.com](https://loader.duelink.com/) to make sure your hardware is USB connected and has the latest `DUElink Official` firmware and related module drivers.
 
-You can now quickly see JavaScript in action using [demo.duelink.com](https://demo.duelink.com/). The page sources are found [here](https://github.com/ghi-electronics/duelink-libraries/blob/main/docs/index.html).
+You can now quickly see JavaScript in action using [demo.duelink.com](https://demo.duelink.com/). This JavaScript website demonstrates how to send DUELink script commands to DUELink modules from your local machine. The page sources are found [here](https://github.com/ghi-electronics/duelink-libraries/blob/main/docs/index.html).
+
+Open the [demo site](https://demo.duelink.com/) and click the `Connect` button then select `DUELink Official` option.
+
+:::tip
+If you do not see `DUELink Official` in the pop-up window, then you need to load/update the firmware using [loader.duelink.com/update](https://loader.duelink.com/update).
+:::
+
+<div style={{ textAlign: 'center'}}>
+![Demo Connect](pathname:///img/demo-connect.webp)
+</div>
+
+The website will now discover and show the connected modules, a Ghizzy in this example.
+
+<div style={{ textAlign: 'center'}}>
+![Discover Ghizzy](pathname:///img/demo-connected-info.webp)
+</div>
+
+Once connected, you can enter any commands and click `Send` button to execute. An example is `StatLed(200,200,10)` that controls the STAT LED found on all modules. Commands can be any DUELink [Script](./engine/scripting), but must be in a single line. For example, we can have a loop that counts to 0 to 9: `for _x in range(10): Print(_x," "):Next`. Note how multi-statements are separated by a `:` symbol.
+
 
 <div style={{ textAlign: 'center'}}>
 ![DUELink Demo website](pathname:///img/demo-website.webp)
 </div>
-
-This JavaScript website demonstrates how to send DUELink script commands to DUELink modules from your local machine. Click `Connect` then select `DUELink Official` option. If you do not see that option, then you need to load the `DUELink Official` firmware from [loader.duelink.com/update](https://loader.duelink.com/update).
-
-Once connected, you can enter any commands and click `Send` button to execute. An example is `StatLed(200,200,10)` that controls the STAT LED found on all modules. Commands can be any DUELink [Script](./engine/scripting), but must be in a single line. For example, we can have a loop that counts to 0 to 9: `for _x in range(10): Print(_x," "):Next`. Note how multi-statements are separated by a `:` symbol.
 
 The response box will show the command that was just sent and the response.
 
