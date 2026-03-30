@@ -120,12 +120,19 @@ const config = {
             position: 'right',
             label: 'What is DUElink?',
           },
+           {
+            href: '/docs/start',
+            //type: 'docSidebar',
+            //sidebarId: 'tutorialSidebar',
+            position: 'right',
+            label: 'Start',
+          },
           {
             href: '/docs/catalog/products',
             //type: 'docSidebar',
             //sidebarId: 'tutorialSidebar',
             position: 'right',
-            label: 'Product Catalog',
+            label: 'Catalog',
           },
           {
             href: '/docs/projects',
@@ -142,7 +149,7 @@ const config = {
             //type: 'docSidebar',
             //idebarId: 'tutorialSidebar',
             position: 'right',
-            label: 'About Us',
+            label: 'About',
           },
           /*{
             href: '/news',
