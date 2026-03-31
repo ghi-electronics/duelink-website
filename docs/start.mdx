@@ -5,67 +5,265 @@ hide_table_of_contents: true
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-# Getting Started
+# Get Started in Minutes!
 
+Select your desired language and plug in your device to run **your first command!**
+
+<Tabs groupid="language"
+  values={[
+    {label: 'Python', value: 'py'},
+    {label: 'JavaScript', value: 'js'},
+    {label: '.NET', value: 'dotnet'},
+    {label: 'Arduino', value: 'arduino'},
+    {label: 'MicroPython', value: 'mpy'},
+    {label: 'Script', value: 'script'},
+    {label: 'MicroBlocks', value: 'microblocks'},
+    
+]}>
+<TabItem value="py">
+<details>
+  <summary>Connect to a PC (click for image)</summary>
 <div style={{ textAlign: 'center'}}>
-![Getting Started](pathname:///img/getting-started.webp)
+![DUELink Connection](pathname:///img/duelink-connection.webp)
 </div>
+</details>
 
-No matter of you are and [Engineer](./engineers), a [Maker](./makers), or an [Educator](./educators), there are several ways to get started with DUELink.
+```py
+from DUELink.DUELinkController import DUELinkController
 
-Starting out with all DUElink modules is very similar; however, we recommend using one of the Microcomputer or Specialty boards, like DueSTEM or Ghizzy.
-<div style={{textAlign: 'center'}}>
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+# Blink the STAT LED  (on for 200ms, off for 800ms, 20 times)
+duelink.System.StatLed(200,800,20)
+```
+You need `pip install DUELink`. Full details are on the [Python](./language/python) page.
 
-<table>
-<td width='50%'>
-    <img alt="Back" src="/img/catalog/mcduestem-b-1.webp" />
-    <Button
-        style={{ margin: "10px", color: "white" }}
-        label="DueSTEM"
-        link="./products/mcduestem-b"
-    />
-</td>
-<td width='50%'>
-    <img alt="Size" src="/img/catalog/spghizzy-d-1.webp" />
-    <Button
-        style={{ margin: "10px", color: "white" }}
-        label="Ghizzy"
-        link="./products/spghizzy-d"
-    />
-</td>
-</table>
+</TabItem>
+<TabItem value="js">
+<details>
+  <summary>Connect to a PC (click for image)</summary>
+<div style={{ textAlign: 'center'}}>
+![DUELink Connection](pathname:///img/duelink-connection.webp)
 </div>
+</details>
+```js
+import pkg_serialusb from 'dlserialusb';
+const {SerialUSB} = pkg_serialusb
 
-The Essentials Kits is a good starting point as well.
+import pkg_duelink from 'duelink';
+const {DUELinkController} = pkg_duelink
 
-<div style={{textAlign: 'center'}}>
-<img alt="Size" src="/img/catalog/ktessen-a-1.webp" />
-    <Button
-        style={{ margin: "10px", color: "white" }}
-        label="Essentials Kit"
-        link="./products/ktessen-a"
-    />
+let duelink = new DUELinkController(new SerialUSB());
+await duelink.Connect();
+
+async function Blinky() {
+  // Blink the STAT LED (on for 200ms, off for 800ms, 20 times)
+  await duelink.System.StatLed(200, 800, 20);
+}
+
+Blinky();
+```
+You need `npm install duelink` and `npm install dlserialusb`. Full details are on the [JavaScript](./language/javascript) page.
+</TabItem>
+<TabItem value="arduino">
+<details>
+  <summary>Connect to Arduino UNO R4 (click for image)</summary>
+<div style={{ textAlign: 'center'}}>
+![Arduino UNO 4 Daisylinked](pathname:///img/arduino-uno-r4-daisylinked.webp)
 </div>
----
+</details>
+```cpp
+#include <DUELink.h>
 
-## MicroBlocks
+TwoWireTransport transport(Wire1);
+DUELink duelink(transport);
 
-If you are interested in block-coding, then skip this page and go to [MicroBlocks](./language/microblocks) directly.
+void setup() {
+  duelink.Connect();
+  // Blink the STAT LED (on for 200ms, off for 800ms, 20 times)
+  duelink.System.StatLed(200, 200, 10);
+}
+
+void loop(){
+}
+
+```
+You need `DUELink` and `STM32 MCU based boards` packages. Full details are on the [Arduino](./hw/arduino) page.
+
+</TabItem>
+<TabItem value="dotnet">
+<details>
+  <summary>Connect to a PC (click for image)</summary>
+<div style={{ textAlign: 'center'}}>
+![DUELink Connection](pathname:///img/duelink-connection.webp)
+</div>
+</details>
+
+```cs
+using GHIElectronics.DUELink;
+Console.WriteLine("Hello DUELink!");
+var availablePort = DUELinkController.GetConnectionPort();
+var duelink = new DUELinkController(availablePort);
+
+// Blink the STAT LED (on for 200ms, off for 800ms, 20 times)
+duelink.System.Statled(200, 800, 20);
+Console.WriteLine("Bye DUELink!");
+```
+You need `GHIElectronics.DUELink` library from `nuget.org`. Full details are on the [.NET](./language/dotnet) page.
+
+</TabItem>
+
+<TabItem value="script">
+
+DUELink modules have a built in scripting engine, allowing them to run standalone. You can load and modify scripts using [console.duelink.com](https://console.duelink.com/).
+```py
+# Blink the STAT LED (on for 200ms, off for 800ms, 20 times)
+Statled(200, 800, 20)
+# Blink the STAT LED, but on a tethered module this time
+Cmd("Statled(200, 800, 20)")
+```
+Learn about the [scripting language](./engine/scripting) and the [console](./console).
+
+
+</TabItem>
+<TabItem value="mpy">
+<details>
+  <summary>Connect to any RPI RP2350 or RP2040 board (click for image)</summary>
+<div style={{ textAlign: 'center'}}>
+![Arduino UNO 4 Daisylinked](pathname:///img/arduino-uno-r4-daisylinked.webp)
+</div>
+</details>
+
+```py
+import time
+import machine
+import duelink
+ 
+from duelink import transport
+from machine import Pin, Timer
+ 
+sclPIN = machine.Pin(23)
+sdaPIN = machine.Pin(22)
+ 
+i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
+due = duelink.DUELinkController(i2c)
+
+# Blink the STAT LED (on for 200ms, off for 800ms, 20 times)
+due.System.StatLed(200, 800, 20)
+```
+
+You need to install `duelink-stdlib-mp`. Full details are on the [MicroPython](./language/micropython) page.
+
+
+</TabItem>
+<TabItem value="microblocks">
+
+This is an excellent block-coding option. It can be loaded on modules directly, or used to control tethered modules. See the MicroBlocks page for full details.
 
 <div style={{ textAlign: 'center'}}>
 ![MicroBlocks](pathname:///img/microblocks-sample.webp)
-</div>
-
-This option uses a special firmware allowing any DUELink module to work with MicroBlocks.
-
-<div style={{textAlign: 'center'}}>
-    <Button
+<Button
         style={{ margin: "10px", color: "white" }}
         label="MicroBlocks"
         link="./language/microblocks"
     />
 </div>
 
+</TabItem>
+</Tabs>
+
+---
+
+**How it works:**
+
+1. Plug in your device.
+2. Create a Project.
+3. Add DUELink library.
+4. Paste the above code.
+5. Run the project and watch the STAT LED💡blink.
+
+
+<div style={{  width: '200px'}}>
+    ![StatLED](pathname:///img/statled-blink.webp)
+</div>
+
+Problems? You may need to [install the latest firmware](https://loader.duelink.com/).
+
+<div style={{textAlign: 'center'}}>
+    <Button
+        style={{ margin: "10px", color: "white" }}
+        label="🚀Project Showcase"
+        link="./projects"
+    />
+</div>
+
+---
+
+**Choose your Tutorial:**
+
+<div style={{textAlign: 'center'}}>
+<table>
+<td width='33%'>
+    <img alt="Back" src="/img/catalog/mcduestem-b-1.webp" />
+    <Button
+        style={{ margin: "10px", color: "white" }}
+        label="DueSTEM Tutorial"
+        link="./products/mcduestem-b"
+    />
+</td>
+<td width='33%'>
+    <img alt="Size" src="/img/catalog/spghizzy-d-1.webp" />
+    <Button
+        style={{ margin: "10px", color: "white" }}
+        label="Ghizzy Tutorial"
+        link="./products/spghizzy-d"
+    />
+</td>
+<td width='33%'>
+    <img alt="Size" src="/img/duelink-intro.webp" />
+    <Button
+        style={{ margin: "10px", color: "white" }}
+        label="Others Tutorials!"
+        link="./products/spghizzy-d"
+    />
+</td>
+</table>
+</div>
+
+**Try something else:**
+
+<div style={{ textAlign: 'center'}}>
+<Button style={{background:"whitesmoke", margin: "10px", color: "black" }}
+        label="🎨Draw on Screen"
+        link="./catalog/products?category=display"/>
+<Button style={{background:"whitesmoke", margin: "10px", color: "black" }}
+        label="🎶Play Sound"
+        link="./catalog/products?category=sound"/>
+<Button style={{background:"whitesmoke", margin: "10px", color: "black" }}
+        label="🌡️Sense Everything"
+        link="./catalog/products?category=sensor"/>
+<Button style={{background:"whitesmoke", margin: "10px", color: "black" }}
+        label="🎮Control Actuators"
+        link="./catalog/products?category=actuator"/>
+<Button style={{background:"whitesmoke", margin: "10px", color: "black" }}
+        label="🎛️Read Inputs"
+        link="./catalog/products?category=hmi"/>
+<Button style={{background:"whitesmoke", margin: "10px", color: "black" }}
+        label="🛜Wireless IoT"
+        link="./catalog/products?category=wireless"/>
+<Button style={{background:"whitesmoke", margin: "10px", color: "black" }}
+        label="🧠AI Project ➚"
+        link="https://forums.ghielectronics.com/t/duelink-ai-control-hardware-with-natural-language/26258"/>
+<br/>
+<br/>
+
+No matter of you are and [Engineer](./engineers), a [Maker](./makers), or an [Educator](./educators), DUELink has somethign for you!
+<Button
+        style={{ margin: "10px", color: "white" }}
+        label="Product Catalog"
+        link="./catalog/products"
+    />
+</div>
 ---
 
 ## Modules Discovery
@@ -78,97 +276,26 @@ It is a good idea to discover information about the connected modules. Start by 
 
 Visit [loader.duelink.com](https://loader.duelink.com/) and use the `Discover` option. Here is an example showing a connected Ghizzy. 
 
-:::tip 
-You can click `View Product Details` to go directly to the product's dedicated page.
-:::
-
 <div style={{ textAlign: 'center'}}>
 ![CincoBit](pathname:///img/discover-ghizzy.webp)
 </div>
 
 If the "discover" feature failed complaining about a MicroBlocks firmware, then you need to [load the DUELink Official](https://loader.duelink.com/update) firmware.
 
-:::tip
-This is a good time to update the firmware if necessary.
+:::tip 
+Click `View Product Details` to visit the product's page.
 :::
-
----
-
-## Commanding Modules
-
-DUELink modules understand and execute text commands that are received over [USB](./interface/usb), [I2C](./interface/i2c), or [UART](./interface/uart). To help in processing these commands, we provide helper libraries, with specific "Getting Started", for many [Coding Languages](./language/intro).
-
-<div style={{ textAlign: 'center'}}>
-![Python Logo](pathname:///img/python.webp)
-</div>
-
-A good starting point can be via programming a PC using Python.
-
-
-<div style={{textAlign: 'center'}}>
-    <Button
-        style={{ margin: "10px", color: "white" }}
-        label="Python"
-        link="./language/python"
-    />
-</div>
-
----
-
-## Scripts
-
-All DUELink modules can be loaded with [DUELink Scripts](./engine/scripting). To loading or modify a script, visit [console.duelink.com](https://console.duelink.com/). Click 
-
-<div style={{ textAlign: 'center'}}>
-![DUELink Console](pathname:///img/duelink-console.webp)
-</div>
-
-
-Click the `Connect` button. This will access to the first module by default.
-
-<div style={{ textAlign: 'center'}}>
-![Connect Button](pathname:///img/console-connect.webp)
-</div>
-
-Type `statled(200,200,50)` and click the `Record` button to send the script to the module's memory. This is one of the many available [Standard Library](./engine/stdlib) functions.
-
-
-<div style={{ textAlign: 'center'}}>
-![Record Button](pathname:///img/console-record.webp)
-</div>
-
-Click `Play` and the STAT LED will blink 50 times.
-
-<div style={{ textAlign: 'center'}}>
-![StatLED](pathname:///img/statled-blink.webp)
-</div>
-
----
-
-## Arduino
-
-You can load DUELink modules with Arduino programs, directly from the Arduino IDE! This turns the entire DUELink Catalog into Arduino-compatible boards.
-
-You can also connect modules to your Arduino board using I2C, just like you would with Sparkfun Qwiic, Adfruit STEMMA, and Arduino Modulino. The advantage here is that DUELink modules have higher intelligence and execute text commands.
-
-
-<div style={{ textAlign: 'center'}}>
-![Arduino logo](pathname:///img/arduino-logo.webp)
-</div>
-
-The Arduino page has all of the details.
-
-<div style={{textAlign: 'center'}}>
-    <Button
-        style={{ margin: "10px", color: "white" }}
-        label="Arduino"
-        link="./hw/arduino"
-    />
-</div>
 
 ---
 
 ## Community Forum
 
-The examples above show different ways to start with DUELink. Join us at the [DUELink Forum](https://forums.ghielectronics.com/c/duelink/31) to discuss other options and share what you are working on.
+The examples above show different ways to start with DUELink. Join us at the DUELink Forum to discuss other options and share what you are working on.
 
+<div style={{ textAlign: 'center'}}>
+<Button
+        style={{ margin: "10px", color: "white" }}
+        label="Forums ➚"
+        link="https://forums.ghielectronics.com/c/duelink/31"
+    />
+</div>

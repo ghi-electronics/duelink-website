@@ -72,13 +72,13 @@ Under `Tools` on the top menu of the Arduino IDE select `Manage Libraries`.
 ![Navigate to Manage Libraries](pathname:///img/arduino-ide-add-library.webp)
 </div>
 
-Navigate to Boards Manager and Type `STM` in the search window and then click `Install` on both DUELink & STM32 MCU based boards packages.
+Navigate to Boards Manager and Type `STM` in the search window and then click `Install` on both `DUELink` & `STM32 MCU based boards` packages.
 
 <div style={{ textAlign: 'center'}}>
 ![Install DUELink Library](pathname:///img/arduino-ide-install-duelink.webp)
 </div>
 
-Now let's connect any 2 DUELink modules to the [Downlink](../interface/downlink) port. This example code will blink both STAT LEDs on both modules. Note how the STAT LED of the first module blinks only 10 times while the second module blinks forever.
+This example assumes 2 DUELink modules connected to the [Downlink](../interface/downlink) port on DueDuino, which is `Serial2`. The code will blink both STAT LEDs on both modules. Note how the STAT LED of the first module blinks only 10 times while the second module blinks forever.
 
 ```cpp
 #include <DUELink.h>
@@ -87,7 +87,6 @@ SerialTransport transport(Serial2);
 DUELink duelink(transport);
 
 void setup() {
-  Serial.begin(9600);
   Serial2.begin(115200);
   duelink.Connect();
   duelink.Engine.Select(1);//Selects the first DUELink Module
@@ -100,7 +99,7 @@ void loop(){
 }
 ```
 
-Here is another example that uses Arduino UNO 4 WIFI with an OLED 0.96 Display, a Button, and a Buzzer modules. Pressing the button generates sound on the buzzer, with the display showing some info.
+Here is another example that uses Arduino UNO 4 WIFI with an OLED 0.96 Display, a Button, and a Buzzer modules. Pressing the button generates sound on the buzzer, with the display showing some info. In this example, the Downlink connection uses I2C transport.
 
 <div style={{ textAlign: 'center'}}>
 ![Arduino UNO 4 Daisylinked](pathname:///img/arduino-uno-r4-daisylinked.webp)
