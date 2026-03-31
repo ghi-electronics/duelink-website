@@ -7,7 +7,7 @@
 The .NET DUELink library allows full .NET programs to access physical sensors and actuators. This allows complex .NET programs to do all the heavy lifting. 
 
 :::tip
-Note that .NET will be executed on a compatible [supported hardware](../hw/intro) option, which is tethered to DUELink modules. .NET does not run on the module itself! The [Standalone](./standalone) page shows some options that run on modules directly.
+Note that .NET will be executed on a compatible [supported hardware](../hw/intro), like a PC for example. .NET does not run on the module itself! The [Standalone](./standalone) page shows some options that run on modules directly.
 
 For .NET on circuits, see SITCore product line on the GHI Electronics [website](https://www.ghielectronics.com/).
 :::
@@ -16,30 +16,24 @@ Note that the provided library is implemented in C#, but the user can use any .N
 
 ---
 
-## Setup
+## Getting Started
 
-For the module, visit [loader.duelink.com](https://loader.duelink.com/) to make sure your hardware has the latest `DUElink Official` firmware and related module drivers.
+Visit [loader.duelink.com](https://loader.duelink.com/) to make sure your hardware is USB connected and has the latest `DUElink Official` firmware and related module drivers.
 
-We assume that you are already familiar with .NET C# and there is a development machine that is already setup to build and run .NET programs.
 
+We assume that you are already familiar with .NET C# and there is a development machine that is already setup to build and run .NET programs. Start a new project with a simple line of code to test that the project is running.
 
 :::info
 C# Top-level-statements feature is being utilized in these examples.
 :::
 
-Start a new project with a simple line of code to test that the project is running.
-
 ```cs
 Console.WriteLine("Hello, World!");
 ```
 
-We now need install the latest `GHIElectronics.DUELink` library from NuGet.org.
+You now need install the latest `GHIElectronics.DUELink` library from NuGet.org.
 
----
-
-## Blinky!
-
-Our first program will blink the on-board status LED on a tethered module, on for 200ms then it shuts off for 800ms, and does this 20 times.
+The first program will blink the on-board status LED on a tethered module, on for 200ms then it shuts off for 800ms, and does this 20 times.
 
 ```cs
 using GHIElectronics.DUELink;
@@ -53,7 +47,7 @@ duelink.System.Statled(200, 800, 20);
 Console.WriteLine("Bye DUELink!");
 ```
 
-The .NET library only supports serial ports, which can be either [UART](../interface/uart) or [USB](../interface/usb). The `GetConnectionPort()` function scans for a USB-connected DUELink module. The returned value can be used to start `DUElinkController()`. If serial port is desired then use the actual port number, for example `DUELinkController("COM6")` on Windows and `DUELinkController("/dev/ttyAMA0")` on Linux. Using serial is useful with [wireless](../interface/wireless) Bluetooth connections.
+The .NET library supports serial ports, which can be either [UART](../interface/uart) or [USB](../interface/usb). The `GetConnectionPort()` function scans for a USB-connected DUELink module. You can also use a specific serial port number, for example using `DUELinkController("COM6")` on Windows and `DUELinkController("/dev/ttyAMA0")` on Linux. Using serial is useful with [wireless](../interface/wireless) Bluetooth connections.
 
 ---
 

@@ -1,23 +1,29 @@
 ##### Portal CP70 Driver #####
-# The driver needs to be reworked. 
-fn DVer()
-    return 0.2
-fend
+Alias(cs=10,pd=18,bit32=32,bit24=24,bit16=16,bit8=8,dladd=_a,cmdadd =_b)
+Alias(C_DISPLAY=0x00,C_CLEAR_COLOR=0x02,C_COLOR=0x04,C_POINT_SIZE=0x0D)
+Alias(C_BEGIN=0x1f,C_END=0x21,C_CLEAR=0x26,C_VERTEX2F=0x40,C_VERTEX2II=0x80)
+Alias(BITMAPS=1,POINTS=2,LINES=3,RECTS=9)
+#Alias(C_BITMAP_SOURCE=0x01,C_BITMAP_LAYOUT=0x07,C_BITMAP_SIZE=0x08) # not enough alias
+
+# global used, do not touch
+_a = 0x00300000 
+_w = -1 
+_h = -1
+_b = 0x00308000
+_x = -1
+_y = -1
  
-Alias(cs=10,pd=18,bit32=32,bit24=24,bit16=16,bit8=8,dladd=_a)
- 
-_a = 0x00300000
-Dim b3[4]
+Dim b3[4] 
  
 fn SpiWrRd(d, o)
     Dim b1[1]
     Dim b2[1]
  
     v = 0
-    if o = bit8
+    if o = bit8 
         b1[0] = d
         SpiWrs(b1,b2)
-        v = b2[0]
+        v = b2[0] 
         #PrintLn("Write read 8")
     end
  
@@ -55,25 +61,25 @@ fn SpiWrRd(d, o)
         #v = v | (b2[0] << 24)
         b3[0] = b2[0]
         #PrintLn(hex(b1[0]))
-        
+ 
         b1[0] = (d>>16) & 0xFF
         SpiWrs(b1,b2)
         #v = v | ((b2[0]) << 16)
         #PrintLn(hex(b1[0]))
-        
+ 
         b3[1] = b2[0]
         b1[0] = (d>>8) & 0xFF
         SpiWrs(b1,b2)
         #v = v | ((b2[0]) << 8)
         #PrintLn(hex(b1[0]))
-        
+ 
         b3[2] = b2[0]
         b1[0] = (d>>0) & 0xFF
         SpiWrs(b1,b2)
         #v = v | ((b2[0]) << 0)
         b3[3] = b2[0]
         #PrintLn(hex(b1[0]))
-        
+ 
         #PrintLn("Write read 32")
         #PrintLn("read: ", hex(b2[0]), ", v: ", hex(v))
     end 
@@ -90,216 +96,623 @@ fn SetAddr(a,r)
     end
 fend
  
-fn MemRead(a, o) 
-    DWrite(cs,0)
-    SetAddr(a,1) # set add read
-    v = SpiWrRd(0, o)
+fn MemWrRd(a, b4, o, r)
+    if r = 1 # read
+        DWrite(cs,0)
+        SetAddr(a,1) # set add read
+        v = SpiWrRd(0, o)
+        DWrite(cs,1)
+        return v
+    else # write
+        DWrite(cs,0)
+        SetAddr(a,0) # set add write
+        if o = bit32
+            SpiWr(b4[3])
+            SpiWr(b4[2])
+            SpiWr(b4[1])
+            SpiWr(b4[0])
+        end
+        if o = bit24
+            SpiWr(b4[2])
+            SpiWr(b4[1])
+            SpiWr(b4[0])
+        end
+        if o = bit16
+            SpiWr(b4[1])
+            SpiWr(b4[0])
+        end
+        if o = bit8
+            SpiWr(b4[0])
+        end
+        DWrite(cs,1)
+    end
+fend
+ 
+fn DLCmd(c,a9)
+    b3[0]=c
+    if c=C_DISPLAY
+        b3[1]=0:b3[2]=0:b3[3]=0
+    end 
+    if c=C_CLEAR_COLOR || c=C_COLOR
+        b3[1]=a9[0]:b3[2]=a9[1]:b3[3]=a9[2]
+    end
+    if c=C_POINT_SIZE
+        b3[1]=0:b3[2]=a9[0]>>8:b3[3]=a9[0]&0xff
+    end
+    if c=C_BEGIN
+        b3[1]=0:b3[2]=0:b3[3]=a9[0]
+    end
+    if c=C_CLEAR
+        b3[1]=0:b3[2]=0:b3[3]=7
+    end
+    if c=C_VERTEX2F
+        n=(a9[0]<<15)|a9[1]
+        b3[0]=0x40|(n>>24)
+        b3[1]=(n>>16)&0xff
+        b3[2]=(n>>8)&0xff
+        b3[3]=n&0xff
+   
+    end
+    
+    if c=C_VERTEX2II
+        x=a9[0]:y=a9[1]:h=a9[2]
+        b3[0]=0x80|(x>>3)
+        b3[1]=((x&0x07)<<5)|((y>>4))
+        b3[2]=((y&0x0f)<<4)|(h>>1)
+        b3[3]=((h&1)<<7)|a9[3]  
+    end
+    
+    # image and relates stuff
+    if c=0x01 #C_BITMAP_SOURCE
+        a=a9[0]
+        b3[0]=0x01
+        b3[1]=(a>>16)&0xff
+        b3[2]=(a>>8)&0xff
+        b3[3]=a&0xff
+    end
+    
+    if c=0x07 #C_BITMAP_LAYOUT
+        f=a9[0]   # format
+        s=a9[1]   # stride
+        h=a9[2]   # height
+        
+        b3[0]=0x07
+        b3[1]=((f<<5)|((s>>8)&0x07))
+        b3[2]=s&0xff
+        b3[3]=h&0xff   # low 8 bits only here
+    
+    end
+    
+    if c=0x08 #C_BITMAP_SIZE
+        a=a9[0]   # width
+        b=a9[1]   # height
+        
+        # filter=0, wrapx=0, wrapy=0
+        b3[0]=0x08
+        b3[1]=((0<<5)|(0<<4)|(0<<3)|(a>>8))
+        b3[2]=a&0xff
+        b3[3]=b&0xff
+    end
+    
+    # CELL command
+    if c = 0x06
+        b3[0] = 0x06
+        b3[1] = 0
+        b3[2] = 0
+        b3[3] = a9[0]
+    end
+    
+    if c = 0x05
+        b3[0] = 0x05
+        b3[1] = 0
+        b3[2] = 0
+        b3[3] = a9[0]
+    end
+    
+    if c=0x28
+        s=a9[0]
+        h=a9[1]
+        
+        b3[0]=0x28
+        b3[1]=0
+        b3[2]=(s >> 10) & 0x03
+        b3[3]=(h >> 8) & 0x01
+    end
+    
+    
+    if c = 0x29    # BITMAP_SIZE_H
+        w = a9[0]
+        h = a9[1]
+        
+        b3[0] = 0x29
+        b3[1] = 0
+        b3[2] = w & 0x03
+        b3[3] = h & 0x03
+    end
+    
+    if c=0x0B   # BLEND_FUNC
+        # a9[0] = src
+        # a9[1] = dst
+        
+        b3[0]=0x0B
+        b3[1]=((a9[0]&7)<<3) | (a9[1]&7)
+        b3[2]=0
+        b3[3]=0
+    end
+
+  end
+ 
+  MemWrRd(dladd,b3,bit32, 0)
+  dladd = dladd + 4
+fend
+ 
+fn Init(w, h, b)
+    # w: width
+    # h: height
+    # b: brightness 0 to 100
+    _w = w
+    _h = h
+    p = info(0)
+ 
+    if p = 0x010001
+        # This for HDMI chip initialize - do not touch
+        DWrite(1,0)
+        Wait(50)
+        DWrite(1,1)
+        Wait(50)
+     
+        I2cCfg(400)
+     
+        Dim b1[1]
+        Dim b2[5] 
+     
+        b1[0] = 0
+     
+        v = I2cWr(0x38,b1,b2)
+        v = I2cWr(0x38,b1,b2)
+        v = I2cWr(0x38,b1,b2)
+     
+        Dim b1[4]
+     
+        b1[0] = 0x08
+        b1[1] = 0x35
+        b1[2] = 0x01 | 0x04 | 0x08 | 0x30
+        b1[3] = 0x80
+     
+        v = I2cWr(0x38,b1,b2)
+     
+        if v =1
+            PrintLn("TFP410 init ok")
+        else
+            PrintLn("TFP410 init failed")
+        end
+        # end HDMI chip initialize
+    end
+ 
+    # start BT817Q initialize
+    SpiCfg(0,24000)
+ 
     DWrite(cs,1)
-    return v
-fend
  
-fn MemWrite(a, b3, o) 
-    DWrite(cs,0)
-    SetAddr(a,0) # set add write
-    if o = bit32
-        SpiWr(b3[3])
-        SpiWr(b3[2])
-        SpiWr(b3[1])
-        SpiWr(b3[0])
-    end
-    if o = 24
-        SpiWr(b3[2])
-        SpiWr(b3[1])
-        SpiWr(b3[0])
-    end
-    if o = 16
-        SpiWr(b3[1])
-        SpiWr(b3[0])
-    end
-    if o = 8
-        SpiWr(b3[0])
-    end
-    DWrite(cs,1)
-fend
- 
- 
-fn HCmdWrite(c,p)
-    DWrite(cs,0)
-    SpiWr(c)
-    SpiWr(p)
-    SpiWr(0)
-    DWrite(cs,1) 
-fend
- 
-fn Synth(n,p)
-    # Play sound beep
-    if (p = 1)
-        MemWrite(0x00302084,  [0xff], bit8) #max EVE_REG_VOL_SOUND
-        MemWrite(0x00302088,  [0x6C,n], bit16)
-        MemWrite(0x0030208C,  [0x01], bit8) #EVE_REG_PLAY
-    end
-    if p = 0
-        MemWrite(0x00302088,  [0x00,0x00], bit16) # stop sound
-        MemWrite(0x0030208C,  [0x01], bit8)
-    end
-fend
- 
-fn DLClear()
-    dladd = 0x00300000
-fend
- 
-fn DLSwap()
-   MemWrite(0x00302054,  [0x02], bit8)
-fend
- 
-fn Init() 
-    SpiCfg(0,1000)
- 
-    #Set Chip Select OFF
-    DWrite(cs,1)
- 
-    #Reset the display
+    # Reset
     Wait(20)
     DWrite(pd,1)
     Wait(20)
     DWrite(pd,0)
     Wait(20)
     DWrite(pd,1)
-    Wait(20)  
+    Wait(20)
  
-    HCmdWrite(0x44,0x00) # HostCMD_CLKEXT
-    HCmdWrite(0x61,0x46) # HostCMD_CLKEXT
-    HCmdWrite(0x68,0x00) # Reset
-    HCmdWrite(0x00,0x00) # Set active
+    # Host commands
+    DWrite(cs,0)
+    SpiWr(0x44)
+    SpiWr(0x00)
+    SpiWr(0)
+    DWrite(cs,1)
  
-    Wait(500) #Optional delay can be commented so long as we check the REG_ID and REG_CPURESET
+    DWrite(cs,0)
+    SpiWr(0x61)
+    SpiWr(0x46)
+    SpiWr(0)
+    DWrite(cs,1)
  
-    c = 0
+    DWrite(cs,0)
+    SpiWr(0x68)
+    SpiWr(0x00)
+    SpiWr(0)
+    DWrite(cs,1)
+ 
+    DWrite(cs,0)
+    SpiWr(0x00)
+    SpiWr(0x00)
+    SpiWr(0)
+    DWrite(cs,1)
+ 
+    Wait(500)
+ 
+    # Wait for chip ready
     r = 0
     while (r != 0x7C)
-        r = MemRead(0x302000, bit8) #EVE_REG_ID
+        r = MemWrRd(0x302000, [],bit8,1)
         Wait(100)
- 
     wend
  
     while (r != 0)
-        r = MemRead(0x302020, bit8) #EVE_REG_CPURESET
+        r = MemWrRd(0x302020, [],bit8,1)
         Wait(100)
     wend
  
  
-    MemWrite(0x0030200C,[0x04,0x4A,0xA2,0x00], bit32) #EVE_REG_FREQUENCY 72000000
+    # ---------------- DISPLAY TIMING ----------------
  
-    # Active width of LCD display
- MemWrite(0x00302034,   [0x03,0x20],bit16)
- # Total number of clocks per line
- MemWrite(0x0030202C,  [0x03,0xA0],bit16)
- # Start of active line
- MemWrite(0x00302030, [0x00,0x58],bit16)
- # Start of horizontal sync pulse
- MemWrite(0x00302038,  [0x00,0x00],bit16)
- # End of horizontal sync pulse
- MemWrite(0x0030203C,  [0x00,0x30],bit16)
- # Active height of LCD display
- MemWrite(0x00302048,   [0x01,0xE0],bit16)
- # Total number of lines per screen
- MemWrite(0x00302040,  [0x02,0x0D],bit16)
- # Start of active screen
- MemWrite(0x00302044, [0x00,0x20],bit16)
- # Start of vertical sync pulse
- MemWrite(0x0030204C,  [0x00,0x00],bit16)
- # End of vertical sync pulse
- MemWrite(0x00302050,  [0x00,0x03],bit16)
- # Define RGB output pins
- MemWrite(0x00302064,  [0x00], bit8)
- # Define active edge of PCLK
- MemWrite(0x0030206C, [0x01], bit8)
- # Turn on or off CSpread
- MemWrite(0x00302068,  [0x00], bit8)
- # Turn on or off Dither
- MemWrite(0x00302060,  [0x01], bit8)
- 
- # Write first display list
-    MemWrite(0x00300000,  [0x02,0x00,0x00,0x00], bit32)
-    MemWrite(0x00300004,  [0x26,0x00,0x00,0x07], bit32)
-    MemWrite(0x00300008,  [0x00,0x00,0x00,0x00], bit32)
- 
-    MemWrite(0x00302054,  [0x02], bit8)
- 
-    r = MemRead(0x302094, bit8)
- 
-    r = r | 0x80
- 
-    MemWrite(0x00302094,  [r], bit8)
-    MemWrite(0x00302070,  [0x02], bit8)
-    MemWrite(0x003020D4,  [127], bit8)
- 
-    # ---------------------- Touch and Audio settings -------------------------
-    MemWrite(0x00302118,  [0x04,0xB0], bit16)
-    MemWrite(0x00302080,  [0x00], bit8)
-    MemWrite(0x00302084,  [0x00], bit8)
-    MemWrite(0x00302088,  [0x60,0x00], bit16)
-fend
- 
-Alias(C_DISPLAY=0x00,C_CLEAR_COLOR=0x02,C_COLOR=0x04,C_POINT_SIZE=0x0D)
-Alias(C_BEGIN=0x1f,C_END=0x21,C_CLEAR=0x26,C_VERTEX2F=0x40,C_VERTEX2II=0x80)
- 
-Alias(BITMAPS=1,POINTS=2,LINES=3,RECTS=9)
- 
-fn DLCmd(c,a9)
-  b3[0]=c
-  if c=C_DISPLAY
-    b3[1]=0:b3[2]=0:b3[3]=0
-  end 
-  if c=C_CLEAR_COLOR || c=C_COLOR
-      b3[1]=a9[0]:b3[2]=a9[1]:b3[3]=a9[2]
-  end
-  if c=C_POINT_SIZE
-    b3[1]=0:b3[2]=a9[0]>>8:b3[3]=a9[0]&0xff
-  end
-  if c=C_BEGIN
-    b3[1]=0:b3[2]=0:b3[3]=a9[0]
-  end
-  if c=C_CLEAR
-    b3[1]=0:b3[2]=0:b3[3]=7
-  end
-  if c=C_VERTEX2F
-    n=(a9[0]<<15)|a9[1]
-    b3[0]=0x40|(n>>24)
-    b3[1]=(n>>16)&0xff
-    b3[2]=(n>>8)&0xff
-    b3[3]=n&0xff
-  end
-  if c=C_VERTEX2II
-    x=a9[0]:y=a9[1]:h=a9[2]
-    b3[0]=0x80|(x>>3)
-    b3[1]=((x&0x07)<<5)|((y>>4))
-    b3[2]=((y&0x0f)<<4)|(h>>1)
-    b3[3]=((h&1)<<7)|a9[3]  
-  end
-  MemWrite(dladd,b3,bit32)
-  dladd = dladd + 4
-fend
- 
-fn TouchX() 
-    t = MemRead(3154212,32)
-    x = b3[3] << 8 | b3[2]
+    if w = 800 && h = 480
+        # 72 MHz
+        # Frequency
+        MemWrRd(0x0030200C,[0x04,0x4A,0xA2,0x00], bit32, 0)
+        
+        # ---------------- DISPLAY TIMING ----------------
+        # Active width
+        b3[0]=(w>>8)&0xff
+        b3[1]=w&0xff
+        MemWrRd(0x00302034, b3, bit16, 0)
     
-    if x = 32768
-        return -1
-    end
-    return x
-fend
-
-fn TouchY() 
-    t = MemRead(3154212,32)
-    y = b3[1] << 8 | b3[0]
+        # Active height
+        b3[0]=(h>>8)&0xff
+        b3[1]=h&0xff
+        MemWrRd(0x00302048, b3, bit16, 0)
     
-    if y = 32768
-        return -1
+        # KEEP THESE SAFE DEFAULTS (panel specific)
+        MemWrRd(0x0030202C,[0x03,0xA0],bit16,0) # HCYCLE
+        MemWrRd(0x00302030,[0x00,0x58],bit16,0) # HOFFSET
+        MemWrRd(0x00302038,[0x00,0x00],bit16,0) # HSYNC0
+        MemWrRd(0x0030203C,[0x00,0x30],bit16,0) # HSYNC1
+    
+        MemWrRd(0x00302040,[0x02,0x0D],bit16,0) # VCYCLE
+        MemWrRd(0x00302044,[0x00,0x20],bit16,0) # VOFFSET
+        MemWrRd(0x0030204C,[0x00,0x00],bit16,0) # VSYNC0
+        MemWrRd(0x00302050,[0x00,0x03],bit16,0) # VSYNC1
+    
+        # Other settings
+        MemWrRd(0x00302064,[0x00],bit8,0)
+        MemWrRd(0x0030206C,[0x01],bit8,0)
+        MemWrRd(0x00302068,[0x00],bit8,0)
+        MemWrRd(0x00302060,[0x01],bit8,0)
+    
+        # First display list
+        MemWrRd(0x00300000,[0x02,0x00,0x00,0x00],bit32,0)
+        MemWrRd(0x00300004,[0x26,0x00,0x00,0x07],bit32,0)
+        MemWrRd(0x00300008,[0x00,0x00,0x00,0x00],bit32,0)
+    
+        # Enable display
+        MemWrRd(0x00302054,[0x02],bit8,0)
+    
+        r = MemWrRd(0x302094, [],bit8,1)
+        r = r | 0x80
+        MemWrRd(0x00302094,[r],bit8,0)
+    
+        MemWrRd(0x00302070,[0x02],bit8,0)
+        
+        # brightness
+        d = Scale(b, 0, 100, 0, 255)
+        MemWrRd(0x003020D4,[d],bit8,0)
     end
-    return y
+ 
+    if w = 1024 && h = 600
+        # Pixel clock ~51 MHz (safe for HDMI bridge)
+        MemWrRd(0x0030200C,[0x00,0x00,0x08,0xB1],bit32,0)
+        
+        # --- ACTIVE SIZE ---
+        MemWrRd(0x00302034,[0x04,0x00],bit16,0)  # HSIZE = 1024
+        MemWrRd(0x00302048,[0x02,0x58],bit16,0)  # VSIZE = 600
+        
+        # --- HORIZONTAL TIMING ---
+        MemWrRd(0x0030202C,[0x04,0x80],bit16,0)  # HCYCLE = 1152
+        MemWrRd(0x00302030,[0x00,0xA0],bit16,0)  # HOFFSET = 160
+        MemWrRd(0x00302038,[0x00,0x00],bit16,0)  # HSYNC0 = 0
+        MemWrRd(0x0030203C,[0x00,0x20],bit16,0)  # HSYNC1 = 32
+        
+        # --- VERTICAL TIMING ---
+        MemWrRd(0x00302040,[0x02,0x9A],bit16,0)  # VCYCLE = 666
+        MemWrRd(0x00302044,[0x00,0x17],bit16,0)  # VOFFSET = 23
+        MemWrRd(0x0030204C,[0x00,0x00],bit16,0)  # VSYNC0 = 0
+        MemWrRd(0x00302050,[0x00,0x05],bit16,0)  # VSYNC1 = 5
+        
+        # --- SIGNAL SETTINGS ---
+        MemWrRd(0x0030206C,[0x00],bit8,0)  # PCLKPOL
+        MemWrRd(0x00302060,[0x01],bit8,0)  # DITHER ON
+        MemWrRd(0x00302068,[0x00],bit8,0)
+        
+        # First display list (KEEP THIS)
+        MemWrRd(0x00300000,[0x02,0x00,0x00,0x00],bit32,0)
+        MemWrRd(0x00300004,[0x26,0x00,0x00,0x07],bit32,0)
+        MemWrRd(0x00300008,[0x00,0x00,0x00,0x00],bit32,0)
+        
+        # Enable display
+        MemWrRd(0x00302054,[0x02],bit8,0)
+        
+        r = MemWrRd(0x302094, [],bit8,1)
+        r = r | 0x80
+        MemWrRd(0x00302094,[r],bit8,0)
+        
+        MemWrRd(0x00302070,[0x02],bit8,0)
+        
+        # brightness
+        d = Scale(b, 0, 100, 0, 255)
+        MemWrRd(0x003020D4,[d],bit8,0)
+        
+    end
+        
+    # Touch/audio
+    MemWrRd(0x00302118,[0x04,0xB0],bit16,0)
+    MemWrRd(0x00302080,[0x00],bit8,0)
+    MemWrRd(0x00302084,[0x00],bit8,0)
+    MemWrRd(0x00302088,[0x60,0x00],bit16,0)
+ 
 fend
 
+#fn DrawImage(a, b0, w, h, x, y, c, i, t)
+    # a = addr
+    # b0: Image data. When image is already loaded (cached), can use the handle only for fast draw then set b0 to null []
+    # example: DrawImage(0, [],x,y.....) : reuse whatever in handle i 
+    # w = width
+    # h = height
+    # x = x
+    # y = y
+    # c = color format: 0: RGB565, 1: 1 bit, 2: 8 bit
+    # i = handle. max is 16 handles. if handle is already cached then just draw
+    # t = tint color: 0: No tint, 1: enable tint
+ 
+#    if t = 0
+#        DLCmd(C_COLOR,{255,255,255}) 
+        
+#    end
+#    DLCmd(0x0B,{1,0})
+ 
+#    n = len(b0)
+ 
+#    if n > 0
+#        DWrite(cs,0)
+#        SetAddr(a,0)
+#        SpiWrs(b0,[])
+#        DWrite(cs,1)
+#    end
+ 
+#    DLCmd(5,{i})
+ 
+#    if n > 0
+ 
+      
+        # =========================
+        # BITMAP_SOURCE
+        # =========================
+#        f = (1 << 24) | (a & 0xFFFFFF)
+    
+#        b3[0]=(f>>24)&0xff
+#        b3[1]=(f>>16)&0xff
+#        b3[2]=(f>>8)&0xff
+#        b3[3]=f&0xff
+#        MemWrRd(dladd,b3,bit32,0)
+#        dladd = dladd + 4
+    
+        # =========================
+        # BITMAP_SIZE (FIRST)
+        # =========================
+#        f = (8 << 24) | (0 << 20) | (0 << 19) | (0 << 18) | (w << 9) | h
+    
+#        b3[0]=(f>>24)&0xff
+#        b3[1]=(f>>16)&0xff
+#        b3[2]=(f>>8)&0xff
+#        b3[3]=f&0xff
+#        MemWrRd(dladd,b3,bit32,0)
+#        dladd = dladd + 4
+    
+        # BITMAP_SIZE_H
+#        DLCmd(0x29,{0,0})
+    
+        # =========================
+        # BITMAP_LAYOUT (SECOND)
+        # =========================
+#        if c = 0
+#            s = w * 2
+#            f = (7 << 24) | (7 << 19) | (s << 9) | h
+#        end
+    
+#        if c = 1
+#            s = (w + 7) >> 3
+#            f = (7 << 24) | (1 << 19) | (s << 9) | h
+#        end
+    
+#        if c = 2
+#            s = w
+#            f = (7 << 24) | (3 << 19) | (s << 9) | h
+#        end
+    
+#        b3[0]=(f>>24)&0xff
+#        b3[1]=(f>>16)&0xff
+#        b3[2]=(f>>8)&0xff
+#        b3[3]=f&0xff
+#        MemWrRd(dladd,b3,bit32,0)
+#        dladd = dladd + 4
+    
+        # BITMAP_LAYOUT_H
+#        DLCmd(0x28,{0,0})
 
-Init() 
+#    end
+ 
+#    DLCmd(C_BEGIN,{BITMAPS})
+#    DLCmd(C_VERTEX2F,{x<<4,y<<4})
+#    DLCmd(C_END,{})
+#fend
+ 
+fn DrawPixel(c, x, y)
+ 
+    DLCmd(C_COLOR,{c>>16,(c>>8)&0xff,c&0xff})
+ 
+    DLCmd(C_BEGIN,{POINTS})
+    DLCmd(C_POINT_SIZE,{1<<4})
+    DLCmd(C_VERTEX2F,{x<<4,y<<4})
+    DLCmd(C_END,{})
+ 
+fend
+ 
+fn DrawLine(c, x, y, m, n)
+ 
+    DLCmd(C_COLOR,{c>>16,(c>>8)&0xff,c&0xff})
+ 
+    DLCmd(C_BEGIN,{LINES})
+    DLCmd(C_VERTEX2F,{x<<4,y<<4})
+    DLCmd(C_VERTEX2F,{m<<4,n<<4})
+    DLCmd(C_END,{})
+ 
+fend
+ 
+fn DrawCircle(c, x, y, r, f)
+ 
+    DLCmd(C_COLOR,{c>>16,(c>>8)&0xff,c&0xff})
+ 
+    if f = 1
+        # Filled (same as before)
+        DLCmd(C_BEGIN,{POINTS})
+        DLCmd(C_POINT_SIZE,{r<<4})
+        DLCmd(C_VERTEX2F,{x<<4,y<<4})
+        DLCmd(C_END,{})
+    else
+        # Outline (correct circle)
+ 
+        DLCmd(C_BEGIN,{POINTS})
+        DLCmd(C_POINT_SIZE,{1<<4})
+ 
+        a = r
+        b = 0
+        d = 1 - r
+ 
+        while a >= b
+ 
+            # 8 symmetric points
+            DLCmd(C_VERTEX2F,{(x+a)<<4,(y+b)<<4})
+            DLCmd(C_VERTEX2F,{(x+b)<<4,(y+a)<<4})
+            DLCmd(C_VERTEX2F,{(x-b)<<4,(y+a)<<4})
+            DLCmd(C_VERTEX2F,{(x-a)<<4,(y+b)<<4})
+            DLCmd(C_VERTEX2F,{(x-a)<<4,(y-b)<<4})
+            DLCmd(C_VERTEX2F,{(x-b)<<4,(y-a)<<4})
+            DLCmd(C_VERTEX2F,{(x+b)<<4,(y-a)<<4})
+            DLCmd(C_VERTEX2F,{(x+a)<<4,(y-b)<<4})
+ 
+            b = b + 1
+ 
+            if d < 0
+                d = d + (2*b + 1)
+            else
+                a = a - 1
+                d = d + (2*(b - a) + 1)
+            end
+ 
+        wend
+ 
+        DLCmd(C_END,{})
+    end
+ 
+fend
+ 
+
+
+fn DrawString(b0, c, x, y, f, o)
+    # f: font size 0..31
+    # o: offset width
+    DLCmd(C_COLOR,{c>>16,(c>>8)&0xff,c&0xff})
+    
+    DLCmd(0x05,{f})   # BITMAP_HANDLE
+
+    DLCmd(C_BEGIN,{BITMAPS})
+
+    n = len(b0)
+
+    for i = 0 to n
+        b = b0[i]
+
+        if (b > 0)
+            DLCmd(0x06,{b})   # CELL
+            DLCmd(C_VERTEX2F,{x<<4,y<<4}) 
+            x = x + o
+        end
+    
+    next
+    
+    DLCmd(C_END,{})
+    
+fend
+
+ 
+fn DrawRect(c, x, y, w, h, f)
+ 
+ 
+    DLCmd(C_COLOR,{c>>16,(c>>8)&0xff,c&0xff})
+ 
+    if f = 1
+        # Filled rectangle (hardware accelerated)
+        DLCmd(C_BEGIN,{RECTS})
+        DLCmd(C_VERTEX2F,{x<<4,y<<4})
+        DLCmd(C_VERTEX2F,{(x+w)<<4,(y+h)<<4})
+        DLCmd(C_END,{})
+    else
+        # Outline rectangle (4 lines)
+ 
+        DLCmd(C_BEGIN,{LINES})
+ 
+        # Top
+        DLCmd(C_VERTEX2F,{x<<4,y<<4})
+        DLCmd(C_VERTEX2F,{(x+w)<<4,y<<4})
+ 
+        # Right
+        DLCmd(C_VERTEX2F,{(x+w)<<4,y<<4})
+        DLCmd(C_VERTEX2F,{(x+w)<<4,(y+h)<<4})
+ 
+        # Bottom
+        DLCmd(C_VERTEX2F,{(x+w)<<4,(y+h)<<4})
+        DLCmd(C_VERTEX2F,{x<<4,(y+h)<<4})
+ 
+        # Left
+        DLCmd(C_VERTEX2F,{x<<4,(y+h)<<4})
+        DLCmd(C_VERTEX2F,{x<<4,y<<4})
+ 
+        DLCmd(C_END,{})
+    end
+ 
+ 
+fend  
+ 
+fn ClearScreen(c)
+    dladd = 0x00300000
+    cmdadd = 0x00308000
+ 
+    DLCmd(C_CLEAR_COLOR,{c>>16,(c>>8)&0xff,c&0xff})
+    DLCmd(C_CLEAR,{})
+fend
+ 
+fn FlushScreen()
+
+    DLCmd(C_DISPLAY,{})
+    MemWrRd(0x00302054,  [0x02], bit8, 0)
+
+fend
+
+fn UpdTouch() 
+    t = MemRead(3154212,32)
+    _y = b3[1] << 8 | b3[0]
+    _x = b3[3] << 8 | b3[2]
+    
+    if _y = 32768
+        _y = -1
+    end
+    
+    if _x = 32768
+        _x = -1
+    end
+
+fend
+ 
+fn DVer()
+    return 0.3
+fend
+ 
+Init(800,480, 100)  

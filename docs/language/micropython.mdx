@@ -5,13 +5,13 @@
 ![MicroPython](pathname:///img/micropython.webp)
 </div>
 
-You can use DUELink with any microcontroller that supports MicroPython, include Raspberry Pi RP2040 and RP2350. Boards that have JST connector can plug in directly. However, you can use the [Breakout](../products/adbreakout-a) module to to connect any board! The [interface](../interface/intro) can be [I2C](../interface/i2c) or [UART](../interface/uart).
+You can use DUELink with any microcontroller that supports MicroPython, include Raspberry Pi RP2040 and RP2350.
+
+Boards that have JST connector can plug in directly. However, you can use the [Breakout](../products/adbreakout-a) module to to connect any board, using [I2C](../interface/i2c) or [UART](../interface/uart).
 
 <div style={{ textAlign: 'center'}}>
 ![board with Breakout](pathname:///img/micropython-breakout.webp)
 </div>
-
-MicroPython with DUELink is also fully supported on [Raspberry Pi](../hw/raspberry-pi) microcontroller-level (RP2040/RP2350) boards, such as Raspberry Pi Pico.
 
 We also offer [DuePico](../products/adduepico-b), the perfect Raspberry Pi Pico adapter! 
 
@@ -27,12 +27,11 @@ Note that MicroPython will be executed on a compatible [supported hardware](../h
 
 ---
 
-## Setup
-
+## Getting Started
 
 The [DuePico](../products/adduepico-b) used in this example is a smart adaptor, where it is a functional module itself. Plug it directly to a PC using a USB cable then visit [loader.duelink.com](https://loader.duelink.com/) to make sure it has the latest `DUElink Official` firmware and related module drivers.
 
-First make sure your board is set up for MicroPython. Follow the steps found at [MicroPython.org](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html) to load the firmware for your specific hardware.
+First make sure your RaspberryPi Pico board is set up for MicroPython. Follow the steps found at [MicroPython.org](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html) to load the firmware for your specific hardware.
 
 Connect to the board by going to `Tools/Options` and select the proper `Interpreter`. In this case we'll be selecting `MicroPython(Raspberry Pi Pico)`.
 
@@ -67,10 +66,6 @@ Alternatively, users can type `duelink-stdlib-mp` into the search window and `In
 ![DUELink library from PyPi](pathname:///img/install-mp-library.webp)
 </div>
 
----
-
-## Blinky!
-
 Our first program will blink the on-board status LED on a tethered module, on for 200ms then it shuts off for 800ms, and does this 20 times.
 
 DuePi uses [UART Interface](../interface/uart) to communicate with Raspberry Pi Pico.
@@ -96,7 +91,7 @@ You can also use boards that already have a JST connector, like [Adafruit QT Py 
 
 However, note that these boards use the [I2C Interface](../interface/i2c).
 
-```python
+```py
 import time
 import machine
 import duelink

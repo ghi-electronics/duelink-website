@@ -349,7 +349,7 @@
         "Capacitive Multi-Touch",
         "167x122mm"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `TouchX()` | Returns touch x. |\n| `TouchY()` | Returns touch y. |\n| `Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start. |\n| `DLClear()` | Clear the commands. |\n| `DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments. |\n| `DLSwap()` | Execute the graphics commands and swap working buffers. |\n| `DVer()` | This driver version. |",
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(w, h, b)` | Initialize display with width `w`, height `h`, and brightness `b` (0–100). |\n| `DrawPixel(c, x, y)` | Draw a pixel at (`x`,`y`) with color `c`. |\n| `DrawLine(c, x, y, m, n)` | Draw a line from (`x`,`y`) to (`m`,`n`) with color `c`. |\n| `DrawCircle(c, x, y, r, f)` | Draw a circle at (`x`,`y`) with radius `r`, color `c`. `f=1` filled, `f=0` outline. |\n| `DrawRect(c, x, y, w, h, f)` | Draw a rectangle at (`x`,`y`) with size `w`×`h`, color `c`. `f=1` filled, `f=0` outline. |\n| `DrawString(b0, c, x, y, f, o)` | Draw text from byte array `b0` at (`x`,`y`) with color `c`, font `f`, and character offset `o`. |\n| `ClearScreen(c)` | Clear the screen with color `c`. |\n| `FlushScreen()` | Execute display list and update the screen. |\n| `UpdTouch()` | Update touch. Read `_x` and `_y` for touch x,y. |\n| `DVer()` | Return driver version. |",
       "variations": [
         {
           "name": "No Touch",
@@ -468,7 +468,7 @@
         "Graphics coprocessor drawing",
         "57x77mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Synth(i, s)` | Synthesize a note using built in instruments at index `i` with `s` start. |\n| `DLClear()` | Clear the commands. |\n| `DLCmd(c, {...})` | Add a drawing `c` command with `{...}` arguments. |\n| `DLSwap()` | Execute the graphics commands and swap working buffers. |\n| `DVer()` | This driver version. |",
+      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(w, h, b)` | Initialize display with width `w`, height `h`, and brightness `b` (0–100). |\n| `DrawPixel(c, x, y)` | Draw a pixel at (`x`,`y`) with color `c`. |\n| `DrawLine(c, x, y, m, n)` | Draw a line from (`x`,`y`) to (`m`,`n`) with color `c`. |\n| `DrawCircle(c, x, y, r, f)` | Draw a circle at (`x`,`y`) with radius `r`, color `c`. `f=1` filled, `f=0` outline. |\n| `DrawRect(c, x, y, w, h, f)` | Draw a rectangle at (`x`,`y`) with size `w`×`h`, color `c`. `f=1` filled, `f=0` outline. |\n| `DrawString(b0, c, x, y, f, o)` | Draw text from byte array `b0` at (`x`,`y`) with color `c`, font `f`, and character offset `o`. |\n| `ClearScreen(c)` | Clear the screen with color `c`. |\n| `FlushScreen()` | Execute display list and update the screen. |\n| `DVer()` | Return driver version. |",
       "MfgNotes": "Need monitor and speaker for testing" 
     },
     {
