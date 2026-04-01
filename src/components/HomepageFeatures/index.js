@@ -60,6 +60,14 @@ export default function HomepageFeatures() {
       <div className="container" style={{textAlign: 'center'}}>
         
         <Heading as="h2" >
+          Get Started in Minutes!
+        </Heading>
+        <img src="/img/getting-started.webp" alt="getting started" />
+        <p>From Python and JavaScript, to Arduino and MicroBlocks, physical computing is a few lines of code away!</p>
+        <a class="button button--primary" href="/docs/start">Start Coding Now!</a>
+        <hr/>
+        
+        <Heading as="h2" >
           Tether one or Daisylink them all
         </Heading>
         <p>Using standardized common connector and mounting options</p>
