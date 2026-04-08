@@ -35,6 +35,14 @@ const sidebars = {
     "start",
     {
       type: "category",
+      label: "Tutorials",
+      items: [
+        "tutorial/ghizzy",
+        "tutorial/duestem",
+      ],
+    },
+    {
+      type: "category",
       label: "Product Catalog",
       link: {type: 'doc', id: 'catalog/products'},
       items: [
