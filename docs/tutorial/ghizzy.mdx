@@ -4,15 +4,15 @@
 This page is under construction!
 :::
 
-Start coding hardware with this tiny robot-shaped circuits.
+Start coding hardware with this tiny robot-shaped circuit.
 
 <div style={{ textAlign: 'center'}}>
 ![Ghizzy](pathname:///img/catalog/spghizzy-d-1.webp)
 </div>
 
-While there are several [coding options](../language/intro) for DueSTEM, we will focus on [MicroBlocks](../language/microblocks) block-coding and on [Python](../language/python). Using other high-level language, like JavaScript and .NET C# is similar to Python.
+While there are several [coding options](../language/intro) for Ghizzy, we will focus on [MicroBlocks](../language/microblocks) block-coding and on [Python](../language/python). Using other high-level languages, like JavaScript and .NET C#, is similar to Python.
 
-This page can also be used for Ghizzy Jr, which is very similar to Ghizzy but it only had STAT LED, RGB Eyes, LDR user button.
+This page can also be used for Ghizzy Jr, which is very similar to Ghizzy but it only has a STAT LED, RGB Eyes, and LDR user button.
 
 <div style={{ textAlign: 'center'}}>
 ![Ghizzy](pathname:///img/catalog/spghizzyjr-b-1.webp)
@@ -34,7 +34,7 @@ Before we get started, visit the [Getting Started](../start) page to learn how t
 ![MicroBlocks](pathname:///img/mb-blink-led-loop.png)
 </div>
 
-The [MicroBlocks](../language/microblocks) page has full details if necessary.
+The [MicroBlocks'](../language/microblocks) page has full details if necessary.
 
 ### Ghizzy Samples
 
@@ -50,8 +50,8 @@ The library is included in any of the sample projects below. If desired, right-c
 📽 Video | Project Link | Functionality
 --- | --- | ---
 [![video](https://img.youtube.com/vi/d8JvdWC7ZFA/1.jpg)](https://www.youtube.com/watch?v=d8JvdWC7ZFA) | [Default Project Demo](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-ghizzy/refs/heads/main/code/demo.ubp) | This is the default demo. Press the LDR button to make Ghizzy angry!
-[![video](https://img.youtube.com/vi/H8U8kysmDkA/1.jpg)](https://www.youtube.com/watch?v=H8U8kysmDkA) | [Policeman](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-ghizzy/refs/heads/main/code/police.ubp) | Ghizzy is policeman!
-[![video](https://img.youtube.com/vi/iIY6V3Hw-ds/1.jpg)](https://www.youtube.com/watch?v=iIY6V3Hw-ds)| [Color Selector](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-ghizzy/refs/heads/main/code/color-selector.ubp) | Push and hold the LDR button to cycle through Red, Green, and Blue. When you see the desired option release the button and wait for the beep. After the beep sound, Ghizzy will cycle through a range of that color channel. Once you see the color you like, press and hold until you hear sound, then release LDR. MicroBlock can also show the selected color value, if is the software is connected.
+[![video](https://img.youtube.com/vi/H8U8kysmDkA/1.jpg)](https://www.youtube.com/watch?v=H8U8kysmDkA) | [Policeman](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-ghizzy/refs/heads/main/code/police.ubp) | Ghizzy is a policeman!
+[![video](https://img.youtube.com/vi/iIY6V3Hw-ds/1.jpg)](https://www.youtube.com/watch?v=iIY6V3Hw-ds)| [Color Selector](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-ghizzy/refs/heads/main/code/color-selector.ubp) | Push and hold the LDR button to cycle through Red, Green, and Blue. When you see the desired option release the button and wait for the beep. After the beep sound, Ghizzy will cycle through a range of that color channel. Once you see the color you like, press and hold until you hear sound, then release LDR. MicroBlocks can also show the selected color value, if the software is connected.
 [![video](https://img.youtube.com/vi/O7_PxzcBt7s/1.jpg)](https://www.youtube.com/watch?v=O7_PxzcBt7s) | [Hearing Test](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-ghizzy/refs/heads/main/code/hearing-test.ubp) | Push and hold the LDR button to sweep through a rising frequency. Release the button when you can't hear anything anymore. Ghizzy now will sound a beep for every 1KHz. So, for 4.3Khz, Ghizzy will beep 4 times. MicroBlocks also shows the actual frequency in Hz.
 [![video](https://img.youtube.com/vi/ocil5kOvge0/1.jpg)](https://www.youtube.com/watch?v=ocil5kOvge0) | [Ready, Set, Go!](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-ghizzy/refs/heads/main/code/reaction.ubp) | Ghizzy will start with notes for Read/Set/Go and then goes into a ticker that changes its time. BE ready with your finger on LDR button. As soon as you hear the raising frequency, push the button and look at your score on MicroBlocks. The lower the number the faster you are.
 [![video](https://img.youtube.com/vi/SRl_iSj7iYo/1.jpg)](https://www.youtube.com/watch?v=SRl_iSj7iYo) | [Twinkle](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-ghizzy/refs/heads/main/code/twinkle.ubp) | Twinkle Twinkle, the Ghizzy way!
@@ -62,7 +62,7 @@ The library is included in any of the sample projects below. If desired, right-c
 
 Ghizzy also includes a [Downlink](../interface/downlink) connector for [Daisylinking](../engine/daisylink) other modules. A special library, called `DUELink Daisylink` is used to send commands to connected modules. The product pages of these connected modules include a `Driver` tab that shows what commands (functions) are provided by that individual module.
 
-It basically sends the commends downlink to the other modules using the `do command` block. You can give it the command as is `set
+It basically sends the commands Downlink to the other modules using the `do command` block. You can give it the command such as `setled`
 
 In this example, we will control a [Snowy](../products/spsnowy-a), a smart snowflake! From its Driver tab API we can see it it uses `setled(index, state)` to set individual LEDs. To send this command from Ghizzy to Snowy, we use `do command` block. To turn LED 2 on, we will need `setled(2,1)`. And to simplify "building" commands, we also provide `command` block that takes the arguments individually.
 
@@ -71,15 +71,14 @@ Load the [Snowy Daisylink](https://microblocks.fun/run/microblocks.html?project=
 [![video](https://img.youtube.com/vi/HAfcLdrLvSc/1.jpg)](https://www.youtube.com/watch?v=HAfcLdrLvSc) 
 
 :::tip
-The Snowy module, or any other Daisylinked module, must be loaded with the official DUELink firmware. The MicroBlocks firmware is only loaded on Ghizzy.
+The Snowy module, or any other Daisylinked module, must be loaded with the official DUELink firmware. The MicroBlocks' firmware is only loaded on Ghizzy.
 :::
-
 
 ---
 
 ## Python
 
-Harness the full power of python onto controlling hardware using a few lines of code.
+Harness the full power of Python into controlling hardware using a few lines of code.
 
 Before we get started, visit the [Getting Started](../start) page to learn how to blink the STAT LED using Python.
 

@@ -11,25 +11,25 @@ DueSTEM's `Input` → `Process` → `Output` mindset shines among [Educators](..
 ![DueSTEM](pathname:///img/catalog/mcduestem-b-1.webp)
 </div>
 
-While there are several [coding options](../language/intro) for DueSTEM, we will focus on [MicroBlocks](../language/microblocks) block-coding and on [Python](../language/python). Using other high-level language, like JavaScript and .NET C# is similar to Python. 
+While there are several [coding options](../language/intro) for DueSTEM, we will focus on [MicroBlocks](../language/microblocks) block-coding and on [Python](../language/python). Using other high-level languages, like JavaScript and .NET C#, is similar to Python. 
 
 Compare | MicroBlocks | Python
 --- | --- | ---
-Difficulty | Very Easy | Medium ot advanced
+Difficulty | Very Easy | Medium to Advanced
 Style | Drag-and-Drop blocks | Type coding
 PC use | Only to code but runs standalone | PC is needed to execute
 Libraries | MicroBlocks libs | DUELink standard libs
-Popularity | Mostly School | Global use
+Popularity | Mostly Schools | Global Use
 
 ---
 
 ## MicroBlocks
 
 Why should you use MicroBlocks:
-1. Easy to start
-2. Easy to Learn
+1. Easy to start.
+2. Easy to learn.
 3. Runs right on the hardware. Programs continue to run even if the computer was disconnected.
-4. Any changes on the designer surface show immediately on the device
+4. Any changes on the designer surface show immediately on the device.
 
 
 <div style={{ textAlign: 'center'}}>
@@ -42,13 +42,13 @@ Before we get started, visit the [Getting Started](../start) page to blink the S
 ![MicroBlocks](pathname:///img/mb-blink-led-loop.png)
 </div>
 
-The [MicroBlocks](../language/microblocks) page has full details if necessary.
+The [MicroBlocks'](../language/microblocks) page has full details if necessary.
 
 ---
 
 ### Libraries
 
-When MicroBlocks detects DueSTEM, an Edu focused-board, it automatically adds the `DUELink Edu` library. You can add it manually as well. It will also add the `Tiny OLED` library to help with display plus `Tone` for making sounds.
+When MicroBlocks detects DueSTEM, an Edu focused-board, it automatically adds the `DUELink Edu` library. You can add it manually as well. It will also add the `Tiny OLED` library to help with display, plus `Tone` for making sounds.
 
 ---
 
@@ -58,22 +58,22 @@ There are four inputs. All inputs are directly supported by the `DUELink Edu` li
 
 Function | DUELink Edu block | Notes
 --- | --- | ---
-Accelerometer | `DueSTEM tilt` | Pick y,y,z to read acceleration in one of the axis.
+Accelerometer | `DueSTEM tilt` | Pick x,y,z to read acceleration in one of the axis.
 Temperature | `DueSTEM Temperature (x10)` | Read temperature in celsius, multiplied by 10, 245 is 24.5 degrees. 
-Light | due light level (0-1000) | Read the ambient light intensity in teh range of 0 to 1000, where 0 is very dark and 1000 is super bright.
+Light | `due light level (0-1000)` | Read the ambient light intensity in the range of 0 to 1000, where 0 is very dark and 1000 is super bright.
 Buttons | `DueSTEM [left] button` | Returns the press status of one of the four buttons.
 
 ---
 
 ### Process
 
-This is where the "brain" needs to make some decisions. You will be using a lot of blocks from under the `Control` palette, such as `if`. This conditional block will also needs some of the `Operators` blocks.
+This is where the "brain" needs to make some decisions. You will be using a lot of blocks from under the `Control` palette, such as `if`. This conditional block will also need some of the `Operators` blocks.
 
 ---
 
 ### Output
 
-The four outputs are also supported by libraries. The multicolor lightbulb is controlled by `DueSTEM bulb` block. It uses the three primary RGB colors to make up any desired color.
+The four outputs are also supported by libraries. The multicolor lightbulb is controlled by the `DueSTEM bulb` block. It uses the three primary RGB colors to make up any desired color.
 
 ---
 
@@ -94,10 +94,10 @@ These samples show some DueSTEM uses.
 
 DueSTEM also includes a [Downlink](../interface/downlink) connector for [Daisylinking](../engine/daisylink) other modules. A special library, called `DUELink Daisylink` is used to send commands to connected modules. The product pages of these connected modules include a `Driver` tab that shows what commands (functions) are provided by that individual module.
 
-In this example, we will control a [Snowy](../products/spsnowy-a), a smart snowflake!
+In this example, we will control [Snowy](../products/spsnowy-a), a smart snowflake!
 
 :::tip
-The Snowy module, or any other Daisylinked module, must be loaded with the official DUELink firmware. The MicroBlocks firmware is only loaded on DueSTEM.
+The Snowy module, or any other Daisylinked module, must be loaded with the official DUELink firmware. The MicroBlocks' firmware is only loaded on DueSTEM.
 :::
 
 [![video](https://img.youtube.com/vi/HAfcLdrLvSc/1.jpg)](https://www.youtube.com/watch?v=HAfcLdrLvSc) 
