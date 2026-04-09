@@ -1747,7 +1747,7 @@
       "category": "Adapter",
       "price": 4.95,
       "tagline": "Turn any MikroBUS Host into a DUELink Host",
-      "description": "Add [Downlink](/docs/interface/downlink) connector to any SBC that has a [mikro BUS](https://www.mikroe.com/mikrobus) socket. You get two options, UART or I2C.",
+      "description": "Add [Downlink](/docs/interface/downlink) connector to any SBC that has a [MikroBUS](https://www.mikroe.com/mikrobus) socket. You get two options, UART or I2C.",
       "keyFeatures": [
         "Two options: I2C & UART",
         "25x28mm Overall Dimension"

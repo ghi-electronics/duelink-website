@@ -104,9 +104,54 @@ The Snowy module, or any other Daisylinked module, must be loaded with the offic
 
 Load the [Snowy Daisylink](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-duestem/refs/heads/main/code/disylink-snowy.ubp) project to see how it works.
 
-
-
----
 ---
 
 ## Python
+
+DueSTEM's inputs and outputs are a great showcase of how Python can access the physical world.
+
+Before we get started, visit the [Getting Started](../start) page to learn how to blink the STAT LED using Python.
+
+By now, you should know how to start the DUELink controller in Python to control hardware, `duelink = DUELinkController(availablePort)`.
+
+You now have 2 options to control DuesTEM's elements. You could use the provided Driver Script, which is the easier approach. There is a tab on [DueSTEM Product page](../products/mcduestem-b) for the `Driver` API. For examples, there is `Light()` driver function that returns the light level.
+
+That function can then be wrapped in Python.
+
+```py
+def GetLight():
+    ret = int(duelink.Engine.ExecuteCommand("Light()"))
+    return ret
+
+light = GetLight()
+```
+
+But wait, we have already made these wrappers! The `Tethered Sample` for Python tab on [DueSTEM Product page](../products/mcduestem-b). It has all wrappers and a loop to get you started.
+
+The second option for controlling elements is by accessing the pins directly using the [standard library](../engine/stdlib). This option requires more understanding of the hardware but gives you further control. To start, you can use the `Driver` code and the schematics to help you in understanding what libraries or pins/functions are being used.
+
+Let's use for example use `Sweep()` instead of `Beep()` to make laser sounds! From the driver's "beep" function, we can see that it uses pin 3 to play sounds.
+
+```py
+# An example function from the driver script
+fn Tunes(f,d)
+    Beep(3, f, d)
+fend
+```
+
+The python program can now use pin 3 to make the laser sound! We do so by sweeping frequency from 8Khz to 4Khz with, volume going from 200 to 20, over 200ms. Now, repeat that 3 times and we have a sound effect!
+
+```py
+def Laser():
+    duelink.Sound.Sweep(3,8000,4000,200,20,200)
+    duelink.Sound.Sweep(3,8000,4000,200,20,200)
+    duelink.Sound.Sweep(3,8000,4000,200,20,200)
+
+Laser()
+```
+
+From here, you can extend any Python project with a physical-element reach. Visit the [Projects](../projects) page and filter Python for some ideas. Maybe you want to set the light bulb green when your favorite stock goes up. Or, perhaps make some sounds and show a message on the display a build fails!
+
+:::tip
+This page is about DueSTEM but don't forget that each product page includes Python demo as well.
+:::
