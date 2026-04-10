@@ -39,6 +39,8 @@ const sidebars = {
       items: [
         "tutorial/ghizzy",
         "tutorial/duestem",
+        "tutorial/cincobit",
+        "tutorial/essentials-kit",
       ],
     },
     {
