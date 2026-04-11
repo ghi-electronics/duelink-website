@@ -32,10 +32,10 @@ const sidebars = {
         "educators",
       ],
     },
-    "start",
     {
       type: "category",
-      label: "Tutorials",
+      label: "Getting Started",
+      link: { type: "doc", id: "start" },
       items: [
         "tutorial/ghizzy",
         "tutorial/duestem",

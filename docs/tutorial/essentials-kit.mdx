@@ -1,10 +1,5 @@
 # Essentials Kit Tutorial
 
-
-:::warning
-This page is under construction!
-:::
-
 <div style={{ textAlign: 'center'}}>
 ![essentials kit](pathname:///img/catalog/ktessen-a-1.webp)
 </div>
@@ -28,6 +23,10 @@ You can now visit the [Getting Started](../start) page to see how to blink STAT 
 
 Controlling other modules is as simple, you just need to select which module you are talking to.
 
+<div style={{ textAlign: 'center'}}>
+![usb hook with modules](pathname:///img/usbhook-daisylinked.webp)
+</div>
+
 ```py
 # Blink the Status LED fast on device 1, 10 times
 duelink.Engine.Select(1)
@@ -38,7 +37,7 @@ duelink.Engine.Select(2)
 duelink.System.StatLed(400,400,50)
 ```
 
-`Statled()` is a [standard library](../engine/stdlib) function. This means this is a generic function that is found on all modules. Also, each module has a [Driver script](../engine/drivers) that simplifies tasks. For example, when using an accelerometer, the driver may provide `AccelX()` function that provides that functionality. This eliminates the need for the user to know about the accelerometer's internals.
+`Statled()` is a [standard library](../engine/stdlib) function, meaning this is a standard function that is found on all modules. Also, each module has a [Driver script](../engine/drivers) that simplifies tasks. For example, when using an accelerometer, the driver may provide `AccelX()` function that provides that functionality. This eliminates the need for the user to know about the accelerometer's internals.
 
 Each module's page includes a tab for the `Driver` API. For examples, there is `Light()` driver function that returns the ambient light level.
 
@@ -54,7 +53,15 @@ light = GetLight()
 ```
 Note how we have added `SelectDevice()` at the very beginning. This is optional when using one device, but neede dwhen using multiple modules and the system needs to know what module will be selected for the next command.
 
-The `Tethered Sample Python tab` on [Essentials Kit Product page](../products/ktessen-a) has a full example to get you started.
+The `PC Tethered Python Sample tab` on [Essentials Kit Product page](../products/ktessen-a) has a full example to get you started. Here it is here to help you out:
+
+<details>
+  <summary>PC Tethered Python Sample (click for code!)</summary>
+```py reference title="PC Tethered Python Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/tethered/gdl-ktessen-a.py
+```
+</details>
+
 
 ---
 
@@ -66,6 +73,10 @@ You can now visit the [Getting Started](../start) page to see how to blink STAT 
 
 Controlling other modules is as simple, you just need to select which module you are talking to.
 
+<div style={{ textAlign: 'center'}}>
+![arduino with modules](pathname:///img/arduino-uno-r4-daisylinked.webp)
+</div>
+
 ```cpp
 // Blink the Status LED fast on device 1, 10 times
 duelink.Engine.Select(1)
@@ -76,8 +87,15 @@ duelink.Engine.Select(2)
 duelink.System.StatLed(400,400,50)
 ```
 
-`Statled()` is a [standard library](../engine/stdlib) function. This means this is a generic function that is found on all modules. Also, each module has a [Driver script](../engine/drivers) that simplifies tasks. For example, when using an accelerometer, the driver may provide `AccelX()` function that provides that functionality. This eliminates the need for the user to know about the accelerometer's internals.
+`Statled()` is a [standard library](../engine/stdlib) function, meaning this is a standard function that is found on all modules. Also, each module has a [Driver script](../engine/drivers) that simplifies tasks. For example, when using an accelerometer, the driver may provide `AccelX()` function that provides that functionality. This eliminates the need for the user to know about the accelerometer's internals.
 
 Each module's page includes a tab for the `Driver` API. For examples, there is `Light()` driver function that returns the ambient light level.
 
-The `Tethered Sample Arduino tab` on [Essentials Kit Product page](../products/ktessen-a) has a full example to get you started.
+The `Tethered Sample Arduino tab` on [Essentials Kit Product page](../products/ktessen-a) has a full example to get you started. Here it is here to help you out:
+
+<details>
+  <summary>Arduino Tethered Sample (click for code!)</summary>
+```py reference title="Arduino Tethered Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/tethered/gdl-ktessen-a.ino
+```
+</details>
