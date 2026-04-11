@@ -1,10 +1,5 @@
 # DueSTEM Tutorial
 
-
-:::warning
-This page is under construction!
-:::
-
 DueSTEM's `Input` → `Process` → `Output` mindset shines among [Educators](../educators). You will quickly see how systems take inputs, process that input, to then take action on the outputs. 
 
 <div style={{ textAlign: 'center'}}>
@@ -83,10 +78,10 @@ These samples show some DueSTEM uses.
 
 📽 Video | Project Link | Functionality
 --- | --- | ---
-[![video](https://img.youtube.com/vi/frgzxFz_6Q4/1.jpg)](https://www.youtube.com/watch?v=frgzxFz_6Q4) | [Default Project Demo](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-duestem/refs/heads/main/code/demo.ubp) | This is the default demo. Use buttons to move the spaceship left and right and up to shoot. Light and temperature show on the display. Use down to move a servo.
-[![video](https://img.youtube.com/vi/z1U3ILlUyvE/1.jpg)](https://www.youtube.com/watch?v=z1U3ILlUyvE) | [Feed Me!](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-duestem/refs/heads/main/code/feed-me.ubp) | This demo uses the on-board accelerometer. You have 10 seconds to eat as many fruits as you can!
-[![video](https://img.youtube.com/vi/wRhcOToc0Rw/1.jpg)](https://www.youtube.com/watch?v=wRhcOToc0Rw)| [Hearing Test](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-duestem/refs/heads/main/code/hearing-test.ubp) | How good is your hearing? Hold the right button and see how far you can go.
-[![video](https://img.youtube.com/vi/60L_xUhZyOE/1.jpg)](https://www.youtube.com/watch?v=60L_xUhZyOE) | [Color Selector](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-duestem/refs/heads/main/code/color-selector.ubp) | What is your favorite color? Use the left button to pick one of the three primary colors (Red/Green/Blue) then use up and down to change the levels.
+[![video](https://img.youtube.com/vi/frgzxFz_6Q4/1.jpg)](https://www.youtube.com/watch?v=frgzxFz_6Q4) | [Default Project Demo](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/duestem-demo.ubp) | This is the default demo. Use buttons to move the spaceship left and right and up to shoot. Light and temperature show on the display. Use down to move a servo.
+[![video](https://img.youtube.com/vi/z1U3ILlUyvE/1.jpg)](https://www.youtube.com/watch?v=z1U3ILlUyvE) | [Feed Me!](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/duestem-feed-me.ubp) | This demo uses the on-board accelerometer. You have 10 seconds to eat as many fruits as you can!
+[![video](https://img.youtube.com/vi/wRhcOToc0Rw/1.jpg)](https://www.youtube.com/watch?v=wRhcOToc0Rw)| [Hearing Test](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/duestem-hearing-test.ubp) | How good is your hearing? Hold the right button and see how far you can go.
+[![video](https://img.youtube.com/vi/60L_xUhZyOE/1.jpg)](https://www.youtube.com/watch?v=60L_xUhZyOE) | [Color Selector](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/duestem-color-selector.ubp) | What is your favorite color? Use the left button to pick one of the three primary colors (Red/Green/Blue) then use up and down to change the levels.
 
 ---
 
@@ -102,7 +97,7 @@ The Snowy module, or any other Daisylinked module, must be loaded with the offic
 
 [![video](https://img.youtube.com/vi/HAfcLdrLvSc/1.jpg)](https://www.youtube.com/watch?v=HAfcLdrLvSc) 
 
-Load the [Snowy Daisylink](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-duestem/refs/heads/main/code/disylink-snowy.ubp) project to see how it works.
+Load the [Snowy Daisylink](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/duestem-disylink-snowy.ubp) project to see how it works.
 
 ---
 
@@ -114,7 +109,7 @@ Before we get started, visit the [Getting Started](../start) page to learn how t
 
 By now, you should know how to start the DUELink controller in Python to control hardware, `duelink = DUELinkController(availablePort)`.
 
-You now have 2 options to control DuesTEM's elements. You could use the provided Driver Script, which is the easier approach. There is a tab on [DueSTEM Product page](../products/mcduestem-b) for the `Driver` API. For examples, there is `Light()` driver function that returns the light level.
+You now have 2 options to control DueSTEM's elements. You could use the provided Driver Script, which is the easier approach. There is a tab on [DueSTEM Product page](../products/mcduestem-b) for the `Driver` API. For examples, there is `Light()` driver function that returns the light level.
 
 That function can then be wrapped in Python.
 
@@ -126,7 +121,14 @@ def GetLight():
 light = GetLight()
 ```
 
-But wait, we have already made these wrappers! The `Tethered Sample` for Python tab on [DueSTEM Product page](../products/mcduestem-b). It has all wrappers and a loop to get you started.
+But wait, we have already made these wrappers! The `Tethered Sample` for Python tab on [DueSTEM Product page](../products/mcduestem-b) has all wrappers and a loop to get you started. Here it is here to help you out:
+
+<details>
+  <summary>PC Tethered Python Sample (click for code!)</summary>
+```py reference title="Python Tethered Sample"
+https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/tethered/gdl-mcduestem-b.py
+```
+</details>
 
 The second option for controlling elements is by accessing the pins directly using the [standard library](../engine/stdlib). This option requires more understanding of the hardware but gives you further control. To start, you can use the `Driver` code and the schematics to help you in understanding what libraries or pins/functions are being used.
 
@@ -153,5 +155,5 @@ Laser()
 From here, you can extend any Python project with a physical-element reach. Visit the [Projects](../projects) page and filter Python for some ideas. Maybe you want to set the light bulb green when your favorite stock goes up. Or, perhaps make some sounds and show a message on the display a build fails!
 
 :::tip
-This page is about DueSTEM but don't forget that each product page includes Python demo as well.
+This page is about DueSTEM but don't forget that each product page includes a Python demo as well.
 :::
