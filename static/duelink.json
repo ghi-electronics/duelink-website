@@ -1141,7 +1141,7 @@
       "category": "Wireless",
       "price": 19.95,
       "tagline": "RFID Tag and Card Reader",
-      "description": "Read RFID (Radio-Frequency IDentification) unique IDs from tags and access cards. The module includes tags, but any other standard tags should work.",
+      "description": "Read RFID (Radio-Frequency IDentification) unique IDs from tags and access cards. The module includes tags, but any other standard tags should work.\n <div style={{ textAlign: 'center'}}>![Included RFID Tags](pathname:///img/catalog/wlrfid-b-included.webp)</div>",
       "keyFeatures": [
         "RFID reader",
         "Tags and Cards",
