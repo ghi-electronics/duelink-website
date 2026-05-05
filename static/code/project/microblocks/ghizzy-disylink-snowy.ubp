@@ -4,15 +4,20 @@ version 1 0
 description ''
 variables index 
 
-script 664 414 {
+script 169 40 {
 whenStarted
+due_ghizzy_set_mouth true true true
 index = 1
 due_select_device 1
 forever {
   comment 'driver API https://www.duelink.com/docs/products/spsnowy-a?show=driver'
   due_run (due_make_command 'setled' index 1)
+  due_ghizzy_set_eye 'Left' (colorSwatch 255 0 0 255)
+  due_ghizzy_set_eye 'Right' (colorSwatch 0 0 0 255)
   waitMillis 50
   due_run (due_make_command 'setled' index 0)
+  due_ghizzy_set_eye 'Left' (colorSwatch 0 0 0 255)
+  due_ghizzy_set_eye 'Right' (colorSwatch 255 0 0 255)
   waitMillis 50
   index += 1
   if (index == 7) {
@@ -401,11 +406,12 @@ when one wants to force different behavior from the default
 
 module 'DUELink Edu'
 author MicroBlocks
-version 1 10 
+version 1 12 
 choices dueSTEM_pianoPad left right C 'C#' D 'D#' E F 'F#' G 'G#' A 'A#' B 'High C' 
 choices dueSTEM_clipItPad A B left right up down 
 choices dueSTEM_buttonName left right up down 
 choices dueSTEM_axis x y z 
+choices dueSTEM_timeComponent 'time (H:M:S)' 'date (Y-M-D)' second minute hour day month year 'day of week' 
 description 'Library for DUELink Educational boards: CincoBit, PixoBit, ClipIt, and DueSTEM.
 
 The "due PID" works on all DUELink boards.
@@ -429,6 +435,12 @@ variables dueSTEM_accelAddr dueSTEM_touchAdjustments
   spec 'r' 'dueSTEM_button' 'DueSTEM _ button' 'menu.dueSTEM_buttonName' 'left'
   spec 'r' 'dueSTEM_tilt' 'DueSTEM tilt _' 'menu.dueSTEM_axis' 'x'
   spec 'r' 'dueSTEM_temperature' 'DueSTEM temperature (x10)'
+  space
+  spec 'r' 'dueSTEM_getTimeOrDate' 'due clock _' 'menu.dueSTEM_timeComponent' 'time (H:M:S)'
+  spec ' ' 'dueSTEM_setTime' 'due set hours _ minutes _ seconds _' 'num num num' 9 30 0
+  spec ' ' 'dueSTEM_setDate' 'due set year _ month _ day _ weekday _' 'num num num num' 2025 1 1 1
+  advanced
+  spec ' ' 'dueSTEM_shutdown' 'low power shutdown'
   space
   spec ' ' '_dueSTEM_accelInit' '_dueSTEM_accelInit'
   spec 'r' '_dueSTEM_accelRead16BitReg' '_dueSTEM_accelRead16BitReg _' 'auto' 13
@@ -561,6 +573,29 @@ to dueSTEM_clipitPadPin padName {
   return 10
 }
 
+to dueSTEM_getTimeOrDate what {
+  local 'timeArray' ('[misc:dueGetTime]')
+  if ('time (H:M:S)' == what) {
+    return ('[data:join]' (at 5 timeArray) ':' (at 6 timeArray) ':' (at 7 timeArray))
+  } ('date (Y-M-D)' == what) {
+    return ('[data:join]' (at 1 timeArray) ':' (at 2 timeArray) ':' (at 3 timeArray))
+  } ('year' == what) {
+    return (at 1 timeArray)
+  } ('month' == what) {
+    return (at 2 timeArray)
+  } ('day' == what) {
+    return (at 3 timeArray)
+  } ('day of week' == what) {
+    return (at 4 timeArray)
+  } ('hour' == what) {
+    return (at 5 timeArray)
+  } ('minute' == what) {
+    return (at 6 timeArray)
+  } ('second' == what) {
+    return (at 7 timeArray)
+  }
+}
+
 to dueSTEM_light {
   return (minimum ('[display:lightLevel]') 1000)
 }
@@ -600,11 +635,30 @@ to dueSTEM_pianoPadPin padName {
   return 23
 }
 
+to dueSTEM_setDate year month day dayOfWeek {
+  '[misc:dueSetDate]' year month day dayOfWeek
+}
+
 to dueSTEM_setLED r g b {
   if ((boardType) != 'DueSTEM') {return 0}
   analogWriteOp 11 r
   analogWriteOp 4 g
   analogWriteOp 2 b
+}
+
+to dueSTEM_setTime hour minute second {
+  '[misc:dueSetTime]' hour minute second
+}
+
+to dueSTEM_shutdown {
+  comment 'Enter low-power sleep mode. Can be awoken by a low-to-high
+transition on P1 (PA0) or P3 (PA4). On DUELink boards with edge
+connectors those are the alligator clip holes marked P0 and P2.'
+  comment 'Note: Low power mode cannot be entered for the first five seconds
+after reset or power up The ensure that the IDE can connect to the
+board even if this function is called by a "when started" block.'
+  waitUntil ((secsOp) > 5)
+  '[misc:dueSleep]'
 }
 
 to dueSTEM_temperature {
@@ -662,6 +716,98 @@ about 16 milliseconds total on an otherwise idle DUELink board.'
       }
     }
   }
+}
+
+
+module 'DUELink Ghizzy'
+author GHIElectronics
+version 1 0 
+depends Tone 
+choices ghizzy_eye Left Right Both 
+description 'DUELink Ghizzy Library
+
+'
+variables _due_ghizzy_enabled _due_ghizzy_oldver 
+
+  spec ' ' 'due_ghizzy_set_eye' 'set _ eye to _' 'menu.ghizzy_eye color' 'Both'
+  spec ' ' 'due_ghizzy_set_ear' 'set ear left _ right _' 'bool bool' true true
+  spec ' ' 'due_ghizzy_set_mouth' 'set mouth left _ center _ right _' 'bool bool bool' true true true
+  spec ' ' 'due_ghizzy_beep' 'play beep'
+  spec 'r' 'due_ghizzy_button' 'button pressed'
+  space
+  spec ' ' '_due_ghizzy_initialize' 'Initialize'
+
+to '_due_ghizzy_initialize' {
+  if (_due_ghizzy_enabled == 0) {
+    _due_ghizzy_enabled = 1
+    _due_ghizzy_oldver = (digitalReadOp 10 'up')
+    'attach buzzer to pin' 3
+  }
+}
+
+to due_ghizzy_beep {
+  '_due_ghizzy_initialize'
+  'play frequency' 1000 100
+}
+
+to due_ghizzy_button {
+  return ('[data:convertType]' (digitalReadOp 20 'down') 'boolean')
+}
+
+to due_ghizzy_set_ear left right {
+  if _due_ghizzy_oldver {
+    if (left == (booleanConstant true)) {
+      digitalWriteOp 12 true
+    } else {
+      digitalWriteOp 12 false
+    }
+    if (right == (booleanConstant true)) {
+      digitalWriteOp 13 true
+    } else {
+      digitalWriteOp 13 false
+    }
+  } else {
+    if (left == (booleanConstant true)) {
+      digitalWriteOp 2 true
+    } else {
+      digitalWriteOp 2 false
+    }
+    if (right == (booleanConstant true)) {
+      digitalWriteOp 7 true
+    } else {
+      digitalWriteOp 7 false
+    }
+  }
+}
+
+to due_ghizzy_set_eye eye color {
+  if (or (eye == 'Right') (eye == 'Both')) {if _due_ghizzy_oldver {
+    analogWriteOp 5 ('[misc:rescale]' ((color >> 16) & 255) 0 255 0 1023)
+    analogWriteOp 6 ('[misc:rescale]' ((color >> 8) & 255) 0 255 0 1023)
+    analogWriteOp 4 ('[misc:rescale]' ((color >> 0) & 255) 0 255 0 1023)
+  } else {
+    analogWriteOp 8 ('[misc:rescale]' ((color >> 8) & 255) 0 255 0 1023)
+    analogWriteOp 5 ('[misc:rescale]' ((color >> 0) & 255) 0 255 0 1023)
+    analogWriteOp 6 ('[misc:rescale]' ((color >> 16) & 255) 0 255 0 1023)
+  }}
+  if (or (eye == 'Left') (eye == 'Both')) {
+    '_due_ghizzy_initialize'
+    if _due_ghizzy_oldver {
+      analogWriteOp 8 ('[misc:rescale]' ((color >> 16) & 255) 0 255 0 1023)
+      analogWriteOp 7 ('[misc:rescale]' ((color >> 0) & 255) 0 255 0 1023)
+      analogWriteOp 9 ('[misc:rescale]' ((color >> 8) & 255) 0 255 0 1023)
+    } else {
+      analogWriteOp 1 ('[misc:rescale]' ((color >> 8) & 255) 0 255 0 1023)
+      analogWriteOp 11 ('[misc:rescale]' ((color >> 0) & 255) 0 255 0 1023)
+      analogWriteOp 4 ('[misc:rescale]' ((color >> 16) & 255) 0 255 0 1023)
+    }
+  }
+}
+
+to due_ghizzy_set_mouth left center right {
+  digitalWriteOp 14 left
+  digitalWriteOp 15 center
+  digitalWriteOp 16 right
 }
 
 
