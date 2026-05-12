@@ -216,7 +216,7 @@
       "category": "Specialty",
       "price": 9.95,
       "tagline": "Robot-shaped Microcomputer",
-      "description": "Tiny robot-shaped circuits with LEDs, buzzer, and buttons.\n\nEverything you need to get started is found at: [ghizzy.duelink.com](https://ghizzy.duelink.com/)\n\n:::note\n\n The \"legs\" are not a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::",
+      "description": "Tiny robot-shaped circuits with LEDs, buzzer, and buttons.\n\nEverything you need to get started is found on [this tutorial](../tutorial/ghizzy)\n\n:::note\n\n The \"legs\" are not a standard USB connector but a printed circuit. This works great on 99% of devices with a possible rare failure.\n\n:::",
       "keyFeatures": [
         "2x RGB LEDs",
         "2x ear & 3x mouth LEDs",
