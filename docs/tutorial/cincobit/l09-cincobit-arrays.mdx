@@ -1,3 +1,411 @@
-# L9: Arrays
+# L9: Arrays and Lists
 
+## Overview
 
+In this lesson, students will learn how computers store multiple values using **lists** (also called arrays in programming).
+
+Instead of storing just one value in a variable, a list can store many values such as:
+
+* words
+* numbers
+* names
+* game items
+
+In MicroBlocks, arrays are called **lists**.
+
+Students will use lists to build a simple **Charades game**, where a random word is selected and displayed.
+
+They will also learn how to use a **for loop** to go through every item in a list.
+
+---
+
+# Learning Goals
+
+Students will:
+
+* understand what a list (array) is
+* create and use lists in MicroBlocks
+* store multiple words in one list
+* use random numbers to pick items
+* build a simple Charades game
+* use a `for each item` loop to iterate through a list
+
+---
+
+# Time Required
+
+45–60 minutes
+
+---
+
+# Materials
+
+* CincoBit or [PixoBit](https://www.duelink.com?utm_source=chatgpt.com)
+* USB cable
+* Computer or Chromebook
+* [MicroBlocks](https://microblocks.fun?utm_source=chatgpt.com)
+
+---
+
+# Teacher Notes
+
+This lesson introduces one of the most important data structures in programming:
+
+> Lists (Arrays)
+
+Students should understand:
+
+* variables store single values
+* lists store multiple values
+* lists are used in games, apps, and real systems
+* random selection is commonly used in games
+
+This lesson also introduces:
+
+* simple game logic
+* iteration over collections
+* basic randomness
+
+---
+
+# What is a List (Array)?
+
+A list is a collection of items stored together.
+
+Instead of:
+
+* word1 = “cat”
+* word2 = “dog”
+* word3 = “pizza”
+
+We use one list:
+
+```text id="l1"
+["cat", "dog", "pizza"]
+```
+
+In programming, this is called:
+
+> an array
+
+In MicroBlocks, it is called:
+
+> a list
+
+---
+
+# Why Use Lists?
+
+Lists help programmers:
+
+* organize data
+* store multiple items
+* simplify code
+* build games and apps
+
+Examples in real life:
+
+* shopping lists
+* contacts on a phone
+* game inventories
+* playlists in music apps
+
+---
+
+# Step 1 — Create a Charades List
+
+Create a list called:
+
+```text id="w1"
+words
+```
+
+Add items like:
+
+* cat
+* airplane
+* pizza
+* robot
+* elephant
+
+Example list:
+
+```text id="w2"
+words = ["cat", "airplane", "pizza", "robot", "elephant"]
+```
+
+---
+
+# Step 2 — Random Word Selection
+
+To build a Charades game, we randomly pick a word.
+
+Steps:
+
+1. Get the length of the list
+2. Generate a random number
+3. Use that number to select a word
+
+Example idea:
+
+* random number between 1 and list length
+
+Then display:
+
+```text id="w3"
+say words[random]
+```
+
+This shows a random word each time.
+
+---
+
+# Charades Game Idea
+
+When the program runs:
+
+* a random word appears
+* student acts it out
+* classmates guess it
+
+Press button again to:
+
+* generate a new word
+
+This creates a simple interactive game.
+
+---
+
+# Step 3 — Understanding Indexing
+
+Lists store items in order.
+
+Example:
+
+| Position | Word     |
+| -------- | -------- |
+| 1        | cat      |
+| 2        | airplane |
+| 3        | pizza    |
+| 4        | robot    |
+| 5        | elephant |
+
+The position number is called an:
+
+> index
+
+Programs use index numbers to access items.
+
+---
+
+# Step 4 — Using a For Loop
+
+A `for each item` loop allows us to go through every item in a list.
+
+Example:
+
+```text id="l2"
+for each word in words
+```
+
+This means:
+
+* take each item one at a time
+* run the code for each item
+
+---
+
+# What the Loop Does
+
+For the list:
+
+```text id="l3"
+["cat", "airplane", "pizza"]
+```
+
+The loop runs like this:
+
+1. cat
+2. airplane
+3. pizza
+
+Each item is processed one by one.
+
+---
+
+# Step 5 — Display All Words
+
+Use a loop to:
+
+* show each word
+* or scroll them on the display
+* or play a sound for each item
+
+Example behavior:
+
+* “cat”
+* wait
+* “airplane”
+* wait
+* “pizza”
+
+This helps students understand iteration over data.
+
+---
+
+# CincoBit Version
+
+Students can:
+
+* display words on LED matrix
+* scroll text
+* show symbols for each item
+* use buttons to trigger random selection
+
+Ideas:
+
+* simple guessing game
+* word flash card system
+* mini quiz generator
+
+![Image](https://images.openai.com/static-rsc-4/lIhzYWokic0VN3g78hFDu-E7YVaMyvQYrMGe35cyIC_z6O8Tq1uDohco9MEDm_WTJOFLwRbRHbIABuGltEGTVxAY6z78s3wUca-qo5ghnwYnzbGJxcTG3Ub-wBu_oz9oifWMgnSKZHqx9yUyN8AgOIuTvJTCGRdUmVA3cfa7SWWeK2hrHikhTicbStY1GN1K?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/iauoUx0tjCVM4xywKhM8D-8yVVkFoB0_214S1pQCrhcYU6EHZa_nVujQCFzyt0TL5kxX5x0heM0uXhpOHzpFH-Yjoy_2vIc3S9MUQQ5WpFrN8R6SLP1J1pLrguq-9JN158YjcXI1hlmf6sAS_kgzbHepKLIsS2iaLfBXDNj6kLeTd0NZsac7zbXwOqGPLHP-?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/vMXTkkAGtYN3p6Ma_RN7ys8T0UnbCLml3t_08MyCUdwZFA3zKWP3fYKaBk3pw6B9pEiySquoW41CPQyhWofYcMBDxlQEZcZ48qyjiQHgZ2v9aFyq1p9ZdmbqF70Y5ZrP8t0sQ5HcxUYaulesAJTOKc4DEB-Q18NiY1pAew_0X8UJhVVTpfyc0LghDRDioR0z?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/Yg4ABFPDvDiECPDCoedLC9jpeqABPRB49xUwCR_8et0hb7FCaKRygAL6PMMz2YSJgaS6GGvzxOh0xLht6LnZHkUzf085o7U8_V29lVKtSzPJpZui8JfoRkToPG5vfsJ7lmd1-pERaqOOD4Ialw1CMYd_tE6RqWuuvQiKzITenV_d0vWHFIn3lBP6GDMEfO2U?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/LICC6m6-7fCB40myk4n3NNz53rZUselr2iJouP8rZnVeTrWrLPOCLNoamQsaIp6dOv2TkaCb-QsGVusI1UoEBP3YaDZp2XYvg_3kQibiYV3B8PEvxJVs8RGbG_AVL6GCMAxG-_tJuS3w3ldLQvjZJSYSR41mG_XF7bue3an67RNyRplKyAMsBBLhLMdRz5vo?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/PKoo9e0twPQt_ZAlS08X-zIIo-wKpDboXSKKOyDXutEHQKjZIuRSMTwBTbdDW_2IRMn0ggWXhz5w4a-KRFAhuUxdQT73xeiOXK92dteSEn9sJbUVda1rsm7TDwBU3d3faXf9_0OhPy15mEE7wFyemt9M-hoRxHDEsorBiK0uSE7Ut5kAjSP5yEuGN0XM0O7x?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/LHHR9lxovy2PXsveeUZHHhXnTIKIfn-IP8yslmvXj9s6edewff114mgVADVLEV8naVg_sCqUXO1fEc5I78YLcT_XqbO9wCSnkN4iyhSn8qirqHyIrMcbWcw5Dct-x-t3WbsQNIVqAHAU7Q6NUp3-vgarWz9EMKD-sPT5ZNm84gM9Xe8PhvhZVOs5mymbnVaw?purpose=fullsize)
+
+---
+
+# PixoBit Alternative
+
+Students can:
+
+* display full words clearly
+* animate transitions between words
+* show themed graphics for each word
+
+Ideas:
+
+* animated charades prompts
+* category-based word games
+* visual guessing game
+
+![Image](https://images.openai.com/static-rsc-4/qisKHYPU02hm-NyMOFI6E1XAha8ce-IPv1drri92R_MpuKUvk7rYAb7pVwZWSN2LVNSKbJxHvdP8-pKS6BhKJNOu3Ou8nKPrL7_LR6k0ma0BWJWeKDmaf_77ta9CGOzRbxvafnAJd5P89elOkK7p8VdX5_pMKsUIjmpoFbMAxTeA3-oYZo1BJ3CwUBY6qo6v?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/x4sIU48Ge-ysHjctuKMx6UbaLnh7ifFUepoMi_ySLevElGAAJ9YhThj4Qfi0VlDjx9K_hj7oQY2rmZT_6xNCYAiEYIg4xbuuUgL_inPw3HdIPhanK6MFgW8QBYHtkz16qzpM8dbsFT5pQBq0epS5Xz-GS0YraYEKgrlzI7WxRp49sRjtLhANaKS-Ird9YIb0?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/SX6_tXwF2no3mgE3cwtu_oIalUvFledwtPlqlqUuVcoPy6vlIUqFZSbPxGq1QzHkmUCkpWAYjQHBElcTSZWpXilOx2Y4v-ShT3p8fpFlPfogTpyEVmNNTtElNXlOR1pj100fF4dkMXchyXxz2CgeqvDvDqFCf8qn-4Kd5oGjg032HQrS1rDxO5Uq7am05-8L?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/AvdoNyQ80JJuGLbM6n4NIl_0pDYE06JFbBV8k9a2bVsQrQfKyGbedxzb1QYhfAtamlMoHHpb3JvGIHdCQdGesZnTG0zXFOU4mrxVmaWvbq1KRRHD4TewKit3LYeIGSe-68oZa9QsBEqUFI0e_pgqKKmraphDFa_RbW0hM2AZoeAv8avwK1wzlztKEvv3_U6e?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/PLimwGi9k3jsUuJ38oz2i9V2CKR1mZSp1HbJVUXSQshQY2l7ShZTJ2p8A8P7aLo74zl32ytTMQ91ucQDYnacP1oq9fHEP4GkUVU-NV-mZupZroXP7aDBk75iPbe4hGFSLN81I1-sFV4uYH5u_Gp6DL8MmX77zV541R4QtnQBY3i9lgT3HZbso83VGwL37r9I?purpose=fullsize)
+
+---
+
+# Understanding Lists in Real Systems
+
+Lists are used everywhere in computing:
+
+Examples:
+
+* music playlists
+* contact lists
+* game inventories
+* web search results
+* recommendation systems
+
+Without lists, modern software would be extremely limited.
+
+---
+
+# Try It
+
+Can you:
+
+* add more words to the list
+* change the game category
+* make words harder or easier
+* display icons instead of words
+
+---
+
+# Challenge
+
+Create:
+
+* a random quiz generator
+* a vocabulary trainer
+* a drawing prompt generator
+* a team name picker
+
+using lists and random selection.
+
+---
+
+# Real-World Connection
+
+Lists (arrays) are one of the most important data structures in computing.
+
+They are used in:
+
+* apps
+* games
+* AI systems
+* databases
+* operating systems
+
+Every modern software system uses lists in some form.
+
+---
+
+# Troubleshooting
+
+## Same word keeps appearing
+
+* verify random range includes full list
+
+## Words do not display
+
+* check list format
+
+## Loop does not run correctly
+
+* verify list connection in for loop
+
+---
+
+# Vocabulary
+
+| Word         | Meaning                        |
+| ------------ | ------------------------------ |
+| List (Array) | Collection of items            |
+| Item         | Single value inside a list     |
+| Index        | Position in a list             |
+| Random       | Unpredictable selection        |
+| Loop         | Repeating structure            |
+| Iteration    | Going through items one by one |
+
+---
+
+# Wrap-Up Question
+
+> Why are lists important in games and apps?
+
+---
+
+# Optional Extension
+
+Try creating:
+
+* a multiplayer charades system
+* category-based word lists
+* timed guessing game
+* scoring system using lists
