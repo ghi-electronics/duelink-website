@@ -1,0 +1,459 @@
+# L4: Conditional
+
+## Overview
+
+In this lesson, students will learn how computers make decisions using conditions.
+
+Programs often need to ask questions such as:
+
+* Is a button pressed?
+* Is a number larger than 5?
+* Is the room too dark?
+* Is a touch pad being touched?
+
+Computers answer these questions using conditions that become either:
+
+* TRUE
+* FALSE
+
+Students will use:
+
+* `if` statements
+* comparison operators
+* variables
+* random numbers
+* touch sensing
+
+to create interactive programs and build a Rock Paper Scissors game.
+
+---
+
+# Learning Goals
+
+Students will:
+
+* understand TRUE and FALSE conditions
+* compare numbers and variables
+* use `if` statements
+* detect touch input on Pin 1
+* generate random numbers
+* build a simple decision-based game
+
+---
+
+# Time Required
+
+30–45 minutes
+
+---
+
+# Materials
+
+* CincoBit or [PixoBit](https://www.duelink.com?utm_source=chatgpt.com)
+* USB cable
+* Computer or Chromebook
+* [MicroBlocks](https://microblocks.fun?utm_source=chatgpt.com)
+
+---
+
+# Teacher Notes
+
+This lesson introduces one of the most important ideas in computer science:
+
+> Computers make decisions by checking conditions.
+
+Students should understand:
+
+* conditions evaluate to TRUE or FALSE
+* programs compare numbers and variables
+* `if` statements only run code when a condition is TRUE
+
+This lesson combines:
+
+* logic
+* variables
+* events
+* touch sensing
+* randomness
+
+into a complete interactive project.
+
+---
+
+# What is a Condition?
+
+A condition is a question that has only two possible answers:
+
+* TRUE
+* FALSE
+
+Examples:
+
+* Is 10 greater than 5?
+* Is the button pressed?
+* Is the score equal to 100?
+
+Programs use these answers to decide what to do.
+
+---
+
+# TRUE and FALSE
+
+Conditions are evaluated by the computer.
+
+Examples:
+
+| Question              | Result |
+| --------------------- | ------ |
+| Is 5 greater than 3?  | TRUE   |
+| Is 2 greater than 10? | FALSE  |
+| Is 7 equal to 7?      | TRUE   |
+| Is 4 less than 1?     | FALSE  |
+
+---
+
+# Comparison Operators
+
+Programs compare numbers and variables using comparison operators.
+
+| Operator | Meaning      |
+| -------- | ------------ |
+| `=`      | equal to     |
+| `>`      | greater than |
+| `<`      | less than    |
+
+Examples:
+
+| Expression         | Result                          |
+| ------------------ | ------------------------------- |
+| `score > 10`       | TRUE if score is larger than 10 |
+| `count = 5`        | TRUE only if count is exactly 5 |
+| `temperature < 20` | TRUE if temperature is below 20 |
+
+---
+
+# Using IF Statements
+
+An `if` statement tells the computer:
+
+> “Only run this code if the condition is TRUE.”
+
+Example:
+
+```text id="5f9u2m"
+if score > 5
+```
+
+If the condition is TRUE:
+
+* code inside the block runs
+
+If the condition is FALSE:
+
+* the code is skipped
+
+---
+
+# Step 1 — Using Variables with Conditions
+
+Create a variable called:
+
+```text id="m8a1tp"
+score
+```
+
+Set the value:
+
+```text id="c4r7vd"
+score = 7
+```
+
+Now check:
+
+```text id="3k2xfs"
+if score > 5
+```
+
+Because 7 is greater than 5:
+
+* the condition becomes TRUE
+* the code inside the `if` block runs
+
+Try changing the value of `score` and observe what happens.
+
+---
+
+# Step 2 — Touch Detection
+
+CincoBit and PixoBit edge pads can detect touch.
+
+Students will use:
+
+* Pin 1
+* touch sensing
+* an `if` statement
+
+to create an interactive response.
+
+Touch sensing also creates TRUE/FALSE conditions.
+
+| Condition         | Result |
+| ----------------- | ------ |
+| Pin 1 touched     | TRUE   |
+| Pin 1 not touched | FALSE  |
+
+---
+
+# CincoBit Activity
+
+If Pin 1 is touched:
+
+* show an image
+* light LEDs
+* play a sound
+
+If not touched:
+
+* clear the display
+* show a different image
+
+![Image](https://images.openai.com/static-rsc-4/bjWIc4TgbRfFfpJG5UTuOtDyPoFyaQ2Mwo0bkazEgHq3J8XQyHKPnyI0SitZoL9b5JPO45krJWEEdkJhULtl0n3QLN_igzH0mwIBGKp08R4uvy1dJBtR9eN5NU5dg40-1HDvLUrjARZpvqvO5wFQKzsUvV2xmRSMruwaUGHnMPSHvBCWsSF_3wEj2rOTwq4V?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/saPiU68QAaou4xb-aC1gEXXhS4ykyS3oLR_KMM5Wacq26oJf2WWoxKb0Z4EoKFVoxEOf4E_HoG62PfBf5FdXxgIM8dd2ZZDjb74JFwUQh7fzTszIbD7lrXDfghFkSYNrSjleTJtrsMcBJcR_FqhPkTikYH1tFZ31yYVhitnL9PQf5gi-SfgjLeyiMlcQW4an?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/qlS1turIKHB26ySs8P7arDd8CD4LNCG2-etfx6mogYTeKIMMT8LWkOEjHxwrMx46mfKLHGO-YkFzUAmp4rIBvcdMfzGcYdIIgMbK5USEkldFwfmPUFW-e2dIsiUbqrWmnrbeC5gTCyWiwrOa2rXwURukYhAGlaKhWt428H9mxT3IP8x0SzNDzOkKMCfzwR9B?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/EmtGJyazJzBzUF_6x69tKnH7yHat2XEfCKnraWfW9vmhYPxy5SuejGL9vX84TDRakocYm2mDOmeRc6D0t0fg2oB46J7jwKnFpRD-bvYWnVNWd4ghQG8FSqQC9LGXF-G-p8gLY5wUjp_IXrGa0y32gkH58sSBhCgt2RqBfhxcOGNyIhztuZvMLGqDeCRipqE2?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/tZ0KvH2WWkj-jz5ujyrFD-79_wRMiPjEXnUUJATeLC_UVTSMkAOe3ZFSyZA1nXH8IYK8EFOxRRbI_WMXURlaZUHT_TCowWw2n8SMfSzjpYnK8zpri6AaIY3mSR9wJFPTC1Ws-DOTmDhG4qdxEnW1AhFD1zjMp9uPEhUCPndemcZybKstoV70WbCn_FU_kfiC?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/XS0WHQqaKzt4YI23SnjiG02PHW5kAHg7_kJq67FuLSFlXrrHrMoDgo-v4278FJz6-e-uu4UkVnboK_miJd186igTxen_2Qe5Fh5jAHYpvGlhisWvtOdQAB5HuT6TNtqt2cVmL71fTgpBsu55_cnSw18OrAyRqieDRoyYi6tj4sK9EXXAdGZOcT9PFN0Oc1vb?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/mA5FefyiyFvlqtQkd_JZTWM8yym8DqQU3UWkTIQfE73PjLgkaWWZWSEywPaJX-gbi2CLVXvMvwhmwhlmvWiJvvazFLke5sjBwrC_ulnNsE4CELNJ4cVi8Xm7Ttj0RKCvrkWNVgUFG7NapN6qxZhUrJxf0_mMKPbpVxz6zmtgsPaP89U-olgyfsf7mPXMhRFd?purpose=fullsize)
+
+---
+
+# PixoBit Alternative
+
+If Pin 1 is touched:
+
+* display text
+* animate graphics
+* show icons
+
+Ideas:
+
+* “Touched!”
+* warning screen
+* animated response
+
+![Image](https://images.openai.com/static-rsc-4/7-XviEmT1FXOja6eCszABa7eeGJ_95geao9NYzWX__yMTbfQTiUZYBo_NoMWir_0banv6KwShv5QwKpOs4JT8lOreN1ikFCZd0967BOC9gWgM8k4dae1AjE3UbCsgUJ9lIq8-Okxb1nClrANO8FRTcN0nPSS9q9qZwX5w2Mt9d7aTk7e3fhJy6_lZq3HhzO6?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/B_WY2ntkdYc3-vpYaxcCjnomafafSixqkebtL6vnrOAR11sDQH9uu-DCp0rzJL3BrgSqNvnWfIhcnE-DfM1YUz2XRkGzacyKqpPqyPZguzUP0oprx1WtqBj59yW1d_O3A6JJRqaUGyBVhFh0PX1wr5Fr6BJe7h3kMMbVpn6tgChapmIPeq5tDVbPR8Wux3o6?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/EgOmtfrqt8sAroC3ZQzTGAinYj7TU2EvsxyYUi5Z7s7s2qTgMN2h7qfMyu6m83mu7wO4V72Zca3fmAni5oOmOoGPwWtHHgfzPJ5Ypt36eH-2b04zcmdSsV1yCY94DvEqzASf4J6B2BFHar7rBn-zh9RGRHu6mx1mI_qAjMQs6EtiktjKmZhHCcbuejGkGTaz?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/3Cm0crDv17-b3Mwf98TUp-yq39F5pW1taBWG425SDW7LzmgyVIj68X0oG5S4QXE_p2YVj5ZitjzSuPGy_T-H707HVhveD-khAnQeBQkJ-g7_dvw5z73AWWXuRazlOKA-rK1yqgDT2p3wRBRI4Zt4K5W0Hi20UIHp5QG4rDVmwVtrDcyvhW18Q1yoQnjlrxs7?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/HV5rFKeQ7WLE9O45szYfSMbBWgcdrJaa3K60LTdV2C5scpnbGhwF_Y24hLUwt9acjXEget5i4LbE0MFh-Y_xZ2oPnkcrkM581ws7fyv4qy_AxO3iekYk5QcqGVZLJS4JRXV2siMwo4EvVlLcep0fhuhhxOdLZIUbwIebz3yieRKOmapTkFIu6JagN-K2c6us?purpose=fullsize)
+
+---
+
+# Step 3 — Random Numbers
+
+Computers can generate random values.
+
+Random numbers are used in:
+
+* games
+* dice
+* simulations
+* selecting winners
+
+Create a variable:
+
+```text id="3m1kp8"
+choice
+```
+
+Generate a random number from:
+
+* 1 to 3
+
+Store the result in `choice`.
+
+---
+
+# Step 4 — Rock Paper Scissors
+
+Students will build a simple game.
+
+When Pin 1 is touched:
+
+1. generate a random number
+2. check the value using `if` statements
+3. display:
+
+   * Rock
+   * Paper
+   * Scissors
+
+---
+
+# Example Game Logic
+
+| Random Number | Result   |
+| ------------- | -------- |
+| 1             | Rock     |
+| 2             | Paper    |
+| 3             | Scissors |
+
+Example conditions:
+
+```text id="b7f9de"
+if choice = 1
+```
+
+display Rock.
+
+```text id="z4t2nv"
+if choice = 2
+```
+
+display Paper.
+
+```text id="k9m5ra"
+if choice = 3
+```
+
+display Scissors.
+
+---
+
+# CincoBit Version
+
+Display:
+
+* letters R, P, S
+* simple icons
+* flashing patterns
+
+Students can add:
+
+* sound effects
+* animations
+* score keeping
+
+---
+
+# PixoBit Version
+
+Display:
+
+* graphics
+* scrolling text
+* animated results
+
+Ideas:
+
+* “ROCK!”
+* “PAPER!”
+* “SCISSORS!”
+
+Students can create:
+
+* menus
+* scoreboards
+* animated transitions
+
+---
+
+# Understanding Decision Making
+
+Computers constantly evaluate conditions and make decisions.
+
+Examples:
+
+* automatic doors
+* elevators
+* thermostats
+* games
+* traffic lights
+* phones
+
+Programs react differently depending on whether conditions are TRUE or FALSE.
+
+---
+
+# Try It
+
+Can you:
+
+* add sounds for each choice
+* create custom graphics
+* add score keeping
+* use different touch pads
+
+---
+
+# Challenge
+
+Can you create:
+
+* a two-player version
+* win/loss detection
+* best-of-five mode
+* countdown animations
+
+---
+
+# Real-World Connection
+
+Conditional logic is used in nearly every electronic system.
+
+Examples:
+
+* touch screens
+* security systems
+* cars
+* appliances
+* games
+* robots
+
+Computers constantly compare values and react to changing conditions.
+
+---
+
+# Troubleshooting
+
+## Touch does not respond
+
+* verify correct pin is selected
+* ensure fingers touch the pad directly
+
+## Wrong game result appears
+
+* check comparison values carefully
+
+## Nothing happens
+
+* verify the `if` block contains the display code
+
+---
+
+# Vocabulary
+
+| Word                | Meaning                                 |
+| ------------------- | --------------------------------------- |
+| Condition           | A TRUE/FALSE question                   |
+| TRUE                | Condition matches                       |
+| FALSE               | Condition does not match                |
+| IF Statement        | Runs code only when a condition is TRUE |
+| Comparison Operator | Checks values                           |
+| Random Number       | A value chosen unpredictably            |
+
+---
+
+# Wrap-Up Question
+
+> Why are conditions important for games and interactive devices?

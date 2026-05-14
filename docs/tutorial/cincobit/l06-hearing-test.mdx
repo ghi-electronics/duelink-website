@@ -1,0 +1,401 @@
+# L6: Hearing Test
+
+
+## Overview
+
+In this lesson, students will combine everything they have learned so far to build an interactive hearing test device.
+
+The program will:
+
+* play tones through the buzzer
+* increase the sound frequency step-by-step
+* allow the user to stop the test using a button press
+* display the final frequency on the screen
+
+Students will use:
+
+* variables
+* loops
+* conditions
+* button events
+* timing
+* sound generation
+
+to create a complete interactive project.
+
+---
+
+# Learning Goals
+
+Students will:
+
+* combine multiple programming concepts
+* control sound frequencies
+* use variables to track values
+* use loops to sweep frequencies
+* stop a loop using a condition
+* display results on the screen
+* build a complete interactive device
+
+---
+
+# Time Required
+
+45–60 minutes
+
+---
+
+# Materials
+
+* CincoBit or [PixoBit](https://www.duelink.com?utm_source=chatgpt.com)
+* USB cable
+* Computer or Chromebook
+* [MicroBlocks](https://microblocks.fun?utm_source=chatgpt.com)
+
+---
+
+# Teacher Notes
+
+This lesson is designed as a project lesson that combines concepts from previous lessons into one complete application.
+
+Students will apply:
+
+* events
+* variables
+* conditions
+* loops
+* timing
+* sound
+
+in a real interactive system.
+
+This lesson also introduces the idea that:
+
+> computers can generate signals at different frequencies.
+
+---
+
+# What is Frequency?
+
+Frequency describes how fast a sound wave vibrates.
+
+Frequency is measured in:
+
+* Hertz (Hz)
+
+Examples:
+
+| Frequency | Sound        |
+| --------- | ------------ |
+| 100 Hz    | Low pitch    |
+| 1000 Hz   | Medium pitch |
+| 5000 Hz   | High pitch   |
+
+Higher frequencies sound higher in pitch.
+
+---
+
+# Human Hearing
+
+Humans can hear many different frequencies, but hearing ability changes with:
+
+* age
+* environment
+* volume
+* hearing health
+
+This project explores:
+
+> How high of a sound can you hear?
+
+---
+
+# Project Goal
+
+The hearing test will:
+
+1. start at a lower frequency
+2. slowly increase the pitch
+3. continue playing sounds in a loop
+4. stop when the user presses a button
+5. display the highest heard frequency
+
+---
+
+# Step 1 — Create Variables
+
+Create a variable called:
+
+```text id="z7k3pm"
+frequency
+```
+
+Set the starting value:
+
+```text id="m4q8tx"
+frequency = 500
+```
+
+Create another variable:
+
+```text id="w2v9cs"
+stopTest
+```
+
+Set:
+
+```text id="0k6nfr"
+stopTest = false
+```
+
+This variable will help control when the loop stops.
+
+---
+
+# Step 2 — Start the Test
+
+Use:
+
+```text id="3q1xpu"
+when button pressed
+```
+
+to start the hearing test.
+
+Inside the event:
+
+* reset the variables
+* begin the frequency sweep
+
+---
+
+# Step 3 — Create the Sweep Loop
+
+Use:
+
+```text id="h8c5rd"
+repeat until stopTest = true
+```
+
+Inside the loop:
+
+1. play the current frequency
+2. wait briefly
+3. increase the frequency
+
+Example:
+
+```text id="f2m9vk"
+frequency = frequency + 200
+```
+
+Each loop increases the pitch.
+
+---
+
+# Understanding Frequency Changes
+
+As the variable increases:
+
+| Frequency | Result              |
+| --------- | ------------------- |
+| 500 Hz    | Low tone            |
+| 1000 Hz   | Higher tone         |
+| 3000 Hz   | Very high tone      |
+| 8000 Hz   | Extremely high tone |
+
+Students will hear the pitch rise over time.
+
+---
+
+# Step 4 — Stop the Test
+
+Create another button event.
+
+When the button is pressed again:
+
+```text id="k5r7bn"
+stopTest = true
+```
+
+Now the loop condition becomes TRUE and the loop stops.
+
+This combines:
+
+* variables
+* conditions
+* events
+* loops
+
+into one complete system.
+
+---
+
+# Step 5 — Display the Result
+
+After the loop ends:
+
+* display the final frequency
+* show the number on the screen
+
+This tells the user:
+
+> the highest frequency they could still hear
+
+---
+
+# CincoBit Version
+
+Display:
+
+* scrolling frequency numbers
+* blinking patterns
+* simple icons
+
+Students can add:
+
+* startup countdowns
+* warning flashes
+* sound effects
+
+![Image](https://images.openai.com/static-rsc-4/k8ljm0zoRr3kWA3Y4iszirJlTytW2OHwOa744nAH9H5JGHcFLYf0YaUfRAAfZoN6M37wF_wp3EBlf3jqk_ajV5sxUPrBKiFIrAZqtDp3rfeg91tI6Gzkf2TxsRMQE_0IPA4q2QDUJZ7T3FAz1IpuhFHW1LYL3JGIb6uscmvxJbVaui5e7jzvvfYaHPOAc4ts?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/1VI4D4hXfkbEXUKdfMSdEvgye7jLj30RFoXFIVzSc0eUAn2GELv0oEIWAS0chjsaosPUyBXGVHOIykPMPVOrbRM45gsbSzN2Fpd9pAr9Rs_rjKuF1dk41LDSUoBS4O-el7S_gCLq_bpVN__IvqoMdeDLtbZ8NeSUS1ZNOi8hK2yvOorw6vPL2b05bfiQRP3k?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/oHQJWJ6cT7yfvjSbsVMvenQcMwCvIpnxXu9Iax52NpwUehdY6JxOlu9XcdoXNdBCsYoVmRYAcPvLTsS1VdYyVmLagNhoZEN7cP9VoYf4LiW99Ti1CaB7CaR44TUEfKkwS54YB3OIa7i5egl4SKpwItPq2ZgOzlByCowgEVGSJEEb2tH_lFOtzmUWY2CQIvyM?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/kvkfAu02pss96sAE4P4sY2v00zlt-4L81ugYorXpnCFU9dR-ny1gW74zfdfTZn9dn3H3GYHB5C0aEoTA_26kbRgs59v3nBlY8vKmX-f1OIceCyGf6Z9inh8N0IMBB68GJr8qjI0Evb5ugeah17Z02F2q3oC8M74mcPeMaqLfEzBkiahvcoxEseGOTOKhPeTS?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/nlwk7cbCODdTbYgxKGJEhZV0LozhlZlru5AV-Z1bgz_8ryUXsnLLsgp0lo8jlgUxdxsgMazsqM1oaXGPNVrD-1kZHB7-Dg5FRspUMLM3dDvuMPnUeeYh8My4pRFWSJDMqN2sFlJGFYv8YcYrdOJ5SIm5YlGBpjW_N7Y-UlFyVipEyi1SzNHkGNJc_ObzK6te?purpose=fullsize)
+
+---
+
+# PixoBit Alternative
+
+Display:
+
+* large numbers
+* hearing meters
+* graphical sweep animations
+* charts and indicators
+
+Students can create:
+
+* animated sound bars
+* visual frequency graphs
+* result screens
+
+![Image](https://images.openai.com/static-rsc-4/QEQUlDZiciUr5R_jwkUeCqKhpcCQPRKkNJXuMYmiTMl6N8hjXQhpQRdPVUjs9z4UtKlg238xekHDyJQh_Edz0r24gXfBxkwwTZ0tguyMm2LPdMqKwqOyArsIGYTwLGNp09p4QAdyfgHDlkIXJAiqJzkzJi38L0xyPc6ZVofiKVikYbOOsYCspN76P7W5gBv8?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/_AMc6W6KDpgghT8O_OcxWpi0NCA54F8ODn4oIGIpFEqdjuD3wiZ54euZIUlPJRobZxksHw0matkC7WUE9-8HTHRPs1MXj8v07wf98V8uDKXQa-rJ0uPkgHdKKxdYZcP5bD6sms71LhILbOiYZsk2d1jQMa_lCqhnOMNSqf64PwQaLEYqogf2J_k-QJyxGDnw?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/MSZUC5K17NliJK9SUM3zjfTf9YIym8veutik8z39djb3qfaiofsnmu3IH9gIQNGQNzTHezGhZXByA3VEEBgmOtFbNDnVjs6lPqGa6gB2mt7R9lD6_97ZaXJihU8pdQE--DnFwzTNtLjMQ8SvczbhcRnTTWFMfvUHi18eJCd_yPlpIblNNYE4cU4wzJ5CqX_0?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/cMj1OkycOvwpHeLmHxEU5y8U2EB5qAv3VYkA81DxvCQ7oxlvbvGQWxdtbG-K0VUCnlVL4aEoEmRFQNhdeqlYKMfCmF3u04Khs825KPnHRurxEmpt0QFA3pbbRTdfUUoltutxKUE9MpXiWm-hbU2eRMG2RBthkmDP9wJ6gR09jGeelNs7fAQ_6JSjpZjnNWZI?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/RKDm1l975VfITSNu1nV7Y5Byd_i4G2fB6qB_b9gGrWAWjBeycprMAd5DcGctkO-dtJ1GCcc3QvfSF4IGrW_PVUy8-wLbWvf6gkhZolbukgZacKwVvBr6lJQjPGg8XjoG52p_vwnv-45bfNJe_ckchMNq9TQFgQdHNe8ZVq6ScYG5W48i6VmRUzBAlM5Q-lMK?purpose=fullsize)
+
+---
+
+# Concepts Used in This Project
+
+| Concept    | How It Is Used                  |
+| ---------- | ------------------------------- |
+| Variables  | Store frequency and stop state  |
+| Loops      | Repeat frequency sweep          |
+| Conditions | Stop loop when variable changes |
+| Events     | Detect button presses           |
+| Wait       | Control timing                  |
+| Sound      | Generate tones                  |
+
+---
+
+# Understanding Program Flow
+
+The program follows this sequence:
+
+1. Start test
+2. Play sound
+3. Increase frequency
+4. Repeat loop
+5. Wait for button press
+6. Stop loop
+7. Display result
+
+This is an example of a complete interactive algorithm.
+
+---
+
+# Try It
+
+Can you:
+
+* increase frequency faster
+* slow the sweep down
+* add display animations
+* add a countdown before starting
+
+---
+
+# Challenge
+
+Can you create:
+
+* a restart button
+* a two-player hearing comparison
+* different sweep speeds
+* a hearing score system
+
+---
+
+# Real-World Connection
+
+Frequency testing is used in:
+
+* hearing exams
+* music production
+* speaker testing
+* communication systems
+* audio equipment
+
+Electronics and computers often generate precise frequencies for testing and measurement.
+
+---
+
+# Troubleshooting
+
+## No sound
+
+* verify buzzer blocks are connected properly
+* check frequency values
+
+## Frequency changes too quickly
+
+* increase wait time
+
+## Test never stops
+
+* verify the stop variable changes correctly
+
+## Display does not show the result
+
+* ensure display code runs after the loop ends
+
+---
+
+# Vocabulary
+
+| Word       | Meaning                        |
+| ---------- | ------------------------------ |
+| Frequency  | How fast a sound vibrates      |
+| Hertz (Hz) | Unit used to measure frequency |
+| Sweep      | Gradually changing a value     |
+| Loop       | Repeating instructions         |
+| Variable   | Stores changing information    |
+
+---
+
+# Wrap-Up Question
+
+> Why do loops and variables work well together in projects like this?
+
