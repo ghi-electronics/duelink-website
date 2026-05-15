@@ -175,38 +175,17 @@ Because 7 is greater than 5:
 * the code inside the `if` block runs
 * the `say` block will execute and show the text.
 
-The `if` block also allows for running blocks if the condition was FALSE. In English, this will be if condition is true then do this, `else` do that.
+The `if` block also allows for running blocks if the condition is FALSE. In English: `if` condition is true then do this, `else` do that.
 
 Click on the little arrow at the bottom of the `if` block. This will reveal the `else` block. We will change `score` to 4, which is less than 5.
 
-![if true](pathname:///img/tutorials/cincobit-lessons/if-else.png)
+![if else](pathname:///img/tutorials/cincobit-lessons/if-else.png)
 
 Try changing the value of `score` and observe the outcome. What do you think will happen if score is set to 5?
 
 ---
 
-# Step 2 - Touch Detection
-
-CincoBit and PixoBit edge pads can detect touch.
-
-Students will use:
-
-* Pin 1
-* touch sensing
-* an `if` statement
-
-to create an interactive response.
-
-Touch sensing also creates TRUE/FALSE conditions.
-
-| Condition         | Result |
-| ----------------- | ------ |
-| Pin 1 touched     | TRUE   |
-| Pin 1 not touched | FALSE  |
-
----
-
-# Step 3 - Random Numbers
+## Step 2 - Random Numbers
 
 Computers can generate random values.
 
@@ -217,37 +196,36 @@ Random numbers are used in:
 * simulations
 * selecting winners
 
-Create a variable:
+Generate a random number:
 
-```text id="3m1kp8"
-choice
-```
+* between 1 to 10
+* check if the number is more than 5
+* `say` the results
 
-Generate a random number from:
+The `random` block found under `Operators` palette returns a random number between 2 values. You can just click on the block to run it and see what values it is returning. Change the 2 limit value to see what numbers can be generated.
 
-* 1 to 3
+Go to the previous sample and use a random number to set the variable.
 
-Store the result in `choice`.
+![if random](pathname:///img/tutorials/cincobit-lessons/if-random.png)
+
+We also used multiple items with the `say` block this time. You can do that by clicking the little right arrow on the `say` block.
 
 ---
 
-# Step 4 — Rock Paper Scissors
+## Step 3 - Rock Paper Scissors
 
 Students will build a simple game.
 
-When Pin 1 is touched:
+When `A` is pressed:
 
 1. generate a random number
 2. check the value using `if` statements
 3. display:
-
    * Rock
    * Paper
    * Scissors
 
----
-
-# Example Game Logic
+Example Game Logic:
 
 | Random Number | Result   |
 | ------------- | -------- |
@@ -255,41 +233,10 @@ When Pin 1 is touched:
 | 2             | Paper    |
 | 3             | Scissors |
 
-Example conditions:
 
-```text id="b7f9de"
-if choice = 1
-```
+![rock paper scissors](pathname:///img/tutorials/cincobit-lessons/rock-paper-scissors.png)
 
-display Rock.
 
-```text id="z4t2nv"
-if choice = 2
-```
-
-display Paper.
-
-```text id="k9m5ra"
-if choice = 3
-```
-
-display Scissors.
-
----
-
-# CincoBit Version
-
-Display:
-
-* letters R, P, S
-* simple icons
-* flashing patterns
-
-Students can add:
-
-* sound effects
-* animations
-* score keeping
 
 ---
 
@@ -315,7 +262,7 @@ Students can create:
 
 ---
 
-# Understanding Decision Making
+## Understanding Decision Making
 
 Computers constantly evaluate conditions and make decisions.
 
@@ -332,63 +279,20 @@ Programs react differently depending on whether conditions are TRUE or FALSE.
 
 ---
 
-# Try It
+## Troubleshooting
 
-Can you:
-
-* add sounds for each choice
-* create custom graphics
-* add score keeping
-* use different touch pads
-
----
-
-# Challenge
-
-Can you create:
-
-* a two-player version
-* win/loss detection
-* best-of-five mode
-* countdown animations
+* Touch does not respond
+   * verify correct pin is selected
+   * ensure fingers touch the pad directly
+* Wrong game result appears
+   * check comparison values carefully
+* Nothing happens
+   * verify there is a running loop
+   * check what is inside the `if` block
 
 ---
 
-# Real-World Connection
-
-Conditional logic is used in nearly every electronic system.
-
-Examples:
-
-* touch screens
-* security systems
-* cars
-* appliances
-* games
-* robots
-
-Computers constantly compare values and react to changing conditions.
-
----
-
-# Troubleshooting
-
-## Touch does not respond
-
-* verify correct pin is selected
-* ensure fingers touch the pad directly
-
-## Wrong game result appears
-
-* check comparison values carefully
-
-## Nothing happens
-
-* verify the `if` block contains the display code
-
----
-
-# Vocabulary
+## Vocabulary
 
 | Word                | Meaning                                 |
 | ------------------- | --------------------------------------- |
@@ -401,6 +305,6 @@ Computers constantly compare values and react to changing conditions.
 
 ---
 
-# Wrap-Up Question
+## Wrap-Up Question
 
 > Why are conditions important for games and interactive devices?

@@ -25,7 +25,7 @@ Using loops, students will create repeating sounds and simple musical patterns.
 
 ---
 
-# Learning Goals
+## Learning Goals
 
 Students will:
 
@@ -39,7 +39,7 @@ Students will:
 
 ---
 
-# Time Required
+## Time Required
 
 30–45 minutes
 
@@ -47,14 +47,14 @@ Students will:
 
 # Materials
 
-* CincoBit or [PixoBit](https://www.duelink.com?utm_source=chatgpt.com)
+* CincoBit or PixoBit
 * USB cable
 * Computer or Chromebook
-* [MicroBlocks](https://microblocks.fun?utm_source=chatgpt.com)
+* [MicroBlocks](https://microblocks.fun/run/microblocks.html)
 
 ---
 
-# Teacher Notes
+## Teacher Notes
 
 This lesson introduces one of the most important programming concepts:
 
@@ -74,7 +74,7 @@ This lesson also introduces:
 
 ---
 
-# What is Iteration?
+## What is Iteration?
 
 Iteration means repeating a set of instructions.
 
@@ -89,7 +89,7 @@ Programs often repeat instructions many times.
 
 ---
 
-# Why Use Loops?
+## Why Use Loops?
 
 Without loops, programmers would need to write the same code over and over.
 
@@ -99,30 +99,42 @@ Loops make programs:
 * cleaner
 * easier to change
 
-Instead of writing:
+Instead of running:
 
-```text id="m3j7xr"
+```
 play note
 play note
 play note
 play note
 ```
 
-a loop can repeat the action automatically.
+a loop can repeat `play note` 4 times.
 
 ---
 
-# Repeat Loop
+## Repeat Loop
 
 The `repeat` block runs code a specific number of times.
 
-Example:
+The instructions inside this loop will run exactly 5 times.
 
-```text id="4q2zpt"
-repeat 5 times
-```
+![](pathname:///img/tutorials/cincobit-lessons/repeat.png)
 
-The instructions inside the loop will run exactly 5 times.
+We added a `wait` pause between notes. Remove the wait to hear the difference. Without waits, loops run extremely fast.
+
+This can cause:
+
+* flashing too quickly
+* sounds blending together
+* animations moving too fast
+
+Wait blocks help humans:
+
+* see changes
+* hear sounds clearly
+* understand timing
+
+Things get a lot more interesting when combining variables with loops. This allows us to repeat a task but then each loop will be different.
 
 Students can use repeat loops to:
 
@@ -130,60 +142,7 @@ Students can use repeat loops to:
 * play sounds
 * animate graphics
 
----
-
-# CincoBit Activity
-
-Use a repeat loop to:
-
-* play a sound 5 times
-* blink the display
-* alternate patterns
-
-Try changing:
-
-* repeat count
-* timing
-* note frequency
-
-![Image](https://images.openai.com/static-rsc-4/gvsdn6xqJ53tp1LDL9dUibMigUDIOSLeL7PmcGexgVk7EvKJ4p_ypjH6-d0hJVH38PK1j3FdYdMFdRsbyi6cx7rk2-SEet87kcmNcRi6aEeLJ5KGeVyet4uAapiygjN2rbJgVLRYor7dP-AyQlDZTuuquFp2uSEb54cxByXROeSksYrbDFA04xk1rZDulUTq?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/KJTJTaM2uqlXSc8g3nv6GziXATFtw_opUeZGJ94DP69mQgLm_thFe4wcoFR02TDcGAjcfaQmILbUJKjNk2QAR8_9X5muMWQSOEIOTPjKIjRym_eDuQ4LPDtEyqbU0IEBdvBv-AmOctVntapnpGOclPsYpAeAuNBkE-HFL5iYedI_rzGZAry0Apxr3-U29mFv?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/XS0WHQqaKzt4YI23SnjiG02PHW5kAHg7_kJq67FuLSFlXrrHrMoDgo-v4278FJz6-e-uu4UkVnboK_miJd186igTxen_2Qe5Fh5jAHYpvGlhisWvtOdQAB5HuT6TNtqt2cVmL71fTgpBsu55_cnSw18OrAyRqieDRoyYi6tj4sK9EXXAdGZOcT9PFN0Oc1vb?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/qVexCwx8QpPG3TfX7fakEVo4lYMgkeHKGGqy26FauXfTF5EvWdDIIIK4d_kaFZchKQGgWBiascGMVWf_jGk6_yDubX7O0Lcv3arS80sF4el-rrbTBM6hGxtW_ieaCxeP5zkywp5SYbEjJIIjmkLKvUyoVzUw4pNZGvdyb0pvJRNgWoOElhMlbL9zQynEsbLa?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/VFf_jOwLE77_fh4Bod4Mj7HRGTPkWxL1lQGiW7O5C-4U7fGYj41Fxx6RJ6fHIG8P-qjEot0Ze1CixtP9r_WQhv2wRhnLA-mUmWpeqkwKcKCRAv62rQA-rI5OJRYXQ-4yXEbs9JbwZNHOtpG6h7iNXveCPLWw_wgBch-EYctdQcG--Rncu42qo6Zo4scuEdK7?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/sRkh2ZngD7OuzRqrPcN8BpZYLjefy9Xha6sUEQ7A95xGaXmeJXRB3IL8hsHjZgAYUyTJXth-vZUCjoT9D-IbUyj46QIHnXg3VYs1bU1lOt4m02NoQyguChrNqwWhtFA53rTo9maWm2H4P1qE2DZY9wuYR_RTXo6AyyhCLiSBbo7CEhLZv_GSo4VIt4joFDNt?purpose=fullsize)
-
----
-
-# PixoBit Alternative
-
-Use loops to:
-
-* animate graphics
-* flash text
-* create moving shapes
-* play sounds with visuals
-
-![Image](https://images.openai.com/static-rsc-4/9yUNB5VU-OUoPAX_6iGUz5BUZT74mzAaheMmC0UNP74McbIUCBBusvhOkUHBFAw7lk2NHmNsk9adnLbW-l3vTKudcEbajes-QuT0ocH34x80Aq-20RkTnz3tmL6zvfJIAW93VYnsQ6NitA3HhUkjf9LGh3t41AG6WI3MDxwYFVT1X3koBMOwvhU7Mn-pCoky?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/dSAow7jA2gv9t7-eOUrgnYKxwnUlnm5IT4mjxdxOLh6G_2FKdi3QE_oA5kOUlNj0YejWbTNpEnIUdpHT2OBhYe0ldHnylCPr5wgl6-pgQK4itD-a2GfYaDMqPsNXQCW9vWJPALYpF9zeNkFDILSnyPD8lcbXKh-toJ9ajHq-Kfr96Lixusis9rGB0eA-asVL?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/8pJtTLXFQx9xEj_SGQKVYLKOR1mYbHBICL72HAP9SM2zfWoRSONh_JprFyo3ttCMKY7vDYgl5_Mth3R4YTFjeyGyD6mGvrJqZAy6iYQHVSyuZM-GyuuR2wQ3I_4979IQXoZ3sfeotP-jtRrof9kiiH8le1pUxoCuyGY0TwRSu5yZl2Y_RTpTxQWTrCbJPTca?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/dqDa8uJc8CNjaOybT0lBLFKZ6bmNmS8iARuwle1WKk-YuTPEa76x9arjQGYCMwmKqYOIVcgN35Y9t3Va7e7VKKIrzV_22oaRjhSiFfAQrG_vX5T5uCk3GTC24RPVDDeID3s4GerKJJzHlGV6T5rbwG96WaK4osKac3C73CTs-VbzglIGONuXaU7sowOy-wnV?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/3Qkezo28n5ord9TEaXPdgbV0ALJ_oClSEcD-Fz6USFEFAEBz1iK6DM6i8pSas9N99vXPR5lJpHx3ApdCMzqmWBLYHs12VaYuzQfuftUSjouLDsJKyzuEvsvaxa4qsgG_JAzq9Jt4qp-tSyMuZFWcb9g5ZSQ6k7XFgNOZ3YgAlWbK9WJhirjDXqeh_Phhlshn?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/6h5z5wPPJiit7VyaNUxJ5TcdZLTLUAVaZUXfqbPLxzYdVsKMrS9xU_R0uVK6A_bkOAFV0D032fJNcmLMx6OV-sD869qCtyDmHcEPFV96HtLTkmFqlQh9cd8rHa-_glDsmPj9poS2hXV2aLdEsHcCWZEWrNkCuSYYLJIHNgE4u6yuZwXb26Co3fP3jxHCiDO4?purpose=fullsize)
-
----
-
-# Understanding Wait Blocks
+Understanding `wait` Blocks:
 
 Computers measure time very precisely.
 
@@ -201,58 +160,11 @@ A millisecond is:
 | Half second    | 500 ms       |
 | Quarter second | 250 ms       |
 
-Example:
-
-```text id="t8v5mq"
-wait 500 ms
-```
-
-This means:
-
-> wait half a second
-
----
-
-# Why Wait Blocks Matter
-
-Without waits, loops run extremely fast.
-
-This can cause:
-
-* flashing too quickly
-* sounds blending together
-* animations moving too fast
-
-Wait blocks help humans:
-
-* see changes
-* hear sounds clearly
-* understand timing
-
----
-
-# Playing Notes in a Loop
-
-Students will create a repeating musical pattern.
-
-Example:
-
-1. play a note
-2. wait 500 ms
-3. repeat several times
-
-Try experimenting with:
-
-* different notes
-* faster timing
-* slower timing
-* different repeat counts
-
 ---
 
 # Forever Loop
 
-A `forever` loop never stops unless the program is stopped.
+A `forever` loop never stops unless the program is stopped. A reminder here is that MicroBlocks is live connection. Click on blocks to run or, in case of loops, to also stop.
 
 Example uses:
 
@@ -261,47 +173,46 @@ Example uses:
 * animations
 * sensor monitoring
 
-Example:
+CincoBit and PixoBit edge pads can detect touch.
 
-```text id="z1m8cu"
-forever
-```
+Students will use:
 
-Students can create:
+* Pin 1
+* touch sensing
+* an `if` statement
 
-* continuous blinking
-* endless music
-* repeating animations
+to create an interactive response.
+
+Touch sensing also creates TRUE/FALSE conditions.
+
+| Condition         | Result |
+| ----------------- | ------ |
+| Pin 1 touched     | TRUE   |
+| Pin 1 not touched | FALSE  |
+
+Touch sensing block is `due pin touched` found inside `DUELink Edu` library.
+
+In previous lessons, we use an event block, which automatically tun when an even happens, like when `A` is pressed. The `due pin touched` is not an event, but it is a reporting block. Using this block will check and report the touch status at that very instance. If touch was pressed right before or right after when the block execute will result in no touch. We have to repeatedly check if the there is touch. In code, this is called pooling.
+
+Our program will start on power up using `when started`. You can also click on the "play" icon on the top right. In this program, we have a `forever` loop that always checks if pin 1 is touched to play note `C` for 50ms.
+
+![touch play note](pathname:///img/tutorials/cincobit-lessons/touch-playnote.png)
+
+Run the program and touch pin 1, which is the large pad on CincoBit or PixoBit.
+
+You will notice that the note is playing over and over when touched. Maybe we want to play the note only once per touch. We can accomplish this by waiting for the touch to be released. The `DUELink Edu` library includes `due wait for pin release` to handle exactly that.
+
+![touch play note](pathname:///img/tutorials/cincobit-lessons/touch-playnote-release.png)
 
 ---
 
-# Repeat Until Loop
-
-A `repeat until` loop continues running until a condition becomes TRUE.
-
-Example:
-
-```text id="k7r2fy"
-repeat until button pressed
-```
-
-The loop keeps running until:
-
-* a button is pressed
-* a touch sensor activates
-* a variable changes
-
-This allows programs to wait for user interaction.
-
----
-
-# Activity — Stop the Music
+## Activity — Stop the Music
 
 Create a loop that:
 
 * repeatedly plays a note
 * waits 500 ms
-* continues until Pin 1 is touched
+* continues until Pin 1 is touched (can you figure out `repeat until` on your own?)
 
 Students combine:
 
@@ -312,9 +223,7 @@ Students combine:
 
 into one interactive project.
 
----
-
-# Understanding Timing
+Understanding Timing:
 
 Changing wait times changes how programs feel.
 
@@ -330,7 +239,7 @@ Students should experiment with different delays and observe how the behavior ch
 
 ---
 
-# Try It
+## Try It
 
 Can you:
 
@@ -341,20 +250,7 @@ Can you:
 
 ---
 
-# Challenge
-
-Create:
-
-* a mini alarm
-* a countdown beep
-* a repeating melody
-* flashing warning lights
-
-Use loops and waits together.
-
----
-
-# Real-World Connection
+## Real-World Connection
 
 Loops are used everywhere in computing.
 
@@ -371,28 +267,24 @@ Programs constantly repeat tasks and monitor conditions.
 
 ---
 
-# Troubleshooting
+## Troubleshooting
 
-## Sounds play too quickly
-
-* increase wait time
-
-## Loop never stops
-
-* verify the stop condition
-
-## Animation flashes too fast
-
-* add a wait block
+* Sounds play too quickly
+    * increase wait time
+* Loop never stops
+    * verify the stop condition
+* Animation flashes too fast
+    * add a wait block
 
 ---
 
-# Vocabulary
+## Vocabulary
 
 | Word         | Meaning                                |
 | ------------ | -------------------------------------- |
 | Iteration    | Repeating instructions                 |
 | Loop         | Code that repeats                      |
+| Pooling      | Repeatedly check something             |
 | Repeat       | Runs code a set number of times        |
 | Forever Loop | Runs continuously                      |
 | Repeat Until | Repeats until a condition becomes TRUE |
@@ -400,6 +292,6 @@ Programs constantly repeat tasks and monitor conditions.
 
 ---
 
-# Wrap-Up Question
+## Wrap-Up Question
 
 > Why are loops useful for music, games, and animations?
