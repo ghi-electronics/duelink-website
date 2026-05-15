@@ -24,7 +24,7 @@ to keep objects inside the visible display area.
 
 ---
 
-# Learning Goals
+## Learning Goals
 
 Students will:
 
@@ -38,22 +38,22 @@ Students will:
 
 ---
 
-# Time Required
+## Time Required
 
 45–60 minutes
 
 ---
 
-# Materials
+## Materials
 
 * CincoBit or PixoBit
 * USB cable
 * Computer or Chromebook
-* [MicroBlocks](https://microblocks.fun?utm_source=chatgpt.com)
+* [MicroBlocks](https://microblocks.fun/run/microblocks.html)
 
 ---
 
-# Teacher Notes
+## Teacher Notes
 
 This lesson introduces one of the most important ideas in graphics and game programming:
 
@@ -76,7 +76,7 @@ This lesson creates the foundation for:
 
 ---
 
-# Understanding Coordinates
+## Understanding Coordinates
 
 Displays use a coordinate system to identify locations.
 
@@ -85,32 +85,20 @@ Coordinates use:
 * X values
 * Y values
 
-Example:
-
-```text id="w8m2qf"
-(x, y)
-```
-
----
-
-# The X Axis
+Usually referred to as `(x, y)`
 
 The X axis controls:
 
-* left and right movement
+* left and right position
 
 | Direction | X Value   |
 | --------- | --------- |
 | Left      | Smaller X |
 | Right     | Larger X  |
 
----
-
-# The Y Axis
-
 The Y axis controls:
 
-* up and down movement
+* up and down position
 
 | Direction | Y Value   |
 | --------- | --------- |
@@ -119,11 +107,11 @@ The Y axis controls:
 
 ---
 
-# Where is (0,0)?
+## Where is (0,0)?
 
 The coordinate:
 
-```text id="a4k7ty"
+```
 (0,0)
 ```
 
@@ -137,7 +125,7 @@ This is called:
 
 ---
 
-# CincoBit Coordinate Grid
+## CincoBit Coordinate Grid
 
 CincoBit uses a 5×5 LED matrix.
 
@@ -145,31 +133,21 @@ Coordinates range from:
 
 | Axis | Values |
 | ---- | ------ |
-| X    | 0 to 4 |
-| Y    | 0 to 4 |
+| X    | 1 to 5 |
+| Y    | 1 to 5 |
 
 Example positions:
 
 | Coordinate | Location     |
 | ---------- | ------------ |
-| (0,0)      | Top-left     |
-| (4,0)      | Top-right    |
-| (0,4)      | Bottom-left  |
-| (4,4)      | Bottom-right |
-
-![Image](https://images.openai.com/static-rsc-4/hzACkhiFJnLp31cTQGt4xOAsyfNXXKr4WU6_i-uC-YUhqPd14AQHW5KWru6yn-RGx9ISDpnjv4CuEUq_I1by2D7yF5JnOrja25-GQHkKYtdS19yYgLi2RgI31qd_3DXEER_DuXYU8vHMnlAVwgfjBAwlV_RpNBtM2hFiSyjT3l-g_J3IGeKg22760XEDThRZ?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/sJtI6PBdfMqf0uLDDybHSFNN_20LxEQtSUTghmFssaGHVsRkVUTvrNJOsl5aEGtrAUOdIGC2ZfmiakX1pzI_K5kwTiT_eLCGxFs5zrAHY1GHwMwm2cQi7Zt505RiaB-t_7qdVTn0R6K7mp3FbTApM6UZVOuNC0jzS8BMQJWlDwo3MSYqhU-5PZXAuZUmky8S?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/LymJO2dRIq3fntlIu6rvCDQyijWmgnF1l94rfC41m9BPrIRuS1hKQPKDzq_ZBoFFA3UMSi8RctDy2_HI3CFQPsYgu51XwABJLji1aye_Vx02cFg8ocRDPdRhjvSvDO7MOv8jbXUWfxKgk_l9sHVjzeGl8zdSodngzrBAD1W4toS7Lmi9rLiyasrX1yiWYWN3?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/WVJ0BQ5lv9N8bMf3gXKGb3wJiR5hN2aTaOfBjSn8dfNQbt4dZs7kS2az1UG7keeP0DVKsD_-B2U8WnCfSM3KpxQQg36REuj-e6kXRCoVpCsx8LstYVAPpMQbzzoS0SA6Xf2exdUU7btpNWnIvOPHxWtYTx13jHbnfnaW2Le1vkbdiOK3x2S30DcC6FcTWCEy?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/Ozdou86MlpdHFbPygOlioAM9Cd857yIfuugpEN_vXg_fIowlx4d8y8iQN9zZxv5RMcuK6P-Yj4Ten6yCRQ5DXK6eXOnPVHGNk-TN8knNxVwaa2CTtavao6eBdC8cEvfAqNPoK027Z6IhVej21HdUkOEpi9T_T7bGvl2MPVFKt3szWMwnEl2z2ifantK5Ih53?purpose=fullsize)
+| (1,1)      | Top-left     |
+| (5,1)      | Top-right    |
+| (1,5)      | Bottom-left  |
+| (5,5)      | Bottom-right |
 
 ---
 
-# Plot and Unplot
+## Plot and Unplot
 
 Students will use:
 
@@ -178,49 +156,23 @@ Students will use:
 | `plot`   | Turn on a pixel  |
 | `unplot` | Turn off a pixel |
 
-Example:
-
-```text id="v2m8cr"
-plot x y
-```
-
 lights a pixel at a specific coordinate.
 
 ---
 
-# Step 1 — Create Position Variables
+## Step 1 - A Pixel Show
 
-Create variables:
+The `random` block will be used to show a vertical line of pixels. We will randomly plot and unplot pixels in that specific line.
 
-```text id="h5q9pb"
-x
-y
-```
+The generated vertical random line lives at a set `x` position. Random will be used on the `y` position.
 
-Set the starting position:
+![random pixels](pathname:///img/tutorials/cincobit-lessons/random-pixel.png)
 
-```text id="k8w1mx"
-x = 2
-y = 2
-```
-
-This starts the pixel near the center.
+We used 3 for `x`. This starts the pixel near the center.
 
 ---
 
-# Step 2 — Draw the Pixel
-
-Use:
-
-```text id="j7n4vd"
-plot x y
-```
-
-to light the pixel.
-
----
-
-# Step 3 — Move the Pixel
+## Step 2 - Move the Show
 
 Use button events to change the X coordinate.
 
@@ -231,43 +183,19 @@ Example:
 | Button A | Move left  |
 | Button B | Move right |
 
-Example logic:
+We used 3 as a fixed 'x' position. We will now use a variable instead. This variable will decrease when `A` is pressed and increase when `B` is pressed.
 
-```text id="z4f2kr"
-x = x - 1
-```
+![random pixel move](pathname:///img/tutorials/cincobit-lessons/random-pixel-move.png)
 
-moves left.
+Since new variables start with their value set to 0 and the screen first pixel is at 1, running this program will not show anything on the screen. Press `B` to move the line one spot to the right.
 
-```text id="p9v6tc"
-x = x + 1
-```
+You will also notice that the new line drawing did not clear the previous line. This might be a desired behavior to do full screen of random art. But, if you need the screen cleared when a button is pressed then that can be accomplished easily.
 
-moves right.
-
-Before moving:
-
-* unplot the old position
-
-After moving:
-
-* plot the new position
+![random pixel move clear](pathname:///img/tutorials/cincobit-lessons/random-pixel-move-clear.png)
 
 ---
 
-# Display the X Value
-
-Use the `say` block to display:
-
-```text id="r3m8fx"
-x
-```
-
-Students can observe how the coordinate changes while moving the pixel.
-
----
-
-# Understanding Screen Limits
+# Step 4 — Keep the Pixel On Screen
 
 What happens if:
 
@@ -276,37 +204,11 @@ What happens if:
 
 The object can move off the display.
 
-Programs often use conditions to keep objects visible.
+Programs often use conditions to keep objects visible. Use `if` statements to check boundaries.
 
----
+We will set the `x` to 3 from the start, in `when started` event. This will take care of the initial position. Then the buttons events will only increase/decrease `x` if x is not going to be less than 1 or more than 5. 
 
-# Step 4 — Keep the Pixel On Screen
-
-Use `if` statements to check boundaries.
-
-Example:
-
-```text id="f6x2wj"
-if x < 0
-```
-
-set:
-
-```text id="d8v1rn"
-x = 0
-```
-
-Another example:
-
-```text id="m3q7tp"
-if x > 4
-```
-
-set:
-
-```text id="b9k5cy"
-x = 4
-```
+![random pixel keep on](pathname:///img/tutorials/cincobit-lessons/random-pixel-keepon.png)
 
 This keeps the pixel inside the CincoBit display.
 
@@ -333,19 +235,9 @@ Examples:
 * bouncing ball
 * scrolling object
 
-![Image](https://images.openai.com/static-rsc-4/IIPA3U1srGMeSTiJ6cdJRgqmUy43-FRVSDyIGQB1CDMHur3feZT4Zx3Mbh2fsQxKO8URUeYPQ7l-mORyP65yWVLn0AaDhAGs_GQ5WDx71QWf_apPRTpo1NZ963kb0C8PmAlnWMd8cTF1T7LZlGSyCDnDXT5o8BhA7mFB7OiSQMwd3VF8us1r-dWrePJBqZLh?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/sJtI6PBdfMqf0uLDDybHSFNN_20LxEQtSUTghmFssaGHVsRkVUTvrNJOsl5aEGtrAUOdIGC2ZfmiakX1pzI_K5kwTiT_eLCGxFs5zrAHY1GHwMwm2cQi7Zt505RiaB-t_7qdVTn0R6K7mp3FbTApM6UZVOuNC0jzS8BMQJWlDwo3MSYqhU-5PZXAuZUmky8S?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/0PnuLY-F0yfO2uNLtSLSWz9GZD9ht8MjJlcIABhjW_PPcv79pIUdXY8g81FZ8ggIKM_NnqPL_OYeZv6-YZTES113Fu9-3QaNLdf5iQ5IgcY9n5OaU25hqy0PXNmOHvPEH8IQ7DD4QOjjFAIVJlSprMQru_sPvcepMM6PZ8E4RCO3ZQ7Ty0I8jU0M5V8-Ibv2?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/6ljb1eK4vqQBK2G3qhqBSmMB32YaKcvJBp-T65h3k9wOt4QuF3GjOlNSYJofiOC8UiWnMQCUeshM_6XLhHxYOBU4uWpSZsesgZwUvY-i3fn2QDOnT5Qv3ROmSdbqJqLmSFKhucwjfjTz7BXXdlEItnj6v8NlBK37PxwilWBbC-Dl_h8Dv9kLDDOVtELuxjmr?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/EgOmtfrqt8sAroC3ZQzTGAinYj7TU2EvsxyYUi5Z7s7s2qTgMN2h7qfMyu6m83mu7wO4V72Zca3fmAni5oOmOoGPwWtHHgfzPJ5Ypt36eH-2b04zcmdSsV1yCY94DvEqzASf4J6B2BFHar7rBn-zh9RGRHu6mx1mI_qAjMQs6EtiktjKmZhHCcbuejGkGTaz?purpose=fullsize)
-
 ---
 
-# Understanding Movement
+## Understanding Movement
 
 Changing coordinates changes object position.
 
@@ -367,31 +259,18 @@ control movement.
 
 ---
 
-# Try It
+## Try It
 
 Can you:
 
-* move up and down
+* fly pixels up instead of random
 * create diagonal movement
 * move faster
-* animate movement
+* bounce a pixel
 
 ---
 
-# Challenge
-
-Create:
-
-* a controllable character
-* a bouncing pixel
-* a simple drawing tool
-* a moving spaceship
-
-Use conditions to keep everything visible on screen.
-
----
-
-# Real-World Connection
+## Real-World Connection
 
 Coordinate systems are used everywhere in computing.
 
@@ -408,24 +287,19 @@ Computers constantly track positions using X and Y values.
 
 ---
 
-# Troubleshooting
+## Troubleshooting
 
-## Pixel disappears
-
-* check coordinate limits
-* verify plot/unplot order
-
-## Movement leaves trails
-
-* unplot old position before moving
-
-## Pixel moves off screen
-
-* verify boundary conditions
+* Pixel disappears
+    * check coordinate limits
+    * verify plot/unplot order
+* Movement leaves trails
+    * unplot old position before moving
+* Pixel moves off screen
+    * verify boundary conditions
 
 ---
 
-# Vocabulary
+## Vocabulary
 
 | Word       | Meaning                   |
 | ---------- | ------------------------- |
@@ -438,7 +312,7 @@ Computers constantly track positions using X and Y values.
 
 ---
 
-# Wrap-Up Question
+## Wrap-Up Question
 
 > Why do games and graphical programs need coordinates?
 
