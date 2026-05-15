@@ -28,7 +28,7 @@ to create interactive programs and build a Rock Paper Scissors game.
 
 ---
 
-# Learning Goals
+## Learning Goals
 
 Students will:
 
@@ -41,22 +41,22 @@ Students will:
 
 ---
 
-# Time Required
+## Time Required
 
 30–45 minutes
 
 ---
 
-# Materials
+## Materials
 
-* CincoBit or [PixoBit](https://www.duelink.com?utm_source=chatgpt.com)
+* CincoBit or PixoBit
 * USB cable
 * Computer or Chromebook
-* [MicroBlocks](https://microblocks.fun?utm_source=chatgpt.com)
+* MicroBlocks
 
 ---
 
-# Teacher Notes
+## Teacher Notes
 
 This lesson introduces one of the most important ideas in computer science:
 
@@ -80,7 +80,7 @@ into a complete interactive project.
 
 ---
 
-# What is a Condition?
+## What is a Condition?
 
 A condition is a question that has only two possible answers:
 
@@ -97,7 +97,7 @@ Programs use these answers to decide what to do.
 
 ---
 
-# TRUE and FALSE
+## TRUE and FALSE
 
 Conditions are evaluated by the computer.
 
@@ -112,7 +112,7 @@ Examples:
 
 ---
 
-# Comparison Operators
+## Comparison Operators
 
 Programs compare numbers and variables using comparison operators.
 
@@ -132,7 +132,7 @@ Examples:
 
 ---
 
-# Using IF Statements
+## Using IF Statements
 
 An `if` statement tells the computer:
 
@@ -140,7 +140,7 @@ An `if` statement tells the computer:
 
 Example:
 
-```text id="5f9u2m"
+```
 if score > 5
 ```
 
@@ -154,36 +154,38 @@ If the condition is FALSE:
 
 ---
 
-# Step 1 — Using Variables with Conditions
+## Step 1 - Using Variables with Conditions
 
-Create a variable called:
+Create a variable called `score`. If not sure how, go back to the [Variables](./l03-cincobit-variables) lesson. Bring in the `set` block into the workspace to set the variable to 7.
 
-```text id="m8a1tp"
-score
-```
+Add `if` block from the `Control` palette, and inside of it add the "larger than" block `>` from the `Operators` palette.
 
-Set the value:
+You can now add whatever blocks inside the `if` block to execute only if the evaluation is TRUE. In this case it is true, as the `score` is more than 5.
 
-```text id="c4r7vd"
-score = 7
-```
 
-Now check:
+![if true](pathname:///img/tutorials/cincobit-lessons/if-true.png)
 
-```text id="3k2xfs"
-if score > 5
-```
+We used the `say` block from the `output` palette. This block is useful for "Debugging", for checking and seeing what the program is doing. It will only do something when the device is connected to MicroBlocks.
+
+Remember, you can simply click on the blocks to run them.
 
 Because 7 is greater than 5:
 
 * the condition becomes TRUE
 * the code inside the `if` block runs
+* the `say` block will execute and show the text.
 
-Try changing the value of `score` and observe what happens.
+The `if` block also allows for running blocks if the condition was FALSE. In English, this will be if condition is true then do this, `else` do that.
+
+Click on the little arrow at the bottom of the `if` block. This will reveal the `else` block. We will change `score` to 4, which is less than 5.
+
+![if true](pathname:///img/tutorials/cincobit-lessons/if-else.png)
+
+Try changing the value of `score` and observe the outcome. What do you think will happen if score is set to 5?
 
 ---
 
-# Step 2 — Touch Detection
+# Step 2 - Touch Detection
 
 CincoBit and PixoBit edge pads can detect touch.
 
@@ -204,62 +206,7 @@ Touch sensing also creates TRUE/FALSE conditions.
 
 ---
 
-# CincoBit Activity
-
-If Pin 1 is touched:
-
-* show an image
-* light LEDs
-* play a sound
-
-If not touched:
-
-* clear the display
-* show a different image
-
-![Image](https://images.openai.com/static-rsc-4/bjWIc4TgbRfFfpJG5UTuOtDyPoFyaQ2Mwo0bkazEgHq3J8XQyHKPnyI0SitZoL9b5JPO45krJWEEdkJhULtl0n3QLN_igzH0mwIBGKp08R4uvy1dJBtR9eN5NU5dg40-1HDvLUrjARZpvqvO5wFQKzsUvV2xmRSMruwaUGHnMPSHvBCWsSF_3wEj2rOTwq4V?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/saPiU68QAaou4xb-aC1gEXXhS4ykyS3oLR_KMM5Wacq26oJf2WWoxKb0Z4EoKFVoxEOf4E_HoG62PfBf5FdXxgIM8dd2ZZDjb74JFwUQh7fzTszIbD7lrXDfghFkSYNrSjleTJtrsMcBJcR_FqhPkTikYH1tFZ31yYVhitnL9PQf5gi-SfgjLeyiMlcQW4an?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/qlS1turIKHB26ySs8P7arDd8CD4LNCG2-etfx6mogYTeKIMMT8LWkOEjHxwrMx46mfKLHGO-YkFzUAmp4rIBvcdMfzGcYdIIgMbK5USEkldFwfmPUFW-e2dIsiUbqrWmnrbeC5gTCyWiwrOa2rXwURukYhAGlaKhWt428H9mxT3IP8x0SzNDzOkKMCfzwR9B?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/EmtGJyazJzBzUF_6x69tKnH7yHat2XEfCKnraWfW9vmhYPxy5SuejGL9vX84TDRakocYm2mDOmeRc6D0t0fg2oB46J7jwKnFpRD-bvYWnVNWd4ghQG8FSqQC9LGXF-G-p8gLY5wUjp_IXrGa0y32gkH58sSBhCgt2RqBfhxcOGNyIhztuZvMLGqDeCRipqE2?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/tZ0KvH2WWkj-jz5ujyrFD-79_wRMiPjEXnUUJATeLC_UVTSMkAOe3ZFSyZA1nXH8IYK8EFOxRRbI_WMXURlaZUHT_TCowWw2n8SMfSzjpYnK8zpri6AaIY3mSR9wJFPTC1Ws-DOTmDhG4qdxEnW1AhFD1zjMp9uPEhUCPndemcZybKstoV70WbCn_FU_kfiC?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/XS0WHQqaKzt4YI23SnjiG02PHW5kAHg7_kJq67FuLSFlXrrHrMoDgo-v4278FJz6-e-uu4UkVnboK_miJd186igTxen_2Qe5Fh5jAHYpvGlhisWvtOdQAB5HuT6TNtqt2cVmL71fTgpBsu55_cnSw18OrAyRqieDRoyYi6tj4sK9EXXAdGZOcT9PFN0Oc1vb?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/mA5FefyiyFvlqtQkd_JZTWM8yym8DqQU3UWkTIQfE73PjLgkaWWZWSEywPaJX-gbi2CLVXvMvwhmwhlmvWiJvvazFLke5sjBwrC_ulnNsE4CELNJ4cVi8Xm7Ttj0RKCvrkWNVgUFG7NapN6qxZhUrJxf0_mMKPbpVxz6zmtgsPaP89U-olgyfsf7mPXMhRFd?purpose=fullsize)
-
----
-
-# PixoBit Alternative
-
-If Pin 1 is touched:
-
-* display text
-* animate graphics
-* show icons
-
-Ideas:
-
-* “Touched!”
-* warning screen
-* animated response
-
-![Image](https://images.openai.com/static-rsc-4/7-XviEmT1FXOja6eCszABa7eeGJ_95geao9NYzWX__yMTbfQTiUZYBo_NoMWir_0banv6KwShv5QwKpOs4JT8lOreN1ikFCZd0967BOC9gWgM8k4dae1AjE3UbCsgUJ9lIq8-Okxb1nClrANO8FRTcN0nPSS9q9qZwX5w2Mt9d7aTk7e3fhJy6_lZq3HhzO6?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/B_WY2ntkdYc3-vpYaxcCjnomafafSixqkebtL6vnrOAR11sDQH9uu-DCp0rzJL3BrgSqNvnWfIhcnE-DfM1YUz2XRkGzacyKqpPqyPZguzUP0oprx1WtqBj59yW1d_O3A6JJRqaUGyBVhFh0PX1wr5Fr6BJe7h3kMMbVpn6tgChapmIPeq5tDVbPR8Wux3o6?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/EgOmtfrqt8sAroC3ZQzTGAinYj7TU2EvsxyYUi5Z7s7s2qTgMN2h7qfMyu6m83mu7wO4V72Zca3fmAni5oOmOoGPwWtHHgfzPJ5Ypt36eH-2b04zcmdSsV1yCY94DvEqzASf4J6B2BFHar7rBn-zh9RGRHu6mx1mI_qAjMQs6EtiktjKmZhHCcbuejGkGTaz?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/3Cm0crDv17-b3Mwf98TUp-yq39F5pW1taBWG425SDW7LzmgyVIj68X0oG5S4QXE_p2YVj5ZitjzSuPGy_T-H707HVhveD-khAnQeBQkJ-g7_dvw5z73AWWXuRazlOKA-rK1yqgDT2p3wRBRI4Zt4K5W0Hi20UIHp5QG4rDVmwVtrDcyvhW18Q1yoQnjlrxs7?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/HV5rFKeQ7WLE9O45szYfSMbBWgcdrJaa3K60LTdV2C5scpnbGhwF_Y24hLUwt9acjXEget5i4LbE0MFh-Y_xZ2oPnkcrkM581ws7fyv4qy_AxO3iekYk5QcqGVZLJS4JRXV2siMwo4EvVlLcep0fhuhhxOdLZIUbwIebz3yieRKOmapTkFIu6JagN-K2c6us?purpose=fullsize)
-
----
-
-# Step 3 — Random Numbers
+# Step 3 - Random Numbers
 
 Computers can generate random values.
 
