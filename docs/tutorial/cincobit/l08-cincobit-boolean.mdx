@@ -27,7 +27,7 @@ Using buttons, touch sensing, sounds, and displays, students will create interac
 
 ---
 
-# Learning Goals
+## Learning Goals
 
 Students will:
 
@@ -41,22 +41,22 @@ Students will:
 
 ---
 
-# Time Required
+## Time Required
 
 45–60 minutes
 
 ---
 
-# Materials
+## Materials
 
-* CincoBit or [PixoBit](https://www.duelink.com?utm_source=chatgpt.com)
+* CincoBit or PixoBit
 * USB cable
 * Computer or Chromebook
-* [MicroBlocks](https://microblocks.fun?utm_source=chatgpt.com)
+* [MicroBlocks](https://microblocks.fun/run/microblocks.html)
 
 ---
 
-# Teacher Notes
+## Teacher Notes
 
 This lesson introduces:
 
@@ -81,7 +81,7 @@ from previous lessons.
 
 ---
 
-# What is a Boolean?
+## What is a Boolean?
 
 A Boolean value has only two possible states:
 
@@ -100,9 +100,9 @@ Computers constantly use Boolean logic internally.
 
 ---
 
-# Understanding TRUE and FALSE
+## Understanding Conditions
 
-Conditions always produce:
+Conditions, like when we use `if` block always produce:
 
 * TRUE
   or
@@ -121,44 +121,17 @@ Programs use these answers to decide what to do.
 
 ---
 
-# Boolean Variables
+## Boolean Variables
 
-Variables can store Boolean values.
+Variables can store Boolean values. MicroBlocks automatically know what kind of value is being stored and then it sets the variable type internally. For example, we assigned numbers to variables. Now, we will set to boolean value.
 
-Example:
+MicroBlocks use a toggle switch to represent true and false.
 
-```text id="q7m2vk"
-alarmOn = true
-```
-
-or:
-
-```text id="h4x8rp"
-alarmOn = false
-```
-
-Programs can change Boolean variables while running.
+![bool true](pathname:///img/tutorials/cincobit-lessons/bool-true.png)
 
 ---
 
-# Displaying Boolean Values
-
-Use the `say` block to display:
-
-* TRUE
-* FALSE
-
-Example:
-
-```text id="z8v5mt"
-say alarmOn
-```
-
-Students should observe how the displayed value changes when the variable changes.
-
----
-
-# Comparison Operators
+## Comparison Operators
 
 Programs compare values using comparison operators.
 
@@ -168,6 +141,8 @@ Programs compare values using comparison operators.
 | `>`      | greater than |
 | `<`      | less than    |
 
+Those work with numbers and result with a boolean.
+
 Examples:
 
 | Expression         | Result                          |
@@ -176,11 +151,19 @@ Examples:
 | `temperature < 20` | TRUE if temperature is below 20 |
 | `count = 5`        | TRUE only when count equals 5   |
 
+But you can't use `>` with a boolean. Think about it, how can true be `>` true?
+
+Using `=` makes sense
+
 ---
 
-# Understanding AND
+## Boolean Operators
 
-The `AND` operator requires:
+There are operators that are made for boolean values. The first one is `not`. This results in the opposite result of a variable. Like when you say "if a pin is touched" vs "if the pin is not touched"
+
+![bool not](pathname:///img/tutorials/cincobit-lessons/bool-not.png)
+
+The `and` operator requires:
 
 > BOTH conditions must be TRUE
 
@@ -193,19 +176,13 @@ Examples:
 | FALSE       | TRUE        | FALSE  |
 | FALSE       | FALSE       | FALSE  |
 
-Example:
+This is useful when having multiple conditions for something to happen.
 
-```text id="m5q2wr"
-if buttonA pressed AND buttonB pressed
-```
+When a button is pressed `and` lives is less than 1 then game over. Both of these conditions must be met for a "game over"
 
-Both buttons must be pressed together.
+![bool and](pathname:///img/tutorials/cincobit-lessons/bool-and.png)
 
----
-
-# Understanding OR
-
-The `OR` operator requires:
+The `or` operator requires:
 
 > ONLY ONE condition must be TRUE
 
@@ -218,13 +195,12 @@ Examples:
 | FALSE       | TRUE        | TRUE   |
 | FALSE       | FALSE       | FALSE  |
 
+
 Example:
 
-```text id="k8t4py"
-if buttonA pressed OR buttonB pressed
-```
+If button `A` is pressed `or` button `B` is pressed then play a tone.
 
-Either button activates the condition.
+![bool or](pathname:///img/tutorials/cincobit-lessons/bool-or.png)
 
 ---
 
@@ -244,17 +220,11 @@ Use:
 * button conditions
 * display blocks
 
+![bool and happy](pathname:///img/tutorials/cincobit-lessons/bool-and-happy.png)
+
+
 Students will create a program that only activates when BOTH buttons are pressed.
 
-![Image](https://images.openai.com/static-rsc-4/fyBFfhZ7PSKWrhc3MveZHj4HGKL6GVQB5evr6mgseDWMm1trlUq7cs_gRissEB2xodj8FjiZWFFrPFEAR0xywEsghPmTJpKecM5gbC66ObH9UhtsYUYZEogYV5byGnHVphjlQn3d9PEAqeXqU0nv0aSbSFLg3pewDKPQ7vKoxV3LMQ2McIE9g_6Pl8SLN7Qj?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/ropQ4Sd0TqzFbiXcyjhdMT3xZSP681NQsZGFTa7rB3SvPaX9Gwz1SaXQZFRxB1VUCD3SWILS3VhdweLq6J1VbywIxwra3DY4BK57gNJFri14HigneLKmjvrr0EUboVBGlKbqbwZvjlIk9xE6uhIsbKzu8q2Jsp7Mzk7c6apNiGxjOipNRSiklYxkMZy4quXM?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/1Yoo6bjNy7Fh0mFDWgqk4XXdPbwLacCEvDEw5YQv1SNJGpMjtn7GeHRCovFfX78tYIlXI2MTy2KyBEXZTMGrWv9A9_kDvKfHSZ33Hk42G29XPuHiBXbmqi2XntEIEehJqd0Kumfxy_y83ZzocgxDFlyZa5G6bUmw7HiHJoFQrsh5bglpFViVoGCgdzIfLxsk?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/8Sjj0_gJfRgGsKeVaftTREUGXRltb9ITyWqxtiCepklQ4IkBCek0Xy-NnYvAdQRrgjJ_xUdjwT-bb_Yv-eJPv3galfOvq0gffjy3w9IqFd8hTBJ0T8wwFU_MM3aPQC6Ib-pD8s2J3U83fcJ52AVk92DTskCprQwQrQRkJiPncomP0iH2fjvEmmATjzIGBcHz?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/t1oTpiMs9VlaGiVBunkL8vA3kOKAVZOT7iR2bzHn5t58kQyT5H8Cpoij3fIyf0Fqpfn6vMQWSNCOzBJQHHLYFtWl0awL19KkaOdS5_cY1Juw0cNPC22JzHwyXdYSHeNq497tP1M-mvUTa-mX2tXUotQGcZFge2NJblJQtYce7-QPT0nMrhg6PQ-YT0Ry4oYB?purpose=fullsize)
 
 ---
 
@@ -273,6 +243,8 @@ Use:
 * `OR`
 * display images
 * buzzer sounds
+
+![bool or alarm](pathname:///img/tutorials/cincobit-lessons/bool-or-alarm.png)
 
 Students compare how OR behaves differently from AND.
 
@@ -297,34 +269,12 @@ Students begin combining:
 
 into larger programs.
 
----
+We will use `due light level` to check the light level. Use your hand to cover the board to make it see the room as "dark". The light sensor goes from low numbers, like 100 when dark to close to 1000 when very bright.
 
-# CincoBit Version
+If the room is dark and button `B` is detected then show a skull on the screen or 500ms!
 
-Students can:
+![bool dark and button](pathname:///img/tutorials/cincobit-lessons/bool-light-and-button.png)
 
-* display icons
-* blink LEDs
-* play tones
-* create logic-based games
-
-Ideas:
-
-* secret unlock system
-* reaction tester
-* mini alarm system
-
-![Image](https://images.openai.com/static-rsc-4/ropQ4Sd0TqzFbiXcyjhdMT3xZSP681NQsZGFTa7rB3SvPaX9Gwz1SaXQZFRxB1VUCD3SWILS3VhdweLq6J1VbywIxwra3DY4BK57gNJFri14HigneLKmjvrr0EUboVBGlKbqbwZvjlIk9xE6uhIsbKzu8q2Jsp7Mzk7c6apNiGxjOipNRSiklYxkMZy4quXM?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/huOmS9QXqPWr0t3ym_RwgV2UBaC77yo2wOZ4JG8q4Z7jz0CJO0YKLrj9Be_KLvQJFM4mNn2zK9qNxoQUPyRAZaTrd34d-9jAr5NBOlV49MA6TKs4sVIhaO_VRuNFnJE8eMl72WIqRNsdSrK7Gjq5gZ-60YwfI5O889-ad0wcAj-80CNf5zkzpgHAVGMKGXri?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/HcWfSeYuzzqWTXOx7lpNaCU4helwPIRMgI3wjaY_BZDtItLR4cu7QsrAOZXioNGXAofZGNGRZVKkBEu2LaHuzu0xTubA3MMyE3MhLveCY78KlaLx9wuwTf684VQX0T7HDOI88AQVUCVMzBpApK0FvclCkkXYnOmj-A_avs2Egk2MYk6OtDD8tIpU2rsN5M46?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/VdJSx7_2z05qHeSUGeQngcpRwSrs6M1QXCjxzuX29vljN_H67OLHPnCbQtiF1CjaHImK_lTGHounAtU-NnOn8FgMr2RvzK8ZI1_70H5xRUZbPGkdZA9JBGGQtB8lsjcpz9RpoUMgU1DQ4c9hkbN83nwb0Ado9gZOALst5CCXDJx5jarflmEjJJnoxoCmlIzm?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/FQC0xz9t8aDISJeBFgJDE6XLdIIHmllNSa7aQ56Ht0GlRP0yiAHDuqjP5SbbeFkTYtiDok2fxvE3xtrO0ucRTSmnNZrAXNk5qPY01IFk-OPNpHRcp5C43xbREQqEF8Y5FAK0xmQa29e4KNR7C-rQfbM7pTRkAxLPKIZxAEOZyRqtXJLyVNiw9A2gwHfsLQC5?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/vfIMZXnLx01JvRPfKxQnLg3u84loWTl8BJ6WfpR8dP4c8Jq2Lf17Hx-Qr7NfOUicZ-_cN1sf0f8hBxorfPgTvmSOX117lHBnR8SGOhhBWwwnqpx64xWFRR85iMx7rhvANj38CvKs9Ps_c9hr5zIWzDaBSmor0SN1OX79NgjKHpRA2Bv7hXBPYmm8IHEQH9Dh?purpose=fullsize)
 
 ---
 
@@ -343,19 +293,9 @@ Ideas:
 * animated alerts
 * touch-controlled graphics
 
-![Image](https://images.openai.com/static-rsc-4/0y3vMWq_YOW0xZZ1qcQOBtoPy_qZ7uf2c5o1J5kdAdk9HR_STOWP6f2K8cLuLL4StEwBSsc2582QbE9-74gliUu_7gmIwfE3X4wUdcXwcldMYPtoQxWJpbWPNw5hQRZAKtU5Ppqg-VhVGT8QbWCehGiWvvmP2gTVEso79Nl2kRjAFB_spMaPVcU6_adt65M5?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/gFz203dZdctYd-9uAZEduFRYq67oIbKUJ8pRgvvQMcKZ9F77-YBNMK5LlvAZDONjR-3bRqQ-nZ1ZLqNLqLwkctoajSPttZN3crUvSTWrSrJmfVRVoAIo00aCdVCuo_fqY6ADqBaQ5-eu1gmuT7vYb45HXmiSv42UAmvW7Rc12l1Lm0CnXAbn6Txnzyvg-UYx?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/z7vftTKZED-Qd-ulewjKe-5vNPgIIRaPTlqMjsx6LpXIa1zry4ovnEzNK-3S9qQEuwBUBzoJdnGRthI52RGG4yafVWltXFxhistz2wMK76amuQ2alV2fK0hLJOjGsNubfihP2_Y-pV2VOq0EHWvqRvmxWO7V12AZCCOu6PTrb-k05CxaE2DAy5re2Lcyk_Jw?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/XKU0HpaiTAaguDNJT4uW7P_TFuHwF_fwNZUbaXOor8Fd-D76iriKoerJfTW4_QmM68duoV-YjHeyGYSRDJIIn5faYhXSMqkuTrfaF-DOuUcJSKgCYfl5-T6A2afXpC_8cCGptnz6KLxLA-eElukv4ih15ysNYP-gL7uXjjz5X6yVyEvCcvZDhAzxFy70SrDd?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/X1ITm2EAhwEpbmGoAJiUke8t4rA-qYpKvm4nVA3GSvtROKvLmwKr9F0nn4r0iL4XZyJKl9bI1ArcEpLVZmy9kdWTAUiAhXvgVSZAKCZOdN8u3lOoKkpfCB9U5eZQWLqvbZSxNOnq8B4c1qRquqGvT7fNMblNeByy6O01LHEjSJGW6ouyit_SUocszOoB1uQU?purpose=fullsize)
-
 ---
 
-# Understanding Boolean Logic in Real Systems
+## Boolean Logic in Real Systems
 
 Boolean logic is used everywhere in technology.
 
@@ -372,7 +312,7 @@ At the hardware level, processors are built using billions of tiny electronic TR
 
 ---
 
-# Try It
+## Try It
 
 Can you:
 
@@ -383,27 +323,7 @@ Can you:
 
 ---
 
-# Challenge
-
-Create:
-
-* a secret code system
-* a reaction timer
-* a mini game
-* a logic-controlled alarm
-
-using:
-
-* buttons
-* touch sensing
-* Boolean variables
-* AND/OR logic
-
-together.
-
----
-
-# Real-World Connection
+## Real-World Connection
 
 Boolean logic forms the foundation of:
 
@@ -417,23 +337,18 @@ Every modern computer system relies on TRUE/FALSE logic.
 
 ---
 
-# Troubleshooting
+## Troubleshooting
 
-## Condition never becomes TRUE
-
-* verify logic blocks are connected properly
-
-## Wrong result displayed
-
-* check comparisons carefully
-
-## Sound or display does not activate
-
-* verify the condition block controls the correct code
+* Condition never becomes TRUE
+    * verify logic blocks are connected properly
+* Wrong result displayed
+    * check comparisons carefully
+* Sound or display does not activate
+    * verify the condition block controls the correct code
 
 ---
 
-# Vocabulary
+## Vocabulary
 
 | Word       | Meaning                      |
 | ---------- | ---------------------------- |
@@ -446,7 +361,7 @@ Every modern computer system relies on TRUE/FALSE logic.
 
 ---
 
-# Wrap-Up Question
+## Wrap-Up Question
 
 > Why do computers rely so heavily on TRUE and FALSE values?
 
