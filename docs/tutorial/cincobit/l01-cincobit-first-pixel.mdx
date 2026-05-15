@@ -1,10 +1,8 @@
 # L1: First Pixel
 
-notes: click blocks to execute.
-
 ## Overview
 
-In this lesson, students will connect CincoBit or [PixoBit](https://www.duelink.com?utm_source=chatgpt.com) to a computer and begin programming using [MicroBlocks](https://microblocks.fun?utm_source=chatgpt.com).
+In this lesson, students will connect [CincoBit](../../products/mccincobit-e) or [PixoBit](../../products/mcpixobit-d) to a computer and begin programming using [MicroBlocks](https://microblocks.fun?utm_source=chatgpt.com).
 
 Students will learn how MicroBlocks communicates with the board in real time and how code changes can instantly update the device without needing to recompile or upload a full program.
 
@@ -12,7 +10,7 @@ Using the display, students will light pixels, create simple images, and explore
 
 ---
 
-# Learning Goals
+## Learning Goals
 
 Students will:
 
@@ -24,9 +22,9 @@ Students will:
 
 ---
 
-# Time Required
+## Time Required
 
-30–45 minutes
+30-45 minutes
 
 ---
 
@@ -39,7 +37,7 @@ Students will:
 
 ---
 
-# Teacher Notes
+## Teacher Notes
 
 This lesson is focused on:
 
@@ -57,9 +55,13 @@ Encourage experimentation and exploration.
 
 ---
 
-# What is MicroBlocks?
+## What is MicroBlocks?
 
 MicroBlocks is a live block-based programming environment designed for physical computing devices.
+
+<div style={{ textAlign: 'center'}}>
+![microblocks](pathname:///img/microblocks-sample.webp)
+</div>
 
 Unlike traditional systems where programs must be compiled and uploaded every time a change is made, MicroBlocks updates the board instantly while the program is running.
 
@@ -73,29 +75,87 @@ Changes can happen live while the device is operating.
 
 ---
 
-# Step 1 — Connect the Device
+## Step 1 - Connect the Device
 
 1. Plug CincoBit or PixoBit into the computer using USB.
-2. Open MicroBlocks.
+2. Open MicroBlocks: [microblocks.fun/run/microblocks.html](https://microblocks.fun/run/microblocks.html).
 3. Click the connect button.
-4. Select the board from the list.
+4. Click on USB.
+5. Select the board from the list.
 
-Once connected, MicroBlocks can directly communicate with the device.
+The `Connect` option is on the top right.
+
+<div style={{ textAlign: 'center'}}>
+![microblocks-connect](pathname:///img/microblocks-connect-1.webp)
+</div>
+
+Select `Connect (USB)` from the menu.
+
+<div style={{ textAlign: 'center'}}>
+![microblocks-connect](pathname:///img/microblocks-connect-2.webp)
+</div>
+
+Select the `DUELink MicroBlocks` board in the dialog that appears, then click the `Connect` button:
+
+<div style={{ textAlign: 'center'}}>
+![microblocks-connect](pathname:///img/microblocks-connect-3.webp)
+</div>
+
+If you do not see your `DUELink MicroBlocks` board, make sure it is connected with a good USB cable, then click its reset button.
+
+When the board is connected, the `Connect` button will turn green and the name of the board will appear next to it:
+
+<div style={{ textAlign: 'center'}}>
+![microblocks-connect](pathname:///img/microblocks-connect-4.webp)
+</div>
+
+MicroBlocks may automatically add some needed compatible libraries, like when CincoBit is connected. 
+
+* the LED Display library
+* the Tone library
+
+![boardie libs](pathname:///img/tutorials/cincobit-lessons/boardie-libs.png)
+
+These libraries provide blocks for:
+
+* graphics
+* animations
+* sounds
+* music
+
+**Understanding Live Programming**
+
+MicroBlocks uses:
+
+> live programming
+
+This means:
+
+* programs update immediately
+* changes appear instantly
+* students can experiment quickly
+
+Unlike many programming tools, there is no compile or download process.
+
+Students can:
+
+* click blocks
+* observe results immediately
+* modify programs while running
 
 ---
 
-# Step 2 — Test Live Updates
+## Step 2 - Showing a Smiley Face
 
-Create a simple program that turns on part of the display.
+Locate the `display` block inside the `LED display` library. Click on the top side of the block.
 
-Change the program while it is running and observe how the device updates immediately.
+> image: keep the block in place and just click on it
 
-Try:
+When the block is clicked:
 
-* changing a pixel
-* changing a number
-* changing a delay
-* changing text
+* the image immediately appears on CincoBit.
+
+Click the `clear display` block. Boardie's screen will clear out immediately.
 
 Notice:
 
@@ -103,34 +163,34 @@ Notice:
 
 This is called **live programming**.
 
+Pull the `display` block into the workspace.
+
+Now:
+
+* edit the pixels
+* change the image
+* click the block again
+
+The CincoBit display updates instantly.
+
+> image: drag in workspace, modify pixels, click to show on screen.
+
+Students can:
+
+* turn pixels on and off
+* draw patterns
+* create simple graphics
+
+Create:
+
+* a smiley face
+* a heart
+* letters
+* custom designs
+
 ---
 
-# CincoBit Activity
-
-Create a simple image on the 5×5 LED matrix.
-
-Ideas:
-
-* smiley face
-* heart
-* letter
-* checkerboard
-
-![Image](https://images.openai.com/static-rsc-4/PI0VcN5Wrpg3r_3Cbjp4xqJcpRY_ovqfF7mBI2lElC7B19C4FkGLXc_Owfz1ntFvvEoCA-xHk2oS-FmCEv9V3BPXZxo8yz8J_CFYnO0qJM8ZZgDAJdV1ankg_Vw2dZWJ4sh6LuqDYXcdkWDIbqEblGFriuxAXdX8Px5n1UJ3GE9oyp9Z7u-2YhquyDnMmptI?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/0cNGXmjNidf7EKCR856Ct0Qcm50U8uTvrYRQ3iFzCm_0xZmSVSJgH3G555StseshV-WOkjR1d-nTNZBLD7hk24Mh39_jKRoIFGNCR_hlfMRUqhRHaHRqlJQh0N26Gc14nOd1tMvnNpd9BDtAaA-xIJn3bSKmrHyJl5xvWnVCq0QOOwlNlQkiAoyBU4oGCeKe?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/hzACkhiFJnLp31cTQGt4xOAsyfNXXKr4WU6_i-uC-YUhqPd14AQHW5KWru6yn-RGx9ISDpnjv4CuEUq_I1by2D7yF5JnOrja25-GQHkKYtdS19yYgLi2RgI31qd_3DXEER_DuXYU8vHMnlAVwgfjBAwlV_RpNBtM2hFiSyjT3l-g_J3IGeKg22760XEDThRZ?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/oqbqbzxQT0jdrLkMjZU7jhZIFWzvYhSikwgsu8WQ1r9GIiVOHxAU21zh1LHVxQgWQyBJwsPZX6ZE8dsP5JBmsXRAlVAoShywIRIQSPT2pJ9q5kCjw_DlMdMaxR4e-yrvaYx77wQBf77S8BQWLY6OrmDFPAUlxx0urThaAp3DKzZwmV4WdK2EOQjDMmpwTbmY?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/SVC-S_YsrS3aDNq33n3nEfz6wYVHJ_j5IbKKfw3MiexJOvnjLpD-a9LDjrGzuZiQU8W6gebVOtRxJ7hMs5pfLBUm5JGqOsdEJ0obaDJNCip1g1UgE0qHuCmIoolKxrfoibJwWsQiYTg0m46YhUrOcfW61eM6X3jYSaElqKdQbueuJ6FJp-zx2YYNLLnWyMkJ?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/GID33D7t8nJl7yWEZ2ZMRk1anuwjKLFnsAKa81lZddHI5LXo6Vr3aRhmFqgKjYjuSLbtLFVWliszmJXOu2sORIw4IJfxqnLiMiZYljylobMNfBDlP-KEFFn8geeWBRZbcobNVtGPBVV8_p3iNmlyT7-C20PtFlGjvxsTFo9KcuH2JZvjb6gofhR1e0llxtWh?purpose=fullsize)
-
----
-
-# PixoBit Alternative
+## PixoBit Alternative
 
 Use the graphical display to:
 
@@ -145,21 +205,9 @@ Try:
 * displaying your name
 * creating a moving object
 
-![Image](https://images.openai.com/static-rsc-4/bERqrDNrLsewOlJptPGjX3DW1r3xT5YEsPpDMB7HPJoyhDlcAgwQQUywEoR2ml6hd8kDPqLOdiiKBHIRdVRIbubuagcAa2gcGO-F50dZZwuoj1VjraqEWWSuHHiIGC53Hk3G9rg7Flp782KhL8OgGn9TbezyA4yf_NCcnpo5Jxozf0oNqpnyIJi4Pj0V3TB7?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/JOpFSrFbBuH44NCjzz8zvhOefmzCDbc5DNOGsYaDhS6YvleH1bjlrPjc2CLfOiRkGQ5A5MFi_raJvgPccZYO9LiiOTM4maX-Zs3lIjNJSr3HA-HpFHrPbE3zqGN02LYWgB3AACk6e3bN8m1cbmAhDdeI7K1zom9PiBv99HCRYX4Hgd9WiLlhW-5AHyoH_jcb?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/HV5rFKeQ7WLE9O45szYfSMbBWgcdrJaa3K60LTdV2C5scpnbGhwF_Y24hLUwt9acjXEget5i4LbE0MFh-Y_xZ2oPnkcrkM581ws7fyv4qy_AxO3iekYk5QcqGVZLJS4JRXV2siMwo4EvVlLcep0fhuhhxOdLZIUbwIebz3yieRKOmapTkFIu6JagN-K2c6us?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/3Cm0crDv17-b3Mwf98TUp-yq39F5pW1taBWG425SDW7LzmgyVIj68X0oG5S4QXE_p2YVj5ZitjzSuPGy_T-H707HVhveD-khAnQeBQkJ-g7_dvw5z73AWWXuRazlOKA-rK1yqgDT2p3wRBRI4Zt4K5W0Hi20UIHp5QG4rDVmwVtrDcyvhW18Q1yoQnjlrxs7?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/MONujLDpT8zlNw92RZj0yQdDV0cx908k94G4ZLvXDCHbS7Ki3swUuFTORLE_V_Ivjo8ihY5fQPUcT4X6qE4aVgQ5YeWecLCaC3LnnnIqrx3ePCNSSupZGHBudWYECmW1YMQt1ug1_FtiLedVCpx6UwFSxxZgpJ-itHKXd1HaVv2cUblVxkuFv7JPXEDzQ3Jy?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/CEZyDRMaA8rMceimuhZGDm0_gI09XuK2yuc1Xdmz7Z6oAa81ETcYLEc5VTGNBoDClg-HuPnf--klbYMzFi-Ue9sO7FciRlWiL9a0fP1Rz_7yDv5gvwYHiH9yUyT3j8omf6BBshfsDIKg2Zjt5_UD-zoSfVPWqRIAO4QjFxMiljc8UYhHcFGBQ0bpZlCjRxhw?purpose=fullsize)
-
 ---
 
-# Understanding Pixels
+## Understanding Pixels
 
 Displays are made from many tiny lights called **pixels**.
 
@@ -173,35 +221,10 @@ Programs control pixels by turning them on or off to create:
 * animations
 * games
 
----
-
-# Try It
-
-Can you create:
-
-* your initials
-* an arrow
-* a star
-* a happy face
-
-Experiment by changing pixels while the program runs.
 
 ---
 
-# Challenge
-
-Can you make your image:
-
-* blink
-* move
-* scroll
-* animate
-
-Try changing the program while it is running to observe live updates.
-
----
-
-# Real-World Connection
+## Real-World Connection
 
 Live programming tools are used by engineers, artists, and designers to quickly test ideas and prototype interactive devices.
 
@@ -216,27 +239,22 @@ Displays made from pixels are used in:
 
 ---
 
-# Troubleshooting
+## Troubleshooting
 
-## Device does not appear
-
-* reconnect USB cable
-* try another cable
-* restart MicroBlocks
-
-## Program does not respond
-
-* verify the board is connected
-* reconnect the device
-
-## Display looks incorrect
-
-* check pixel positions carefully
-* clear the screen before drawing again
+* Device does not appear
+    * reconnect USB cable
+    * try another cable
+    * restart MicroBlocks
+* Program does not respond
+    * verify the board is connected
+    * reconnect the device
+* Display looks incorrect
+    * check pixel positions carefully
+    * clear the screen before drawing again
 
 ---
 
-# Vocabulary
+## Vocabulary
 
 | Word             | Meaning                                     |
 | ---------------- | ------------------------------------------- |
@@ -247,7 +265,7 @@ Displays made from pixels are used in:
 
 ---
 
-# Wrap-Up Question
+## Wrap-Up Question
 
 > Why might live programming help engineers and programmers experiment more quickly?
 

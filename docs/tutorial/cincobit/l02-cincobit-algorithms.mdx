@@ -1,7 +1,5 @@
 # L2: Algorithms & Events
 
-notes: explain MicroBlocks IDE elements
-
 ## Overview
 
 In this lesson, students will learn how computers follow step-by-step instructions called algorithms.
@@ -12,7 +10,7 @@ Students will explore the concept of:
 * process
 * output
 
-using the `on button press` event block in [MicroBlocks](https://microblocks.fun?utm_source=chatgpt.com).
+using the `on button pressed` event block in MicroBlocks.
 
 When a button is pressed, the program will react by displaying graphics, text, or sounds on the device.
 
@@ -20,7 +18,7 @@ Students will also learn how comments help programmers explain and organize thei
 
 ---
 
-# Learning Goals
+## Learning Goals
 
 Students will:
 
@@ -33,22 +31,22 @@ Students will:
 
 ---
 
-# Time Required
+## Time Required
 
-30–45 minutes
+30-45 minutes
 
 ---
 
-# Materials
+## Materials
 
-* CincoBit or [PixoBit](https://www.duelink.com?utm_source=chatgpt.com)
+* CincoBit or PixoBit
 * USB cable
 * Computer or Chromebook
 * MicroBlocks
 
 ---
 
-# Teacher Notes
+## Teacher Notes
 
 This lesson introduces one of the most important ideas in computer science:
 
@@ -73,7 +71,7 @@ Programs then make decisions and produce outputs such as:
 
 ---
 
-# What is an Algorithm?
+## What is an Algorithm?
 
 An algorithm is a set of step-by-step instructions used to solve a problem or complete a task.
 
@@ -88,7 +86,7 @@ Computers also follow algorithms exactly as programmed.
 
 ---
 
-# Input → Process → Output
+## Input → Process → Output
 
 Most computer systems follow this pattern:
 
@@ -108,23 +106,15 @@ Examples:
 
 ---
 
-# Step 1 — Create an Event
+## Step 1 - Create an Event
 
-In MicroBlocks, programs can react to events.
+In MicroBlocks, programs can react to events. From under `Control`, find and drag the `on button press` block. This block waits for the user to press a button before running the code inside it.
 
-Use the:
-
-```text
-when button pressed
-```
-
-event block.
-
-This block waits for the user to press a button before running the code inside it.
+We will need 2 of them. We will select `A` for one and `B` for the other.
 
 ---
 
-# Step 2 — Add Output
+## Step 2 - Add Output
 
 When the button is pressed:
 
@@ -133,33 +123,15 @@ When the button is pressed:
 * play a sound
 * animate pixels
 
----
+In this example, we will use the `display` block to show sad and happy faces!
 
-# CincoBit Activity
-
-When the button is pressed:
-
-* show a smiley face
-* light all LEDs
-* display a pattern
-
-Students can try different outputs for different buttons.
-
-![Image](https://images.openai.com/static-rsc-4/XS0WHQqaKzt4YI23SnjiG02PHW5kAHg7_kJq67FuLSFlXrrHrMoDgo-v4278FJz6-e-uu4UkVnboK_miJd186igTxen_2Qe5Fh5jAHYpvGlhisWvtOdQAB5HuT6TNtqt2cVmL71fTgpBsu55_cnSw18OrAyRqieDRoyYi6tj4sK9EXXAdGZOcT9PFN0Oc1vb?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/mA5FefyiyFvlqtQkd_JZTWM8yym8DqQU3UWkTIQfE73PjLgkaWWZWSEywPaJX-gbi2CLVXvMvwhmwhlmvWiJvvazFLke5sjBwrC_ulnNsE4CELNJ4cVi8Xm7Ttj0RKCvrkWNVgUFG7NapN6qxZhUrJxf0_mMKPbpVxz6zmtgsPaP89U-olgyfsf7mPXMhRFd?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/Yq7vIoawkXehny5my7fs8Tholp7OR049jK5173s4PKu5V9dKs_26z6ZW2seismhE7InIRlgWrSY96PKQ0sqSbt68BHmtEV5g_Cxvk_jSRQPQOv-TN6i3ECjZwQafrJycvZebxcN4gHpJhxDWNrF-CxPZIB-IGEubqt1k4t1jb_OmyjQHYeZMloPbRvUxU4EV?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/3u3QYtew6jMEyH6durxjSz8JE-4ucXm9GSOBnWxeRhPkjncFxXW8601CoWAQb3RJB9wOg6TluHlmoFpwOu-0XkiJDKo2hJTuuptcJzYM2_EAOqivRfMsHgE0FnSmJlvyU3_UqKZusUbxMs5zIM-vgdOEEvQs03Si8hUONaCw2TcjUFvXMXaZ8fGPnQXGy6T8?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/XC69Ygk2kndN3wAVWNUi3J5UDnLDpCTdUERz413lhaHAZvaK0M28EysPh9ACt6KbyuT2K076ah37rN22xJvGfzaFAEF8dUr2ZcBUfGxDg3k-lnztx8Tc1imDefPvJdm_-ugaqa9fP5dVVLTpz5njbH--52IyPQwvUx85z0oas07_eCvqWJkVXQv5aB_HGZpO?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/K4uY7xzSZYGZYolvbdceeD0Tb-ICM8CHydir5rdV4TV3e9cH3rR-EtGUR_-cldl25sZ7zQZSnXBHHnIKbEH0Njp0OSA_fIfte_CMT-IvIHcZdzTXPjtCqZCKNOUunjAbtmS_vZAMVZlF1nNeMWnEHi9HiLkfSubYEckUfsjb_FP57bBBDWhmMBzfCqLn17iM?purpose=fullsize)
+<div style={{ textAlign: 'center'}}>
+![Smile and Frown](pathname:///img/microblocks-smile-frown.gif)
+</div>
 
 ---
 
-# PixoBit Alternative
+## PixoBit Alternative
 
 When the button is pressed:
 
@@ -173,21 +145,9 @@ Ideas:
 * a bouncing ball
 * changing icons
 
-![Image](https://images.openai.com/static-rsc-4/HV5rFKeQ7WLE9O45szYfSMbBWgcdrJaa3K60LTdV2C5scpnbGhwF_Y24hLUwt9acjXEget5i4LbE0MFh-Y_xZ2oPnkcrkM581ws7fyv4qy_AxO3iekYk5QcqGVZLJS4JRXV2siMwo4EvVlLcep0fhuhhxOdLZIUbwIebz3yieRKOmapTkFIu6JagN-K2c6us?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/Ijou9GBMmErVYCaWReDt1hyt56NIaWQZY9yHGroLbj57GUKxxQppctz_3Jx-7rjJzX2F71w9ZcDeV40svcFizozJk7ih_pCPAa4hTdKT-mFGIsYSAw6l9CCQxM3mCPn999-QT-F93F-O6EWizAn5enW61HDMUsnX1IPNxKzQ25G-ClXU1Yss7etNYHXFVUo0?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/P4rDHMlSZSJs4uuF1k-ZfOjfDgnQ4HSbdbBB2gExjTGWdk7Yjr32sx11EDgbLOjLGMSyGlQevF-PwLPYCR9_ZrIq1UvE1exfWMd1ffCgfKYGVdC2stsyIUHKMob7-OKFumsCblHB0ZA3g1wiNJbI71HNCFE_4jo9_mA_FUzVkzgXzsAvTQvI-biQKblrfsaa?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/EgOmtfrqt8sAroC3ZQzTGAinYj7TU2EvsxyYUi5Z7s7s2qTgMN2h7qfMyu6m83mu7wO4V72Zca3fmAni5oOmOoGPwWtHHgfzPJ5Ypt36eH-2b04zcmdSsV1yCY94DvEqzASf4J6B2BFHar7rBn-zh9RGRHu6mx1mI_qAjMQs6EtiktjKmZhHCcbuejGkGTaz?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/TkklfF45hpQecuuJa_Ktwa1XmLNbb8MQoWO7wFin1eg5vUIn3ZckAFDKnZ-vzSCU6tHq2Aqa6FKaXhDsxOXvX_WFWckW7J3MHfjXku8DO5fpNMBRll57CqQK8KR_RbC3vFpb6rWUhyeoUYgFqwUh5vXVZNPJtYgH25jWVLKIR6W1KI_3-sytlG50h1JHmJ2o?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/jBMs7GDvpX_3ldLevum3ntXUVxBmPO1EWrsU2Arf2CCVZNIlA82lFKiYSigIpwqscRVvGy2zn5jPBvL1Zz0DXZcDJhogGitBYawuP6x9KnpxGtsHigEDInvd3q5R3PHHzZ28CaXHDUu8h7_p9f-18XCBNb9UsvlX8KRn--qbD3yIdfTAEBfb7X6eD2kPI2uy?purpose=fullsize)
-
 ---
 
-# Understanding Events
+## Understanding Events
 
 An event is something that happens that causes a program to respond.
 
@@ -208,11 +168,13 @@ Event-driven programming is used in:
 
 ---
 
-# Adding Comments
+## Adding Comments
 
 Comments help programmers explain their code.
 
 Comments are ignored by the computer but help humans understand programs.
+
+![comments](pathname:///img/tutorials/cincobit-lessons/comments.png)
 
 Good comments explain:
 
@@ -229,7 +191,7 @@ Encourage students to comment their projects clearly.
 
 ---
 
-# Try It
+## Try It
 
 Can you:
 
@@ -240,7 +202,7 @@ Can you:
 
 ---
 
-# Challenge
+## Challenge
 
 Create a mini reaction system:
 
@@ -252,7 +214,7 @@ Create a mini reaction system:
 
 ---
 
-# Real-World Connection
+## Real-World Connection
 
 Event-driven systems are everywhere.
 
@@ -269,20 +231,15 @@ Computers constantly wait for inputs and respond with outputs.
 
 ---
 
-# Troubleshooting
+## Troubleshooting
 
-## Button does nothing
-
-* verify the correct event block is used
-* check device connection
-
-## Wrong output appears
-
-* check code inside each event block
-
-## Program runs unexpectedly
-
-* verify blocks are attached correctly
+* Button does nothing
+    * verify the correct event block is used
+    * check device connection
+* Wrong output appears
+    * check code inside each event block
+* Program runs unexpectedly
+    * verify blocks are attached correctly
 
 ---
 
