@@ -41,7 +41,7 @@ const sidebars = {
         "tutorial/duestem",
         {
           type: "category",
-          label: "CincoBit",
+          label: "CincoBit CS Curriculum",
           link: {type: 'doc', id: 'tutorial/cincobit'},
           items: [
             {
