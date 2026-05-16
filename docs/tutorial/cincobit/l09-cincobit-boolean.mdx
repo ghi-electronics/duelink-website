@@ -1,0 +1,371 @@
+# L9: Boolean
+
+:::info[In progress]
+Excuse our mess while we finish this page! You can contribute [here](https://github.com/ghi-electronics/duelink-website).
+:::
+
+## Overview
+
+In this lesson, students will learn how computers make decisions using Boolean logic.
+
+Boolean logic uses only two values:
+
+* TRUE
+* FALSE
+
+These values are used everywhere in computing to represent:
+
+* ON and OFF
+* YES and NO
+* PRESSED and NOT PRESSED
+
+Students will learn:
+
+* Boolean variables
+* TRUE and FALSE conditions
+* comparison operators
+* `AND` and `OR` logic
+* combining multiple conditions together
+
+Using buttons, touch sensing, sounds, and displays, students will create interactive programs that react differently depending on conditions.
+
+---
+
+## Learning Goals
+
+Students will:
+
+* understand Boolean values
+* use TRUE and FALSE conditions
+* use Boolean variables
+* use comparison operators
+* combine conditions using `AND`
+* combine conditions using `OR`
+* display Boolean results using `say`
+
+---
+
+## Time Required
+
+45–60 minutes
+
+---
+
+## Materials
+
+* CincoBit or PixoBit
+* USB cable
+* Computer or Chromebook
+* [MicroBlocks](https://microblocks.fun/run/microblocks.html)
+
+---
+
+## Teacher Notes
+
+This lesson introduces:
+
+> Boolean logic
+
+which forms the foundation of all digital computing.
+
+Students should understand:
+
+* computers constantly evaluate TRUE/FALSE conditions
+* conditions control decisions
+* logical operators combine multiple conditions
+
+This lesson builds directly on:
+
+* conditions
+* variables
+* events
+* touch sensing
+
+from previous lessons.
+
+---
+
+## What is a Boolean?
+
+A Boolean value has only two possible states:
+
+| Boolean | Meaning             |
+| ------- | ------------------- |
+| TRUE    | Yes / On / Active   |
+| FALSE   | No / Off / Inactive |
+
+Examples:
+
+* light ON or OFF
+* button pressed or not pressed
+* correct or incorrect answer
+
+Computers constantly use Boolean logic internally.
+
+---
+
+## Understanding Conditions
+
+Conditions, like when we use `if` block always produce:
+
+* TRUE
+  or
+* FALSE
+
+Examples:
+
+| Question              | Result        |
+| --------------------- | ------------- |
+| Is 5 greater than 3?  | TRUE          |
+| Is 2 greater than 10? | FALSE         |
+| Is button A pressed?  | TRUE or FALSE |
+| Is Pin 1 touched?     | TRUE or FALSE |
+
+Programs use these answers to decide what to do.
+
+---
+
+## Boolean Variables
+
+Variables can store Boolean values. MicroBlocks automatically know what kind of value is being stored and then it sets the variable type internally. For example, we assigned numbers to variables. Now, we will set to boolean value.
+
+MicroBlocks use a toggle switch to represent true and false.
+
+![bool true](pathname:///img/tutorials/cincobit-lessons/bool-true.png)
+
+---
+
+## Comparison Operators
+
+Programs compare values using comparison operators.
+
+| Operator | Meaning      |
+| -------- | ------------ |
+| `=`      | equal to     |
+| `>`      | greater than |
+| `<`      | less than    |
+
+Those work with numbers and result with a boolean.
+
+Examples:
+
+| Expression         | Result                          |
+| ------------------ | ------------------------------- |
+| `score > 10`       | TRUE if score is larger than 10 |
+| `temperature < 20` | TRUE if temperature is below 20 |
+| `count = 5`        | TRUE only when count equals 5   |
+
+But you can't use `>` with a boolean. Think about it, how can true be `>` true?
+
+Using `=` makes sense
+
+---
+
+## Boolean Operators
+
+There are operators that are made for boolean values. The first one is `not`. This results in the opposite result of a variable. Like when you say "if a pin is touched" vs "if the pin is not touched"
+
+![bool not](pathname:///img/tutorials/cincobit-lessons/bool-not.png)
+
+The `and` operator requires:
+
+> BOTH conditions must be TRUE
+
+Examples:
+
+| Condition A | Condition B | Result |
+| ----------- | ----------- | ------ |
+| TRUE        | TRUE        | TRUE   |
+| TRUE        | FALSE       | FALSE  |
+| FALSE       | TRUE        | FALSE  |
+| FALSE       | FALSE       | FALSE  |
+
+This is useful when having multiple conditions for something to happen.
+
+When a button is pressed `and` lives is less than 1 then game over. Both of these conditions must be met for a "game over"
+
+![bool and](pathname:///img/tutorials/cincobit-lessons/bool-and.png)
+
+The `or` operator requires:
+
+> ONLY ONE condition must be TRUE
+
+Examples:
+
+| Condition A | Condition B | Result |
+| ----------- | ----------- | ------ |
+| TRUE        | TRUE        | TRUE   |
+| TRUE        | FALSE       | TRUE   |
+| FALSE       | TRUE        | TRUE   |
+| FALSE       | FALSE       | FALSE  |
+
+
+Example:
+
+If button `A` is pressed `or` button `B` is pressed then play a tone.
+
+![bool or](pathname:///img/tutorials/cincobit-lessons/bool-or.png)
+
+---
+
+# Activity 1 — Two Button Unlock
+
+Create a simple unlock system.
+
+Requirements:
+
+* both buttons must be pressed
+* display a happy face
+* play a sound
+
+Use:
+
+* `AND`
+* button conditions
+* display blocks
+
+![bool and happy](pathname:///img/tutorials/cincobit-lessons/bool-and-happy.png)
+
+
+Students will create a program that only activates when BOTH buttons are pressed.
+
+
+---
+
+# Activity 2 — Alarm Trigger
+
+Create a simple alarm.
+
+Requirements:
+
+* if either button is pressed
+* display warning icon
+* play sound
+
+Use:
+
+* `OR`
+* display images
+* buzzer sounds
+
+![bool or alarm](pathname:///img/tutorials/cincobit-lessons/bool-or-alarm.png)
+
+Students compare how OR behaves differently from AND.
+
+---
+
+# Activity 3 — Touch and Temperature Logic
+
+Combine multiple conditions together.
+
+Example ideas:
+
+* sound alarm if touched AND room is dark
+* display icon if temperature is greater than a value
+* activate warning if touched OR button pressed
+
+Students begin combining:
+
+* sensors
+* variables
+* conditions
+* Boolean operators
+
+into larger programs.
+
+We will use `due light level` to check the light level. Use your hand to cover the board to make it see the room as "dark". The light sensor goes from low numbers, like 100 when dark to close to 1000 when very bright.
+
+If the room is dark and button `B` is detected then show a skull on the screen or 500ms!
+
+![bool dark and button](pathname:///img/tutorials/cincobit-lessons/bool-light-and-button.png)
+
+
+---
+
+# PixoBit Alternative
+
+Students can:
+
+* display messages
+* animate graphics
+* show TRUE/FALSE screens
+* create graphical logic systems
+
+Ideas:
+
+* warning displays
+* animated alerts
+* touch-controlled graphics
+
+---
+
+## Boolean Logic in Real Systems
+
+Boolean logic is used everywhere in technology.
+
+Examples:
+
+* security systems
+* robots
+* elevators
+* traffic lights
+* appliances
+* computers
+
+At the hardware level, processors are built using billions of tiny electronic TRUE/FALSE switches.
+
+---
+
+## Try It
+
+Can you:
+
+* combine more conditions
+* create logic puzzles
+* trigger sounds with logic
+* display different graphics for TRUE/FALSE
+
+---
+
+## Real-World Connection
+
+Boolean logic forms the foundation of:
+
+* software
+* electronics
+* digital circuits
+* automation systems
+* AI systems
+
+Every modern computer system relies on TRUE/FALSE logic.
+
+---
+
+## Troubleshooting
+
+* Condition never becomes TRUE
+    * verify logic blocks are connected properly
+* Wrong result displayed
+    * check comparisons carefully
+* Sound or display does not activate
+    * verify the condition block controls the correct code
+
+---
+
+## Vocabulary
+
+| Word       | Meaning                      |
+| ---------- | ---------------------------- |
+| Boolean    | TRUE or FALSE value          |
+| TRUE       | Active or correct            |
+| FALSE      | Inactive or incorrect        |
+| AND        | Both conditions must be TRUE |
+| OR         | Either condition can be TRUE |
+| Comparison | Checking values              |
+
+---
+
+## Wrap-Up Question
+
+> Why do computers rely so heavily on TRUE and FALSE values?
+
