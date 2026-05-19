@@ -121,8 +121,8 @@ When the board is connected, the `Connect` button will turn green and the name o
 
 MicroBlocks may automatically add some needed compatible libraries, like when CincoBit is connected. 
 
-* the LED Display library
-* the Tone library
+* the `LED Display` library
+* the `Tone` library
 
 ![boardie libs](pathname:///img/tutorials/cincobit-lessons/boardie-libs.png)
 
@@ -133,25 +133,22 @@ These libraries provide blocks for:
 * sounds
 * music
 
-**Understanding Live Programming**
+When using PixoBit, the `Tiny OLED` graphical library is automatically added instead of the `LED Display` library that is designed for 5x5 pixel displays.
 
-MicroBlocks uses:
+<div style={{ textAlign: 'center'}}>
+![pixobit](pathname:///img/catalog/mcpixobit-d-1.webp)
+</div>
 
-> live programming
+For simplicity and maximum lesson compatibility between CincoBit and PixoBit, we recommend using the `LED Display` library throughout this curriculum on both boards. This allows the same lessons and projects to work consistently across devices.
 
-This means:
+As students become more advanced, PixoBit users can transition to the `Tiny OLED` library to take advantage of the full 128x64 graphical display. This enables:
 
-* programs update immediately
-* changes appear instantly
-* students can experiment quickly
+* full text display
+* larger graphics
+* basic shapes
+* richer animations
 
-Unlike many programming tools, there is no compile or download process.
-
-Students can:
-
-* click blocks
-* observe results immediately
-* modify programs while running
+If PixoBit is connected, MicroBlocks will automatically add `Tiny OLED` library. Add the `LED Display` library by clicking `Add library` button then selecting `LED Display`.
 
 ---
 
@@ -172,6 +169,21 @@ Notice:
 > The board updates instantly without restarting the program.
 
 This is called **live programming**.
+
+This means:
+
+* programs update immediately
+* changes appear instantly
+* students can experiment quickly
+
+Unlike many programming tools, there is no compile or download process.
+
+Students can:
+
+* click blocks
+* observe results immediately
+* modify programs while running
+
 
 Pull the `display` block into the workspace.
 
@@ -200,23 +212,6 @@ Create:
 
 ---
 
-## PixoBit Alternative
-
-Use the graphical display to:
-
-* draw shapes
-* display text
-* create larger icons
-* experiment with graphics
-
-Try:
-
-* drawing a face
-* displaying your name
-* creating a moving object
-
----
-
 ## Understanding Pixels
 
 Displays are made from many tiny lights called **pixels**.
@@ -230,7 +225,6 @@ Programs control pixels by turning them on or off to create:
 * text
 * animations
 * games
-
 
 ---
 
