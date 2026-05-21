@@ -111,9 +111,9 @@ The Y axis controls:
 
 ---
 
-## Where is (0,0)?
+## Where is Origin?
 
-The coordinate:
+On computer systems, the coordinate:
 
 ```
 (0,0)
@@ -126,6 +126,8 @@ is located at the:
 This is called:
 
 > the origin
+
+While this is true on most systems, the `LED Display` library uses (1,1) for origin.
 
 ---
 
@@ -199,7 +201,7 @@ You will also notice that the new line drawing did not clear the previous line. 
 
 ---
 
-# Step 4 — Keep the Pixel On Screen
+# Step 3 - Keep the Pixel On Screen
 
 What happens if:
 
@@ -214,26 +216,7 @@ We will set the `x` to 3 from the start, in `when started` event. This will take
 
 ![random pixel keep on](pathname:///img/tutorials/cincobit-lessons/random-pixel-keepon.png)
 
-This keeps the pixel inside the CincoBit display.
-
----
-
-# PixoBit Alternative
-
-PixoBit uses a graphical display with 128x64 pixels. When using `LED Display` library, a 5x5 LED matrix is simulated on the display. To take advantage of the full 128x64 pixels, add and use `Tiny OLED` library. 
-
-Students can:
-
-* draw shapes
-* draw text
-* animate objects
-* create simple characters
-
-Examples:
-
-* moving face
-* bouncing ball
-* simple video games
+This keeps the pixel inside the display.
 
 ---
 
@@ -306,7 +289,7 @@ Computers constantly track positions using X and Y values.
 | Coordinate | Position on a screen      |
 | X Axis     | Left and right position   |
 | Y Axis     | Up and down position      |
-| Origin     | Starting coordinate (0,0) |
+| Origin     | Starting coordinate       |
 | Plot       | Turn on a pixel           |
 | Unplot     | Turn off a pixel          |
 

@@ -59,6 +59,14 @@ export default function HomepageFeatures() {
       
       <div className="container" style={{textAlign: 'center'}}>
         
+        
+        <div className="row">
+          {FeatureList.map((props, idx) => (
+            <Feature key={idx} {...props} />
+          ))}
+        </div>
+        <hr/>
+
         <Heading as="h2" >
           Get Started in Minutes!
         </Heading>
@@ -85,13 +93,6 @@ export default function HomepageFeatures() {
         <p>Sensors, actuators, displays, and everything in between</p>
         <img src="/img/duelink-modules.webp" alt="DUELink" />
         <a class="button button--primary" href="/docs/catalog/products">Product Catalog</a>
-        <hr/>
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
-        </div>
-        
       </div>
     </section>
   );
