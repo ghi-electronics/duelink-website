@@ -1,4 +1,4 @@
-# L9: Boolean
+# L9: Boolean Logic
 
 :::info[In progress]
 Excuse our mess while we finish this page! You can contribute [here](https://github.com/ghi-electronics/duelink-website).
@@ -6,28 +6,26 @@ Excuse our mess while we finish this page! You can contribute [here](https://git
 
 ## Overview
 
-In this lesson, students will learn how computers make decisions using Boolean logic.
+In previous lessons, students used `if` statements and comparisons to make decisions in programs.
 
-Boolean logic uses only two values:
+In this lesson, students take that idea further by learning how computers combine multiple TRUE/FALSE conditions together using:
 
-* TRUE
-* FALSE
+* `AND`
+* `OR`
+* `NOT`
 
-These values are used everywhere in computing to represent:
+These operations are called:
 
-* ON and OFF
-* YES and NO
-* PRESSED and NOT PRESSED
+> Boolean logic
 
-Students will learn:
+Students will create interactive programs that react to combinations of:
 
-* Boolean variables
-* TRUE and FALSE conditions
-* comparison operators
-* `AND` and `OR` logic
-* combining multiple conditions together
+* buttons
+* touch sensing
+* light levels
+* variables
 
-Using buttons, touch sensing, sounds, and displays, students will create interactive programs that react differently depending on conditions.
+using compound conditions.
 
 ---
 
@@ -36,12 +34,11 @@ Using buttons, touch sensing, sounds, and displays, students will create interac
 Students will:
 
 * understand Boolean values
-* use TRUE and FALSE conditions
 * use Boolean variables
-* use comparison operators
-* combine conditions using `AND`
-* combine conditions using `OR`
-* display Boolean results using `say`
+* combine conditions with `AND`
+* combine conditions with `OR`
+* reverse conditions using `NOT`
+* create programs using multiple conditions together
 
 ---
 
@@ -62,66 +59,60 @@ Students will:
 
 ## Teacher Notes
 
-This lesson introduces:
+This lesson expands on the conditional logic introduced earlier in the course.
 
-> Boolean logic
+Students already learned:
 
-which forms the foundation of all digital computing.
+* `if`
+* comparisons
+* TRUE/FALSE decisions
+* random selection
 
-Students should understand:
+in the Conditions and Decisions lesson.
 
-* computers constantly evaluate TRUE/FALSE conditions
-* conditions control decisions
-* logical operators combine multiple conditions
+This lesson focuses on:
 
-This lesson builds directly on:
+> combining multiple conditions together
 
-* conditions
-* variables
-* events
-* touch sensing
-
-from previous lessons.
+using Boolean operators.
 
 ---
 
-## What is a Boolean?
+## Review: Conditions
 
-A Boolean value has only two possible states:
+Programs often ask questions such as:
 
-| Boolean | Meaning             |
-| ------- | ------------------- |
-| TRUE    | Yes / On / Active   |
-| FALSE   | No / Off / Inactive |
+* Is the button pressed?
+* Is the light level low?
+* Is the score greater than 10?
 
-Examples:
-
-* light ON or OFF
-* button pressed or not pressed
-* correct or incorrect answer
-
-Computers constantly use Boolean logic internally.
-
----
-
-## Understanding Conditions
-
-Conditions, like when we use `if` block always produce:
+These questions always return:
 
 * TRUE
   or
 * FALSE
 
-Examples:
+You already used conditions earlier in the course.
+Now we will combine multiple conditions together.
 
-| Question              | Result        |
-| --------------------- | ------------- |
-| Is 5 greater than 3?  | TRUE          |
-| Is 2 greater than 10? | FALSE         |
-| Is button A pressed?  | TRUE or FALSE |
-| Is Pin 1 touched?     | TRUE or FALSE |
+---
 
-Programs use these answers to decide what to do.
+## What is Boolean Logic?
+
+Boolean logic uses only two values:
+
+| Value | Meaning             |
+| ----- | ------------------- |
+| TRUE  | Yes / On / Active   |
+| FALSE | No / Off / Inactive |
+
+Computers constantly use Boolean values internally for:
+
+* buttons
+* switches
+* sensors
+* memory
+* logic
 
 ---
 
@@ -133,7 +124,15 @@ MicroBlocks use a toggle switch to represent true and false.
 
 ![bool true](pathname:///img/tutorials/cincobit-lessons/bool-true.png)
 
+Students can use `say` to display:
+
+* TRUE
+* FALSE
+
+and observe how the value changes while the program runs.
+
 ---
+
 
 ## Comparison Operators
 
@@ -182,7 +181,7 @@ Examples:
 
 This is useful when having multiple conditions for something to happen.
 
-When a button is pressed `and` lives is less than 1 then game over. Both of these conditions must be met for a "game over"
+When a button is pressed `and` lives (game lives) is less than 1 then game over. Both of these conditions must be met for a "game over"
 
 ![bool and](pathname:///img/tutorials/cincobit-lessons/bool-and.png)
 
@@ -208,7 +207,7 @@ If button `A` is pressed `or` button `B` is pressed then play a tone.
 
 ---
 
-# Activity 1 — Two Button Unlock
+## Activity 1 - Two Button Unlock
 
 Create a simple unlock system.
 
@@ -232,7 +231,7 @@ Students will create a program that only activates when BOTH buttons are pressed
 
 ---
 
-# Activity 2 — Alarm Trigger
+## Activity 2 - Alarm Trigger
 
 Create a simple alarm.
 
@@ -254,14 +253,13 @@ Students compare how OR behaves differently from AND.
 
 ---
 
-# Activity 3 — Touch and Temperature Logic
+## Activity 3 - Touch and Lights Logic
 
 Combine multiple conditions together.
 
 Example ideas:
 
 * sound alarm if touched AND room is dark
-* display icon if temperature is greater than a value
 * activate warning if touched OR button pressed
 
 Students begin combining:
@@ -281,20 +279,39 @@ If the room is dark and button `B` is detected then show a skull on the screen o
 
 ---
 
-## Boolean Logic in Real Systems
+## Compound Conditions
 
-Boolean logic is used everywhere in technology.
+Programs often need:
 
-Examples:
+* multiple requirements
+* backup conditions
+* safety checks
+
+Compound conditions allow programs to make smarter decisions.
+
+Examples in real systems:
 
 * security systems
 * robots
-* elevators
-* traffic lights
+* smart homes
+* cars
 * appliances
-* computers
 
-At the hardware level, processors are built using billions of tiny electronic TRUE/FALSE switches.
+---
+
+## Real-World Connection
+
+Boolean logic is used in:
+
+* computers
+* electronics
+* robots
+* traffic lights
+* elevators
+* appliances
+* industrial systems
+
+Every modern digital device relies on Boolean operations internally.
 
 ---
 
@@ -302,24 +319,23 @@ At the hardware level, processors are built using billions of tiny electronic TR
 
 Can you:
 
-* combine more conditions
-* create logic puzzles
-* trigger sounds with logic
-* display different graphics for TRUE/FALSE
+* combine 3 conditions together
+* create smarter alarms
+* build a mini security system
+* reverse conditions using `NOT`
 
 ---
 
-## Real-World Connection
+## Challenge
 
-Boolean logic forms the foundation of:
+Create:
 
-* software
-* electronics
-* digital circuits
-* automation systems
-* AI systems
+* a smart alarm
+* a touch-based security system
+* a multi-condition game
+* a sensor-controlled warning system
 
-Every modern computer system relies on TRUE/FALSE logic.
+using Boolean logic.
 
 ---
 
@@ -336,18 +352,17 @@ Every modern computer system relies on TRUE/FALSE logic.
 
 ## Vocabulary
 
-| Word       | Meaning                      |
-| ---------- | ---------------------------- |
-| Boolean    | TRUE or FALSE value          |
-| TRUE       | Active or correct            |
-| FALSE      | Inactive or incorrect        |
-| AND        | Both conditions must be TRUE |
-| OR         | Either condition can be TRUE |
-| Comparison | Checking values              |
+| Word               | Meaning                               |
+| ------------------ | ------------------------------------- |
+| Boolean            | TRUE or FALSE value                   |
+| Compound Condition | Multiple conditions combined together |
+| AND                | Both conditions must be TRUE          |
+| OR                 | Either condition can be TRUE          |
+| NOT                | Reverses a condition                  |
+| Comparison         | Checking values                       |
 
 ---
 
 ## Wrap-Up Question
 
-> Why do computers rely so heavily on TRUE and FALSE values?
-
+> Why might a program need more than one condition before taking action?
