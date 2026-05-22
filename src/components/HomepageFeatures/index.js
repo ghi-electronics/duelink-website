@@ -8,9 +8,9 @@ const FeatureList = [
     Svg: require('@site/static/img/engineers.svg').default,
     description: (
       <>
-        Build prototypes and proof of concepts in minutes vs days at an extremely low-cost.<br/>
+        Prototype quickly with scriptable modules that work with your existing hardware, in minutes vs days.<br/>
         <br/>
-        <a class="button button--primary" href="/docs/engineers">Engineers</a>
+        <a class="button button--primary" href="/docs/engineers">For Engineers</a>
       </>
     ),
   },
@@ -19,9 +19,9 @@ const FeatureList = [
     Svg: require('@site/static/img/makers.svg').default,
     description: (
       <>
-        Use a dynamic system that elevates your existing knowledge.<br/>
+        Start with block coding or jump to Python and JavaScript. Use one module or build a chain for your next project.<br/>
         <br/>
-        <a class="button button--primary" href="/docs/makers">Makers</a>
+        <a class="button button--primary" href="/docs/makers">For Makers</a>
       </>
     ),
   },
@@ -30,9 +30,9 @@ const FeatureList = [
     Svg: require('@site/static/img/educators.svg').default,
     description: (
       <>
-        Write code and instantly see it come alive—just plug, code, and create.<br/>
+        Teach physical computing with MicroBlocks, structured lessons, and hardware that stays approachable in the classroom.<br/>
         <br/>
-        <a class="button button--primary" href="/docs/educators">Educators</a>
+        <a class="button button--primary" href="/docs/educators">For Educators</a>
       </>
     ),
   },
@@ -71,26 +71,26 @@ export default function HomepageFeatures() {
           Get Started in Minutes!
         </Heading>
         <img src="/img/getting-started.webp" alt="getting started" />
-        <p>From Python and JavaScript, to Arduino and MicroBlocks, physical computing is a few lines of code away!</p>
-        <a class="button button--primary" href="/docs/start">Start Coding Now!</a>
+        <p>Connect a module, pick a host and language, and run your first program.</p>
+        <a class="button button--primary" href="/docs/start">Start Coding</a>
         <hr/>
         
         <Heading as="h2" >
-          Tether one or Daisylink them all
+          Tether one module—or Daisylink many
         </Heading>
-        <p>Using standardized common connector and mounting options</p>
+        <p><strong>Uplink</strong> connects to your host over USB, I2C, or UART. <strong>Downlink</strong> chains additional modules.</p>
         <img src="/img/daisylink.webp" alt="DUELink" />
         <hr/>
         <Heading as="h2" >
           Each Module is a Microcomputer
         </Heading>
-        <p>Run modules independently using scripts, or control them using friendly text-commands over USB, I2C or UART</p>
+        <p>Run scripts on the module itself, or send commands from tethered hardware. Same board, two workflows.</p>
         <img src="/img/button-led.webp" width ="400px" alt="DUELink" />
         <hr/>
         <Heading as="h2" >
           Versatile Catalog of Options
         </Heading>
-        <p>Sensors, actuators, displays, and everything in between</p>
+        <p>Sensors, actuators, displays, adapters, and kits—designed to work together in one system.</p>
         <img src="/img/duelink-modules.webp" alt="DUELink" />
         <a class="button button--primary" href="/docs/catalog/products">Product Catalog</a>
       </div>

@@ -18,11 +18,12 @@ function HomepageHeader() {
 
         <img src="/img/duelink-intro.webp"  alt="DUELink" />
   
-       <Heading as="h2" >
-        Works with Most Hardware Platforms and Coding Languages
+       <Heading as="h3" >
+        Smart electronic modules with built-in firmware—tether from your favorite host, run
+standalone on the board, or chain many modules with Daisylink.
         </Heading>
-        <p>Computer, Raspberry Pi, Arduino, micro:bit ⟺ Python, JavaScript, .NET, Scripts, MicroBlocks
-        </p>
+        <p><strong>Hosts:</strong> Computer, Raspberry Pi, Arduino, micro:bit <br/> 
+        <strong>Languages:</strong> Python, JavaScript, .NET, Scripts, MicroBlocks</p>
          <div className={styles.buttons}>
           <Link
             className="button button--secondary"
