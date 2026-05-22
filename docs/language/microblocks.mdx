@@ -253,7 +253,7 @@ Always connect a Downlink (**D**) connector to an Uplink (**U**) connector.
 Nothing will work if a **D** is connected to a **D** or a **U** to a **U** anywhere in the chain.
 :::
 
-Disconnect USB/power before connecting or disconnecting modules. No worries, as not doing so will not cause any damage to the modules. This is only because DUELink Daisylink is a smart but that resolves module addressing automatically but it only does it on power up.
+Disconnect USB/power before connecting or disconnecting modules. No worries, as not doing so will not cause any damage to the modules. This is only because DUELink Daisylink is a smart bus that resolves module addressing automatically but it only does it on power up.
 
 ### Daisylink Library
 
@@ -271,7 +271,7 @@ then from `Libraries` select `Kits and Boards` and then `DUELink Daisylink` libr
 ![computer-shortcut](pathname:///img/microblocks-lib-daisylink.webp)
 </div>
 
-In this example setup, `CincoBit` is the board running Standalone and MicroBlocks is loaded and is running on it. The tethered `LED RGB3` is is running the official DUELink firmware and is controlled by commands coming from `CinoBit`.
+In this example setup, `CincoBit` is the board running Standalone and MicroBlocks is loaded and is running on it. The tethered `LED RGB3` is running the official DUELink firmware and is controlled by commands coming from `CincoBit`.
 
 From the `DUELink Daisylink` library palette click on the `connected?` block to verify that your `LED RGB3` is connected and detected by `CincoBit`:
 
@@ -337,7 +337,7 @@ Just like before, to install MicroBlocks firmware on a board, you need to set th
 ![LDR TH pads](pathname:///img/module-loader-pads.webp)
 </div>
 
-Please note, once once you have MicroBlocks firmware installed on the `RGB3` module, you no longer have the DUELink firmware and module Driver Script. Controlling the module's hardware must be done 100% with MicroBlocks code. For modules with simple hardware such as LEDs, buttons, and analog sensors, the MicroBlocks code is easy to write. However, more complex modules such as displays and SD card readers are best used as Daisylinked modules so one can take advantage of the hardware support built into the DUELink standard firmware. For example, instead of loading MicroBlocks directly on the [SD Card](../products/stsdcard-b) module and worrying about file system and SD drivers, use MicroBlocks firmware on [CincoBit](../products/mccincobit-e), which is then connected to the [SD Card](../products/stsdcard-b) module that is running the DUELink standard firmware and Driver Script.
+Please note, once you have MicroBlocks firmware installed on the `RGB3` module, you no longer have the DUELink firmware and module Driver Script. Controlling the module's hardware must be done 100% with MicroBlocks code. For modules with simple hardware such as LEDs, buttons, and analog sensors, the MicroBlocks code is easy to write. However, more complex modules such as displays and SD card readers are best used as Daisylinked modules so one can take advantage of the hardware support built into the DUELink standard firmware. For example, instead of loading MicroBlocks directly on the [SD Card](../products/stsdcard-b) module and worrying about file system and SD drivers, use MicroBlocks firmware on [CincoBit](../products/mccincobit-e), which is then connected to the [SD Card](../products/stsdcard-b) module that is running the DUELink standard firmware and Driver Script.
 
 <div style={{ textAlign: 'center'}}>
 ![Cincobit and SD Card](pathname:///img/cincobit-sdcard.webp)

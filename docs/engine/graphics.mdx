@@ -160,7 +160,7 @@ duelink.Graphics.Show();
 
 ## Smart Displays!
 
-Some applications require several graphics updates every second. In this case, it is best to to load a display with a script that updates the graphics internally, to build the user interface. For example, a thermostat smart display demo can use the screen get the user's desired temperature. The desired temperature can then for example be stored in `_t` variable. You now can read the `_t` variable, from Python for example `temperature = Engine.ExecuteCommand("_t")`.
+Some applications require several graphics updates every second. In this case, it is best to load a display with a script that updates the graphics internally, to build the user interface. For example, a thermostat smart display demo can use the screen get the user's desired temperature. The desired temperature can then for example be stored in `_t` variable. You now can read the `_t` variable, from Python for example `temperature = Engine.ExecuteCommand("_t")`.
 
 This is also the case when needing to draw images, as sending buffers over the Daisylink connection may not be desired. In this case, the image data is stored and drawn within the display module itself.
 

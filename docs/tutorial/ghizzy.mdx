@@ -25,7 +25,7 @@ USB is used for powering up Ghizzy. You can plug Ghizzy right into a laptop, or 
 ![Ghizzy power](pathname:///img/ghizzy-power-options.png)
 </div>
 
-Note that the "legs" are the USB connection. This is not a true USB connector, with possible rare failure. Also, Ghizzy need to be plugged in a specific way. Plugging it backwards will not cause any damage to Ghizzy but it will not work.
+Note that the "legs" are the USB connection. This is not a true USB connector, with possible rare failure. Also, Ghizzy needs to be plugged in a specific way. Plugging it backwards will not cause any damage to Ghizzy but it will not work.
 
 <div style={{ textAlign: 'center'}}>
 ![Ghizzy plug in](pathname:///img/ghizzy-usb-plugin.png)
@@ -78,7 +78,7 @@ The library is included in any of the sample projects below. If desired, right-c
 [![video](https://img.youtube.com/vi/H8U8kysmDkA/1.jpg)](https://www.youtube.com/watch?v=H8U8kysmDkA) | [Policeman](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/ghizzy-police.ubp) | Ghizzy is a policeman!
 [![video](https://img.youtube.com/vi/iIY6V3Hw-ds/1.jpg)](https://www.youtube.com/watch?v=iIY6V3Hw-ds)| [Color Selector](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/ghizzy-color-selector.ubp) | Push and hold the LDR button to cycle through Red, Green, and Blue. When you see the desired option release the button and wait for the beep. After the beep sound, Ghizzy will cycle through a range of that color channel. Once you see the color you like, press and hold until you hear sound, then release LDR. MicroBlocks can also show the selected color value, if the software is connected.
 [![video](https://img.youtube.com/vi/O7_PxzcBt7s/1.jpg)](https://www.youtube.com/watch?v=O7_PxzcBt7s) | [Hearing Test](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/ghizzy-hearing-test.ubp) | Push and hold the LDR button to sweep through a rising frequency. Release the button when you can't hear anything anymore. Ghizzy now will sound a beep for every 1KHz. So, for 4.3Khz, Ghizzy will beep 4 times. MicroBlocks also shows the actual frequency in Hz.
-[![video](https://img.youtube.com/vi/ocil5kOvge0/1.jpg)](https://www.youtube.com/watch?v=ocil5kOvge0) | [Ready, Set, Go!](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/ghizzy-reaction.ubp) | Ghizzy will start with notes for Read/Set/Go and then goes into a ticker that changes its time. BE ready with your finger on LDR button. As soon as you hear the raising frequency, push the button and look at your score on MicroBlocks. The lower the number the faster you are.
+[![video](https://img.youtube.com/vi/ocil5kOvge0/1.jpg)](https://www.youtube.com/watch?v=ocil5kOvge0) | [Ready, Set, Go!](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/ghizzy-reaction.ubp) | Ghizzy will start with notes for Ready, Set, Go and then goes into a ticker that changes its time. Be ready with your finger on the LDR button. As soon as you hear the rising frequency, push the button and look at your score on MicroBlocks. The lower the number, the faster you are.
 [![video](https://img.youtube.com/vi/SRl_iSj7iYo/1.jpg)](https://www.youtube.com/watch?v=SRl_iSj7iYo) | [Twinkle](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/ghizzy-twinkle.ubp) | Twinkle Twinkle, the Ghizzy way!
 
 ---
@@ -89,7 +89,7 @@ Ghizzy also includes a [Downlink](../interface/downlink) connector for [Daisylin
 
 It basically sends the commands Downlink to the other modules using the `do command` block. You can give it the command such as `setled`
 
-In this example, we will control a [Snowy](../products/spsnowy-a), a smart snowflake! From its Driver tab API we can see it it uses `setled(index, state)` to set individual LEDs. To send this command from Ghizzy to Snowy, we use `do command` block. To turn LED 2 on, we will need `setled(2,1)`. And to simplify "building" commands, we also provide `command` block that takes the arguments individually.
+In this example, we will control a [Snowy](../products/spsnowy-a), a smart snowflake! From its Driver tab API we can see it uses `setled(index, state)` to set individual LEDs. To send this command from Ghizzy to Snowy, we use `do command` block. To turn LED 2 on, we will need `setled(2,1)`. And to simplify "building" commands, we also provide `command` block that takes the arguments individually.
 
 Load the [Snowy Daisylink](https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/project/microblocks/ghizzy-disylink-snowy.ubp) project to see how it works.
 
@@ -131,7 +131,7 @@ def SetLeftEye(red:int, green:int, blue:int):
 SetLeftEye(20,100,255)
 ```
 
-But wait, we have already made these wrappers! The `Tethered Sample` for Python tab on [Ghizzy Product page](../products/spghizzy-d) has all wrappers and a loop to get you started. Here it is here to help you out:
+But wait, we have already made these wrappers! The `Tethered Sample` for Python tab on [Ghizzy Product page](../products/spghizzy-d) has all wrappers and a loop to get you started. Here it is to help you out:
 
 <details>
   <summary>PC Tethered Python Sample (click for code!)</summary>

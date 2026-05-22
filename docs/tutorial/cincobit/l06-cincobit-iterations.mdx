@@ -195,7 +195,7 @@ Touch sensing also creates TRUE/FALSE conditions.
 
 Touch sensing block is `due pin touched` found inside `DUELink Edu` library.
 
-In previous lessons, we use an event block, which automatically run when an event happens, like when `A` is pressed. The `due pin touched` is not an event, but it is a reporting block. Using this block will check and report the touch status at that very instance. If touch was pressed right before or right after when the block execute will result in no touch. We have to repeatedly check if the there is touch. In code, this is called polling.
+In previous lessons, we use an event block, which automatically run when an event happens, like when `A` is pressed. The `due pin touched` is not an event, but it is a reporting block. Using this block will check and report the touch status at that very instance. If touch was pressed right before or right after when the block executes will result in no touch. We have to repeatedly check if there is touch. In code, this is called polling.
 
 Our program will start on power up using `when started`. You can also click on the "play" icon on the top right. In this program, we have a `forever` loop that always checks if pin 1 is touched to play note `C` for 50ms.
 

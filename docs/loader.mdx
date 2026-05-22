@@ -68,7 +68,7 @@ Once in DFU mode, go to [https://console.duelink.com/](https://console.duelink.c
 This is a great feature that allows a module to clone its own firmware to the next module in a [Daisylink](./engine/daisylink). 
 
 :::tip
-While the provided online loader automatically handles Cloning, we adding more details here for advanced uses. 
+While the provided online loader automatically handles Cloning, we are adding more details here for advanced uses. 
 :::
 
 Cloning can be executed on any "selected module" using `Sel()`, which then will erase the "next module" in the chain, and load "next module" with a clone of the firmware of the "current module".
@@ -79,7 +79,7 @@ Note that the device getting written to will have a firmware clone but will not 
 The device getting updated will automatically get enumerated to the same address it previously had. The "cloner" will internally use the private `SetAdd()` command.  
 :::
 
-The cloning feature can be used to update the firmware on a modules that do not have a USB connection, and without using USB Hook. In this example, PixoBit can be loaded with the latest firmware and then it can be cloned to the chained modules.
+The cloning feature can be used to update the firmware on modules that do not have a USB connection, and without using USB Hook. In this example, PixoBit can be loaded with the latest firmware and then it can be cloned to the chained modules.
 
 <div style={{ textAlign: 'center'}}>
 ![Verify DFU mode](pathname:///img/pixobit-daisylinked.webp)

@@ -3,10 +3,10 @@ import TabItem from "@theme/TabItem";
 
 # Standard Library
 
-The standard library proved a long list of functionalities that are natively built-in the official DUELink firmware. These are used by the [Driver Scripts](./drivers) provided by the individual modules.
+The standard library provides a long list of functionalities that are natively built-in the official DUELink firmware. These are used by the [Driver Scripts](./drivers) provided by the individual modules.
 
 :::caution
-Unless otherwise is stated, all Standard Libraries that calls for array require a byte array and not a float array. Use `b1` for example instead of `a1`.
+Unless otherwise stated, all Standard Libraries that call for array require a byte array and not a float array. Use `b1` for example instead of `a1`.
 :::
 
 ---
@@ -22,16 +22,16 @@ Function | Description
 `GetCnt()` | Ignores the `Sel()` command and returns the count from start to end or to another host-mode module in the Daisylink.
 `SetAdd(add)` | `add` Sets the device's address. This command has chain reaction where each device sets the next one. **Internal function, do not use**
 
-For **advanced uses only**, the `Sel(add)` command accepts multiple addresses. Using `Sel(3,7)` will activate the third and and seventh modules in [Daisylink](./daisylink). Any command issue from that point forward are executed by both modules. Zero is broadcast address, where `Sel(0)` will activate all modules. Note that responses will be received from all selected devices and in a random order.
+For **advanced uses only**, the `Sel(add)` command accepts multiple addresses. Using `Sel(3,7)` will activate the third and seventh modules in [Daisylink](./daisylink). Any command issued from that point forward is executed by both modules. Zero is broadcast address, where `Sel(0)` will activate all modules. Note that responses will be received from all selected devices and in a random order.
 
 :::tip
-`SetAdd()` is a **private command** used by the bus internally to enumerate modules. `SetAdd(0)` will un-enumerate causing all address to reset to 0 and all Downlink ports to switch to Null. A `SetAdd(non-zero)` is only accepted by a non-enumerated module, which will set the the `local address` and then open Downlink to send `SetAdd(localAddress+1)`. 
+`SetAdd()` is a **private command** used by the bus internally to enumerate modules. `SetAdd(0)` will un-enumerate causing all addresses to reset to 0 and all Downlink ports to switch to Null. A `SetAdd(non-zero)` is only accepted by a non-enumerated module, which will set the `local address` and then open Downlink to send `SetAdd(localAddress+1)`. 
 :::
 
 Use `GetAdd()` to detect what modules are currently active. Similarly, the STAT LED by default is the "activity" LED. It can be used to observe what modules are processing commands.
 
 :::tip
-Unless otherwise is stated, modules will only listen and process commands if selected. However, `Sel(1)` is automatically done by DUELink internally after bus enumeration. This for example will cause `PrintLn("DUELink")` to be automatically processed by the first device if no `Sel()` was issued.
+Unless otherwise stated, modules will only listen and process commands if selected. However, `Sel(1)` is automatically done by DUELink internally after bus enumeration. This for example will cause `PrintLn("DUELink")` to be automatically processed by the first device if no `Sel()` was issued.
 :::
 
 Device addressing controls modules on a [Daisylink](./daisylink), not a device itself. For that, `Sel()` can only be issued by the host, not self select! Of course, the host can be a third-party board or a DUELink module in host mode.
@@ -1806,7 +1806,7 @@ Function | Description
 `Base64("str")` | Returns a byte array from a Base64 string. This is useful for creating large arrays. 
 
 :::caution
-The scripting engine automatically handles array sizes and realocate small arrays to exapnd as ncessary. This is not the case with `sprintf()`. The user must provide `sprintf()` with an arrays that is large enough to conain the entire string, including a null termination.
+The scripting engine automatically handles array sizes and reallocate small arrays to expand as necessary. This is not the case with `sprintf()`. The user must provide `sprintf()` with an array that is large enough to contain the entire string, including a null termination.
 :::
 
 <details>

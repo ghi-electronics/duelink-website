@@ -267,7 +267,7 @@ The generic example code above uses STAT LED, which is found on all modules. Aft
 
 ## Theory of Operation
 
-Loading Arduino software onto any DUELink module, turns it into an Arduino board. You will need to rely on the provided board schematics and the standard Arduino libraries for using the module itself. When a chain of modules are used, the first one will be running Arduino software standalone, we will call it a "Host". All other modules are tethered and will must continue to run the standard DUElink firmware. These tethered modules have the usual DUELink addressing, but the host (DueDuino in this example) does not have an address.
+Loading Arduino software onto any DUELink module, turns it into an Arduino board. You will need to rely on the provided board schematics and the standard Arduino libraries for using the module itself. When a chain of modules are used, the first one will be running Arduino software standalone, we will call it a "Host". All other modules are tethered and must continue to run the standard DUELink firmware. These tethered modules have the usual DUELink addressing, but the host (DueDuino in this example) does not have an address.
 
 <div style={{ textAlign: 'center'}}>
 ![DueDuino Host](pathname:///img/arduino-dueduino-host.webp)

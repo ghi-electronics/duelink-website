@@ -9,19 +9,14 @@
 </div>
 <br/>
 
-DUELink revolutionizes electronics innovation with a vast [ecosystem](./catalog/products) of smart electronic building blocks (modules), empowering [Engineers](./engineers) to prototype faster, [Makers](./makers) to create smarter, and STEM [Educators](./educators) to inspire circuit-coders.
+**DUELink** (Dynamic Universal Extensible Link) is a modular electronics system. Each **module** is a small board with its own processor, firmware, and a consistent way to connect and communicate.
 
-Each DUELink module is a self-contained mini-computer with a [scripting](./engine/scripting) engine, allowing it to either run standalone or execute friendly text-commands received by a tethered [hardware platform](./hw/intro), using one of the many supported [coding languages](./language/intro).
+You can use modules in two ways:
 
-You could be a seasoned developer using [Python](./language/python) and [JavaScript](./language/javascript), or a beginner exploring with [MicroBlocks'](./language/microblocks) drag-and-drop block-coding. DUELink makes programming circuits approachable and powerful.
+- **Tethered** — Connect to [supported hardware](./hw/intro)—a [PC or laptop](./hw/pc-laptop), [phone or tablet](./hw/phone-tablet), [Raspberry Pi](./hw/raspberry-pi), [Arduino](./hw/arduino), [micro:bit](./hw/microbit), or [more](./hw/beyond)—over [USB, I2C, UART, or wireless](./interface/intro). Control modules from [Python, JavaScript, .NET, and other languages](./language/intro).
+- **Standalone** — Load [MicroBlocks](./language/microblocks), [Arduino](./hw/arduino), or the built-in [scripting engine](./engine/scripting) so the module runs programs without a host.
 
-No matter if you need one module, or need a [Daisylink](./engine/daisylink) of modules, you can use a wide range of [supported hardware](./hw/intro) devices: [Raspberry Pi](./hw/raspberry-pi), [Arduino](./hw/arduino), [micro:bit](./hw/microbit), [Computers](./hw/pc-laptop), [Phones](./hw/phone-tablet), and [beyond](./hw/beyond)!
-
-Modules tether to the selected hardware using one of [interfaces](./interface/intro). You have the option to select from [USB](./interface/usb), [I2C](./interface/i2c), [UART](./interface/uart), or even [Wireless](./interface/wireless).
-
-The [Daisylink](./engine/daisylink) on DUELink works with other [I2C](./interface/i2c) module ecosystems, including Arduino Modulino, SparkFun Qwiic and Adafruit STEMMA. Go further and expand your toolkit by [building your own modules](./catalog/third-party) using DUELink [Stick](./products/mcstick-a) and [Stamp](./products//mcstamp-b.mdx) microcomputers.
-
-Whether you're designing, tinkering, or teaching, DUELink makes innovation modular, intuitive, and endlessly scalable.
+Chain many modules with **[Daisylink](./engine/daisylink)** on the downlink bus. Mix DUELink with **SparkFun Qwiic**, **Adafruit STEMMA QT**, **Arduino Modulino**, and **Seeed Studio Grove** (with the right adapter). Browse the [product catalog](./catalog/products), or jump to guidance for [engineers](./engineers), [makers](./makers), and [educators](./educators).
 
 ---
 
@@ -39,9 +34,11 @@ Whether you're designing, tinkering, or teaching, DUELink makes innovation modul
 </table>
 
 <details>
-  <summary>Flexible for engineers, friendly for makers, and helpful for educators.</summary>
+  <summary>Built for rapid prototyping, creative projects, and STEM classrooms.</summary>
 
-DUELink is designed by commercial [engineers](./engineers) who understand the need for rapid prototyping. The user-friendly system is designed to work for [makers](./makers) of every level. [Educators](./educators) will also benefit from the STEM-tailored options.
+- **[Engineers](./engineers)** — Fast hardware iteration, scripting, and integration with familiar tools.
+- **[Makers](./makers)** — Block coding, kits, and projects from a single module to a full Daisylink chain.
+- **[Educators](./educators)** — MicroBlocks, structured lessons, and hardware that stays approachable for students.
 
 </details>
 
@@ -70,11 +67,11 @@ DUELink is designed by commercial [engineers](./engineers) who understand the ne
 </div>
 
 <details>
-  <summary>DUELink product catalog includes sensors, actuators, and displays that can harmonically work together!</summary>
+  <summary>Sensors, actuators, displays, and adapters designed to work in one system.</summary>
 
-The growing [catalog](./catalog/products) includes 100s of available modules. We dream of a day where there is a DUELink module for every single technology and need. We are not doing it alone! [Third-party modules](./catalog/third-party) are encouraged. We have open [Specifications](./specs) to help you make your own. 
+The [product catalog](./catalog/products) includes a growing range of modules. [Third-party modules](./catalog/third-party) are welcome, and [specifications](./specs) are published for builders who want to design their own boards.
 
-If you do not want to deal with tiny chip soldering, we have a very tiny module for you called [Stick](./products/mcstick-a). Another one is [Stamp](./products//mcstamp-b.mdx), which is the size of, you guessed it, a stamp!
+Prefer minimal soldering? [Stick](./products/mcstick-a) and [Stamp](./products/mcstamp-b) are compact DUELink controllers for custom circuits and prototypes.
 
 </details>
 
@@ -92,17 +89,17 @@ If you do not want to deal with tiny chip soldering, we have a very tiny module 
 </div>
 
 <details>
-  <summary>Modules can be tethered to work with many Supported Hardware devices, such as ESP32/Arduino/Raspberry-Pi, and even works right from a PC!</summary>
+  <summary>Plug in over JST when you can; use adapters when the host board uses a different connector.</summary>
 
-Go ahead and tether your favorite board to one, or a hundred, DUELink modules. We cover many [supported hardware](./hw/intro) options, such as:  [PC](./hw/pc-laptop), [phone](./hw/phone-tablet), [Raspberry Pi](./hw/raspberry-pi), [Arduino](./hw/arduino), and [beyond](./hw/beyond).
+Tether one module or many to [supported hardware](./hw/intro): a [PC](./hw/pc-laptop), [phone](./hw/phone-tablet), [Raspberry Pi](./hw/raspberry-pi), [Arduino](./hw/arduino), [micro:bit](./hw/microbit), ESP32-class boards, and [more](./hw/beyond).
 
-If you happen to use a circuit that has a compatible JST connector then all modules are plug-and-play
+Boards with a compatible JST uplink connector are plug-and-play:
+
 ![boards with JST connectors](pathname:///img/supported-hardware-jst.webp)
 
-Other system may not include a JST connector and for that we provide all kind of adaptors, like USB Hook. Here it is connected to a Servo module.
+Other hosts may need an adapter such as [USB Hook](./products/adusbhook-a)—shown here with a servo module:
 
 ![usb hook with servo](pathname:///img/usbhook-servo-x1.webp)
-
 
 </details>
 
@@ -120,13 +117,11 @@ Other system may not include a JST connector and for that we provide all kind of
 </div>
 
 <details>
-  <summary>Users can select one of the coding languages, but they can also run programs standalone!</summary>
+  <summary>Code from a host, or run firmware directly on the module.</summary>
 
-Tether DUELink modules to your favorite [hardware](./hw/intro) and use one of the many supported [languages](./language/intro), including [Python](./language/python) and [JavaScript](./language/javascript).
+**Tethered** — Connect modules to your [hardware](./hw/intro) and use [Python](./language/python), [JavaScript](./language/javascript), [.NET](./language/dotnet), [MicroPython](./language/micropython), and [more](./language/intro). Even [Excel](./language/excel) can stream data to a module.
 
-Moreover, modules can run [standalone](./language/standalone) using [Arduino](./hw/arduino), [MicroBlocks](./language/microblocks), and the internal [Scripting Language](./engine/scripting).
-
-If [Excel](./language/excel) can control a sensor, then anything can!
+**Standalone** — Run [MicroBlocks](./language/microblocks), [Arduino](./hw/arduino), or the on-board [scripting language](./engine/scripting) without a tethered host. See [standalone options](./language/standalone) for details.
 
 </details>
 
@@ -150,9 +145,9 @@ If [Excel](./language/excel) can control a sensor, then anything can!
 </div>
 
 <details>
-  <summary>Tether modules over USB/I2C/UART. Connect one or Daisylink them all!</summary>
+  <summary>Reach the first module over USB, I2C, or UART—then chain more modules on Downlink.</summary>
 
-Every single DUELink module supports [multiple interfaces](./interface/intro), including [USB](./interface/usb), [Serial UART](./interface/uart), and [I2C](./interface/i2c). But then, each module has a [Downlink](./interface/downlink) connection allowing you to [Daisylink](./engine/daisylink) hundreds of modules.
+The module connected to your host uses [USB, I2C, or serial UART](./interface/intro). Additional modules attach on the [Downlink](./interface/downlink) port and form a **[Daisylink](./engine/daisylink)** chain, so one host connection can control many boards.
 
 </details>
 
@@ -183,14 +178,11 @@ PrintLn("Hello World")
 </div>
 
 <details>
-  <summary>Each module has an internal engine with a scripting language.</summary>
+  <summary>Every module includes a scripting engine—run on the board or command it from a host.</summary>
 
+Each module runs the DUELink [engine](./engine/intro): a [scripting language](./engine/scripting), a large [standard library](./engine/stdlib), plus [graphics](./engine/graphics), a [file system](./engine/filesystem), and more.
 
-The DUELink [engine](./engine/intro) is very powerful for its size! It lives on every single module and includes a [Scripting Language](./engine/scripting) with an extensive [Standard Library](./engine/stdlib) and support for [Graphics](./engine/graphics), [File System](./engine/filesystem), and beyond!
-
-Each module is a mini-computer allowing it to run [standalone](./language/standalone) using its [Scripting Engine](./engine/scripting). This engine can also be commanded by your favorite tethered [hardware](./hw/intro), such as [Raspberry Pi](./hw/raspberry-pi), [Micro:bit](./hw/microbit), or even control the modules from a [PC](./hw/pc-laptop). 
-
-Still want more? Load the module with [MicroBlocks](./language/microblocks) and use an easy block coding interface, or use [Arduino](./hw/arduino) and take advantage of massive community resources.
+Use it **standalone** on the module, or send commands from tethered [hardware](./hw/intro)—a [Raspberry Pi](./hw/raspberry-pi), [micro:bit](./hw/microbit), or [PC](./hw/pc-laptop). You can also load [MicroBlocks](./language/microblocks) or [Arduino](./hw/arduino) firmware when those workflows fit your project better.
 
 </details>
 
@@ -208,9 +200,9 @@ Still want more? Load the module with [MicroBlocks](./language/microblocks) and 
 </div>
 
 <details>
-  <summary>Open specs to help you integrate, or to make your own modules!</summary>
+  <summary>Open specifications for integration, enclosures, and custom modules.</summary>
 
-DUELink [specifications](./specs) are available to help you in making [your own modules](./catalog/third-party). For 3D-printed and laser-cut enclosures, a universal rule is in how holes are added to each module. This allows for universal mounting, like with the available [Holey boards](./products/axholey). We even give you some [mounting hardware](./products/axmnt) options!
+Published [specifications](./specs) describe electrical behavior, connectors, and mechanical layout—including hole patterns for universal mounting with [Holey boards](./products/axholey) and related [mounting hardware](./products/axmnt). Use them to build [your own modules](./catalog/third-party) or fit DUELink boards into custom enclosures.
 
 </details>
 
@@ -230,23 +222,25 @@ DUELink [specifications](./specs) are available to help you in making [your own 
 
 
 <details>
-  <summary>Works with non-DUELink modules, such as SparkFun Qwiic, Adafruit STEMMA QT, and Arduino Modulino.</summary>
+  <summary>Use SparkFun Qwiic, Adafruit STEMMA QT, Arduino Modulino, and Grove alongside DUELink.</summary>
 
-Circuits that use I2C JST connectors, like Sparkfun Qwiic, Adafruit STEMMA QT, or Arduino Modulino work directly with DUELink modules. Similarly, systems like Seeed Studio Grove will als work, but you will need an adapter cable due to the different connector size.
+Ecosystems with I2C JST connectors—**SparkFun Qwiic**, **Adafruit STEMMA QT**, and **Arduino Modulino**—work directly with DUELink modules. **Seeed Studio Grove** devices also work with an adapter cable because the connector differs.
 
-There are 2 ways to connect third-party systems. Add DUELink modules to the [I2C](./interface/i2c) connection of a [Supported Hardware](./hw/intro), and optionally combined with other third-party modules as well.
+**Two common setups:**
+
+1. Add DUELink modules on the [I2C](./interface/i2c) bus of your [host hardware](./hw/intro), alongside other third-party modules.
 
 <div style={{ textAlign: 'center'}}>
 ![QWIIC, STEMMA QT, and Modulino with DUELink modules](pathname:///img/qwiic-stemma-modulino-duelink.webp)
 </div>
 
-The other options is to wire third-party modules to the [downlink](./interface/downlink) connector of any DUELink circuit.
+2. Wire third-party modules to the [downlink](./interface/downlink) port of a DUELink circuit.
 
 <div style={{ textAlign: 'center'}}>
 ![I2C non-DUELink](pathname:///img/i2c-nonduelink.webp)
 </div>
 
-You can even have a setup with both options!
+You can combine both approaches in one project.
 
 </details>
 
@@ -271,13 +265,12 @@ You can even have a setup with both options!
 
 
 <details>
-  <summary>We strive to be environmentally friendly 🌿 and reduce excess electronic waste where we can.</summary>
+  <summary>Fewer bundled cables—less waste when you already have what you need.</summary>
 
-We do not include USB cables with individual circuits as most will probably have several USB-C cables laying around!
+Individual modules and circuits do not include USB cables; most users already have USB-C cables on hand.
 
-Similarly, DUELink JST cables are not included with individual modules. To make it easy for you, however, we offer various length [cables](/docs/products/axcbl). 
+JST cables are also sold separately. [Cable lengths](./products/axcbl) are available when you need them. **DUELink kits include the cables required for that kit.**
 
-However, DUELink **Kits will include the cables** you need.
 </details>
 
 
@@ -288,7 +281,7 @@ However, DUELink **Kits will include the cables** you need.
 ![Print](pathname:///img/getting-started.webp)
 ## Getting Started
 
-Start in minutes and code using your favorite languages, on your favorite hardware.
+Connect a module, pick a language and host, and run your first program in minutes.
 
 <Button
   style={{ color:'white' }}
