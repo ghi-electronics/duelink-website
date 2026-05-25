@@ -71,7 +71,18 @@
         "2x User Buttons",
         "52x42mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 5. |\n| `GetH()` | Get display height: 5. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |\n\n:::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::",
+      "driverApi": [
+        { "signature": "GetW()", "description": "Get display width: 5." },
+        { "signature": "GetH()", "description": "Get display height: 5." },
+        { "signature": "IsColor()", "description": "Returns 0." },
+        { "signature": "BtnA()", "description": "Returns 1 if button A is pressed." },
+        { "signature": "BtnB()", "description": "Returns 1 if button B is pressed." },
+        { "signature": "IsTouch(p)", "description": "Returns 1 if `p` pad (0, 1, or 2) is touched." },
+        { "signature": "Buzzer(f,d)", "description": "Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds." },
+        { "signature": "Light()", "description": "Returns voltage from light sensor." },
+        { "signature": "DVer()", "description": "This driver version." }
+      ],
+      "driverNotes": ":::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::",
       "MfgNotes": "Check Menu->Help for connection before testing"
     },
     {
@@ -91,7 +102,17 @@
         "USB-C connector",
         "52x42mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |",
+      "driverApi": [
+        { "signature": "GetW()", "description": "Get display width: 128." },
+        { "signature": "GetH()", "description": "Get display height: 64." },
+        { "signature": "IsColor()", "description": "Returns 0." },
+        { "signature": "BtnA()", "description": "Returns 1 if button A is pressed." },
+        { "signature": "BtnB()", "description": "Returns 1 if button B is pressed." },
+        { "signature": "IsTouch(p)", "description": "Returns 1 if `p` pad (0, 1, or 2) is touched." },
+        { "signature": "Buzzer(f,d)", "description": "Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function." },
+        { "signature": "Light()", "description": "Returns voltage from light sensor." },
+        { "signature": "DVer()", "description": "This driver version." }
+      ],
       "MfgNotes": "Check Menu->Help for connection before testing"
     },
     {
@@ -129,7 +150,10 @@
         "Downlink connector for Daisylinking modules",
         "69x56mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `DVer()` | This driver version. |",
+      "driverApi": [
+        { "signature": "BtnLdr()", "description": "Returns 1 if LDR button is pressed." },
+        { "signature": "DVer()", "description": "This driver version." }
+      ],
       "MfgNotes": "Check Menu->Help for USB connection before testing"
     },
     {

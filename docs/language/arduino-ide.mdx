@@ -1,0 +1,176 @@
+# Arduino IDE
+
+Load your own Arduino sketch onto any DUELink module's on-board STM32. The module runs your code directly — full speed, full hardware access, no host computer needed at runtime.
+
+<div style={{ textAlign: 'center'}}>
+![Arduino logo](pathname:///img/arduino-logo.webp)
+</div>
+
+---
+
+## What you get (and what you give up)
+
+Loading an Arduino sketch **replaces** the default DUELink firmware on that module. Two things change:
+
+- **You get full control.** Every pin on the STM32 is yours. Standard Arduino libraries work. You can step through code with SWD if you want.
+- **You give up plain-text commands.** The module no longer responds to `RelayOn(2)` or any other DUELink command — you're now driving the hardware directly in C++.
+
+For simple modules (a light sensor, a button) this is easy — `analogRead()`, `digitalRead()`, done. For complex modules (USB Host, file storage, displays with their own chips) you'll need the module's **schematic and the relevant component datasheets**, same as building on any custom STM32 board. Most product pages include Arduino samples as a starting point.
+
+To go back to text commands, [reload the DUELink firmware](../loader).
+
+---
+
+## What you need
+
+- The latest **Arduino IDE 2.x** ([download](https://www.arduino.cc/en/software))
+- Any DUELink module — every one ships with an on-board STM32C071
+- A USB cable (or a [USB Hook](../products/adusbhook-a) for modules without their own USB)
+- **[STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html)** — Arduino IDE uses it under the hood for DFU upload
+
+<div style={{ textAlign: 'center'}}>
+![USB hook with RGB3](pathname:///img/usbhook-rgb3.webp)
+</div>
+
+---
+
+## Setup
+
+1. Install **Arduino IDE 2.x** from [arduino.cc](https://www.arduino.cc/en/software).
+2. *File → Preferences* → in **Additional boards manager URLs**, add both lines:
+
+   ```
+   https://github.com/ghi-electronics/duelink-libraries/raw/main/arduino/BoardManager/package_duelink_index.json
+   https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
+   ```
+
+   <div style={{ textAlign: 'center'}}>
+   ![Add DUELink package URLs](pathname:///img/arduino-ide-packages.webp)
+   </div>
+
+3. *Tools → Board → Boards Manager* → search **duelink** → **Install**. Install **STM32 MCU based boards** too if it's not already there.
+
+   <div style={{ textAlign: 'center'}}>
+   ![Boards Manager](pathname:///img/arduino-ide-boardmanager.webp)
+   </div>
+
+4. *Tools → Board → DUELink* → pick the entry that matches your module.
+
+   <div style={{ textAlign: 'center'}}>
+   ![Select DUELink board](pathname:///img/arduino-ide-selectboard.webp)
+   </div>
+
+---
+
+## Your first sketch
+
+Add this code to blink the status LED, which is connected to pin PB8.
+
+```cpp
+void setup() {
+  // initialize digital pin as an output.
+  pinMode(PB8, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(PB8, HIGH);  // turn the LED on (HIGH is the voltage level)
+  delay(1000);                      // wait for a second
+  digitalWrite(PB8, LOW);   // turn the LED off by making the voltage LOW
+  delay(1000);                      // wait for a second
+}
+```
+
+Use the Arduino `Verify` button to make sure the IDE is able to compile your program.
+
+<div style={{ textAlign: 'center'}}>
+![Arduino verify button](pathname:///img/arduino-verify-btn.png)
+</div>
+
+If all went well, you will see something like this:
+
+```
+Sketch uses 44608 bytes (34%) of program storage space. Maximum is 131072 bytes.
+Global variables use 1820 bytes (7%) of dynamic memory, leaving 22756 bytes for local variables. Maximum is 24576 bytes.
+```
+
+---
+
+## Upload via DFU
+
+USB DFU (Device Firmware Update) is used to load the compiled program.
+
+<div style={{ textAlign: 'center'}}>
+![Arduino DFU menu](pathname:///img/arduino-menu-dfu.png)
+</div>
+
+To load the Arduino program onto the DUELink module, put the board in loader mode (DFU) mode. This is done by holding LDR or "A" button down while resetting the board.
+
+<div style={{ textAlign: 'center'}}>
+![LDR or A Button](pathname:///img/ldr-a-buttons.webp)
+</div>
+
+Modules that do not have buttons will include a 2-hole-pad (BOOT0 - 3.3V). Use a paper clip (or a wire) to short the two pads. Reset the board by cycling power then remove the paper clip.
+
+<div style={{ textAlign: 'center'}}>
+![BootMode](pathname:///img/boot-mode.webp)
+</div>
+
+You can verify the board is in DFU mode by checking the device manager.
+
+<div style={{ textAlign: 'center'}}>
+![DFU device manager](pathname:///img/device-manager-dfu.webp)
+</div>
+
+Once STM32CubeProgrammer is installed, click on the `Upload` arrow, this will compile the sketch file and upload it to the device.
+
+<div style={{ textAlign: 'center'}}>
+![Compile and Upload](pathname:///img/arduino-ide-upload.webp)
+</div>
+
+:::info
+If you'd like to go back to using DUELink software you'll need to reload the DUELink firmware. Details are found on the [Loader](../loader) page.
+:::
+
+---
+
+## Host a chain from your Arduino sketch
+
+A module running your Arduino sketch can itself **host a chain of other DUELink modules**. The downstream modules keep their default firmware and still accept plain-text commands — your sketch writes those commands out the Downlink port (`Serial2`) and reads the responses back, using the **DUELink Arduino library**.
+
+<div style={{ textAlign: 'center'}}>
+![Arduino-loaded module hosting a chain](pathname:///img/dueduino-uplink.webp)
+</div>
+
+```cpp
+#include <DUELink.h>
+
+SerialTransport transport(Serial2);
+DUELink duelink(transport);
+
+void setup() {
+  Serial2.begin(115200);
+  duelink.Connect();
+
+  duelink.Engine.Select(1);              // first module in chain
+  duelink.System.StatLed(200, 200, 10);  // blink 10 times
+
+  duelink.Engine.Select(2);              // second module
+  duelink.System.StatLed(200, 200, 0);   // blink forever
+}
+
+void loop() {}
+```
+
+Result: your Arduino code commands a chain of DUELink modules exactly the way a PC or Pi would — but the "host" is a tiny STM32 right there in the project. See [Chain modules](../chain) for the wiring side.
+
+:::tip
+In this setup, the Arduino-loaded module is the **host** and has no DUELink address. The chained modules use the normal addressing (1, 2, 3, …) — and they're invisible to anything upstream of the Arduino-loaded module.
+:::
+
+---
+
+## Going further
+
+- **[Arduino as host](../hw/arduino)** — drive DUELink modules from an off-the-shelf Arduino board instead
+- **[C++](./cpp)** — skip the Arduino IDE and target the STM32 directly (CubeIDE, Keil, etc.)
+- **[On-Module Code overview](./standalone)** — all the ways to put code on a module

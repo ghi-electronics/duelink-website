@@ -1,35 +1,62 @@
-# C++ & Arduino
+# C++
+
+For developers who want to skip the Arduino IDE and work directly with the on-board STM32 — full control, your own toolchain, no abstractions.
 
 <div style={{ textAlign: 'center'}}>
 ![C++ Logo](pathname:///img/cplusplus.webp)
 </div>
 
-There are two ways to use C++ with DUELink, [Standalone](./standalone) or Tethered.
+---
+
+## Who is this for?
+
+Most people should use the **[Arduino IDE](./arduino-ide)** — it's the same C++ underneath, just with a friendlier shell and one-click upload. Pick this direct-C++ path only when you need to:
+
+- Use STM32-specific peripherals or features the Arduino core doesn't expose
+- Integrate DUELink modules into an existing C++/STM32 project
+- Use your team's existing IDE, build system, or debugger
+- Step through code with SWD (most modules expose SWD pads)
 
 ---
 
-## Standalone
+## Toolchains
 
-We recommend using [Arduino](../hw/arduino), which is C++ at its core, but presents an easier setup.
+Any toolchain that targets **STM32C071** will work. Common picks:
 
-You can also use any other C++ compiler with an STM32C071 microcontroller support, including the free [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html). Another option is ARM Keil MDK, which is what we use internally. This is a paid professional IDE but [ST Micro offers a free license for any STM32 Cortex-M0 micro](https://developer.arm.com/documentation/kan344/latest/?lang=en).
+- **[STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)** — free, official ST IDE, full HAL/LL access
+- **ARM Keil MDK** — what we use internally; ST offers a [free Cortex-M0 license](https://developer.arm.com/documentation/kan344/latest/?lang=en) that covers DUELink
+- **PlatformIO** — if you prefer that workflow
+- **GCC + Make / CMake** — for fully scripted builds
+
+These give you everything Arduino does and a lot more. The trade-off is no friendly samples — you'll work from raw HAL/LL APIs, the STM32 reference manual, and your own project structure.
+
+---
+
+## Uploading
+
+Built a `.bin` or `.hex`? Any DFU upload tool will flash it onto a DUELink module:
+
+- **[STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html)** — recommended; cross-platform, GUI + CLI
+- Any other DFU tool that supports STM32 in DFU mode
+
+(The Arduino IDE handles upload internally, which is why most users stick with it.)
+
+---
+
+## Debugging with SWD
+
+Most DUELink modules expose SWD pads so you can attach a debugger like **ST-Link**:
+
+- **SWCLK** — on the through-hole "boot pads" or LDR button
+- **SWDIO** — on a small surface-mount pad nearby
 
 :::tip
-These options use low-level versatile libraries. They are powerful but not user friendly! [Arduino](../hw/arduino) is a user-friendly alternative, and we provide many samples on individual product pages.
-:::
-
-Any DFU update tool can be used to load your compiled program onto a DUELink module. We recommend the [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html). This is not necessary when using Arduino as DFU upload is built into the Arduino IDE.
-
-:::tip
-For advanced users: 99.9% of modules include SWD pins for connecting debuggers, such as ST-Link. SWCLK is found on the through hole "boot pads" or LDR button. SWDIO is found on a tiny SMT pad. This is a non-supported feature.
+SWD access is an advanced, unsupported feature. Pin locations vary by module — check the product page for your board.
 :::
 
 ---
 
-## Tethered
+## Going further
 
-With this option, you can tether a device, such as [PC & Laptop](../hw/pc-laptop) or [Phone & Tablets](../hw/phone-tablet) to DUELink modules, which can be used to run the C++ program to command DUELink modules through [USB](../interface/usb) or [UART Serial](../interface/uart) interfaces.
-
-We do not provide a library for C++ and instead support other high-level languages, such as C++ cousin [.NET C#](./dotnet)!
-
-Note that the [Arduino](../hw/arduino) library is C++ and can be adopted to work on any [PC & Laptop](../hw/pc-laptop). However, this is not an officially supported option.
+- **[Arduino IDE](./arduino-ide)** — the recommended on-module path for most projects
+- **[On-Module Code overview](./standalone)** — all the ways to put code on a module

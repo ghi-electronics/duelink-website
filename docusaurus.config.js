@@ -30,6 +30,13 @@ const config = {
   onBrokenLinks: 'throw',
   //onBrokenMarkdownLinks: 'warn',
 
+  stylesheets: [
+    {
+      href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
+      type: 'text/css',
+    },
+  ],
+
 /*
   // Adds Docusaurus Faster. 
   future: {
@@ -112,25 +119,13 @@ const config = {
 
         },
         items: [
-            
           {
             href: '/docs/what-is',
-            //type: 'docSidebar',
-            //sidebarId: 'tutorialSidebar',
             position: 'right',
-            label: 'What is DUElink?',
-          },
-           {
-            href: '/docs/start',
-            //type: 'docSidebar',
-            //sidebarId: 'tutorialSidebar',
-            position: 'right',
-            label: 'Start',
+            label: 'What is DUELink?',
           },
           {
             href: '/docs/catalog/products',
-            //type: 'docSidebar',
-            //sidebarId: 'tutorialSidebar',
             position: 'right',
             label: 'Catalog',
           },
@@ -140,60 +135,27 @@ const config = {
             label: 'Projects',
           },
           {
-            href: '/buy',
-            position: 'right',
-            label: 'Buy',
-          },
-          {
             href: '/about',
-            //type: 'docSidebar',
-            //idebarId: 'tutorialSidebar',
             position: 'right',
             label: 'About',
           },
-          /*{
-            href: '/news',
-            //type: 'docSidebar',
-            //idebarId: 'tutorialSidebar',
+          {
+            href: '/buy',
             position: 'right',
-            label: 'News',
-          },*/
-          /*{
-            href: 'https://forums.ghielectronics.com/c/duelink/31',
-            //type: 'docSidebar',
-            //sidebarId: 'tutorialSidebar',
-            position: 'right',
-            label: 'Forums',
-          },*/
-          {
-          href: 'https://www.x.com/ghielectronics',
-          position: 'left',
-          html: '<img src="/img/x-icon.webp" alt="X">',
-          },
-                    {
-          href: 'https://www.instagram.com/ghielectronics/',
-          position: 'left',
-          html: '<img src="/img/instagram-icon.webp" alt="Instagram">',
+            label: 'Buy',
+            className: 'navbar-buy',
           },
           {
-          href: 'https://www.facebook.com/ghielec',
-          position: 'left',
-          html: '<img src="/img/facebook-icon.webp" alt="Facebook">',
+            href: 'https://www.youtube.com/user/GHIElectronics',
+            position: 'left',
+            className: 'navbar-social',
+            html: '<i class="fa-brands fa-youtube" aria-label="YouTube"></i>',
           },
           {
-          href: 'https://www.youtube.com/user/GHIElectronics',
-          position: 'left',
-          html: '<img src="/img/youtube-icon.webp" alt="Youtube">',
-          },   
-          {
-          href: 'https://linkedin.com/company/ghielectronics/',
-          position: 'left',
-          html: '<img src="/img/linkedin-icon.webp" alt="Linkedin">',
-          },
-          {
-          href: 'https://github.com/ghi-electronics',
-          position: 'left',
-          html: '<img src="/img/github-icon.webp" alt="GitHub">',
+            href: 'https://github.com/ghi-electronics',
+            position: 'left',
+            className: 'navbar-social',
+            html: '<i class="fa-brands fa-github" aria-label="GitHub"></i>',
           },
           
          // {to: '/blog', label: 'Blog', position: 'left'},

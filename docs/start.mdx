@@ -7,7 +7,17 @@ import TabItem from "@theme/TabItem";
 
 # Get Started in Minutes!
 
-Select your desired language and plug in your device to **blink its STAT LED!**
+Every DUELink module has its own set of text commands — see each module's page in the [Product Catalog](./catalog/products) for the full list.
+
+One command lives on **every** module: `StatLed(on, off, count)` blinks the on-board STAT LED. The three numbers are milliseconds — `StatLed(200, 200, 5)` means on for 200ms, off for 200ms, repeated 5 times. We use it here because every board can run it.
+
+You can send commands any way you like — a terminal, your own serial code, anything that pushes text over USB / I2C / UART. To make life easier, every official library exposes the same one-liner that sends a command and returns the result:
+
+```
+float duelink.Engine.ExecuteCommand("cmd")
+```
+
+Pick your language and plug in your device to **blink that STAT LED!**
 
 <Tabs groupid="language"
   values={[
@@ -16,9 +26,6 @@ Select your desired language and plug in your device to **blink its STAT LED!**
     {label: '.NET', value: 'dotnet'},
     {label: 'Arduino', value: 'arduino'},
     {label: 'MicroPython', value: 'mpy'},
-    {label: 'Script', value: 'script'},
-    {label: 'MicroBlocks', value: 'microblocks'},
-    
 ]}>
 <TabItem value="py">
 <details>
@@ -33,10 +40,11 @@ from DUELink.DUELinkController import DUELinkController
 
 availablePort = DUELinkController.GetConnectionPort()
 duelink = DUELinkController(availablePort)
-# Blink the STAT LED  (on for 200ms, off for 800ms, 20 times)
-duelink.System.StatLed(200,800,20)
+
+# Blink the STAT LED (on 200ms, off 200ms, 5 times)
+duelink.Engine.ExecuteCommand("StatLed(200,200,5)")
 ```
-You need `pip install DUELink`. Full details are on the [Python](./language/python) page.
+You need `pip install DUELink`.
 
 </TabItem>
 <TabItem value="js">
@@ -56,14 +64,10 @@ const {DUELinkController} = pkg_duelink
 let duelink = new DUELinkController(new SerialUSB());
 await duelink.Connect();
 
-async function Blinky() {
-  // Blink the STAT LED (on for 200ms, off for 800ms, 20 times)
-  await duelink.System.StatLed(200, 800, 20);
-}
-
-Blinky();
+// Blink the STAT LED (on 200ms, off 200ms, 5 times)
+await duelink.Engine.ExecuteCommand("StatLed(200,200,5)");
 ```
-You need `npm install duelink` and `npm install dlserialusb`. Full details are on the [JavaScript](./language/javascript) page.
+You need `npm install duelink` and `npm install dlserialusb`.
 </TabItem>
 <TabItem value="arduino">
 <details>
@@ -80,13 +84,12 @@ DUELink duelink(transport);
 
 void setup() {
   duelink.Connect();
-  // Blink the STAT LED (on for 200ms, off for 800ms, 20 times)
-  duelink.System.StatLed(200, 200, 10);
+  // Blink the STAT LED (on 200ms, off 200ms, 5 times)
+  duelink.Engine.ExecuteCommand("StatLed(200,200,5)");
 }
 
 void loop(){
 }
-
 ```
 You need `DUELink` and `STM32 MCU based boards` packages. Full details are on the [Arduino](./hw/arduino) page.
 
@@ -101,31 +104,17 @@ You need `DUELink` and `STM32 MCU based boards` packages. Full details are on th
 
 ```cs
 using GHIElectronics.DUELink;
-Console.WriteLine("Hello DUELink!");
+
 var availablePort = DUELinkController.GetConnectionPort();
 var duelink = new DUELinkController(availablePort);
 
-// Blink the STAT LED (on for 200ms, off for 800ms, 20 times)
-duelink.System.Statled(200, 800, 20);
-Console.WriteLine("Bye DUELink!");
+// Blink the STAT LED (on 200ms, off 200ms, 5 times)
+duelink.Engine.ExecuteCommand("StatLed(200,200,5)");
 ```
-You need `GHIElectronics.DUELink` library from `nuget.org`. Full details are on the [.NET](./language/dotnet) page.
+You need the `GHIElectronics.DUELink` library from `nuget.org`.
 
 </TabItem>
 
-<TabItem value="script">
-
-DUELink modules have a built in scripting engine, allowing them to run standalone. You can load and modify scripts using [console.duelink.com](https://console.duelink.com/).
-```py
-# Blink the STAT LED (on for 200ms, off for 800ms, 20 times)
-Statled(200, 800, 20)
-# Blink the STAT LED, but on a tethered module this time
-Cmd("Statled(200, 800, 20)")
-```
-Learn about the [scripting language](./engine/scripting) and the [console](./console).
-
-
-</TabItem>
 <TabItem value="mpy">
 <details>
   <summary>Connect to any RPI RP2350 or RP2040 board (click for image)</summary>
@@ -148,53 +137,11 @@ sdaPIN = machine.Pin(22)
 i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
 due = duelink.DUELinkController(i2c)
 
-# Blink the STAT LED (on for 200ms, off for 800ms, 20 times)
-due.System.StatLed(200, 800, 20)
+# Blink the STAT LED (on 200ms, off 200ms, 5 times)
+due.Engine.ExecuteCommand("StatLed(200,200,5)")
 ```
 
-You need to install `duelink-stdlib-mp`. Full details are on the [MicroPython](./language/micropython) page.
-
-
-</TabItem>
-<TabItem value="microblocks">
-
-This is an excellent block-coding option. It can be loaded on modules directly, or used to control tethered modules.
-
-<details>
-  <summary>Never used MicroBlocks? Click for a quick start!</summary>
-
-Go to [microblocks.fun/run/microblocks.html](https://microblocks.fun/run/microblocks.html).
-
-<div style={{ textAlign: 'center'}}>
-![MicroBlocks](pathname:///img/microblocks-connect-1.webp)
-</div>
-
-Click `Connect` on the top right, then select `connect (USB)`. You now should have a pop-up window with `DUELink MicroBlocks` option. If you do not see that option then you may need to [load the MicroBlocks firmware](https://loader.duelink.com/microblocks).
-
-MicroBlocks has "live updates". Click on `set user LED` and the STAT LED on your board will come on.
-
-<div style={{ textAlign: 'center'}}>
-![MicroBlocks](pathname:///img/microblocks-setuserled.webp)
-</div>
-
-Full details are on the MicroBlocks page.
-
-<div style={{ textAlign: 'center'}}>
-<Button
-        style={{ margin: "10px", color: "white" }}
-        label="MicroBlocks"
-        link="./language/microblocks"
-    />
-</div>
-</details>
-
-MicroBlocks maps its blocks to work with DUELink. For example, `set user LED` is mapped to STAT LED found on all modules. Put that in a loop with some delays and we have a blinking STAT LED. This program gets stored on the device and the loop will execute automatically when the system starts, **"when started"**.
-
-<div style={{ textAlign: 'center'}}>
-![MicroBlocks](pathname:///img/mb-blink-led-loop.png)
-</div>
-
-These blocks run on the module itself. You can also use MicroBlocks to control other tethered modules. See [MicroBlocks](./language/microblocks) page for more details.
+You need to install `duelink-stdlib-mp`.
 
 </TabItem>
 </Tabs>
@@ -306,28 +253,6 @@ No matter of you are and [Engineer](./engineers), a [Maker](./makers), or an [Ed
         link="./catalog/products"
     />
 </div>
----
-
-## Modules Discovery
-
-[loader.duelink.com/discover](https://loader.duelink.com/discover) queries connected modules. Start by USB-connecting your module(s) to a PC. If your board does not have a USB connector then use an adapter, like USB Hook.
-
-<div style={{ textAlign: 'center'}}>
-![DUELink Connection](pathname:///img/duelink-connection.webp)
-</div>
-
-Click the `Discover` button to start discovering modules! Here is an example showing a connected Ghizzy. 
-
-<div style={{ textAlign: 'center'}}>
-![CincoBit](pathname:///img/discover-ghizzy.webp)
-</div>
-
-If the "discover" feature failed complaining about a MicroBlocks firmware, then you need to [load the DUELink Official](https://loader.duelink.com/update) firmware.
-
-:::tip 
-Click `View Product Details` on the discovered item to visit the product's page.
-:::
-
 ---
 
 ## Community Forum

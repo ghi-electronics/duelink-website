@@ -1,94 +1,73 @@
-# Standalone
+# On-Module Code
 
-DUELink modules can be Tethered to your [hardware](../hw/intro) or can run Standalone.
-
-
- For example, you can tether one or more DUELink modules to an [Arduino](../hw/arduino) board.
-
-<div style={{ textAlign: 'center'}}>
-![Daisylink with Arduino](pathname:///img/arduino-uno-r4-daisylinked.webp)
-</div>
-
-Or code the module to run Standalone. After all, each DUELink module is a self-contained mini-computer!
+Every DUELink module has an onboard STM32 microcontroller (MCU) that you can program directly. Your code lives on the module and runs **standalone** — no host computer needed at runtime.
 
 <div style={{ textAlign: 'center'}}>
 ![Ghizzy Eyes](pathname:///img/ghizzy-eyes.gif)
 </div>
 
-There are multiple options for running **standalone**.
-
-* Scripts Engine
-* MicroBlocks
-* Arduino
-* C++
-
-:::tip
-Product pages include many samples for Tethered and Standalone modes.
-:::
+There are a few ways to do this, depending on who you are and what you need.
 
 ---
 
-## Scripting Engine
-
-<div style={{ textAlign: 'center'}}>
-![DUELink Logo](pathname:///img/duelinklogo.webp)
-</div>
-
-DUELink firmware includes an [Internal Engine](../engine/intro) that has a [Scripting](../engine/scripting) language. It is easy to learn, making it a great choice for [educators](../educators), yet it is flexible enough to run complete applications for [Makers](../makers) and [Engineers](../engineers).
-
-
-<div style={{ textAlign: 'center'}}><Button 
-style={{ margin: "10px", color: "white"}}
-label="Scripting"
-link="../engine/scripting"
-/></div>
-
----
-
-## MicroBlocks
+## In the classroom? Use MicroBlocks
 
 <div style={{ textAlign: 'center'}}>
 ![MicroBlocks](pathname:///img/microblocks.webp)
 </div>
 
-This is a block-based coding option, a great choice for educators, new learners, or anyone interested in coding but without "typing" the code!
+For educators and first-time coders, MicroBlocks is the easiest path — block coding that runs directly on the module, with a complete CincoBit curriculum.
 
 <div style={{ textAlign: 'center'}}><Button 
 style={{ margin: "10px", color: "white"}}
-label="MicroBlocks"
-link="./microblocks"
+label="For Educators"
+link="../educators"
 /></div>
 
 ---
 
-## Arduino
+## Recommended: Arduino IDE
 
 <div style={{ textAlign: 'center'}}>
 ![Arduino logo](pathname:///img/arduino-logo.webp)
 </div>
 
-Arduino is essentially C++ wrapped in a nice setup, with user-friendly libraries, and a very large community. It can be used in 2 different ways: Tether Arduino any compatible board to DUELink module(s), or load and run the Arduino software on any DUELink module to run Standalone!
+Arduino is our recommended path for developers. We provide the package, examples, and documentation. If you've used Arduino before, you'll be productive in minutes.
 
 <div style={{ textAlign: 'center'}}><Button 
 style={{ margin: "10px", color: "white"}}
-label="Arduino"
+label="Arduino IDE"
 link="../hw/arduino"
 /></div>
 
 ---
 
-## C++
+## Direct C++
 
 <div style={{ textAlign: 'center'}}>
 ![C++ Logo](pathname:///img/cplusplus.webp)
 </div>
 
-ST Micro offers STMCubeIDE as a complete solution to program STM micros. It is free and complete with many options.
-
-Another option is [Keil MDK](https://www.keil.com/), which is what we use at GHI Electronics. This is a paid-software but ST Micro has licensed it to be used for free on its Cortex-M0 micros, such as the STM32C071 used on DUELink modules.
+For full control, program the STM32 directly with C++ using STM32CubeIDE, Keil MDK, or your preferred toolchain.
 
 <div style={{ textAlign: 'center'}}><Button 
 style={{ margin: "10px", color: "white"}}
 label="C++"
 link="./cpp"
+/></div>
+
+---
+
+## Going deeper: the Internal Engine
+
+<div style={{ textAlign: 'center'}}>
+![DUELink Logo](pathname:///img/duelinklogo.webp)
+</div>
+
+DUELink ships with an internal scripting engine that runs on every module. You can write full programs in our scripting language and load them on the module to run on their own. This is the most advanced path — see the [Internal Engine](../engine/intro) docs to learn more.
+
+<div style={{ textAlign: 'center'}}><Button 
+style={{ margin: "10px", color: "white"}}
+label="Internal Engine"
+link="../engine/intro"
 /></div>
