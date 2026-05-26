@@ -30,9 +30,8 @@ const sidebars = {
       link: { type: "doc", id: "what-is" },
       items: [
         "what-is",
-        { type: "doc", id: "try", label: "Type Your First Command" },
+        { type: "doc", id: "start", label: "Get Started" },
         { type: "doc", id: "loader", label: "Update Firmware (if needed)" },
-        { type: "doc", id: "start", label: "Use from Your Code" },
         { type: "doc", id: "chain", label: "Chain Modules" },
       ],
     },

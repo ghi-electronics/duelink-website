@@ -5,10 +5,25 @@
 /* ---------- Hero ---------- */
 
 .hero {
-  padding: 5rem 0 4rem;
+  padding: 2.5rem 0 4rem;
   text-align: center;
   background: linear-gradient(180deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-darkest) 100%);
   color: #fff;
+}
+
+.heroBanner {
+  margin: 0 auto 2rem;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 12px;
+  padding: 0.75rem 1.25rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.heroBanner img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .heroTitle {
@@ -26,24 +41,20 @@
 }
 
 .heroOptions {
-  display: inline-grid;
-  grid-template-columns: max-content 1fr;
-  column-gap: 1.25rem;
-  row-gap: 0.4rem;
   margin: 0.25rem auto 2.25rem;
-  text-align: left;
-  font-size: 1.15rem;
-  line-height: 1.4;
+  max-width: 640px;
+  font-size: 1.1rem;
+  line-height: 1.5;
   color: #fff;
   opacity: 0.95;
 }
 
-.heroOptions dt {
-  font-weight: 700;
+.heroOptions p {
+  margin: 0.15rem 0;
 }
 
-.heroOptions dd {
-  margin: 0;
+.heroOptions strong {
+  font-weight: 700;
 }
 
 .heroNote {
@@ -61,138 +72,131 @@
   flex-wrap: wrap;
 }
 
-/* ---------- Hero showcase (image + terminal side-by-side) ---------- */
+/* ---------- Hero showcase ---------- */
 
 .heroShowcase {
   display: flex;
-  align-items: stretch;
   justify-content: center;
-  gap: 2.5rem;
   margin: 0.5rem auto 0;
-  max-width: 1100px;
+  max-width: 560px;
 }
 
 .heroColumn {
-  flex: 1 1 0;
-  max-width: 500px;
+  flex: 1 1 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   gap: 1.25rem;
 }
 
-.heroImageWrap {
-  flex: 1 1 auto;
+/* ---------- Hero visual ---------- */
+
+.heroVisual {
+  margin: 0 auto 1.5rem;
+  max-width: 720px;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 12px;
+  padding: 0.75rem 1.25rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  display: flex;
+  justify-content: center;
+}
+
+.heroVisual img {
+  max-width: 100%;
+  max-height: 220px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ---------- Capability strip ---------- */
+
+.capability {
+  padding: 4rem 0;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.capabilityHeader {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+}
+
+.capabilityHeader h2 {
+  margin-bottom: 0.5rem;
+}
+
+.capabilityHeader p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+  margin: 0;
+}
+
+.capabilityGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.capabilityTile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1.25rem 1.25rem;
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.capabilityTile:hover,
+.capabilityTile:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  border-color: var(--ifm-color-primary-lighter);
+  text-decoration: none;
+  color: inherit;
+}
+
+.capabilityImage {
+  width: 100%;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  margin-bottom: 1rem;
 }
 
-.heroImageWrap img {
+.capabilityImage img {
   max-width: 100%;
-  max-height: 280px;
+  max-height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.35));
 }
 
-/* ---------- Terminal mock ---------- */
-
-.terminalMockLink {
-  display: block;
-  width: 100%;
-  color: inherit;
-  text-decoration: none;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+.capabilityTile h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
-.terminalMockLink:hover,
-.terminalMockLink:focus-visible {
-  transform: translateY(-3px);
-  text-decoration: none;
-  color: inherit;
-}
-
-.terminalMockLink:hover .terminalMock,
-.terminalMockLink:focus-visible .terminalMock {
-  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.45);
-}
-
-.terminalMockLink:hover .terminalCaption,
-.terminalMockLink:focus-visible .terminalCaption {
-  opacity: 1;
-}
-
-.terminalCaption {
-  margin-top: 0.9rem;
-  font-size: 0.92rem;
-  color: #fff;
-  opacity: 0.78;
-  transition: opacity 0.18s ease;
-  text-align: center;
-}
-
-.terminalMock {
-  background: #1e1e1e;
-  border-radius: 10px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
-  overflow: hidden;
-  text-align: left;
-  font-family: 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace;
-}
-
-.terminalBar {
-  background: #2d2d2d;
-  padding: 0.55rem 0.8rem;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.terminalDot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.terminalTitle {
-  color: #8a8a8a;
-  font-size: 0.8rem;
-  margin-left: 0.75rem;
-  font-family: var(--ifm-font-family-base);
-}
-
-.terminalBody {
-  padding: 1.1rem 1.25rem;
+.capabilityTile p {
   font-size: 0.95rem;
-  color: #e6e6e6;
-  min-height: 170px;
+  line-height: 1.55;
+  color: var(--ifm-color-emphasis-700);
+  margin: 0 0 1rem;
+  flex-grow: 1;
 }
 
-.terminalLine {
-  margin: 0.25rem 0;
-  white-space: pre;
-}
-
-.prompt {
-  color: #4ec9b0;
-  margin-right: 0.5rem;
-}
-
-.ok {
-  color: #6a9955;
-}
-
-.cursor {
-  color: #4ec9b0;
-  margin-left: 0.25rem;
-  animation: blink 1s steps(1) infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
+.capabilityCta {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  font-size: 0.95rem;
 }
 
 /* ---------- Product line sections ---------- */
@@ -278,23 +282,17 @@
     font-size: 1.1rem;
   }
   .heroOptions {
-    font-size: 1rem;
-    column-gap: 0.75rem;
+    font-size: 0.98rem;
     margin-bottom: 1.5rem;
   }
-  .heroShowcase {
-    flex-direction: column;
-    gap: 2rem;
-  }
   .heroColumn {
-    max-width: 100%;
     width: 100%;
   }
-  .heroImageWrap img {
-    max-height: 200px;
+  .heroBanner {
+    margin-bottom: 1.25rem;
   }
-  .terminalBody {
-    font-size: 0.85rem;
+  .heroVisual img {
+    max-height: 180px;
   }
   .productLineContainer,
   .productLineReverse .productLineContainer {
@@ -303,5 +301,15 @@
   }
   .productLineBody {
     text-align: center;
+  }
+  .capabilityGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .capability {
+    padding: 2.5rem 0;
+  }
+  .capabilityImage {
+    height: 120px;
   }
 }

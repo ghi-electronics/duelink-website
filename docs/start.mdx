@@ -1,23 +1,52 @@
 ---
+title: Get Started
 hide_table_of_contents: true
 ---
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-# Get Started in Minutes!
+# Get Started
 
 Every DUELink module has its own set of text commands — see each module's page in the [Product Catalog](./catalog/products) for the full list.
 
 One command lives on **every** module: `StatLed(on, off, count)` blinks the on-board STAT LED. The three numbers are milliseconds — `StatLed(200, 200, 5)` means on for 200ms, off for 200ms, repeated 5 times. We use it here because every board can run it.
 
-You can send commands any way you like — a terminal, your own serial code, anything that pushes text over USB / I2C / UART. To make life easier, every official library exposes the same one-liner that sends a command and returns the result:
+<div style={{ width: '200px'}}>
+    ![STAT LED blinking](pathname:///img/statled-blink.webp)
+</div>
+
+---
+
+## Try a command in your browser (optional)
+
+This step is optional — you can skip straight to writing code below — but it's a great way to see a module respond before any install or project setup.
+
+Plug your DUELink module into USB. Some modules have a built-in USB connector; the rest connect through a small adapter like [USB Hook](./products/adusbhook-a). Every module supports USB once connected.
+
+<div style={{ textAlign: 'center'}}>
+![DUELink Connection](pathname:///img/duelink-connection.webp)
+</div>
+
+> **Live terminal coming soon.** For now, try it on [demo.duelink.com](https://demo.duelink.com/).
+
+Type `StatLed(200,200,5)` and the module returns to the `>` prompt, ready for the next command. Commands that read a value — like a sensor — print the answer on the next line before the prompt comes back.
+
+Problems? You may need to [install the latest firmware](https://loader.duelink.com/).
+
+---
+
+## Use it from your code
+
+The protocol is just text over USB, I2C, or UART — you can send commands yourself from any host. To make it easier, we ship official libraries for **Python**, **JavaScript**, **.NET**, **Arduino**, and **MicroPython** that handle the transport and parse the values modules return.
+
+Every library exposes the same one-liner that sends a command and returns the result. Here, that command is the same `StatLed(200,200,5)` from above — wrapped in `ExecuteCommand`:
 
 ```
-float duelink.Engine.ExecuteCommand("cmd")
+duelink.Engine.ExecuteCommand("StatLed(200,200,5)")
 ```
 
-Pick your language and plug in your device to **blink that STAT LED!**
+Pick your language and plug in your device to blink that STAT LED from code.
 
 <Tabs groupid="language"
   values={[
@@ -119,7 +148,7 @@ You need the `GHIElectronics.DUELink` library from `nuget.org`.
 <details>
   <summary>Connect to any RPI RP2350 or RP2040 board (click for image)</summary>
 <div style={{ textAlign: 'center'}}>
-![Arduino UNO 4 Daisylinked](pathname:///img/micropython-connection.webp)
+![MicroPython Connection](pathname:///img/micropython-connection.webp)
 </div>
 </details>
 
@@ -148,73 +177,46 @@ You need to install `duelink-stdlib-mp`.
 
 ---
 
-**How it works:**
+## How it works
 
-1. Plug in your device.
-2. Create a Project.
-3. Add DUELink library.
-4. Paste the above code.
-5. Run the project and watch the STAT LED💡blink.
+Every DUELink module runs its own tiny firmware that listens for **plain ASCII text** over USB, I2C, or UART. When the module recognizes a command, it runs it. When the command returns a value — like a sensor reading — the module sends the answer back as text, terminated with a carriage return.
 
+So confirming a connection literally looks like this on the line:
 
-<div style={{  width: '200px'}}>
-    ![StatLED](pathname:///img/statled-blink.webp)
-</div>
+```
+> StatLed(200,200,5)
+>
+```
 
-Problems? You may need to [install the latest firmware](https://loader.duelink.com/).
+A command that returns a value — for example, a distance module might answer `12.4` after you send its read command — prints the answer before the prompt comes back. Those commands are **different on every module**; see that module's **Commands** tab in the [catalog](./catalog/products).
 
-<div style={{textAlign: 'center'}}>
-    <Button
-        style={{ margin: "10px", color: "white" }}
-        label="🚀Project Showcase"
-        link="./projects"
-    />
-</div>
+That's the entire protocol. No register maps, no SPI dance, no datasheet drill-down. The command names are the same whatever host language you write in and whatever interface you connect over — USB, I2C, or UART.
+
+`StatLed(on, off, count)` is the one command on **every** module. Everything else is module-specific — a relay module has `RelayOn(n)`, a display has `DrawLine(...)` and `Show()`, and so on.
 
 ---
 
-**Choose your Tutorial:**
+## What's connected?
 
-We have hand selected a few easy-start options, but other modules work similarly.
+Not sure which module you have plugged in? [loader.duelink.com/discover](https://loader.duelink.com/discover) queries everything on the bus and tells you what it finds. USB-connect your module(s) to a PC (use an adapter like [USB Hook](./products/adusbhook-a) if the board has no USB connector), then click **Discover**.
 
-<div style={{textAlign: 'center'}}>
-<table>
-<td width='25%'>
-    <img alt="ghizzy" src="/img/catalog/spghizzy-d-1.webp" />
-    <Button
-        style={{ margin: "10px", color: "white" }}
-        label="📖Ghizzy"
-        link="./tutorial/ghizzy"
-    />
-</td>
-<td width='25%'>
-    <img alt="duestem" src="/img/catalog/mcduestem-b-1.webp" />
-    <Button
-        style={{ margin: "10px", color: "white" }}
-        label="📖DueSTEM"
-        link="./tutorial/duestem"
-    />
-</td>
-<td width='25%'>
-    <img alt="cincobit" src="/img/catalog/mccincobit-e-1.webp" />
-    <Button
-        style={{ margin: "10px", color: "white" }}
-        label="📖CincoBit"
-        link="./tutorial/cincobit"
-    />
-</td>
-<td width='25%'>
-    <img alt="cincobit" src="/img/catalog/ktessen-a-1.webp" />
-    <Button
-        style={{ margin: "10px", color: "white" }}
-        label="📖Essentials Kit"
-        link="./tutorial/essentials-kit"
-    />
-</td>
-</table>
+<div style={{ textAlign: 'center'}}>
+![DUELink Connection](pathname:///img/duelink-connection.webp)
 </div>
 
-**Try something else:**
+<div style={{ textAlign: 'center'}}>
+![Discover output for a connected Ghizzy](pathname:///img/discover-ghizzy.webp)
+</div>
+
+:::tip
+Click **View Product Details** on any discovered item to jump straight to its catalog page — including its command list.
+:::
+
+If Discover complains about a MicroBlocks firmware, [load the DUELink Official firmware](https://loader.duelink.com/update) first.
+
+---
+
+## Try something else
 
 <div style={{ textAlign: 'center'}}>
 <Button style={{background:"whitesmoke", margin: "10px", color: "black" }}
@@ -238,31 +240,14 @@ We have hand selected a few easy-start options, but other modules work similarly
 <Button style={{background:"whitesmoke", margin: "10px", color: "black" }}
         label="🧠AI Project ➚"
         link="https://forums.ghielectronics.com/t/duelink-ai-control-hardware-with-natural-language/26258"/>
+
 <br/>
 <br/>
 
-<div style={{ textAlign: 'center'}}>
-![DUELink Connection](pathname:///img/duelink-modules.webp)
+![DUELink modules](pathname:///img/duelink-modules.webp)
+
 </div>
 
-No matter of you are and [Engineer](./engineers), a [Maker](./makers), or an [Educator](./educators), DUELink has somethign for you!
+Whether you're prototyping commercial hardware, building a personal project, or teaching a classroom, DUELink has something for you — see [What is DUELink?](./what-is) for the big picture, or jump straight to the [Educators page](./educators) for classroom-specific guidance.
 
-<Button
-        style={{ margin: "10px", color: "white" }}
-        label="Product Catalog"
-        link="./catalog/products"
-    />
-</div>
----
-
-## Community Forum
-
-The examples above show different ways to start with DUELink. Join us at the DUELink Forum to discuss other options and share what you are working on.
-
-<div style={{ textAlign: 'center'}}>
-<Button
-        style={{ margin: "10px", color: "white" }}
-        label="Forums ➚"
-        link="https://forums.ghielectronics.com/c/duelink/31"
-    />
-</div>
+Stuck? Ask on the [DUELink forum](https://forums.ghielectronics.com/c/duelink/31).

@@ -33,14 +33,33 @@ Many popular host boards even ship with the JST connector built in, so DUELink p
 <div style={{ textAlign: 'center'}}>
 <Button
   style={{ color:'white', margin: "10px" }}
-  label="Type Your First Command"
-  link="./try"
-/>
-<Button
-  style={{ color:'white', margin: "10px" }}
-  label="Use from Your Code"
+  label="Get Started"
   link="./start"
 />
+</div>
+
+---
+
+## A real example: vehicle data logger
+
+Imagine a quick prototype that plugs into a vehicle and:
+
+1. Runs from the car battery.
+1. Captures CAN bus messages.
+1. Reads current GPS position.
+1. Logs everything to a USB memory stick.
+1. Shows live info on a color display.
+
+Put the soldering iron aside and grab a [Holey Board](./products/axholey) instead — pick the modules off the [catalog](./catalog/products), drop them in, and write a short script on your host. A project that used to take days takes an afternoon.
+
+<div style={{ textAlign: 'center'}}>
+![Vehicle data logger built on a DUELink Holey Board](pathname:///img/vehicle-project.webp)
+</div>
+
+Same story for industrial prototypes, lab fixtures, or one-off internal tools — graphics, file logging, sensors, motors, all driven from plain text commands in whatever language you already write.
+
+<div style={{ textAlign: 'center'}}>
+![Commercial product built with DUELink](pathname:///img/commercial-product.webp)
 </div>
 
 ---
@@ -106,8 +125,7 @@ Any DUELink board's MCU can be programmed directly with Arduino IDE or C++. Boar
 
 ## Where to next?
 
-- **[Type a command](./try)** — see what talking to a module looks like
-- **[Use from your code](./start)** — Python, JavaScript, .NET, Arduino, MicroPython
+- **[Get started](./start)** — try a command in the browser, then send it from Python, JavaScript, .NET, Arduino, or MicroPython
 - **[Chain modules](./chain)** — one host, many modules (and works with Qwiic/STEMMA)
 - **[For educators](./educators)** — MicroBlocks + curriculum
 - **[Code on the module](./language/standalone)** — Arduino IDE / C++ on the on-board MCU

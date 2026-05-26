@@ -125,6 +125,11 @@ const config = {
             label: 'What is DUELink?',
           },
           {
+            href: '/docs/start',
+            position: 'right',
+            label: 'Get Started',
+          },
+          {
             href: '/docs/catalog/products',
             position: 'right',
             label: 'Catalog',

@@ -10,59 +10,89 @@ function Hero() {
   return (
     <header className={styles.hero}>
       <div className="container">
+        <div className={styles.heroBanner}>
+          <img src="/img/duelink-modules.webp" alt="A row of DUELink modules" />
+        </div>
         <Heading as="h1" className={styles.heroTitle}>
           Smart modules that speak plain text
         </Heading>
-        <dl className={styles.heroOptions}>
-          <dt>Hardware</dt>
-          <dd>PC, Raspberry Pi, Arduino, micro:bit, phone, or anything else</dd>
-          <dt>Language</dt>
-          <dd>Python, JavaScript, .NET, MicroPython, or any other</dd>
-        </dl>
+        <p className={styles.heroSubtitle}>
+          Add sensors, displays, and motors to any board you already have — no soldering, no
+          drivers, no datasheets.
+        </p>
+
+        <div className={styles.heroVisual}>
+          <img
+            src="/img/duelink-supported-hardware.webp"
+            alt="DUELink works with PCs, phones, tablets, and SBCs"
+          />
+        </div>
+
+        <div className={styles.heroOptions}>
+          <p>
+            <strong>Any hardware</strong> — PC, Raspberry Pi, Arduino, micro:bit, phone.
+          </p>
+          <p>
+            <strong>Any language</strong> — Python, JavaScript, .NET, MicroPython.
+          </p>
+        </div>
 
         <div className={styles.heroShowcase}>
           <div className={styles.heroColumn}>
-            <div className={styles.heroImageWrap}>
-              <img
-                src="/img/catalog/axholey-4.webp"
-                alt="A DUELink project board with chained modules — display, sensors, buttons, slider, and more"
-              />
-            </div>
-            <Link className="button button--primary button--lg" to="/docs/catalog/products">
-              Browse Modules
-            </Link>
-          </div>
-
-          <div className={styles.heroColumn}>
-            <Link to="/docs/try" className={styles.terminalMockLink}>
-              <div className={styles.terminalMock}>
-                <div className={styles.terminalBar}>
-                  <span className={styles.terminalDot} style={{background: '#ff5f57'}} />
-                  <span className={styles.terminalDot} style={{background: '#febc2e'}} />
-                  <span className={styles.terminalDot} style={{background: '#28c840'}} />
-                  <span className={styles.terminalTitle}>DUELink — try a command</span>
-                </div>
-                <div className={styles.terminalBody}>
-                  <div className={styles.terminalLine}>
-                    <span className={styles.prompt}>&gt;</span> StatLed(200,200,5)
-                  </div>
-                  <div className={styles.terminalLine}>
-                    <span className={styles.ok}>OK</span>
-                  </div>
-                  <div className={styles.terminalLine}>
-                    <span className={styles.prompt}>&gt;</span>
-                    <span className={styles.cursor}>&#9608;</span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-            <Link className="button button--primary button--lg" to="/docs/try">
-              Try a Command
+            <Link className="button button--primary button--lg" to="/docs/start">
+              Get Started
             </Link>
           </div>
         </div>
       </div>
     </header>
+  );
+}
+
+function CapabilityTile({ image, alt, title, body, ctaLabel, ctaLink }) {
+  return (
+    <Link to={ctaLink} className={styles.capabilityTile}>
+      <div className={styles.capabilityImage}>
+        <img src={image} alt={alt} />
+      </div>
+      <Heading as="h3">{title}</Heading>
+      <p>{body}</p>
+      <span className={styles.capabilityCta}>{ctaLabel} →</span>
+    </Link>
+  );
+}
+
+function CapabilityStrip() {
+  return (
+    <section className={styles.capability}>
+      <div className="container">
+        <div className={styles.capabilityHeader}>
+          <Heading as="h2">Plain text. Surprising power.</Heading>
+          <p>
+            The same simple commands that blink an LED also read files on a USB stick and push
+            video to a 50&quot; HDMI screen.
+          </p>
+        </div>
+        <div className={styles.capabilityGrid}>
+          <CapabilityTile
+            image="/img/usbhost.webp"
+            alt="DUELink USB Host module"
+            title="Access USB memory"
+            body="Mount a USB stick, open a file, write bytes. The FAT16/FAT32 file system is built into the module — no driver hunt, no filesystem library to integrate."
+            ctaLabel="USB Host"
+            ctaLink="/docs/products/stusbhost-b"
+          />
+          <CapabilityTile
+            image="/img/hdmi.webp"
+            alt="DUELink HDMI module"
+            title="Output to HDMI"
+            body={'The same tiny JST connector that drives an OLED can drive a 50" HDMI screen. Any host that can send text now has a high-definition display.'}
+            ctaLabel="HDMI"
+            ctaLink="/docs/products/dshdmi-b"
+          />
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -93,6 +123,7 @@ export default function Home() {
       description="Smart electronic modules controlled by plain text commands from any computer in any language.">
       <Hero />
       <main>
+        <CapabilityStrip />
         <ProductLineSection
           image="/img/catalog/mccincobit-e-1.webp"
           eyebrow="In the classroom"
@@ -109,6 +140,14 @@ export default function Home() {
           body="Replace the default firmware and run code directly on the module's on-board STM32 — the Arduino IDE is our recommended easy on-ramp, with bare-metal C++ available for full toolchain control. Works on anything from a simple button module to versatile dev boards like Stick and Stamp."
           ctaLabel="On-module code →"
           ctaLink="/docs/language/standalone"
+        />
+        <ProductLineSection
+          image="/img/catalog/ktessen-a-1.webp"
+          eyebrow="Browse the catalog"
+          title="Sensors, displays, motors, kits, and more"
+          body="Mix and match across categories — every module speaks the same plain-text protocol, so the code you wrote for one works the same for the next. Not sure where to start? The Essentials Kit is a hand-picked starter set."
+          ctaLabel="Browse modules →"
+          ctaLink="/docs/catalog/products"
         />
       </main>
       <hr />
