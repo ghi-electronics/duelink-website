@@ -26,7 +26,6 @@ const sidebars = {
     {
       type: "category",
       label: "🚀 Start Here",
-      collapsed: false,
       link: { type: "doc", id: "what-is" },
       items: [
         "what-is",
@@ -68,7 +67,10 @@ const sidebars = {
       type: "category",
       label: "⚡ On-Module Code",
       link: { type: "doc", id: "language/standalone" },
-      items: ["language/arduino-ide", "language/cpp"],
+      items: [
+        { type: "doc", id: "language/arduino-ide", label: "Arduino IDE" },
+        "language/cpp",
+      ],
     },
 
     // ─────────────────────────────── 🛒 CATALOG ──────────────────────────────────
@@ -313,7 +315,7 @@ const sidebars = {
         "language/micropython",
         "language/makecode",
         { type: "ref", id: "language/microblocks" },
-        { type: "ref", id: "language/arduino-ide" },
+        { type: "ref", id: "language/arduino-ide", label: "Arduino IDE" },
         { type: "ref", id: "language/cpp" },
         "language/app-inventor",
         "language/swift",
@@ -356,6 +358,7 @@ const sidebars = {
             "engine/stream",
             "engine/coprocessor",
             "engine/daisylink",
+            "engine/cloning",
           ],
         },
         {

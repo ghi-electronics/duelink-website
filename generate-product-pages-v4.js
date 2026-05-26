@@ -458,7 +458,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/t
 Example code for using this module's commands in popular languages.
 
 :::tip
-New here? See [Use from Your Code](/docs/start) to connect a module and send your first command.
+New here? See [Get Started](/docs/start) to connect a module and send your first command.
 :::
 
 <Tabs groupid="language" queryString="lang" defaultValue="${sampleTabs[0].value}"
@@ -502,7 +502,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/s
         if (availableStandaloneSamples.arduino) {
             const arduinoCode = loadSampleContent(availableStandaloneSamples.arduino);
             if (arduinoCode !== null) {
-                standaloneSampleTabs.push({label: 'Arduino', value: 'arduino'});
+                standaloneSampleTabs.push({label: 'Arduino IDE', value: 'arduino'});
                 standaloneSampleTabItems.push(`<TabItem value="arduino">
 
                 See [Arduino IDE](/docs/language/arduino-ide) page for more info.
