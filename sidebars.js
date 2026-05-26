@@ -301,6 +301,27 @@ const sidebars = {
       ],
     },
 
+    // ─────────────────────────────── 💻 LANGUAGES ────────────────────────────────
+    {
+      type: "category",
+      label: "💻 Languages",
+      link: { type: "doc", id: "language/intro" },
+      items: [
+        "language/python",
+        "language/javascript",
+        "language/dotnet",
+        "language/micropython",
+        "language/makecode",
+        { type: "ref", id: "language/microblocks" },
+        { type: "ref", id: "language/arduino-ide" },
+        { type: "ref", id: "language/cpp" },
+        "language/app-inventor",
+        "language/swift",
+        "language/excel",
+        "language/other",
+      ],
+    },
+
     // ─────────────────────────────── 📚 ADVANCED ─────────────────────────────────
     {
       type: "category",
@@ -346,22 +367,6 @@ const sidebars = {
         "console",
         "programmer",
         "specs",
-        {
-          type: "category",
-          label: "Languages",
-          link: { type: "doc", id: "language/intro" },
-          items: [
-            "language/python",
-            "language/javascript",
-            "language/dotnet",
-            "language/micropython",
-            "language/makecode",
-            "language/app-inventor",
-            "language/swift",
-            "language/excel",
-            "language/other",
-          ],
-        },
       ],
     },
 

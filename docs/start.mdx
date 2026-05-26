@@ -10,9 +10,9 @@ import TabItem from "@theme/TabItem";
 
 Every DUELink module has its own set of text commands — see each module's page in the [Product Catalog](./catalog/products) for the full list.
 
-One command lives on **every** module: `StatLed(on, off, count)` blinks the on-board STAT LED. The three numbers are milliseconds — `StatLed(200, 200, 5)` means on for 200ms, off for 200ms, repeated 5 times. We use it here because every board can run it.
+One command lives on **every** module: `StatLed(on, off, count)` blinks the on-board STAT LED. The three numbers are on-time, off-time, and count — `StatLed(200, 200, 5)` means on for 200ms, off for 200ms, repeated 5 times.
 
-<div style={{ width: '200px'}}>
+<div style={{ width: '200px', margin: '0 auto'}}>
     ![STAT LED blinking](pathname:///img/statled-blink.webp)
 </div>
 
@@ -28,11 +28,9 @@ Plug your DUELink module into USB. Some modules have a built-in USB connector; t
 ![DUELink Connection](pathname:///img/duelink-connection.webp)
 </div>
 
-> **Live terminal coming soon.** For now, try it on [demo.duelink.com](https://demo.duelink.com/).
+Visit [demo.duelink.com](https://demo.duelink.com/) and type `StatLed(200,200,5)` to blink STAT LED 5 times. Commands that read a value — like a sensor — print (return) the answer. See your specific module's available commands on the [Product Catalog](./catalog/products).
 
-Type `StatLed(200,200,5)` and the module returns to the `>` prompt, ready for the next command. Commands that read a value — like a sensor — print the answer on the next line before the prompt comes back.
-
-Problems? You may need to [install the latest firmware](https://loader.duelink.com/).
+Problems? You may need to [install the latest firmware](./loader).
 
 ---
 
@@ -40,11 +38,15 @@ Problems? You may need to [install the latest firmware](https://loader.duelink.c
 
 The protocol is just text over USB, I2C, or UART — you can send commands yourself from any host. To make it easier, we ship official libraries for **Python**, **JavaScript**, **.NET**, **Arduino**, and **MicroPython** that handle the transport and parse the values modules return.
 
-Every library exposes the same one-liner that sends a command and returns the result. Here, that command is the same `StatLed(200,200,5)` from above — wrapped in `ExecuteCommand`:
+Every library exposes the same `ExecuteCommand` function that sends a command and returns the result. This function can be used to send the `StatLed` command for example.
 
 ```
 duelink.Engine.ExecuteCommand("StatLed(200,200,5)")
 ```
+
+:::tip
+Wrappers like `duelink.System.StatLed()` and other built in standard library function (commands) are provided for further simplicity. All these wrappers use `ExecuteCommand()` internally.
+:::
 
 Pick your language and plug in your device to blink that STAT LED from code.
 
@@ -73,7 +75,7 @@ duelink = DUELinkController(availablePort)
 # Blink the STAT LED (on 200ms, off 200ms, 5 times)
 duelink.Engine.ExecuteCommand("StatLed(200,200,5)")
 ```
-You need `pip install DUELink`.
+You need `pip install DUELink`. Full details are on the [Python](./language/python) page.
 
 </TabItem>
 <TabItem value="js">
@@ -96,7 +98,7 @@ await duelink.Connect();
 // Blink the STAT LED (on 200ms, off 200ms, 5 times)
 await duelink.Engine.ExecuteCommand("StatLed(200,200,5)");
 ```
-You need `npm install duelink` and `npm install dlserialusb`.
+You need `npm install duelink` and `npm install dlserialusb`. Full details are on the [JavaScript](./language/javascript) page.
 </TabItem>
 <TabItem value="arduino">
 <details>
@@ -140,7 +142,7 @@ var duelink = new DUELinkController(availablePort);
 // Blink the STAT LED (on 200ms, off 200ms, 5 times)
 duelink.Engine.ExecuteCommand("StatLed(200,200,5)");
 ```
-You need the `GHIElectronics.DUELink` library from `nuget.org`.
+You need the `GHIElectronics.DUELink` library from `nuget.org`. Full details are on the [.NET](./language/dotnet) page.
 
 </TabItem>
 
@@ -170,7 +172,7 @@ due = duelink.DUELinkController(i2c)
 due.Engine.ExecuteCommand("StatLed(200,200,5)")
 ```
 
-You need to install `duelink-stdlib-mp`.
+You need to install `duelink-stdlib-mp`. Full details are on the [MicroPython](./language/micropython) page.
 
 </TabItem>
 </Tabs>
