@@ -53,6 +53,9 @@ function Hero() {
             <Link className="button button--primary button--lg" to="/docs/start">
               Get Started
             </Link>
+            <Link className={styles.heroSecondary} to="/docs/what-is">
+              What is DUELink? →
+            </Link>
           </div>
         </div>
       </div>
