@@ -17,8 +17,9 @@ function Hero() {
           Smart modules that speak plain text
         </Heading>
         <p className={styles.heroSubtitle}>
-          Add sensors, displays, and motors to any board you already have — no soldering, no
-          drivers, no datasheets.
+          Add sensors, displays, and motors to any board you already have.
+          <br />
+          No soldering, no drivers, no datasheets.
         </p>
 
         <div className={styles.heroVisual}>
