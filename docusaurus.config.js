@@ -130,6 +130,11 @@ const config = {
             label: 'Get Started',
           },
           {
+            href: '/docs/educators',
+            position: 'right',
+            label: 'Educators',
+          },
+          {
             href: '/docs/catalog/products',
             position: 'right',
             label: 'Catalog',

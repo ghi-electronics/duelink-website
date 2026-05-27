@@ -18,13 +18,9 @@ The online loader only works with Chrome or Edge browsers. The operating system 
 If the loader can't update your module, work through this sequence:
 
 1. **Click "Erase All".** This puts the module in DFU mode and lets the loader push the new firmware. Almost all updates work this way.
-2. **If "Erase All" fails, just try loading the firmware.** Erase All needs an active firmware to run, so if it can't run, the module is probably already in DFU mode — go straight to loading. Once a module is erased, it can't be erased again until firmware is reloaded.
+2. **If "Erase All" fails, just try loading the firmware.** Erase All needs an active firmware to run, so if it can't run, the module is probably already in DFU mode — go straight to loading. Note: Once a module is erased, it can't be erased again until firmware is reloaded.
 3. **If both fail, force DFU mode manually** ([Force DFU Mode](#force-dfu-mode) below).
 4. **Windows users:** if the module enters DFU mode but the loader can't talk to it, install the DFU USB drivers ([Drivers](#dfu-usb-drivers) section).
-
-:::info
-**Updating a chain of MicroBlocks modules:** start as if MicroBlocks isn't in use — load every module with DUELink Official firmware first, then reload MicroBlocks on the first module.
-:::
 
 ---
 
@@ -60,13 +56,17 @@ The module will appear as a DFU device. If this is the first time on a PC, check
 Forcing DFU mode does not erase or modify the module's contents until new firmware is sent.
 :::
 
-You can now go back to the first steps and load the firmware.
+You can now go back, skip "Erase All", and load the firmware.
 
 ---
 
 ## Cloning a chain
 
 Once one module in a chain is updated, the loader can clone its firmware to every other module on the [Daisylink](./engine/daisylink) automatically. This is the easiest way to update modules that don't have a USB connector — update one module that does, then let it copy itself down the chain.
+
+:::info
+**Updating a chain when MicroBlocks is in use:** start as if MicroBlocks isn't in use — load every module with DUELink Official firmware first, then reload MicroBlocks on the first module.
+:::
 
 For the full mechanism and scripting examples, see [Cloning](./engine/cloning).
 

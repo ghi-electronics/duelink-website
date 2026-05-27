@@ -32,6 +32,16 @@ function Hero() {
           <p>
             <strong>Any hardware</strong> — PC, Raspberry Pi, Arduino, micro:bit, phone.
           </p>
+        </div>
+
+        <div className={styles.heroVisual}>
+          <img
+            src="/img/main-languages.webp"
+            alt="DUELink works with Python, JavaScript, .NET, Arduino, MicroPython, and more"
+          />
+        </div>
+
+        <div className={styles.heroOptions}>
           <p>
             <strong>Any language</strong> — Python, JavaScript, .NET, MicroPython.
           </p>
