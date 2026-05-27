@@ -102,7 +102,7 @@ You need `npm install duelink` and `npm install dlserialusb`. Full details are o
 </TabItem>
 <TabItem value="arduino">
 <details>
-  <summary>Connect to Arduino UNO R4 (click for image)</summary>
+  <summary>Connect to any Arduino with JST connector(click for image)</summary>
 <div style={{ textAlign: 'center'}}>
 ![Arduino UNO 4 Daisylinked](pathname:///img/arduino-connection.webp)
 </div>
@@ -194,7 +194,7 @@ A command that returns a value — for example, a distance module might answer `
 
 That's the entire protocol. No register maps, no SPI dance, no datasheet drill-down. The command names are the same whatever host language you write in and whatever interface you connect over — USB, I2C, or UART.
 
-`StatLed(on, off, count)` is the one command on **every** module. Everything else is module-specific — a relay module has `RelayOn(n)`, a display has `DrawLine(...)` and `Show()`, and so on.
+`StatLed(on, off, count)` is the one of the standard commands found on **every** module. Then module-specific commands cover the unique needs of each module — a display module has `Line(...)` and `Circle(...)` for example.
 
 ---
 
