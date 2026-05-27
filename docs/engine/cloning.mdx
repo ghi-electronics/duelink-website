@@ -1,0 +1,81 @@
+# Cloning
+
+Cloning lets one updated module copy its firmware to the next module in a [Daisylink](./daisylink) chain. The online [firmware loader](../loader) handles this automatically — visit it, update one module, and the loader walks the chain. The mechanism is also exposed for advanced uses.
+
+Cloning is executed on a "selected module" using `Sel()`, which then erases the "next module" in the chain and loads it with a clone of the selected module's firmware.
+
+Note that the cloned module receives the firmware but not the [Driver Script](./drivers). Drivers must be reloaded separately after cloning.
+
+:::tip
+The cloned module automatically gets enumerated to the same address it previously had. The cloner internally uses the private `SetAdd()` command.
+:::
+
+---
+
+## Requirements
+
+- All modules in the chain must already be loaded with DUELink Official firmware. Cloning can't run on blank modules even if they're in DFU mode — pre-load with DUELink Official first.
+- Cloning is disabled when the Downlink port isn't in default Daisylink mode (including host mode).
+
+---
+
+## Updating modules without USB
+
+Cloning is especially useful for updating modules that don't have a USB connector — update one module that does (or use a [USB Hook](../products/adusbhook-a)), then clone down the chain.
+
+<div style={{ textAlign: 'center'}}>
+![Cloning across a chain without USB](pathname:///img/pixobit-daisylinked.webp)
+</div>
+
+---
+
+## Scripting
+
+Cloning is normally driven by the loader website, but you can also drive it from a script in the [Console](../console). The following clones the current module to the next:
+
+```py
+# wait for enumeration, blink meanwhile!
+while getadd() = 0
+    dwrite(0,1) # STAT LED is always pin 0
+    wait(100)
+    dwrite(0,0)
+    wait(100)
+wend
+
+# We are enumerated!
+r = clone()
+
+println("Cloned fw from: ", getadd(), " to: ", r)
+```
+
+And here is a Python example that clones the firmware on device 1 to every module in the chain, one by one:
+
+```py
+import time
+from DUELink.DUELinkController import DUELinkController
+
+availablePort = DUELinkController.GetConnectionPort()
+duelink = DUELinkController(availablePort)
+
+def GetDeviceCount():
+    return int(duelink.Engine.ExecuteCommand("GetCnt()"))
+
+for i in range(1, GetDeviceCount()):
+    duelink.Engine.Select(i)
+
+    timeout = duelink.ReadTimeout
+
+    # Clone can take up to 30 seconds
+    duelink.ReadTimeout = 30
+
+    responsed = int(duelink.Engine.ExecuteCommand("Clone()"))
+
+    if responsed != (i + 1):
+        print(f"Cloning from {i} to {i+1} failed")
+        break
+    else:
+        print(f"Cloning from {i} to {i+1} succeeded")
+
+    # Restore the default timeout
+    duelink.ReadTimeout = timeout
+```
