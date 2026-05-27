@@ -148,10 +148,10 @@ export default function Home() {
         />
         <ProductLineSection
           reverse
-          image="/img/catalog/adsticker-c-1.webp"
+          image="/img/duino-options.webp"
           eyebrow="On-module code"
-          title="Run your own code on the module"
-          body="Replace the default firmware and run code directly on the module's on-board STM32 — the Arduino IDE is our recommended easy on-ramp, with bare-metal C++ available for full toolchain control. Works on anything from a simple button module to versatile dev boards like Stick and Stamp."
+          title="100s of *duino options"
+          body="Every DUELink module can be programmed in the Arduino IDE — making the whole catalog a family of *duino boards in every shape, with every feature. For full toolchain control, bare-metal C++ works too with STM32CubeIDE, Keil, or any other ARM toolchain."
           ctaLabel="On-module code →"
           ctaLink="/docs/language/standalone"
         />
