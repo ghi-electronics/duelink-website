@@ -636,7 +636,9 @@ ${(product.keyFeatures || []).map(f => `• ${f}<br/>`).join('\n')}
 ${resourcesSection}${pidSection}<br/>
 </td></table>
 
-Cables are not always included, see our <a href="/docs/what-is">Cableless Green Initiative</a> 🌿
+${product.category === 'Kit' ? '' : `:::note 🌿 Cables not included
+Modules ship without cables to reduce waste. Some specialty boards include a USB cable; for the rest, see [Cables](/docs/products/axcbl) to add cables to your order.
+:::`}
 
 </TabItem>
 ${commandsTabContent}
