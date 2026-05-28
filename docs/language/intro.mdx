@@ -1,40 +1,45 @@
 ---
+title: Languages
 hide_table_of_contents: true
 ---
 
 # Languages
 
-DUELink modules are self-contained microcomputers, allowing them to work in two distinct ways. First, module(s) can be remotely controlled by commands coming from a Tethered [Supported Hardware](../hw/intro). 
-
-
-<div style={{ textAlign: 'center'}}>
-![Supported Hardware](pathname:///img/duelink-supported-hardware.webp)
-</div>
-
-The Supported Hardware can Tether to DUELink modules using USB, I2C, or UART. We provide libraries for many coding languages, including [Python](./python), [MicroPython](./micropython), [JavaScript](./javascript), and [.NET](./dotnet.mdx). 
-
+DUELink modules speak plain text commands over USB, I2C, or UART, so any environment that can write text can drive them. The pages below cover how to use DUELink from each language we officially support — same command names everywhere; the only thing that changes is the library wrapper.
 
 <div style={{ textAlign: 'center'}}>
-![languages](pathname:///img/languages.webp)
+![Supported languages](pathname:///img/languages.webp)
 </div>
 
-The other option is by loading code can on modules directly to run [Standalone](./standalone). This for example, can be using [Arduino](../hw/arduino).
+---
 
-<div style={{ textAlign: 'center'}}>
-![MicroBlocks](pathname:///img/arduino-logo.webp)
-</div>
+## From your host
 
-Similar to Arduino, [MicroBlocks](./microblocks) can also be used to directly program modules to run Standalone, but this time using blocks!
+Send commands from code running on a PC, Raspberry Pi, Arduino, micro:bit, phone, or any other host.
 
-<div style={{ textAlign: 'center'}}>
-![MicroBlocks](pathname:///img/microblocks-sample.webp)
-</div>
+- **[Python](./python)** — the most common starting point on a PC or Raspberry Pi.
+- **[JavaScript](./javascript)** — Node.js on a PC, or directly in the browser via Web Serial.
+- **[.NET](./dotnet)** — C# / F# on Windows, macOS, or Linux.
+- **[MicroPython](./micropython)** — runs on small MCU boards like the Raspberry Pi Pico.
+- **[MakeCode](./makecode)** — block environment for micro:bit and Arduino in the classroom.
 
+---
 
+## On the module
 
+These languages let you write code that runs *on* the DUELink module's on-board STM32, with no host needed.
 
-Modules can also be daisylinked together. Learn about how DUELink [Daisylink](../engine/daisylink) work.
+- **[MicroBlocks](./microblocks)** — block coding aimed at classrooms (full guide under [For Educators](../educators)).
+- **[Arduino IDE](./arduino-ide)** — Arduino sketches running on the module's MCU (covered under [On-Module Code](./standalone)).
+- **[C++](./cpp)** — bare-metal C++ for full toolchain control.
 
-<div style={{ textAlign: 'center'}}>
-![Daisylink](pathname:///img/daisylink-normal.webp)
-</div>
+---
+
+## Niche and experimental
+
+Other places DUELink has been driven from — starting points more than full guides.
+
+- **[App Inventor](./app-inventor)** — control modules from an Android app.
+- **[Swift](./swift)** — iOS / macOS.
+- **[Excel](./excel)** — yes, from spreadsheet formulas.
+- **[Other](./other)** — anything else that can write text over a serial port.

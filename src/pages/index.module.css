@@ -1,23 +1,331 @@
 /**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+ * Simplified DUELink homepage styles.
  */
 
-.heroBanner {
-  padding: 4rem 0;
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 1.75rem 0 1.75rem;
   text-align: center;
-  position: relative;
-  overflow: hidden;
+  background: linear-gradient(180deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-darkest) 100%);
+  color: #fff;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.heroBanner {
+  margin: 0 auto 1.25rem;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
-.buttons {
+.heroBanner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: #fff;
+  line-height: 1.15;
+}
+
+.heroSubtitle {
+  font-size: 1.35rem;
+  opacity: 0.95;
+  margin-bottom: 1.25rem;
+}
+
+.heroOptions {
+  margin: 0.15rem auto 1rem;
+  max-width: 640px;
+  font-size: 1.1rem;
+  line-height: 1.45;
+  color: #fff;
+  opacity: 0.95;
+}
+
+.heroOptions p {
+  margin: 0.15rem 0;
+}
+
+.heroOptions strong {
+  font-weight: 700;
+}
+
+.heroNote {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin: 1.75rem auto 2rem;
+  line-height: 1.65;
+  max-width: 640px;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- Hero showcase ---------- */
+
+.heroShowcase {
+  display: flex;
+  justify-content: center;
+  margin: 0.25rem auto 0;
+  max-width: 560px;
+}
+
+.heroColumn {
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.heroSecondary {
+  font-size: 0.95rem;
+  color: #fff;
+  opacity: 0.85;
+  text-decoration: none;
+  margin-top: -0.25rem;
+}
+
+.heroSecondary:hover,
+.heroSecondary:focus-visible {
+  opacity: 1;
+  text-decoration: underline;
+  color: #fff;
+}
+
+/* ---------- Hero visual ---------- */
+
+.heroVisual {
+  margin: 0 auto 0.75rem;
+  max-width: 720px;
+  width: fit-content;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  display: flex;
+  justify-content: center;
+}
+
+.heroVisual img {
+  max-width: 100%;
+  max-height: 220px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ---------- Capability strip ---------- */
+
+.capability {
+  padding: 4rem 0;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.capabilityHeader {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+}
+
+.capabilityHeader h2 {
+  margin-bottom: 0.5rem;
+}
+
+.capabilityHeader p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+  margin: 0;
+}
+
+.capabilityGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.capabilityTile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1.25rem 1.25rem;
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.capabilityTile:hover,
+.capabilityTile:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  border-color: var(--ifm-color-primary);
+  text-decoration: none;
+  color: inherit;
+}
+
+.capabilityImage {
+  width: 100%;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.capabilityImage img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.capabilityTile h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.capabilityTile p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ifm-color-emphasis-700);
+  margin: 0 0 1rem;
+  flex-grow: 1;
+}
+
+.capabilityCta {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  font-size: 0.95rem;
+}
+
+/* ---------- Product line sections ---------- */
+
+.productLine {
+  padding: 4rem 0;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.productLineContainer {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.productLineReverse .productLineContainer {
+  flex-direction: row-reverse;
+}
+
+.productLineImage {
+  flex: 1;
+  text-align: center;
+}
+
+.productLineImage img {
+  max-width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+}
+
+.productLineBody {
+  flex: 1;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  color: var(--ifm-color-primary);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.productLineBody h2 {
+  margin-bottom: 0.75rem;
+}
+
+.productLineBody p {
+  margin-bottom: 1.25rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* ---------- Catalog ---------- */
+
+.catalog {
+  padding: 4rem 0;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.catalogLead {
+  max-width: 640px;
+  margin: 0 auto 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.catalogImage {
+  max-width: 100%;
+  margin: 0.5rem 0 1.75rem;
+}
+
+/* ---------- Responsive ---------- */
+
+@media screen and (max-width: 996px) {
+  .hero {
+    padding: 3rem 1rem 2.5rem;
+  }
+  .heroTitle {
+    font-size: 2.1rem;
+  }
+  .heroSubtitle {
+    font-size: 1.1rem;
+  }
+  .heroOptions {
+    font-size: 0.98rem;
+    margin-bottom: 1.5rem;
+  }
+  .heroColumn {
+    width: 100%;
+  }
+  .heroBanner {
+    margin-bottom: 1.25rem;
+  }
+  .heroVisual img {
+    max-height: 180px;
+  }
+  .productLineContainer,
+  .productLineReverse .productLineContainer {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .productLineBody {
+    text-align: center;
+  }
+  .capabilityGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .capability {
+    padding: 2.5rem 0;
+  }
+  .capabilityImage {
+    height: 120px;
+  }
 }

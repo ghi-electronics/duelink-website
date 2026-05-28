@@ -1,84 +1,68 @@
-import React from "react";
-import Zoom from "react-medium-image-zoom";
-
 # Arduino
 
+Use an off-the-shelf Arduino board (Arduino UNO R4, SparkFun RedBoard Qwiic, etc.) as a **host** that drives one or more DUELink modules. Modules respond to plain-text commands; your Arduino sketch sends them through our library.
 
 <div style={{ textAlign: 'center'}}>
-![Arduino logo](pathname:///img/arduino-logo.webp)
+![Arduino UNO R4 driving DUELink modules](pathname:///img/arduino-uno-r4-daisylinked.webp)
 </div>
 
-Using Arduino is an interesting option because it allows DUELink to be used in 2 very different ways. One option is to tether an Arduino-compatible board to control one DUELink Module or a chain of [daisylinked](../engine/daisylink) DUELink modules. 
-
-<div style={{ textAlign: 'center'}}>
-![Arduino UNO 4 Daisylinked](pathname:///img/arduino-uno-r4-daisylinked.webp)
-</div>
-
-The other option is to program any DUELink module using the Arduino IDE/software to run [Standalone](../language/standalone). For example, use Arduino IDE/software to control [Ghizzy](../products/spghizzy-d).
-
-<div style={{ textAlign: 'center'}}>
-![Ghizzy Eyes](pathname:///img/ghizzy-eyes.gif)
-</div>
-
-You can also combine both options and tether a standalone arduino-running DUELink Module to other DUELink modules! In this example, we have a DueDuino loaded with Arduino software that is tethered to a dasylink of DUELink modules.
-
-<div style={{ textAlign: 'center'}}>
-![DueDuino Daisylink](pathname:///img/dueduino-uplink.webp)
-</div>
-
-:::tip
-Modules' product pages includes Arduino samples for both Tethered and Standalone options.
-:::
+> Want to **load Arduino code onto a DUELink module** instead of using a separate Arduino board? See [Arduino IDE](../language/arduino-ide).
 
 ---
 
-## Tethered
+## Connect the Arduino to DUELink
 
-Any board running Arduino software can be tethered to DUELink modules using a commonly-used JST connector. An example can be [Arduino Uno R4 WiFi](https://store-usa.arduino.cc/products/uno-r4-wifi).
+Several routes depending on what your Arduino board has:
 
-<div style={{ textAlign: 'center'}}>
-![Arduino UNO  R4 Wifi](pathname:///img/arduino-uno-r4-wifi.webp)
-</div>
+- **Built-in JST SH connector** (Arduino UNO R4 WiFi, SparkFun RedBoard Qwiic, etc.) — plug straight into a DUELink module's Uplink port with a JST cable.
 
-The [Sparkfun Redboard Qwiic](https://www.sparkfun.com/sparkfun-redboard-qwiic.html) is another option.
+  <div style={{ textAlign: 'center'}}>
+  ![Arduino UNO R4 WiFi](pathname:///img/arduino-uno-r4-wifi.webp)
+  </div>
 
-<div style={{ textAlign: 'center'}}>
-![Sparkfun Redboard Qwiic](pathname:///img/sparkfun-redboard-qwiic.webp)
-</div>
+  <div style={{ textAlign: 'center'}}>
+  ![SparkFun RedBoard Qwiic](pathname:///img/sparkfun-redboard-qwiic.webp)
+  </div>
 
-Arduino-shaped boards, such as Arduino UNO, that do not have a JST connector can utilize [DueShield](../products/addueshield-a). It has a Downlink connector plus an area with holes matrix for mounting DUELink modules.
+- **Classic Arduino shield form factor** (no JST) — use the [DueShield](../products/addueshield-a). It exposes a Downlink connector and has a hole-matrix mounting area for DUELink modules.
 
-<div style={{ textAlign: 'center'}}>
-![DueShield](pathname:///img/catalog/addueshield-a-1.webp)
-</div>
+  <div style={{ textAlign: 'center'}}>
+  ![DueShield](pathname:///img/catalog/addueshield-a-1.webp)
+  </div>
 
-You can also use the [Breakout](../products/adbreakout-a) module to wire the connections using either I2C or UART.
+- **Any board with I2C or UART pins** — use the [Breakout](../products/adbreakout-a) module to wire to those pins directly.
 
-<div style={{ textAlign: 'center'}}>
-![Arduino Breakout UART](pathname:///img/arduino-breakout-uart.webp)
-</div>
+  <div style={{ textAlign: 'center'}}>
+  ![Arduino Breakout UART](pathname:///img/arduino-breakout-uart.webp)
+  </div>
 
-When using I2C, pull-up resistors are required. If your board doesn't have them, we have a [PullUp](../products/adpullup-a) module for you. 
+  > For I2C, your Arduino board needs pull-up resistors. If it doesn't have them, add a [PullUp](../products/adpullup-a) module.
+  >
+  > <div style={{ textAlign: 'center'}}>
+  > ![Arduino Breakout I2C](pathname:///img/arduino-breakout-i2c.webp)
+  > </div>
 
-<div style={{ textAlign: 'center'}}>
-![Arduino Breakout I2C](pathname:///img/arduino-breakout-i2c.webp)
-</div>
+---
 
-To command and control tether DUELink modules, you need to install the DUELink Arduino library.
+## Install the library
 
-Under `Tools` on the top menu of the Arduino IDE select `Manage Libraries`.
-
-<div style={{ textAlign: 'center'}}>
-![Navigate to Manage Libraries](pathname:///img/arduino-ide-add-library.webp)
-</div>
-
-Navigate to Boards Manager and Type `STM` in the search window and then click `Install` on both `DUELink` & `STM32 MCU based boards` packages.
+In the Arduino IDE: *Tools → Manage Libraries…*
 
 <div style={{ textAlign: 'center'}}>
-![Install DUELink Library](pathname:///img/arduino-ide-install-duelink.webp)
+![Manage Libraries menu](pathname:///img/arduino-ide-add-library.webp)
 </div>
 
-This example assumes 2 DUELink modules connected to the [Downlink](../interface/downlink) port on DueDuino, which is `Serial2`. The code will blink both STAT LEDs on both modules. Note how the STAT LED of the first module blinks only 10 times while the second module blinks forever.
+Search **STM** and install both **DUELink** and **STM32 MCU based boards**.
+
+<div style={{ textAlign: 'center'}}>
+![Install DUELink library](pathname:///img/arduino-ide-install-duelink.webp)
+</div>
+
+---
+
+## A first sketch
+
+Two DUELink modules chained on the Downlink, here driven over UART (`Serial2`). Blink the STAT LED on each one.
 
 ```cpp
 #include <DUELink.h>
@@ -89,29 +73,31 @@ DUELink duelink(transport);
 void setup() {
   Serial2.begin(115200);
   duelink.Connect();
-  duelink.Engine.Select(1);//Selects the first DUELink Module
-  duelink.System.StatLed(200, 200, 10);//Blink STAT 1st module 10x
-  duelink.Engine.Select(2);//Selects the second DUELink Module
-  duelink.System.StatLed(200, 200, 0);//Blinks STAT 2nd Module forever
+
+  duelink.Engine.Select(1);              // first module in chain
+  duelink.System.StatLed(200, 200, 10);  // blink 10 times
+
+  duelink.Engine.Select(2);              // second module
+  duelink.System.StatLed(200, 200, 0);   // blink forever
 }
 
-void loop(){
-}
+void loop() {}
 ```
 
-Here is another example that uses Arduino UNO 4 WIFI with an OLED 0.96 Display, a Button, and a Buzzer modules. Pressing the button generates sound on the buzzer, with the display showing some info. In this example, the Downlink connection uses I2C transport.
+Same modules, same text commands — just emitted from an Arduino sketch instead of a PC.
+
+---
+
+## A more interactive sketch
+
+UNO R4 WiFi with an **OLED 0.96** display, a **Button**, and a **Buzzer** chained on I2C (`Wire1`). Pressing the button plays a tone.
 
 <div style={{ textAlign: 'center'}}>
-![Arduino UNO 4 Daisylinked](pathname:///img/arduino-uno-r4-daisylinked.webp)
+![Arduino UNO R4 driving OLED, Button, Buzzer](pathname:///img/arduino-uno-r4-daisylinked.webp)
 </div>
 
 ```cpp
 #include "DUELink.h"
-
-// This example runs on Arduino UNO 4 WIFI
-// Device 1 is Display OLDE 0.96 
-// Device 2 is button
-// device 3 is buzzer
 
 TwoWireTransport transport(Wire1);
 DUELink duelink(transport);
@@ -120,165 +106,38 @@ void setup() {
   Serial.begin(9600);
   Wire1.begin();
   duelink.Connect();
-  duelink.Engine.Select(1);
+
+  duelink.Engine.Select(1);                       // OLED 0.96
   duelink.Graphics.Clear(1);
   duelink.Graphics.Text("--DUELink--", 0, 10, 1);
   duelink.Graphics.Text("Press button on", 0, 1, 21);
   duelink.Graphics.Text("device 2 to play", 0, 1, 31);
   duelink.Graphics.Text("sound on device 3", 0, 1, 41);
   duelink.Graphics.Show();
-  duelink.Engine.Select(2);  
-  duelink.Button.Enable(1, 1, 1); 
+
+  duelink.Engine.Select(2);                       // Button
+  duelink.Button.Enable(1, 1, 1);
 }
 
 void loop() {
   delay(100);
-  duelink.Engine.Select(2);   
+  duelink.Engine.Select(2);
   if (duelink.Button.Up(1) == 1) {
-    duelink.Engine.Select(3);  
-    duelink.Frequency.Write(7, 1000, 50, 0.5);  
-  } 
+    duelink.Engine.Select(3);                     // Buzzer
+    duelink.Frequency.Write(7, 1000, 50, 0.5);
+  }
 }
 ```
 
-Simple commands can do complex tasks, such as graphics in this case. This is possible because tethered DUELink modules are preloaded with the standard DUELink [engine](../engine/intro) and appropriate [drivers](../engine/drivers).
+Simple commands, complex behavior — possible because each module ships with the standard DUELink [engine](../engine/intro) and the appropriate [drivers](../engine/drivers).
 
-See `Tethered Samples` under individual module pages.
+:::tip
+Each module page in the [catalog](../catalog/products) includes Arduino samples under **Tethered Samples**.
+:::
 
 ---
 
-## Standalone
+## Going further
 
-Any DUELink module can run [standalone](../language/standalone) using the Arduino software, replacing the default DUELink firmware. An example can be [DueDuino](../products/mcdueduino-a).
-
-<div style={{ textAlign: 'center'}}>
-![DueDuino](pathname:///img/dueduino.webp)
-</div>
-
-Or a [Ghizzy](../products/spghizzy-d)!
-
-<div style={{ textAlign: 'center'}}>
-![Ghizzy](pathname:///img/catalog/spghizzy-d-1.webp)
-</div>
-
-If the module you want to use does not have a USB connector, then you need a [USB Hook](../products/adusbhook-a) or a similar module.
-
-<div style={{ textAlign: 'center'}}>
-![USB hook with RGB3](pathname:///img/usbhook-rgb3.webp)
-</div>
-
-The micro used on all DUELink modules is STM32C071, which is fully supported by the Arduino IDE, through the ST extension. But wait, we did not just leave it at that! We have a board support package for you.
-
-:::tip
-Arduino standalone samples for DUELink modules are provided in their individual product pages. These make for a great starting point.
-:::
-
-Start the Arduino IDE. Under `File`, navigate to `Preferences` then click `Additional boards manager URLs:` icon. In the new window, copy and add both URLs below then click `Ok`. 
-
-```cpp
-https://github.com/ghi-electronics/duelink-libraries/raw/main/arduino/BoardManager/package_duelink_index.json
-https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json  
-```
-
-<div style={{ textAlign: 'center'}}>
-![Add DUELink package links](pathname:///img/arduino-ide-packages.webp)
-</div>
-
-After the URLs have been added we can now add the "board". Select the `Board Manager` Icon from the side menu and search for `duelink` then click `Install`.
-
-<div style={{ textAlign: 'center'}}>
-![Add DUELink Board](pathname:///img/arduino-ide-boardmanager.webp)
-</div>
-
-Finally we need to select the newly install board. Under `Tools` select `Board:`, then select `DUELink`.
-
-<div style={{ textAlign: 'center'}}>
-![Select DUELink Board](pathname:///img/arduino-ide-selectboard.webp)
-</div>
-
-Add this code to blink the status LED, which is connected to pin PB8.
-
-```cpp
-void setup() {
-  // initialize digital pin as an output.
-  pinMode(PB8, OUTPUT);
-}
-
-void loop() {
-  digitalWrite(PB8, HIGH);  // turn the LED on (HIGH is the voltage level)
-  delay(1000);                      // wait for a second
-  digitalWrite(PB8, LOW);   // turn the LED off by making the voltage LOW
-  delay(1000);                      // wait for a second
-}
-```
-
-Use the Arduino `Verify` button to make sure the IDE is able to compile your program.
-
-<div style={{ textAlign: 'center'}}>
-![Arduino verify button](pathname:///img/arduino-verify-btn.png)
-</div>
-
-If all went well, you will see something like this:
-
-```
-Sketch uses 44608 bytes (34%) of program storage space. Maximum is 131072 bytes.
-Global variables use 1820 bytes (7%) of dynamic memory, leaving 22756 bytes for local variables. Maximum is 24576 bytes.
-```
-
-USB DFU (Device Firmware Update) is used to load the compiled program.
-
-<div style={{ textAlign: 'center'}}>
-![Arduino DFU menu](pathname:///img/arduino-menu-dfu.png)
-</div>
-
-To load the Arduino program onto the DUELink module, put the board in loader mode (DFU) mode. This is done by holding LDR or "A" button down while resetting the board.
-
-<div style={{ textAlign: 'center'}}>
-![LDR or A Button](pathname:///img/ldr-a-buttons.webp)
-</div>
-
-Modules that do not have buttons will include a 2-hole-pad (BOOT0 - 3.3V). Use a paper clip (or a wire) to short the two pads. Reset the board by cycling power then remove the paper clip.
-
-<div style={{ textAlign: 'center'}}>
-![BootMode](pathname:///img/boot-mode.webp)
-</div>
-
-You can verify the board is in DFU mode by checking the device manager.
-
-<div style={{ textAlign: 'center'}}>
-![DFU device manager](pathname:///img/device-manager-dfu.webp)
-</div>
-
-In order for the Arduino IDE to be able to DFU load programs onto the module, it relies on a tool from ST Micro. Go ahead and install [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) from ST Micro.
-
-Once STM32CubeProgrammer is installed, click on the `Upload` arrow, this will compile the sketch file and upload it to the device. 
-
-<div style={{ textAlign: 'center'}}>
-![Compile and Upload](pathname:///img/arduino-ide-upload.webp)
-</div>
-
-:::info
-If you'd like to go back to using DUELink software you'll need to reload the DUELink firmware. Details are found on the [Loader](../loader) page.
-:::
-
-The generic example code above uses STAT LED, which is found on all modules. After you have that LED blinking, visit your module's product page for a specific `Standalone` sample for `Arduino` to get you started.
-
----
-
-## Theory of Operation
-
-Loading Arduino software onto any DUELink module, turns it into an Arduino board. You will need to rely on the provided board schematics and the standard Arduino libraries for using the module itself. When a chain of modules are used, the first one will be running Arduino software standalone, we will call it a "Host". All other modules are tethered and will must continue to run the standard DUElink firmware. These tethered modules have the usual DUELink addressing, but the host (DueDuino in this example) does not have an address.
-
-<div style={{ textAlign: 'center'}}>
-![DueDuino Host](pathname:///img/arduino-dueduino-host.webp)
-</div>
-
-In comparison, when Arduino is not used, and the host is a PC for example, DueDuino has an address like any other module, because it is not the host. You can now use a coding language, like [Python](../language/python), on the PC to control IOs on DueDuino and the other modules. 
-
-<div style={{ textAlign: 'center'}}>
-![DueDuino PC Host](pathname:///img/dueduino-pchost-daisylink.webp)
-</div>
-
-:::tip
-Any module can run Arduino standalone. We are using DueDuino here for demonstration purposes.
-:::
+- **[Arduino IDE](../language/arduino-ide)** — load Arduino code onto a DUELink module itself
+- **[Chain modules](../chain)** — how DUELink chains work, including third-party Qwiic/STEMMA on the same bus

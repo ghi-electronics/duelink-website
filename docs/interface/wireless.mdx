@@ -66,7 +66,7 @@ WiFi starts a TCP server that is listens to port 8080. The easiest way to try th
 
 Note that provided libraries only work with serial ports, making them compatible with Bluetooth's virtual serial ports. These libraries do not work with WiFi as is.
 
-It is important to remember that the `Wireless ESP32` module acts as wireless-to-Daisylink "Interface Bridge" and is not part of the chain. This is accomplished using `Host Mode` explained on the [Disylink](../engine/daisylink) page. To USB, `Wireless ESP32` is device address 1 but the other modules are "bridged" to the wireless chain and are no longer accessible from USB, as they are now accessible from the wireless bridge. The first module is address 1 to the wireless connection, and is not accessible by USB.
+It is important to remember that the `Wireless ESP32` module acts as wireless-to-Daisylink "Interface Bridge" and is not part of the chain. This is accomplished using `Host Mode` explained on the [Daisylink](../engine/daisylink) page. To USB, `Wireless ESP32` is device address 1 but the other modules are "bridged" to the wireless chain and are no longer accessible from USB, as they are now accessible from the wireless bridge. The first module is address 1 to the wireless connection, and is not accessible by USB.
 
 <div style={{ textAlign: 'center'}}>
 ![Wireless daisylink address](pathname:///img/wireless-daisylink-addr-host.webp)

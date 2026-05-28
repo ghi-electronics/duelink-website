@@ -1,33 +1,51 @@
 # USB
 
+All DUELink modules support USB. Some boards have a built-in USB connector; the rest use an adapter like [USB Hook](../products/adusbhook-a) or [USB Stick](../products/adusbstick-a).
 
-All DUELink modules include USB support. A few boards have a built-in USB connector, but others need an adapter like [USB Hook](../products/adusbhook-a) or [USB Stick](../products/adusbstick-a).
-
-<div style={{ textAlign: 'center'}}>
-![USB Connection](pathname:///img/usbhook-servo-x1.webp)
-</div>
-
-USB on DUELink module is configured in standard CDC class, making these modules show up as virtual serial port to the connected [Hardware](../hw/intro).
-
-No drivers are necessary on any modern Windows, Linux, Android or Mac operating systems. These systems use a [Host Language](../language/intro) to command a [Daisylink](../engine/daisylink) of modules.
+For first-time setup, see [Get Started](../start). This page covers the USB interface itself.
 
 <div style={{ textAlign: 'center'}}>
-![USB Android](pathname:///img/android-usbhook.webp)
+![A DUELink module plugged into a PC via USB Hook](pathname:///img/usbhook-servo-x1.webp)
 </div>
 
-USB is also first choice with the [Console](../console) and [Demo Website](https://demo.duelink.com/).
+USB on DUELink modules is configured as the standard CDC class, so each module shows up as a virtual serial port on the connected [host](../hw/intro). No drivers are needed on modern Windows, macOS, Linux, or Android. Any of these can drive a [Daisylink](../engine/daisylink) of modules using a [host language](../language/intro).
+
+<div style={{ textAlign: 'center'}}>
+![DUELink module connected to an Android phone via USB Hook](pathname:///img/android-usbhook.webp)
+</div>
+
+USB is the first choice when using the [Console](../console) and the [Demo Website](https://demo.duelink.com/).
+
+On Linux, you may need to grant your user permission to access the serial port — see the notes and example script on the [UART](./uart) interface page.
 
 ---
 
-## HID Interface
+## Finding the port
 
-The USB connection presents itself as CDC (Virtual Serial) Class, but it also includes HID (Human Interface Device) Class. A connected computer/phone will see Serial+Keyboard+Mouse devices on the same USB cable (composite device), no matter what OS is being used. 
+Once plugged in, the module appears as:
 
-The virtual serial interface is used to communicate with the [engine](../engine/intro). This works just like all other interfaces.
+- **Windows:** `COMx` (check Device Manager → Ports)
+- **macOS:** `/dev/cu.usbmodem...`
+- **Linux:** `/dev/ttyACM0` (or similar)
 
-Through the HID interface, a connected OS will receive "keyboard keystrokes" and "mouse movements, thanks to the `Hid(type, [data])` function. `type` is 1: Keyboard - 2: mouse. The `[data]` array depends on the device `type`.
+Not sure which port belongs to your module? [loader.duelink.com/discover](https://loader.duelink.com/discover) queries everything on the bus and tells you what it finds.
 
-**Type Mouse:**
+---
+
+## Keyboard and mouse emulation
+
+Turn a DUELink module into a programmable keyboard or mouse — useful for automation and accessibility devices.
+
+The USB connection is actually a **composite device**: CDC (virtual serial) for commands, plus HID (Human Interface Device) for keyboard and mouse reports. A connected computer or phone sees Serial, Keyboard, and Mouse devices on the same USB cable, regardless of OS.
+
+The virtual serial side talks to the [engine](../engine/intro) — same as every other interface. The HID side sends keystrokes and mouse movements via the `Hid(type, [data])` function:
+
+- `type` 1 = Keyboard
+- `type` 2 = Mouse
+
+The `[data]` array depends on which type you chose.
+
+**Mouse data:**
 
 Data | Use
 --- | ---
@@ -36,9 +54,9 @@ Byte 1-2 | X movement (signed int16)
 Byte 3-4 | Y movement (signed int16)
 Byte 5 | Wheel (signed int8)
 Byte 6 | Pan (signed int8)
- 
-**Type Keyboard:**
- 
+
+**Keyboard data:**
+
 Data | Use
 --- | ---
 Byte 0 | Modifier keys (e.g., Ctrl, Shift)
@@ -50,17 +68,17 @@ Modifier key | Value
 Left Ctrl | 0x01
 Left Shift | 0x02
 Left Alt | 0x04
-Left GUI | 0x08
+Left GUI (Win / Cmd) | 0x08
 Right Ctrl | 0x10
 Right Shift | 0x20
 Right Alt | 0x40
-Right GUI | 0x80
+Right GUI (Win / Cmd) | 0x80
 
-USB `Keyboard keycodes` are found in the USB Specifications https://usb.org/sites/default/files/hut1_21.pdf and in many other places online, like https://gist.github.com/MightyPork/6da26e382a7ad91b5496ee55fdc73db2.
+USB keyboard keycodes are listed in the [USB HID Usage Tables](https://usb.org/sites/default/files/hut1_21.pdf) and in community references like [this gist](https://gist.github.com/MightyPork/6da26e382a7ad91b5496ee55fdc73db2).
 
-For example, the codes for 'G', 'H' and 'I' are 0x0A, 0x0B, and 0x0C respectively.
+For example, the codes for `G`, `H`, and `I` are `0x0A`, `0x0B`, and `0x0C` respectively.
 
-This is an example that reads touch pads on a DUELink module and then send their status as keyboard arrows key presses.
+The example below reads touch pads on a DUELink module and sends their status as keyboard arrow-key presses. This script runs on the module itself via the [Console](../console):
 
 ```py
 Asio(1) # Enable Asynchronous Commands
@@ -97,9 +115,3 @@ while (1)
     _p = 0 # reset press status
 wend
 ```
-
----
-
-## Linux Support
-
-USB presents itself as a virtual USB-Serial port. Linux requires permissions to allow access to these ports. Further notes and example script are on the [UART](./uart) interface page.

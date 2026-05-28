@@ -194,6 +194,22 @@ function getDriverPath(product) {
     return null;
 }
 
+// Normalize driverApi field (string passthrough, or array of {signature, description} -> markdown table)
+function formatDriverApi(driverApi) {
+    if (!driverApi) return '';
+    if (typeof driverApi === 'string') return driverApi;
+    if (Array.isArray(driverApi)) {
+        if (driverApi.length === 0) return '';
+        const rows = driverApi.map(item => {
+            const sig = (item && item.signature ? item.signature : '').toString();
+            const desc = (item && item.description ? item.description : '').toString();
+            return `| \`${sig}\` | ${desc} |`;
+        });
+        return ['| Function | Description |', '|----------|-------------|', ...rows].join('\n');
+    }
+    return '';
+}
+
 // Load driver content from file
 function loadDriverContent(filepath) {
     try {
@@ -314,19 +330,12 @@ ${resourceLinks.join('<br/>\n')}<br/>`
         {label: 'Overview', value: 'overview'}
     ];
     
-    // Only add Drivers tab if driver file exists
-    if (driverPath) {
-        tabs.push({label: 'Driver', value: 'driver'});
-    }
-    
-    // Check for available tethered samples and add tab if any exist
+    // Check for available tethered samples (used inside the Commands tab)
     const availableSamples = getAvailableSamples(product);
     const hasSamples = Object.keys(availableSamples).length > 0;
-    let sampleContent = '';
+    let sampleLanguagesBlock = '';
 
     if (hasSamples) {
-        tabs.push({label: 'Tethered Samples', value: 'tie-samples'});
-        
         // Build sample tabs for each available language
         // Order: Script, Python, MicroPython, JavaScript, .NET, Arduino
         let sampleTabs = [];
@@ -442,19 +451,22 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/t
 
 
         if (sampleTabItems.length > 0) {
-            sampleContent = `
-<TabItem value="tie-samples">
+            sampleLanguagesBlock = `---
 
-These Tethered samples assume the driver is installed, see the <a href="?show=driver" onClick={(e) => { e.preventDefault(); const scrollPos = window.scrollY; window.history.pushState(null, '', '?show=driver'); Array.from(document.querySelectorAll('.tabs__item')).find(el => el.textContent === 'Driver')?.click(); setTimeout(() => window.scrollTo(0, scrollPos), 0); }} style={{"cursor": "pointer"}}>Driver Tab</a>.
+### Samples
+
+Example code for using this module's commands in popular languages.
+
+:::tip
+New here? See [Get Started](/docs/start) to connect a module and send your first command.
+:::
 
 <Tabs groupid="language" queryString="lang" defaultValue="${sampleTabs[0].value}"
   values={${JSON.stringify(sampleTabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>
 
 ${sampleTabItems.join('\n')}
 
-</Tabs>
-
-</TabItem>`;
+</Tabs>`;
         }
     }
 
@@ -464,7 +476,7 @@ ${sampleTabItems.join('\n')}
     let standaloneSampleContent = '';
 
     if (hasStandaloneSamples) {
-        tabs.push({label: 'Standalone Samples', value: 'sa-samples'});
+        tabs.push({label: 'On-Module Code', value: 'sa-samples'});
 
         // Build sample tabs for each available language
         // Order: Script, Arduino
@@ -477,7 +489,7 @@ ${sampleTabItems.join('\n')}
                 standaloneSampleTabs.push({label: 'Script', value: 'script'});
                 standaloneSampleTabItems.push(`<TabItem value="script">
 
-                    This example runs using the default DUELink [Internal Engine](/docs/engine/intro) using its [Scripting Language](/docs/engine/scripting), and it expects the driver to be loaded first, see the <a href="?show=driver" onClick={(e) => { e.preventDefault(); const scrollPos = window.scrollY; window.history.pushState(null, '', '?show=driver'); Array.from(document.querySelectorAll('.tabs__item')).find(el => el.textContent === 'Driver')?.click(); setTimeout(() => window.scrollTo(0, scrollPos), 0); }} style={{"cursor": "pointer"}}>Driver Tab</a>.
+                    This example runs using the default DUELink [Internal Engine](/docs/engine/intro) using its [Scripting Language](/docs/engine/scripting), and it expects the module's driver to be loaded first, see the <a href="?show=commands" onClick={(e) => { e.preventDefault(); const scrollPos = window.scrollY; window.history.pushState(null, '', '?show=commands'); Array.from(document.querySelectorAll('.tabs__item')).find(el => el.textContent === 'Commands')?.click(); setTimeout(() => window.scrollTo(0, scrollPos), 0); }} style={{"cursor": "pointer"}}>Commands Tab</a>.
 
 \`\`\`py reference title="Standalone Script Sample"
 https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/standalone/${baseName}.txt
@@ -490,10 +502,10 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/s
         if (availableStandaloneSamples.arduino) {
             const arduinoCode = loadSampleContent(availableStandaloneSamples.arduino);
             if (arduinoCode !== null) {
-                standaloneSampleTabs.push({label: 'Arduino', value: 'arduino'});
+                standaloneSampleTabs.push({label: 'Arduino IDE', value: 'arduino'});
                 standaloneSampleTabItems.push(`<TabItem value="arduino">
 
-                See [Arduino](/docs/hw/arduino) page for more info.
+                See [Arduino IDE](/docs/language/arduino-ide) page for more info.
 
 \`\`\`cpp reference title="Standalone Arduino Sample"
 https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/standalone/${baseName}.ino
@@ -527,7 +539,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/s
             standaloneSampleContent = `
 <TabItem value="sa-samples">
 
-These samples show how to run DUELink [Standalone](/docs/language/standalone).
+Code that runs directly on this module's MCU. See [On-Module Code](/docs/language/standalone) for an overview.
 
 <Tabs groupid="standalone-language" queryString="sa-lang" defaultValue="${standaloneSampleTabs[0].value}"
   values={${JSON.stringify(standaloneSampleTabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>
@@ -540,30 +552,48 @@ ${standaloneSampleTabItems.join('\n')}
         }
     }
 
-    // Generate driver tab content if driver file exists
-    let driverTabContent = '';
-    
-    if (driverPath) {
-        // Use driverApi from product JSON if available, otherwise no table
-        const driverTable = product.driverApi || '';
-        
-        // Extract just the product name without revision
-        const productBaseName = product.name.replace(/\s+[A-Z]$/i, '');
-        
-        // Use reference attribute for GitHub CodeBlock plugin
-        driverTabContent = `
-<TabItem value="driver">
+    // Build the Commands tab — appears if driver file OR tethered samples exist.
+    // Layout: commands table -> driverNotes -> ### Samples (language sub-tabs) -> Peek under the hood
+    let commandsTabContent = '';
+    const hasCommandsTab = !!driverPath || !!sampleLanguagesBlock;
 
-Driver Scripts go hand-in-hand with DUELink official firmware. See the [Driver Scripts](/docs/engine/drivers) page for further details.
+    if (hasCommandsTab) {
+        // Insert Commands tab just after Overview
+        tabs.splice(1, 0, {label: 'Commands', value: 'commands'});
 
-${driverTable ? driverTable + '\n' : ''}<details>
-<summary><strong>The Code!</strong></summary>
+        const parts = [];
+
+        if (driverPath) {
+            // Accept driverApi as either a markdown string (legacy) or an array of {signature, description}
+            const driverTable = formatDriverApi(product.driverApi);
+            if (driverTable) parts.push(driverTable);
+            if (product.driverNotes) parts.push(product.driverNotes);
+        }
+
+        if (sampleLanguagesBlock) {
+            parts.push(sampleLanguagesBlock);
+        }
+
+        if (driverPath) {
+            const productBaseName = product.name.replace(/\s+[A-Z]$/i, '');
+            parts.push(`---
+
+<details>
+<summary><strong>Peek under the hood</strong></summary>
+
+The script below is this module's [driver](/docs/engine/drivers) — it teaches the hardware how to respond to the commands listed above. It ships pre-loaded from the factory; most users never need to open it.
 
 \`\`\`py reference title="${productBaseName} Driver"
 https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/driver/${baseName}.txt
 \`\`\`
 
-</details>
+</details>`);
+        }
+
+        commandsTabContent = `
+<TabItem value="commands">
+
+${parts.join('\n\n')}
 
 </TabItem>`;
     }
@@ -609,8 +639,7 @@ ${resourcesSection}${pidSection}<br/>
 Cables are not always included, see our <a href="/docs/what-is">Cableless Green Initiative</a> 🌿
 
 </TabItem>
-${driverTabContent}
-${sampleContent}
+${commandsTabContent}
 ${standaloneSampleContent}
 
 </Tabs>

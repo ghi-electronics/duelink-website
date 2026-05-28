@@ -80,7 +80,7 @@ Only smart modules receive an address. For example, both power modules in this D
 ![Host Mode](pathname:///img/host-mode.webp)
 </div>
 
-Use `GetAddr()` to read the current selected device address. If the current address is zero, then the module has not been enumerated yet. `GetCnt()` can be used to return the count of connected modules, seen the host. Note that when there is a module in the chain that is configured as "Host Mode" then main host will only see the modules up to that module in "Host Mode".
+Use `GetAddr()` to read the current selected device address. If the current address is zero, then the module has not been enumerated yet. `GetCnt()` can be used to return the count of connected modules, as seen by the host. Note that when there is a module in the chain that is configured as "Host Mode" then the main host will only see the modules up to that module in "Host Mode".
 
 Since devices get enumerated in a sequence plus each module needs about 2ms to be ready, commands should not be sent to modules for 2ms for each module in the Daisylink. For example, wait for 10ms before commanding a Daisylink with 5 modules.
 
@@ -153,6 +153,12 @@ Considerations when using host mode:
 
 1. While possible, do not use more than one host in a Daisylink.
 2. While possible, use host mode on the first module in the chain.
+
+---
+
+## Cloning
+
+One updated module can copy its firmware to the next module in the chain. See [Cloning](./cloning) for details and scripting examples.
 
 ---
 

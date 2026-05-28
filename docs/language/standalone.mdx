@@ -1,94 +1,73 @@
-# Standalone
+# On-Module Code
 
-DUELink modules can be Tethered to your [hardware](../hw/intro) or can run Standalone.
-
-
- For example, you can Tethere one or more DUELink modules to an [Arduino](../hw/arduino) board.
+Every DUELink module ships with firmware that responds to plain text commands from a host — that's the default workflow, covered in [Get Started](../start). But the same on-board STM32 microcontroller can also run your own code, for projects that don't need a host or where you want full control of the hardware. Here are the ways to do it.
 
 <div style={{ textAlign: 'center'}}>
-![Daisylink with Arduino](pathname:///img/arduino-uno-r4-daisylinked.webp)
+![Ghizzy eyes — a DUELink module running on its own](pathname:///img/ghizzy-eyes.gif)
 </div>
 
-Or code the module to run Standalone. After all, each DUELink module is a self-contained mini-computer!
-
-<div style={{ textAlign: 'center'}}>
-![Ghizzy Eyes](pathname:///img/ghizzy-eyes.gif)
-</div>
-
-There are multiple options for running **standalone**.
-
-* Scripts Engine
-* MicroBlocks
-* Arduino
-* C++
-
-:::tip
-Product pages include many samples for Tethered adn Standalone modes.
-:::
+**Quick guide:** MicroBlocks for classrooms · Arduino IDE if you've used Arduino · C++ for full toolchain control. The internal scripting engine that powers the default firmware is also documented under [Advanced](../engine/intro) for the power user.
 
 ---
 
-## Scripting Engine
+## In the classroom? Use MicroBlocks
+
+<div style={{ textAlign: 'center'}}>
+![A MicroBlocks program running on a DUELink board](pathname:///img/microblocks-sample.webp)
+</div>
+
+For educators and first-time coders, MicroBlocks is the easiest path — block coding that runs directly on the module, with a complete CincoBit curriculum.
+
+<div style={{ textAlign: 'center'}}><Button 
+style={{ margin: "10px", color: "white"}}
+label="For Educators →"
+link="../educators"
+/></div>
+
+---
+
+## Recommended: 100s of *duino options
+
+<div style={{ textAlign: 'center'}}>
+![A range of DUELink boards programmable from the Arduino IDE](pathname:///img/duino-options.webp)
+</div>
+
+Arduino is our recommended path for developers. Every DUELink module is also an Arduino-compatible board — making the whole catalog a family of *duino boards in every shape, with every feature. If you've used Arduino before, you'll be productive in minutes.
+
+<div style={{ textAlign: 'center'}}><Button 
+style={{ margin: "10px", color: "white"}}
+label="Arduino IDE →"
+link="./arduino-ide"
+/></div>
+
+---
+
+## Direct C++
+
+<div style={{ textAlign: 'center'}}>
+![C++ logo](pathname:///img/cplusplus.webp)
+</div>
+
+The same family of *duino boards is also programmable in bare-metal C++. Use STM32CubeIDE, Keil MDK, or any ARM toolchain for full control of the STM32 microcomputer.
+
+<div style={{ textAlign: 'center'}}><Button 
+style={{ margin: "10px", color: "white"}}
+label="C++ →"
+link="./cpp"
+/></div>
+
+---
+
+## Behind the scenes: the Internal Engine
 
 <div style={{ textAlign: 'center'}}>
 ![DUELink Logo](pathname:///img/duelinklogo.webp)
 </div>
 
-DUELink firmware includes an [Internal Engine](../engine/intro) that has a [Scripting](../engine/scripting) language. It is easy to learn, making it a great choice for [educators](../educators), yet it is flexible enough to run complete applications for [Makers](../makers) and [Engineers](../engineers).
-
-
-<div style={{ textAlign: 'center'}}><Button 
-style={{ margin: "10px", color: "white"}}
-label="Scripting"
-link="../engine/scripting"
-/></div>
-
----
-
-## MicroBlocks
-
-<div style={{ textAlign: 'center'}}>
-![MicroBlocks](pathname:///img/microblocks.webp)
-</div>
-
-This is a block-based coding option, a great choice for educators, new learners, or anyone interested in coding but without "typing" the code!
+The default firmware on every module is a small DUELink scripting engine — it's what receives plain text commands and runs them. You don't usually need to think about it, but advanced users can dig into the engine, scripting language, drivers, host mode, the console, and more under the Advanced section of the docs.
 
 <div style={{ textAlign: 'center'}}><Button 
 style={{ margin: "10px", color: "white"}}
-label="MicroBlocks"
-link="./microblocks"
-/></div>
-
----
-
-## Arduino
-
-<div style={{ textAlign: 'center'}}>
-![Arduino logo](pathname:///img/arduino-logo.webp)
-</div>
-
-Arduino is essentially C++ wrapped in a nice setup, with user-friendly libraries, and a very large community. It can be used in 2 different ways: Tether Arduino any compatible board to DUELink module(s), or load and run the Arduino software on any DUELink module to run Standalone!
-
-<div style={{ textAlign: 'center'}}><Button 
-style={{ margin: "10px", color: "white"}}
-label="Arduino"
-link="../hw/arduino"
-/></div>
-
----
-
-## C++
-
-<div style={{ textAlign: 'center'}}>
-![C++ Logo](pathname:///img/cplusplus.webp)
-</div>
-
-ST Micro offers STMCubeIDE as a complete solution to program STM micros. It is free and complete with many options.
-
-Another option is [Keil MDK](https://www.keil.com/), which is what we use at GHI Electronics. This is a paid-software but ST Micro has licensed it to be used for free on its Cortex-M0 micros, such as the STM32C071 used on DUELink modules.
-
-<div style={{ textAlign: 'center'}}><Button 
-style={{ margin: "10px", color: "white"}}
-label="C++"
-link="./cpp"
+label="Internal Engine →"
+link="../engine/intro"
 /></div>

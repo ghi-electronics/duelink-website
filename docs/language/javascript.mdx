@@ -13,7 +13,7 @@ There are two ways to utilize JavaScript with DUELink, using a website or run lo
 
 ## Getting Started
 
-Visit [loader.duelink.com](https://loader.duelink.com/) to make sure your hardware is USB connected and has the latest `DUElink Official` firmware and related module drivers.
+Visit [loader.duelink.com](https://loader.duelink.com/) to make sure your hardware is USB connected and has the latest `DUELink Official` firmware and related module drivers.
 
 You can now quickly see JavaScript in action using [demo.duelink.com](https://demo.duelink.com/). This JavaScript website demonstrates how to send DUELink script commands to DUELink modules from your local machine. The page sources are found [here](https://github.com/ghi-electronics/duelink-libraries/blob/main/docs/index.html).
 
@@ -68,7 +68,7 @@ We now need to install the `duelink` package using `npm install duelink`. We als
 
 Our first program will blink the on-board status LED on a tethered module, on for 200ms then it shuts off for 800ms, and does this 20 times. We will be using `SerialUSB()` here, vs `WebSerial()` when running inside a website.
 
-Note that using `await` is very critical because JavaScript is designed to run tasks asynchronously. DUELink accesses hardware live, in real-time, and things must run in order. Using `await` is required with anything DUElink!
+Note that using `await` is very critical because JavaScript is designed to run tasks asynchronously. DUELink accesses hardware live, in real-time, and things must run in order. Using `await` is required with anything DUELink!
 
 ```js
 import pkg_serialusb from 'dlserialusb';
