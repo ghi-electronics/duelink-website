@@ -168,3 +168,54 @@ img {
     transform: none;
   }
 }
+
+/* ---------- Footer attribution + social row ---------- */
+
+.footer-attribution {
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 0.25rem 0 0.5rem;
+  opacity: 0.9;
+}
+
+.footer-attribution a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-attribution a:hover,
+.footer-attribution a:focus-visible {
+  text-decoration: underline;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 0.5rem 0 1rem;
+  font-size: 1.5rem;
+}
+
+.footer-social a {
+  color: #fff;
+  opacity: 0.75;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+  opacity: 1;
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.footer-copyright {
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+

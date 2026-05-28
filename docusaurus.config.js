@@ -112,7 +112,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/ghielectronics-social-card.jpg',
       navbar: {
-        title: 'by GHI Electronics',
+        //title: 'by GHI Electronics',
         logo: {
           alt: 'DUELink Logo',
           src: 'img/duelinklogo.webp',
@@ -121,27 +121,27 @@ const config = {
         items: [
           {
             href: '/docs/what-is',
-            position: 'right',
+            position: 'left',
             label: 'What is DUELink?',
           },
           {
             href: '/docs/start',
-            position: 'right',
+            position: 'left',
             label: 'Get Started',
           },
           {
             href: '/docs/educators',
-            position: 'right',
+            position: 'left',
             label: 'Educators',
           },
           {
             href: '/docs/catalog/products',
-            position: 'right',
+            position: 'left',
             label: 'Catalog',
           },
           {
             href: '/docs/projects',
-            position: 'right',
+            position: 'left',
             label: 'Projects',
           },
           {
@@ -155,19 +155,6 @@ const config = {
             label: 'Buy',
             className: 'navbar-buy',
           },
-          {
-            href: 'https://www.youtube.com/user/GHIElectronics',
-            position: 'left',
-            className: 'navbar-social',
-            html: '<i class="fa-brands fa-youtube" aria-label="YouTube"></i>',
-          },
-          {
-            href: 'https://github.com/ghi-electronics',
-            position: 'left',
-            className: 'navbar-social',
-            html: '<i class="fa-brands fa-github" aria-label="GitHub"></i>',
-          },
-          
          // {to: '/blog', label: 'Blog', position: 'left'},
           /*{
             href:            
@@ -179,68 +166,23 @@ const config = {
       },
       footer: {
         style: 'dark',
-        /*
-        links: [
-          {
-            
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Resources',
-            items: [
-              {
-                label: 'GHI Electronics',
-                href: 'https://www.ghielectronics.com/',
-              },
-              {
-                label: 'DUELink Forum',
-                href: 'https://forums.ghielectronics.com/c/duelink/31',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/ghi-electronics/',
-              },
-            ],
-          },
-          {
-            title: 'Social',
-            items: [
-              
-              {
-                label: 'YouTube',
-                href: 'https://www.youtube.com/@GHIElectronics',
-              },
-              {
-                label: 'X',
-                href: 'http://x.com/GHIElectronics',
-              },
-              {
-                label: 'Instagram',
-                href: 'https://www.instagram.com/ghielectronics/',
-              },
-              
-              {
-                label: 'Facebook',
-                href: 'https://www.facebook.com/ghielec/',
-              },
-              
-            ],
-          },
-          
-        ],
-        */
-        logo: 
-        {
+        logo: {
           alt: 'DUELink Logo',
           src: 'img/duelinklogo.webp',
         },
-        copyright: `Copyright © ${new Date().getFullYear()} GHI Electronics, LLC`,
+        copyright: `
+          <div class="footer-attribution">By <a href="https://www.ghielectronics.com/" target="_blank" rel="noopener">GHI Electronics</a></div>
+          <div class="footer-social">
+            <a href="https://www.youtube.com/@GHIElectronics" aria-label="YouTube" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://x.com/GHIElectronics" aria-label="X" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/ghielectronics/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/ghielec/" aria-label="Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/company/ghielectronics/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/ghi-electronics" aria-label="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+            <a href="https://forums.ghielectronics.com/c/duelink/31" aria-label="Forum" target="_blank" rel="noopener"><i class="fa-solid fa-comments"></i></a>
+          </div>
+          <div class="footer-copyright">Copyright © ${new Date().getFullYear()} GHI Electronics, LLC</div>
+        `,
       },
       prism: {
         theme: prismThemes.github,

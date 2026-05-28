@@ -28,7 +28,6 @@ const sidebars = {
       label: "🚀 Start Here",
       link: { type: "doc", id: "what-is" },
       items: [
-        "what-is",
         { type: "doc", id: "start", label: "Get Started" },
         { type: "doc", id: "loader", label: "Update Firmware (if needed)" },
         { type: "doc", id: "chain", label: "Chain Modules" },
