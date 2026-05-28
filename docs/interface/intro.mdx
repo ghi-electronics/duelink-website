@@ -62,6 +62,13 @@ DUELink doesn't stop there as it also provides ways for connecting modules over 
 
 ---
 
+
+## Interface Detection
+
+DUELink modules check their interface pins on power-up for high-level to configure themselves to use the I2C interface.
+
+If either of the 2 pins is not high, then the system will monitor for USB or UART activity to select the interface that comes active.
+
 ## Connector Safety
 
 <div style={{ textAlign: 'center'}}>

@@ -1,6 +1,8 @@
 # Driver Scripts
 
-The Driver Scripts provided for all modules gives you a set of user-friendly functions to access that module without needing to know much about the hardware or needing to look at any schematics. For example, `SetLed(index, state)` is a driver function for snowy to help in activating individual LEDs.
+A **driver** is a small script preloaded on every module. It's what exposes the module's plain-text commands — the ones listed on each product page's **Commands** tab. You generally don't need to think about drivers at all; they ship pre-loaded from the factory and the [Loader](../loader) keeps them updated alongside firmware.
+
+The Driver Scripts provided for all modules give you a set of user-friendly functions to access that module without needing to know much about the hardware or needing to look at any schematics. For example, `SetLed(index, state)` is a driver function for snowy to help in activating individual LEDs.
 
 <div style={{ textAlign: 'center'}}>
 ![DueSTEM daisylinked to Snowy](pathname:///img/duestem-snowy-daisylink.webp)
@@ -12,7 +14,7 @@ Another example is an Accelerometer that uses SPI bus [Standard Library](../engi
 Driver scripts are directly related to the module they are loaded on. `ReadX()` might also be a function provided by a joystick module to read the joystick position in the X axis! But on an accelerometer `ReadX()` reads acceleration. Every driver implementation is tailored individually.
 :::
 
-Driver Scripts and their API docs are listed under the `Drivers` tab on each product's page. While not required, inspecting the driver's script helps with a deeper understanding of the module's internal functionality.
+The commands a driver provides are listed under the `Commands` tab on each product's page. While not required, inspecting the driver's script (in that same tab, under *The driver code*) helps with a deeper understanding of the module's internal functionality.
 
 :::tip
 The internal engine limits available user functions. Driver scripts use some of these available slots. This is only relevant when needing to load a module with a standalone script.

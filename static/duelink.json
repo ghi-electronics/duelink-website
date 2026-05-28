@@ -6,7 +6,7 @@
     "image_url_base": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/img/catalog/",
     "code_url_base": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/driver/",
     "fw_url_base": "https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/bin/fw/",
-    "description": "Simplified product schema with convention-based resource resolution" 
+    "description": "Simplified product schema with convention-based resource resolution"
   },
   "products": [
     {
@@ -71,7 +71,45 @@
         "2x User Buttons",
         "52x42mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 5. |\n| `GetH()` | Get display height: 5. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |\n\n:::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::",
+      "driverApi": [
+        {
+          "signature": "GetW()",
+          "description": "Get display width: 5."
+        },
+        {
+          "signature": "GetH()",
+          "description": "Get display height: 5."
+        },
+        {
+          "signature": "IsColor()",
+          "description": "Returns 0."
+        },
+        {
+          "signature": "BtnA()",
+          "description": "Returns 1 if button A is pressed."
+        },
+        {
+          "signature": "BtnB()",
+          "description": "Returns 1 if button B is pressed."
+        },
+        {
+          "signature": "IsTouch(p)",
+          "description": "Returns 1 if `p` pad (0, 1, or 2) is touched."
+        },
+        {
+          "signature": "Buzzer(f,d)",
+          "description": "Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds."
+        },
+        {
+          "signature": "Light()",
+          "description": "Returns voltage from light sensor."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
+      "driverNotes": ":::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::",
       "MfgNotes": "Check Menu->Help for connection before testing"
     },
     {
@@ -91,7 +129,44 @@
         "USB-C connector",
         "52x42mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `IsTouch(p)` | Returns 1 if `p` pad (0, 1, or 2) is touched. |\n| `Buzzer(f,d)` | Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function. |\n| `Light()` | Returns voltage from light sensor. |\n| `DVer()` | This driver version. |",
+      "driverApi": [
+        {
+          "signature": "GetW()",
+          "description": "Get display width: 128."
+        },
+        {
+          "signature": "GetH()",
+          "description": "Get display height: 64."
+        },
+        {
+          "signature": "IsColor()",
+          "description": "Returns 0."
+        },
+        {
+          "signature": "BtnA()",
+          "description": "Returns 1 if button A is pressed."
+        },
+        {
+          "signature": "BtnB()",
+          "description": "Returns 1 if button B is pressed."
+        },
+        {
+          "signature": "IsTouch(p)",
+          "description": "Returns 1 if `p` pad (0, 1, or 2) is touched."
+        },
+        {
+          "signature": "Buzzer(f,d)",
+          "description": "Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function."
+        },
+        {
+          "signature": "Light()",
+          "description": "Returns voltage from light sensor."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "MfgNotes": "Check Menu->Help for connection before testing"
     },
     {
@@ -111,8 +186,45 @@
         "Light Sensor",
         "120x60mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `TouchA()` | Returns 1 if A pad is touched. |\n| `TouchB()` | Returns 1 if B pad is touched. |\n| `TouchUp()` | Returns 1 if Up pad is touched. |\n| `TouchDown()` | Returns 1 if Down pad is touched. |\n| `TouchLeft()` | Returns 1 if Left pad is touched. |\n| `TouchRight()` | Returns 1 if Right pad is touched. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage level from light sensor. |\n| `DVer()` | This driver version. |",
-      "MfgNotes": "Check Menu->Help for connection before testing"  
+      "driverApi": [
+        {
+          "signature": "TouchA()",
+          "description": "Returns 1 if A pad is touched."
+        },
+        {
+          "signature": "TouchB()",
+          "description": "Returns 1 if B pad is touched."
+        },
+        {
+          "signature": "TouchUp()",
+          "description": "Returns 1 if Up pad is touched."
+        },
+        {
+          "signature": "TouchDown()",
+          "description": "Returns 1 if Down pad is touched."
+        },
+        {
+          "signature": "TouchLeft()",
+          "description": "Returns 1 if Left pad is touched."
+        },
+        {
+          "signature": "TouchRight()",
+          "description": "Returns 1 if Right pad is touched."
+        },
+        {
+          "signature": "Buzzer(f,d)",
+          "description": "Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds."
+        },
+        {
+          "signature": "Light()",
+          "description": "Returns voltage level from light sensor."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
+      "MfgNotes": "Check Menu->Help for connection before testing"
     },
     {
       "name": "DueDuino",
@@ -129,7 +241,16 @@
         "Downlink connector for Daisylinking modules",
         "69x56mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `DVer()` | This driver version. |",
+      "driverApi": [
+        {
+          "signature": "BtnLdr()",
+          "description": "Returns 1 if LDR button is pressed."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "MfgNotes": "Check Menu->Help for USB connection before testing"
     },
     {
@@ -151,8 +272,57 @@
         "Tunes Buzzer",
         "107x57mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnPin(a)` | Returns button's pin number, based on `a` alias ('U' = Up, 'D' = Down, 'L' = Left, 'R' = Right) |\n| `GetX()` | Returns the X axis of the Accelerometer. |\n| `GetY()` | Returns the Y axis of the Accelerometer. |\n| `GetZ()` | Returns the Z axis of the Accelerometer. |\n| `SetBulb(c)` | Sets Lightbulb `c` color with 24bit RGB color (RRGGBB). |\n| `Tunes(f,d)` | Plays Tunes buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `Light()` | Returns voltage level from Light sensor. |\n| `ReadTemp()` | Returns voltage level from Temperature sensor. |\n| `DVer()` | This driver version. |",
-      "MfgNotes": "Check Menu->Help for connection before testing"  
+      "driverApi": [
+        {
+          "signature": "GetW()",
+          "description": "Get display width: 128."
+        },
+        {
+          "signature": "GetH()",
+          "description": "Get display height: 64."
+        },
+        {
+          "signature": "IsColor()",
+          "description": "Returns 0."
+        },
+        {
+          "signature": "BtnPin(a)",
+          "description": "Returns button's pin number, based on `a` alias ('U' = Up, 'D' = Down, 'L' = Left, 'R' = Right)"
+        },
+        {
+          "signature": "GetX()",
+          "description": "Returns the X axis of the Accelerometer."
+        },
+        {
+          "signature": "GetY()",
+          "description": "Returns the Y axis of the Accelerometer."
+        },
+        {
+          "signature": "GetZ()",
+          "description": "Returns the Z axis of the Accelerometer."
+        },
+        {
+          "signature": "SetBulb(c)",
+          "description": "Sets Lightbulb `c` color with 24bit RGB color (RRGGBB)."
+        },
+        {
+          "signature": "Tunes(f,d)",
+          "description": "Plays Tunes buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds."
+        },
+        {
+          "signature": "Light()",
+          "description": "Returns voltage level from Light sensor."
+        },
+        {
+          "signature": "ReadTemp()",
+          "description": "Returns voltage level from Temperature sensor."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
+      "MfgNotes": "Check Menu->Help for connection before testing"
     },
     {
       "name": "Stamp",
@@ -169,7 +339,16 @@
         "Surface mountable",
         "24x18mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `BtnLdr()` | Returns 1 if LDR button is pressed. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "BtnLdr()",
+          "description": "Returns 1 if LDR button is pressed."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Stick",
@@ -184,7 +363,7 @@
         "DIP24 form factor",
         "Surface mountable SoM",
         "30.48x12.7mm Overall Dimension"
-      ]      
+      ]
     },
     {
       "name": "Ghizzy Jr",
@@ -199,7 +378,24 @@
         "PCB USB-A",
         "20x47mm Overall Dimension"
       ],
-      "driverApi": "Function | Description\n---|---\n`LEye(r,g,b)` | Sets the left eye with `r` for red, `g` for green and `b` for blue color.\n`REye(r,g,b)` | Sets the right eye with `r` for red, `g` for green and `b` for blue color. \n`BtnLdr()` | Returns 1 if LDR button is pressed.\n`DVer()` | This driver version.",
+      "driverApi": [
+        {
+          "signature": "LEye(r,g,b)",
+          "description": "Sets the left eye with `r` for red, `g` for green and `b` for blue color."
+        },
+        {
+          "signature": "REye(r,g,b)",
+          "description": "Sets the right eye with `r` for red, `g` for green and `b` for blue color."
+        },
+        {
+          "signature": "BtnLdr()",
+          "description": "Returns 1 if LDR button is pressed."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "MfgNotes": "Connect Ghizzy Jr leg to USB port directly",
       "variations": [
         {
@@ -226,7 +422,36 @@
         "PCB USB-A",
         "27x61mm Overall Dimension"
       ],
-      "driverApi": "Function | Description\n----------|-------------\n`LEye(r,g,b)` | Sets the left eye with `r` for red, `g` for green and `b` for blue color.\n`REye(r,g,b)` | Sets the right eye with `r` for red, `g` for green and `b` for blue color.\n`Ear(l,r)` | Activate the `l` left and `r` \"ears\" LEDs (1 on, 0 off).\n`Mouth(l,c,r)` | Activate the `m` \"mouth\" with `l` for left, `c` for center and `r` is right leds.\n`BtnLdr()` | Returns 1 if LDR button is pressed.\n`PlyBeep()` | Plays buzzer. \n`DVer()` | This driver version.",
+      "driverApi": [
+        {
+          "signature": "LEye(r,g,b)",
+          "description": "Sets the left eye with `r` for red, `g` for green and `b` for blue color."
+        },
+        {
+          "signature": "REye(r,g,b)",
+          "description": "Sets the right eye with `r` for red, `g` for green and `b` for blue color."
+        },
+        {
+          "signature": "Ear(l,r)",
+          "description": "Activate the `l` left and `r` \"ears\" LEDs (1 on, 0 off)."
+        },
+        {
+          "signature": "Mouth(l,c,r)",
+          "description": "Activate the `m` \"mouth\" with `l` for left, `c` for center and `r` is right leds."
+        },
+        {
+          "signature": "BtnLdr()",
+          "description": "Returns 1 if LDR button is pressed."
+        },
+        {
+          "signature": "PlyBeep()",
+          "description": "Plays buzzer."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "video": "D4073veneWI",
       "MfgNotes": "Connect Ghizzy leg to USB port directly"
     },
@@ -244,10 +469,39 @@
         "Buzzer",
         "140x110mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayLED(enable)` | `PlayLED(1)` will make the LED constantly blink, default. Use `PlayLED(0)` to disable playback and manually control the LEDs. |\n| `SetLED(i, c, l)` | Sets a specific LED, `i` index (index start from 1), to a `c` color (hex value), `l` brightness (0 off, max 31). |\n| `SetAll(color)` | Sets all LEDs to a specific color, use 0 to turn off. |\n| `ShowLed()` | Flush Leds, and show. |\n| `RndLed()` | Show random color on random leds. |\n| `Buzzer(f,d)` | Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function. |\n| `DVer()` | This driver version. |",
+      "driverApi": [
+        {
+          "signature": "PlayLED(enable)",
+          "description": "`PlayLED(1)` will make the LED constantly blink, default. Use `PlayLED(0)` to disable playback and manually control the LEDs."
+        },
+        {
+          "signature": "SetLED(i, c, l)",
+          "description": "Sets a specific LED, `i` index (index start from 1), to a `c` color (hex value), `l` brightness (0 off, max 31)."
+        },
+        {
+          "signature": "SetAll(color)",
+          "description": "Sets all LEDs to a specific color, use 0 to turn off."
+        },
+        {
+          "signature": "ShowLed()",
+          "description": "Flush Leds, and show."
+        },
+        {
+          "signature": "RndLed()",
+          "description": "Show random color on random leds."
+        },
+        {
+          "signature": "Buzzer(f,d)",
+          "description": "Play buzzer with `f` frequency and `d` duration in milliseconds. This is blocking function."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "video": "2INa95NzI_o"
     },
-        {
+    {
       "name": "Snowy",
       "partNumber": "GDL-SPSNOWY-A",
       "PID": "0x0C0006",
@@ -260,7 +514,20 @@
         "Unpopulated option to add your LEDs",
         "44x49mm Overall Dimension"
       ],
-      "driverApi": "Function | Description\n---|---\n`SetLed(i,s)` | Set LED at index `i` to state`s`.\n`SetAll(b)` | Set all LEDs to `b` bitmap.\n`DVer()` | This driver version.",
+      "driverApi": [
+        {
+          "signature": "SetLed(i,s)",
+          "description": "Set LED at index `i` to state`s`."
+        },
+        {
+          "signature": "SetAll(b)",
+          "description": "Set all LEDs to `b` bitmap."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "variations": [
         {
           "name": "No LEDs",
@@ -281,7 +548,7 @@
       "category": "Specialty",
       "tagline": "LED Matrix with optional Battery",
       "description": "Scroll text on the LED matrix or use the sides to show \"time\"! Chrono includes two buttons and a CR2032 battery holder.\n\n Add a a wrist band or a lanyard to turn this into a \"wearable\" module.",
-      "keyFeatures": [     
+      "keyFeatures": [
         "5x5 LED Matrix",
         "2x user buttons",
         "3V CR2032 Battery compatible",
@@ -289,14 +556,40 @@
         "Slotted ends for wristband or mounting",
         "31x37mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 5. |\n| `GetH()` | Get display height: 5. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `DVer()` | This driver version. |\n\n:::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::",
+      "driverApi": [
+        {
+          "signature": "GetW()",
+          "description": "Get display width: 5."
+        },
+        {
+          "signature": "GetH()",
+          "description": "Get display height: 5."
+        },
+        {
+          "signature": "IsColor()",
+          "description": "Returns 0."
+        },
+        {
+          "signature": "BtnA()",
+          "description": "Returns 1 if button A is pressed."
+        },
+        {
+          "signature": "BtnB()",
+          "description": "Returns 1 if button B is pressed."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "variations": [
         {
           "name": "Blue",
           "partCode": "B",
           "price": 5.95
         }
-      ]
+      ],
+      "driverNotes": ":::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::"
     },
     {
       "name": "Piano",
@@ -306,7 +599,7 @@
       "price": 14.95,
       "tagline": "Capacitive Touch Piano Module",
       "description": "Play notes using capacitive touch pads or connect alligator clips to turn ordinary objects into piano keys. Mounting holes to connect additional modules.\n:::tip\nThis board ships preloaded with [MicroBlocks](/docs/language/microblocks) firmware.\n:::",
-      "keyFeatures": [     
+      "keyFeatures": [
         "Piano key layout",
         "Multiple octave selection",
         "5 User LEDs",
@@ -316,10 +609,34 @@
         "USB Type C",
         "111.5x75.5mm Overall Dimension"
       ],
-    
-      "driverApi": "Function | Description \n----------|-------------\n`DVer()` | This driver version.\n`SetLED(i,s)` | Set specific LED to on or off.\n`SetLedAll(o)` | Set all leds 1,2,3,4,5 to on(1) or off(0).\n`TLArrow()` | return 1 if touched on left arrow.\n`TRArrow()` | return 1 if touched on right arrow.\n`TPad(i)` | return 1 if touched on pad `i`."
+      "driverApi": [
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        },
+        {
+          "signature": "SetLED(i,s)",
+          "description": "Set specific LED to on or off."
+        },
+        {
+          "signature": "SetLedAll(o)",
+          "description": "Set all leds 1,2,3,4,5 to on(1) or off(0)."
+        },
+        {
+          "signature": "TLArrow()",
+          "description": "return 1 if touched on left arrow."
+        },
+        {
+          "signature": "TRArrow()",
+          "description": "return 1 if touched on right arrow."
+        },
+        {
+          "signature": "TPad(i)",
+          "description": "return 1 if touched on pad `i`."
+        }
+      ]
     },
-  {
+    {
       "name": "Controller",
       "partNumber": "GDL-SPCTRLR-B",
       "PID": "0x0C0008",
@@ -327,14 +644,30 @@
       "price": 9.95,
       "tagline": "A 7x Button Controller with 8x LED ring",
       "description": "Use the buttons to control other modules. The 8x LED ring can help with indications of the controller usage.",
-      "keyFeatures": [     
+      "keyFeatures": [
         "7x buttons",
         "8x LEDs",
         "USB Type C",
         "71x37mm Overall Dimension"
-      ],      
-      "driverApi": "| Function | Description |\n|----------|-------------|\n|`BtnPin(p)` | Returns pin number, based on `p` value ('U' = Up, 'D' = Down, 'L' = Left, 'R' = Right, 'A' = A, 'B' = B).  |\n|`Setled(l,v)` | Sets Led at `l` (1 to 8) to a `v` value (1 on, 0 off). |\n| `SetAllLed(v)` | Sets all Leds to `v` value (1 on, 0 off). |\n| `DVer()` | This driver version. |"
-
+      ],
+      "driverApi": [
+        {
+          "signature": "BtnPin(p)",
+          "description": "Returns pin number, based on `p` value ('U' = Up, 'D' = Down, 'L' = Left, 'R' = Right, 'A' = A, 'B' = B)."
+        },
+        {
+          "signature": "Setled(l,v)",
+          "description": "Sets Led at `l` (1 to 8) to a `v` value (1 on, 0 off)."
+        },
+        {
+          "signature": "SetAllLed(v)",
+          "description": "Sets all Leds to `v` value (1 on, 0 off)."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Portal CP70",
@@ -349,7 +682,48 @@
         "Capacitive Multi-Touch",
         "167x122mm"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(w, h, b)` | Initialize display with width `w`, height `h`, and brightness `b` (0–100). |\n| `DrawPixel(c, x, y)` | Draw a pixel at (`x`,`y`) with color `c`. |\n| `DrawLine(c, x, y, m, n)` | Draw a line from (`x`,`y`) to (`m`,`n`) with color `c`. |\n| `DrawCircle(c, x, y, r, f)` | Draw a circle at (`x`,`y`) with radius `r`, color `c`. `f=1` filled, `f=0` outline. |\n| `DrawRect(c, x, y, w, h, f)` | Draw a rectangle at (`x`,`y`) with size `w`×`h`, color `c`. `f=1` filled, `f=0` outline. |\n| `DrawString(b0, c, x, y, f, o)` | Draw text from byte array `b0` at (`x`,`y`) with color `c`, font `f`, and character offset `o`. |\n| `ClearScreen(c)` | Clear the screen with color `c`. |\n| `FlushScreen()` | Execute display list and update the screen. |\n| `UpdTouch()` | Update touch. Read `_x` and `_y` for touch x,y. |\n| `DVer()` | Return driver version. |",
+      "driverApi": [
+        {
+          "signature": "Init(w, h, b)",
+          "description": "Initialize display with width `w`, height `h`, and brightness `b` (0–100)."
+        },
+        {
+          "signature": "DrawPixel(c, x, y)",
+          "description": "Draw a pixel at (`x`,`y`) with color `c`."
+        },
+        {
+          "signature": "DrawLine(c, x, y, m, n)",
+          "description": "Draw a line from (`x`,`y`) to (`m`,`n`) with color `c`."
+        },
+        {
+          "signature": "DrawCircle(c, x, y, r, f)",
+          "description": "Draw a circle at (`x`,`y`) with radius `r`, color `c`. `f=1` filled, `f=0` outline."
+        },
+        {
+          "signature": "DrawRect(c, x, y, w, h, f)",
+          "description": "Draw a rectangle at (`x`,`y`) with size `w`×`h`, color `c`. `f=1` filled, `f=0` outline."
+        },
+        {
+          "signature": "DrawString(b0, c, x, y, f, o)",
+          "description": "Draw text from byte array `b0` at (`x`,`y`) with color `c`, font `f`, and character offset `o`."
+        },
+        {
+          "signature": "ClearScreen(c)",
+          "description": "Clear the screen with color `c`."
+        },
+        {
+          "signature": "FlushScreen()",
+          "description": "Execute display list and update the screen."
+        },
+        {
+          "signature": "UpdTouch()",
+          "description": "Update touch. Read `_x` and `_y` for touch x,y."
+        },
+        {
+          "signature": "DVer()",
+          "description": "Return driver version."
+        }
+      ],
       "variations": [
         {
           "name": "No Touch",
@@ -360,7 +734,7 @@
           "name": "w/ Capacitive Touch",
           "partCode": "CP",
           "price": 129.95
-        }        
+        }
       ]
     },
     {
@@ -375,7 +749,44 @@
         "Capacitive Multi-Touch",
         "67x47mm"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(m,o)` | Initialize display `m` mode (buffered = 0 , direct = 1). `o` orientation (landscape = 0, portrait = 1). Init(0, 0) automatically called on power-up. |\n| `GetW()` | Get display width: 106 in buffered, 320 in direct. |\n| `GetH()` | Get display height: 80 in buffered, 240 in direct. |\n| `IsColor()` | Returns 1. |\n| `TouchX()` | Returns touch x. |\n| `TouchY()` | Returns touch y. |\n| `SetDACtrl(s,r,c,b)` | Data access control `s` swapRowCol, `r` invertRow, `c` invertCol, `b` swapBGRSet data access control. |\n| `SetWindow(x,y,w,h)` | Sets draw window `x` display's x value, `y` display's y value., `w` display's width value, `h` display's height value. |\n| `DVer()` | This driver version. |",
+      "driverApi": [
+        {
+          "signature": "Init(m,o)",
+          "description": "Initialize display `m` mode (buffered = 0 , direct = 1). `o` orientation (landscape = 0, portrait = 1). Init(0, 0) automatically called on power-up."
+        },
+        {
+          "signature": "GetW()",
+          "description": "Get display width: 106 in buffered, 320 in direct."
+        },
+        {
+          "signature": "GetH()",
+          "description": "Get display height: 80 in buffered, 240 in direct."
+        },
+        {
+          "signature": "IsColor()",
+          "description": "Returns 1."
+        },
+        {
+          "signature": "TouchX()",
+          "description": "Returns touch x."
+        },
+        {
+          "signature": "TouchY()",
+          "description": "Returns touch y."
+        },
+        {
+          "signature": "SetDACtrl(s,r,c,b)",
+          "description": "Data access control `s` swapRowCol, `r` invertRow, `c` invertCol, `b` swapBGRSet data access control."
+        },
+        {
+          "signature": "SetWindow(x,y,w,h)",
+          "description": "Sets draw window `x` display's x value, `y` display's y value., `w` display's width value, `h` display's height value."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "variations": [
         {
           "name": "No Touch",
@@ -402,7 +813,36 @@
         "160x128 pixels",
         "62x37mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(m,o)` | Initialize display `m` mode (buffered = 0 , direct = 1). `o` orientation (landscape = 0, portrait = 1). Init(0, 0) automatically called on power-up. |\n| `GetW()` | Get display width: 64 in buffered, 128 in direct. |\n| `GetH()` | Get display height: 80 in buffered, 160 in direct. |\n| `IsColor()` | Returns 1. |\n| `SetDACtrl(s,r,c,b)` | Data access control `s` swapRowCol, `r` invertRow, `c` invertCol, `b` swapBGRSet data access control. |\n| `SetWindow(x,y,w,h)` | Sets draw window `x` display's x value, `y` display's y value., `w` display's width value, `h` display's height value. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "Init(m,o)",
+          "description": "Initialize display `m` mode (buffered = 0 , direct = 1). `o` orientation (landscape = 0, portrait = 1). Init(0, 0) automatically called on power-up."
+        },
+        {
+          "signature": "GetW()",
+          "description": "Get display width: 64 in buffered, 128 in direct."
+        },
+        {
+          "signature": "GetH()",
+          "description": "Get display height: 80 in buffered, 160 in direct."
+        },
+        {
+          "signature": "IsColor()",
+          "description": "Returns 1."
+        },
+        {
+          "signature": "SetDACtrl(s,r,c,b)",
+          "description": "Data access control `s` swapRowCol, `r` invertRow, `c` invertCol, `b` swapBGRSet data access control."
+        },
+        {
+          "signature": "SetWindow(x,y,w,h)",
+          "description": "Sets draw window `x` display's x value, `y` display's y value., `w` display's width value, `h` display's height value."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "TFT R128",
@@ -418,7 +858,28 @@
         "240x240",
         "47x47mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(m)` | Initialize the display. Automatically called on power up `m`mode to (1-direct, 0-buffered (default)). |\n| `GetW()` | Get display width: 80 in buffered, 240 in direct. |\n| `GetH()` | Get display height: 80 in buffered, 240 in direct. |\n| `IsColor()` | Returns 1. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "Init(m)",
+          "description": "Initialize the display. Automatically called on power up `m`mode to (1-direct, 0-buffered (default))."
+        },
+        {
+          "signature": "GetW()",
+          "description": "Get display width: 80 in buffered, 240 in direct."
+        },
+        {
+          "signature": "GetH()",
+          "description": "Get display height: 80 in buffered, 240 in direct."
+        },
+        {
+          "signature": "IsColor()",
+          "description": "Returns 1."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "ePaper M42",
@@ -435,7 +896,28 @@
         "Red/White/Black color",
         "107x87mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Width()` | Display width. |\n| `Height()` | Display Height. |\n| `DrawOnBW()` | Next drawing functions will go on B&W. |\n| `DrawOnRed()` | Next drawing functions will go on Red. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "Width()",
+          "description": "Display width."
+        },
+        {
+          "signature": "Height()",
+          "description": "Display Height."
+        },
+        {
+          "signature": "DrawOnBW()",
+          "description": "Next drawing functions will go on B&W."
+        },
+        {
+          "signature": "DrawOnRed()",
+          "description": "Next drawing functions will go on Red."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "ePaper M29",
@@ -451,7 +933,28 @@
         "Red/White/Black Color",
         "102x37mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Width()` | Display width. |\n| `Height()` | Display Height. |\n| `DrawOnBW()` | Next drawing functions will go on B&W. |\n| `DrawOnRed()` | Next drawing functions will go on Red. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "Width()",
+          "description": "Display width."
+        },
+        {
+          "signature": "Height()",
+          "description": "Display Height."
+        },
+        {
+          "signature": "DrawOnBW()",
+          "description": "Next drawing functions will go on B&W."
+        },
+        {
+          "signature": "DrawOnRed()",
+          "description": "Next drawing functions will go on Red."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "HDMI",
@@ -468,8 +971,45 @@
         "Graphics coprocessor drawing",
         "57x77mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(w, h, b)` | Initialize display with width `w`, height `h`, and brightness `b` (0–100). |\n| `DrawPixel(c, x, y)` | Draw a pixel at (`x`,`y`) with color `c`. |\n| `DrawLine(c, x, y, m, n)` | Draw a line from (`x`,`y`) to (`m`,`n`) with color `c`. |\n| `DrawCircle(c, x, y, r, f)` | Draw a circle at (`x`,`y`) with radius `r`, color `c`. `f=1` filled, `f=0` outline. |\n| `DrawRect(c, x, y, w, h, f)` | Draw a rectangle at (`x`,`y`) with size `w`×`h`, color `c`. `f=1` filled, `f=0` outline. |\n| `DrawString(b0, c, x, y, f, o)` | Draw text from byte array `b0` at (`x`,`y`) with color `c`, font `f`, and character offset `o`. |\n| `ClearScreen(c)` | Clear the screen with color `c`. |\n| `FlushScreen()` | Execute display list and update the screen. |\n| `DVer()` | Return driver version. |",
-      "MfgNotes": "Need monitor and speaker for testing" 
+      "driverApi": [
+        {
+          "signature": "Init(w, h, b)",
+          "description": "Initialize display with width `w`, height `h`, and brightness `b` (0–100)."
+        },
+        {
+          "signature": "DrawPixel(c, x, y)",
+          "description": "Draw a pixel at (`x`,`y`) with color `c`."
+        },
+        {
+          "signature": "DrawLine(c, x, y, m, n)",
+          "description": "Draw a line from (`x`,`y`) to (`m`,`n`) with color `c`."
+        },
+        {
+          "signature": "DrawCircle(c, x, y, r, f)",
+          "description": "Draw a circle at (`x`,`y`) with radius `r`, color `c`. `f=1` filled, `f=0` outline."
+        },
+        {
+          "signature": "DrawRect(c, x, y, w, h, f)",
+          "description": "Draw a rectangle at (`x`,`y`) with size `w`×`h`, color `c`. `f=1` filled, `f=0` outline."
+        },
+        {
+          "signature": "DrawString(b0, c, x, y, f, o)",
+          "description": "Draw text from byte array `b0` at (`x`,`y`) with color `c`, font `f`, and character offset `o`."
+        },
+        {
+          "signature": "ClearScreen(c)",
+          "description": "Clear the screen with color `c`."
+        },
+        {
+          "signature": "FlushScreen()",
+          "description": "Execute display list and update the screen."
+        },
+        {
+          "signature": "DVer()",
+          "description": "Return driver version."
+        }
+      ],
+      "MfgNotes": "Need monitor and speaker for testing"
     },
     {
       "name": "LCD 20x4",
@@ -482,7 +1022,32 @@
         "20 Characters by 4 Rows",
         "112x62mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |",
+      "driverApi": [
+        {
+          "signature": "Home()",
+          "description": "Send cursor home."
+        },
+        {
+          "signature": "Clr()",
+          "description": "Clear the display."
+        },
+        {
+          "signature": "CPos(c,r)",
+          "description": "Sets the cursor position at `c` column and `r` row."
+        },
+        {
+          "signature": "CPrint(c)",
+          "description": "Print an ASCII `c` character."
+        },
+        {
+          "signature": "CPrintS(str)",
+          "description": "Print a string."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "variations": [
         {
           "name": "Yellow",
@@ -507,7 +1072,32 @@
         "16 Characters by 2 rows",
         "97x37mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Home()` | Send cursor home. |\n| `Clr()` | Clear the display. |\n| `CPos(c,r)` | Sets the cursor position at `c` column and `r` row. |\n| `CPrint(c)` | Print an ASCII `c` character. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version.|",
+      "driverApi": [
+        {
+          "signature": "Home()",
+          "description": "Send cursor home."
+        },
+        {
+          "signature": "Clr()",
+          "description": "Clear the display."
+        },
+        {
+          "signature": "CPos(c,r)",
+          "description": "Sets the cursor position at `c` column and `r` row."
+        },
+        {
+          "signature": "CPrint(c)",
+          "description": "Print an ASCII `c` character."
+        },
+        {
+          "signature": "CPrintS(str)",
+          "description": "Print a string."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "variations": [
         {
           "name": "Yellow",
@@ -534,7 +1124,24 @@
         "128x64",
         "40x27mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "GetW()",
+          "description": "Get display width: 128."
+        },
+        {
+          "signature": "GetH()",
+          "description": "Get display height: 64."
+        },
+        {
+          "signature": "IsColor()",
+          "description": "Returns 0."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "VFD B8",
@@ -548,7 +1155,20 @@
         "Monochrome Vacuum Fluorescent Display",
         "107x22mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `CPrint(x, c)` | Print an ASCII `c` character at `x` pos. |\n| `CPrintS(str)` | Print a string. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "CPrint(x, c)",
+          "description": "Print an ASCII `c` character at `x` pos."
+        },
+        {
+          "signature": "CPrintS(str)",
+          "description": "Print a string."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Servo X1",
@@ -564,7 +1184,12 @@
         "Self-powered",
         "37x31mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `ServoX1(a)` |Sets servo to `a` angle."
+      "driverApi": [
+        {
+          "signature": "ServoX1(a)",
+          "description": "Sets servo to `a` angle."
+        }
+      ]
     },
     {
       "name": "Servo P8",
@@ -580,7 +1205,7 @@
         "Power terminal block",
         "37x27mm Overall Dimension"
       ],
-      "MfgNotes": "An external 5V power supply is required"  
+      "MfgNotes": "An external 5V power supply is required"
     },
     {
       "name": "MotoMax",
@@ -596,7 +1221,16 @@
         "Screw terminal connections",
         "52x50mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Set(s)` | Sets the motor `s` speed and direction (-100 to 100). |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "Set(s)",
+          "description": "Sets the motor `s` speed and direction (-100 to 100)."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "MotoTwin",
@@ -613,7 +1247,20 @@
         "External power terminal block",
         "37x37mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SMotorA(s)` | Sets Motor A `s` speed and direction (-100 to 100). |\n| `SMotorB(s)` | Sets Motor B `s` speed and direction (-100 to 100). |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "SMotorA(s)",
+          "description": "Sets Motor A `s` speed and direction (-100 to 100)."
+        },
+        {
+          "signature": "SMotorB(s)",
+          "description": "Sets Motor B `s` speed and direction (-100 to 100)."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Fan",
@@ -628,7 +1275,16 @@
         "2 blade fan",
         "42x42mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Fan(s)` | Sets fan `s` speed (-100 to 100). |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "Fan(s)",
+          "description": "Sets fan `s` speed (-100 to 100)."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "StepDrive P3",
@@ -643,7 +1299,40 @@
         "Terminal Block Connectors",
         "77x42mm Overall Dimension"
       ],
-      "driverApi": "Function | Description \n----------|-------------\n `DVer()` | This driver version.\n `init(x)` | Init motors with resolution `x`: 0: 1/8 step, 1: 1/2 step (default), 2: 1/4 step, 3: 1/16 step.\n `step_m1(d,c)` | Run motor M1 with `d`: direction, `c`: steps.\n `step_m2(d,c)` | Run motor M2 with `d`: direction, `c`: steps.\n `step_m3(d,c)` | Run motor M3 with `d`: direction, `c`: steps.\n `set_m(m, d, c)` | Set motor in sync mode. `m`: 1->Motor M1, 2->Motor M2, 3->Motor M3.\n `sync_all()` | Run motors in synchronize mode.\n `run_all()` | Run motors in asynchronous mode."
+      "driverApi": [
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        },
+        {
+          "signature": "init(x)",
+          "description": "Init motors with resolution `x`: 0: 1/8 step, 1: 1/2 step (default), 2: 1/4 step, 3: 1/16 step."
+        },
+        {
+          "signature": "step_m1(d,c)",
+          "description": "Run motor M1 with `d`: direction, `c`: steps."
+        },
+        {
+          "signature": "step_m2(d,c)",
+          "description": "Run motor M2 with `d`: direction, `c`: steps."
+        },
+        {
+          "signature": "step_m3(d,c)",
+          "description": "Run motor M3 with `d`: direction, `c`: steps."
+        },
+        {
+          "signature": "set_m(m, d, c)",
+          "description": "Set motor in sync mode. `m`: 1->Motor M1, 2->Motor M2, 3->Motor M3."
+        },
+        {
+          "signature": "sync_all()",
+          "description": "Run motors in synchronize mode."
+        },
+        {
+          "signature": "run_all()",
+          "description": "Run motors in asynchronous mode."
+        }
+      ]
     },
     {
       "name": "StepDrive P1",
@@ -659,7 +1348,20 @@
         "Terminal block connectors",
         "37x37mm Overall Dimension"
       ],
-      "driverApi": "Function | Description \n----------|-------------\n `DVer()` | This driver version.\n `init(x)` | Init motor with resolution `x`: 0: 1/8 step, 1: 1/2 step (default), 2: 1/4 step, 3: 1/16 step.\n `step_m1(d,c)` | Run motor M1 with `d`: direction, `c`: steps."
+      "driverApi": [
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        },
+        {
+          "signature": "init(x)",
+          "description": "Init motor with resolution `x`: 0: 1/8 step, 1: 1/2 step (default), 2: 1/4 step, 3: 1/16 step."
+        },
+        {
+          "signature": "step_m1(d,c)",
+          "description": "Run motor M1 with `d`: direction, `c`: steps."
+        }
+      ]
     },
     {
       "name": "StepPulse",
@@ -674,8 +1376,44 @@
         "Terminal Block Connectors",
         "62x22mm Overall Dimension"
       ],
-      "driverApi": "Function | Description \n----------|-------------\n `DVer()` | This driver version.\n `StepX(d,s)` | Run axis X with `d`: direction, `s`: steps.\n `StepY(d,s)` | Run axis Y with `d`: direction, `s`: steps. \n `StepZ(d,s)` | Run axis Z with `d`: direction, `s`: steps.\n `SetX(d,s)` | Set axis X in sync mode with `d`: direction, `s`: steps.\n `SetY(d,s)` | Set axis Y in sync mode with `d`: direction, `s`: steps.\n `SetZ(d,s)` | Set axis Z in sync mode with `d`: direction, `s`: steps.\n `sync_all()` | Run axis in synchronize mode.\n `run_all()` | Run axis in asynchronous mode."
-      
+      "driverApi": [
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        },
+        {
+          "signature": "StepX(d,s)",
+          "description": "Run axis X with `d`: direction, `s`: steps."
+        },
+        {
+          "signature": "StepY(d,s)",
+          "description": "Run axis Y with `d`: direction, `s`: steps."
+        },
+        {
+          "signature": "StepZ(d,s)",
+          "description": "Run axis Z with `d`: direction, `s`: steps."
+        },
+        {
+          "signature": "SetX(d,s)",
+          "description": "Set axis X in sync mode with `d`: direction, `s`: steps."
+        },
+        {
+          "signature": "SetY(d,s)",
+          "description": "Set axis Y in sync mode with `d`: direction, `s`: steps."
+        },
+        {
+          "signature": "SetZ(d,s)",
+          "description": "Set axis Z in sync mode with `d`: direction, `s`: steps."
+        },
+        {
+          "signature": "sync_all()",
+          "description": "Run axis in synchronize mode."
+        },
+        {
+          "signature": "run_all()",
+          "description": "Run axis in asynchronous mode."
+        }
+      ]
     },
     {
       "name": "Relay P16",
@@ -691,7 +1429,16 @@
         "Screw terminal blocks",
         "187x90mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Set(i, v)` | Set a relay at `i` index to `v` value (1 on, 0 off). |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "Set(i, v)",
+          "description": "Set a relay at `i` index to `v` value (1 on, 0 off)."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Relay P4",
@@ -707,7 +1454,16 @@
         "External Power Barrel Jack",
         "87x52mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Set(i, v)` | Set a relay at `i` index to `v` value (1 on, 0 off). |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "Set(i, v)",
+          "description": "Set a relay at `i` index to `v` value (1 on, 0 off)."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Relay X1",
@@ -723,7 +1479,16 @@
         "Screw terminal",
         "32x37mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Set(v)` | Activate the relay (1 on, 0 off). |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "Set(v)",
+          "description": "Activate the relay (1 on, 0 off)."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Load",
@@ -752,7 +1517,8 @@
         "Terminal Block Header",
         "27x18mm Overall Dimension"
       ],
-      "driverApi": ":::tip\nDio X12 module uses the [Standard Library API](/docs/engine/stdlib) directly. No other drivers are needed.\n:::"
+      "driverApi": [],
+      "driverNotes": ":::tip\nDio X12 module uses the [Standard Library API](/docs/engine/stdlib) directly. No other drivers are needed.\n:::"
     },
     {
       "name": "RS485",
@@ -784,7 +1550,32 @@
         "Terminal Block Connector",
         "42x42mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Bitrate(b)` | Sets the `b` bitrate (125K, 250K, 500K, 1M) |\n| `RxFull()` | Returns 1 if there is a received CAN message. |\n| `RxRd()` | Reads a received message. Returns the ArbID of the message or -1 if none. `b9` is a 9-byte array contains the message body, with first element containing DLC followed by 0 to 8 bytes of data. |\n| `TxFree()` | Returns 1 if ready for new data, or previous transmit request succeeded. |\n| `TxReq(i,l,b9)` | Request to send a message with `i` EID and `l` length of the `b9` data array. Returns 1 if a message was posted or 0 if busy to take a new one. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "Bitrate(b)",
+          "description": "Sets the `b` bitrate (125K, 250K, 500K, 1M)"
+        },
+        {
+          "signature": "RxFull()",
+          "description": "Returns 1 if there is a received CAN message."
+        },
+        {
+          "signature": "RxRd()",
+          "description": "Reads a received message. Returns the ArbID of the message or -1 if none. `b9` is a 9-byte array contains the message body, with first element containing DLC followed by 0 to 8 bytes of data."
+        },
+        {
+          "signature": "TxFree()",
+          "description": "Returns 1 if ready for new data, or previous transmit request succeeded."
+        },
+        {
+          "signature": "TxReq(i,l,b9)",
+          "description": "Request to send a message with `i` EID and `l` length of the `b9` data array. Returns 1 if a message was posted or 0 if busy to take a new one."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "DMX",
@@ -799,8 +1590,8 @@
         "On-board Female XLR Connector",
         "42x32mm Overall Dimension"
       ],
-      "driverApi": ":::tip\nDMX module uses the [Standard Library](../engine/stdlib) DMX bus. No other drivers are needed.\n:::"
-
+      "driverApi": [],
+      "driverNotes": ":::tip\nDMX module uses the [Standard Library](../engine/stdlib) DMX bus. No other drivers are needed.\n:::"
     },
     {
       "name": "Ethernet",
@@ -817,7 +1608,44 @@
         "On-board LAN Connector",
         "37x27mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init(b4,b5,b6)` | Network configuration b4:IP, b5:GW, b6:Subnet. |\n| `Connect(s,l,b6,p)` | Connect to socket s, l:local port, b6:ip address, p:port. |\n| `Close(s)` | Close socket s. |\n| `Listen(s,p)` | Listen socket s, p:port. |\n| `Accept(s)` | Accept socket s. |\n| `Avail(s)` | Returns available size on socket s. |\n| `Send(s,b6)` | Write to socket s, b6: data. |\n| `Recv(s,b6)` | Read data from socket s to b6. |\n| `DVer()` | Returns driver version. |"
+      "driverApi": [
+        {
+          "signature": "Init(b4,b5,b6)",
+          "description": "Network configuration b4:IP, b5:GW, b6:Subnet."
+        },
+        {
+          "signature": "Connect(s,l,b6,p)",
+          "description": "Connect to socket s, l:local port, b6:ip address, p:port."
+        },
+        {
+          "signature": "Close(s)",
+          "description": "Close socket s."
+        },
+        {
+          "signature": "Listen(s,p)",
+          "description": "Listen socket s, p:port."
+        },
+        {
+          "signature": "Accept(s)",
+          "description": "Accept socket s."
+        },
+        {
+          "signature": "Avail(s)",
+          "description": "Returns available size on socket s."
+        },
+        {
+          "signature": "Send(s,b6)",
+          "description": "Write to socket s, b6: data."
+        },
+        {
+          "signature": "Recv(s,b6)",
+          "description": "Read data from socket s to b6."
+        },
+        {
+          "signature": "DVer()",
+          "description": "Returns driver version."
+        }
+      ]
     },
     {
       "name": "Serial USB",
@@ -861,7 +1689,24 @@
         "6x LEDs",
         "32x42mm Overall Dimension"
       ],
-      "driverApi": "Function | Description \n---|---\n`BtnS7Rd(a)` | Read button `a` as U,D,L,R,B,F,E and returns button status. \n\n`BtnPin(a)` | Read button `a` as U,D,L,R,B,F,E and returns 1-7 pin number. \n`SetLed(a,v)` | Sets button led `a` as U,D,L,R,B,F,E, `v` 0=off 1=on \n `DVer()` | This driver version."
+      "driverApi": [
+        {
+          "signature": "BtnS7Rd(a)",
+          "description": "Read button `a` as U,D,L,R,B,F,E and returns button status."
+        },
+        {
+          "signature": "BtnPin(a)",
+          "description": "Read button `a` as U,D,L,R,B,F,E and returns 1-7 pin number."
+        },
+        {
+          "signature": "SetLed(a,v)",
+          "description": "Sets button led `a` as U,D,L,R,B,F,E, `v` 0=off 1=on"
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Button L",
@@ -875,7 +1720,16 @@
         "Single 10x10mm Button",
         "27x22mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `BtnPin()` | Returns button's pin number. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "BtnPin()",
+          "description": "Returns button's pin number."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Button L7",
@@ -890,7 +1744,24 @@
         "6x LEDs",
         "52x67mm Overall Dimension"
       ],
-      "driverApi": "Function | Description \n---|---\n`BtnS7Rd(a)` | Read button `a` as U,D,L,R,B,F,E and returns button status. \n\n`BtnPin(a)` | Read button `a` as U,D,L,R,B,F,E and returns 1-7 pin number. \n`SetLed(a,v)` | Sets button led `a` as U,D,L,R,B,F,E, `v` 0=off 1=on \n `DVer()` | This driver version."
+      "driverApi": [
+        {
+          "signature": "BtnS7Rd(a)",
+          "description": "Read button `a` as U,D,L,R,B,F,E and returns button status."
+        },
+        {
+          "signature": "BtnPin(a)",
+          "description": "Read button `a` as U,D,L,R,B,F,E and returns 1-7 pin number."
+        },
+        {
+          "signature": "SetLed(a,v)",
+          "description": "Sets button led `a` as U,D,L,R,B,F,E, `v` 0=off 1=on"
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Joystick L",
@@ -906,7 +1777,24 @@
         "Push Button",
         "32x32mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `JoystickX()` | Returns X value from 0 to 100. |\n| `JoystickY()` | Returns Y value from 0 to 100. |\n| `BtnPin()` | Returns button's pin number. |\n| `DVer()` | Returns the driver version. |"
+      "driverApi": [
+        {
+          "signature": "JoystickX()",
+          "description": "Returns X value from 0 to 100."
+        },
+        {
+          "signature": "JoystickY()",
+          "description": "Returns Y value from 0 to 100."
+        },
+        {
+          "signature": "BtnPin()",
+          "description": "Returns button's pin number."
+        },
+        {
+          "signature": "DVer()",
+          "description": "Returns the driver version."
+        }
+      ]
     },
     {
       "name": "Rotary",
@@ -921,7 +1809,28 @@
         "360 degree rotation",
         "27x22mm Overall Dimension"
       ],
-      "driverApi": "Function | Description \n---|---\n`GetValue()` | Returns the current rotary reading. \n`SetValue(v)` | Set rotary to `v`. \n`Pressed()` | Returns 1 if the rotary knob was pressed.\nScan() | Start scanning loop. Only call it with tethered mode. \n `DVer()` | This driver version. "
+      "driverApi": [
+        {
+          "signature": "GetValue()",
+          "description": "Returns the current rotary reading."
+        },
+        {
+          "signature": "SetValue(v)",
+          "description": "Set rotary to `v`."
+        },
+        {
+          "signature": "Pressed()",
+          "description": "Returns 1 if the rotary knob was pressed."
+        },
+        {
+          "signature": "Scan()",
+          "description": "Start scanning loop. Only call it with tethered mode."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Dial",
@@ -949,7 +1858,16 @@
         "Slider Potentiometer",
         "77x27mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Slide()` | Returns value from 0 to 100. |\n| `DVer()` | Returns driver version. |"
+      "driverApi": [
+        {
+          "signature": "Slide()",
+          "description": "Returns value from 0 to 100."
+        },
+        {
+          "signature": "DVer()",
+          "description": "Returns driver version."
+        }
+      ]
     },
     {
       "name": "Fingerprint",
@@ -964,7 +1882,40 @@
         "Biometric sensor",
         "47x42mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetSavedCnt()` | Returns how many fingerprint model are saved. |\n| `DelModel(l)` | Deletes model at `l` location. |\n| `StoreModel(l)` | Stores a converted model at `l` location. |\n| `TakeImg()` | Captures a fingerprint image. Returns 0 if succeeded. |\n| `ConvertImg(s)` | Converts captured image and stores it in `s` slot (1 or 2). |\n| `FastSearch()` | Searches the internal database for a converted image. |\n| `SetLed(c,b,k)` | Sets the LED to `c` color (1 red, 2 blue, 3 purple), with `b` blink(0 always on, 1 blink), with `k` count (0 is forever!). |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "GetSavedCnt()",
+          "description": "Returns how many fingerprint model are saved."
+        },
+        {
+          "signature": "DelModel(l)",
+          "description": "Deletes model at `l` location."
+        },
+        {
+          "signature": "StoreModel(l)",
+          "description": "Stores a converted model at `l` location."
+        },
+        {
+          "signature": "TakeImg()",
+          "description": "Captures a fingerprint image. Returns 0 if succeeded."
+        },
+        {
+          "signature": "ConvertImg(s)",
+          "description": "Converts captured image and stores it in `s` slot (1 or 2)."
+        },
+        {
+          "signature": "FastSearch()",
+          "description": "Searches the internal database for a converted image."
+        },
+        {
+          "signature": "SetLed(c,b,k)",
+          "description": "Sets the LED to `c` color (1 red, 2 blue, 3 purple), with `b` blink(0 always on, 1 blink), with `k` count (0 is forever!)."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Keypad",
@@ -978,7 +1929,20 @@
         "16 buttons",
         "65x87mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `IsKeyChange()` | Returns true if a a change happened, press or unpress. |\n| `RdKey()` | Read the current key state, in ASCII. Zero for no press. |\n| `DVer()` | This driver version. |",
+      "driverApi": [
+        {
+          "signature": "IsKeyChange()",
+          "description": "Returns true if a a change happened, press or unpress."
+        },
+        {
+          "signature": "RdKey()",
+          "description": "Read the current key state, in ASCII. Zero for no press."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "variations": [
         {
           "name": "4x4",
@@ -1000,7 +1964,24 @@
         "3x RGB LEDs",
         "107x107mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetRing(i,r,g,b)` | Sets LED at `i` index to `r`, `g`, `b` color (0 to 100). |\n| `SetCtr(v)` | Sets the large button LED to `v` value(1 on, 0 off). |\n| `BtnPin()` | Returns the button pin number. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "SetRing(i,r,g,b)",
+          "description": "Sets LED at `i` index to `r`, `g`, `b` color (0 to 100)."
+        },
+        {
+          "signature": "SetCtr(v)",
+          "description": "Sets the large button LED to `v` value(1 on, 0 off)."
+        },
+        {
+          "signature": "BtnPin()",
+          "description": "Returns the button pin number."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "BTN RGB28x4",
@@ -1015,7 +1996,32 @@
         "Backlit RGB LEDs",
         "92x92 Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetClr(i,c,l)` | Sets a button at `i` index to `c` color with `l` luminance. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `BtnC()` | Returns 1 if button C is pressed. |\n| `BtnD()` | Returns 1 if button D is pressed. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "SetClr(i,c,l)",
+          "description": "Sets a button at `i` index to `c` color with `l` luminance."
+        },
+        {
+          "signature": "BtnA()",
+          "description": "Returns 1 if button A is pressed."
+        },
+        {
+          "signature": "BtnB()",
+          "description": "Returns 1 if button B is pressed."
+        },
+        {
+          "signature": "BtnC()",
+          "description": "Returns 1 if button C is pressed."
+        },
+        {
+          "signature": "BtnD()",
+          "description": "Returns 1 if button D is pressed."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "DipSwitch",
@@ -1029,7 +2035,16 @@
         "10 switch selector",
         "32x22mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Read(i)` | read `i` index value from switch returns 0=Off, 1=On. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "Read(i)",
+          "description": "read `i` index value from switch returns 0=Off, 1=On."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "USB Host",
@@ -1088,7 +2103,28 @@
         "16MB Flash Storage",
         "22x22mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SfGetid(b9)` | Returns 3 bytes in `b9` |\n| `SfErase(a)` | Erases a block at `a` address. |\n| `SfWrite(a,b9)` | Writes a byte array `b9` at `a` address. |\n| `SfRead(a,b9)` | Reads a byte array from flash at `a` address. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "SfGetid(b9)",
+          "description": "Returns 3 bytes in `b9`"
+        },
+        {
+          "signature": "SfErase(a)",
+          "description": "Erases a block at `a` address."
+        },
+        {
+          "signature": "SfWrite(a,b9)",
+          "description": "Writes a byte array `b9` at `a` address."
+        },
+        {
+          "signature": "SfRead(a,b9)",
+          "description": "Reads a byte array from flash at `a` address."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Wireless ESP32",
@@ -1105,9 +2141,54 @@
         "Give any Daisylink a Wireless Access",
         "27x37mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `DVer()` | Returns the driver version. |\n| `Init()` | Initializes and resets the ESP32. |\n| `ATCmd([cmd])` | Sends the AT command `cmd` to the ESP. |\n| `ATWaitResp(t)` | Parses the AT command response with a timeout of `t` milliseconds. Returns 1: OK, 0: Error (or no response - timeout). The response is stored in `b0`. |\n| `ReadLine(g,t)` | Reads a line from `g`: direction — 1: from ESP, 0: from Downlink (used only in bridge projects). `t`: timeout. The response is stored in `b0`. |\n| `EnterLder()` | Enters ESP loader mode. |\n| `WlWrite(d)` | Writes data `d` to the ESP32. |\n| `WlRead()` | Returns data from the FIFO buffer. Returns -1 if no data is available. |\n| `WlReadCnt()` | Returns the number of bytes available in the FIFO buffer. |\n| `StartWiFi(b1, b2, b3, a, b, t)` | Starts WiFi with `b1`: SSID, `b2`: password, `b3`: mDNS (Multicast Domain Name System) host name, `a`: 0/1 enable/disable AT mode, `b`: 0/1 enable/disable bridge, `t`: timeout in milliseconds. |\n| `StartBT(b1,a, b)` | Starts Bluetooth with `b1`: Bluetooth name, `a`: 0/1 enable/disable AT mode, `b`: 0/1 enable/disable bridge. |"
+      "driverApi": [
+        {
+          "signature": "DVer()",
+          "description": "Returns the driver version."
+        },
+        {
+          "signature": "Init()",
+          "description": "Initializes and resets the ESP32."
+        },
+        {
+          "signature": "ATCmd([cmd])",
+          "description": "Sends the AT command `cmd` to the ESP."
+        },
+        {
+          "signature": "ATWaitResp(t)",
+          "description": "Parses the AT command response with a timeout of `t` milliseconds. Returns 1: OK, 0: Error (or no response - timeout). The response is stored in `b0`."
+        },
+        {
+          "signature": "ReadLine(g,t)",
+          "description": "Reads a line from `g`: direction — 1: from ESP, 0: from Downlink (used only in bridge projects). `t`: timeout. The response is stored in `b0`."
+        },
+        {
+          "signature": "EnterLder()",
+          "description": "Enters ESP loader mode."
+        },
+        {
+          "signature": "WlWrite(d)",
+          "description": "Writes data `d` to the ESP32."
+        },
+        {
+          "signature": "WlRead()",
+          "description": "Returns data from the FIFO buffer. Returns -1 if no data is available."
+        },
+        {
+          "signature": "WlReadCnt()",
+          "description": "Returns the number of bytes available in the FIFO buffer."
+        },
+        {
+          "signature": "StartWiFi(b1, b2, b3, a, b, t)",
+          "description": "Starts WiFi with `b1`: SSID, `b2`: password, `b3`: mDNS (Multicast Domain Name System) host name, `a`: 0/1 enable/disable AT mode, `b`: 0/1 enable/disable bridge, `t`: timeout in milliseconds."
+        },
+        {
+          "signature": "StartBT(b1,a, b)",
+          "description": "Starts Bluetooth with `b1`: Bluetooth name, `a`: 0/1 enable/disable AT mode, `b`: 0/1 enable/disable bridge."
+        }
+      ]
     },
-     {
+    {
       "name": "GPS",
       "partNumber": "GDL-WLGPS-A",
       "PID": "0x090008",
@@ -1132,7 +2213,36 @@
         "2.4Ghz SMA signal",
         "125 channels"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetMode(m, b1, a, p,b)` | m: 0 = TX, 1 = RX, b1: address array, a: auto-ack (0/1), p: RX pipe number (0–5), b: baudrate (0=250k, 1=1M, 2=2M) |\n| `RxReady() ` | return 1 if data is ready to read, 0: Rx empty |\n| `ReadPl(b1)` | Read payload data to array b1, return total bytes read |\n| `Transmit(b1,l,t)` | Transmit b1 array, l: length to transmit, t: timeout in milliseconds. Return 0: failed, 1: Success  |\n| `EnableRx()` | Enable RX mode. |\n| `EnableTx()` | Enable Tx mode. |\n| `DVer()` | This driver version. |"	
+      "driverApi": [
+        {
+          "signature": "SetMode(m, b1, a, p,b)",
+          "description": "m: 0 = TX, 1 = RX, b1: address array, a: auto-ack (0/1), p: RX pipe number (0–5), b: baudrate (0=250k, 1=1M, 2=2M)"
+        },
+        {
+          "signature": "RxReady()",
+          "description": "return 1 if data is ready to read, 0: Rx empty"
+        },
+        {
+          "signature": "ReadPl(b1)",
+          "description": "Read payload data to array b1, return total bytes read"
+        },
+        {
+          "signature": "Transmit(b1,l,t)",
+          "description": "Transmit b1 array, l: length to transmit, t: timeout in milliseconds. Return 0: failed, 1: Success"
+        },
+        {
+          "signature": "EnableRx()",
+          "description": "Enable RX mode."
+        },
+        {
+          "signature": "EnableTx()",
+          "description": "Enable Tx mode."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "RFID",
@@ -1147,7 +2257,20 @@
         "Tags and Cards",
         "57x63mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `isCard()` | Returns 1 if a new card is detected. |\n| `ReadCard(a1)` | read the new card in a 16byte array. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "isCard()",
+          "description": "Returns 1 if a new card is detected."
+        },
+        {
+          "signature": "ReadCard(a1)",
+          "description": "read the new card in a 16byte array."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Light",
@@ -1161,7 +2284,16 @@
         "Light sensor",
         "17x19mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Light()` | Returns value from 0 to 100. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "Light()",
+          "description": "Returns value from 0 to 100."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "DOF9",
@@ -1177,7 +2309,24 @@
         "3axis Magnetometer",
         "22x25mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `RAccel()` | Reads the acceleration XYZ in `_x`, `_y`, `_Z` variables. |\n| `RCompass()` | Reads the compass XYZ in `_x`, `_y`, `_Z` variables. |\n| `RGyro()` | Reads the gyro XYZ and its internal temp in `_x`, `_y`, `_Z`, `_T` variables. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "RAccel()",
+          "description": "Reads the acceleration XYZ in `_x`, `_y`, `_Z` variables."
+        },
+        {
+          "signature": "RCompass()",
+          "description": "Reads the compass XYZ in `_x`, `_y`, `_Z` variables."
+        },
+        {
+          "signature": "RGyro()",
+          "description": "Reads the gyro XYZ and its internal temp in `_x`, `_y`, `_Z`, `_T` variables."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Accel",
@@ -1191,7 +2340,24 @@
         "Detect motion, tilt and acceleration",
         "22x20mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetX()` | Returns X value. |\n| `GetY()` | Returns Y value. |\n| `GetZ()` | Returns Z value. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "GetX()",
+          "description": "Returns X value."
+        },
+        {
+          "signature": "GetY()",
+          "description": "Returns Y value."
+        },
+        {
+          "signature": "GetZ()",
+          "description": "Returns Z value."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Distance",
@@ -1207,7 +2373,16 @@
         "40mm to 4meter",
         "47x30mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Distance()` | Reads the current distance in cm. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "Distance()",
+          "description": "Reads the current distance in cm."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Gas",
@@ -1222,7 +2397,20 @@
         "Heating control circuit",
         "27x42mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Heater(s)` | Sets the heater `s` state (1 on, 0 off). |\n| `Read()` | Reads the current voltage level in Volts. |\n| `DVer()` | This driver version. |",
+      "driverApi": [
+        {
+          "signature": "Heater(s)",
+          "description": "Sets the heater `s` state (1 on, 0 off)."
+        },
+        {
+          "signature": "Read()",
+          "description": "Reads the current voltage level in Volts."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "variations": [
         {
           "name": "MQ7 CO",
@@ -1247,7 +2435,32 @@
         "Reads CO2 levels",
         "37x27mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `AhtTemp()` | Returns ambient temperature in celsius. |\n| `AhtHumid()` | Returns relative humidity. |\n| `EnsAqi()` | Returns air quality index. |\n| `EnsTvoc()` | Returns Total Volatile Organic Compounds. |\n| `EnsEco2()` | Returns equivalent CO2. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "AhtTemp()",
+          "description": "Returns ambient temperature in celsius."
+        },
+        {
+          "signature": "AhtHumid()",
+          "description": "Returns relative humidity."
+        },
+        {
+          "signature": "EnsAqi()",
+          "description": "Returns air quality index."
+        },
+        {
+          "signature": "EnsTvoc()",
+          "description": "Returns Total Volatile Organic Compounds."
+        },
+        {
+          "signature": "EnsEco2()",
+          "description": "Returns equivalent CO2."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Current",
@@ -1260,7 +2473,16 @@
         "Current sensor",
         "27x22mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Current()` | Reads the current flow level in Amps. |\n| `DVer()` | This driver version. |",
+      "driverApi": [
+        {
+          "signature": "Current()",
+          "description": "Reads the current flow level in Amps."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "variations": [
         {
           "name": "25A",
@@ -1281,7 +2503,16 @@
         "Digital motion sensing",
         "27x22mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Detect()` | Returns 1 if motion is detected. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "Detect()",
+          "description": "Returns 1 if motion is detected."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Pressure",
@@ -1294,8 +2525,21 @@
         "Air and liquid pressure",
         "Measure pressure",
         "17x26mm Overall Dimension"
-      ],      
-      "driverApi": "Function | Description \n----------|-------------\n`kPa()` | Returns value in kPa \n`Psi()` | return value in PSI \n `DVer()` | This driver version.",
+      ],
+      "driverApi": [
+        {
+          "signature": "kPa()",
+          "description": "Returns value in kPa"
+        },
+        {
+          "signature": "Psi()",
+          "description": "return value in PSI"
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "variations": [
         {
           "name": "100 bar",
@@ -1317,7 +2561,29 @@
         "Temperature and Humidity",
         "27x33mm Overall Dimension"
       ],
-      "driverApi": ":::tip\nUse the Standard Library API directly to read temp and humidity.\n:::\n\n| Function | Description |\n|----------|-------------|\n| `Temp()` | Returns temperature in celsius. |\n| `Humid()` | Returns relative humidity percentage. |\n| `SenPin()` | Returns the sensor's pin number. |\n| `SenType()` | Returns the sensor's type. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "Temp()",
+          "description": "Returns temperature in celsius."
+        },
+        {
+          "signature": "Humid()",
+          "description": "Returns relative humidity percentage."
+        },
+        {
+          "signature": "SenPin()",
+          "description": "Returns the sensor's pin number."
+        },
+        {
+          "signature": "SenType()",
+          "description": "Returns the sensor's type."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
+      "driverNotes": ":::tip\nUse the Standard Library API directly to read temp and humidity.\n:::"
     },
     {
       "name": "Thermo",
@@ -1330,7 +2596,20 @@
         "K-Type Thermostor Sensor",
         "32x36mm Overall Dimension"
       ],
-      "driverApi": " Function | Description \n----------|-------------\n `ReadTemp()` | Reads the current temperature in celsius. \n `IsConnect()` | Return 1 if the thermocouple is connected; return 0 if it is not connected.\n `DVer()` | This driver version. ",
+      "driverApi": [
+        {
+          "signature": "ReadTemp()",
+          "description": "Reads the current temperature in celsius."
+        },
+        {
+          "signature": "IsConnect()",
+          "description": "Return 1 if the thermocouple is connected; return 0 if it is not connected."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "variations": [
         {
           "name": "K-Type",
@@ -1350,7 +2629,16 @@
       "keyFeatures": [
         "17x19mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `ReadTemp()` | Returns temperature in celsius. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "ReadTemp()",
+          "description": "Returns temperature in celsius."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "RTC",
@@ -1365,7 +2653,20 @@
         "Button Battery Holder",
         "37x22mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetTime(y,n,d,h,m,s)` | Sets date/time to `y` year, `n` month, `d` day, `h` hour, `m` minute, and `s` second. |\n| `GetTime()` | Returns current time in \\_y, \\_n, \\_d, \\_h, \\_m, \\_s variables. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "SetTime(y,n,d,h,m,s)",
+          "description": "Sets date/time to `y` year, `n` month, `d` day, `h` hour, `m` minute, and `s` second."
+        },
+        {
+          "signature": "GetTime()",
+          "description": "Returns current time in \\_y, \\_n, \\_d, \\_h, \\_m, \\_s variables."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "ClipSense",
@@ -1395,7 +2696,16 @@
         "3 RGB LEDs",
         "32x22mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLed(i, c)` | sets an LED at `i` (0 to 2) to `c` (RRGGBB color). |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "SetLed(i, c)",
+          "description": "sets an LED at `i` (0 to 2) to `c` (RRGGBB color)."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "LED R16",
@@ -1408,7 +2718,20 @@
         "16 LED Ring",
         "32x32mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetLed(l, v)` | Sets Led at `l` (1 to 16) to a `v` value (1 on, 0 off). |\n| `LedOff()` | Resets all leds to off. |\n| `DVer()` | This driver version. |",
+      "driverApi": [
+        {
+          "signature": "SetLed(l, v)",
+          "description": "Sets Led at `l` (1 to 16) to a `v` value (1 on, 0 off)."
+        },
+        {
+          "signature": "LedOff()",
+          "description": "Resets all leds to off."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "variations": [
         {
           "name": "Red",
@@ -1429,7 +2752,16 @@
         "96 Total LEDs",
         "42x32mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `DVer()` | This driver version. |",
+      "driverApi": [
+        {
+          "signature": "Init()",
+          "description": "Initialize the module. Automatically called on power up."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "variations": [
         {
           "name": "Red",
@@ -1451,7 +2783,32 @@
         "Counter or Timer formatted",
         "47x17mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `Digit(n)` | Draw `n` number to LEDs. |\n| `Seg7(i, s)` | Draw a single `s` digit (0 to 9) on `i` digit. |\n| `Dot(i, v)` | Draw a dot at `i` index with `v` value (0 off 1 on) on count-type LED. |\n| `Colon(n)` | Show colon on time-type LED. |\n| `DVer()` | This driver version. |",
+      "driverApi": [
+        {
+          "signature": "Init()",
+          "description": "Initialize the module. Automatically called on power up."
+        },
+        {
+          "signature": "Digit(n)",
+          "description": "Draw `n` number to LEDs."
+        },
+        {
+          "signature": "Seg7(i, s)",
+          "description": "Draw a single `s` digit (0 to 9) on `i` digit."
+        },
+        {
+          "signature": "Dot(i, v)",
+          "description": "Draw a dot at `i` index with `v` value (0 off 1 on) on count-type LED."
+        },
+        {
+          "signature": "Colon(n)",
+          "description": "Show colon on time-type LED."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "variations": [
         {
           "name": "Timer Green",
@@ -1473,7 +2830,32 @@
         "Counter or Timer formatted",
         "57x17mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `Digit(n)` | Draw `n` number to LEDs. |\n| `Seg7(i, s)` | Draw a single `s` digit (0 to 9) on `i` digit. |\n| `Dot(i, v)` | Draw a dot at `i` index with `v` value (0 off 1 on) on count-type LED. |\n| `Colon(n)` | Show colon on time-type LED. |\n| `DVer()` | This driver version. |",
+      "driverApi": [
+        {
+          "signature": "Init()",
+          "description": "Initialize the module. Automatically called on power up."
+        },
+        {
+          "signature": "Digit(n)",
+          "description": "Draw `n` number to LEDs."
+        },
+        {
+          "signature": "Seg7(i, s)",
+          "description": "Draw a single `s` digit (0 to 9) on `i` digit."
+        },
+        {
+          "signature": "Dot(i, v)",
+          "description": "Draw a dot at `i` index with `v` value (0 off 1 on) on count-type LED."
+        },
+        {
+          "signature": "Colon(n)",
+          "description": "Show colon on time-type LED."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "variations": [
         {
           "name": "Timer Red",
@@ -1495,7 +2877,32 @@
         "Counter or Timer formatted",
         "67x22mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `Digit(n)` | Draw `n` number to LEDs. |\n| `Seg7(i, s)` | Draw a single `s` digit (0 to 9) on `i` digit. |\n| `Dot(i, v)` | Draw a dot at `i` index with `v` value (0 off 1 on) on count-type LED. |\n| `Colon(n)` | Show colon on time-type LED. |\n| `DVer()` | This driver version. |",
+      "driverApi": [
+        {
+          "signature": "Init()",
+          "description": "Initialize the module. Automatically called on power up."
+        },
+        {
+          "signature": "Digit(n)",
+          "description": "Draw `n` number to LEDs."
+        },
+        {
+          "signature": "Seg7(i, s)",
+          "description": "Draw a single `s` digit (0 to 9) on `i` digit."
+        },
+        {
+          "signature": "Dot(i, v)",
+          "description": "Draw a dot at `i` index with `v` value (0 off 1 on) on count-type LED."
+        },
+        {
+          "signature": "Colon(n)",
+          "description": "Show colon on time-type LED."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "variations": [
         {
           "name": "Counter Red",
@@ -1517,7 +2924,36 @@
         "Counter or Timer formatted",
         "117x32mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `Init()` | Initialize the module. Automatically called on power up. |\n| `Seg16(i, s)` | Draw a single `s` character (0 to 9) on `i` digit (from the right). |\n| `Digit(n)` | Draw 'n' number to LEDs. |\n| `PrntChr(i, c)` | Print an ascii `c` character (A to Z and 0 to 9) at `i` index (from the left). |\n| `PrntStr(b1)` | Print a string of ascii characters. |\n| `Dot(i, v)` | Draw dot at `i` index with `v` value (0 off, 1 on). |\n| `DVer()` | This driver version. |",
+      "driverApi": [
+        {
+          "signature": "Init()",
+          "description": "Initialize the module. Automatically called on power up."
+        },
+        {
+          "signature": "Seg16(i, s)",
+          "description": "Draw a single `s` character (0 to 9) on `i` digit (from the right)."
+        },
+        {
+          "signature": "Digit(n)",
+          "description": "Draw 'n' number to LEDs."
+        },
+        {
+          "signature": "PrntChr(i, c)",
+          "description": "Print an ascii `c` character (A to Z and 0 to 9) at `i` index (from the left)."
+        },
+        {
+          "signature": "PrntStr(b1)",
+          "description": "Print a string of ascii characters."
+        },
+        {
+          "signature": "Dot(i, v)",
+          "description": "Draw dot at `i` index with `v` value (0 off, 1 on)."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "variations": [
         {
           "name": "Red",
@@ -1542,7 +2978,40 @@
         "Terminal Block Connection",
         "32x22mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `WS2811()` | Returns the pin number used for DAT pin to be used with `WS2811` Smart LED [Graphics](/docs/engine/graphics). |\n| `IntAPA(c)` | Get the system ready for `APA102C`. |\n| `SetAPA(i, c, l)` | Sets the color at `i` index to `c` color (RRGGBB) and `l` luminance (0 to 31). |\n| `ShwAPA()` | Show/update the actual LEDs with preassigned colors. |\n| `IntLPD(c)` | Get the system ready for `LPD8806`. |\n| `SetLPD(i, c)` | Sets the color at `i` index to `c` color (RRGGBB) |\n| `ShwLPD()` | Show/update the actual LEDs with preassigned colors. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "WS2811()",
+          "description": "Returns the pin number used for DAT pin to be used with `WS2811` Smart LED [Graphics](/docs/engine/graphics)."
+        },
+        {
+          "signature": "IntAPA(c)",
+          "description": "Get the system ready for `APA102C`."
+        },
+        {
+          "signature": "SetAPA(i, c, l)",
+          "description": "Sets the color at `i` index to `c` color (RRGGBB) and `l` luminance (0 to 31)."
+        },
+        {
+          "signature": "ShwAPA()",
+          "description": "Show/update the actual LEDs with preassigned colors."
+        },
+        {
+          "signature": "IntLPD(c)",
+          "description": "Get the system ready for `LPD8806`."
+        },
+        {
+          "signature": "SetLPD(i, c)",
+          "description": "Sets the color at `i` index to `c` color (RRGGBB)"
+        },
+        {
+          "signature": "ShwLPD()",
+          "description": "Show/update the actual LEDs with preassigned colors."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Buzzer",
@@ -1556,7 +3025,28 @@
         "Frequency Range 200Hz to 10Khz",
         "22x20mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `PlayBeep(f, d)` | Play beep, (f: frequency, d: duration in ms). |\n| `PlaySound(f, d, c)` | Play sound, (f: frequency, d: duration in ms, c: duty cycle). |\n| `PlayMelody(a1)` | Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration). |\n| `StopMelody()` | Stop melody. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "PlayBeep(f, d)",
+          "description": "Play beep, (f: frequency, d: duration in ms)."
+        },
+        {
+          "signature": "PlaySound(f, d, c)",
+          "description": "Play sound, (f: frequency, d: duration in ms, c: duty cycle)."
+        },
+        {
+          "signature": "PlayMelody(a1)",
+          "description": "Play melody. `a1` is a float array, (odd elements: frequency, even elements: duration)."
+        },
+        {
+          "signature": "StopMelody()",
+          "description": "Stop melody."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Retro Sound",
@@ -1571,7 +3061,28 @@
         "Standard 3.5mm audio connector",
         "27x22mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetPin()` | returns pin, to be used with standard library sound functions. |\n| `SetLVol(v)` | Set left volume |\n| `SetRVol(v)` | Set right volume |\n| `LaserSfx(v)` | Laser Sound Effect |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "GetPin()",
+          "description": "returns pin, to be used with standard library sound functions."
+        },
+        {
+          "signature": "SetLVol(v)",
+          "description": "Set left volume"
+        },
+        {
+          "signature": "SetRVol(v)",
+          "description": "Set right volume"
+        },
+        {
+          "signature": "LaserSfx(v)",
+          "description": "Laser Sound Effect"
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "MP3",
@@ -1587,7 +3098,44 @@
         "Micro SD card reader",
         "37x22mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SendCmd(c, a)` | Send `c` command & `a` argument to mp3 module. |\n| `WResponse(t, c, a)` | `t` timeout, `c` code, `a` argument. Wait for response. |\n| `Stop()` | Stop playing. |\n| `SetVol(v)` | Sets `v` volume. (Min 0, max 30) |\n| `IsBusy()` | Returns 1 if busy. |\n| `Loop(r)` | Sets `r` repeat. |\n| `Rst()` | Reset mp3 module. |\n| `PlayFile(f, d)` | Play file. `f` Files and `d` directories must be named in numerics. |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "SendCmd(c, a)",
+          "description": "Send `c` command & `a` argument to mp3 module."
+        },
+        {
+          "signature": "WResponse(t, c, a)",
+          "description": "`t` timeout, `c` code, `a` argument. Wait for response."
+        },
+        {
+          "signature": "Stop()",
+          "description": "Stop playing."
+        },
+        {
+          "signature": "SetVol(v)",
+          "description": "Sets `v` volume. (Min 0, max 30)"
+        },
+        {
+          "signature": "IsBusy()",
+          "description": "Returns 1 if busy."
+        },
+        {
+          "signature": "Loop(r)",
+          "description": "Sets `r` repeat."
+        },
+        {
+          "signature": "Rst()",
+          "description": "Reset mp3 module."
+        },
+        {
+          "signature": "PlayFile(f, d)",
+          "description": "Play file. `f` Files and `d` directories must be named in numerics."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Radio FM",
@@ -1617,7 +3165,16 @@
         "7 individual frequency filters",
         "37x22mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `UpdBnd()` | Update all 7 bands. Values are stored in `a1[]` array (0 to 100). |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "UpdBnd()",
+          "description": "Update all 7 bands. Values are stored in `a1[]` array (0 to 100)."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "Barcode L1D2D",
@@ -1632,7 +3189,20 @@
         "1D and 2D formats",
         "47x42mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `SetMode(m)` | Set scanning mode (1: Trigger, 2: Continuous) |\n| `Trigger()` | Manually trigger barcode reading when in trigger mode |\n| `DVer()` | Check driver version |"
+      "driverApi": [
+        {
+          "signature": "SetMode(m)",
+          "description": "Set scanning mode (1: Trigger, 2: Continuous)"
+        },
+        {
+          "signature": "Trigger()",
+          "description": "Manually trigger barcode reading when in trigger mode"
+        },
+        {
+          "signature": "DVer()",
+          "description": "Check driver version"
+        }
+      ]
     },
     {
       "name": "Thermal",
@@ -1648,7 +3218,16 @@
         "0° to 80° celsius",
         "22x24mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `PixTemp(p)` | Read one of the `p` pixels' temp. There are 64 pixels (0 to 63). |\n| `DVer()` | This driver version. |"
+      "driverApi": [
+        {
+          "signature": "PixTemp(p)",
+          "description": "Read one of the `p` pixels' temp. There are 64 pixels (0 to 63)."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ]
     },
     {
       "name": "DuePi",
@@ -1667,7 +3246,36 @@
         "Terminal Block for Additional Connectivity",
         "65x56.5mm Overall Dimension"
       ],
-      "driverApi": "| Function | Description |\n|----------|-------------|\n| `GetW()` | Get display width: 128. |\n| `GetH()` | Get display height: 64. |\n| `IsColor()` | Returns 0. |\n| `BtnA()` | Returns 1 if button A is pressed. |\n| `BtnB()` | Returns 1 if button B is pressed. |\n| `Buzzer(f,d)` | Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds. |\n| `DVer()` | This driver version. |",
+      "driverApi": [
+        {
+          "signature": "GetW()",
+          "description": "Get display width: 128."
+        },
+        {
+          "signature": "GetH()",
+          "description": "Get display height: 64."
+        },
+        {
+          "signature": "IsColor()",
+          "description": "Returns 0."
+        },
+        {
+          "signature": "BtnA()",
+          "description": "Returns 1 if button A is pressed."
+        },
+        {
+          "signature": "BtnB()",
+          "description": "Returns 1 if button B is pressed."
+        },
+        {
+          "signature": "Buzzer(f,d)",
+          "description": "Plays buzzer to `f` frequency(50 to 15K) for `d` duration in milliseconds."
+        },
+        {
+          "signature": "DVer()",
+          "description": "This driver version."
+        }
+      ],
       "MfgNotes": "Check Menu->Help for connection before testing"
     },
     {

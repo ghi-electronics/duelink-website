@@ -1,291 +1,143 @@
 
 # What is DUELink?
 
-<div class="videocontainer">
-  <iframe class="responsive-width" 
-  src="https://www.youtube.com/embed/3jyPwO4DTwc" 
-  frameborder="0"
-  allowfullscreen="true"></iframe>
+<div style={{ maxWidth: '820px', margin: '0 auto 2rem', aspectRatio: '16 / 9', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 12px 36px rgba(0, 0, 0, 0.15)', background: '#000', position: 'relative' }}>
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/3jyPwO4DTwc?rel=0"
+    title="DUELink intro video"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowFullScreen
+    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
+  />
 </div>
-<br/>
 
-**DUELink** (Dynamic Universal Extensible Link) is a modular electronics system. Each **module** is a small board with its own processor, firmware, and a consistent way to connect and communicate.
-
-You can use modules in two ways:
-
-- **Tethered** — Connect to [supported hardware](./hw/intro)—a [PC or laptop](./hw/pc-laptop), [phone or tablet](./hw/phone-tablet), [Raspberry Pi](./hw/raspberry-pi), [Arduino](./hw/arduino), [micro:bit](./hw/microbit), or [more](./hw/beyond)—over [USB, I2C, UART, or wireless](./interface/intro). Control modules from [Python, JavaScript, .NET, and other languages](./language/intro).
-- **Standalone** — Load [MicroBlocks](./language/microblocks), [Arduino](./hw/arduino), or the built-in [scripting engine](./engine/scripting) so the module runs programs without a host.
-
-Chain many modules with **[Daisylink](./engine/daisylink)** on the downlink bus. Mix DUELink with **SparkFun Qwiic**, **Adafruit STEMMA QT**, **Arduino Modulino**, and **Seeed Studio Grove** (with the right adapter). Browse the [product catalog](./catalog/products), or jump to guidance for [engineers](./engineers), [makers](./makers), and [educators](./educators).
-
----
+## Smart modules. Plain text commands.
 
 <div style={{ textAlign: 'center'}}>
-## Engineers, Makers, Educators
+![DUELink works with PCs, phones, tablets, and SBCs](pathname:///img/duelink-supported-hardware.webp)
 </div>
 
-<table>
-<td width='50%'>
-    ![Holey Board](pathname:///img/catalog/axholey-4.webp)
-</td>
-<td width='50%'>
-    ![AI Tic-Tac-Toe](pathname:///img/tic-tac-toe.webp)
-</td>
-</table>
+**DUELink** is a family of smart electronic modules. Each module already knows its job — you control it by sending plain text commands like `RelayOn(2)`.
 
-<details>
-  <summary>Built for rapid prototyping, creative projects, and STEM classrooms.</summary>
+Commands are sent over **USB**, **I2C**, or **UART**, from any host that can send text:
 
-- **[Engineers](./engineers)** — Fast hardware iteration, scripting, and integration with familiar tools.
-- **[Makers](./makers)** — Block coding, kits, and projects from a single module to a full Daisylink chain.
-- **[Educators](./educators)** — MicroBlocks, structured lessons, and hardware that stays approachable for students.
+- **Hardware** — PC, Raspberry Pi, Arduino, micro:bit, phone, or anything else
+- **Language** — Python, JavaScript, .NET, MicroPython, or any other
 
-</details>
+<div style={{ textAlign: 'center'}}>
+![Supported languages — Python, JavaScript, C#, C++, MicroPython, Swift, Excel, and more](pathname:///img/languages.webp)
+</div>
 
-<div style={{ textAlign: 'center'}}><Button
-  style={{ color:'white', margin: "10px" }}
-  label="Engineers"
-  link="./engineers"
-/>
+Add a display, a sensor, or a motor to whatever board you already have — no soldering, no driver hunt, no datasheet dive.
+
+<div style={{ textAlign: 'center'}}>
+![Arduino redboard hosting a DUELink color display](pathname:///img/redboard-duelink-display.webp)
+</div>
+
+Many popular host boards even ship with the JST connector built in, so DUELink plugs straight in without an adapter.
+
+<div style={{ textAlign: 'center'}}>
+![Boards with compatible JST connectors](pathname:///img/supported-hardware-jst.webp)
+</div>
+
+<div style={{ textAlign: 'center'}}>
 <Button
   style={{ color:'white', margin: "10px" }}
-  label="Makers"
-  link="./makers"
-/>
-<Button
-  style={{ color:'white', margin: "10px" }}
-  label="Educators"
-  link="./educators"
+  label="Get Started"
+  link="./start"
 />
 </div>
 
 ---
 
-<div style={{ textAlign: 'center'}}>
-## Complete Catalog
-![Product Catalog](pathname:///img/duelink-modules.webp)
-</div>
+## A real example: vehicle data logger
 
-<details>
-  <summary>Sensors, actuators, displays, and adapters designed to work in one system.</summary>
+Imagine a quick prototype that plugs into a vehicle and:
 
-The [product catalog](./catalog/products) includes a growing range of modules. [Third-party modules](./catalog/third-party) are welcome, and [specifications](./specs) are published for builders who want to design their own boards.
+1. Runs from the car battery.
+1. Captures CAN bus messages.
+1. Reads current GPS position.
+1. Logs everything to a USB memory stick.
+1. Shows live info on a color display.
 
-Prefer minimal soldering? [Stick](./products/mcstick-a) and [Stamp](./products/mcstamp-b) are compact DUELink controllers for custom circuits and prototypes.
-
-</details>
-
-<div style={{ textAlign: 'center'}}><Button
-  style={{ color:'white' }}
-  label="Product Catalog"
-  link="./catalog/products"
-/></div>
-
----
+Put the soldering iron aside and grab a [Holey Board](./products/axholey) instead — pick the modules off the [catalog](./catalog/products), drop them in, and write a short script on your host. A project that used to take days takes an afternoon.
 
 <div style={{ textAlign: 'center'}}>
-## Supported Hardware
-![Supported Hardware](pathname:///img/duelink-supported-hardware.webp)
+![Vehicle data logger built on a DUELink Holey Board](pathname:///img/vehicle-project.webp)
 </div>
 
-<details>
-  <summary>Plug in over JST when you can; use adapters when the host board uses a different connector.</summary>
-
-Tether one module or many to [supported hardware](./hw/intro): a [PC](./hw/pc-laptop), [phone](./hw/phone-tablet), [Raspberry Pi](./hw/raspberry-pi), [Arduino](./hw/arduino), [micro:bit](./hw/microbit), ESP32-class boards, and [more](./hw/beyond).
-
-Boards with a compatible JST uplink connector are plug-and-play:
-
-![boards with JST connectors](pathname:///img/supported-hardware-jst.webp)
-
-Other hosts may need an adapter such as [USB Hook](./products/adusbhook-a)—shown here with a servo module:
-
-![usb hook with servo](pathname:///img/usbhook-servo-x1.webp)
-
-</details>
-
-<div style={{ textAlign: 'center'}}><Button
-  style={{ color:'white' }}
-  label="Supported Hardware"
-  link="./hw/intro"
-/></div>
-
----
+Same story for industrial prototypes, lab fixtures, or one-off internal tools — graphics, file logging, sensors, motors, all driven from plain text commands in whatever language you already write.
 
 <div style={{ textAlign: 'center'}}>
-## Coding Languages
-![Coding languages](pathname:///img/languages.webp)
-</div>
-
-<details>
-  <summary>Code from a host, or run firmware directly on the module.</summary>
-
-**Tethered** — Connect modules to your [hardware](./hw/intro) and use [Python](./language/python), [JavaScript](./language/javascript), [.NET](./language/dotnet), [MicroPython](./language/micropython), and [more](./language/intro). Even [Excel](./language/excel) can stream data to a module.
-
-**Standalone** — Run [MicroBlocks](./language/microblocks), [Arduino](./hw/arduino), or the on-board [scripting language](./engine/scripting) without a tethered host. See [standalone options](./language/standalone) for details.
-
-</details>
-
-<div style={{ textAlign: 'center'}}><Button
-  style={{ color:'white', margin: "10px" }}
-  label="Coding Languages"
-  link="./language/intro"
-/>
-<Button
-  style={{ color:'white', margin: "10px" }}
-  label="Standalone"
-  link="./language/standalone"
-/>
+![Commercial product built with DUELink](pathname:///img/commercial-product.webp)
 </div>
 
 ---
 
+## Chain modules
+
+Connect more modules from one host using the Downlink port. One cable carries commands through any number of modules.
+
 <div style={{ textAlign: 'center'}}>
-## Tethering over USB/I2C/UART
 ![Daisylink](pathname:///img/daisylink.webp)
 </div>
 
-<details>
-  <summary>Reach the first module over USB, I2C, or UART—then chain more modules on Downlink.</summary>
-
-The module connected to your host uses [USB, I2C, or serial UART](./interface/intro). Additional modules attach on the [Downlink](./interface/downlink) port and form a **[Daisylink](./engine/daisylink)** chain, so one host connection can control many boards.
-
-</details>
-
-<div style={{ textAlign: 'center'}}><Button
-  style={{ color:'white', margin: "10px" }}
-  label="Interfaces"
-  link="./interface/intro"
-/>
-<Button
-  style={{ color:'white', margin: "10px" }}
-  label="Daisylink"
-  link="./engine/daisylink"
-/>
-</div>
-
----
+The same I2C bus works with other ecosystems too — **SparkFun Qwiic**, **Adafruit STEMMA QT**, and **Arduino Modulino** plug right in (**Seeed Studio Grove** works with an adapter cable). Mix DUELink and third-party modules in one project.
 
 <div style={{ textAlign: 'center'}}>
-## Internal Scripting Engine
-</div>
-
-<div style={{ textAlign: 'center'}}>
-```py
-x=100
-PrintLn(x)
-PrintLn("Hello World")
-```
-</div>
-
-<details>
-  <summary>Every module includes a scripting engine—run on the board or command it from a host.</summary>
-
-Each module runs the DUELink [engine](./engine/intro): a [scripting language](./engine/scripting), a large [standard library](./engine/stdlib), plus [graphics](./engine/graphics), a [file system](./engine/filesystem), and more.
-
-Use it **standalone** on the module, or send commands from tethered [hardware](./hw/intro)—a [Raspberry Pi](./hw/raspberry-pi), [micro:bit](./hw/microbit), or [PC](./hw/pc-laptop). You can also load [MicroBlocks](./language/microblocks) or [Arduino](./hw/arduino) firmware when those workflows fit your project better.
-
-</details>
-
-<div style={{ textAlign: 'center'}}><Button
-  style={{ color:'white' }}
-  label="Internal Engine"
-  link="./engine/intro"
-/></div>
-
----
-
-<div style={{ textAlign: 'center'}}>
-## Specifications
-![specs](pathname:///img/duelink-hole-specs.webp)
-</div>
-
-<details>
-  <summary>Open specifications for integration, enclosures, and custom modules.</summary>
-
-Published [specifications](./specs) describe electrical behavior, connectors, and mechanical layout—including hole patterns for universal mounting with [Holey boards](./products/axholey) and related [mounting hardware](./products/axmnt). Use them to build [your own modules](./catalog/third-party) or fit DUELink boards into custom enclosures.
-
-</details>
-
-<div style={{ textAlign: 'center'}}><Button
-  style={{ color:'white' }}
-  label="Specifications"
-  link="./specs"
-/></div>
-
-
----
-
-<div style={{ textAlign: 'center'}}>
-## Qwiic, STEMMA, Modulino
 ![DUELink STEM I2C qwiic stemmaQT modulino](pathname:///img/qwiic-stemma-modulino-i2c.webp)
 </div>
 
-
-<details>
-  <summary>Use SparkFun Qwiic, Adafruit STEMMA QT, Arduino Modulino, and Grove alongside DUELink.</summary>
-
-Ecosystems with I2C JST connectors—**SparkFun Qwiic**, **Adafruit STEMMA QT**, and **Arduino Modulino**—work directly with DUELink modules. **Seeed Studio Grove** devices also work with an adapter cable because the connector differs.
-
-**Two common setups:**
-
-1. Add DUELink modules on the [I2C](./interface/i2c) bus of your [host hardware](./hw/intro), alongside other third-party modules.
-
-<div style={{ textAlign: 'center'}}>
-![QWIIC, STEMMA QT, and Modulino with DUELink modules](pathname:///img/qwiic-stemma-modulino-duelink.webp)
-</div>
-
-2. Wire third-party modules to the [downlink](./interface/downlink) port of a DUELink circuit.
-
-<div style={{ textAlign: 'center'}}>
-![I2C non-DUELink](pathname:///img/i2c-nonduelink.webp)
-</div>
-
-You can combine both approaches in one project.
-
-</details>
-
 <div style={{ textAlign: 'center'}}><Button
-  style={{ color:'white', margin: "10px" }}
-  label="Downlink I2C Mode"
-  link="./interface/downlink"
-/>
-<Button
-  style={{ color:'white', margin: "10px" }}
-  label="Modules over I2C"
-  link="./interface/i2c"
-/>
-</div>
----
-
-<div style={{ textAlign: 'center'}}>
-## Cableless Green Initiative
-![USB Tulips](pathname:///img/usb-tulips.webp)
-
-</div>
-
-
-<details>
-  <summary>Fewer bundled cables—less waste when you already have what you need.</summary>
-
-Individual modules and circuits do not include USB cables; most users already have USB-C cables on hand.
-
-JST cables are also sold separately. [Cable lengths](./products/axcbl) are available when you need them. **DUELink kits include the cables required.**
-
-</details>
-
-
-
----
-<div style={{ textAlign: 'center'}}>
-
-![Print](pathname:///img/getting-started.webp)
-## Getting Started
-
-Connect a module, pick a language and host, and run your first program in minutes.
-
-<Button
   style={{ color:'white' }}
-  label="Start Now!"
-  link="./start"
+  label="Chain Modules"
+  link="./chain"
 /></div>
 
+---
+
+## Code on the module itself
+
+Besides sending commands from a host, you can put your code on the module's on-board STM32 MCU — your code runs right on the module with no host needed.
+
+<table>
+<tr>
+<td width='50%' style={{verticalAlign: 'top', textAlign: 'center'}}>
+![CincoBit](pathname:///img/catalog/mccincobit-e-1.webp)
+
+**For Educators**
+
+Boards like [CincoBit](./products/mccincobit-e), [PixoBit](./products/mcpixobit-d), and [Clipit](./products/mcclipit-b) work great as classroom singletons with [MicroBlocks](./language/microblocks) — block coding with a complete [curriculum](./tutorial/cincobit).
+
+<Button
+  style={{ color:'white', margin: "10px" }}
+  label="For Educators"
+  link="./educators"
+/>
+</td>
+<td width='50%' style={{verticalAlign: 'top', textAlign: 'center'}}>
+![DueDuino](pathname:///img/dueduino.webp)
+
+**On-Module Code**
+
+Any DUELink board's MCU can be programmed directly with Arduino IDE or C++. Boards like [DueDuino](./products/mcdueduino-a), [Stick](./products/mcstick-a), and [Stamp](./products/mcstamp-b) are especially handy for this.
+
+<Button
+  style={{ color:'white', margin: "10px" }}
+  label="On-Module Code"
+  link="./language/standalone"
+/>
+</td>
+</tr>
+</table>
+
+---
+
+## Where to next?
+
+- **[Get started](./start)** — try a command in the browser, then send it from Python, JavaScript, .NET, Arduino, or MicroPython
+- **[Chain modules](./chain)** — one host, many modules (and works with Qwiic/STEMMA)
+- **[For educators](./educators)** — MicroBlocks + curriculum
+- **[Code on the module](./language/standalone)** — Arduino IDE / C++ on the on-board MCU
+- **[Browse the catalog](./catalog/products)** — sensors, displays, motors, kits, and more

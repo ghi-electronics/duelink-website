@@ -107,3 +107,115 @@ img {
   max-width: 100% !important;
 }
 */
+
+/* Social media icons in navbar */
+.navbar-social {
+  padding: 0.25rem 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  color: var(--ifm-navbar-link-color);
+  transition: color 0.15s ease;
+}
+
+.navbar-social:hover {
+  color: var(--ifm-color-primary);
+}
+
+.navbar-social i {
+  pointer-events: none;
+}
+
+/* Mobile: tighten spacing */
+@media (max-width: 996px) {
+  .navbar-social {
+    font-size: 1.4rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* Buy CTA in navbar: primary button styling */
+.navbar-buy {
+  background-color: var(--ifm-color-primary);
+  color: #fff !important;
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  margin-left: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.navbar-buy:hover,
+.navbar-buy:focus-visible {
+  background-color: var(--ifm-color-primary-darker);
+  color: #fff !important;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 996px) {
+  .navbar-buy {
+    background-color: transparent;
+    color: var(--ifm-navbar-link-color) !important;
+    padding: 0.5rem 0.75rem;
+    margin-left: 0;
+  }
+  .navbar-buy:hover,
+  .navbar-buy:focus-visible {
+    background-color: transparent;
+    color: var(--ifm-color-primary) !important;
+    transform: none;
+  }
+}
+
+/* ---------- Footer attribution + social row ---------- */
+
+.footer-attribution {
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 0.25rem 0 0.5rem;
+  opacity: 0.9;
+}
+
+.footer-attribution a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-attribution a:hover,
+.footer-attribution a:focus-visible {
+  text-decoration: underline;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 0.5rem 0 1rem;
+  font-size: 1.5rem;
+}
+
+.footer-social a {
+  color: #fff;
+  opacity: 0.75;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+  opacity: 1;
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.footer-copyright {
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
