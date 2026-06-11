@@ -189,7 +189,7 @@ fn Xtransfer(m,b)
 # m: transfer dire
 #   0:Esp2Dwlk
 #   1:Dwlnk2Esp
-# b: brigde
+# b: bridge
 #   0: standard, no bridge
 #   1: bridge
 
