@@ -182,7 +182,7 @@ fn Init()
     AtCmd("ATE0")    # disable echo
     ATWaitResp(2000)
  
-    #Depen on WiFi or Bluetooth, user need initialize WiFi or Bluetooth
+    #Depending on WiFi or Bluetooth, user needs to initialize WiFi or Bluetooth
 fend
 
 fn Xtransfer(m,b) 
