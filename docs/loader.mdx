@@ -1,11 +1,13 @@
 # Firmware updates
 
-If a module isn't responding to commands, or [Discover](https://loader.duelink.com/discover) shows it with the wrong firmware, update it from the online loader. Most of the time it's a one-click flow.
+If a module isn't responding to commands, or [Discover](https://loader.duelink.com/discover) shows it with the wrong firmware, update it from the online loader.
 
 Visit **[loader.duelink.com](https://loader.duelink.com/)** and pick which firmware to load:
 
 - **DUELink Official** — the standard text-command firmware. This is what every other page in these docs assumes you have. Pick this unless you specifically need MicroBlocks.
 - **DUELink MicroBlocks** — the classroom block-coding firmware. Pick this if you're using the [MicroBlocks](./language/microblocks) workflow.
+
+It is a 2 step process, starting with "Erase All" to clear out the module and then loading it with new firmware (and sometimes drivers).
 
 :::tip
 The online loader only works with Chrome or Edge browsers. The operating system doesn't matter.
@@ -15,10 +17,25 @@ The online loader only works with Chrome or Edge browsers. The operating system 
 
 ## Troubleshooting
 
+### Check Device Manager first (Windows)
+
+Before working through the steps below, open `Device Manager` on Windows to see how your PC currently sees the module. The result tells you which step to try next:
+
+- **Running firmware** — appears as a `COM` port under **Ports (COM & LPT)**. The module is healthy; if the loader still can't talk to it, try **Erase All** (step 1 below).
+- **In DFU mode** — appears as `DFU in FS Mode` under **Universal Serial Bus controllers**. The module is waiting for firmware; skip straight to loading (step 2 below).
+- **Yellow warning icon next to `DFU in FS Mode`** — the module is in DFU mode but the USB driver isn't installed. Install drivers from the [Drivers](#dfu-usb-drivers) section.
+- **Nothing at all** — the module isn't being recognized. Try a different USB cable or port; if it still doesn't appear, force DFU mode manually (step 3 below).
+
+<div style={{ textAlign: 'center'}}>
+![Device Manager showing DFU in FS Mode](pathname:///img/device-manager-dfu.webp)
+</div>
+
+### Update sequence
+
 If the loader can't update your module, work through this sequence:
 
-1. **Click "Erase All".** This puts the module in DFU mode and lets the loader push the new firmware. Almost all updates work this way.
-2. **If "Erase All" fails, just try loading the firmware.** Erase All needs an active firmware to run, so if it can't run, the module is probably already in DFU mode — go straight to loading. Note: Once a module is erased, it can't be erased again until firmware is reloaded.
+1. **Click "Erase All".** This puts the module in DFU (Device Firmware Update) mode and lets the loader push the new firmware.
+2. **If "Erase All" did not show a device to connect, just try loading the firmware.** Your device might already be erased and in DFU mode — go straight to loading. Note: Once a module is erased, it can't be erased again until firmware is reloaded.
 3. **If both fail, force DFU mode manually** ([Force DFU Mode](#force-dfu-mode) below).
 4. **Windows users:** if the module enters DFU mode but the loader can't talk to it, install the DFU USB drivers ([Drivers](#dfu-usb-drivers) section).
 
@@ -26,37 +43,47 @@ If the loader can't update your module, work through this sequence:
 
 ## Force DFU Mode
 
-You can manually force DFU mode if "Erase All" failed or if a custom firmware was loaded. Connect the `LDR` pin to high-level on system reset or power up.
-
-On many modules, `LDR` is connected to a button labeled `LDR` or `A`. Pressing this buttons sets LDR pin to high-level.
-
-<div style={{ textAlign: 'center'}}>
-![Setting boot mode](pathname:///img/ldr-a-buttons.webp)
-</div>
-
-Modules without a button have two pads instead.
-
-<div style={{ textAlign: 'center'}}>
-![Module loader pads](pathname:///img/module-loader-pads.webp)
-</div>
+You can manually force a module into DFU mode by pulling the `LDR` pin high while the module powers up or resets.
 
 :::info
 For power users: `LDR` is our name for STM32's `BOOT0` pin.
 :::
 
-To force DFU mode, press and **continue to hold** the `LDR` or `A` button while resetting the board (clicking reset or re-power). If neither button is available, bend a small metal paper clip (or a wire) across the two `LDR` pads, then reset/re-power. You can remove the paper clip once the board is powered up.
+### With an LDR or A button
+
+Many modules have a button labeled `LDR` or `A` that pulls the `LDR` pin high when pressed.
 
 <div style={{ textAlign: 'center'}}>
-![Setting boot mode](pathname:///img/boot-mode.webp)
+![LDR and A buttons on DUELink modules](pathname:///img/ldr-a-buttons.webp)
 </div>
 
-The module will appear as a DFU device. If this is the first time on a PC, check `Device Manager` to confirm the USB driver is installed (see [Drivers](#dfu-usb-drivers)).
+1. **Press and hold** the `LDR` (or `A`) button.
+2. **While still holding it,** click the reset button — or, if there's no reset button, unplug and re-plug the USB cable.
+3. **Release** the `LDR` button.
+
+### Without a button: use the LDR pads
+
+Modules without a button have two `LDR` pads instead.
+
+<div style={{ textAlign: 'center'}}>
+![Two LDR pads on a module without a button](pathname:///img/module-loader-pads.webp)
+</div>
+
+Bend a small metal paper clip (or a piece of wire) across the two `LDR` pads, then reset or re-power the module. Remove the paper clip once the board is powered up.
+
+<div style={{ textAlign: 'center'}}>
+![Paper clip bridging the LDR pads](pathname:///img/boot-mode.webp)
+</div>
+
+### After forcing DFU mode
+
+The module will appear as a DFU device in `Device Manager`. If this is the first time on this PC, confirm the USB driver is installed (see [Drivers](#dfu-usb-drivers)).
 
 :::tip
 Forcing DFU mode does not erase or modify the module's contents until new firmware is sent.
 :::
 
-You can now go back, skip "Erase All", and load the firmware.
+You can now return to [loader.duelink.com](https://loader.duelink.com/), skip "Erase All", and load the firmware.
 
 ---
 
