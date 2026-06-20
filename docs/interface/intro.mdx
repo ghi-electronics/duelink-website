@@ -1,60 +1,66 @@
 # Interfaces
 
-DUELink modules are designed to be versatile and dynamic, with multiple interface options.
+A DUELink module receives **simple text commands** over a physical bus — USB, I2C, or UART — and sends responses back the same way. The bus is the **interface**.
 
----
+For example, sending `StatLed(200,200,5)` over the interface blinks the on-board STAT LED five times. Every module understands a common set of commands like this, plus its own module-specific ones — see [Get Started](../start) for the full picture and each product's **Commands** tab for what it supports.
 
-## Uplink
-
-Every single DUELink module works with [USB](./usb), [I2C](./i2c), and [UART](./uart) on their Uplink connector. This common JST connector is marked with `U` and is off-white color.
+Any host that can write text can drive a module: a PC, Raspberry Pi, Arduino, micro:bit, phone, or another DUELink microcomputer.
 
 <div style={{ textAlign: 'center'}}>
 ![Interfaces](pathname:///img/interfaces.webp)
 </div>
 
-The first use of Uplink connector is to connect DUELink modules to a [Supported Hardware](../hw/intro).
+Every module has two JST connectors — **Uplink** (white, marked `U`) and **Downlink** (blue, marked `D`) — that work together to let many modules be chained into a [Daisylink](../engine/daisylink).
+
+---
+
+## Uplink: where commands come in
+
+The Uplink connector is the module's input port. It accepts commands from either a host or the previous module in a chain.
 
 <div style={{ textAlign: 'center'}}>
-![arduino uni Daisylink](pathname:///img/arduino-uno-r4-daisylinked.webp)
+![Arduino UNO with DUELink modules](pathname:///img/arduino-uno-r4-daisylinked.webp)
 </div>
 
-Another option is to use Uplink to [Daisylink](../engine/daisylink) DUELink modules.
+Uplink supports all three buses — [USB](./usb), [I2C](./i2c), and [UART](./uart) — through the same physical connector. The module detects which one is active on power-up (see [Interface Detection](#interface-detection) below).
 
-<div style={{ textAlign: 'center'}}>
-![daisylink modules](pathname:///img/daisylink.webp)
-</div>
+### Microcomputer variants
 
-Note that some modules are made in a microcomputer-form-factor and the Uplink connector is replaced with a USB connector, which can only use the [USB](./usb) interface.
+Some modules — the microcomputer form factor — replace the JST Uplink with a direct USB connector. These can only use the USB interface.
 
 <div style={{ textAlign: 'center'}}>
 ![DueDuino](pathname:///img/dueduino.webp)
 </div>
 
-In contrast, most modules have the standard JST connector, that have the option to connect to USB using an adaptor like USB Hook. 
+Modules with only a JST Uplink can still connect to a PC through a small adapter like [USB Hook](../products/adusbhook-a).
 
 <div style={{ textAlign: 'center'}}>
-![DueDuino](pathname:///img/usbhook-rgb3.webp)
+![USB Hook with an RGB3 module](pathname:///img/usbhook-rgb3.webp)
 </div>
-
-Learn more about [USB](./usb), [I2C](./i2c), and [UART](./uart) interfaces.
 
 ---
 
-## Downlink
+## Downlink: where the chain continues
 
-The Downlink socket is marked with `D` and it is blue color. It is automatically handled by the [internal engine](../engine/intro) and allows for [Daisylinking](../engine/daisylink) modules.
+The Downlink connector is the module's output port for adding more modules. Plug the Uplink of the next module into the Downlink of the current one, and commands flow through.
 
 <div style={{ textAlign: 'center'}}>
-![DueDuino](pathname:///img/uplink-downlink.webp)
+![Uplink to Downlink](pathname:///img/uplink-downlink.webp)
 </div>
 
-Learn more about [Downlink](./downlink).
+The pattern is: **host → Uplink of module 1 → Downlink of module 1 → Uplink of module 2 → Downlink of module 2 → ...** Each module is a signal repeater along the way, and each one gets its own address (1, 2, 3, ...) assigned automatically on power-up. The host selects which module a command targets with `Sel(n)`.
+
+Downlink is handled automatically by the [internal engine](../engine/intro). For the full picture — addresses, broadcast, multi-select, and host mode — see [Daisylink](../engine/daisylink).
+
+<div style={{ textAlign: 'center'}}>
+![Daisylinked modules](pathname:///img/daisylink.webp)
+</div>
 
 ---
 
 ## Wireless
 
-DUELink doesn't stop there as it also provides ways for connecting modules over a [wireless](./wireless) connection.
+The chain doesn't have to be physical — a [wireless](./wireless) link can carry commands between segments of the same Daisylink.
 
 <div style={{ textAlign: 'center'}}>
 ![Wireless daisylink](pathname:///img/wireless-daisylink.webp)
@@ -62,17 +68,16 @@ DUELink doesn't stop there as it also provides ways for connecting modules over 
 
 ---
 
-
 ## Interface Detection
 
-DUELink modules check their interface pins on power-up for high-level to configure themselves to use the I2C interface.
+On power-up, a module checks its interface pins. If both are pulled high, it configures itself for I2C. Otherwise it watches for activity on USB or UART and selects whichever wakes first.
 
-If either of the 2 pins is not high, then the system will monitor for USB or UART activity to select the interface that comes active.
+---
 
-## Connector Safety
+## Connector safety
 
 <div style={{ textAlign: 'center'}}>
-![proper connection](pathname:///img/proper-connection.webp)
+![Proper connection](pathname:///img/proper-connection.webp)
 </div>
 
-See how you can keep you and the JST connectors [safe](../safety)!
+See [Connector Safety](../safety) for how to handle JST connectors without damaging them.

@@ -3,41 +3,11 @@ import TabItem from "@theme/TabItem";
 
 # Graphics
 
-The graphics support is versatile and supports drawing on displays and LEDs of many types.
+The graphics library is versatile — the same drawing functions render to displays and LEDs of many types across the DUELink catalog.
 
 :::tip
-The graphics libraries do not include any device initialization. An application must initialize the device as necessary with `GfxCfg()` before using any drawing functions, like in the examples below.
+**For most users, configuration is already done.** Display and LED-matrix modules ship with [drivers](./drivers) that call `GfxCfg()` for you on power-up. Just call the drawing functions below.
 :::
-
-## Configuration
-
-Before any drawing operations, the system needs to know what device it will access and what pixel mapping it needs to process internally.
-
-`GfxCfg (type, {cfg}, width, height, mode)` is needed to set the device `type` with `width` and `height`. The `{cfg}` depends on the device type.
-
-When `mode` is 0 then graphics is sent directly to display. No need for internal buffering and no need for `Show()`. This uses a lot less memory.
-
-When `mode` is more than 0 then the engine uses buffering for graphics, where the value is the pixel multiplier. For example, setting `mode` to 3 will cause the graphics engine to multiply each pixel 3 times horizontally and vertically, 9 pixels in total. A 320x240 display runs at 106x80 pixels.
-
-When selecting to use graphics with `mode` set to more than 0 (use graphics buffering), make sure the overall memory need is under 10KBytes. 320x240 with 3x multiplier is 106x80, needing 8,480 bytes.
-
-Supported device types:
-
-Type | Description | Configuration `{cfg}`
---- | ---| ---
-0 | None (default) | Graphics is not being used!
-1 | I2C Display | The I2C display's `{address}`. 
-2 | SPI Display | The SPI display's `{chipselect, control}` pins.
-3 | NeoPixel WS2812 | `{pin, pwidth, pheight, scan}`. Configure for LED matrix connected to `pin`, with individual panel width `pwidth` and height `pheight`,  with `scan` horizontal (0) or vertical (1), mirrored horizontal (2).
-4 | LED Matrix Scanner | `{cfg}` the first element sets for common-cathode (1) or common-anode (0). Then followed by data pin then scan pins. The `width` and `height` are used to determine how many pins are used for data and scan, respectively.
-5 | LED Matrix List | `{cfg}` contains a 2D list of LEDs pins, with `width` and `height` layout.
-6 | ePaper (eInk) Display | Uses `{pixeldir, chipselect, control, busy}` where `pixeldir` is 0 for horizontal and 1 for vertical pixels. Then pins used with SPI bus.
-
-:::tip
-Not all types support both direct and buffered modes. See individual modes for supported types.
-:::
-
----
 
 ## Drawing
 
@@ -155,14 +125,59 @@ duelink.Graphics.Show();
 </Tabs>
 </details>
 
+---
+
+## Configuration
+
+For modules from the DUELink catalog, **this is already done by the module's driver** — the section below is only relevant if you're writing your own driver or using graphics on custom hardware.
+
+Before any drawing operations, the system needs to know what device it will access and what pixel mapping it needs to process internally.
+
+`GfxCfg (type, {cfg}, width, height, mode)` is needed to set the device `type` with `width` and `height`. The `{cfg}` depends on the device type.
+
+When `mode` is 0 then graphics is sent directly to display. No need for internal buffering and no need for `Show()`. This uses a lot less memory.
+
+When `mode` is more than 0 then the engine uses buffering for graphics, where the value is the pixel multiplier. For example, setting `mode` to 3 will cause the graphics engine to multiply each pixel 3 times horizontally and vertically, 9 pixels in total. A 320x240 display runs at 106x80 pixels.
+
+When selecting to use graphics with `mode` set to more than 0 (use graphics buffering), make sure the overall memory need is under 10KBytes. 320x240 with 3x multiplier is 106x80, needing 8,480 bytes.
+
+Supported device types:
+
+Type | Description | Configuration `{cfg}`
+--- | ---| ---
+0 | None (default) | Graphics is not being used!
+1 | I2C Display | The I2C display's `{address}`. 
+2 | SPI Display | The SPI display's `{chipselect, control}` pins.
+3 | NeoPixel WS2812 | `{pin, pwidth, pheight, scan}`. Configure for LED matrix connected to `pin`, with individual panel width `pwidth` and height `pheight`,  with `scan` horizontal (0) or vertical (1), mirrored horizontal (2).
+4 | LED Matrix Scanner | `{cfg}` the first element sets for common-cathode (1) or common-anode (0). Then followed by data pin then scan pins. The `width` and `height` are used to determine how many pins are used for data and scan, respectively.
+5 | LED Matrix List | `{cfg}` contains a 2D list of LEDs pins, with `width` and `height` layout.
+6 | ePaper (eInk) Display | Uses `{pixeldir, chipselect, control, busy}` where `pixeldir` is 0 for horizontal and 1 for vertical pixels. Then pins used with SPI bus.
+
+:::tip
+Not all types support both direct and buffered modes. See individual modes for supported types.
+:::
 
 ---
 
-## Smart Displays!
+## Build your own smart display
 
-Some applications require several graphics updates every second. In this case, it is best to load a display with a script that updates the graphics internally, to build the user interface. For example, a thermostat smart display demo can use the screen get the user's desired temperature. The desired temperature can then for example be stored in `_t` variable. You now can read the `_t` variable, from Python for example `temperature = Engine.ExecuteCommand("_t")`.
+For complex UIs that need many graphics updates per second — game screens, gauges, dashboards, thermostat dials — sending every drawing command from the host over the bus gets slow. Instead, **move the rendering onto the display module itself**.
 
-This is also the case when needing to draw images, as sending buffers over the Daisylink connection may not be desired. In this case, the image data is stored and drawn within the display module itself.
+Load a script onto the display module's MCU that does all the drawing locally. Expose the parameters that change as simple internal variables. The host only updates those variables — the on-module script redraws based on the new values.
+
+**Example: a thermostat display.** An on-module script draws the dial, current temperature, target temperature, and indicators. The target temperature lives in an internal variable `_t`. From a Python host:
+
+```py
+duelink.Engine.ExecuteCommand("_t=72")
+```
+
+One short message replaces 20+ drawing commands per update. The dial rotates, the digits change, and your host code stays out of the rendering loop entirely.
+
+**Example: a game.** The on-module script draws the player, obstacles, and score. Player position lives in `_x` and `_y`. The host updates `_x` and `_y` on input events; the display animates the rest.
+
+This pattern is also useful when **images** need to be drawn. Sending pixel buffers across the bus every frame is slow; storing the image data inside the display module and drawing it from the local script avoids the bandwidth cost entirely.
+
+See the [Internal Engine](./intro) docs for how to load scripts onto a module's MCU.
 
 ---
 
