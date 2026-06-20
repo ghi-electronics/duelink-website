@@ -8,7 +8,20 @@ import TabItem from "@theme/TabItem";
 ![Windows, Linux, and Mac Logos](pathname:///img/pc-laptop-logos.webp)
 </div>
 
-PCs and Laptops (Windows, Linux, or mac OS) can finally have an easy access to hundreds of sensors and actuators. There are many [Coding Language](../language/intro) options to cover every need.
+A regular desktop or laptop has **zero GPIO** — no PWM, no I2C, no analog input, no servo header, no relay terminal. Just USB, audio jacks, and a network port, all abstracted away from the physical world. The only way for code on a PC to *touch* something is through a peripheral someone else already built: a printer, a webcam, a USB mouse.
+
+DUELink turns any USB port into a chain of **hundreds of sensors and actuators**. Plug in a [USB Hook](../products/adusbhook-a), connect any DUELink module, and your [Python](../language/python), [JavaScript](../language/javascript), [.NET](../language/dotnet), or Excel script can read a temperature, drive a servo, switch a relay, light up a smart-LED strip, decode a barcode, or capture a thermal frame — without buying a board, soldering a circuit, or learning a vendor-specific SDK.
+
+For **AI and ML work** this is especially powerful — physical-world inputs and outputs in the same Python script as your model:
+
+- **Sensor → model** — temperature, distance, motion, sound, or vision data straight into PyTorch, scikit-learn, or NumPy
+- **Model → actuator** — let a classifier drive a relay, motor, LED, or display in real time
+- **Reproducible demos** — every researcher plugs into the same USB Hook and runs the same code
+- **No deployment hardware** — finish the demo on the laptop you already have
+
+---
+
+## Demo: web-based control
 
 Our [demo](https://demo.duelink.com/) is built using [JavaScript](../language/javascript) and offers an excellent starting point to play with DUELink modules and see how the web can be used to access sensors and actuators.
 

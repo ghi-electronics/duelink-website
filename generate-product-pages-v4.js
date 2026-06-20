@@ -270,9 +270,13 @@ function generateOrderSection(product) {
         tableRows = `| DUELink ${product.name.replace(' Rev ', ' ')} | ${product.partNumber} | $${product.price?.toFixed(2) || '00.00'} |`;
     }
     
-    return `<p style={{"backgroundColor": "lightcyan", "color": "black", "padding": "0px 0px 0px 30px"}}>
-    <h2>Ordering Info</h2>
-</p>
+    return `<h2 style={{
+  backgroundColor: 'rgba(9, 119, 170, 0.15)',
+  padding: '0.75rem 1.5rem',
+  borderRadius: '10px',
+  margin: '2.5rem 0 1.25rem',
+  fontSize: '1.5rem'
+}}>Ordering Info</h2>
 
 | Product | Part Number | Price |
 |---------|-------------|-------|
@@ -645,7 +649,7 @@ ${(product.keyFeatures || []).map(f => `• ${f}<br/>`).join('\n')}
 ${resourcesSection}${pidSection}<br/>
 </td></table>
 
-${product.category === 'Kit' ? '' : `:::note 🌿 Cables not included
+${(product.category === 'Kit' || product.category === 'Accessory') ? '' : `:::note 🌿 Cables not included
 Modules ship without cables to reduce waste. Some specialty boards include a USB cable; for the rest, see [Cables](/docs/products/axcbl) to add cables to your order.
 :::`}
 
@@ -655,8 +659,6 @@ ${samplesTabContent}
 ${standaloneSampleContent}
 
 </Tabs>
-
----
 
 ${generateOrderSection(product)}
 

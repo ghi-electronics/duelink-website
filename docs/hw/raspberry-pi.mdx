@@ -15,6 +15,23 @@ There are multiple ways to take advantage of the DUELink ecosystem with the enti
 
 ---
 
+## Servos, addressable LEDs, and other real-time tasks made easy
+
+Driving servo motors or **addressable LED strips** (WS2811/WS2812, APA102, and friends) directly from Raspberry Pi GPIO is notoriously fragile. Linux is not a real-time operating system — scheduler preemption, USB interrupts, and PWM jitter make precise sub-millisecond GPIO timing unreliable without specialized HATs, kernel modules, or third-party libraries like `pi-blaster` or `rpi_ws281x`.
+
+DUELink sidesteps all of that. The MCU on each module — or on [DuePi](../products/adduepi-b)'s on-board terminal block — handles timing-critical signal generation natively, so the Pi only has to send plain text commands. Whatever your Linux scheduler is doing in the background, the servo holds its position and the LEDs stay glitch-free.
+
+This applies to any timing-sensitive task on a Pi:
+
+- **Servos** — clean 1–2 ms PWM at 50 Hz, jitter-free
+- **Addressable LEDs** — WS2811/WS2812/APA102 strips, matrices, and rings
+- **Stepper motors** — precise step pulse rates
+- **PWM dimming** for LEDs and fans
+
+For all of these, DUELink turns "this works most of the time" into "this just works."
+
+---
+
 ## RPI and RPI Zero
 
 For using Raspberry Pi and Raspberry Pi Zero, we recommend the [DuePi](../products/adduepi-b) Hat.
