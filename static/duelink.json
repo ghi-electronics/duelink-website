@@ -61,7 +61,7 @@
       "category": "Microcomputer",
       "price": 7.95,
       "tagline": "A low-cost, micro:bit inspired educational board",
-      "description": "[Educators](/docs/educators) will find great value in this low-cost board. It includes a complete [CS Curriculum](/docs/tutorial/cincobit). This is an excellent [micro:bit](/docs/hw/microbit) alternative, giving you alligator clip pads and DUELink [Downlink](/docs/interface/downlink) connector for [Daisylinking](/docs/engine/daisylink) modules.\n\nCincoBit can sense light and temperature, it has 2 user buttons, and can output visual feedback on the 5x5 LED matrix plus generate sounds using the on-board buzzer.\n\n:::tip\nYou can't use this board with Microsoft [MakeCode](/docs/language/makecode) directly, but you can use [MicroBlocks](/docs/language/microblocks) instead\n:::\n\n<div style={{ width: '50%', margin: 'auto', textAlign: 'center'}}>![Classroom Kit](/img/catalog/ktcincobit-e-1.webp)</div>\n\n[Classroom CincoBit Kit](/docs/products/ktcincobit-e) is designed for classrooms on a budget, where an entire classroom of students can double-up and use a set of 14 for under $100!",
+      "description": "CincoBit is a low-cost, micro:bit-inspired board built around a 5×5 LED matrix, light and temperature sensors, two buttons, and an on-board buzzer. It uses the standard micro:bit edge connector with alligator-clip pads, plus a DUELink [Downlink](/docs/interface/downlink) port for chaining sensors, displays, and motors as projects grow.\n\nCode it from a browser with [MicroBlocks](/docs/language/microblocks) — the easiest classroom workflow, with a complete [CS curriculum](/docs/tutorial/cincobit) included — or program it in Python, JavaScript, .NET, Arduino, or C++ once students are ready for typed code.\n\nCincoBit is the flagship board behind the [Classroom CincoBit Kit](/docs/products/ktcincobit-e): 14 boards, USB cables, and storage for under $100.\n\n:::tip\nMicrosoft MakeCode doesn't run on CincoBit directly; use MicroBlocks instead.\n:::",
       "keyFeatures": [
         "5x5 LED Matrix",
         "micro:bit inspired edge connector",
@@ -109,8 +109,8 @@
           "description": "This driver version."
         }
       ],
-      "driverNotes": ":::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::",
-      "MfgNotes": "Check Menu->Help for connection before testing"
+      "MfgNotes": "Check Menu->Help for connection before testing",
+      "cmdNotes": ":::tip\nThe commands below set the display up. To draw on it, use the engine's built-in [Graphics](/docs/engine/graphics) library — the same drawing functions (`DrawLine`, `DrawText`, `Show`, etc.) render to any display in the DUELink catalog, so the same drawing code works no matter which display you have connected.\n:::"
     },
     {
       "name": "PixoBit",
@@ -589,7 +589,7 @@
           "price": 5.95
         }
       ],
-      "driverNotes": ":::tip\nSee [Graphics](/docs/engine/graphics) for available drawing functions.\n:::"
+      "cmdNotes": ":::tip\nThe commands below set the display up. To draw on it, use the engine's built-in [Graphics](/docs/engine/graphics) library — the same drawing functions (`DrawLine`, `DrawText`, `Show`, etc.) render to any display in the DUELink catalog, so the same drawing code works no matter which display you have connected.\n:::"
     },
     {
       "name": "Piano",
@@ -798,7 +798,8 @@
           "partCode": "CP",
           "price": 39.95
         }
-      ]
+      ],
+      "cmdNotes": ":::tip\nThe commands below set the display up. To draw on it, use the engine's built-in [Graphics](/docs/engine/graphics) library — the same drawing functions (`DrawLine`, `DrawText`, `Show`, etc.) render to any display in the DUELink catalog, so the same drawing code works no matter which display you have connected.\n:::"
     },
     {
       "name": "TFT N18",
@@ -842,7 +843,8 @@
           "signature": "DVer()",
           "description": "This driver version."
         }
-      ]
+      ],
+      "cmdNotes": ":::tip\nThe commands below set the display up. To draw on it, use the engine's built-in [Graphics](/docs/engine/graphics) library — the same drawing functions (`DrawLine`, `DrawText`, `Show`, etc.) render to any display in the DUELink catalog, so the same drawing code works no matter which display you have connected.\n:::"
     },
     {
       "name": "TFT R128",
@@ -879,7 +881,8 @@
           "signature": "DVer()",
           "description": "This driver version."
         }
-      ]
+      ],
+      "cmdNotes": ":::tip\nThe commands below set the display up. To draw on it, use the engine's built-in [Graphics](/docs/engine/graphics) library — the same drawing functions (`DrawLine`, `DrawText`, `Show`, etc.) render to any display in the DUELink catalog, so the same drawing code works no matter which display you have connected.\n:::"
     },
     {
       "name": "ePaper M42",
@@ -917,7 +920,8 @@
           "signature": "DVer()",
           "description": "This driver version."
         }
-      ]
+      ],
+      "cmdNotes": ":::tip\nThe commands below set the display up. To draw on it, use the engine's built-in [Graphics](/docs/engine/graphics) library — the same drawing functions (`DrawLine`, `DrawText`, `Show`, etc.) render to any display in the DUELink catalog, so the same drawing code works no matter which display you have connected.\n:::"
     },
     {
       "name": "ePaper M29",
@@ -954,7 +958,8 @@
           "signature": "DVer()",
           "description": "This driver version."
         }
-      ]
+      ],
+      "cmdNotes": ":::tip\nThe commands below set the display up. To draw on it, use the engine's built-in [Graphics](/docs/engine/graphics) library — the same drawing functions (`DrawLine`, `DrawText`, `Show`, etc.) render to any display in the DUELink catalog, so the same drawing code works no matter which display you have connected.\n:::"
     },
     {
       "name": "HDMI",
@@ -1141,7 +1146,8 @@
           "signature": "DVer()",
           "description": "This driver version."
         }
-      ]
+      ],
+      "cmdNotes": ":::tip\nThe commands below set the display up. To draw on it, use the engine's built-in [Graphics](/docs/engine/graphics) library — the same drawing functions (`DrawLine`, `DrawText`, `Show`, etc.) render to any display in the DUELink catalog, so the same drawing code works no matter which display you have connected.\n:::"
     },
     {
       "name": "VFD B8",
@@ -1518,7 +1524,7 @@
         "27x18mm Overall Dimension"
       ],
       "driverApi": [],
-      "driverNotes": ":::tip\nDio X12 module uses the [Standard Library API](/docs/engine/stdlib) directly. No other drivers are needed.\n:::"
+      "cmdNotes": ":::tip\nDio X12 module uses the [Standard Library API](/docs/engine/stdlib) directly. No other drivers are needed.\n:::"
     },
     {
       "name": "RS485",
@@ -1591,7 +1597,7 @@
         "42x32mm Overall Dimension"
       ],
       "driverApi": [],
-      "driverNotes": ":::tip\nDMX module uses the [Standard Library](../engine/stdlib) DMX bus. No other drivers are needed.\n:::"
+      "cmdNotes": ":::tip\nDMX module uses the [Standard Library](../engine/stdlib) DMX bus. No other drivers are needed.\n:::"
     },
     {
       "name": "Ethernet",
@@ -2054,14 +2060,15 @@
       "category": "Storage",
       "price": 19.95,
       "tagline": "USB Host Controller",
-      "description": "USB host controller for connecting USB peripherals. Full file system facilities are provided, see [File System](/docs/engine/filesystem).",
+      "description": "USB Host is a JST-connected module that gives any DUELink chain access to a USB-A port for memory sticks and other USB Mass Storage devices. FAT16 and FAT32 with long-filename support is built in — read and write files with simple [text commands](?show=commands) over any supported [interface](/docs/interface/intro), no filesystem library needed.\n\nCommon uses: logging sensor data, storing configuration, loading assets at runtime, replaying melodies.",
       "keyFeatures": [
         "USB Host interface",
         "MSC Class",
         "FAT16/FAT32 with LFN support",
         "USB-A Host Connector",
         "32x27mm Overall Dimension"
-      ]
+      ],
+      "cmdNotes": ":::tip\nThis module has no commands of its own — file access is handled by the engine's built-in [File System](/docs/engine/filesystem) library. The same file functions (`FileOpen`, `FileRead`, `FileWrite`, etc.) work whether you have USB Host, SD Card, or MicroSD connected, so the same code works across all DUELink storage modules.\n:::"
     },
     {
       "name": "SD Card",
@@ -2075,7 +2082,8 @@
         "SD card slot",
         "FAT file system",
         "47x32mm Overall Dimension"
-      ]
+      ],
+      "cmdNotes": ":::tip\nThis module has no commands of its own — file access is handled by the engine's built-in [File System](/docs/engine/filesystem) library. The same file functions (`FileOpen`, `FileRead`, `FileWrite`, etc.) work whether you have USB Host, SD Card, or MicroSD connected, so the same code works across all DUELink storage modules.\n:::"
     },
     {
       "name": "MicroSD",
@@ -2089,7 +2097,8 @@
         "Micro SD card slot",
         "FAT file system",
         "32x17mm Overall Dimension"
-      ]
+      ],
+      "cmdNotes": ":::tip\nThis module has no commands of its own — file access is handled by the engine's built-in [File System](/docs/engine/filesystem) library. The same file functions (`FileOpen`, `FileRead`, `FileWrite`, etc.) work whether you have USB Host, SD Card, or MicroSD connected, so the same code works across all DUELink storage modules.\n:::"
     },
     {
       "name": "Flash",
@@ -2583,7 +2592,7 @@
           "description": "This driver version."
         }
       ],
-      "driverNotes": ":::tip\nUse the Standard Library API directly to read temp and humidity.\n:::"
+      "cmdNotes": ":::tip\nUse the Standard Library API directly to read temp and humidity.\n:::"
     },
     {
       "name": "Thermo",

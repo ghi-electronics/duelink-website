@@ -451,11 +451,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/t
 
 
         if (sampleTabItems.length > 0) {
-            sampleLanguagesBlock = `---
-
-### Samples
-
-Example code for using this module's commands in popular languages.
+            sampleLanguagesBlock = `Example code that calls this module's [commands](?show=commands) from popular host languages.
 
 :::tip
 New here? See [Get Started](/docs/start) to connect a module and send your first command.
@@ -552,10 +548,10 @@ ${standaloneSampleTabItems.join('\n')}
         }
     }
 
-    // Build the Commands tab — appears if driver file OR tethered samples exist.
-    // Layout: commands table -> driverNotes -> ### Samples (language sub-tabs) -> Peek under the hood
+    // Build the Commands tab — reference only (cmdNotes + table + Peek under the hood).
+    // Appears if a driver file exists for this product.
     let commandsTabContent = '';
-    const hasCommandsTab = !!driverPath || !!sampleLanguagesBlock;
+    const hasCommandsTab = !!driverPath;
 
     if (hasCommandsTab) {
         // Insert Commands tab just after Overview
@@ -563,22 +559,21 @@ ${standaloneSampleTabItems.join('\n')}
 
         const parts = [];
 
-        if (driverPath) {
-            // Accept driverApi as either a markdown string (legacy) or an array of {signature, description}
-            const driverTable = formatDriverApi(product.driverApi);
-            if (driverTable) parts.push(driverTable);
-            if (product.driverNotes) parts.push(product.driverNotes);
-        }
-
+        // Orientation line at the top — only when a Samples tab exists, since
+        // it would otherwise point to a tab that isn't there.
         if (sampleLanguagesBlock) {
-            parts.push(sampleLanguagesBlock);
+            parts.push(`Commands this module accepts. See [Samples](?show=samples) for runnable code in popular host languages.`);
         }
 
-        if (driverPath) {
-            const productBaseName = product.name.replace(/\s+[A-Z]$/i, '');
-            parts.push(`---
+        // cmdNotes appears above the commands table so context is set before
+        // the function list. Accept driverApi as either array (preferred) or
+        // legacy markdown string.
+        if (product.cmdNotes) parts.push(product.cmdNotes);
+        const driverTable = formatDriverApi(product.driverApi);
+        if (driverTable) parts.push(driverTable);
 
-<details>
+        const productBaseName = product.name.replace(/\s+[A-Z]$/i, '');
+        parts.push(`<details>
 <summary><strong>Peek under the hood</strong></summary>
 
 The script below is this module's [driver](/docs/engine/drivers) — it teaches the hardware how to respond to the commands listed above. It ships pre-loaded from the factory; most users never need to open it.
@@ -588,12 +583,26 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/driver/$
 \`\`\`
 
 </details>`);
-        }
 
         commandsTabContent = `
 <TabItem value="commands">
 
 ${parts.join('\n\n')}
+
+</TabItem>`;
+    }
+
+    // Build the Samples tab — appears if tethered samples exist.
+    // Inserted after the Commands tab (or right after Overview if no Commands tab).
+    let samplesTabContent = '';
+    if (sampleLanguagesBlock) {
+        const insertAt = hasCommandsTab ? 2 : 1;
+        tabs.splice(insertAt, 0, {label: 'Samples', value: 'samples'});
+
+        samplesTabContent = `
+<TabItem value="samples">
+
+${sampleLanguagesBlock}
 
 </TabItem>`;
     }
@@ -642,6 +651,7 @@ Modules ship without cables to reduce waste. Some specialty boards include a USB
 
 </TabItem>
 ${commandsTabContent}
+${samplesTabContent}
 ${standaloneSampleContent}
 
 </Tabs>
