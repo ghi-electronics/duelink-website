@@ -17,9 +17,7 @@ i2c = transport.I2CTransportController(sda=sdaPIN, scl=sclPIN)
 due = duelink.DUELinkController(i2c)
 
 def Clear():
-    due.Engine.ExecuteCommand("DLClear()")
-    due.Engine.ExecuteCommand("DLCmd(C_CLEAR_COLOR,{0,0,0})")
-    due.Engine.ExecuteCommand("DLCmd(C_CLEAR,{})")
+    due.Engine.ExecuteCommand("ClearScreen(0)")
 
 
 def FillRect(color, x, y, width, height):
@@ -58,8 +56,7 @@ def DrawChar(c, color, x, y, size):
 
 
 def Show():
-    due.Engine.ExecuteCommand("DLCmd(C_DISPLAY,{})")
-    due.Engine.ExecuteCommand("DLSwap()")
+    due.Engine.ExecuteCommand("FlushScreen()")    
 
 
 # ---- Main ----

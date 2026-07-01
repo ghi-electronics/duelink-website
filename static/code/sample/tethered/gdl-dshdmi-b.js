@@ -12,9 +12,7 @@ let duelink = new DUELinkController(new SerialUSB());
 await duelink.Connect();
 
 async function Clear() {
-    await duelink.Engine.ExecuteCommand("DLClear()");
-    await duelink.Engine.ExecuteCommand("DLCmd(C_CLEAR_COLOR,{0,0,0})");
-    await duelink.Engine.ExecuteCommand("DLCmd(C_CLEAR,{})");
+    await duelink.Engine.ExecuteCommand("ClearScreen(0)");
 }
 
 
@@ -56,8 +54,7 @@ async function DrawChar(c, color, x, y, size) {
 
 
 async function Show() {
-    await duelink.Engine.ExecuteCommand("DLCmd(C_DISPLAY,{})");
-    await duelink.Engine.ExecuteCommand("DLSwap()");
+    await duelink.Engine.ExecuteCommand("FlushScreen()");
 }
 
 

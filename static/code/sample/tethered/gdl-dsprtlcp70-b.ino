@@ -13,13 +13,7 @@ DUELink duelink(transport);
 
 void Clear() {
     // Clear the display list
-    duelink.Engine.ExecuteCommand("DLClear()");
-
-    // Set clear color to black
-    duelink.Engine.ExecuteCommand("DLCmd(C_CLEAR_COLOR,{0,0,0})");
-
-    // Clear the screen
-    duelink.Engine.ExecuteCommand("DLCmd(C_CLEAR,{})");
+    duelink.Engine.ExecuteCommand("ClearScreen(0)");
 }
 
 void FillRect(uint32_t color, int x, int y, int width, int height) {
@@ -75,8 +69,7 @@ void DrawChar(char c, uint32_t color, int x, int y, int size) {
 
 void Show() {
     // Display the list and swap buffers
-    duelink.Engine.ExecuteCommand("DLCmd(C_DISPLAY,{})");
-    duelink.Engine.ExecuteCommand("DLSwap()");
+    duelink.Engine.ExecuteCommand("FlushScreen()");    
 }
 
 void setup() {

@@ -9,9 +9,7 @@ availablePort = DUELinkController.GetConnectionPort()
 duelink = DUELinkController(availablePort)
 
 def Clear():
-    duelink.Engine.ExecuteCommand("DLClear()")
-    duelink.Engine.ExecuteCommand("DLCmd(C_CLEAR_COLOR,{0,0,0})")
-    duelink.Engine.ExecuteCommand("DLCmd(C_CLEAR,{})")
+    duelink.Engine.ExecuteCommand("ClearScreen(0)")
 
 
 def FillRect(color, x, y, width, height):
@@ -50,8 +48,7 @@ def DrawChar(c, color, x, y, size):
 
 
 def Show():
-    duelink.Engine.ExecuteCommand("DLCmd(C_DISPLAY,{})")
-    duelink.Engine.ExecuteCommand("DLSwap()")
+    duelink.Engine.ExecuteCommand("FlushScreen()")
 
 
 # ---- Main ----
