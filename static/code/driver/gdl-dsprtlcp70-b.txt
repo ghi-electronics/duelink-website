@@ -696,8 +696,9 @@ fn FlushScreen()
 
 fend
 
-fn UpdTouch() 
-    t = MemRead(3154212,32)
+fn UpdTouch()
+    # Touch read 4 bytes, float can't handle it. Read to b3
+    MemWrRd(3154212,[], bit32, 1)
     _y = b3[1] << 8 | b3[0]
     _x = b3[3] << 8 | b3[2]
     
@@ -712,7 +713,7 @@ fn UpdTouch()
 fend
  
 fn DVer()
-    return 0.3
+    return 0.4
 fend
  
 Init(800,480, 100)  
