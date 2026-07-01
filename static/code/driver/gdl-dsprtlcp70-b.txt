@@ -447,6 +447,10 @@ fn Init(w, h, b)
     MemWrRd(0x00302080,[0x00],bit8,0)
     MemWrRd(0x00302084,[0x00],bit8,0)
     MemWrRd(0x00302088,[0x60,0x00],bit16,0)
+    
+    ClearScreen(0)
+    DrawString("DUELink", 0xFFFFFF, 300, 192, 31, 34)
+    FlushScreen()
  
 fend
 
@@ -617,8 +621,13 @@ fend
 
 
 fn DrawString(b0, c, x, y, f, o)
-    # f: font size 0..31
+    # f: font size 16..31
     # o: offset width
+    
+    if f < 16
+        f = 16
+    end
+    
     DLCmd(C_COLOR,{c>>16,(c>>8)&0xff,c&0xff})
     
     DLCmd(0x05,{f})   # BITMAP_HANDLE
