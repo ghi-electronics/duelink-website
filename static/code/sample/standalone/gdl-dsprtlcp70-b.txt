@@ -6,78 +6,67 @@
 ClearScreen(0)
  
 #Color Bars White
-# verts (0,0)-(1800,7500)  ->  x=0, y=0, w=1800>>4, h=7500>>4, filled
-DrawRect(0xFFFFFF, 0, 0, (1800>>4), (7500>>4), 1)
+DrawRect(0xFFFFFF, 0, 0, 112, 468, 1)
 
 #Color Bars Yellow
-# verts (1800,0)-(3600,7500)
-DrawRect(0xFFFF00, (1800>>4), 0, ((3600-1800)>>4), (7500>>4), 1)
+DrawRect(0xFFFF00, 112, 0, 112, 468, 1)
 
 #Color Bars Cyan
-# verts (3600,0)-(5400,7500)
-DrawRect(0x00FFFF, (3600>>4), 0, ((5400-3600)>>4), (7500>>4), 1)
+DrawRect(0x00FFFF, 225, 0, 112, 468, 1)
 
 #Color Bars Green
-# verts (5400,0)-(7200,7500)
-DrawRect(0x00FF00, (5400>>4), 0, ((7200-5400)>>4), (7500>>4), 1)
+DrawRect(0x00FF00, 337, 0, 112, 468, 1)
 
 #Color Bars Magenta
-# verts (7200,0)-(9000,7500)
-DrawRect(0xFF00FF, (7200>>4), 0, ((9000-7200)>>4), (7500>>4), 1)
+DrawRect(0xFF00FF, 450, 0, 112, 468, 1)
 
 #Color Bars Red
-# verts (9000,0)-(10800,7500)
-DrawRect(0xFF0000, (9000>>4), 0, ((10800-9000)>>4), (7500>>4), 1)
+DrawRect(0xFF0000, 562, 0, 112, 468, 1)
 
 #Color Bars Blue
-# verts (10800,0)-(12700,7500)
-DrawRect(0x0000FF, (10800>>4), 0, ((12700-10800)>>4), (7500>>4), 1)
+DrawRect(0x0000FF, 675, 0, 118, 468, 1)
 
 #BLACK OUTLINE BACKGROUND
-# verts (0,2000)-(12700,4900)
-DrawRect(0x000000, 0, (2000>>4), (12700>>4), ((4900-2000)>>4), 1)
+DrawRect(0x000000, 0, 125, 793, 181, 1)
 
 #YELLOW BACKGROUND
-# verts (0,2100)-(12700,4800)
-DrawRect(0xFFFF00, 0, (2100>>4), (12700>>4), ((4800-2100)>>4), 1)
+DrawRect(0xFFFF00, 0, 131, 793, 168, 1)
 
 #RED LINES
-# each line (0,y)-(12700,y); keep loop in subpixels, shift when drawing
-for y=2400 to 3000 step 100
-  DrawLine(0xFF0000, 0, (y>>4), (12700>>4), (y>>4))
+for y=150 to 187 step 6
+  DrawLine(0xFF0000, 0, y, 793, y)
 next
 
 #GREEN LINES 
-for y=3200 to 3800 step 100
-  DrawLine(0x00FF00, 0, (y>>4), (12700>>4), (y>>4))
+for y=200 to 237 step 6
+  DrawLine(0x00FF00, 0, y, 793, y)
 next
 
 #BLUE LINES 
-for y=4000 to 4600 step 100
-  DrawLine(0x0000FF, 0, (y>>4), (12700>>4), (y>>4))
+for y=250 to 287 step 6
+  DrawLine(0x0000FF, 0, y, 793, y)
 next
 
+#First RED CIRCLE  (center 50,215 ; outer r=20 black, inner r=18 red)
+DrawCircle(0x000000, 50, 215, 20, 1)
+DrawCircle(0xFF0000, 50, 215, 18, 1)
 
-#First RED CIRCLE  (center 50,3450 ; outer r=20 black, inner r=18 red)
-DrawCircle(0x000000, 50, (3450>>4), 20, 1)
-DrawCircle(0xFF0000, 50, (3450>>4), 18, 1)
+#First GREEN CIRCLE  (center 140,215 ; outer r=20 black, inner r=18 green)
+DrawCircle(0x000000, 140, 215, 20, 1)
+DrawCircle(0x00FF00, 140, 215, 18, 1)
 
-#First GREEN CIRCLE  (center 140,3450 ; outer r=20 black, inner r=18 green)
-DrawCircle(0x000000, 140, (3450>>4), 20, 1)
-DrawCircle(0x00FF00, 140, (3450>>4), 18, 1)
-
-#First BLUE CIRCLE  (center 230,3450 ; outer r=20 black, inner r=18 blue)
-# NOTE: original was cut off here (inner vertex/color/END missing) — completed to match red/green
-DrawCircle(0x000000, 230, (3450>>4), 20, 1)
-DrawCircle(0x0000FF, 230, (3450>>4), 18, 1)
-    
+#First BLUE CIRCLE  (center 230,215 ; outer r=20 black, inner r=18 blue)
+DrawCircle(0x000000, 230, 215, 20, 1)
+DrawCircle(0x0000FF, 230, 215, 18, 1)
+       
 DrawString("DUELink", 0x0, 300, 192, 31, 34)
 FlushScreen()
  
 for i = 0 to 3
     # Play sound beep
+    # Access sound registers (Page 42 - BT817/8 Advanced Embedded Video Engine Datasheet ver 1.2)
     MemWrRd(0x00302084,  [0xff], bit8,0) #max EVE_REG_VOL_SOUND
-    MemWrRd(0x00302088,  [0x6C,5], bit16,0)
+    MemWrRd(0x00302088,  [0x6C,5], bit16,0) # 5 for beep
     MemWrRd(0x0030208C,  [0x01], bit8,0) #EVE_REG_PLAY
     Wait(100)
     # Play stop
@@ -86,6 +75,7 @@ for i = 0 to 3
     Wait(1000)
 next 
 
+# Wait 3 seconds for sound beep then play touch
 while (1)
     UpdTouch()
    
