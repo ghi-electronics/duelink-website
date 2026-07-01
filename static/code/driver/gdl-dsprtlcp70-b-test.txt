@@ -105,8 +105,10 @@ fn Test()
     # NOTE: original was cut off here (inner vertex/color/END missing) — completed to match red/green
     DrawCircle(0x000000, 230, (3450>>4), 20, 1)
     DrawCircle(0x0000FF, 230, (3450>>4), 18, 1)
- 
+        
+    DrawString("DUELink", 0x0, 300, 192, 31, 34)
     FlushScreen()
+ 
     
     println("please wait... ", t, "/", t )  
     c = c + 1

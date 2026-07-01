@@ -641,8 +641,12 @@ fn DrawString(b0, c, x, y, f, o)
 
         if (b > 0)
             DLCmd(0x06,{b})   # CELL
-            DLCmd(C_VERTEX2F,{x<<4,y<<4}) 
-            x = x + o
+            DLCmd(C_VERTEX2F,{x<<4,y<<4})
+            if b = 'i' || b = 'I'           
+                x = x + o/2
+            else
+                x = x + o
+            end
         end
     
     next
