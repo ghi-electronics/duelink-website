@@ -15,10 +15,10 @@ fn Test()
     cmd("TextS(\"Starting test...\", 1, 0, 0, 1,2)")
     cmd("Show()") 
 
-    s = MemRead(3155440,bit8) # read flash status
-    
+    s = MemWrRd(3155440,[], bit8, 1) # read flash status
+ 
     if (s = 2)
-        z = MemRead(3182628,bit8) # read size
+        z = MemWrRd(3182628,[],bit8,1) # read size
         if (z != 16)
             while (1)
                 println("Error: Flash Wrong size. Size is ", z, "MB")
@@ -37,198 +37,68 @@ fn Test()
     c = 0
     t = 3
     
-    DLClear()
-    DLCmd(C_CLEAR_COLOR,{0,0,0})
-    DLCmd(C_CLEAR,{})
-    
+    ClearScreen(0)
+ 
+ 
+    #Color Bars  (7 bars across full 1024 width, height 585)
+    #White
+    DrawRect(0xFFFFFF, 0,   0, 146, 585, 1)
+    #Yellow
+    DrawRect(0xFFFF00, 146, 0, 147, 585, 1)
+    #Cyan
+    DrawRect(0x00FFFF, 293, 0, 146, 585, 1)
+    #Green
+    DrawRect(0x00FF00, 439, 0, 146, 585, 1)
+    #Magenta
+    DrawRect(0xFF00FF, 585, 0, 146, 585, 1)
+    #Red
+    DrawRect(0xFF0000, 731, 0, 147, 585, 1)
+    #Blue
+    DrawRect(0x0000FF, 878, 0, 145, 585, 1)
+ 
+    #BLACK OUTLINE BACKGROUND  (full width, middle strip)
+    DrawRect(0x000000, 0, 156, 1023, 226, 1)
+ 
+    #YELLOW BACKGROUND  (inset inside the black strip)
+    DrawRect(0xFFFF00, 0, 164, 1023, 211, 1)
+ 
     println("please wait... ", c, "/", t )  
     c = c + 1
-     
-    #Color Bars White
-    DLCmd(C_COLOR,{255,255,255})
-    DLCmd(C_BEGIN, {RECTS})
-    DLCmd(C_VERTEX2F, {0,0}) 
-    DLCmd(C_VERTEX2F, {1800,7500})
-    DLCmd(C_END,{}) 
-     
-    #Color Bars Yellow
-    DLCmd(C_COLOR,{255,255,0})
-    DLCmd(C_BEGIN, {RECTS})
-    DLCmd(C_VERTEX2F, {1800,0}) 
-    DLCmd(C_VERTEX2F, {3600,7500})
-    DLCmd(C_END,{})
-    
-     
-    #Color Bars Cyan
-    DLCmd(C_COLOR,{0,255,255})
-    DLCmd(C_BEGIN, {RECTS})
-    DLCmd(C_VERTEX2F, {3600,0}) 
-    DLCmd(C_VERTEX2F, {5400,7500})
-    DLCmd(C_END,{})
-     
-    #Color Bars Green
-    DLCmd(C_COLOR,{0,255,0})
-    DLCmd(C_BEGIN, {RECTS})
-    DLCmd(C_VERTEX2F, {5400,0}) 
-    DLCmd(C_VERTEX2F, {7200,7500})
-    DLCmd(C_END,{})
-    
-     
-    #Color Bars Magenta
-    DLCmd(C_COLOR,{255,0,255})
-    DLCmd(C_BEGIN, {RECTS})
-    DLCmd(C_VERTEX2F, {7200,0}) 
-    DLCmd(C_VERTEX2F, {9000,7500})
-    DLCmd(C_END,{})
-     
-    #Color Bars Red
-    DLCmd(C_COLOR,{255,0,0})
-    DLCmd(C_BEGIN, {RECTS})
-    DLCmd(C_VERTEX2F, {9000,0}) 
-    DLCmd(C_VERTEX2F, {10800,7500})
-    DLCmd(C_END,{})
-    
-     
-    #Color Bars Blue
-    DLCmd(C_COLOR,{0,0,255})
-    DLCmd(C_BEGIN, {RECTS})
-    DLCmd(C_VERTEX2F, {10800,0}) 
-    DLCmd(C_VERTEX2F, {12700,7500})
-    DLCmd(C_END,{})
-     
-    #BLACK OUTLINE BACKGROUND
-    DLCmd(C_COLOR,{0,0,0})
-    DLCmd(C_BEGIN, {RECTS})
-    DLCmd(C_VERTEX2F, {0,2000})
-    DLCmd(C_VERTEX2F, {12700,4900}) 
-    DLCmd(C_END,{})
-    
-     
-    #YELLOW BACKGROUND
-    DLCmd(C_COLOR,{255,255,0})
-    DLCmd(C_BEGIN, {RECTS})
-    DLCmd(C_VERTEX2F, {0,2100})
-    DLCmd(C_VERTEX2F, {12700,4800}) 
-    DLCmd(C_END,{})
-    
-    println("please wait... ", c, "/", t )  
-    c = c + 1
-    
+ 
     #RED LINES
-    DLCmd(C_BEGIN,{LINES})
-    DLCmd(C_COLOR,{255,0,0})
-    for y=2400 to 3000 step 100
-      DLCmd(C_VERTEX2F, {0,y})
-      DLCmd(C_VERTEX2F, {12700,y})
+    for y=188 to 234 step 8
+      DrawLine(0xFF0000, 0, y, 1023, y)
     next
-    DLCmd(C_END,{})
-     
+ 
     #GREEN LINES 
-    DLCmd(C_BEGIN,{LINES})
-    DLCmd(C_COLOR,{0,255,0})
-    for y=3200 to 3800 step 100
-      DLCmd(C_VERTEX2F, {0,y})
-      DLCmd(C_VERTEX2F, {12700,y})
+    for y=250 to 296 step 8
+      DrawLine(0x00FF00, 0, y, 1023, y)
     next
-    DLCmd(C_END,{})
-         
-     
+ 
     #BLUE LINES 
-    DLCmd(C_BEGIN,{LINES})
-    DLCmd(C_COLOR,{0,0,255})
-    for y=4000 to 4600 step 100
-      DLCmd(C_VERTEX2F, {0,y})
-      DLCmd(C_VERTEX2F, {12700,y})
+    for y=312 to 359 step 8
+      DrawLine(0x0000FF, 0, y, 1023, y)
     next
-    DLCmd(C_END,{})
-    
+ 
     println("please wait... ", c, "/", t )  
     c = c + 1
-     
-    #First RED CIRCLE
-    DLCmd(C_COLOR,{0,0,0}) #Outer Circle
-    DLCmd(C_BEGIN,{POINTS})
-    DLCmd(C_POINT_SIZE,{20<<4})
-    DLCmd(C_VERTEX2F, {50<<4,3450})
-    DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
-    DLCmd(C_COLOR,{255,0,0})
-    DLCmd(C_VERTEX2F, {50<<4,3450})
-    DLCmd(C_END,{})
-     
-    #First GREEN CIRCLE
-    DLCmd(C_COLOR,{0,0,0}) #Outer Circle
-    DLCmd(C_BEGIN,{POINTS})
-    DLCmd(C_POINT_SIZE,{20<<4})
-    DLCmd(C_VERTEX2F, {140<<4,3450})
-    DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
-    DLCmd(C_COLOR,{0,255,0})
-    DLCmd(C_VERTEX2F, {140<<4,3450})
-    DLCmd(C_END,{})
-     
-    #First BLUE CIRCLE
-    DLCmd(C_COLOR,{0,0,0}) #Outer Circle
-    DLCmd(C_BEGIN,{POINTS})
-    DLCmd(C_POINT_SIZE,{20<<4})
-    DLCmd(C_VERTEX2F, {230<<4,3450})
-    DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
-    DLCmd(C_COLOR,{0,0,255})
-    DLCmd(C_VERTEX2F, {230<<4,3450})
-    DLCmd(C_END,{})
-     
-    #Second BLUE CIRCLE
-    DLCmd(C_COLOR,{0,0,0}) #Outer Circle
-    DLCmd(C_BEGIN,{POINTS})
-    DLCmd(C_POINT_SIZE,{20<<4})
-    DLCmd(C_VERTEX2F, {580<<4,3450})
-    DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
-    DLCmd(C_COLOR,{0,0,255})
-    DLCmd(C_VERTEX2F, {580<<4,3450})
-    DLCmd(C_END,{})
-     
-    #Second GREEN CIRCLE
-    DLCmd(C_COLOR,{0,0,0}) #Outer Circle
-    DLCmd(C_BEGIN,{POINTS})
-    DLCmd(C_POINT_SIZE,{20<<4})
-    DLCmd(C_VERTEX2F, {670<<4,3450})
-    DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
-    DLCmd(C_COLOR,{0,255,0})
-    DLCmd(C_VERTEX2F, {670<<4,3450})
-    DLCmd(C_END,{})
-     
-    #Second RED CIRCLE
-    DLCmd(C_COLOR,{0,0,0}) #Outer Circle
-    DLCmd(C_BEGIN,{POINTS})
-    DLCmd(C_POINT_SIZE,{20<<4})
-    DLCmd(C_VERTEX2F, {760<<4,3450})
-    DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
-    DLCmd(C_COLOR,{255,0,0})
-    DLCmd(C_VERTEX2F, {760<<4,3450})
-    DLCmd(C_END,{})
-     
-    #BLACK TEXT BOX
-    DLCmd(C_COLOR,{0,0,0})
-    DLCmd(C_BEGIN, {RECTS})
-    DLCmd(C_VERTEX2F, {8500,3100})
-    DLCmd(C_VERTEX2F, {4500,3800}) 
-    DLCmd(C_END,{}) 
-    
-    println("please wait... ", c, "/", t )  
-    c = c + 1
-     
-    #DUELINK WORDS
-    DLCmd(C_COLOR,{255,255,255})
-    DLCmd(C_BEGIN,{BITMAPS})
-    DLCmd(C_VERTEX2II, {300,192,31,'D'})
-    DLCmd(C_VERTEX2II, {335,192,31,'U'})
-    DLCmd(C_VERTEX2II, {370,192,31,'E'})
-    DLCmd(C_VERTEX2II, {405,192,31,'L'})
-    DLCmd(C_VERTEX2II, {435,192,31,'i'})
-    DLCmd(C_VERTEX2II, {460,192,31,'n'})
-    DLCmd(C_VERTEX2II, {495,192,31,'k'})
-    DLCmd(C_END,{})
-     
-    DLCmd(C_DISPLAY,{})
-    DLSwap()
+ 
+    #First RED CIRCLE   (center 64,269 ; outer r=25 black, inner r=22 red)
+    DrawCircle(0x000000, 64,  269, 25, 1)
+    DrawCircle(0xFF0000, 64,  269, 22, 1)
+ 
+    #First GREEN CIRCLE (center 179,269 ; outer r=25 black, inner r=22 green)
+    DrawCircle(0x000000, 179, 269, 25, 1)
+    DrawCircle(0x00FF00, 179, 269, 22, 1)
+ 
+    #First BLUE CIRCLE  (center 294,269 ; outer r=25 black, inner r=22 blue)
+    DrawCircle(0x000000, 294, 269, 25, 1)
+    DrawCircle(0x0000FF, 294, 269, 22, 1)
+ 
+ 
+    DrawString("DUELink", 0x0, 400, 246, 31, 34)
+    FlushScreen()
+ 
     
     println("please wait... ", t, "/", t )  
     c = c + 1

@@ -11,9 +11,7 @@ description ''
   spec ' ' 'Print' 'Print _' 'auto'
 
 to Clear {
-  due_run 'DLClear()'
-  due_run 'DLCmd(C_CLEAR_COLOR,{0,0,0})'
-  due_run 'DLCmd(C_CLEAR,{})'
+  due_run 'ClearScreen(0)'  
 }
 
 to DrawChar c color x y size {
@@ -52,8 +50,7 @@ to Print text {
 }
 
 to Show {
-  due_run 'DLCmd(C_DISPLAY,{})'
-  due_run 'DLSwap()'
+  due_run 'FlushScreen()'  
 }
 
 to buildstr s optionalArgs {

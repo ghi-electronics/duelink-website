@@ -3,184 +3,96 @@
 # DL Commands are documented in the Bridgetek docs
 # Play 5 built-in notes
 
-DLClear()
-DLCmd(C_CLEAR_COLOR,{0,0,0})
-DLCmd(C_CLEAR,{})
+ClearScreen(0)
  
 #Color Bars White
-DLCmd(C_COLOR,{255,255,255})
-DLCmd(C_BEGIN, {RECTS})
-DLCmd(C_VERTEX2F, {0,0}) 
-DLCmd(C_VERTEX2F, {1800,7500})
-DLCmd(C_END,{}) 
- 
+# verts (0,0)-(1800,7500)  ->  x=0, y=0, w=1800>>4, h=7500>>4, filled
+DrawRect(0xFFFFFF, 0, 0, (1800>>4), (7500>>4), 1)
+
 #Color Bars Yellow
-DLCmd(C_COLOR,{255,255,0})
-DLCmd(C_BEGIN, {RECTS})
-DLCmd(C_VERTEX2F, {1800,0}) 
-DLCmd(C_VERTEX2F, {3600,7500})
-DLCmd(C_END,{})
- 
+# verts (1800,0)-(3600,7500)
+DrawRect(0xFFFF00, (1800>>4), 0, ((3600-1800)>>4), (7500>>4), 1)
+
 #Color Bars Cyan
-DLCmd(C_COLOR,{0,255,255})
-DLCmd(C_BEGIN, {RECTS})
-DLCmd(C_VERTEX2F, {3600,0}) 
-DLCmd(C_VERTEX2F, {5400,7500})
-DLCmd(C_END,{})
- 
+# verts (3600,0)-(5400,7500)
+DrawRect(0x00FFFF, (3600>>4), 0, ((5400-3600)>>4), (7500>>4), 1)
+
 #Color Bars Green
-DLCmd(C_COLOR,{0,255,0})
-DLCmd(C_BEGIN, {RECTS})
-DLCmd(C_VERTEX2F, {5400,0}) 
-DLCmd(C_VERTEX2F, {7200,7500})
-DLCmd(C_END,{})
- 
+# verts (5400,0)-(7200,7500)
+DrawRect(0x00FF00, (5400>>4), 0, ((7200-5400)>>4), (7500>>4), 1)
+
 #Color Bars Magenta
-DLCmd(C_COLOR,{255,0,255})
-DLCmd(C_BEGIN, {RECTS})
-DLCmd(C_VERTEX2F, {7200,0}) 
-DLCmd(C_VERTEX2F, {9000,7500})
-DLCmd(C_END,{})
- 
+# verts (7200,0)-(9000,7500)
+DrawRect(0xFF00FF, (7200>>4), 0, ((9000-7200)>>4), (7500>>4), 1)
+
 #Color Bars Red
-DLCmd(C_COLOR,{255,0,0})
-DLCmd(C_BEGIN, {RECTS})
-DLCmd(C_VERTEX2F, {9000,0}) 
-DLCmd(C_VERTEX2F, {10800,7500})
-DLCmd(C_END,{})
- 
+# verts (9000,0)-(10800,7500)
+DrawRect(0xFF0000, (9000>>4), 0, ((10800-9000)>>4), (7500>>4), 1)
+
 #Color Bars Blue
-DLCmd(C_COLOR,{0,0,255})
-DLCmd(C_BEGIN, {RECTS})
-DLCmd(C_VERTEX2F, {10800,0}) 
-DLCmd(C_VERTEX2F, {12700,7500})
-DLCmd(C_END,{})
- 
+# verts (10800,0)-(12700,7500)
+DrawRect(0x0000FF, (10800>>4), 0, ((12700-10800)>>4), (7500>>4), 1)
+
 #BLACK OUTLINE BACKGROUND
-DLCmd(C_COLOR,{0,0,0})
-DLCmd(C_BEGIN, {RECTS})
-DLCmd(C_VERTEX2F, {0,2000})
-DLCmd(C_VERTEX2F, {12700,4900}) 
-DLCmd(C_END,{})
- 
+# verts (0,2000)-(12700,4900)
+DrawRect(0x000000, 0, (2000>>4), (12700>>4), ((4900-2000)>>4), 1)
+
 #YELLOW BACKGROUND
-DLCmd(C_COLOR,{255,255,0})
-DLCmd(C_BEGIN, {RECTS})
-DLCmd(C_VERTEX2F, {0,2100})
-DLCmd(C_VERTEX2F, {12700,4800}) 
-DLCmd(C_END,{})
- 
+# verts (0,2100)-(12700,4800)
+DrawRect(0xFFFF00, 0, (2100>>4), (12700>>4), ((4800-2100)>>4), 1)
+
 #RED LINES
-DLCmd(C_BEGIN,{LINES})
-DLCmd(C_COLOR,{255,0,0})
+# each line (0,y)-(12700,y); keep loop in subpixels, shift when drawing
 for y=2400 to 3000 step 100
-  DLCmd(C_VERTEX2F, {0,y})
-  DLCmd(C_VERTEX2F, {12700,y})
+  DrawLine(0xFF0000, 0, (y>>4), (12700>>4), (y>>4))
 next
-DLCmd(C_END,{})
- 
+
 #GREEN LINES 
-DLCmd(C_BEGIN,{LINES})
-DLCmd(C_COLOR,{0,255,0})
 for y=3200 to 3800 step 100
-  DLCmd(C_VERTEX2F, {0,y})
-  DLCmd(C_VERTEX2F, {12700,y})
+  DrawLine(0x00FF00, 0, (y>>4), (12700>>4), (y>>4))
 next
-DLCmd(C_END,{})
- 
+
 #BLUE LINES 
-DLCmd(C_BEGIN,{LINES})
-DLCmd(C_COLOR,{0,0,255})
 for y=4000 to 4600 step 100
-  DLCmd(C_VERTEX2F, {0,y})
-  DLCmd(C_VERTEX2F, {12700,y})
+  DrawLine(0x0000FF, 0, (y>>4), (12700>>4), (y>>4))
 next
-DLCmd(C_END,{})
+
+
+#First RED CIRCLE  (center 50,3450 ; outer r=20 black, inner r=18 red)
+DrawCircle(0x000000, 50, (3450>>4), 20, 1)
+DrawCircle(0xFF0000, 50, (3450>>4), 18, 1)
+
+#First GREEN CIRCLE  (center 140,3450 ; outer r=20 black, inner r=18 green)
+DrawCircle(0x000000, 140, (3450>>4), 20, 1)
+DrawCircle(0x00FF00, 140, (3450>>4), 18, 1)
+
+#First BLUE CIRCLE  (center 230,3450 ; outer r=20 black, inner r=18 blue)
+# NOTE: original was cut off here (inner vertex/color/END missing) — completed to match red/green
+DrawCircle(0x000000, 230, (3450>>4), 20, 1)
+DrawCircle(0x0000FF, 230, (3450>>4), 18, 1)
+    
+DrawString("DUELink", 0x0, 300, 192, 31, 34)
+FlushScreen()
  
-#First RED CIRCLE
-DLCmd(C_COLOR,{0,0,0}) #Outer Circle
-DLCmd(C_BEGIN,{POINTS})
-DLCmd(C_POINT_SIZE,{20<<4})
-DLCmd(C_VERTEX2F, {50<<4,3450})
-DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
-DLCmd(C_COLOR,{255,0,0})
-DLCmd(C_VERTEX2F, {50<<4,3450})
-DLCmd(C_END,{})
- 
-#First GREEN CIRCLE
-DLCmd(C_COLOR,{0,0,0}) #Outer Circle
-DLCmd(C_BEGIN,{POINTS})
-DLCmd(C_POINT_SIZE,{20<<4})
-DLCmd(C_VERTEX2F, {140<<4,3450})
-DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
-DLCmd(C_COLOR,{0,255,0})
-DLCmd(C_VERTEX2F, {140<<4,3450})
-DLCmd(C_END,{})
- 
-#First BLUE CIRCLE
-DLCmd(C_COLOR,{0,0,0}) #Outer Circle
-DLCmd(C_BEGIN,{POINTS})
-DLCmd(C_POINT_SIZE,{20<<4})
-DLCmd(C_VERTEX2F, {230<<4,3450})
-DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
-DLCmd(C_COLOR,{0,0,255})
-DLCmd(C_VERTEX2F, {230<<4,3450})
-DLCmd(C_END,{})
- 
-#Second BLUE CIRCLE
-DLCmd(C_COLOR,{0,0,0}) #Outer Circle
-DLCmd(C_BEGIN,{POINTS})
-DLCmd(C_POINT_SIZE,{20<<4})
-DLCmd(C_VERTEX2F, {580<<4,3450})
-DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
-DLCmd(C_COLOR,{0,0,255})
-DLCmd(C_VERTEX2F, {580<<4,3450})
-DLCmd(C_END,{})
- 
-#Second GREEN CIRCLE
-DLCmd(C_COLOR,{0,0,0}) #Outer Circle
-DLCmd(C_BEGIN,{POINTS})
-DLCmd(C_POINT_SIZE,{20<<4})
-DLCmd(C_VERTEX2F, {670<<4,3450})
-DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
-DLCmd(C_COLOR,{0,255,0})
-DLCmd(C_VERTEX2F, {670<<4,3450})
-DLCmd(C_END,{})
- 
-#Second RED CIRCLE
-DLCmd(C_COLOR,{0,0,0}) #Outer Circle
-DLCmd(C_BEGIN,{POINTS})
-DLCmd(C_POINT_SIZE,{20<<4})
-DLCmd(C_VERTEX2F, {760<<4,3450})
-DLCmd(C_POINT_SIZE,{18<<4}) #Inner Circle
-DLCmd(C_COLOR,{255,0,0})
-DLCmd(C_VERTEX2F, {760<<4,3450})
-DLCmd(C_END,{})
- 
-#BLACK TEXT BOX
-DLCmd(C_COLOR,{0,0,0})
-DLCmd(C_BEGIN, {RECTS})
-DLCmd(C_VERTEX2F, {8500,3100})
-DLCmd(C_VERTEX2F, {4500,3800}) 
-DLCmd(C_END,{}) 
- 
-#DUELINK WORDS
-DLCmd(C_COLOR,{255,255,255})
-DLCmd(C_BEGIN,{BITMAPS})
-DLCmd(C_VERTEX2II, {300,192,31,'D'})
-DLCmd(C_VERTEX2II, {335,192,31,'U'})
-DLCmd(C_VERTEX2II, {370,192,31,'E'})
-DLCmd(C_VERTEX2II, {405,192,31,'L'})
-DLCmd(C_VERTEX2II, {435,192,31,'i'})
-DLCmd(C_VERTEX2II, {460,192,31,'n'})
-DLCmd(C_VERTEX2II, {495,192,31,'k'})
-DLCmd(C_END,{})
- 
-DLCmd(C_DISPLAY,{})
-DLSwap()
- 
-# Play sound beep
-Synth(0x05, 1) # play note index 5 (built-in)
-Wait(500)
-# Play stop
-Synth(0x00, 0)
+for i = 0 to 3
+    # Play sound beep
+    MemWrRd(0x00302084,  [0xff], bit8,0) #max EVE_REG_VOL_SOUND
+    MemWrRd(0x00302088,  [0x6C,5], bit16,0)
+    MemWrRd(0x0030208C,  [0x01], bit8,0) #EVE_REG_PLAY
+    Wait(100)
+    # Play stop
+    MemWrRd(0x00302088,  [0x00,0x00], bit16,0) # stop sound
+    MemWrRd(0x0030208C,  [0x01], bit8,0)
+    Wait(1000)
+next 
+
+while (1)
+    UpdTouch()
+   
+    if _x != -1 || _y !=-1
+
+        println("X = ", (_x), ", Y = ", (_y))
+    end
+
+    wait(100) 
+wend

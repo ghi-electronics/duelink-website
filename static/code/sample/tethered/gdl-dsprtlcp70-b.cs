@@ -11,9 +11,7 @@ var availablePort = DUELinkController.GetConnectionPort();
 var duelink = new DUELinkController(availablePort);
 
 void Clear() {
-    duelink.Engine.ExecuteCommand("DLClear()");
-    duelink.Engine.ExecuteCommand("DLCmd(C_CLEAR_COLOR,{0,0,0})");
-    duelink.Engine.ExecuteCommand("DLCmd(C_CLEAR,{})");
+    duelink.Engine.ExecuteCommand("ClearScreen(0)");
 }
 void FillRect(uint color, int x, int y, int width, int height) {
     var r = (color >> 16) & 0xFF;
@@ -49,8 +47,7 @@ void DrawChar(char c, uint color, int x, int y, int size) {
 }
 
 void Show() {
-    duelink.Engine.ExecuteCommand("DLCmd(C_DISPLAY,{})");
-    duelink.Engine.ExecuteCommand("DLSwap()");
+    duelink.Engine.ExecuteCommand("FlushScreen()");    
 }
 
 Clear();
