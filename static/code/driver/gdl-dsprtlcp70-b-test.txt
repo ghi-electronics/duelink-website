@@ -113,16 +113,26 @@ fn Test()
     println("please wait... ", t, "/", t )  
     c = c + 1
      
-        
+    for i = 0 to 3
+        # Play sound beep
+        MemWrRd(0x00302084,  [0xff], bit8,0) #max EVE_REG_VOL_SOUND
+        MemWrRd(0x00302088,  [0x6C,5], bit16,0)
+        MemWrRd(0x0030208C,  [0x01], bit8,0) #EVE_REG_PLAY
+        Wait(100)
+        # Play stop
+        MemWrRd(0x00302088,  [0x00,0x00], bit16,0) # stop sound
+        MemWrRd(0x0030208C,  [0x01], bit8,0)
+        Wait(1000)
+    next 
+ 
     while (1)
-    
-        _x = TouchX()
-        _y = TouchY()
+        UpdTouch()
+       
         if _x != -1 || _y !=-1
-    
+ 
             println("X = ", (_x), ", Y = ", (_y))
         end
-    
+ 
         wait(100) 
     wend
 fend 

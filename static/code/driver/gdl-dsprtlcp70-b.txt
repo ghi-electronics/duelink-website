@@ -4,7 +4,7 @@ Alias(C_DISPLAY=0x00,C_CLEAR_COLOR=0x02,C_COLOR=0x04,C_POINT_SIZE=0x0D)
 Alias(C_BEGIN=0x1f,C_END=0x21,C_CLEAR=0x26,C_VERTEX2F=0x40,C_VERTEX2II=0x80)
 Alias(BITMAPS=1,POINTS=2,LINES=3,RECTS=9)
 #Alias(C_BITMAP_SOURCE=0x01,C_BITMAP_LAYOUT=0x07,C_BITMAP_SIZE=0x08) # not enough alias
-
+ 
 # global used, do not touch
 _a = 0x00300000 
 _w = -1 
@@ -151,9 +151,9 @@ fn DLCmd(c,a9)
         b3[1]=(n>>16)&0xff
         b3[2]=(n>>8)&0xff
         b3[3]=n&0xff
-   
+ 
     end
-    
+ 
     if c=C_VERTEX2II
         x=a9[0]:y=a9[1]:h=a9[2]
         b3[0]=0x80|(x>>3)
@@ -161,7 +161,7 @@ fn DLCmd(c,a9)
         b3[2]=((y&0x0f)<<4)|(h>>1)
         b3[3]=((h&1)<<7)|a9[3]  
     end
-    
+ 
     # image and relates stuff
     if c=0x01 #C_BITMAP_SOURCE
         a=a9[0]
@@ -170,30 +170,30 @@ fn DLCmd(c,a9)
         b3[2]=(a>>8)&0xff
         b3[3]=a&0xff
     end
-    
+ 
     if c=0x07 #C_BITMAP_LAYOUT
         f=a9[0]   # format
         s=a9[1]   # stride
         h=a9[2]   # height
-        
+ 
         b3[0]=0x07
         b3[1]=((f<<5)|((s>>8)&0x07))
         b3[2]=s&0xff
         b3[3]=h&0xff   # low 8 bits only here
-    
+ 
     end
-    
+ 
     if c=0x08 #C_BITMAP_SIZE
         a=a9[0]   # width
         b=a9[1]   # height
-        
+ 
         # filter=0, wrapx=0, wrapy=0
         b3[0]=0x08
         b3[1]=((0<<5)|(0<<4)|(0<<3)|(a>>8))
         b3[2]=a&0xff
         b3[3]=b&0xff
     end
-    
+ 
     # CELL command
     if c = 0x06
         b3[0] = 0x06
@@ -201,45 +201,45 @@ fn DLCmd(c,a9)
         b3[2] = 0
         b3[3] = a9[0]
     end
-    
+ 
     if c = 0x05
         b3[0] = 0x05
         b3[1] = 0
         b3[2] = 0
         b3[3] = a9[0]
     end
-    
+ 
     if c=0x28
         s=a9[0]
         h=a9[1]
-        
+ 
         b3[0]=0x28
         b3[1]=0
         b3[2]=(s >> 10) & 0x03
         b3[3]=(h >> 8) & 0x01
     end
-    
-    
+ 
+ 
     if c = 0x29    # BITMAP_SIZE_H
         w = a9[0]
         h = a9[1]
-        
+ 
         b3[0] = 0x29
         b3[1] = 0
         b3[2] = w & 0x03
         b3[3] = h & 0x03
     end
-    
+ 
     if c=0x0B   # BLEND_FUNC
         # a9[0] = src
         # a9[1] = dst
-        
+ 
         b3[0]=0x0B
         b3[1]=((a9[0]&7)<<3) | (a9[1]&7)
         b3[2]=0
         b3[3]=0
     end
-
+ 
   end
  
   MemWrRd(dladd,b3,bit32, 0)
@@ -260,27 +260,27 @@ fn Init(w, h, b)
         Wait(50)
         DWrite(1,1)
         Wait(50)
-     
+ 
         I2cCfg(400)
-     
+ 
         Dim b1[1]
         Dim b2[5] 
-     
+ 
         b1[0] = 0
-     
+ 
         v = I2cWr(0x38,b1,b2)
         v = I2cWr(0x38,b1,b2)
         v = I2cWr(0x38,b1,b2)
-     
+ 
         Dim b1[4]
-     
+ 
         b1[0] = 0x08
         b1[1] = 0x35
         b1[2] = 0x01 | 0x04 | 0x08 | 0x30
         b1[3] = 0x80
-     
+ 
         v = I2cWr(0x38,b1,b2)
-     
+ 
         if v =1
             PrintLn("TFP410 init ok")
         else
@@ -349,49 +349,49 @@ fn Init(w, h, b)
         # 72 MHz
         # Frequency
         MemWrRd(0x0030200C,[0x04,0x4A,0xA2,0x00], bit32, 0)
-        
+ 
         # ---------------- DISPLAY TIMING ----------------
         # Active width
         b3[0]=(w>>8)&0xff
         b3[1]=w&0xff
         MemWrRd(0x00302034, b3, bit16, 0)
-    
+ 
         # Active height
         b3[0]=(h>>8)&0xff
         b3[1]=h&0xff
         MemWrRd(0x00302048, b3, bit16, 0)
-    
+ 
         # KEEP THESE SAFE DEFAULTS (panel specific)
         MemWrRd(0x0030202C,[0x03,0xA0],bit16,0) # HCYCLE
         MemWrRd(0x00302030,[0x00,0x58],bit16,0) # HOFFSET
         MemWrRd(0x00302038,[0x00,0x00],bit16,0) # HSYNC0
         MemWrRd(0x0030203C,[0x00,0x30],bit16,0) # HSYNC1
-    
+ 
         MemWrRd(0x00302040,[0x02,0x0D],bit16,0) # VCYCLE
         MemWrRd(0x00302044,[0x00,0x20],bit16,0) # VOFFSET
         MemWrRd(0x0030204C,[0x00,0x00],bit16,0) # VSYNC0
         MemWrRd(0x00302050,[0x00,0x03],bit16,0) # VSYNC1
-    
+ 
         # Other settings
         MemWrRd(0x00302064,[0x00],bit8,0)
         MemWrRd(0x0030206C,[0x01],bit8,0)
         MemWrRd(0x00302068,[0x00],bit8,0)
         MemWrRd(0x00302060,[0x01],bit8,0)
-    
+ 
         # First display list
         MemWrRd(0x00300000,[0x02,0x00,0x00,0x00],bit32,0)
         MemWrRd(0x00300004,[0x26,0x00,0x00,0x07],bit32,0)
         MemWrRd(0x00300008,[0x00,0x00,0x00,0x00],bit32,0)
-    
+ 
         # Enable display
         MemWrRd(0x00302054,[0x02],bit8,0)
-    
+ 
         r = MemWrRd(0x302094, [],bit8,1)
         r = r | 0x80
         MemWrRd(0x00302094,[r],bit8,0)
-    
+ 
         MemWrRd(0x00302070,[0x02],bit8,0)
-        
+ 
         # brightness
         d = Scale(b, 0, 100, 0, 255)
         MemWrRd(0x003020D4,[d],bit8,0)
@@ -400,152 +400,62 @@ fn Init(w, h, b)
     if w = 1024 && h = 600
         # Pixel clock ~51 MHz (safe for HDMI bridge)
         MemWrRd(0x0030200C,[0x00,0x00,0x08,0xB1],bit32,0)
-        
+ 
         # --- ACTIVE SIZE ---
         MemWrRd(0x00302034,[0x04,0x00],bit16,0)  # HSIZE = 1024
         MemWrRd(0x00302048,[0x02,0x58],bit16,0)  # VSIZE = 600
-        
+ 
         # --- HORIZONTAL TIMING ---
         MemWrRd(0x0030202C,[0x04,0x80],bit16,0)  # HCYCLE = 1152
         MemWrRd(0x00302030,[0x00,0xA0],bit16,0)  # HOFFSET = 160
         MemWrRd(0x00302038,[0x00,0x00],bit16,0)  # HSYNC0 = 0
         MemWrRd(0x0030203C,[0x00,0x20],bit16,0)  # HSYNC1 = 32
-        
+ 
         # --- VERTICAL TIMING ---
         MemWrRd(0x00302040,[0x02,0x9A],bit16,0)  # VCYCLE = 666
         MemWrRd(0x00302044,[0x00,0x17],bit16,0)  # VOFFSET = 23
         MemWrRd(0x0030204C,[0x00,0x00],bit16,0)  # VSYNC0 = 0
         MemWrRd(0x00302050,[0x00,0x05],bit16,0)  # VSYNC1 = 5
-        
+ 
         # --- SIGNAL SETTINGS ---
         MemWrRd(0x0030206C,[0x00],bit8,0)  # PCLKPOL
         MemWrRd(0x00302060,[0x01],bit8,0)  # DITHER ON
         MemWrRd(0x00302068,[0x00],bit8,0)
-        
+ 
         # First display list (KEEP THIS)
         MemWrRd(0x00300000,[0x02,0x00,0x00,0x00],bit32,0)
         MemWrRd(0x00300004,[0x26,0x00,0x00,0x07],bit32,0)
         MemWrRd(0x00300008,[0x00,0x00,0x00,0x00],bit32,0)
-        
+ 
         # Enable display
         MemWrRd(0x00302054,[0x02],bit8,0)
-        
+ 
         r = MemWrRd(0x302094, [],bit8,1)
         r = r | 0x80
         MemWrRd(0x00302094,[r],bit8,0)
-        
+ 
         MemWrRd(0x00302070,[0x02],bit8,0)
-        
+ 
         # brightness
         d = Scale(b, 0, 100, 0, 255)
         MemWrRd(0x003020D4,[d],bit8,0)
-        
+ 
     end
-        
+ 
     # Touch/audio
     MemWrRd(0x00302118,[0x04,0xB0],bit16,0)
     MemWrRd(0x00302080,[0x00],bit8,0)
     MemWrRd(0x00302084,[0x00],bit8,0)
     MemWrRd(0x00302088,[0x60,0x00],bit16,0)
-    
+ 
     ClearScreen(0)
     DrawString("DUELink", 0xFFFFFF, 300, 192, 31, 34)
     FlushScreen()
  
 fend
-
+ 
 #fn DrawImage(a, b0, w, h, x, y, c, i, t)
-    # a = addr
-    # b0: Image data. When image is already loaded (cached), can use the handle only for fast draw then set b0 to null []
-    # example: DrawImage(0, [],x,y.....) : reuse whatever in handle i 
-    # w = width
-    # h = height
-    # x = x
-    # y = y
-    # c = color format: 0: RGB565, 1: 1 bit, 2: 8 bit
-    # i = handle. max is 16 handles. if handle is already cached then just draw
-    # t = tint color: 0: No tint, 1: enable tint
- 
-#    if t = 0
-#        DLCmd(C_COLOR,{255,255,255}) 
-        
-#    end
-#    DLCmd(0x0B,{1,0})
- 
-#    n = len(b0)
- 
-#    if n > 0
-#        DWrite(cs,0)
-#        SetAddr(a,0)
-#        SpiWrs(b0,[])
-#        DWrite(cs,1)
-#    end
- 
-#    DLCmd(5,{i})
- 
-#    if n > 0
- 
-      
-        # =========================
-        # BITMAP_SOURCE
-        # =========================
-#        f = (1 << 24) | (a & 0xFFFFFF)
-    
-#        b3[0]=(f>>24)&0xff
-#        b3[1]=(f>>16)&0xff
-#        b3[2]=(f>>8)&0xff
-#        b3[3]=f&0xff
-#        MemWrRd(dladd,b3,bit32,0)
-#        dladd = dladd + 4
-    
-        # =========================
-        # BITMAP_SIZE (FIRST)
-        # =========================
-#        f = (8 << 24) | (0 << 20) | (0 << 19) | (0 << 18) | (w << 9) | h
-    
-#        b3[0]=(f>>24)&0xff
-#        b3[1]=(f>>16)&0xff
-#        b3[2]=(f>>8)&0xff
-#        b3[3]=f&0xff
-#        MemWrRd(dladd,b3,bit32,0)
-#        dladd = dladd + 4
-    
-        # BITMAP_SIZE_H
-#        DLCmd(0x29,{0,0})
-    
-        # =========================
-        # BITMAP_LAYOUT (SECOND)
-        # =========================
-#        if c = 0
-#            s = w * 2
-#            f = (7 << 24) | (7 << 19) | (s << 9) | h
-#        end
-    
-#        if c = 1
-#            s = (w + 7) >> 3
-#            f = (7 << 24) | (1 << 19) | (s << 9) | h
-#        end
-    
-#        if c = 2
-#            s = w
-#            f = (7 << 24) | (3 << 19) | (s << 9) | h
-#        end
-    
-#        b3[0]=(f>>24)&0xff
-#        b3[1]=(f>>16)&0xff
-#        b3[2]=(f>>8)&0xff
-#        b3[3]=f&0xff
-#        MemWrRd(dladd,b3,bit32,0)
-#        dladd = dladd + 4
-    
-        # BITMAP_LAYOUT_H
-#        DLCmd(0x28,{0,0})
-
-#    end
- 
-#    DLCmd(C_BEGIN,{BITMAPS})
-#    DLCmd(C_VERTEX2F,{x<<4,y<<4})
-#    DLCmd(C_END,{})
+    # TODO
 #fend
  
 fn DrawPixel(c, x, y)
@@ -618,27 +528,27 @@ fn DrawCircle(c, x, y, r, f)
  
 fend
  
-
-
+ 
+ 
 fn DrawString(b0, c, x, y, f, o)
     # f: font size 16..31
     # o: offset width
-    
+ 
     if f < 16
         f = 16
     end
-    
+ 
     DLCmd(C_COLOR,{c>>16,(c>>8)&0xff,c&0xff})
-    
+ 
     DLCmd(0x05,{f})   # BITMAP_HANDLE
-
+ 
     DLCmd(C_BEGIN,{BITMAPS})
-
+ 
     n = len(b0)
-
+ 
     for i = 0 to n
         b = b0[i]
-
+ 
         if (b > 0)
             DLCmd(0x06,{b})   # CELL
             DLCmd(C_VERTEX2F,{x<<4,y<<4})
@@ -648,13 +558,13 @@ fn DrawString(b0, c, x, y, f, o)
                 x = x + o
             end
         end
-    
+ 
     next
-    
+ 
     DLCmd(C_END,{})
-    
+ 
 fend
-
+ 
  
 fn DrawRect(c, x, y, w, h, f)
  
@@ -703,26 +613,26 @@ fn ClearScreen(c)
 fend
  
 fn FlushScreen()
-
+ 
     DLCmd(C_DISPLAY,{})
     MemWrRd(0x00302054,  [0x02], bit8, 0)
-
+ 
 fend
-
+ 
 fn UpdTouch()
     # Touch read 4 bytes, float can't handle it. Read to b3
     MemWrRd(3154212,[], bit32, 1)
     _y = b3[1] << 8 | b3[0]
     _x = b3[3] << 8 | b3[2]
-    
+ 
     if _y = 32768
         _y = -1
     end
-    
+ 
     if _x = 32768
         _x = -1
     end
-
+ 
 fend
  
 fn DVer()
