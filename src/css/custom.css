@@ -38,6 +38,53 @@
   background-color:var(--ifm-color-primary);
 }
 
+/* Language selector tabs (under "Samples" and "On-Module Code").
+   Styled as classic folder-style tabs that sit on a baseline and connect to
+   the content panel below, so they read as tabs rather than buttons. */
+/* Note: the className lands on the <ul class="tabs lang-tabs">, so the strip
+   itself is `.lang-tabs.tabs` (same element, no space), not a descendant. */
+.lang-tabs.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  overflow: visible; /* override default overflow-x:auto, which spawns scroll arrows from the -1px tab offset */
+}
+
+.lang-tabs .tabs__item {
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-radius: 8px 8px 0 0;
+  padding: 0.4rem 1rem;
+  margin-bottom: -1px; /* pull active tab's edge onto the baseline */
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+  background-color: transparent;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.lang-tabs .tabs__item:hover {
+  color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+/* Active tab: framed on three sides and merged into the panel below by
+   hiding the baseline directly under it. */
+.lang-tabs .tabs__item--active {
+  color: var(--ifm-color-primary);
+  background-color: var(--ifm-background-color);
+  border-color: var(--ifm-color-emphasis-300);
+  border-bottom: 1px solid var(--ifm-background-color);
+}
+
+.lang-tabs .tabs__item--active:hover {
+  background-color: var(--ifm-background-color);
+}
+
 
 .videocontainer {
   position: relative;
