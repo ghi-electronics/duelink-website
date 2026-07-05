@@ -438,9 +438,12 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/t
                 sampleTabs.push({label: 'MicroBlocks', value: 'microblocks'});
                 sampleTabItems.push(`<TabItem value="microblocks">
 
-                    This sample project runs on a MicroBlocks-enabled device that is tethered to this module. Note that this tethered module needs to have the official DUELink firmware and its module driver. See [MicroBlocks](/docs/language/microblocks) page to learn more.
+This sample runs in MicroBlocks on a host board that's connected to this module. The module keeps its official DUELink firmware and [module driver](/docs/engine/drivers) and responds to commands from the host. New here? See the [MicroBlocks](/docs/language/microblocks) page.
 
-                    Click the button below to open, edit, and run the project directly on MicroBlocks' website.
+There are two ways to use it:
+
+- **Open the full sample** — click **Load Project** to open, edit, and run the complete project (the module's library plus a ready-to-run example) directly on the MicroBlocks website.
+- **Add just the library to your own project** — <CopyLink link="https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/sample/tethered/${baseName}.ubp">Copy the project link</CopyLink>, then in MicroBlocks click **Add Library** → **Cloud** and paste it. This loads this module's library into your project.
 
                     <Button
                     style={{ color:'white' }}
@@ -461,7 +464,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/t
 New here? See [Get Started](/docs/start) to connect a module and send your first command.
 :::
 
-<Tabs groupid="language" queryString="lang" defaultValue="${sampleTabs[0].value}"
+<Tabs className="lang-tabs" groupid="language" queryString="lang" defaultValue="${sampleTabs[0].value}"
   values={${JSON.stringify(sampleTabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>
 
 ${sampleTabItems.join('\n')}
@@ -521,9 +524,9 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/s
                 standaloneSampleTabs.push({label: 'MicroBlocks', value: 'microblocks'});
                 standaloneSampleTabItems.push(`<TabItem value="microblocks">
 
-                    This project runs standalone. It assumes that the [MicroBlocks](/docs/language/microblocks) firmware is already loaded on the module.
+This project runs standalone. It assumes that the [MicroBlocks](/docs/language/microblocks) firmware is already loaded on the module.
 
-                    Click the button below to open, edit, and run the project directly on MicroBlocks' website.
+Click the button below to open, edit, and run the project directly on the MicroBlocks website.
 
                     <Button
                     style={{ color:'white' }}
@@ -539,9 +542,9 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/s
             standaloneSampleContent = `
 <TabItem value="sa-samples">
 
-Code that runs directly on this module's MCU. See [On-Module Code](/docs/language/standalone) for an overview.
+Code that runs directly on this module's MCU. See how [On-Module Code](/docs/language/standalone) allows modules to run standalone.
 
-<Tabs groupid="standalone-language" queryString="sa-lang" defaultValue="${standaloneSampleTabs[0].value}"
+<Tabs className="lang-tabs" groupid="standalone-language" queryString="sa-lang" defaultValue="${standaloneSampleTabs[0].value}"
   values={${JSON.stringify(standaloneSampleTabs, null, 4).replace(/"([^"]+)":/g, '$1:')}}>
 
 ${standaloneSampleTabItems.join('\n')}
