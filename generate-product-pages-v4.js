@@ -445,12 +445,12 @@ There are two ways to use it:
 **Open the full sample** — the complete project (the module's library plus a ready-to-run example) opens directly on the MicroBlocks website.
 
 <Button
-  style={{ color:'white', margin: '0.75rem 0' }}
+  style={{ color:'white', margin: '0 0 1rem' }}
   label="Load Project"
   link="https://microblocks.fun/run/microblocks.html?project=https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/sample/tethered/${baseName}.ubp"
 />
 
-**Add just the libraries to your own project** — copy the link, then in MicroBlocks click **Add Library** → **Cloud** and paste it. This loads this module's libraries into your project without replacing your current work.
+**Add just the libraries to your own project** — copy the link, then in your MicroBlocks project click **Add Library** → **Cloud** and paste it. This loads this module's libraries into your project without replacing your current work.
 
 
 <CopyLink variant="button" link="https://raw.githubusercontent.com/ghi-electronics/duelink-website/refs/heads/dev/static/code/sample/tethered/${baseName}.ubp">Copy Library Link</CopyLink>

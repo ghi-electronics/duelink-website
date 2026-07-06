@@ -61,7 +61,7 @@ const CopyLink = ({
                 onClick={handleCopy}
                 role="button"
                 className="button button--primary"
-                style={{ color: 'white', margin: '0.75rem 0', cursor: 'pointer' }}
+                style={{ color: 'white', margin: '0 0 1rem', cursor: 'pointer' }}
                 title="Copy the project link to the clipboard"
             >
                 {copied ? copiedLabel : content}
