@@ -58,7 +58,7 @@ Product pages list example projects under **Commands → Samples** (host-side) a
 
 ## Get started on the board
 
-Educational boards like CincoBit and PixoBit ship with MicroBlocks pre-loaded. For other modules, use [loader.duelink.com/microblocks](https://loader.duelink.com/microblocks).
+To run MicroBlocks on a board, start by loading it with the firmware, use [loader.duelink.com/microblocks](https://loader.duelink.com/microblocks). Educational boards like CincoBit and PixoBit ship with MicroBlocks pre-loaded, but a firmware update might be available.
 
 :::tip
 You only need to install or update MicroBlocks firmware when switching from DUELink firmware, or when updating to a newer version.
@@ -170,7 +170,9 @@ DueSTEM — light level as a bar graph, temperature on screen:
 ![DueSTEM demo](pathname:///img/mb-demo-duestem.webp)
 </div>
 
+:::tip
 Click **Add Library** in the editor for nearly 200 extension libraries beyond the defaults.
+:::
 
 ### Pin numbers
 
@@ -186,9 +188,9 @@ On all other DUELink boards, MicroBlocks uses standard DUELink pin numbers. Pins
 
 ## Control chained modules
 
-MicroBlocks on one board can command other DUELink modules over the chain. The host runs MicroBlocks; downstream modules keep DUELink firmware and respond to text commands — the same commands listed on each module's **Commands** tab.
+MicroBlocks on one board (DUELink or not) can command connected DUELink module(s) (one on a chain of modules). The host board runs MicroBlocks; downstream modules keep DUELink firmware and respond to text commands — the same commands listed on each module's **Commands** tab.
 
-**micro:bit → LED RGB3** — MicroBlocks on the micro:bit, [LinkBit](../products/adlinkbit-a) adapter for the JST Downlink port:
+**micro:bit → LED RGB3** — MicroBlocks on the micro:bit with [LinkBit](../products/adlinkbit-a) adapter for the JST Downlink port, which then connects to a DUELink modules, such as LED RGB3:
 
 <div style={{ textAlign: 'center'}}>
 ![micro:bit with LinkBit](pathname:///img/microbit-linkbit.webp)
@@ -200,9 +202,13 @@ MicroBlocks on one board can command other DUELink modules over the chain. The h
 ![PixoBit daisylinked](pathname:///img/pixobit-daisylinked.webp)
 </div>
 
+A MicroBlocks program can detect a button press to send commands that control the LED RGB3 module.
+
 <div style={{ textAlign: 'center'}}>
 ![Chained LEDs under MicroBlocks control](pathname:///img/microblocks-daisylinked.gif)
 </div>
+
+Modules can optionally mount on a [Holey Board](../products/axholey).
 
 ### Wiring
 
@@ -221,8 +227,6 @@ Chain additional modules: each module's **D** connects to the next module's **U*
 <div style={{ textAlign: 'center'}}>
 ![Uplink and Downlink](pathname:///img/mb-uplink-downlink.webp)
 </div>
-
-Modules can mount on a [Holey Board](../products/axholey).
 
 For a non-DUELink host (e.g. micro:bit), use [LinkBit](../products/adlinkbit-a) or wire I2C/UART through a [Breakout](../products/adbreakout-a). Full details: [Chain modules](../chain).
 
@@ -267,7 +271,7 @@ The **DUELink Daisylink** library includes blocks to call these commands. Exampl
 </div>
 
 :::tip
-Check **Commands → Samples → MicroBlocks** on a product page for a ready-made project you can open in MicroBlocks.
+Check **Samples → MicroBlocks** on a product page for a ready-made project you can open in MicroBlocks.
 :::
 
 Press button **A** to cycle RGB3 through red, green, and blue:

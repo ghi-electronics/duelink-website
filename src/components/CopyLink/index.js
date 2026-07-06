@@ -7,6 +7,7 @@ const CopyLink = ({
     children,             // The clickable label (defaults to "Click Here")
     label,                // Alternative to children for setting the label
     copiedLabel = 'Copied!', // Feedback text shown briefly after copying
+    variant = 'link',        // 'link' (default) or 'button'
 }) => {
     const [copied, setCopied] = useState(false);
 
@@ -35,6 +36,40 @@ const CopyLink = ({
 
     const content = children || label || 'Click Here';
 
+    const icon = (
+        <svg
+            aria-hidden="true"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ marginLeft: '0.4em', verticalAlign: 'text-bottom' }}
+        >
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+        </svg>
+    );
+
+    if (variant === 'button') {
+        return (
+            <a
+                href="#"
+                onClick={handleCopy}
+                role="button"
+                className="button button--primary"
+                style={{ color: 'white', margin: '0.75rem 0', cursor: 'pointer' }}
+                title="Copy the project link to the clipboard"
+            >
+                {copied ? copiedLabel : content}
+                {icon}
+            </a>
+        );
+    }
+
     return (
         <a
             href="#"
@@ -44,21 +79,7 @@ const CopyLink = ({
             style={{ cursor: 'pointer', whiteSpace: 'nowrap' }}
         >
             {copied ? copiedLabel : content}
-            <svg
-                aria-hidden="true"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                style={{ marginLeft: '0.25em', verticalAlign: 'text-bottom' }}
-            >
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-            </svg>
+            {icon}
         </a>
     );
 };
