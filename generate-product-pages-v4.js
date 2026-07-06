@@ -438,7 +438,7 @@ https://github.com/ghi-electronics/duelink-website/blob/dev/static/code/sample/t
                 sampleTabs.push({label: 'MicroBlocks', value: 'microblocks'});
                 sampleTabItems.push(`<TabItem value="microblocks">
 
-This sample runs in MicroBlocks on a any host board that's connected to this module. This module keeps its official DUELink firmware and [module driver](/docs/engine/drivers) and responds to commands from the connected host. New here? See the [MicroBlocks](/docs/language/microblocks) page.
+This sample runs in MicroBlocks on a any host board that's connected/tethered to this module, or a chain of modules. This module keeps its official DUELink firmware and [module driver](/docs/engine/drivers) and responds to commands from the connected MicroBlocks-running host. New here? See the [MicroBlocks](/docs/language/microblocks) page.
 
 There are two ways to use it:
 
