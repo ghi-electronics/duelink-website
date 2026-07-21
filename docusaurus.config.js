@@ -59,7 +59,21 @@ const config = {
         '@saucelabs/theme-github-codeblock'
     ],
     // ...
-  
+
+  plugins: [
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        language: ['en'],
+        indexPages: true,
+        indexBlog: false,
+        fuzzyMatchingDistance: 0,
+        searchBarShortcutHint: false,
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -143,6 +157,10 @@ const config = {
             href: '/docs/projects',
             position: 'left',
             label: 'Projects',
+          },
+          {
+            type: 'search',
+            position: 'right',
           },
           {
             href: '/about',
