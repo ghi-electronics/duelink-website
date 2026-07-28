@@ -20,9 +20,9 @@
   },
   "dependencies": {
     "@devbookhq/docusaurus-code-video-plugin": "^1.2.1",
-    "@docusaurus/core": "^3.10.1",
-    "@docusaurus/faster": "^3.10.1",
-    "@docusaurus/preset-classic": "^3.10.1",
+    "@docusaurus/core": "^3.10.2",
+    "@docusaurus/faster": "^3.10.2",
+    "@docusaurus/preset-classic": "^3.10.2",
     "@easyops-cn/docusaurus-search-local": "^0.55.2",
     "@mdx-js/react": "^3.0.0",
     "@saucelabs/theme-github-codeblock": "^0.3.0",
@@ -40,8 +40,8 @@
     "serialize-javascript": "^7.0.4"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.10.1",
-    "@docusaurus/types": "^3.10.1",
+    "@docusaurus/module-type-aliases": "^3.10.2",
+    "@docusaurus/types": "^3.10.2",
     "baseline-browser-mapping": "^2.9.11",
     "concurrently": "^7.6.0",
     "http-proxy-middleware": "^2.0.6"
